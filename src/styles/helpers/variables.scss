@@ -1,0 +1,35 @@
+// colors
+:root {
+  --color-white: #fff;
+  --color-brown-accent: #B69659;
+  --color-black: #1B1B1B;
+  --color-grey: #909090;
+  --color-border-grey: #E8E8E8;
+  --color-light-grey: #F6F5F3;
+}
+
+// media breakpoints
+$breakpoint-xs: 375px;
+$breakpoint-s: 576px;
+$breakpoint-m: 768px;
+$breakpoint-t: 1024px;
+$breakpoint: 1280px;
+$breakpoint-l: 1366px;
+$breakpoint-ll: 1440px;
+$breakpoint-xl: 1680px;
+$breakpoint-xxl: 1920px;
+
+// grid columns
+$col-count-m: 4;
+$col-count-d: 12;
+
+$col-pad-m: 20px;
+$col-pad-d: 240px;
+
+$col-gap: 20px;
+
+$col-width-m: '((100vw - (#{$col-pad-m} * 2) - (#{$col-gap} * #{$col-count-m - 1})) / #{$col-count-m})';
+$col-width-d: '((100vw - (#{$col-pad-d} * 2) - (#{$col-gap} * #{$col-count-d - 1})) / #{$col-count-d})';
+
+$col-part-m: '(#{$col-width-m} + #{$col-gap})';
+$col-part-d: '(#{$col-width-d} + #{$col-gap})';

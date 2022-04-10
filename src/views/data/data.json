@@ -1,14 +1,10 @@
 {
-  "title": "chesnakov-html",
+  "title": "Freud",
 
   "routes": [
     {
       "href": "/main",
       "title": "Главная"
-    },
-    {
-      "href": "/about",
-      "title": "О компании"
     }
   ]
 }

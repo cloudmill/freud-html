@@ -1,0 +1,12 @@
+@function getVw($px, $width) {
+  @return $px / $width * 1vw;
+}
+
+@function getRem($px) {
+  @return unquote('#{$px / $fs}rem');
+}
+
+@function getStatic($px, $width) {
+  $percent: $width / 19.2px;
+  @return $px * $percent;
+}

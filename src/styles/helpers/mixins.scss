@@ -1,0 +1,38 @@
+@mixin f-main($font-weight: 400) {
+  font-weight: $font-weight;
+  font-family: $ff-main;
+}
+
+@mixin fsl($font-size, $line-height: null) {
+  font-size: unquote('#{$font-size / $fs}rem');
+  @if $line-height {
+    line-height: $line-height / 100%;
+  }
+}
+
+@mixin placeholder {
+  &::-webkit-input-placeholder {
+    @content;
+  }
+  &::-moz-placeholder {
+    @content;
+  }
+  &:-ms-input-placeholder{
+    @content;
+  }
+  &:-moz-placeholder {
+    @content;
+  }
+  &::placeholder  {
+    @content;
+  }
+}
+
+@mixin scrollbar-hidden() {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
