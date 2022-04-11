@@ -5,6 +5,10 @@
     {
       "href": "/main",
       "title": "Главная"
+    },
+    {
+      "href": "/about",
+      "title": "О клубе"
     }
   ]
 }

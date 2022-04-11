@@ -55,60 +55,6 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 500;
 }
 
-// h1 {
-//   @include fsl(80px, 90%);
-//   letter-spacing: -3px;
-//   @media (max-width: ($breakpoint - 1px)) {
-//     @include fsl(28px, 100%);
-//     letter-spacing: -1px;
-//   }
-// }
-
-// h2 {
-//   @include fsl(60px, 100%);
-//   letter-spacing: -2px;
-//   @media (max-width: ($breakpoint - 1px)) {
-//     @include fsl(24px, 120%);
-//     letter-spacing: -1px; 
-//   }
-// }
-
-// h3 {
-//   @include fsl(44px, 110%);
-//   letter-spacing: -2px;
-//   @media (max-width: ($breakpoint - 1px)) {
-//     @include fsl(20px);
-//     letter-spacing: -0.5px;
-//   }
-// }
-
-// h4 {
-//   @include fsl(36px, 110%);
-//   letter-spacing: -2px;
-//   @media (max-width: ($breakpoint - 1px)) {
-//     @include fsl(18px);
-//     letter-spacing: -0.5px;
-//   }
-// }
-
-// h5 {  
-//   @include fsl(24px, 110%);
-//   letter-spacing: -1px;
-//   @media (max-width: ($breakpoint - 1px)) {
-//     letter-spacing: -0.5px;
-//     @include fsl(16px);
-//   }
-// }
-
-// h6 {
-//   letter-spacing: -0.5px;
-//   @include fsl(18px, 110%);
-//   @media (max-width: ($breakpoint - 1px)) {
-//     @include fsl(14px);
-//     letter-spacing: 0;
-//   }
-// }
-
 ul,
 ol {
   list-style: none;

@@ -1,3 +1,11 @@
 .section {
   padding: getRem(150px) 0;
+
+  &--first {
+    margin-top: getRem(134px);
+  }
+
+  &--black {
+    background: var(--color-black);
+  }
 }

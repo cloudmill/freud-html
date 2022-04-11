@@ -1,0 +1,244 @@
+.first-screen {
+  display: flex;
+  align-items: flex-end;
+
+  position: relative;
+
+  padding-bottom: getRem(35px);
+
+  &__img {
+
+    &--big {
+      width: getRem(535px);
+      height: getRem(670px);
+      flex-shrink: 0;
+    }
+    &--small {
+      width: getRem(253px);
+      height: getRem(300px);
+      flex-shrink: 0;
+    }
+  }
+
+  &__txt {
+    @include fsl(26px, 140%);
+
+    width: 100%;
+    text-align: right;
+
+    padding: 0 getRem(84px) getRem(100px) calc(#{$col-part-d});
+  }
+
+  &__ttl {
+    position: absolute;
+    top: getRem(51px);
+    left: getRem(257px);
+    
+    text-indent: getRem(110px);
+    max-width: getRem(600px);
+
+    &--big {
+      font-family: 'Berlingske Serif';
+
+      mix-blend-mode: exclusion;
+      color: var(--color-white);
+  
+      @include fsl(144px, 130%);
+    }
+
+    &--small {
+      font-family: $ff-main;
+      color: var(--color-brown);
+      @include fsl(13px, 130%);
+      font-weight: 700;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+
+      position: absolute;
+      top: getRem(50px);
+      left: getRem(190px);
+      white-space: nowrap;
+    }
+  }
+
+  &__bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    display: flex;
+    justify-content: space-between;
+
+    padding: 0 #{$col-pad-d} getRem(30px);
+    @media (max-width: ($breakpoint - 1px)) {
+      padding: 0 #{$col-pad-m} getRem(30px);
+    }
+  }
+}
+
+.scroll-down {
+  cursor: pointer;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__txt {
+    @include fsl(13px, 140%);
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  &__line {
+    margin-top: getRem(10px);
+
+    width: 1px;
+    height: getRem(50px);
+    background: var(--color-black);
+  }
+}
+
+.message-icon {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+
+  cursor: pointer;
+}
+
+.main-page-block {
+
+  $comp: &;
+
+  &__ttl {
+    @include fsl(72px, 120%);
+    font-family: 'Berlingske Serif';
+  }
+  &__subttl {
+    @include fsl(13px, 130%);
+    font-weight: 700;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--color-brown);
+  }
+
+  &__cols {
+    display: flex;
+    justify-content: space-between;
+
+    padding: getRem(48px) 0 getRem(150px) calc(#{$col-part-d} * 3);
+
+    #{$comp}__col {
+      width: calc(#{$col-part-d} * 4 - #{$col-gap});
+
+      @include fsl(20px, 160%);
+      color: var(--color-border-grey);
+    }
+  }
+
+  &__bottom {
+
+    display: flex;
+    justify-content: space-between;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: getRem(30px);
+
+    &-links {
+      @include fsl(18px, 150%);
+      color: var(--color-white);
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+  }
+}
+
+.two-cols-block {
+
+  $comp: &;
+  
+  display: flex;
+  justify-content: space-between;
+
+  &__col {
+    width: calc(#{$col-part-d} * 6 - #{$col-gap});
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    &:nth-child(1) {
+      img {
+        margin-top: getRem(213px);
+      }
+
+      #{$comp}__txt {
+        margin-top: getRem(20px);
+        width: calc(#{$col-part-d} * 4 - #{$col-gap});
+      }
+    }
+    
+    &:nth-child(2) {
+
+      & > div {
+        padding-left: calc(#{$col-part-d});
+      }
+
+      #{$comp}__txt {
+        margin-bottom: getRem(30px);
+      }
+    }
+  }
+
+  &__txt {
+    @include fsl(20px, 160%);
+    
+  }
+
+  &__link {
+    @include fsl(18px, 150%);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+
+    padding-bottom: getRem(5px);
+    border-bottom: 1px solid rgba(27, 27, 27, 0.5);;
+  }
+}
+
+.section-bg-photo {
+  padding: getRem(250px) 0;
+  text-align: center;
+  background: url(assets/images/section-bg.jpg) no-repeat center;
+
+  .two-cols-block__txt {
+    margin-top: getRem(8px);
+  }
+
+  .button {
+    margin: getRem(60px) auto 0;
+  }
+}
+
+.restaurant-block {
+  .two-cols-block__txt {
+    margin-top: getRem(15px);
+  }
+}
+
+.restaurant-slider {
+  display: flex;
+  margin-top: getRem(150px);
+
+  &__control {
+    width: calc(#{$col-part-d});
+  }
+
+  &__container {
+    width: calc(#{$col-part-d} * 10 - #{$col-gap});
+    overflow: hidden;
+  }
+}

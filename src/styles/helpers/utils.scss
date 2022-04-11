@@ -9,3 +9,15 @@
     display: none !important;
   }
 }
+
+.relative {
+  position: relative;
+}
+
+.txt-white {
+  color: var(--color-white);
+}
+
+.width-fit {
+  width: fit-content;
+}

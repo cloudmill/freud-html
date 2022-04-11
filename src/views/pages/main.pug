@@ -3,6 +3,105 @@ extends ../layouts/master
 
 block content
 
-  .container
-    .section
-      div контент
+  section.section.section--first.relative
+    .container
+      .first-screen
+        img.first-screen__img.first-screen__img--big(src="assets/images/first-screen-img-1.webp", alt="")
+        .first-screen__txt Для ценителей комфорта, #[br] приватности и высокого сервиса
+        img.first-screen__img.first-screen__img--small(src="assets/images/first-screen-img-2.webp", alt="")
+
+        .first-screen__ttl
+          span.first-screen__ttl--big Профессор Фрейд
+          span.first-screen__ttl--small частный клуб
+
+      .first-screen__bottom
+        
+        a.icon-circle(href="")
+          +vk-icon
+
+        .scroll-down
+          .scroll-down__txt узнать больше
+
+          .scroll-down__line
+
+        div
+
+      +message-icon.message-icon
+
+  section.section.section--black
+    .container
+
+      .main-page-block__subttl профессор фрейд
+      h1.main-page-block__ttl.txt-white О клубе
+
+      .main-page-block__cols
+        .main-page-block__col
+          |Частный клуб «Профессор Фрейд» — это концептуальный проект с уникальным форматом. Место ориентировано на людей, для которых важны камерная атмосфера, приватность и высокий сервис.
+
+        .main-page-block__col
+          |Клуб идеально подойдет как для поклонников сигарной культуры, так и знатоков вина, ценителей крепкого алкоголя или гастрономии
+
+      .main-page-block__bottom
+
+        each item in ['Хьюмидорная комната', 'Сигарный лаунж', 'Кабинет Фрейда', 'Ресторан с баром', 'Винотека в формате bar&shop']
+
+          a.main-page-block__bottom-links(href="") #{item}
+
+  section.section
+    .container
+      .two-cols-block
+        .two-cols-block__col
+
+          div
+            .main-page-block__subttl стиль Gentlman’s Club
+            h1.main-page-block__ttl Сигарный #[br] лаунж
+            .two-cols-block__txt
+              |Атмосфера лаунжа выдержана в стиле Gentlman’s Club. Каждая деталь продумана и выполнена с любовью
+
+          img(src="assets/images/main-lounge-1.webp", alt="")
+
+        .two-cols-block__col
+          img(src="assets/images/main-lounge-2.webp", alt="")
+
+          div
+            .two-cols-block__txt
+              |Лаунж с камином и коллекцией винила располагает как для деловых встреч, так и для интеллектуальных бесед
+
+            a.two-cols-block__link(href="") узнать больше
+
+  section.section-bg-photo
+    .main-page-block__subttl место для деловых встреч
+    h1.main-page-block__ttl.txt-white Деловая обстановка
+    .two-cols-block__txt.txt-white Профессионализм и компетентность сотрудников гарантируют #[br] гостям комфортное времяпрепровождение
+
+    button.button.button--brown Забронировать стол
+
+  section.section
+    .container
+      .restaurant-block
+        .two-cols-block
+          .two-cols-block__col
+          .two-cols-block__col
+            div
+              .main-page-block__subttl строгость и элегантность
+              h1.main-page-block__ttl Ресторан
+              .two-cols-block__txt
+                |Неповторимая эстетика «ревущих двадцатых», строгость и элегантность ушедшей эпохи. Строгий контроль качества продуктов и внимание наших сотрудников позволят в полной мере насладиться временем, проведенным в наших стенах
+
+        .restaurant-slider
+          .restaurant-slider__control
+            button#swiper-button-prev
+              |left
+          .restaurant-slider__container.swiper-container#slider1
+            .swiper-wrapper
+              .swiper-slide
+                img(src="assets/images/main-slide.webp", alt="")
+          .restaurant-slider__control
+            button#swiper-button-next 
+              |right
+
+  section.section.section--black
+    .container
+      .main-page-block__subttl новые поступления и полезные материалы
+      h1.main-page-block__ttl.txt-white Новости клуба
+      .two-cols-block__txt.txt-white Подпишитесь на последние обновления — только полезная #[br] информация, без спама
