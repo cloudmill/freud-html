@@ -1,7 +1,7 @@
 // fonts
 $fs: 16px;
 
-$ff-main: 'SuisseIntl', sans-serif;
+$ff-main: 'ProximaNovaWebRegular';
 
 // colors
 :root {
@@ -31,7 +31,7 @@ $col-count-d: 12;
 $col-pad-m: 20px;
 $col-pad-d: 240px;
 
-$col-gap: 20px;
+$col-gap: 30px;
 
 $col-width-m: '((100vw - (#{$col-pad-m} * 2) - (#{$col-gap} * #{$col-count-m - 1})) / #{$col-count-m})';
 $col-width-d: '((100vw - (#{$col-pad-d} * 2) - (#{$col-gap} * #{$col-count-d - 1})) / #{$col-count-d})';

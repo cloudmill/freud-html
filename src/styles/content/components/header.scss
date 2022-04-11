@@ -1,0 +1,71 @@
+.header {
+
+  border-bottom: 1px solid var(--color-border-grey);
+
+  &__top {
+    padding: getRem(14px) 0 getRem(15px) 0;
+    border-bottom: 1px solid var(--color-border-grey);
+
+    &-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    &-links {
+      @include fsl(14px);
+      line-height: 17px;
+
+      a:not(:first-child) {
+        margin-left: getRem(55px);
+      }
+    }
+  }
+
+  &__address {
+    @include fsl(14px);
+    line-height: 17px;
+  }
+
+  &__bottom {
+    padding: getRem(12px) 0;
+
+    &-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  &__nav {
+    display: flex;
+    align-items: center;
+
+    &-item {
+      font-weight: 600;
+      @include fsl(14px);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+
+      &:not(:first-child) {
+        margin-left: getRem(50px);
+      }
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    align-items: center;
+
+    &-icon {
+
+      &:first-child {
+        margin-right: getRem(26px);
+      }
+    }
+
+    .button {
+      margin-left: getRem(50px);
+    }
+  }
+}

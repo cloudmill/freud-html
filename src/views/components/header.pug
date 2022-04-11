@@ -1,5 +1,37 @@
 mixin header
   header.header
+      .header__top
+        .container
+          .header__top-inner
+            .header__address
+              |г. Санкт-Петербург, ул. Малая Морская, дом 18
 
-    .container
-      |header
+            .header__top-links
+              a(href="") 
+                +vk-icon
+
+              a(href="tel:+78124545656")
+                |+7 (812) 454-56-56
+
+      .header__bottom
+        .container
+
+          .header__bottom-inner
+
+            a.header__logo(href="") 
+              +logo.header__logo-svg
+
+            .header__nav
+              each item in ['Сигарный клуб', 'Магазин', 'Ресторан', 'Контакты']
+                a.header__nav-item(href="")
+                  |#{item}
+
+            .header__buttons
+              a.header__buttons-icon(href="")
+                +favorites-icon
+
+              a.header__buttons-icon(href="")
+                +cart-icon
+
+              button.button.button--brown Забронировать
+

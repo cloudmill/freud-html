@@ -1,0 +1,21 @@
+.button {
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  cursor: pointer;
+  border: none;
+  background: transparent;
+
+  padding: getRem(12px) getRem(45px);
+
+  @include fsl(14px);
+  font-weight: 600;
+  line-height: 17px;
+  color: var(--color-white);
+
+  &--brown {
+    background: var(--color-brown-accent);
+  }
+}
