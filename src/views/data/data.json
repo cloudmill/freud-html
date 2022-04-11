@@ -3,12 +3,8 @@
 
   "routes": [
     {
-      "href": "/main",
+      "href": "/freud-html/dist/main",
       "title": "Главная"
-    },
-    {
-      "href": "/about",
-      "title": "О клубе"
     }
   ]
 }
