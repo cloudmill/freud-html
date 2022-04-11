@@ -1,0 +1,18 @@
+@font-face {
+	font-family: 'ProximaNovaWebRegular';
+	src:
+		url('assets/fonts/Proxima-Nova_Regular.woff2') format('woff2'),
+		url('assets/fonts/Proxima-Nova_Regular.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Berlingske Serif';
+  src: url('assets/fonts/BerlingskeSerif-Rg.eot');
+  src: url('assets/fonts/BerlingskeSerif-Rg.eot?#iefix') format('embedded-opentype'), url('assets/fonts/BerlingskeSerif-Rg.woff2') format('woff2'), url('assets/fonts/BerlingskeSerif-Rg.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}

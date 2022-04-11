@@ -1,3 +1,138 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a:active, a:focus {outline: none;}
+input, textarea {outline:none;}
+input:active, textarea:active {outline:none;}
+button:active, button:focus {outline: none;}
+:focus {outline:none;}
+button::-moz-focus-inner {border: 0;}
+
+html {
+  font-size: getVw($fs, 19.2px);
+  @media (max-width: ($breakpoint - 1px)) {
+    font-size: getVw($fs, 12.8px);
+  }
+  @media (max-width: ($breakpoint-t - 1px)) {
+    font-size: getVw($fs, 10.24px);
+  }
+  @media (max-width: ($breakpoint-m - 1px)) {
+    font-size: getVw($fs, 7.68px);
+  }
+  @media (max-width: ($breakpoint-s - 1px)) {
+    font-size: getVw($fs, 5.76px);
+  }
+  @media (max-width: ($breakpoint-xs)) {
+    font-size: getVw($fs, 3.75px);
+  }
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+body {
+  min-width: 100vw;
+  overflow-x: hidden;
+  
+  @include f-main();
+  color: var(--color-black);
+  @include fsl(16px, 130%);
+  background: var(--color-white);
+}
+
+img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 500;
+}
+
+h1 {
+  @include fsl(80px, 90%);
+  letter-spacing: -3px;
+  @media (max-width: ($breakpoint - 1px)) {
+    @include fsl(28px, 100%);
+    letter-spacing: -1px;
+  }
+}
+
+h2 {
+  @include fsl(60px, 100%);
+  letter-spacing: -2px;
+  @media (max-width: ($breakpoint - 1px)) {
+    @include fsl(24px, 120%);
+    letter-spacing: -1px; 
+  }
+}
+
+h3 {
+  @include fsl(44px, 110%);
+  letter-spacing: -2px;
+  @media (max-width: ($breakpoint - 1px)) {
+    @include fsl(20px);
+    letter-spacing: -0.5px;
+  }
+}
+
+h4 {
+  @include fsl(36px, 110%);
+  letter-spacing: -2px;
+  @media (max-width: ($breakpoint - 1px)) {
+    @include fsl(18px);
+    letter-spacing: -0.5px;
+  }
+}
+
+h5 {  
+  @include fsl(24px, 110%);
+  letter-spacing: -1px;
+  @media (max-width: ($breakpoint - 1px)) {
+    letter-spacing: -0.5px;
+    @include fsl(16px);
+  }
+}
+
+h6 {
+  letter-spacing: -0.5px;
+  @include fsl(18px, 110%);
+  @media (max-width: ($breakpoint - 1px)) {
+    @include fsl(14px);
+    letter-spacing: 0;
+  }
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+a {
+  color: var(--color-black);
+  text-decoration: none;
+}
+
+address {
+  font-style: normal;
+}
+
+input[type="number"] {
+  -webkit-appearance: textfield;
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none;
+}
+
 .container {
   padding: 0 #{$col-pad-d};
   @media (max-width: ($breakpoint - 1px)) {
