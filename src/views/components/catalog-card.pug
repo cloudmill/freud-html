@@ -1,0 +1,39 @@
+.catalog-card
+  .catalog-card__top
+    .catalog-card__labels
+      .catalog-card__labels-item.label-black NEW
+      .catalog-card__labels-item.label-brown limited
+
+    +favorites-icon.catalog-card__fav
+
+    img(src=`${item.img}`, alt="")
+
+  .catalog-card__bottom
+    div
+      .catalog-card__brand #{item.brand}
+      .catalog-card__title #{item.ttl}
+
+    .catalog-card__info
+      .catalog-card__country
+        +italy-flag
+        |Италия
+
+      if (item.txt)
+        .catalog-card__txt #{item.txt}
+
+      else
+        .catalog-card__strong
+          |Крепость
+
+          .point.active
+          .point.active
+          .point.active
+          .point.active
+          .point
+
+      .catalog-card__price
+        span.current #{item.price}
+        span.old #{item.price}
+
+  +brown-button.catalog-card__btn
+    |Добавить в корзину

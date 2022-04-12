@@ -136,8 +136,6 @@ block content
 
       .reviews-section__row
 
-        
-
         .reviews-section__slider
           .reviews-section__col
             +control-left#reviews-slider-prev
@@ -154,3 +152,37 @@ block content
             +control-right#reviews-slider-next
 
         .reviews-section__grade
+          .reviews-section__grade-big 4,9
+          .reviews-section__grade-txt Средняя оценка 4,9 из 5 #[br] на основе 70 отзывов
+
+
+
+  section.section.shop-section
+    .container
+      .main-page-block__subttl более 1000 товаров в наличии
+      h1.main-page-block__ttl Магазин
+
+      -
+        var content = [
+          {img: 'assets/images/shop-img-1.webp',
+          brand: 'Ornellaia',
+          ttl: 'Вино St-Emilion AOC Premier Grand Cru Classe',
+          txt: 'Красное, сухое, 750 мл',
+          price: '165 750'},
+
+          {img: 'assets/images/shop-img-2.webp',
+          brand: 'Gurkha',
+          ttl: 'Сигара Triad Platinum',
+          price: '13 820 ₽'}
+        ]
+
+      .shop-slider
+        .swiper-container#shop-slider
+          .swiper-wrapper
+            each item in content
+              .swiper-slide
+                include ../components/catalog-card
+
+
+        +brown-border-button.shop-slider__btn
+          |Перейти в каталог

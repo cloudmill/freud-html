@@ -36,3 +36,19 @@ window.addEventListener("DOMContentLoaded", () => {
     },
   });
 });
+
+window.addEventListener("DOMContentLoaded", () => {
+  const swiper = new Swiper("#shop-slider", {
+
+    modules: [Navigation],
+
+    slidesPerView: 'auto',
+    spaceBetween: 30,
+    loop: true,
+
+    navigation: {
+      nextEl: "#reviews-slider-next",
+      prevEl: "#reviews-slider-prev",
+    },
+  });
+});

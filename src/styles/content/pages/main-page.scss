@@ -295,6 +295,7 @@
 
   &__row {
     margin-top: getRem(45px);
+    display: flex;
   }
 
   &__col {
@@ -305,6 +306,11 @@
 
     &:nth-child(1) {
       margin-left: calc((#{$col-part-d} + #{$col-gap}) * -1);
+      justify-content: flex-end;
+    }
+
+    button {
+      margin: 0 #{$col-gap};
     }
   }
 
@@ -314,10 +320,49 @@
     .swiper-container {
       width: calc(#{$col-part-d} * 8 - #{$col-gap});
       overflow: hidden;
+      height: fit-content;
     }
 
     &-slide {
       width: auto;
     }
+  }
+
+  &__grade {
+    width: calc(#{$col-part-d} * 3 - #{$col-gap});
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding-bottom: getRem(40px);
+
+    &-big {
+      font-family: 'Berlingske Serif';
+      @include fsl(144px, 130%);
+    }
+
+    &-txt {
+      @include fsl(20px, 160%);
+    }
+  }
+}
+
+.shop-slider {
+  margin-top: getRem(45px);
+  // position: relative;
+  // padding-bottom: getRem(108px);
+
+  .swiper-container {
+    overflow: hidden;
+  }
+  .swiper-slide {
+    width: fit-content;
+  }
+
+  &__btn {
+    margin: getRem(58px) auto 0;
+    // position: absolute;
+    // bottom: 0;
   }
 }

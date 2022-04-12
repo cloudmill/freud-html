@@ -33,3 +33,146 @@
     margin: getRem(20px) 0;
   }
 }
+
+.catalog-card {
+  $comp: &;
+
+  background: #FAFAFA;
+  padding: getRem(30px);
+  width: calc(#{$col-part-d} * 3 - #{$col-gap});
+
+  position: relative;
+
+  // &:hover {
+  //   #{$comp}__btn {
+  //     // position: relative;
+  //     display: block;
+  //     opacity: 1;
+  //     pointer-events: all;
+  //   }
+  // }
+
+  &__top {
+    position: relative;
+  }
+
+  &__labels {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    &-item {
+      color: var(--color-white);
+      width: fit-content;
+      padding: getRem(4px) getRem(8px);
+
+      @include fsl(14px, 120%);
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+
+      &:not(:first-child) {
+        margin-top: getRem(6px);
+      }
+
+      &.label-black {
+        background: var(--color-black);
+      }
+      &.label-brown {
+        background: var(--color-brown);
+      }
+    }
+  }
+
+  &__fav {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  &__bottom{
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  &__brand {
+    @include fsl(16px, 130%);
+    color: var(--color-brown);
+  }
+  &__title {
+    @include fsl(20px, 140%);
+    min-height: getRem(56px);
+    margin-top: getRem(5px)
+  }
+  &__info {
+    margin-top: getRem(14px);
+  }
+  &__country {
+    display: flex;
+    align-items: center;
+
+    @include fsl(16px, 130%);
+    font-weight: 600;
+
+    margin-bottom: getRem(5px);
+
+    svg {
+      margin-right: getRem(8px);
+    }
+  }
+  &__txt {
+    @include fsl(16px, 130%);
+  }
+  &__strong {
+    display: flex;
+    align-items: center;
+
+    .point {
+      width: getRem(10px);
+      height: getRem(10px);
+      border-radius: 50%;
+      background: var(--color-black);
+      opacity: .2;
+      margin-left: getRem(10px);
+
+      &.active {
+        opacity: 1;
+      }
+
+      &:nth-child(1) {
+        margin-left: getRem(12px);
+      }
+    }
+  }
+
+  &__price {
+    margin-top: getRem(30px);
+
+    .current {
+      @include fsl(20px, 120%);
+      font-weight: 600;
+    }
+    .old {
+      @include fsl(18px, 120%);
+      text-decoration: line-through;
+      color: var(--color-grey);
+      margin-left: getRem(15px);
+    }
+  }
+
+  &__btn {
+    margin-top: getRem(15px);
+    width: 100%;
+
+    // position: absolute;
+    // display: none;
+    // opacity: 0;
+    // pointer-events: none;
+
+    // bottom: 0;
+
+    transition: .5s;
+  }
+}
