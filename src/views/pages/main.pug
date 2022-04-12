@@ -1,5 +1,7 @@
 extends ../layouts/master
 
+include ../components/buttons
+include ../components/cards
 
 block content
 
@@ -47,7 +49,7 @@ block content
 
           a.main-page-block__bottom-links(href="") #{item}
 
-  section.section
+  section.section.lounge-section
     .container
       .two-cols-block
         .two-cols-block__col
@@ -74,7 +76,9 @@ block content
     h1.main-page-block__ttl.txt-white Деловая обстановка
     .two-cols-block__txt.txt-white Профессионализм и компетентность сотрудников гарантируют #[br] гостям комфортное времяпрепровождение
 
-    button.button.button--brown Забронировать стол
+    //- button.button.button--brown 
+    +brown-button
+      |Забронировать стол
 
   section.section
     .container
@@ -89,19 +93,64 @@ block content
                 |Неповторимая эстетика «ревущих двадцатых», строгость и элегантность ушедшей эпохи. Строгий контроль качества продуктов и внимание наших сотрудников позволят в полной мере насладиться временем, проведенным в наших стенах
 
         .restaurant-slider
-          .restaurant-slider__control
-            button#swiper-button-prev
-              |left
-          .restaurant-slider__container.swiper-container#slider1
-            .swiper-wrapper
-              .swiper-slide
-                img(src="assets/images/main-slide.webp", alt="")
-          .restaurant-slider__control
-            button#swiper-button-next 
-              |right
+          .restaurant-slider__col
+            +control-left#restaurant-slider-prev
 
-  section.section.section--black
+          .restaurant-slider__container
+            .swiper-container#slider1
+              .swiper-wrapper
+                - for (i=0;i<3;i++)
+                  .swiper-slide
+                    img(src="assets/images/main-slide.webp", alt="")
+
+            .restaurant-slider__pagination#restaurant-slider-pagination
+
+          .restaurant-slider__col
+            +control-right#restaurant-slider-next
+
+  section.section.section--black.subscription-section
     .container
       .main-page-block__subttl новые поступления и полезные материалы
       h1.main-page-block__ttl.txt-white Новости клуба
       .two-cols-block__txt.txt-white Подпишитесь на последние обновления — только полезная #[br] информация, без спама
+
+      .subscription-form
+        input.subscription-form__input(type="email" id="email" placeholder="Ваш e-mail")
+        +brown-button.subscription-form__button
+          |Подписаться
+        
+        .checkbox.subscription-form__checkbox
+          label.checkbox__label
+            input.checkbox__input(type="checkbox")
+            .checkbox__box
+              +checkbox-svg.checkbox__svg
+
+          .checkbox__caption
+            |Нажимая на кнопку «Подписаться», вы соглашаетесь с 
+            a(href="") политикой конфиденциальности
+          
+  section.section.section--grey.reviews-section
+    .container
+      .main-page-block__subttl благодарим за обратную связь
+      h1.main-page-block__ttl Отзывы гостей
+
+      .reviews-section__row
+
+        
+
+        .reviews-section__slider
+          .reviews-section__col
+            +control-left#reviews-slider-prev
+
+          .swiper-container#reviews-slider
+            .swiper-wrapper
+              - for (a=0;a<5;a++)
+                .swiper-slide.reviews-section__slider-slide
+                  +review-card
+
+            .restaurant-slider__pagination#reviews-slider-pagination
+
+          .reviews-section__col
+            +control-right#reviews-slider-next
+
+        .reviews-section__grade

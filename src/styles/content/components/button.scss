@@ -15,7 +15,14 @@
   line-height: 17px;
   color: var(--color-white);
 
+  &--clean {
+    cursor: pointer;
+    border: none;
+    background: transparent;
+  }
+
   &--brown {
     background: var(--color-brown);
   }
 }
+

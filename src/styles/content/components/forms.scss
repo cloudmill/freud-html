@@ -1,0 +1,95 @@
+.checkbox {
+  $comp: &;
+
+  &__label {
+    position: relative;
+    z-index: 0;
+
+    display: flex;
+    align-items: center;
+
+    cursor: pointer;
+
+    // &:hover {
+    //   #{$comp}__box {
+    //     border-color: var(--color-blue);
+    //   }
+    // }
+  }
+
+  &__input {
+    position: absolute;
+    left: 0;
+
+    visibility: hidden;
+
+    &:checked {
+      ~#{$comp}__box {
+        border-color: var(--color-blue);
+
+        #{$comp}__svg {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  &__box {
+    margin-right: getRem(10px);
+
+    width: getRem(20px);
+    height: getRem(20px);
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+
+    // transition: $transition;
+    border: 1px solid var(--color-brown);
+  }
+
+  &__svg {
+    opacity: 0;
+    // transition: $transition;
+  }
+}
+
+
+.subscription-form {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  margin-top: getRem(30px);
+  padding-left: calc(#{$col-part-d} * 6);
+
+  &__input {
+    width: calc(#{$col-part-d} * 3 - #{$col-gap});
+    padding: getRem(11px) getRem(20px);
+    background: #303030;
+    border: none;
+
+    @include fsl(16px, 160%);
+  }
+
+  &__button {
+    width: calc(#{$col-part-d} * 3 - #{$col-gap});
+  }
+
+  &__checkbox {
+    width: 100%;
+    margin-top: getRem(33px);
+    display: flex;
+    align-items: center;
+
+    .checkbox__caption {
+      @include fsl(16px, 160%);
+      color: var(--color-grey);
+
+      a {
+        color: var(--color-brown);
+      }
+    }
+  }
+}

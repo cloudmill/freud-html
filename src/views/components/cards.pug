@@ -1,0 +1,13 @@
+mixin review-card
+  .review-card
+    .review-card__top
+      .review-card__name Юлия
+      .review-card__grade
+        - for (i=0;i<4;i++)
+          +grade-star.review-card__star.active
+        +grade-star
+
+    .review-card__txt
+      |Богатый ассортимент, уют, комфорт и атмосфера, интересные люди, шикарный интерьер!!! Отличная вытяжка, которую в интерьере не сразу и заметишь.
+
+    a.two-cols-block__link(href="") Читать полностью

@@ -1,0 +1,35 @@
+.review-card {
+  width: calc(#{$col-part-d} * 4 - #{$col-gap});
+  padding: getRem(50px);
+  background: var(--color-white);
+
+  &__top {
+    display: flex;
+    align-items: center;
+    margin-bottom: getRem(20px);
+  }
+
+  &__name {
+    margin-right: getRem(10px);
+
+    @include fsl(20px, 130%);
+    font-weight: 600;
+
+  }
+
+  &__grade {
+    display: flex;
+    align-items: center;
+  }
+
+  &__star {
+    &.active path {
+      fill: var(--color-brown);
+    }
+  }
+
+  &__txt {
+    @include fsl(20px, 160%);
+    margin: getRem(20px) 0;
+  }
+}
