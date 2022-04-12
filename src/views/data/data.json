@@ -5,6 +5,10 @@
     {
       "href": "/freud-html/dist/main",
       "title": "Главная"
+    },
+    {
+      "href": "/freud-html/dist/404",
+      "title": "404"
     }
   ]
 }

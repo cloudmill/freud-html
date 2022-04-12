@@ -1,0 +1,28 @@
+.error-section {
+  padding: getRem(210px) 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+
+  &__ttl {
+    font-family: 'Berlingske Serif';
+    @include fsl(180px, 100%);
+    color: var(--color-grey);
+  }
+
+  &__subttl {
+    @include fsl(13px, 130%);
+    font-weight: 700;
+    text-align: center;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+  }
+
+  &__btn {
+    margin: getRem(40px) auto 0;
+    width: fit-content;
+  }
+}
