@@ -47,8 +47,8 @@ window.addEventListener("DOMContentLoaded", () => {
     loop: true,
 
     navigation: {
-      nextEl: "#reviews-slider-next",
-      prevEl: "#reviews-slider-prev",
+      nextEl: "#shop-slider-next",
+      prevEl: "#shop-slider-prev",
     },
   });
 });

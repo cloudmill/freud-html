@@ -1,0 +1,20 @@
+section.section.section--black.subscription-section
+  .container
+    .main-page-block__subttl новые поступления и полезные материалы
+    h1.main-page-block__ttl.txt-white Новости клуба
+    .two-cols-block__txt.txt-white Подпишитесь на последние обновления — только полезная #[br] информация, без спама
+
+    .subscription-form
+      input.subscription-form__input(type="email" id="email" placeholder="Ваш e-mail")
+      +brown-button.subscription-form__button
+        |Подписаться
+      
+      .checkbox.subscription-form__checkbox
+        label.checkbox__label
+          input.checkbox__input(type="checkbox")
+          .checkbox__box
+            +checkbox-svg.checkbox__svg
+
+        .checkbox__caption
+          |Нажимая на кнопку «Подписаться», вы соглашаетесь с 
+          a(href="") политикой конфиденциальности

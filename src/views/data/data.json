@@ -7,7 +7,15 @@
       "title": "Главная"
     },
     {
-      "href": "/freud-html/dist/404",
+      "href": "/freud-html/dist/about",
+      "title": "О клубе"
+    },
+    {
+      "href": "/freud-html/dist/contacts",
+      "title": "Контакты"
+    },
+    {
+      "href": "404",
       "title": "404"
     }
   ]

@@ -353,11 +353,33 @@
   // position: relative;
   // padding-bottom: getRem(108px);
 
+  &__row {
+    display: flex;
+  }
+
   .swiper-container {
     overflow: hidden;
   }
   .swiper-slide {
     width: fit-content;
+  }
+
+  &__col {
+    display: flex;
+    align-items: center;
+
+    &:nth-child(1) {
+      margin-left: getRem(-74px);
+      button {
+        margin-right: getRem(30px);
+      }
+    }
+    &:nth-child(3) {
+      margin-right: getRem(-74px);
+      button {
+        margin-left: getRem(30px);
+      }
+    }
   }
 
   &__btn {

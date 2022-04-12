@@ -1,0 +1,25 @@
+section.section.section--grey.reviews-section
+  .container
+    .main-page-block__subttl благодарим за обратную связь
+    h1.main-page-block__ttl Отзывы гостей
+
+    .reviews-section__row
+
+      .reviews-section__slider
+        .reviews-section__col
+          +control-left#reviews-slider-prev
+
+        .swiper-container#reviews-slider
+          .swiper-wrapper
+            - for (a=0;a<5;a++)
+              .swiper-slide.reviews-section__slider-slide
+                +review-card
+
+          .restaurant-slider__pagination#reviews-slider-pagination
+
+        .reviews-section__col
+          +control-right#reviews-slider-next
+
+      .reviews-section__grade
+        .reviews-section__grade-big 4,9
+        .reviews-section__grade-txt Средняя оценка 4,9 из 5 #[br] на основе 70 отзывов
