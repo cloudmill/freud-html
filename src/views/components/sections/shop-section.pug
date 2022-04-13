@@ -3,22 +3,21 @@ section.section.shop-section
 
     if (smallTitle)
       +small-titles(ttl='Вы смотрели ранее')
-
     else
-      .main-page-block__subttl более 1000 товаров в наличии
-      h1.main-page-block__ttl Магазин
+      +big-titles(ttl='Магазин' subttl='более 1000 товаров в наличии')
 
     -
       var content = [
-        {img: 'assets/images/shop-img-1.webp',
+        {img: 'shop-img-1',
         brand: 'Ornellaia',
         ttl: 'Вино St-Emilion AOC Premier Grand Cru Classe',
         txt: 'Красное, сухое, 750 мл',
         price: '165 750'},
 
-        {img: 'assets/images/shop-img-2.webp',
+        {img: 'shop-img-2',
         brand: 'Gurkha',
         ttl: 'Сигара Triad Platinum',
+        txt: 'strong',
         price: '13 820 ₽'}
       ]
 
@@ -31,7 +30,7 @@ section.section.shop-section
           .swiper-wrapper
             each item in content
               .swiper-slide
-                include ../catalog-card
+                +catalog-card(img=`${item.img}` brand=`${item.brand}` ttl=`${item.ttl}` txt=`${item.txt}` price=`${item.price}`)
 
         .shop-slider__col
           +control-right#shop-slider-next

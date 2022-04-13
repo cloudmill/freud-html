@@ -7,6 +7,10 @@
       "title": "Главная"
     },
     {
+      "href": "/freud-html/dist/shop",
+      "title": "Магазин"
+    },
+    {
       "href": "/freud-html/dist/about",
       "title": "О клубе"
     },

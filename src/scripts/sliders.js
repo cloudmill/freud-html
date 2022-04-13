@@ -52,3 +52,19 @@ window.addEventListener("DOMContentLoaded", () => {
     },
   });
 });
+
+window.addEventListener("DOMContentLoaded", () => {
+  const swiper = new Swiper("#slider2", {
+
+    modules: [Navigation],
+
+    slidesPerView: 'auto',
+    spaceBetween: 30,
+    loop: true,
+
+    navigation: {
+      nextEl: "#shop-slider-next",
+      prevEl: "#shop-slider-prev",
+    },
+  });
+});

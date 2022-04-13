@@ -49,6 +49,10 @@
     cursor: default;
     @include fsl(13px, 130%);
     color: var(--color-grey);
+
+    &:first-letter {
+      text-transform: uppercase;
+    }
   }
 
 }

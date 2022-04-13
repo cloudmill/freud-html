@@ -1,0 +1,110 @@
+extends ../layouts/master
+
+include ../components/buttons
+include ../components/cards
+include ../components/breadcrumbs
+include ../components/block-titles
+include ../components/picture
+
+block content
+
+  section.section--first
+    .container
+      +breadcrumbs(items = ['Магазин'] page = 'сигары')
+
+      .category-top
+        .category-top__line
+          
+          .category-title-block
+            h1.category-title.h2 Сигары
+            .category-items-count 96 товаров
+
+          .category-search
+            input(type="search")
+
+        .category-top__line
+
+          - for (b=0;b<3;b++)
+            button.category-filter-btn.button--clean
+              |Кубинские сигары Bolivar
+              span.category-filter-btn__count 24  
+
+        .category-top__line
+          button.category-filter-drop.button--clean
+            +filter-icon
+            span все фильтры
+
+          -
+            const filters = [
+              'цена',
+              'производитель',
+              'страна',
+              'крепость',
+              'время курения',
+              'Формат',
+              'рекомендуем',
+            ]
+          each item in filters
+            button.category-filter-drop.button--clean
+              span #{item}
+              +arrow-down
+
+        .category-top__line
+          - for (b=0;b<3;b++)
+            button.category-filter-btn.button--clean.active-filter
+              |Alec Bradley
+              span.category-filter-btn__cross
+
+          button.category-filter-btn.button--clean.filter-reset
+              |Очистить все
+
+      .category-body
+
+        - for (b=0;b<6;b++)
+
+          -
+            var content = [
+              {img: 'shop-img-1',
+              brand: 'Ornellaia',
+              ttl: 'Вино St-Emilion AOC Premier Grand Cru Classe',
+              txt: 'Красное, сухое, 750 мл',
+              price: '165 750'},
+
+              {img: 'shop-img-2',
+              brand: 'Gurkha',
+              ttl: 'Сигара Triad Platinum',
+              txt: 'strong',
+              price: '13 820 ₽'}
+            ]
+          
+          each item in content
+            +catalog-card(img=`${item.img}` brand=`${item.brand}` ttl=`${item.ttl}` txt=`${item.txt}` price=`${item.price}`)
+
+  section.section.section--grey
+    .container
+      +small-titles(ttl='Выберите идеальную пару')
+
+  section.section--top
+    .container
+      +small-titles(ttl='Другие категории товаров')
+
+      .swiper-container.categories-slider#slider2
+        .swiper-wrapper
+          -
+            const cards = [
+              {file: 'shop-category-1', ttl: 'Сигары'},
+              {file: 'shop-category-2', ttl: 'Сигариллы'},
+              {file: 'shop-category-1', ttl: 'Хьюмидоры'},
+            ]
+          each item in cards
+            .swiper-slide
+              a.shop-page-head__card(href="")
+                +picture(file=`${item.file}`)
+                .shop-page-head__card-ttl #{item.ttl}
+
+  -
+    const smallTitle = true;
+    const nobtn = true;
+  include ../components/sections/shop-section
+
+  include ../components/sections/articles-section

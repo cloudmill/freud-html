@@ -31,3 +31,42 @@ mixin article-card
         .articles-card__info
           .articles-card__info-col 20.04.2021
           .articles-card__info-col 5 мин
+
+mixin catalog-card
+  .catalog-card
+    .catalog-card__top
+      .catalog-card__labels
+        .catalog-card__labels-item.label-black NEW
+        .catalog-card__labels-item.label-brown limited
+
+      +favorites-icon.catalog-card__fav
+
+      +picture(file=`${attributes.img}`)
+
+    .catalog-card__bottom
+      div
+        .catalog-card__brand #{attributes.brand}
+        .catalog-card__title #{attributes.ttl}
+
+      .catalog-card__info
+        .catalog-card__country
+          +italy-flag
+          |Италия
+
+        if (attributes.txt !== 'strong')
+          .catalog-card__txt #{attributes.txt}
+
+        else
+          .catalog-card__strong
+            |Крепость
+
+            - for (i=0;i<4;i++)
+              .point.active
+            .point
+
+        .catalog-card__price
+          span.current #{attributes.price}
+          span.old #{attributes.price}
+
+    +brown-button.catalog-card__btn
+      |Добавить в корзину

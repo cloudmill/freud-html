@@ -9,6 +9,10 @@
     padding-bottom: getRem(150px);
   }
 
+  &--top {
+    padding-top: getRem(150px);
+  }
+
   &--black {
     background: var(--color-black);
   }

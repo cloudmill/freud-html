@@ -3,9 +3,9 @@ mixin big-titles
     .big-titles__subttl #{attributes.subttl}
 
     if (attributes.shop)
-      h1.big-titles__ttl #{attributes.ttl}
+      h1.big-titles__ttl.h1 #{attributes.ttl}
     else
-      h2.big-titles__ttl #{attributes.ttl}
+      h2.big-titles__ttl.h1 #{attributes.ttl}
 
     if (attributes.txt)
       .big-titles__txt #{attributes.txt}
@@ -18,7 +18,7 @@ mixin big-titles
 
 mixin small-titles
   .small-titles(class=attributes.class)
-    h3.small-titles__ttl #{attributes.ttl}
+    h3.small-titles__ttl.h2 #{attributes.ttl}
 
     if (attributes.txt)
       .small-titles__txt #{attributes.txt}

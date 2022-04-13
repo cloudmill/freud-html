@@ -9,7 +9,7 @@
   }
 
   &__ttl {
-    @include fsl(72px, 120%);
+    // @include fsl(72px, 120%);
     font-family: 'Berlingske Serif';
   }
 
@@ -27,7 +27,7 @@
 
   &__ttl {
     font-family: 'Berlingske Serif';
-    @include fsl(48px, 130%);
+    // @include fsl(48px, 130%);
   }
   &__txt {
     @include fsl(20px, 170%);

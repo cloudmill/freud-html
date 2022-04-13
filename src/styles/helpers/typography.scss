@@ -1,0 +1,15 @@
+.h1 {
+  @include fsl(72px, 120%);
+}
+
+.h2 {
+  @include fsl(48px, 130%);
+}
+
+.h3 {
+  @include fsl(40px, 130%);
+}
+
+.h4 {
+  @include fsl(30px, 130%);
+}

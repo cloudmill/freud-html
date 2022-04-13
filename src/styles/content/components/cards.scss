@@ -54,6 +54,7 @@
 
   &__top {
     position: relative;
+    min-height: getRem(265px);
   }
 
   &__labels {
