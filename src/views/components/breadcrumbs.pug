@@ -1,0 +1,14 @@
+mixin breadcrumbs 
+  .breadcrumbs(class=attributes.class) 
+    ul.breadcrumbs__list 
+      li.breadcrumbs__item 
+        a.breadcrumbs__link(href="#") 
+          |Главная
+      if (attributes.items)
+        each item in attributes.items 
+          li.breadcrumbs__item 
+            a.breadcrumbs__link(href="#") 
+              |#{item}
+      li.breadcrumbs__item 
+        .breadcrumbs__txt 
+          |#{attributes.page}

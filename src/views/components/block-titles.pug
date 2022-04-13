@@ -1,0 +1,7 @@
+mixin block-titles
+  .block-titles(class=attributes.class)
+    .main-page-block__subttl #{attributes.subttl}
+    h1.main-page-block__ttl #{attributes.ttl}
+
+    if (attributes.txt)
+      .two-cols-block__txt #{attributes.txt}

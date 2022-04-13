@@ -1,0 +1,54 @@
+.breadcrumbs {
+  $comp: &;
+
+  padding-top: getRem(30px);
+
+  &__list {
+    display: flex;
+
+    gap: getRem(8px);
+  }
+
+  &__item {
+    display: flex;
+    position: relative;
+
+    
+
+    &:not(:first-child) {
+
+      padding-left: getRem(8px);
+
+      &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+
+        width: 2.5px;
+        height: 5px;
+
+        background-image: url("data:image/svg+xml,%3Csvg width='4' height='7' viewBox='0 0 4 7' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L3.5 3.5L1 6' stroke='%23909090' stroke-width='0.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+      }
+    }
+  }
+
+  &__link {
+    @include fsl(13px, 130%);
+
+    &:first-letter {
+      text-transform: uppercase;
+    }
+  }
+
+  &__txt {
+    cursor: default;
+    @include fsl(13px, 130%);
+    color: var(--color-grey);
+  }
+
+}

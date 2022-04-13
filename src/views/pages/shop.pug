@@ -1,0 +1,35 @@
+extends ../layouts/master
+
+include ../components/buttons
+include ../components/cards
+include ../components/breadcrumbs
+include ../components/block-titles
+include ../components/picture
+
+block content
+
+  section.section--first
+    .container
+      +breadcrumbs(page = "Магазин")
+
+      .shop-page-head
+
+        +block-titles.shop-page-head__titles(subttl='более 1000 товаров в наличии' ttl='Магазин' txt=`В нашем интернет-магазине вы найдете коллекцию лучших сигар, терпкого алкоголя и ярких вин`)
+
+        .shop-page-head__categories
+
+          -
+            const cards = [
+              {file: 'shop-category-1', ttl: 'Сигары'},
+              {file: 'shop-category-2', ttl: 'Сигариллы'},
+              {file: 'shop-category-1', ttl: 'Хьюмидоры'},
+              {file: 'shop-category-4', ttl: 'Крепкие напитки'},
+              {file: 'shop-category-5', ttl: 'Наборы'},
+              {file: 'shop-category-6', ttl: 'Вина'},
+              {file: 'shop-category-7', ttl: 'Аксессуары'}
+            ]
+
+          each item in cards
+            a.shop-page-head__card(href="")
+              +picture(file=`${item.file}`)
+              .shop-page-head__card-ttl #{item.ttl}

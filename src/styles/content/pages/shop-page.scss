@@ -1,0 +1,30 @@
+.shop-page-head {
+  
+  margin-bottom: getRem(150px);
+
+  &__titles {
+    margin: getRem(90px) 0;
+    text-align: center;
+  }
+
+  &__categories {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  &__card {
+    width: calc(#{$col-part-d} * 4 - #{$col-gap});
+
+    &:nth-child(1n + 4) {
+      width: calc(#{$col-part-d} * 3 - #{$col-gap});
+      margin-top: getRem(60px);
+    }
+
+    &-ttl {
+      font-family: 'Berlingske Serif';
+      @include fsl (30px, 130%);
+      margin-top: getRem(15px);
+    }
+  }
+}
