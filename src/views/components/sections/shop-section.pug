@@ -1,7 +1,12 @@
 section.section.shop-section
   .container
-    .main-page-block__subttl более 1000 товаров в наличии
-    h1.main-page-block__ttl Магазин
+
+    if (smallTitle)
+      +small-titles(ttl='Вы смотрели ранее')
+
+    else
+      .main-page-block__subttl более 1000 товаров в наличии
+      h1.main-page-block__ttl Магазин
 
     -
       var content = [
@@ -31,5 +36,6 @@ section.section.shop-section
         .shop-slider__col
           +control-right#shop-slider-next
 
-      +brown-border-button.shop-slider__btn
-        |Перейти в каталог
+      if (!nobtn)
+        +brown-border-button.shop-slider__btn
+          |Перейти в каталог

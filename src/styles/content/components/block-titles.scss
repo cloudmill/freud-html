@@ -1,0 +1,36 @@
+.big-titles {
+
+  &__subttl {
+    @include fsl(13px, 130%);
+    font-weight: 700;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--color-brown);
+  }
+
+  &__ttl {
+    @include fsl(72px, 120%);
+    font-family: 'Berlingske Serif';
+  }
+
+  &__txt {
+    @include fsl(20px, 160%);
+  }
+}
+
+.small-titles {
+  margin-bottom: getRem(60px);
+
+  &--mb45 {
+    margin-bottom: getRem(45px);
+  }
+
+  &__ttl {
+    font-family: 'Berlingske Serif';
+    @include fsl(48px, 130%);
+  }
+  &__txt {
+    @include fsl(20px, 170%);
+    margin-top: getRem(10px);
+  }
+}

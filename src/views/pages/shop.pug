@@ -14,7 +14,7 @@ block content
 
       .shop-page-head
 
-        +block-titles.shop-page-head__titles(subttl='более 1000 товаров в наличии' ttl='Магазин' txt=`В нашем интернет-магазине вы найдете коллекцию лучших сигар, терпкого алкоголя и ярких вин`)
+        +big-titles.shop-page-head__titles(subttl=`более 1000 товаров  в наличии` ttl='Магазин' shop='true')
 
         .shop-page-head__categories
 
@@ -33,3 +33,27 @@ block content
             a.shop-page-head__card(href="")
               +picture(file=`${item.file}`)
               .shop-page-head__card-ttl #{item.ttl}
+
+  -
+    const smallTitle = true;
+    const nobtn = true;
+  include ../components/sections/shop-section
+
+  section.section--bottom
+    .container
+      +small-titles.small-titles--mb45(ttl='Справочная информация' txt='Расскажем подробно обо всех тонкостях и нюансах')
+
+      .articles-row
+        
+        -
+          const articles = [
+            {ttl: 'Как хранить сигару', txt: 'Что же из себя представляет современная сигара? По способу производства различают сигары ручной работы.'},
+            {ttl: 'Какую сигару выбрать к вину', txt: 'Что же из себя представляет современная сигара? По способу производства различают сигары ручной работы. Что же из себя представляет современная сигара? По способу производства различают сигары ...'},
+            {ttl: 'Как хранить сигару', txt: 'Что же из себя представляет современная сигара? По способу производства различают сигары ручной работы.'}
+          ] 
+
+        each item in articles
+          +article-card(ttl=`${item.ttl}` txt=`${item.txt}`)
+
+      +brown-border-button.articles-more-btn
+        |Смотреть все статьи

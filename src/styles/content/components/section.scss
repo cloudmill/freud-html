@@ -5,6 +5,10 @@
     margin-top: getRem(134px);
   }
 
+  &--bottom {
+    padding-bottom: getRem(150px);
+  }
+
   &--black {
     background: var(--color-black);
   }

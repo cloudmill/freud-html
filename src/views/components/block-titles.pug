@@ -1,7 +1,24 @@
-mixin block-titles
-  .block-titles(class=attributes.class)
-    .main-page-block__subttl #{attributes.subttl}
-    h1.main-page-block__ttl #{attributes.ttl}
+mixin big-titles
+  .big-titles(class=attributes.class)
+    .big-titles__subttl #{attributes.subttl}
+
+    if (attributes.shop)
+      h1.big-titles__ttl #{attributes.ttl}
+    else
+      h2.big-titles__ttl #{attributes.ttl}
 
     if (attributes.txt)
-      .two-cols-block__txt #{attributes.txt}
+      .big-titles__txt #{attributes.txt}
+
+
+    if (attributes.shop)
+      .big-titles__txt В нашем интернет-магазине вы найдете коллекцию лучших сигар, #[br] терпкого алкоголя и ярких вин
+
+
+
+mixin small-titles
+  .small-titles(class=attributes.class)
+    h3.small-titles__ttl #{attributes.ttl}
+
+    if (attributes.txt)
+      .small-titles__txt #{attributes.txt}
