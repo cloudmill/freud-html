@@ -10,9 +10,8 @@ block grid-test
 
 
 block content
-  .section
-    .container
-      ul
-        each route in data.routes
-          li.mt10
-            a.button.button--brown.width-fit(href=route.href)= route.title
+  .container
+    ul
+      each route in data.routes
+        li.mt10
+          a.button.button--brown.width-fit(href=route.href)= route.title
