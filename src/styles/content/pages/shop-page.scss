@@ -255,14 +255,24 @@
 }
 
 .category-body {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: getRem(30px);
 }
 
 .categories-slider {
   overflow: hidden;
   .swiper-slide {
     width: fit-content;
+  }
+}
+
+.recommend-slider {
+  .swiper-container {
+    overflow: hidden;
+  }
+
+  .swiper-slide {
+    width: calc(#{$col-part-d} * 4 - #{$col-gap});
   }
 }

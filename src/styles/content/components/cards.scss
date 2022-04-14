@@ -177,3 +177,20 @@
     transition: .5s;
   }
 }
+
+.recommend-card {
+  width: calc(#{$col-part-d} * 4 - #{$col-gap});
+  background: var(--color-white);
+  padding: getRem(40px);
+
+  &__ttl {
+    margin-top: getRem(30px);
+    @include fsl(24px, 140%);
+    font-weight: 600;
+  }
+
+  &__txt {
+    margin-top: getRem(12px);
+    @include fsl(18px, 160%);
+  }
+}

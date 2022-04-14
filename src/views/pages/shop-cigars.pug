@@ -8,7 +8,7 @@ include ../components/picture
 
 block content
 
-  section.section--first
+  section.section--first.section--bottom
     .container
       +breadcrumbs(items = ['Магазин'] page = 'сигары')
 
@@ -83,6 +83,17 @@ block content
   section.section.section--grey
     .container
       +small-titles(ttl='Выберите идеальную пару')
+
+      .recommend-slider
+        .swiper-container#recommend-slider
+          .swiper-wrapper
+
+            - for (i=0;i<3;i++)
+              .swiper-slide
+                .recommend-card
+                  +picture(file='recommend-1')
+                  .recommend-card__ttl Сигара COHIBA BHK 52 и игристое вино Chateau Mouton Rothschild, Pauillac AOC
+                  .recommend-card__txt Лучше всего сигары сочетаются с крепкими спиртными напитками. Сочетание сигар и алкоголя приносят курильщику
 
   section.section--top
     .container
