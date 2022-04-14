@@ -74,7 +74,8 @@ block content
             .two-cols-block__txt
               |Лаунж с камином и коллекцией винила располагает как для деловых встреч, так и для интеллектуальных бесед
 
-            a.two-cols-block__link(href="") узнать больше
+            +read-more-btn 
+              |узнать больше
 
   section.section-bg-photo
     +big-titles.white-ttl(ttl='Деловая обстановка' subttl='место для деловых встреч')
@@ -100,13 +101,13 @@ block content
             +control-left#restaurant-slider-prev
 
           .restaurant-slider__container
-            .swiper-container#slider1
+            .swiper-container#restaurant-slider
               .swiper-wrapper
                 - for (i=0;i<3;i++)
                   .swiper-slide
                     +picture(file='main-slide')
 
-            .restaurant-slider__pagination#restaurant-slider-pagination
+            .sliders-pagination#restaurant-slider-pagination
 
           .restaurant-slider__col
             +control-right#restaurant-slider-next

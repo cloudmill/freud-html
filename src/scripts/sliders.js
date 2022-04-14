@@ -1,25 +1,26 @@
 import Swiper, { Navigation, Pagination } from 'swiper';
 
-window.addEventListener("DOMContentLoaded", () => {
-  const swiper = new Swiper("#slider1", {
+
+window.addEventListener('DOMContentLoaded', () => {
+
+  const restaurantSlider = new Swiper('#restaurant-slider', {
 
     modules: [Navigation, Pagination],
 
     loop: true,
 
     navigation: {
-      nextEl: "#restaurant-slider-next",
-      prevEl: "#restaurant-slider-prev",
+      nextEl: '#restaurant-slider-next',
+      prevEl: '#restaurant-slider-prev',
     },
 
     pagination: {
-      el: "#restaurant-slider-pagination",
+      el: '#restaurant-slider-pagination',
     },
   });
-});
 
-window.addEventListener("DOMContentLoaded", () => {
-  const swiper = new Swiper("#reviews-slider", {
+
+  const reviewsSlider = new Swiper('#reviews-slider', {
 
     modules: [Navigation, Pagination],
 
@@ -27,18 +28,17 @@ window.addEventListener("DOMContentLoaded", () => {
     spaceBetween: 30,
 
     navigation: {
-      nextEl: "#reviews-slider-next",
-      prevEl: "#reviews-slider-prev",
+      nextEl: '#reviews-slider-next',
+      prevEl: '#reviews-slider-prev',
     },
 
     pagination: {
-      el: "#reviews-slider-pagination",
+      el: '#reviews-slider-pagination',
     },
   });
-});
 
-window.addEventListener("DOMContentLoaded", () => {
-  const swiper = new Swiper("#shop-slider", {
+
+  const shopSlider = new Swiper('#shop-slider', {
 
     modules: [Navigation],
 
@@ -47,14 +47,13 @@ window.addEventListener("DOMContentLoaded", () => {
     loop: true,
 
     navigation: {
-      nextEl: "#shop-slider-next",
-      prevEl: "#shop-slider-prev",
+      nextEl: '#shop-slider-next',
+      prevEl: '#shop-slider-prev',
     },
   });
-});
 
-window.addEventListener("DOMContentLoaded", () => {
-  const swiper = new Swiper("#slider2", {
+
+  const categoriesSlider = new Swiper('#categories-slider', {
 
     modules: [Navigation],
 
@@ -63,24 +62,28 @@ window.addEventListener("DOMContentLoaded", () => {
     loop: true,
 
     navigation: {
-      nextEl: "#shop-slider-next",
-      prevEl: "#shop-slider-prev",
+      nextEl: '#categories-slider-next',
+      prevEl: '#categories-slider-prev',
     },
   });
-});
 
-window.addEventListener("DOMContentLoaded", () => {
-  const swiper = new Swiper("#recommend-slider", {
 
-    modules: [Navigation],
+  const recommendSlider = new Swiper('#recommend-slider', {
+
+    modules: [Navigation, Pagination],
 
     slidesPerView: 'auto',
     spaceBetween: 30,
     loop: true,
 
     navigation: {
-      nextEl: "#shop-slider-next",
-      prevEl: "#shop-slider-prev",
+      nextEl: '#recommend-slider-next',
+      prevEl: '#recommend-slider-prev',
+    },
+
+    pagination: {
+      el: '#recommend-slider-pagination',
     },
   });
+
 });

@@ -20,7 +20,8 @@ block content
             .category-items-count 96 товаров
 
           .category-search
-            input(type="search")
+            input.category-search__input(type='search' placeholder='Поиск по каталогу')
+            +search-icon
 
         .category-top__line
 
@@ -61,7 +62,6 @@ block content
       .category-body
 
         - for (b=0;b<6;b++)
-
           -
             var content = [
               {img: 'shop-img-1',
@@ -80,11 +80,14 @@ block content
           each item in content
             +catalog-card(img=`${item.img}` brand=`${item.brand}` ttl=`${item.ttl}` txt=`${item.txt}` price=`${item.price}`)
 
+      +brown-border-button.more-btn
+        |Посмотреть еще
+
   section.section.section--grey
     .container
       +small-titles(ttl='Выберите идеальную пару')
 
-      .recommend-slider
+      .recommend-slider.controls-out
         .swiper-container#recommend-slider
           .swiper-wrapper
 
@@ -95,23 +98,34 @@ block content
                   .recommend-card__ttl Сигара COHIBA BHK 52 и игристое вино Chateau Mouton Rothschild, Pauillac AOC
                   .recommend-card__txt Лучше всего сигары сочетаются с крепкими спиртными напитками. Сочетание сигар и алкоголя приносят курильщику
 
+        .controls-out__container
+          +control-left#recommend-slider-prev
+          +control-right#recommend-slider-next
+
+      .sliders-pagination#recommend-slider-pagination
+
   section.section--top
     .container
       +small-titles(ttl='Другие категории товаров')
 
-      .swiper-container.categories-slider#slider2
-        .swiper-wrapper
-          -
-            const cards = [
-              {file: 'shop-category-1', ttl: 'Сигары'},
-              {file: 'shop-category-2', ttl: 'Сигариллы'},
-              {file: 'shop-category-1', ttl: 'Хьюмидоры'},
-            ]
-          each item in cards
-            .swiper-slide
-              a.shop-page-head__card(href="")
-                +picture(file=`${item.file}`)
-                .shop-page-head__card-ttl #{item.ttl}
+      .categories-slider.controls-out
+        .swiper-container#categories-slider
+          .swiper-wrapper
+            -
+              const cards = [
+                {file: 'shop-category-1', ttl: 'Сигары'},
+                {file: 'shop-category-2', ttl: 'Сигариллы'},
+                {file: 'shop-category-1', ttl: 'Хьюмидоры'},
+              ]
+            each item in cards
+              .swiper-slide
+                a.shop-page-head__card(href="")
+                  +picture(file=`${item.file}`)
+                  .shop-page-head__card-ttl #{item.ttl}
+
+        .controls-out__container
+          +control-left#categories-slider-prev
+          +control-right#categories-slider-next
 
   -
     const smallTitle = true;

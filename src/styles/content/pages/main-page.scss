@@ -225,54 +225,6 @@
   }
 }
 
-.restaurant-slider {
-  display: flex;
-  margin-top: getRem(150px);
-
-  &__col {
-    width: calc(#{$col-part-d});
-
-    display: flex;
-    align-items: center;
-
-    &:nth-child(3) {
-      justify-content: flex-end;
-    }
-  }
-
-  &__control {
-    width: getRem(44px);
-    height: getRem(44px);
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    border: 1px solid var(--color-brown);
-    border-radius: 50%;
-  }
-
-  &__container {
-    width: calc(#{$col-part-d} * 10 - #{$col-gap});
-    overflow: hidden;
-  }
-
-  &__pagination {
-    margin-top: getRem(20px);
-
-    .swiper-pagination-bullet {
-      width: getRem(30px);
-      height: getRem(2px);
-      background: #CECECE;
-      border-radius: 5px;
-
-      &.swiper-pagination-bullet-active {
-        background: var(--color-brown);
-      }
-    }
-  }
-}
-
 .subscription-section {
   .two-cols-block__txt {
     margin-top: getRem(15px);
@@ -302,20 +254,6 @@
     }
   }
 
-  &__slider {
-    display: flex;
-
-    .swiper-container {
-      width: calc(#{$col-part-d} * 8 - #{$col-gap});
-      overflow: hidden;
-      height: fit-content;
-    }
-
-    &-slide {
-      width: auto;
-    }
-  }
-
   &__grade {
     width: calc(#{$col-part-d} * 3 - #{$col-gap});
 
@@ -333,46 +271,5 @@
     &-txt {
       @include fsl(20px, 160%);
     }
-  }
-}
-
-.shop-slider {
-  margin-top: getRem(45px);
-  // position: relative;
-  // padding-bottom: getRem(108px);
-
-  &__row {
-    display: flex;
-  }
-
-  .swiper-container {
-    overflow: hidden;
-  }
-  .swiper-slide {
-    width: fit-content;
-  }
-
-  &__col {
-    display: flex;
-    align-items: center;
-
-    &:nth-child(1) {
-      margin-left: getRem(-74px);
-      button {
-        margin-right: getRem(30px);
-      }
-    }
-    &:nth-child(3) {
-      margin-right: getRem(-74px);
-      button {
-        margin-left: getRem(30px);
-      }
-    }
-  }
-
-  &__btn {
-    margin: getRem(58px) auto 0;
-    // position: absolute;
-    // bottom: 0;
   }
 }

@@ -1,0 +1,128 @@
+.controls-out {
+  position: relative;
+
+  &__container {
+    position: absolute;
+    top: 50%;
+    width: calc(100% + 148px);
+    left: getRem(-74px);
+    right: getRem(-74px);
+
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.sliders-pagination {
+  margin-top: getRem(20px);
+
+  .swiper-pagination-bullet {
+    width: getRem(30px);
+    height: getRem(2px);
+    background: #CECECE;
+    border-radius: 5px;
+
+    &.swiper-pagination-bullet-active {
+      background: var(--color-brown);
+    }
+  }
+}
+
+.restaurant-slider {
+  display: flex;
+  margin-top: getRem(150px);
+
+  &__col {
+    width: calc(#{$col-part-d});
+
+    display: flex;
+    align-items: center;
+
+    &:nth-child(3) {
+      justify-content: flex-end;
+    }
+  }
+
+  &__control {
+    width: getRem(44px);
+    height: getRem(44px);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border: 1px solid var(--color-brown);
+    border-radius: 50%;
+  }
+
+  &__container {
+    width: calc(#{$col-part-d} * 10 - #{$col-gap});
+    overflow: hidden;
+  }
+}
+
+.shop-slider {
+  margin-top: getRem(45px);
+
+  &__row {
+    display: flex;
+  }
+
+  .swiper-container {
+    overflow: hidden;
+  }
+  .swiper-slide {
+    width: calc(#{$col-part-d} * 3 - #{$col-gap});
+  }
+
+  &__col {
+    display: flex;
+    align-items: center;
+
+    &:nth-child(1) {
+      margin-left: getRem(-74px);
+      button {
+        margin-right: getRem(30px);
+      }
+    }
+    &:nth-child(3) {
+      margin-right: getRem(-74px);
+      button {
+        margin-left: getRem(30px);
+      }
+    }
+  }
+}
+
+.reviews-section__slider {
+  display: flex;
+
+  .swiper-container {
+    width: calc(#{$col-part-d} * 8 - #{$col-gap});
+    overflow: hidden;
+    height: fit-content;
+  }
+
+  &-slide {
+    width: auto;
+  }
+}
+
+.categories-slider {
+  .swiper-container {
+    overflow: hidden;
+  }
+  .swiper-slide {
+    width: fit-content;
+  }
+}
+
+.recommend-slider {
+  .swiper-container {
+    overflow: hidden;
+  }
+
+  .swiper-slide {
+    width: calc(#{$col-part-d} * 4 - #{$col-gap});
+  }
+}

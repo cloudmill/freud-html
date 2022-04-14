@@ -93,3 +93,19 @@
     }
   }
 }
+
+
+.category-search {
+  display: flex;
+  align-items: center;
+  width: calc(#{$col-part-d} * 3 - #{$col-gap});
+  padding-bottom: getRem(5px);
+  border-bottom: 1px solid var(--color-black-rgba-1);
+
+  &__input {
+    border: none;
+    width: calc(100% - 17px);
+    color: var(--color-grey);
+    @include fsl(14px, 120%);
+  }
+}

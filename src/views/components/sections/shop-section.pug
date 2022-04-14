@@ -21,20 +21,18 @@ section.section.shop-section
         price: '13 820 ₽'}
       ]
 
-    .shop-slider
-      .shop-slider__row
-        .shop-slider__col
-          +control-left#shop-slider-prev
+    .shop-slider.controls-out
 
-        .swiper-container#shop-slider
-          .swiper-wrapper
-            each item in content
-              .swiper-slide
-                +catalog-card(img=`${item.img}` brand=`${item.brand}` ttl=`${item.ttl}` txt=`${item.txt}` price=`${item.price}`)
+      .swiper-container#shop-slider
+        .swiper-wrapper
+          each item in content
+            .swiper-slide
+              +catalog-card(img=`${item.img}` brand=`${item.brand}` ttl=`${item.ttl}` txt=`${item.txt}` price=`${item.price}`)
 
-        .shop-slider__col
-          +control-right#shop-slider-next
+      .controls-out__container
+        +control-left#shop-slider-prev
+        +control-right#shop-slider-next
 
-      if (!nobtn)
-        +brown-border-button.shop-slider__btn
-          |Перейти в каталог
+    if (!nobtn)
+      +brown-border-button.more-btn
+        |Перейти в каталог
