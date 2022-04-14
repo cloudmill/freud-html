@@ -42,8 +42,14 @@
 			<main class="main">
 				<section class="section section--first relative">
 					<div class="container">
-						<div class="first-screen"><img class="first-screen__img first-screen__img--big" src="assets/images/first-screen-img-1.webp" alt="">
-							<div class="first-screen__txt">Для ценителей комфорта,<br>приватности и высокого сервиса</div><img class="first-screen__img first-screen__img--small" src="assets/images/first-screen-img-2.webp" alt="">
+						<div class="first-screen">
+							<picture class="no-flex">
+								<source srcset="assets/images/webp/first-screen-img-1.webp" type="image/webp" /><img class="first-screen__img first-screen__img--big" src="assets/images/first-screen-img-1.jpg" alt="" />
+							</picture>
+							<div class="first-screen__txt">Для ценителей комфорта,<br>приватности и высокого сервиса</div>
+							<picture class="no-flex">
+								<source srcset="assets/images/webp/first-screen-img-2.webp" type="image/webp" /><img class="first-screen__img first-screen__img--small" src="assets/images/first-screen-img-2.jpg" alt="" />
+							</picture>
 							<div class="first-screen__ttl"><span class="first-screen__ttl--big">Профессор Фрейд</span><span class="first-screen__ttl--small">частный клуб</span></div>
 						</div>
 						<div class="first-screen__bottom"><a class="icon-circle" href=""><svg width="20" height="11" viewBox="0 0 20 11" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -65,8 +71,10 @@
 				</section>
 				<section class="section section--black">
 					<div class="container">
-						<div class="main-page-block__subttl">профессор фрейд</div>
-						<h1 class="main-page-block__ttl txt-white">О клубе</h1>
+						<div class="big-titles white-ttl">
+							<div class="big-titles__subttl">профессор фрейд</div>
+							<h2 class="big-titles__ttl h1">О клубе</h2>
+						</div>
 						<div class="main-page-block__cols">
 							<div class="main-page-block__col">Частный клуб «Профессор Фрейд» — это концептуальный проект с уникальным форматом. Место ориентировано на людей, для которых важны камерная атмосфера, приватность и высокий сервис.</div>
 							<div class="main-page-block__col">Клуб идеально подойдет как для поклонников сигарной культуры, так и знатоков вина, ценителей крепкого алкоголя или гастрономии</div>
@@ -79,12 +87,20 @@
 						<div class="two-cols-block">
 							<div class="two-cols-block__col">
 								<div>
-									<div class="main-page-block__subttl">стиль Gentlman’s Club</div>
-									<h1 class="main-page-block__ttl">Сигарный<br>лаунж</h1>
+									<div class="big-titles">
+										<div class="big-titles__subttl">стиль Gentlman’s Club</div>
+										<h2 class="big-titles__ttl h1">Сигарный<br />лаунж</h2>
+									</div>
 									<div class="two-cols-block__txt">Атмосфера лаунжа выдержана в стиле Gentlman’s Club. Каждая деталь продумана и выполнена с любовью</div>
-								</div><img src="assets/images/main-lounge-1.webp" alt="">
+								</div>
+								<picture class="no-flex">
+									<source srcset="assets/images/webp/main-lounge-1.webp" type="image/webp" /><img src="assets/images/main-lounge-1.jpg" alt="" />
+								</picture>
 							</div>
-							<div class="two-cols-block__col"><img src="assets/images/main-lounge-2.webp" alt="">
+							<div class="two-cols-block__col">
+								<picture class="no-flex">
+									<source srcset="assets/images/webp/main-lounge-2.webp" type="image/webp" /><img src="assets/images/main-lounge-2.jpg" alt="" />
+								</picture>
 								<div>
 									<div class="two-cols-block__txt">Лаунж с камином и коллекцией винила располагает как для деловых встреч, так и для интеллектуальных бесед</div><a class="two-cols-block__link" href="">узнать больше</a>
 								</div>
@@ -93,8 +109,10 @@
 					</div>
 				</section>
 				<section class="section-bg-photo">
-					<div class="main-page-block__subttl">место для деловых встреч</div>
-					<h1 class="main-page-block__ttl txt-white">Деловая обстановка</h1>
+					<div class="big-titles white-ttl">
+						<div class="big-titles__subttl">место для деловых встреч</div>
+						<h2 class="big-titles__ttl h1">Деловая обстановка</h2>
+					</div>
 					<div class="two-cols-block__txt txt-white">Профессионализм и компетентность сотрудников гарантируют<br>гостям комфортное времяпрепровождение</div><button class="button button--brown">Забронировать стол</button>
 				</section>
 				<section class="section">
@@ -104,8 +122,10 @@
 								<div class="two-cols-block__col"></div>
 								<div class="two-cols-block__col">
 									<div>
-										<div class="main-page-block__subttl">строгость и элегантность</div>
-										<h1 class="main-page-block__ttl">Ресторан</h1>
+										<div class="big-titles">
+											<div class="big-titles__subttl">строгость и элегантность</div>
+											<h2 class="big-titles__ttl h1">Ресторан</h2>
+										</div>
 										<div class="two-cols-block__txt">Неповторимая эстетика «ревущих двадцатых», строгость и элегантность ушедшей эпохи. Строгий контроль качества продуктов и внимание наших сотрудников позволят в полной мере насладиться временем, проведенным в наших стенах</div>
 									</div>
 								</div>
@@ -117,9 +137,21 @@
 								<div class="restaurant-slider__container">
 									<div class="swiper-container" id="slider1">
 										<div class="swiper-wrapper">
-											<div class="swiper-slide"><img src="assets/images/main-slide.webp" alt=""></div>
-											<div class="swiper-slide"><img src="assets/images/main-slide.webp" alt=""></div>
-											<div class="swiper-slide"><img src="assets/images/main-slide.webp" alt=""></div>
+											<div class="swiper-slide">
+												<picture class="no-flex">
+													<source srcset="assets/images/webp/main-slide.webp" type="image/webp" /><img src="assets/images/main-slide.jpg" alt="" />
+												</picture>
+											</div>
+											<div class="swiper-slide">
+												<picture class="no-flex">
+													<source srcset="assets/images/webp/main-slide.webp" type="image/webp" /><img src="assets/images/main-slide.jpg" alt="" />
+												</picture>
+											</div>
+											<div class="swiper-slide">
+												<picture class="no-flex">
+													<source srcset="assets/images/webp/main-slide.webp" type="image/webp" /><img src="assets/images/main-slide.jpg" alt="" />
+												</picture>
+											</div>
 										</div>
 									</div>
 									<div class="restaurant-slider__pagination" id="restaurant-slider-pagination"></div>
@@ -133,8 +165,10 @@
 				</section>
 				<section class="section section--black subscription-section">
 					<div class="container">
-						<div class="main-page-block__subttl">новые поступления и полезные материалы</div>
-						<h1 class="main-page-block__ttl txt-white">Новости клуба</h1>
+						<div class="big-titles white-ttl">
+							<div class="big-titles__subttl">новые поступления и полезные материалы</div>
+							<h2 class="big-titles__ttl h1">Новости клуба</h2>
+						</div>
 						<div class="two-cols-block__txt txt-white">Подпишитесь на последние обновления — только полезная<br>информация, без спама</div>
 						<div class="subscription-form"><input class="subscription-form__input" type="email" id="email" placeholder="Ваш e-mail"><button class="button button--brown subscription-form__button">Подписаться</button>
 							<div class="checkbox subscription-form__checkbox"><label class="checkbox__label"><input class="checkbox__input" type="checkbox">
@@ -150,8 +184,10 @@
 				</section>
 				<section class="section section--grey reviews-section">
 					<div class="container">
-						<div class="main-page-block__subttl">благодарим за обратную связь</div>
-						<h1 class="main-page-block__ttl">Отзывы гостей</h1>
+						<div class="big-titles">
+							<div class="big-titles__subttl">благодарим за обратную связь</div>
+							<h2 class="big-titles__ttl h1">Отзывы гостей</h2>
+						</div>
 						<div class="reviews-section__row">
 							<div class="reviews-section__slider">
 								<div class="reviews-section__col"><button class="restaurant-slider__control button--clean" id="reviews-slider-prev"><svg width="9" height="14" viewBox="0 0 9 14" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -290,7 +326,7 @@
 													</div><svg class="catalog-card__fav" width="19" height="17" viewBox="0 0 19 17" fill="none" xmlns="http://www.w3.org/2000/svg">
 														<path d="M1 5.66791C1 0.880053 7.375 -0.857619 9.5 3.4929C11.625 -0.857619 18 0.880107 18 5.66796C18 10.4558 9.5 16 9.5 16C9.5 16 1 10.4558 1 5.66791Z" stroke="#1B1B1B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="bevel"></path>
 													</svg>
-													<picture>
+													<picture class="no-flex">
 														<source srcset="assets/images/webp/shop-img-1.webp" type="image/webp" /><img src="assets/images/shop-img-1.jpg" alt="" />
 													</picture>
 												</div>
@@ -334,7 +370,7 @@
 													</div><svg class="catalog-card__fav" width="19" height="17" viewBox="0 0 19 17" fill="none" xmlns="http://www.w3.org/2000/svg">
 														<path d="M1 5.66791C1 0.880053 7.375 -0.857619 9.5 3.4929C11.625 -0.857619 18 0.880107 18 5.66796C18 10.4558 9.5 16 9.5 16C9.5 16 1 10.4558 1 5.66791Z" stroke="#1B1B1B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="bevel"></path>
 													</svg>
-													<picture>
+													<picture class="no-flex">
 														<source srcset="assets/images/webp/shop-img-2.webp" type="image/webp" /><img src="assets/images/shop-img-2.jpg" alt="" />
 													</picture>
 												</div>

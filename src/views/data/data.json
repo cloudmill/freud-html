@@ -3,27 +3,27 @@
 
   "routes": [
     {
-      "href": "/freud-html/dist/main",
+      "href": "main",
       "title": "Главная"
     },
     {
-      "href": "/freud-html/dist/shop",
+      "href": "shop",
       "title": "Магазин"
     },
     {
-      "href": "/freud-html/dist/shop-cigars",
+      "href": "shop-cigars",
       "title": "[Магазин] Категория сигары"
     },
     {
-      "href": "/freud-html/dist/about",
+      "href": "about",
       "title": "О клубе"
     },
     {
-      "href": "/freud-html/dist/contacts",
+      "href": "contacts",
       "title": "Контакты"
     },
     {
-      "href": "/freud-html/dist/404",
+      "href": "404",
       "title": "404"
     }
   ]
