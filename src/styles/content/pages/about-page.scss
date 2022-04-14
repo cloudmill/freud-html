@@ -1,0 +1,65 @@
+.about-block {
+  padding: getRem(60px) 0 getRem(120px);
+
+  &-bottom {
+    margin-top: getRem(90px);
+    display: flex;
+    justify-content: space-between;
+
+    &__item {
+      @include fsl(18px, 150%);
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+  }
+}
+
+.interior-block {
+
+  &__col {
+    margin: getRem(90px) 0 0 auto;
+    width: calc(#{$col-part-d} * 6 - #{$col-gap});
+    padding-right: calc(#{$col-part-d});
+
+    .big-titles__txt {
+      margin-top: getRem(15px)
+    }
+  }
+}
+
+.rent-section-bg {
+  background: url(assets/images/section-rent-bg.jpg) no-repeat center !important;
+}
+
+.club-card-block {
+  display: flex;
+  justify-content: space-between;
+
+  &__col {
+    &:nth-child(1) {
+      padding: getRem(98px) 0;
+      width: calc(#{$col-part-d} * 4);
+
+      .big-titles__txt {
+        margin: getRem(15px) 0 getRem(30px);
+      }
+    }
+    &:nth-child(2) {
+      width: calc(#{$col-part-d} * 4 - #{$col-gap});
+      height: auto;
+      background: var(--color-black);
+      padding: getRem(40px);
+
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    &__ttl {
+      font-family: $ff-titles;
+      @include fsl(30px, 160%);
+      color: var(--color-white);
+    }
+  }
+}

@@ -1,14 +1,75 @@
 extends ../layouts/master
 
+include ../components/breadcrumbs
 include ../components/buttons
 include ../components/cards
 include ../components/block-titles
+include ../components/picture
 
 block content
 
-  section.section.section--first
+  section.section--first.section--grey-extra
     .container
+      +breadcrumbs(page = 'О клубе')
+
+      .about-block
+        .section-bg-photo
+          +big-titles.white-ttl(ttl='О клубе' subttl='профессор фрейд')
+
+        .about-block-bottom
+          each item in ['Хьюмидорная комната', 'Сигарный лаунж', 'Кабинет Фрейда', 'Ресторан с баром', 'Винотека в формате bar&shop']
+
+            a.about-block-bottom__item(href="") #{item}
+
+  section.section--top
+    .container
+      +big-titles(subttl='подробнее о нас' ttl='Уникальный' ttl2='проект')
+
+  section.section--bottom.section--grey.interior-block
+    .container
+      .restaurant-slider
+        .restaurant-slider__col
+          +control-left#restaurant-slider-prev
+
+        .restaurant-slider__container
+          .swiper-container#restaurant-slider
+            .swiper-wrapper
+              - for (i=0;i<3;i++)
+                .swiper-slide
+                  +picture(file='main-slide')
+
+          .sliders-pagination#restaurant-slider-pagination
+
+        .restaurant-slider__col
+          +control-right#restaurant-slider-next
+
+      .interior-block__col
+        +big-titles(subttl='элегантный дизайн' ttl='Интерьер' txt='Строгое респектабельное пространство с атмосферой мужского клуба со стилистической отсылкой к позднему Австрийскому модерну и современному «северному итальянскому модерну» 60-70-х годов XX века')
+
+  section.section.section--black
+    .container
+      +big-titles.white-ttl(subttl='подробнее о нас' ttl='Правила' ttl2='посещения клуба')
 
   include ../components/sections/reviews-section
+
+  section.section
+    .container
+      .club-card-block
+        .club-card-block__col
+          +big-titles(subttl='специальные условия' ttl='Клубная' ttl2='карта' txt='Первоклассное обслуживание с дополнительными привилегиями: скидки, подарки, приглашениена закрытые мероприятия')
+          +read-more-btn
+            |узнать больше
+
+        a.club-card-block__col(href='')
+          +infinity
+          .club-card-block__col__ttl Привилегии #[br] клубной карты
+
+  section.section-bg-photo.rent-section-bg
+    +big-titles.white-ttl(ttl='Аренда клуба' subttl='под ваше мероприятие')
+
+    .two-cols-block__txt.txt-white У нас можно арендовать определенную зону или весь клуб #[br] целиком, в зависимости от формата мероприятия
+
+    +brown-button
+      |Получить консультацию
 
   include ../components/sections/subscribe-section
