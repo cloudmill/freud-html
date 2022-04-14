@@ -1,0 +1,95 @@
+extends ../layouts/master
+
+include ../components/buttons
+include ../components/cards
+include ../components/breadcrumbs
+include ../components/block-titles
+include ../components/picture
+
+block content
+
+  section.section--first.section--bottom
+    .container
+      +breadcrumbs(items = ['Магазин'] page = 'Вина')
+
+      .category-top
+        .category-top__line
+          
+          .category-title-block
+            h1.category-title.h2 Вина
+            .category-items-count 96 товаров
+
+          .category-search
+            input.category-search__input(type='search' placeholder='Поиск по каталогу')
+            +search-icon
+
+        .category-top__line.drinks-filters
+
+          .drinks-filters-item.active
+              +picture(file='grinks-filter-img')
+              .drinks-filters-item__title Тихие вина
+
+          -
+            const titles = [
+              'Игристые вина',
+              'Шампанское',
+              'Крепленые вина',
+            ]
+
+          each item in titles
+            .drinks-filters-item
+              +picture(file='grinks-filter-img')
+              .drinks-filters-item__title #{item}
+
+        .category-top__line
+          button.category-filter-drop.button--clean
+            +filter-icon
+            span все фильтры
+
+          -
+            const filters = [
+              'цена',
+              'производитель',
+              'страна',
+              'крепость',
+              'время курения',
+              'Формат',
+              'рекомендуем',
+            ]
+          each item in filters
+            button.category-filter-drop.button--clean
+              span #{item}
+              +arrow-down
+
+        .category-top__line
+          - for (b=0;b<3;b++)
+            button.category-filter-btn.button--clean.active-filter
+              |Alec Bradley
+              span.category-filter-btn__cross
+
+          button.category-filter-btn.button--clean.filter-reset
+              |Очистить все
+
+      .category-body
+
+        - for (b=0;b<4;b++)
+          -
+            var content = [
+              {img: 'shop-img-1',
+              brand: 'Ornellaia',
+              ttl: 'Вино St-Emilion AOC Premier Grand Cru Classe',
+              txt: 'Красное, сухое, 750 мл',
+              price: '165 750'},
+
+              {img: 'shop-img-2',
+              brand: 'Gurkha',
+              ttl: 'Сигара Triad Platinum',
+              txt: 'strong',
+              price: '13 820 ₽'}
+            ]
+          
+          each item in content
+            +catalog-card(img=`${item.img}` brand=`${item.brand}` ttl=`${item.ttl}` txt=`${item.txt}` price=`${item.price}`)
+
+      +brown-border-button.more-btn
+        |Посмотреть еще

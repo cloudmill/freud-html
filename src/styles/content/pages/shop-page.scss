@@ -134,8 +134,11 @@
       justify-content: space-between;
       align-items: center;
     }
-    &:nth-child(2) {
+    &.cigars-filters {
       padding: getRem(30px) 0;
+    }
+    &.drinks-filters {
+      padding: getRem(30px) 0 getRem(20px);
     }
     &:nth-child(3) {
       padding: getRem(25px) 0;
@@ -254,8 +257,34 @@
   }
 }
 
+
+
 .category-body {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: getRem(30px);
+}
+
+.drinks-filters {
+
+  &-item {
+    width: calc(#{$col-part-d});
+    border: 1px solid transparent;
+    padding: getRem(5px) getRem(5px) getRem(10px) getRem(5px);
+
+    &:not(:last-child) {
+      margin-right: getRem(15px);
+    }
+
+    &__title {
+      @include fsl(14px, 130%);
+      margin-top: getRem(5px);
+      text-align: center;
+    }
+
+    &.active, &:hover {
+      border: 1px solid var(--color-brown);
+    }
+  }
+
 }
