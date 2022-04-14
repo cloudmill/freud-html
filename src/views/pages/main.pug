@@ -10,9 +10,11 @@ block content
   section.section.section--first.relative
     .container
       .first-screen
-        img.first-screen__img.first-screen__img--big(src="assets/images/first-screen-img-1.webp", alt="")
+        +picture.first-screen__img.first-screen__img--big(file='first-screen-img-1')
+
         .first-screen__txt Для ценителей комфорта, #[br] приватности и высокого сервиса
-        img.first-screen__img.first-screen__img--small(src="assets/images/first-screen-img-2.webp", alt="")
+
+        +picture.first-screen__img.first-screen__img--small(file='first-screen-img-2')
 
         .first-screen__ttl
           span.first-screen__ttl--big Профессор Фрейд
@@ -62,10 +64,11 @@ block content
             .two-cols-block__txt
               |Атмосфера лаунжа выдержана в стиле Gentlman’s Club. Каждая деталь продумана и выполнена с любовью
 
-          img(src="assets/images/main-lounge-1.webp", alt="")
+          +picture(file='main-lounge-1')
+
 
         .two-cols-block__col
-          img(src="assets/images/main-lounge-2.webp", alt="")
+          +picture(file='main-lounge-2')
 
           div
             .two-cols-block__txt
@@ -78,7 +81,6 @@ block content
     h1.main-page-block__ttl.txt-white Деловая обстановка
     .two-cols-block__txt.txt-white Профессионализм и компетентность сотрудников гарантируют #[br] гостям комфортное времяпрепровождение
 
-    //- button.button.button--brown 
     +brown-button
       |Забронировать стол
 
@@ -103,7 +105,7 @@ block content
               .swiper-wrapper
                 - for (i=0;i<3;i++)
                   .swiper-slide
-                    img(src="assets/images/main-slide.webp", alt="")
+                    +picture(file='main-slide')
 
             .restaurant-slider__pagination#restaurant-slider-pagination
 
