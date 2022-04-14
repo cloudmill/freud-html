@@ -4,15 +4,20 @@ mixin big-titles
 
     if (attributes.shop)
       h1.big-titles__ttl.h1 #{attributes.ttl}
+      
     else
       h2.big-titles__ttl.h1 #{attributes.ttl}
+      
+        if (attributes.ttl2)
+          br
+          |#{attributes.ttl2}
 
     if (attributes.txt)
       .big-titles__txt #{attributes.txt}
 
-
-    if (attributes.shop)
-      .big-titles__txt В нашем интернет-магазине вы найдете коллекцию лучших сигар, #[br] терпкого алкоголя и ярких вин
+        if (attributes.txt2)
+          br
+          |#{attributes.txt2}
 
 
 

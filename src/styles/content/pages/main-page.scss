@@ -112,18 +112,6 @@
 
   $comp: &;
 
-  &__ttl {
-    @include fsl(72px, 120%);
-    font-family: 'Berlingske Serif';
-  }
-  &__subttl {
-    @include fsl(13px, 130%);
-    font-weight: 700;
-    letter-spacing: 0.13em;
-    text-transform: uppercase;
-    color: var(--color-brown);
-  }
-
   &__cols {
     display: flex;
     justify-content: space-between;

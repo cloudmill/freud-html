@@ -9,7 +9,6 @@
   }
 
   &__ttl {
-    // @include fsl(72px, 120%);
     font-family: 'Berlingske Serif';
   }
 
@@ -27,10 +26,15 @@
 
   &__ttl {
     font-family: 'Berlingske Serif';
-    // @include fsl(48px, 130%);
   }
   &__txt {
     @include fsl(20px, 170%);
     margin-top: getRem(10px);
+  }
+}
+
+.white-ttl {
+  .big-titles__ttl {
+    color: var(--color-white);
   }
 }

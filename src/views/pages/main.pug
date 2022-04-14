@@ -37,8 +37,7 @@ block content
   section.section.section--black
     .container
 
-      .main-page-block__subttl профессор фрейд
-      h1.main-page-block__ttl.txt-white О клубе
+      +big-titles.white-ttl(ttl='О клубе' subttl='профессор фрейд')
 
       .main-page-block__cols
         .main-page-block__col
@@ -59,8 +58,9 @@ block content
         .two-cols-block__col
 
           div
-            .main-page-block__subttl стиль Gentlman’s Club
-            h1.main-page-block__ttl Сигарный #[br] лаунж
+
+            +big-titles(ttl='Сигарный' ttl2='лаунж' subttl='стиль Gentlman’s Club')
+
             .two-cols-block__txt
               |Атмосфера лаунжа выдержана в стиле Gentlman’s Club. Каждая деталь продумана и выполнена с любовью
 
@@ -77,8 +77,8 @@ block content
             a.two-cols-block__link(href="") узнать больше
 
   section.section-bg-photo
-    .main-page-block__subttl место для деловых встреч
-    h1.main-page-block__ttl.txt-white Деловая обстановка
+    +big-titles.white-ttl(ttl='Деловая обстановка' subttl='место для деловых встреч')
+
     .two-cols-block__txt.txt-white Профессионализм и компетентность сотрудников гарантируют #[br] гостям комфортное времяпрепровождение
 
     +brown-button
@@ -91,8 +91,7 @@ block content
           .two-cols-block__col
           .two-cols-block__col
             div
-              .main-page-block__subttl строгость и элегантность
-              h1.main-page-block__ttl Ресторан
+              +big-titles(ttl='Ресторан' subttl='строгость и элегантность')
               .two-cols-block__txt
                 |Неповторимая эстетика «ревущих двадцатых», строгость и элегантность ушедшей эпохи. Строгий контроль качества продуктов и внимание наших сотрудников позволят в полной мере насладиться временем, проведенным в наших стенах
 
