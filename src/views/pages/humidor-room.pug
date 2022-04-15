@@ -1,0 +1,84 @@
+extends ../layouts/master
+
+include ../components/breadcrumbs
+include ../components/buttons
+include ../components/cards
+include ../components/block-titles
+include ../components/picture
+
+block content
+
+  section.section--first.section--grey-extra
+    .container
+      +breadcrumbs(items = ['О клубе'] page = 'Хьюмидорная комната')
+
+      .about-block
+        .section-bg-photo.humidor-top-bg
+          +big-titles.white-ttl(subttl='профессор фрейд' ttl='Хьюмидорная комната')
+
+          .scroll-down
+            .scroll-down__line
+
+        .nums-block-bottom
+
+          -
+            const nums = [
+              {num: '72-74%', txt: 'Влажность в помещении'},
+              {num: '>450', txt: 'Различных сигар'},
+              {num: '17-18°', txt: 'Температура в помещении'},
+            ]
+
+          each item in nums
+            .nums-block-bottom__col
+              .nums-block-bottom__big #{item.num}
+              .nums-block-bottom__txt #{item.txt}
+
+  section.section.section--top
+    .container
+      .benefits-block
+        .benefits-cell
+          +big-titles(subttl='сохраняем качество' ttl='Идеальные' ttl2='условия')
+
+        -
+          const benefits = [
+            {ttl: 'Оптимальный микроклимат', txt: 'В помещении поддерживается определенная температура и влажность воздуха для сохранения первозданного качества сигар'},
+            {ttl: 'Внушительный', ttl2: 'ассортимент', txt: 'Ассортимент сигар составлен из лучших брендов Кубы и Карибского бассейна для поклонников сигарной культуры'},
+            {ttl: 'Аренда ячеек', ttl2: 'для сигар', txt: 'Именные ячейки для владельцев клубных карт и возможность аренды для посетителей'},
+            {ttl: 'Услуга', ttl2: 'насыщения сигар', txt: 'Услуга выдерживания высохших сигарв хьюмидоре для восстановления их естественной влажности'},
+          ]
+
+        each item, index in benefits
+          .benefits-cell.cell-list
+            +about-benefit-ico(`${index}`)
+
+            .benefits-cell__info
+              .benefits-cell__ttl.h3 #{item.ttl}
+                if (item.ttl2)
+                  br
+                  | #{item.ttl2}
+
+              .benefits-cell__txt #{item.txt}
+
+  section.section
+    .container
+      .blockquote
+        .blockquote__txt
+          |«Мы проводники #[br] для наших клиентов в мире #[br] сигарной культуры»
+        .blockquote__name
+          |станислав аверкиев — витолье-фумелье клуба профессор фрейд
+
+  -
+    const titles = [
+      {ttl: 'Онлайн-каталог сигар', subttl: 'полный ассортимент'},
+      {ttl: 'Подарочные наборы', subttl: 'выбор покупателей'}
+    ]
+    let newTitle = titles[0];
+  include ../components/sections/shop-section
+
+
+
+  -
+    newTitle = titles[1];
+  include ../components/sections/shop-section
+
+  include ../components/sections/articles-section

@@ -1,5 +1,5 @@
 .about-block {
-  padding: getRem(60px) 0 getRem(120px);
+  padding-top: getRem(60px);
 
   .section-bg-photo {
     padding: getRem(177px) 0 getRem(60px);
@@ -18,7 +18,7 @@
   }
 
   &-bottom {
-    margin-top: getRem(90px);
+    padding: getRem(90px) 0 getRem(120px);
     display: flex;
     justify-content: space-between;
 
@@ -40,6 +40,9 @@
     width: calc(#{$col-part-d} * 4 - #{$col-gap});
     height: auto;
 
+    &:nth-child(1) {
+      margin-top: getRem(60px);
+    }
     &:nth-child(1), &:nth-child(2) {
       width: calc(#{$col-part-d} * 6 - #{$col-gap});
     }

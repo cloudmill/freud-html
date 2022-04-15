@@ -1,0 +1,44 @@
+.humidor-top-bg {
+  background: url(assets/images/humidor-block-bg.jpeg) no-repeat center !important;
+}
+
+.nums-block-bottom {
+  display: flex;
+  justify-content: space-between;
+
+  padding: getRem(65px) 0;
+
+  &__big {
+    font-family: $ff-titles;
+    @include fsl(72px, 130%);
+  }
+  &__txt {
+    @include fsl(20px, 160%);
+    color: var(--color-grey);
+  }
+}
+
+.blockquote {
+  text-align: center;
+  position: relative;
+
+  // &::before {
+  //   content: '';
+  //   position: absolute;
+  // }
+
+  &__txt {
+    font-family: $ff-titles;
+    @include fsl(60px, 140%);
+
+    margin: getRem(30px) 0;
+  }
+
+  &__name {
+    @include fsl(13px, 130%);
+    font-weight: 700;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--color-brown);
+  }
+}

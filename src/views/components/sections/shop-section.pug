@@ -3,6 +3,8 @@ section.section.shop-section
 
     if (smallTitle)
       +small-titles(ttl='Вы смотрели ранее')
+    if (newTitle)
+      +big-titles(subttl=`${newTitle.subttl}` ttl=`${newTitle.ttl}`)
     else
       +big-titles(ttl='Магазин' subttl='более 1000 товаров в наличии')
 
