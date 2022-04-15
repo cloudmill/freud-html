@@ -1,5 +1,6 @@
 extends ../layouts/master
 
+include ../components/breadcrumbs
 include ../components/buttons
 include ../components/cards
 include ../components/block-titles
@@ -7,8 +8,53 @@ include ../components/picture
 
 block content
 
-  section.section.section--first
+  section.section--first.section--bottom
     .container
+      +breadcrumbs(page = 'Контакты')
+
+      .contacts-block
+        .contacts-block__top
+          +big-titles(subttl='профессор фрейд' ttl='Контакты' txt='Клуб располагается в самом центре Петербурга напротив Исаакиевского собора,' txt2='недалеко от Невского проспекта, Дворцовой площади и Мариинского театра')
+
+          .scroll-down
+            .scroll-down__line
+
+        .contacts-block__row
+          .contacts-block__col
+
+            .contacts-block__item
+              .contacts-block__item-ttl Адрес
+              .contacts-block__item-txt г. Санкт-Петербург, #[br] ул. Малая Морская, дом 18
+
+            .contacts-block__item
+              .contacts-block__item-ttl режим работы
+              .contacts-block__item-txt Пн-Чт, 12:00 – 00:00
+                br
+                |Пн-Сб, 12:00 – 01:00
+                br
+                |Вс, 13:00 – 23:00
+
+            +brown-button
+              |Забронировать стол
+
+          .contacts-block__col
+            .contacts-block__item
+              .contacts-block__item-ttl telegram/WhatsApp
+              .contacts-block__item-txt +7 (921) 449–18–18
+
+            .contacts-block__item
+              .contacts-block__item-ttl e-mail
+              .contacts-block__item-txt spb@freud.club
+
+            .contacts-block__item
+              .contacts-block__item-ttl социальные сети
+              a.icon-circle(href="")
+                +vk-icon
+
+          .contacts-block__map
+            <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A828b2df1c3e646ed9bf707043c5321cb8a73706508a8ea107668fd10d7a284aa&amp;source=constructor" width="570" height="450" frameborder="0"></iframe>
+
+  include ../components/sections/rent-section
 
   include ../components/sections/reviews-section
 
