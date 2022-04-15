@@ -1,0 +1,97 @@
+.rules-block {
+  border-top: 1px solid rgba(255, 255, 255, .1);
+  width: calc(#{$col-part-d} * 6 - #{$col-gap});
+  margin: 0 0 0 auto;
+}
+
+.rules-spoiler {
+  height: auto;
+
+  border-bottom: 1px solid rgba(255, 255, 255, .1);
+
+  position: relative;
+  overflow: hidden;
+
+  transition: .5s;
+
+  &.active {
+    height: 100%;
+
+    .rules-spoiler__arrow svg {
+      transform: rotate(180deg);
+    }
+    .rules-spoiler__drop {
+      height: 100%;
+      transform: none;
+      pointer-events: all;
+    }
+    .rules-spoiler__drop-inner {
+      position: relative;
+      opacity: 1;
+    }
+  }
+
+  &__button {
+    display: flex;
+    align-items: center;
+
+    cursor: pointer;
+
+    padding: getRem(30px) 0 getRem(30px);
+
+    position: relative;
+    z-index: 1;
+    background: var(--color-black)
+  }
+
+  &__num {
+    @include fsl(20px, 150%);
+    color: var(--color-grey);
+
+    width: calc(#{$col-part-d});
+    padding-right: #{$col-gap};
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  &__ttl {
+    font-family: $ff-titles;
+    @include fsl(30px, 150%);
+    color: var(--color-white);
+    width: calc(#{$col-part-d} * 4 - #{$col-gap});
+  }
+  &__arrow {
+    width: calc(#{$col-part-d});
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    svg {
+      width: getRem(16px);
+      height: getRem(8px);
+    }
+
+    path {
+      stroke: var(--color-white);
+    }
+  }
+
+  &__drop {
+    height: 0%;
+    pointer-events: none;
+
+    transform: translateY(-98%);
+    transition: .5s;
+
+    &-inner {
+      @include fsl(18px, 170%);
+      color: var(--grey-medium-txt);
+      padding: 0 0 getRem(30px) calc(#{$col-part-d});
+      position: absolute;
+
+      opacity: 0;
+      transition: .5s;
+    }
+  }
+}

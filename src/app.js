@@ -1,3 +1,4 @@
-import "./styles/app.scss";
+import './styles/app.scss';
 
-import "./scripts/sliders.js";
+import './scripts/sliders';
+import './scripts/spoiler';

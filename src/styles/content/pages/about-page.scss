@@ -55,16 +55,25 @@
   }
 }
 
+.about-benefits {
+  padding-bottom: getRem(310px);
+}
+
 .interior-block {
 
   &__col {
-    margin: getRem(90px) 0 0 auto;
+    margin: getRem(-70px) 0 0 auto;
     width: calc(#{$col-part-d} * 6 - #{$col-gap});
     padding-right: calc(#{$col-part-d});
 
     .big-titles__txt {
       margin-top: getRem(15px)
     }
+  }
+
+  .restaurant-slider {
+    margin-top: 0;
+    transform: translateY(-160px);
   }
 }
 
