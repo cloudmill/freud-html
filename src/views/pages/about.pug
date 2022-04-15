@@ -23,7 +23,29 @@ block content
 
   section.section--top
     .container
-      +big-titles(subttl='подробнее о нас' ttl='Уникальный' ttl2='проект')
+      .benefits-block
+        .benefits-cell
+          +big-titles(subttl='подробнее о нас' ttl='Уникальный' ttl2='проект')
+
+        -
+          const benefits = [
+            {ttl: 'Респектабельная атмосфера', txt: 'Элегантное и уютное пространство, где можно расслабиться и отвлечься от повседневных дел'},
+            {ttl: 'Безупречный сервис', txt: 'Качество сервиса для нас самое главное. Нам важно, чтобы каждый гость чувствовал себя комфортно'},
+            {ttl: 'Максимальная приватность', txt: 'Мы гарантируем нашим гостям атмосферу приватности и уважения к личному пространству'},
+            {ttl: 'Клубные', ttl2: 'карты', txt: 'Станьте нашим постоянным гостем и приобретите клубную карту, по гостевой карте вы получите регулярные скидки'},
+          ]
+
+        each item, index in benefits
+          .benefits-cell.cell-list
+            +about-benefit-ico(`${index}`)
+
+            .benefits-cell__info
+              .benefits-cell__ttl.h3 #{item.ttl}
+                if (item.ttl2)
+                  br
+                  | #{item.ttl2}
+
+              .benefits-cell__txt #{item.txt}
 
   section.section--bottom.section--grey.interior-block
     .container
@@ -64,12 +86,6 @@ block content
           +infinity
           .club-card-block__col__ttl Привилегии #[br] клубной карты
 
-  section.section-bg-photo.rent-section-bg
-    +big-titles.white-ttl(ttl='Аренда клуба' subttl='под ваше мероприятие')
-
-    .two-cols-block__txt.txt-white У нас можно арендовать определенную зону или весь клуб #[br] целиком, в зависимости от формата мероприятия
-
-    +brown-button
-      |Получить консультацию
+  include ../components/sections/rent-section
 
   include ../components/sections/subscribe-section
