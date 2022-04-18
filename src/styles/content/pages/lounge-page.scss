@@ -1,12 +1,14 @@
-.lounge-section-bg {
+.lounge-main-section {
   padding: getRem(140px) 0 !important;
-  background: url(assets/images/lounge-bg.jpeg) no-repeat center !important;
 
   .button {
     margin-top: getRem(30px) !important;
   }
 }
 
+.lounge-main-bg {
+  background: url(assets/images/lounge-bg.jpeg) no-repeat center !important;
+}
 
 .fumelier-block {
   display: flex;
@@ -25,5 +27,20 @@
 
   &__img {
     width: calc(#{$col-part-d} * 5);
+  }
+}
+
+.cabinet-main-bg {
+  background: url(assets/images/cabinet-main-bg.jpeg) no-repeat center !important;
+}
+
+.cabinet-section-bg {
+  background: url(assets/images/cabinet-section-bg.jpeg) no-repeat center !important;
+}
+
+.cabinet-col {
+  .two-cols-block__link {
+    display: inline-block;
+    margin-top: getRem(30px);
   }
 }

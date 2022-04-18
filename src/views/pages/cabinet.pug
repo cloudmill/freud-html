@@ -10,11 +10,11 @@ block content
 
   section.section--first.section--grey-extra.section--pb120
     .container
-      +breadcrumbs(items = ['О клубе'] page = 'Сигарный лаунж')
+      +breadcrumbs(items = ['О клубе'] page = 'Кабинет Фрейда')
 
       .about-block
-        .section-bg-photo.lounge-main-section.lounge-main-bg 
-          +big-titles.white-ttl(subttl='профессор фрейд' ttl='Сигарный лаунж')
+        .section-bg-photo.lounge-main-section.cabinet-main-bg
+          +big-titles.white-ttl(subttl='приватность и сервис' ttl='Кабинет Фрейда')
 
           +brown-button
             |Забронировать стол
@@ -23,19 +23,19 @@ block content
     .container
       .benefits-block.about-benefits
         .benefits-cell
-          +big-titles(subttl='для вашего комфорта' ttl='Внимание' ttl2='к деталям')
+          +big-titles(subttl='мы гарантируем' ttl='Комфорт' ttl2='и приватность')
 
         -
           const benefits = [
-            {ttl: 'Опытный фумелье', txt: 'Специалист по сигарам помогает выбрать сигару, подобрать напиток и провести сервировку'},
-            {ttl: 'Виниловый', ttl2: 'проигрыватель', txt: 'Коллекция винила позволит расслабитьс яи отдохнуть от городской суеты, выбирайте музыку под настроение'},
-            {ttl: 'Современный', ttl2: 'камин', txt: 'Безопасный и современный камин создает атмосферу уюта и тепла, наполняет комнату теплым светом'},
+            {ttl: 'Закрытое пространство', txt: 'Здесь вас ничто не потревожит. Персональное обслуживание, отдельный гардероб'},
+            {ttl: 'Для небольших', ttl2: 'компаний', txt: 'Здесь можно уединиться для проведения переговоров, деловых встреч или отдыха'},
+            {ttl: 'Современное', ttl2: 'оборудование', txt: 'Кабинет оборудован виниловым проигрывателем, телевизором и Apple TV'},
             {ttl: 'Мощная', ttl2: 'вентиляция', txt: 'Уникальная система вентиляции позволяет быстро очищать воздух от сигарного дыма'},
           ]
 
         each item, index in benefits
           .benefits-cell.cell-list
-            +lounge-benefit-ico(`${index}`)
+            +cabinet-benefit-ico(`${index}`)
 
             .benefits-cell__info
               .benefits-cell__ttl.h3 #{item.ttl}
@@ -56,7 +56,7 @@ block content
             .swiper-wrapper
               - for (i=0;i<3;i++)
                 .swiper-slide
-                  +picture(file='lounge-slide-1')
+                  +picture(file='cabinet-slide')
 
           .sliders-pagination#restaurant-slider-pagination
 
@@ -64,7 +64,7 @@ block content
           +control-right#restaurant-slider-next
 
       .interior-block__col
-        +big-titles(subttl='эпоха фрейда' ttl='Лаунж' txt='Непередаваемая атмосфера сигарного лаунжа и особая эстетика его интерьера переносят гостей в эпоху Фрейда, в 20-30-е годы прошлого века.' txtp='Словно в респектабельных мужских клубах того времени, настроение создает звуки винилового проигрывателя на ламповом усилителе, за неформальность общения отвечает игра теней от огня камина')
+        +big-titles(subttl='профессора фрейда' ttl='Кабинет' txt='Кабинет предназначен для гостей, ценящих время, комфорт и индивидуальный подход к обслуживанию. Здесь вы можете уединиться для проведения переговоров, деловых встреч или отдыха.' txtp='Стоимость бронирования кабинета — 7 000 ₽/час. Для владельцев клубной карты «Профессор Фрейд» — 2 часа в день бесплатно')
 
 
   section.section.lounge-section
@@ -72,30 +72,34 @@ block content
       .two-cols-block
         .two-cols-block__col
 
-          div
+          .cabinet-col
 
-            +big-titles(ttl='Культовые' ttl2='коктейли' subttl='XX века')
+            +big-titles(ttl='Специальное' ttl2='предложение' subttl='для джентльменов')
 
-            .two-cols-block__txt Линейка классических коктейлей перенесет вас в начало прошлого столетия
+            .two-cols-block__txt Каждый может почувствовать себя членом закрытого клуба и провести вечер в окружении друзей, роскоши и спокойствия
 
-          +picture(file='cocktail-1')
+            +read-more-btn
+              |узнать больше
+
+          +picture(file='cabinet-1')
 
 
         .two-cols-block__col
-          +picture(file='cocktail-2')
+          +picture(file='cabinet-2')
 
           div
-            .two-cols-block__txt Мы собрали коллекцию крепкого алкоголя, которые составят идеальную пару к сигаре и сделают ваш вечер еще более расслабленным
+            .two-cols-block__txt Индивидуальный подход, интересный рассказ витолье, таинство сервировки и курения сигар из разных уголков мира в сочетании с уникальным авторским коктейлем «Сон о воине», крепким алкоголем и специальным меню закусок от нашего шеф-повара оставят самые теплые и яркие воспоминания об этом вечере
 
             +read-more-btn
               |Смотреть барную карту
 
-  section.section.section--grey-extra
-    .container
-      .fumelier-block
-        +big-titles(subttl='сигарный этикет' ttl='Помощь' ttl2='фумелье' txt='Поможет подобрать идеальное сочетание напитка и сигары, расскажет о свойствах и особенностях той или иной сигары, правильно сервирует еë')
+  section.section-bg-photo.cabinet-section-bg
+    +big-titles.white-ttl(ttl='место для деловых встреч' subttl='место для деловых встреч')
 
-        +picture.fumelier-block__img(file='fumelier')
+    .two-cols-block__txt.txt-white Приватное пространство для проведения деловых встреч, #[br] мероприятий и праздников
+
+    +brown-button
+      |Забронировать стол
 
   section.section
     .container
