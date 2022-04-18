@@ -1,0 +1,154 @@
+extends ../layouts/master
+
+include ../components/breadcrumbs
+include ../components/buttons
+include ../components/cards
+include ../components/block-titles
+include ../components/picture
+
+block content
+
+  section.section--first.section--grey-extra.section--pb120
+    .container
+      +breadcrumbs(items = ['О клубе'] page = 'Сигарный лаунж')
+
+      .about-block
+        .section-bg-photo.lounge-section-bg
+          +big-titles.white-ttl(subttl='профессор фрейд' ttl='Сигарный лаунж')
+
+          +brown-button
+            |Забронировать стол
+
+  section.section--top
+    .container
+      .benefits-block.about-benefits
+        .benefits-cell
+          +big-titles(subttl='для вашего комфорта' ttl='Внимание' ttl2='к деталям')
+
+        -
+          const benefits = [
+            {ttl: 'Опытный фумелье', txt: 'Специалист по сигарам помогает выбрать сигару, подобрать напиток и провести сервировку'},
+            {ttl: 'Виниловый', ttl2: 'проигрыватель', txt: 'Коллекция винила позволит расслабитьс яи отдохнуть от городской суеты, выбирайте музыку под настроение'},
+            {ttl: 'Современный', ttl2: 'камин', txt: 'Безопасный и современный камин создает атмосферу уюта и тепла, наполняет комнату теплым светом'},
+            {ttl: 'Мощная', ttl2: 'вентиляция', txt: 'Уникальная система вентиляции позволяет быстро очищать воздух от сигарного дыма'},
+          ]
+
+        each item, index in benefits
+          .benefits-cell.cell-list
+            +lounge-benefit-ico(`${index}`)
+
+            .benefits-cell__info
+              .benefits-cell__ttl.h3 #{item.ttl}
+                if (item.ttl2)
+                  br
+                  | #{item.ttl2}
+
+              .benefits-cell__txt #{item.txt}
+
+  section.section--bottom.section--grey.interior-block
+    .container
+      .restaurant-slider
+        .restaurant-slider__col
+          +control-left#restaurant-slider-prev
+
+        .restaurant-slider__container
+          .swiper-container#restaurant-slider
+            .swiper-wrapper
+              - for (i=0;i<3;i++)
+                .swiper-slide
+                  +picture(file='lounge-slide-1')
+
+          .sliders-pagination#restaurant-slider-pagination
+
+        .restaurant-slider__col
+          +control-right#restaurant-slider-next
+
+      .interior-block__col
+        +big-titles(subttl='эпоха фрейда' ttl='Лаунж' txt='Непередаваемая атмосфера сигарного лаунжа и особая эстетика его интерьера переносят гостей в эпоху Фрейда, в 20-30-е годы прошлого века.' txtp='Словно в респектабельных мужских клубах того времени, настроение создает звуки винилового проигрывателя на ламповом усилителе, за неформальность общения отвечает игра теней от огня камина')
+
+
+  section.section.lounge-section
+    .container
+      .two-cols-block
+        .two-cols-block__col
+
+          div
+
+            +big-titles(ttl='Культовые' ttl2='коктейли' subttl='XX века')
+
+            .two-cols-block__txt Линейка классических коктейлей перенесет вас в начало прошлого столетия
+
+          +picture(file='cocktail-1')
+
+
+        .two-cols-block__col
+          +picture(file='cocktail-2')
+
+          div
+            .two-cols-block__txt Мы собрали коллекцию крепкого алкоголя, которые составят идеальную пару к сигаре и сделают ваш вечер еще более расслабленным
+
+            +read-more-btn
+              |Смотреть барную карту
+
+  section.section.section--grey-extra
+    .container
+      .fumelier-block
+        +big-titles(subttl='сигарный этикет' ttl='Помощь' ttl2='фумелье' txt='Поможет подобрать идеальное сочетание напитка и сигары, расскажет о свойствах и особенностях той или иной сигары, правильно сервирует еë')
+
+        +picture.fumelier-block__img(file='fumelier')
+
+  section.section
+    .container
+      .club-card-block
+        .club-card-block__col
+          +big-titles(subttl='специальные условия' ttl='Клубная' ttl2='карта' txt='Первоклассное обслуживание с дополнительными привилегиями: скидки, подарки, приглашениена закрытые мероприятия')
+          +read-more-btn
+            |узнать больше
+
+        a.club-card-block__col(href='')
+          +infinity
+          .club-card-block__col__ttl Привилегии #[br] клубной карты
+
+  section.section.section--black
+    .container
+      +big-titles.white-ttl(subttl='подробнее о нас' ttl='Правила' ttl2='посещения клуба')
+
+      .rules-block
+
+        -
+          const spoilers = [
+            {num: '01.', ttl: 'Общие правила'},
+            {num: '02.', ttl: 'Dress code'},
+            {num: '03.', ttl: 'Правилами не допускается'},
+            {num: '04.', ttl: 'Особые условия'},
+          ]
+
+        each item in spoilers
+
+          .rules-spoiler(data-spoiler='')
+            .rules-spoiler__button(data-spoiler-btn='')
+              .rules-spoiler__num #{item.num}
+              .rules-spoiler__ttl #{item.ttl}
+              .rules-spoiler__arrow
+                +arrow-down
+
+            .rules-spoiler__drop
+              .rules-spoiler__drop-inner
+                ul
+                  li — курение сигар допустимо только в зоне сигарного лаунжа
+                  li — перед посещением хьюмидорной комнаты или других помещений клуба верхнюю одежду необходимо оставить гардеробе
+                  li — в клубе разрешено курить только сигары
+                  li — в клубе принято соблюдать телефонный этикет: снижать громкость звонка до минимума или вибросигнала, вести короткие тихие разговоры, по возможности вне помещений сигарного лаунжаи ресторана клуба
+
+  section.section--top
+    include ../components/sections/articles-section
+
+  -
+    const titles = [
+      {ttl: 'Онлайн-каталог сигар', subttl: 'полный ассортимент'},
+      {ttl: 'Подарочные наборы', subttl: 'выбор покупателей'}
+    ]
+    let newTitle = titles[0];
+  include ../components/sections/shop-section
+
+  include ../components/sections/subscribe-section

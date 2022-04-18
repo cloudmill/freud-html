@@ -1,0 +1,29 @@
+.lounge-section-bg {
+  padding: getRem(140px) 0 !important;
+  background: url(assets/images/lounge-bg.jpeg) no-repeat center !important;
+
+  .button {
+    margin-top: getRem(30px) !important;
+  }
+}
+
+
+.fumelier-block {
+  display: flex;
+  justify-content: space-between;
+
+  padding: 0 calc(#{$col-width-d});
+
+  .big-titles {
+    margin-top: getRem(90px);
+    width: calc(#{$col-part-d} * 4);
+  }
+
+  .big-titles__txt {
+    margin-top: getRem(15px);
+  }
+
+  &__img {
+    width: calc(#{$col-part-d} * 5);
+  }
+}

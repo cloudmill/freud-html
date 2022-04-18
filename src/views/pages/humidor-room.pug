@@ -49,7 +49,7 @@ block content
 
         each item, index in benefits
           .benefits-cell.cell-list
-            +about-benefit-ico(`${index}`)
+            +humidor-benefit-ico(`${index}`)
 
             .benefits-cell__info
               .benefits-cell__ttl.h3 #{item.ttl}
@@ -110,6 +110,7 @@ block content
     newTitle = titles[1];
   include ../components/sections/shop-section
 
-  include ../components/sections/articles-section
+  section.section--bottom
+    include ../components/sections/articles-section
 
   include ../components/sections/subscribe-section
