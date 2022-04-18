@@ -2,7 +2,7 @@
   padding: getRem(150px) 0;
 
   &--first {
-    margin-top: getRem(134px);
+    margin-top: getRem(128px);
   }
 
   &--bottom {
@@ -11,6 +11,10 @@
 
   &--top {
     padding-top: getRem(150px);
+  }
+
+  &--main-page {
+    padding-top: getRem(90px);
   }
 
   &--black {

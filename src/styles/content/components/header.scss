@@ -1,5 +1,5 @@
 .header {
-
+  // position: absolute;
   position: fixed;
   top: 0;
   left: 0;
@@ -38,13 +38,15 @@
     padding: getRem(12px) 0;
 
     &-inner {
-      display: flex;
-      justify-content: space-between;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
       align-items: center;
     }
   }
 
   &__logo {
+    display: flex;
+
     &-svg {
       width: getRem(157px);
       height: getRem(56px);
@@ -54,12 +56,14 @@
   &__nav {
     display: flex;
     align-items: center;
+    padding-right: getRem(35px);
 
     &-item {
       font-weight: 600;
       @include fsl(14px);
       letter-spacing: 0.1em;
       text-transform: uppercase;
+      white-space: nowrap;
 
       &:not(:first-child) {
         margin-left: getRem(50px);
@@ -70,16 +74,17 @@
   &__buttons {
     display: flex;
     align-items: center;
+    justify-content: flex-end;
 
     &-icon {
 
       &:first-child {
-        margin-right: getRem(26px);
+        margin-right: getRem(35px);
       }
     }
 
     .button {
-      margin-left: getRem(50px);
+      margin-left: getRem(55px);
     }
   }
 }

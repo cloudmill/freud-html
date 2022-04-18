@@ -7,7 +7,7 @@ include ../components/picture
 
 block content
 
-  section.section.section--first.relative
+  section.section--bottom.section--main-page.section--first.section--grey.relative
     .container
       .first-screen
         +picture.first-screen__img.first-screen__img--big(file='first-screen-img-1')
@@ -22,15 +22,16 @@ block content
 
       .first-screen__bottom
         
-        a.icon-circle(href="")
-          +vk-icon
+        .first-screen__bottom-col
+          a.icon-circle(href="")
+            +vk-icon
 
         .scroll-down
           .scroll-down__txt узнать больше
 
           .scroll-down__line
 
-        .empty
+        .first-screen__bottom-col
 
       +message-icon.message-icon
 
@@ -62,7 +63,7 @@ block content
             +big-titles(ttl='Сигарный' ttl2='лаунж' subttl='стиль Gentlman’s Club')
 
             .two-cols-block__txt
-              |Атмосфера лаунжа выдержана в стиле Gentlman’s Club. Каждая деталь продумана и выполнена с любовью
+              |Атмосфера лаунжа выдержана в стиле #[br] Gentlman’s Club. Каждая деталь продумана и выполнена с любовью
 
           +picture(file='main-lounge-1')
 
@@ -88,13 +89,8 @@ block content
   section.section
     .container
       .restaurant-block
-        .two-cols-block
-          .two-cols-block__col
-          .two-cols-block__col
-            div
-              +big-titles(ttl='Ресторан' subttl='строгость и элегантность')
-              .two-cols-block__txt
-                |Неповторимая эстетика «ревущих двадцатых», строгость и элегантность ушедшей эпохи. Строгий контроль качества продуктов и внимание наших сотрудников позволят в полной мере насладиться временем, проведенным в наших стенах
+        .restaurant-block__col
+          +big-titles(ttl='Ресторан' subttl='строгость и элегантность' txt='Неповторимая эстетика «ревущих двадцатых», строгость и элегантность ушедшей эпохи. Строгий контроль качества продуктов и внимание наших сотрудников позволят в полной мере насладиться временем, проведенным в наших стенах')
 
         .restaurant-slider
           .restaurant-slider__col

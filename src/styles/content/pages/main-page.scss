@@ -1,10 +1,11 @@
 .first-screen {
+
   display: flex;
   align-items: flex-end;
 
   position: relative;
 
-  padding-bottom: getRem(35px);
+  padding-bottom: getRem(25px);
 
   &__img {
 
@@ -21,12 +22,12 @@
   }
 
   &__txt {
-    @include fsl(26px, 140%);
+    @include fsl(26px, 130%);
 
     width: 100%;
     text-align: right;
 
-    padding: 0 getRem(84px) getRem(100px) calc(#{$col-part-d});
+    padding: 0 getRem(84px) getRem(110px) calc(#{$col-part-d});
   }
 
   &__ttl {
@@ -43,7 +44,7 @@
       mix-blend-mode: exclusion;
       color: var(--color-white);
   
-      @include fsl(144px, 130%);
+      @include fsl(144px, 125%);
     }
 
     &--small {
@@ -51,11 +52,11 @@
       color: var(--color-brown);
       @include fsl(13px, 130%);
       font-weight: 700;
-      letter-spacing: 0.13em;
+      letter-spacing: 0.17em;
       text-transform: uppercase;
 
       position: absolute;
-      top: getRem(50px);
+      top: getRem(34px);
       left: getRem(190px);
       white-space: nowrap;
     }
@@ -69,10 +70,15 @@
 
     display: flex;
     justify-content: space-between;
+    align-items: flex-end;
 
     padding: 0 #{$col-pad-d} getRem(30px);
     @media (max-width: ($breakpoint - 1px)) {
       padding: 0 #{$col-pad-m} getRem(30px);
+    }
+
+    &-col {
+      width: calc(#{$col-part-d});
     }
   }
 }
@@ -159,6 +165,8 @@
     justify-content: space-between;
 
     &:nth-child(1) {
+      padding-top: getRem(60px);
+
       img {
         margin-top: getRem(213px);
       }
@@ -170,6 +178,7 @@
     }
     
     &:nth-child(2) {
+      padding-bottom: getRem(65px);
 
       & > div {
         padding-left: calc(#{$col-part-d});
@@ -220,7 +229,11 @@
 }
 
 .restaurant-block {
-  .two-cols-block__txt {
+  &__col {
+    width: calc(#{$col-part-d} * 6 - #{$col-gap});
+    margin: 0 0 0 auto;
+  }
+  .big-titles__txt {
     margin-top: getRem(15px);
   }
 }
