@@ -73,6 +73,7 @@
   }
   .swiper-slide {
     width: calc(#{$col-part-d} * 3 - #{$col-gap});
+    height: auto;
   }
 
   &__col {

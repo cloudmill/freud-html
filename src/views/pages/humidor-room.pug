@@ -59,6 +59,15 @@ block content
 
               .benefits-cell__txt #{item.txt}
 
+  section
+    .container
+      .humidor-block.section--grey
+        .humidor-block__img
+          +picture(file=`humidor-block`)
+
+        .humidor-block__col
+          +big-titles(subttl='клуб профессор фрейд' ttl='Хьюмидорная' ttl2='комната' txt='Одна из самых больших хьюмидорных комнат в Европе расположена на территории клуба. Поклонники сигарной культуры будут приятно удивлены широким выбором сигар ручной скрутки')
+
   section.section
     .container
       .blockquote
@@ -66,6 +75,18 @@ block content
           |«Мы проводники #[br] для наших клиентов в мире #[br] сигарной культуры»
         .blockquote__name
           |станислав аверкиев — витолье-фумелье клуба профессор фрейд
+
+  section
+
+    .swiper-container.humidor-slider#humidor-slider
+      .swiper-wrapper
+        - for (i=1;i<5;i++)
+          .swiper-slide
+            +picture(file=`humidor-slider-${i}`)
+
+        - for (i=1;i<3;i++)
+          .swiper-slide
+            +picture(file=`humidor-slider-${i}`)
 
   -
     const titles = [
@@ -75,10 +96,20 @@ block content
     let newTitle = titles[0];
   include ../components/sections/shop-section
 
+  section.section.section--black
+    .container
+      .certificate-block
+        .certificate-block__col
+          +big-titles.txt-white(subttl='в сигарно-винный магазин' ttl='Подарочный сертификат' txt='Порадуйте ценителей сигарной культуры идеальным подарком. Элегантный дизайн сертификата создаст наилучшие впечатления о подарке. Cертификат может быть любого номинала')
+          +brown-button
+            |Получить консультацию
 
+        +picture.certificate-block__img(file=`certificate`)
 
   -
     newTitle = titles[1];
   include ../components/sections/shop-section
 
   include ../components/sections/articles-section
+
+  include ../components/sections/subscribe-section

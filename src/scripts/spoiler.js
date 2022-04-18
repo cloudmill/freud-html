@@ -16,8 +16,6 @@ window.addEventListener('DOMContentLoaded', () => {
         // spoilers.forEach(item => item.classList.remove('active'));
         currentSpoiler.classList.toggle('active');
       })
-
     })
-
   }
 })

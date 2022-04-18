@@ -1,4 +1,4 @@
-import Swiper, { Navigation, Pagination } from 'swiper';
+import Swiper, { Navigation, Pagination, Mousewheel } from 'swiper';
 
 
 window.addEventListener('DOMContentLoaded', () => {
@@ -72,7 +72,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
     modules: [Navigation, Pagination],
 
-    slidesPerView: 'auto',
+    slidesPerView: 4,
     spaceBetween: 30,
     loop: true,
 
@@ -84,6 +84,16 @@ window.addEventListener('DOMContentLoaded', () => {
     pagination: {
       el: '#recommend-slider-pagination',
     },
+  });
+
+  const humidorSlider = new Swiper('#humidor-slider', {
+
+    modules: [Mousewheel],
+
+    mousewheel: true,
+    slidesPerView: 'auto',
+    spaceBetween: 30,
+
   });
 
 });
