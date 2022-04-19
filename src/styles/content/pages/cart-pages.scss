@@ -1,5 +1,143 @@
-.cart-empty {
+.cart-section {
   padding: getRem(90px) 0 getRem(150px);
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: getRem(60px);
+  }
+
+  &__back-link {
+    color: var(--color-grey);
+    @include fsl(16px, 140%);
+  }
+
+  &__body {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__col {
+
+    &:nth-child(1) {
+      width: calc(#{$col-part-d} * 8 - #{$col-gap});
+    }
+    &:nth-child(2) {
+      width: calc(#{$col-part-d} * 4 - #{$col-gap});
+    }
+  }
+}
+
+.cart-stage {
+
+  &__row {
+    display: flex;
+    align-items: center;
+  }
+  &__count {
+    @include fsl(30px, 130%);
+    font-family: $ff-titles;
+
+    width: calc(#{$col-width-d});
+  }
+
+  &__products {
+    margin-top: getRem(30px);
+
+    .card-product:not(:first-child) {
+      margin-top: getRem(10px);
+    }
+
+    &-btn {
+      margin: getRem(30px) auto 0;
+    }
+  }
+
+  &__recommend {
+    margin-top: getRem(90px);
+
+    &-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: getRem(20px);
+    }
+  }
+}
+
+.card-product {
+  background: var(--background-grey-extra-2);
+
+  display: flex;
+
+  &__img {
+    width: calc(#{$col-part-d} + #{$col-width-d});
+  }
+  &__info {
+    width: calc(#{$col-part-d} * 3);
+    padding: getRem(30px) 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  &__brand {
+    @include fsl(16px, 130%);
+    margin-bottom: getRem(4px);
+  }
+  &__ttl {
+    @include fsl(20px, 140%);
+    margin-bottom: getRem(6px);
+  }
+  &__txt {
+    @include fsl(16px, 140%);
+  }
+  &__btn {
+    @include fsl(16px, 140%);
+    color: var(--color-grey);
+    text-align: left;
+    width: fit-content;
+  }
+  &__nums {
+    width: calc(#{$col-part-d} * 2 + #{$col-gap});
+    padding: getRem(30px) 0;
+  }
+  &__add {
+    display: flex;
+    align-items: center;
+    @include fsl(16px, 140%);
+
+    button {
+      width: getRem(36px);
+      height: getRem(36px);
+      border: .5px solid var(--color-grey);
+      border-radius: 50%;
+      color: var(--color-grey);
+      flex-shrink: 0;
+
+      &:nth-child(1) {
+        margin-right: getRem(16px);
+      }
+      &:nth-child(2) {
+        margin-left: getRem(16px);
+      }
+    }
+  }
+  &__amount {
+    @include fsl(14px, 140%);
+    margin-top: getRem(6px);
+  }
+  &__last-col {
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: getRem(30px);
+  }
+}
+
+
+
+.cart-empty {
 
   &__ttl {
     font-family: $ff-titles;

@@ -13,3 +13,7 @@
 .h4 {
   @include fsl(30px, 130%);
 }
+
+.title-font {
+  font-family: $ff-titles;
+}
