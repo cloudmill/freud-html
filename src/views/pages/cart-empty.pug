@@ -1,0 +1,19 @@
+extends ../layouts/master
+
+include ../components/breadcrumbs
+include ../components/buttons
+include ../components/cards
+include ../components/block-titles
+include ../components/picture
+
+block content
+  section.section--first
+    .container
+      .cart-empty
+        h1.cart-empty__ttl.h2 Оформление заказа
+
+        .cart-empty-block
+          .cart-empty-block__ttl В вашей корзине нет товаров
+          .cart-empty-block__txt Перейдите в каталог, чтобы добавить товары
+          +brown-border-button.cart-empty-block__btn
+            |Перейти в каталог

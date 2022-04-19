@@ -1,0 +1,32 @@
+.cart-empty {
+  padding: getRem(90px) 0 getRem(150px);
+
+  &__ttl {
+    font-family: $ff-titles;
+    margin-bottom: getRem(60px);
+  }
+
+  &-block {
+    background: var(--background-grey-extra-2);
+    padding: getRem(80px);
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &__ttl {
+      @include fsl(24px, 130%);
+      font-weight: 600;
+    }
+    &__txt {
+      @include fsl(16px, 130%);
+      margin-top: getRem(17px);
+    }
+    &__btn {
+      width: getRem(320px);
+      margin-top: getRem(40px);
+    }
+  }
+}

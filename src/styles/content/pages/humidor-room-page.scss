@@ -93,7 +93,7 @@
 
   &__img {
     width: calc((#{$col-part-d} * 5 - #{$col-gap}) + 240px);
-    margin-left: -240px;
+    margin-left: calc(#{$col-pad-d} * -1);
     flex-shrink: 0;
 
     img {
