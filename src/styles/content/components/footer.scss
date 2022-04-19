@@ -79,7 +79,9 @@
       @include fsl(14px, 150%);
       color: var(--color-grey);
 
-      svg {
+      img {
+        width: getRem(40px);
+        height: getRem(40px);
         margin-right: getRem(10px);
       }
     }
@@ -99,7 +101,21 @@
   align-items: center;
   justify-content: center;
 
-  width: 45px;
-  height: 45px;
-  padding: 12px;
+  width: getRem(45px);
+  height: getRem(45px);
+  padding: getRem(12px);
+}
+
+.footer__authors {
+  white-space: nowrap;
+  color: var(--color-grey);
+  @include fsl(14px, 140%);
+
+  a {
+    color: var(--color-black);
+  }
+
+  &:not(:first-child) {
+    margin-top: getRem(8px);
+  }
 }

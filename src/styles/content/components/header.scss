@@ -27,6 +27,11 @@
         margin-left: getRem(55px);
       }
     }
+
+    &-social svg {
+      width: getRem(20px);
+      height: getRem(11px);
+    }
   }
 
   &__address {
@@ -77,6 +82,11 @@
     justify-content: flex-end;
 
     &-icon {
+
+      svg {
+        width: getRem(24px);
+        height: getRem(24px);
+      }
 
       &:first-child {
         margin-right: getRem(35px);
