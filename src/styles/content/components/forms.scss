@@ -109,3 +109,43 @@
     @include fsl(14px, 120%);
   }
 }
+
+.form {
+
+  &__label {
+    display: block;
+    margin-bottom: getRem(20px);
+  }
+
+  &__field-name {
+    @include fsl(16px, 160%);
+    margin-bottom: getRem(8px);
+  }
+
+  &__input {
+    width: 100%;
+    padding: getRem(10px) getRem(20px);
+    border: 1px solid var(--color-border-grey);
+    border-radius: 2px;
+
+    @include fsl(16px, 160%);
+    color: var(--color-grey);
+  }
+
+  &__textarea {
+    width: 100%;
+    height: getRem(140px);
+    padding: getRem(10px) getRem(20px);
+    border: 1px solid var(--color-border-grey);
+    border-radius: 2px;
+    resize: none;
+
+    @include fsl(16px, 160%);
+    color: var(--color-grey);
+  }
+
+  &__btn {
+    margin-top: getRem(30px);
+    width: 100%;
+  }
+}

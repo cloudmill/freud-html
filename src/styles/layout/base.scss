@@ -79,6 +79,13 @@ input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none;
 }
 
+picture {
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  flex-shrink: 0;
+}
+
 .container {
   padding: 0 #{$col-pad-d};
   @media (max-width: ($breakpoint - 1px)) {

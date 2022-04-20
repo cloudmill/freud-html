@@ -21,68 +21,73 @@ block content
 
             .cart-stage.open
               .cart-stage__row
-                .cart-stage__count 1/3
-                .cart-stage__ttl.h4.title-font Ваши товары
-                .cart-stage__products 3 товара
+                .cart-stage__row-col
+                  .cart-stage__count 1/3
+                  .cart-stage__ttl.h4.title-font Ваши товары
+                  .cart-stage__products 3 товара
 
-              .cart-stage__product-list
-                - for (i=0;i<3;i++)
-                  .card-product
-                    .card-product__img
-                      .catalog-card__labels
-                        .catalog-card__labels-item.label-black NEW
+              .cart-products-active
 
-                      +picture(file='shop-img-1')
-                    .card-product__info
-                      div
-                        .card-product__brand Davidoff
-                        .card-product__ttl Сигара Nicaragua Primeros Mad
-                        .card-product__txt Доминикана, 130 мм x 21 RG, длительность курения 75 мин, крепость 4 из 5
+                .cart-stage__product-list
+                  - for (i=0;i<3;i++)
+                    .card-product
+                      .card-product__img
+                        .catalog-card__labels
+                          .catalog-card__labels-item.label-black NEW
 
-                      button.card-product__btn.button--clean В избранное
-                    .card-product__nums
-                      .card-product__add
-                        button.button--clean -
-                        |2
-                        button.button--clean +
-                      .catalog-card__price
-                        span.current 13 820 ₽
-                        span.old 13 820 ₽
-                      .card-product__amount 2 шт. х 6 000 ₽
-                    .card-product__last-col
-                      button.card-product__btn.button--clean Удалить
+                        +picture(file='shop-img-1')
+                      .card-product__info
+                        div
+                          .card-product__brand Davidoff
+                          .card-product__ttl Сигара Nicaragua Primeros Mad
+                          .card-product__txt Доминикана, 130 мм x 21 RG, длительность курения 75 мин, крепость 4 из 5
 
-              +brown-button.cart-stage__product-list-btn
-                |Перейти к оформлению
+                        button.card-product__btn.button--clean В избранное
+                      .card-product__nums
+                        .card-product__add
+                          button.button--clean
+                          |2
+                          button.button--clean.plus
+                        .catalog-card__price
+                          span.current 13 820 ₽
+                          span.old 13 820 ₽
+                        .card-product__amount 2 шт. х 6 000 ₽
+                      .card-product__last-col
+                        button.card-product__btn.button--clean Удалить
 
-              .cart-stage__recommend
-                .cart-stage__recommend-ttl.h4.title-font С этими товарами покупают
-                .cart-stage__recommend-row
-                  - for (a=0;a<2;a++)
-                    -
-                      var content = [
-                        {img: 'shop-img-1',
-                        brand: 'Ornellaia',
-                        ttl: 'Вино St-Emilion AOC Premier Grand Cru Classe',
-                        price: '165 750'},
+                +brown-button.cart-stage__product-list-btn
+                  |Перейти к оформлению
 
-                        {img: 'shop-img-2',
-                        brand: 'Gurkha',
-                        ttl: 'Сигара Triad Platinum',
-                        price: '13 820 ₽'}
-                      ]
-                    each item in content
-                      +catalog-card-small(img=`${item.img}` brand=`${item.brand}` ttl=`${item.ttl}` price=`${item.price}`)
+                .cart-stage__recommend
+                  .cart-stage__recommend-ttl.h4.title-font С этими товарами покупают
+                  .cart-stage__recommend-row
+                    - for (a=0;a<2;a++)
+                      -
+                        var content = [
+                          {img: 'shop-img-1',
+                          brand: 'Ornellaia',
+                          ttl: 'Вино St-Emilion AOC Premier Grand Cru Classe',
+                          price: '165 750'},
 
-            .cart-stage.collapsed
-              .cart-stage__row
-                .cart-stage__count 2/3
-                .cart-stage__ttl.h4.title-font Контактные данные
+                          {img: 'shop-img-2',
+                          brand: 'Gurkha',
+                          ttl: 'Сигара Triad Platinum',
+                          price: '13 820 ₽'}
+                        ]
+                      each item in content
+                        +catalog-card-small(img=`${item.img}` brand=`${item.brand}` ttl=`${item.ttl}` price=`${item.price}`)
 
             .cart-stage.collapsed
               .cart-stage__row
-                .cart-stage__count 3/3
-                .cart-stage__ttl.h4.title-font Получение заказа
+                .cart-stage__row-col
+                  .cart-stage__count 2/3
+                  .cart-stage__ttl.h4.title-font Контактные данные
+
+            .cart-stage.collapsed
+              .cart-stage__row
+                .cart-stage__row-col
+                  .cart-stage__count 3/3
+                  .cart-stage__ttl.h4.title-font Получение заказа
 
           .cart-section__col
 
@@ -98,3 +103,7 @@ block content
               .cart-result__total
                 .cart-result__name К оплате
                 .cart-result__value 120 000 ₽
+
+            .cart-promocode
+              input.cart-promocode__input(type='text' placeholder='Ввести промокод')
+              +arrow-right.cart-promocode__arrow

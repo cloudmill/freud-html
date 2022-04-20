@@ -1,0 +1,111 @@
+extends ../layouts/master
+
+include ../components/breadcrumbs
+include ../components/buttons
+include ../components/cards
+include ../components/block-titles
+include ../components/picture
+
+block content
+  section.section--first
+    .container
+      .cart-section
+
+        .cart-section__top
+          h1.title-font.h2 Оформление заказа
+          a.cart-section__back-link(href="") Вернуться к покупкам
+
+        .cart-section__body
+
+          .cart-section__col
+
+            .cart-stage.open
+              .cart-stage__row
+                .cart-stage__row-col
+                  .cart-stage__count 1/3
+                  .cart-stage__ttl.h4.title-font Ваши товары
+                  .cart-stage__products 3 товара
+
+                button.button--clean.cart-stage__edit Изменить
+
+              .cart-products-notactive
+                - for (a=0;a<3;a++)
+                  .cart-products-item
+                    +picture.cart-products-item__img(file='shop-img-1')
+                    .cart-products-item__row
+                      .cart-products-item__ttl Сигара Nicaragua Primeros Mad
+                      div &nbsp;—&nbsp;
+                      .cart-products-item__price 13 820 ₽
+                
+            .cart-stage.open
+              .cart-stage__row
+                .cart-stage__row-col
+                  .cart-stage__count 2/3
+                  .cart-stage__ttl.h4.title-font Контактные данные
+
+              .cart-stage-form
+                .cart-stage-form__note
+                  sup *
+                  |— поля обязательные для заполнения
+
+                form.form
+                  label.form__label
+                    .form__field-name Имя
+                      sup *
+                    input.form__input(type='text' placeholder='Введите ваше имя' required)
+
+                  label.form__label
+                    .form__field-name Фамилия
+                      sup *
+                    input.form__input(type='text' placeholder='Введите вашу фамилию' required)
+
+                  label.form__label
+                    .form__field-name Телефон
+                      sup *
+                    input.form__input(type='tel' placeholder='Введите номер телефона' required)
+
+                  label.form__label
+                    .form__field-name E-mail — необязательно
+                    input.form__input(type='email' placeholder='Введите ваш электронный адрес')
+
+                  label.form__label
+                    .form__field-name Комментарии к заказу — необязательно
+                    textarea.form__textarea( placeholder='Введите текст')
+
+                  +brown-button.form__btn(type='submit')
+                    |Продолжить
+
+                  .checkbox.cart-stage-form__checkbox
+                    label.checkbox__label
+                      input.checkbox__input(type="checkbox")
+                      .checkbox__box
+                        +checkbox-white-svg.checkbox__svg
+
+                    .checkbox__caption
+                      |Нажимая на кнопку «Продолжить», вы соглашаетесь #[br]
+                      a(href="") с политикой конфиденциальности
+
+            .cart-stage.collapsed
+              .cart-stage__row
+                .cart-stage__row-col
+                  .cart-stage__count 3/3
+                  .cart-stage__ttl.h4.title-font Получение заказа
+
+          .cart-section__col
+
+            .cart-result
+              .cart-result__ttl Итоги
+              .cart-result__row
+                .cart-result__name 3 товара на сумму
+                .cart-result__value 135 820 ₽
+              .cart-result__row
+                .cart-result__name Скидка
+                .cart-result__value −11 000 ₽
+
+              .cart-result__total
+                .cart-result__name К оплате
+                .cart-result__value 120 000 ₽
+
+            .cart-promocode
+              input.cart-promocode__input(type='text' placeholder='Ввести промокод')
+              +arrow-right.cart-promocode__arrow

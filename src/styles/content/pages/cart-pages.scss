@@ -34,7 +34,12 @@
 
   &__row {
     display: flex;
-    align-items: center;
+    justify-content: space-between;
+
+    &-col {
+      display: flex;
+      align-items: center;
+    }
   }
   &__count {
     @include fsl(30px, 130%);
@@ -67,11 +72,11 @@
   &__recommend {
     margin-top: getRem(90px);
 
-    &-row {
-      // display: grid;
-      // grid-template-columns: repeat(4, 1fr);
-      // gap: getRem(20px);
+    &-ttl {
+      margin-bottom: getRem(30px);
+    }
 
+    &-row {
       display: flex;
       justify-content: space-between;
 
@@ -81,12 +86,18 @@
     }
   }
 
+  &__edit {
+    @include fsl(16px, 130%);
+    font-weight: 600;
+    color: var(--color-brown);
+  }
+
   &:not(:first-child) {
     border-top: 1px solid var(--color-black-rgba-1);
+    padding: getRem(45px) 0;
   }
   &.collapsed {
     color: var(--color-grey);
-    padding: getRem(45px) 0;
   }
   &.open {
     padding-bottom: getRem(90px);
@@ -145,6 +156,7 @@
     @include fsl(16px, 140%);
 
     button {
+      position: relative;
       width: getRem(36px);
       height: getRem(36px);
       border: .5px solid var(--color-grey);
@@ -152,11 +164,30 @@
       color: var(--color-grey);
       flex-shrink: 0;
 
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
       &:nth-child(1) {
         margin-right: getRem(16px);
       }
       &:nth-child(2) {
         margin-left: getRem(16px);
+      }
+
+      &::before {
+        content: '';
+        position: absolute;
+        width: 9px;
+        height: 1px;
+        background: var(--color-grey);
+      }
+      &.plus::after {
+        content: '';
+        position: absolute;
+        width: 1px;
+        height: 9px;
+        background: var(--color-grey);
       }
     }
   }
@@ -175,7 +206,7 @@
   $comp: &;
 
   padding: getRem(40px) getRem(30px);
-  background: var(--color-light-grey);
+  background: var(--background-grey-extra-2);
 
   &__ttl {
     @include fsl(20px, 140%);
@@ -199,6 +230,54 @@
 
     @include fsl(18px, 140%);
     font-weight: 600;
+  }
+}
+
+.cart-promocode {
+  margin-top: getRem(10px);
+  padding: getRem(20px) getRem(30px);
+  background: var(--background-grey-extra-2);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &__input {
+    border: none;
+    background: transparent;
+    @include fsl(16px, 140%);
+    @include placeholder {
+      color: var(--color-black);
+    }
+  }
+  &__arrow path {
+    stroke: var(--color-black);
+  }
+}
+
+.cart-products-notactive {
+  margin-top: getRem(30px);
+
+  .cart-products-item {
+    &:not(:last-child) {
+      margin-bottom: getRem(10px);
+    }
+  }
+}
+
+.cart-products-item {
+
+  display: flex;
+  align-items: center;
+
+  &__img {
+    height: getRem(77px);
+    object-fit: cover;
+  }
+  &__row {
+    display: flex;
+    padding-left: getRem(12px);
+    @include fsl(16px, 160%);
   }
 }
 
@@ -230,6 +309,43 @@
     &__btn {
       width: getRem(320px);
       margin-top: getRem(40px);
+    }
+  }
+}
+
+.cart-stage-form {
+  margin: getRem(12px) 0 0 calc(#{$col-width-d});
+  width: calc(#{$col-part-d} * 4);
+
+  sup {
+    color: var(--color-brown);
+  }
+
+  &__note {
+    margin-bottom: getRem(30px);
+  }
+
+  &__checkbox {
+    margin-top: getRem(28px);
+    display: flex;
+
+    .checkbox__label {
+      padding-top: getRem(7px);
+      align-items: flex-start;
+    }
+
+    .checkbox__box {
+      border: 1px solid var(--color-black);
+    }
+
+    .checkbox__caption {
+      color: var(--color-grey);
+      @include fsl(16px, 160%);
+
+      a {
+        color: var(--color-grey);
+        border-bottom: 1px solid var(--color-grey-rgba-4);
+      }
     }
   }
 }
