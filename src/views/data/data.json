@@ -19,6 +19,22 @@
       "title": "[Магазин] Напитки"
     },
     {
+      "href": "cart-empty",
+      "title": "[Корзина] Пустая"
+    },
+    {
+      "href": "cart-step-1",
+      "title": "[Корзина] Этап 1"
+    },
+    {
+      "href": "cart-step-2",
+      "title": "[Корзина] Этап 2"
+    },
+    {
+      "href": "cart-step-3",
+      "title": "[Корзина] Этап 3"
+    },
+    {
       "href": "about",
       "title": "О клубе"
     },
