@@ -58,7 +58,7 @@
 
   &__top {
     position: relative;
-    min-height: getRem(265px);
+    // min-height: getRem(265px);
   }
 
   &__labels {
@@ -182,6 +182,38 @@
     white-space: nowrap;
 
     transition: .5s;
+  }
+
+
+  &--small {
+    padding: getRem(20px) getRem(15px);
+    height: auto;
+
+    #{$comp}__brand {
+      color: var(--color-black);
+      @include fsl(14px, 130%);
+    }
+    #{$comp}__title {
+      margin-top: getRem(6px);
+      @include fsl(16px, 140%);
+      min-height: unset;
+    }
+    #{$comp}__info {
+      margin-top: getRem(20px);
+    }
+    #{$comp}__price {
+      margin-top: 0;
+
+      .current {
+        @include fsl(18px, 100%);
+      }
+    }
+    #{$comp}__btn {
+      margin-top: getRem(14px);
+      @include fsl(14px, 100%);
+      font-weight: 600;
+      padding: getRem(10px);
+    }
   }
 }
 
