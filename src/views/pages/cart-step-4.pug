@@ -1,0 +1,96 @@
+extends ../layouts/master
+
+include ../components/buttons
+include ../components/cards
+include ../components/picture
+include ../components/block-titles
+
+block content
+  section.section--first
+    .container
+      .cart-section
+
+        .cart-section__top
+          h1.title-font.h2 Оформление заказа
+          a.cart-section__back-link(href="") Вернуться к покупкам
+
+        .cart-section__body
+
+          .cart-section__col.cart-final
+
+            .cart-final__top
+
+              .cart-final__ttl.h4.title-font Заказ № 1156 создан
+
+              .cart-final__txt Менеджер свяжется с вами для уточнения деталей в ближайшее время
+
+            .cart-products-notactive
+              - for (a=0;a<3;a++)
+                .cart-products-item
+                  +picture.cart-products-item__img(file='shop-img-1')
+                  .cart-products-item__row
+                    .cart-products-item__ttl Сигара Nicaragua Primeros Mad
+                    div &nbsp;—&nbsp;
+                    .cart-products-item__price 13 820 ₽
+                
+            .cart-final__info
+              .cart-pickup
+                .cart-pickup__info
+                  .cart-pickup__ttl Самовывоз из клуба «Профессор Фрейд»
+
+                  .cart-pickup__info-item
+                    +place-ico.cart-pickup__svg
+                    div
+                      .cart-pickup__info-ttl Адрес
+                      .cart-pickup__info-txt г. Санкт-Петербург, ул. Малая Морская, дом 18
+
+                  .cart-pickup__info-item
+                    +clock-ico.cart-pickup__svg
+                    div
+                      .cart-pickup__info-ttl Часы работы
+                      .cart-pickup__info-txt ПН – ЧТ, 12:00 – 00:00 #[br] ПТ – СБ, 12:00 – 01:00 #[br] ВС, 13:00 – 23:00
+
+                  .cart-pickup__info-item
+                    +attention-ico.cart-pickup__svg
+                    div
+                      .cart-pickup__info-ttl Алкоголь можно забрать до 22:00
+
+                .cart-pickup__map
+                  iframe(src="https://yandex.ru/map-widget/v1/?um=constructor%3A828b2df1c3e646ed9bf707043c5321cb8a73706508a8ea107668fd10d7a284aa&source=constructor", width="100%", height="100%", frameborder="0")
+
+            .cart-final__info
+              .cart-final-delivery
+                .cart-pickup__ttl Доставка
+
+                .cart-pickup__info-item
+                  +place-ico.cart-pickup__svg
+                  div
+                    .cart-pickup__info-ttl Адрес
+                    .cart-pickup__info-txt г. Санкт-Петербург, ул. Малая Морская, дом 18
+
+                .cart-pickup__info-item
+                  +attention-ico.cart-pickup__svg
+                  div
+                    .cart-pickup__info-ttl Стоимость доставки уточнит менеджер
+
+            +brown-button.cart-pickup__btn
+              |Вернуться на главную
+                  
+
+          .cart-section__col
+
+            .cart-result
+              .cart-result__ttl Итоги
+              .cart-result__row
+                .cart-result__name 3 товара на сумму
+                .cart-result__value 135 820 ₽
+              .cart-result__row
+                .cart-result__name Скидка
+                .cart-result__value −11 000 ₽
+
+              .cart-result__total
+                .cart-result__name К оплате
+                .cart-result__value 120 000 ₽
+
+  section.section--bottom
+    include ../components/sections/articles-section
