@@ -58,15 +58,15 @@ block content
                   .cart-stage__ttl.h4.title-font Получение заказа
 
               .cart-receiving
-                .cart-receiving-options
-                  .cart-receiving-options__item.active
+                .cart-receiving-options(data-tabs)
+                  .cart-receiving-options__item.active(data-tabs-item)
                     +pickup-ico.cart-receiving-options__svg
 
                     .cart-receiving-options__col
                       .cart-receiving-options__ttl Самовывоз из магазина
                       .cart-receiving-options__txt Бесплатно, сегодня
 
-                  .cart-receiving-options__item
+                  .cart-receiving-options__item(data-tabs-item)
                     +delivery-ico.cart-receiving-options__svg
 
                     .cart-receiving-options__col
@@ -75,35 +75,77 @@ block content
                         span От 200 ₽
                         |, дату доставки уточнит менеджер
 
-                .cart-pickup
-                  .cart-pickup__info
-                    .cart-pickup__ttl Самовывоз из клуба «Профессор Фрейд»
+                .cart-receiving-types(data-tabs-content)
 
-                    .cart-pickup__info-item
-                      +place-ico.cart-pickup__svg
-                      div
-                        .cart-pickup__info-ttl Адрес
-                        .cart-pickup__info-txt г. Санкт-Петербург, ул. Малая Морская, дом 18
+                  .cart-receiving-types__item.active(data-content-item)
 
-                    .cart-pickup__info-item
-                      +clock-ico.cart-pickup__svg
-                      div
-                        .cart-pickup__info-ttl Часы работы
-                        .cart-pickup__info-txt ПН – ЧТ, 12:00 – 00:00 #[br] ПТ – СБ, 12:00 – 01:00 #[br] ВС, 13:00 – 23:00
+                    .cart-pickup
+                      .cart-pickup__info
+                        .cart-pickup__ttl Самовывоз из клуба «Профессор Фрейд»
 
-                    .cart-pickup__info-item
-                      +attention-ico.cart-pickup__svg
-                      div
-                        .cart-pickup__info-ttl Алкоголь можно забрать до 22:00
+                        .cart-pickup__info-item
+                          +place-ico.cart-pickup__svg
+                          div
+                            .cart-pickup__info-ttl Адрес
+                            .cart-pickup__info-txt г. Санкт-Петербург, ул. Малая Морская, дом 18
 
-                  .cart-pickup__map
-                    iframe(src="https://yandex.ru/map-widget/v1/?um=constructor%3A828b2df1c3e646ed9bf707043c5321cb8a73706508a8ea107668fd10d7a284aa&source=constructor", width="100%", height="100%", frameborder="0")
+                        .cart-pickup__info-item
+                          +clock-ico.cart-pickup__svg
+                          div
+                            .cart-pickup__info-ttl Часы работы
+                            .cart-pickup__info-txt ПН – ЧТ, 12:00 – 00:00 #[br] ПТ – СБ, 12:00 – 01:00 #[br] ВС, 13:00 – 23:00
 
-                .cart-receiving__txt Менеджер свяжется с вами для уточнения деталей в ближайшее время
+                        .cart-pickup__info-item
+                          +attention-ico.cart-pickup__svg
+                          div
+                            .cart-pickup__info-ttl Алкоголь можно забрать до 22:00
 
-                +brown-button.cart-pickup__btn
-                  |Оформить заказ
-                
+                      .cart-pickup__map
+                        iframe(src="https://yandex.ru/map-widget/v1/?um=constructor%3A828b2df1c3e646ed9bf707043c5321cb8a73706508a8ea107668fd10d7a284aa&source=constructor", width="100%", height="100%", frameborder="0")
+
+                    .cart-receiving__txt Менеджер свяжется с вами для уточнения деталей в ближайшее время
+
+                    +brown-button.cart-pickup__btn
+                      |Оформить заказ
+                  
+                  .cart-receiving-types__item(data-content-item)
+                    .cart-receiving-form__ttl Укажите адрес доставки
+                    .cart-receiving-form__note 
+                      sup *
+                      |— поля обязательные для заполнения
+
+                    form.cart-receiving-form__form
+                      label.form__label
+                        .form__field-name Адрес
+                          sup *
+                        input.form__input(type='text' placeholder='Введите город, улицу, дом, корпус' required)
+
+                      .cart-receiving-form__row
+                        label.form__label
+                          .form__field-name Номер квартиры/офиса
+                            sup *
+                          input.form__input(type='number' placeholder='Введите номер' required)
+
+                        .checkbox
+                          label.checkbox__label
+                            input.checkbox__input(type="checkbox")
+                            .checkbox__box
+                              +checkbox-white-svg.checkbox__svg
+
+                          .checkbox__caption
+                            |Частный дом
+
+                      label.form__label
+                        .form__field-name Комментарии к заказу — необязательно
+                        textarea.form__textarea( placeholder='Введите текст')
+                      
+                      .cart-receiving-form__txt Доставка разрешена не для всех товаров из нашего каталога. #[br] Менеджер перезвонит вам в ближайшее время и проконсультирует вас
+
+                      +brown-button.cart-receiving-form__btn
+                        |Оформить заказ
+
+                      a.cart-receiving-form__link(href="") Федеральный закон №15-ФЗ от 23 февраля 2013 года 
+
 
           .cart-section__col
 
