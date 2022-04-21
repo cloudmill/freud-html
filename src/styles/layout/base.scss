@@ -87,7 +87,7 @@ picture {
 }
 
 .container {
-  padding: 0 #{$col-pad-d};
+  padding: 0 getRem(240px);
   @media (max-width: ($breakpoint - 1px)) {
     padding: 0 #{$col-pad-m};
   }
