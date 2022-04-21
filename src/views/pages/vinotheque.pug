@@ -1,0 +1,105 @@
+extends ../layouts/master
+
+include ../components/breadcrumbs
+include ../components/buttons
+include ../components/cards
+include ../components/block-titles
+include ../components/picture
+
+block content
+
+  section.section--first.section--grey-extra
+    .container
+      +breadcrumbs(items = ['О клубе'] page = 'Винотека')
+
+      .about-block
+        .section-bg-photo.humidor-top-bg
+          +big-titles.white-ttl(subttl='профессор фрейд' ttl='Винотека')
+
+          .scroll-down
+            .scroll-down__line
+
+        .nums-block-bottom
+
+          -
+            const nums = [
+              {num: '12', txt: 'Посадочных мест'},
+              {num: '>250', txt: 'Наименований вин'},
+              {num: '>60', txt: 'Брендов крепкого алкоголя'},
+            ]
+
+          each item in nums
+            .nums-block-bottom__col
+              .nums-block-bottom__big #{item.num}
+              .nums-block-bottom__txt #{item.txt}
+
+  section.section.section--top
+    .container
+      .benefits-block
+        .benefits-cell
+          //- +big-titles(subttl='винная культура' ttl='Концепция' ttl2=`bar&shop`)
+
+          .big-titles
+            .big-titles__subttl винная культура
+            h2.big-titles__ttl.h1 Концепция #[br] bar&shop
+
+        -
+          const benefits = [
+            {ttl: 'Профессиональный сомелье', txt: 'На сомелье  поможет выбрать напиток по вашему запросу, исходя из индивидуальных предпочтений'},
+            {ttl: 'Прекрасный', ttl2: 'выбор вин', txt: 'Ассортимент винотеки — это известные во всем мире вина, великолепные жемчужины, так полюбившиеся истинным ценителям'},
+            {ttl: 'Элитный', ttl2: 'крепкий алкоголь', txt: 'Мы отбираем лучшие напитки, которые имеют почитателей по всему миру'},
+            {ttl: 'Легкие закуски', txt: 'Концепция Bar&Shop позволяет насладиться вкусом напитка в сочетании с авторскими закусками'},
+          ]
+
+        each item, index in benefits
+          .benefits-cell.cell-list
+            +vine-benefit-ico(`${index}`)
+
+            .benefits-cell__info
+              .benefits-cell__ttl.h3 #{item.ttl}
+                if (item.ttl2)
+                  br
+                  | #{item.ttl2}
+
+              .benefits-cell__txt #{item.txt}
+
+  section
+    .container
+      .humidor-block.section--grey
+        .humidor-block__img
+          +picture(file=`vine-block`)
+
+        .humidor-block__col
+          +big-titles(subttl='клуб профессор фрейд' ttl='Винотека' txt='Дополнительным украшением винотеки является широкая линейка крепкого алкоголя, собранная из лучших представителей крепленых вин, коньяка, виски и рома, граппы.' txt2='Любой блэнд из всех представленных, можно взять прямо с полки и не только купить с собой, но и выпить здесь же, в уютных интерьерах под расслабляющую лаунж музыку, дополняя напитки закусками от шеф-повара')
+
+  section.section.lounge-section
+    .container
+      .two-cols-block
+        .two-cols-block__col
+
+          .cabinet-col
+
+            +big-titles(ttl='Шеф-' ttl2='сомелье' subttl='анастасия будникова')
+
+            .two-cols-block__txt
+              |Концепция Bar&Shop, винотеки prof. FREUD — отличная возможность насладиться вкусом купленного напитка в сочетании с авторскими закусками от шеф-повара
+
+          +picture(file='vine-col-1')
+
+
+        .two-cols-block__col
+          +picture(file='vine-col-2')
+
+          div
+            .two-cols-block__txt В свою очередь я, шеф-сомелье, рада поведать об особенностях наших вин, специфике регионов их происхождения, истории отдельного винного дома
+
+            +read-more-btn
+              |смотреть каталог
+
+  include ../components/sections/certificate-section
+
+  -
+    let newTitle = {ttl: 'Онлайн-каталог алкоголя', subttl: 'полный ассортимент'}
+  include ../components/sections/shop-section
+
+  include ../components/sections/subscribe-section
