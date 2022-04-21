@@ -35,6 +35,10 @@
       "title": "[Корзина] Этап 3"
     },
     {
+      "href": "cart-step-4",
+      "title": "[Корзина] Этап 4"
+    },
+    {
       "href": "about",
       "title": "О клубе"
     },
@@ -45,6 +49,10 @@
     {
       "href": "lounge",
       "title": "Сигарный лаунж"
+    },
+    {
+      "href": "vinotheque",
+      "title": "Винотека"
     },
     {
       "href": "cabinet",
