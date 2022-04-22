@@ -28,5 +28,9 @@ mixin small-titles
   .small-titles(class=attributes.class)
     h3.small-titles__ttl.h2 #{attributes.ttl}
 
+      if (attributes.ttl2)
+        br
+        |#{attributes.ttl2}
+
     if (attributes.txt)
       .small-titles__txt #{attributes.txt}

@@ -67,6 +67,18 @@
       "title": "Контакты"
     },
     {
+      "href": "certificates",
+      "title": "Подарочный сертификат"
+    },
+    {
+      "href": "search",
+      "title": "Результаты поиска"
+    },
+    {
+      "href": "delivery",
+      "title": "Доставка и оплата"
+    },
+    {
       "href": "404",
       "title": "404"
     }

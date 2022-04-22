@@ -71,37 +71,7 @@ block content
       .interior-block__col
         +big-titles(subttl='элегантный дизайн' ttl='Интерьер' txt='Строгое респектабельное пространство с атмосферой мужского клуба со стилистической отсылкой к позднему Австрийскому модерну и современному «северному итальянскому модерну» 60-70-х годов XX века')
 
-  section.section.section--black
-    .container
-      +big-titles.white-ttl(subttl='подробнее о нас' ttl='Правила' ttl2='посещения клуба')
-
-      .rules-block
-
-        -
-          const spoilers = [
-            {num: '01.', ttl: 'Общие правила'},
-            {num: '02.', ttl: 'Dress code'},
-            {num: '03.', ttl: 'Правилами не допускается'},
-            {num: '04.', ttl: 'Особые условия'},
-          ]
-
-        each item in spoilers
-
-          .rules-spoiler(data-spoiler='')
-            .rules-spoiler__button(data-spoiler-btn='')
-              .rules-spoiler__num #{item.num}
-              .rules-spoiler__ttl #{item.ttl}
-              .rules-spoiler__arrow
-                +arrow-down
-
-            .rules-spoiler__drop
-              .rules-spoiler__drop-inner
-                ul
-                  li — курение сигар допустимо только в зоне сигарного лаунжа
-                  li — перед посещением хьюмидорной комнаты или других помещений клуба верхнюю одежду необходимо оставить гардеробе
-                  li — в клубе разрешено курить только сигары
-                  li — в клубе принято соблюдать телефонный этикет: снижать громкость звонка до минимума или вибросигнала, вести короткие тихие разговоры, по возможности вне помещений сигарного лаунжаи ресторана клуба
-
+  include ../components/sections/rules-section
 
   include ../components/sections/reviews-section
 
