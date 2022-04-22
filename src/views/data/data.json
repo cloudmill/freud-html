@@ -39,6 +39,10 @@
       "title": "[Корзина] Этап 4"
     },
     {
+      "href": "favorites",
+      "title": "Избранное"
+    },
+    {
       "href": "about",
       "title": "О клубе"
     },

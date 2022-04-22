@@ -2,7 +2,7 @@ section.section.shop-section
   .container
 
     if (smallTitle)
-      +small-titles(ttl='Вы смотрели ранее')
+      +small-titles(ttl=`${smallTitle}`)
     else if (newTitle)
       +big-titles(subttl=`${newTitle.subttl}` ttl=`${newTitle.ttl}`)
     else

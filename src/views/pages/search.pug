@@ -1,0 +1,80 @@
+extends ../layouts/master
+
+include ../components/buttons
+include ../components/cards
+include ../components/breadcrumbs
+include ../components/block-titles
+include ../components/picture
+
+block content
+
+  section.section--first
+    .container
+      +breadcrumbs(items = ['Магазин'] page = 'Результаты поиска')
+
+      .category-top.search-top
+        .category-top__line
+          
+          .category-title-block
+            h1.category-title.h2 Результаты поиска
+            .category-items-count 4 товара
+
+          .category-search
+            input.category-search__input(type='search' placeholder='Поиск по каталогу')
+            +search-icon
+
+        .search-top__count Найдено 
+          span 4 
+          | товара по запросу «кубинская сигара»
+
+
+      .category-body
+
+        - for (b=0;b<2;b++)
+          -
+            var content = [
+              {img: 'shop-img-1',
+              brand: 'Ornellaia',
+              ttl: 'Вино St-Emilion AOC Premier Grand Cru Classe',
+              txt: 'Красное, сухое, 750 мл',
+              price: '165 750'},
+
+              {img: 'shop-img-2',
+              brand: 'Gurkha',
+              ttl: 'Сигара Triad Platinum',
+              txt: 'strong',
+              price: '13 820 ₽'}
+            ]
+          
+          each item in content
+            +catalog-card(img=`${item.img}` brand=`${item.brand}` ttl=`${item.ttl}` txt=`${item.txt}` price=`${item.price}`)
+
+
+  -
+    const smallTitle = 'Рекомендуем';
+    const nobtn = true;
+  include ../components/sections/shop-section
+
+
+  section.section--bottom
+    .container
+      +small-titles(ttl='Другие категории товаров')
+
+      .categories-slider.controls-out
+        .swiper-container#categories-slider
+          .swiper-wrapper
+            -
+              const cards = [
+                {file: 'shop-category-1', ttl: 'Сигары'},
+                {file: 'shop-category-2', ttl: 'Сигариллы'},
+                {file: 'shop-category-1', ttl: 'Хьюмидоры'},
+              ]
+            each item in cards
+              .swiper-slide
+                a.shop-page-head__card(href="")
+                  +picture(file=`${item.file}`)
+                  .shop-page-head__card-ttl #{item.ttl}
+
+        .controls-out__container
+          +control-left#categories-slider-prev
+          +control-right#categories-slider-next

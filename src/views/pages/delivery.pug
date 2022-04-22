@@ -1,0 +1,62 @@
+extends ../layouts/master
+
+include ../components/breadcrumbs
+include ../components/buttons
+include ../components/cards
+include ../components/block-titles
+include ../components/picture
+
+block content
+
+  section.section--first.section--bottom
+    .container
+      +breadcrumbs(page = 'Доставка и оплата')
+
+      .contacts-block
+        .contacts-block__top
+          +big-titles(subttl='профессор фрейд' ttl='Доставка и оплата')
+
+          .scroll-down
+            .scroll-down__line
+
+      .delivery-row
+        .delivery-row__item
+          .delivery-row__item-ttl Самовывоз
+
+          .cart-pickup__info-item
+            +place-ico.cart-pickup__svg
+            div
+              .cart-pickup__info-ttl Адрес
+              .cart-pickup__info-txt г. Санкт-Петербург, ул. Малая Морская, дом 18
+
+              button.button--clean.delivery-row__map-link Показать на карте
+
+          .cart-pickup__info-item
+            +clock-ico.cart-pickup__svg
+            div
+              .cart-pickup__info-ttl Часы работы
+              .cart-pickup__info-txt ПН – ЧТ, 12:00 – 00:00 #[br] ПТ – СБ, 12:00 – 01:00 #[br] ВС, 13:00 – 23:00
+
+          .cart-pickup__info-item
+            +attention-ico.cart-pickup__svg
+            div
+              .cart-pickup__info-ttl Алкоголь можно забрать до 22:00
+
+        .delivery-row__item
+          .delivery-row__item-ttl Доставка курьером
+
+          .delivery-row__txt Бесплатная доставка по Санкт-Петербургу и РФ при сумме заказа от 5 000 ₽. Доставка по ЛО — платная.
+          .delivery-row__txt Точную стоимость доставки сообщит менеджер. Доставка доступна только для аксессуаров. 
+
+        .delivery-row__item
+          .delivery-row__item-ttl Оплата
+
+          .delivery-row__txt Банковской картой через мобильный терминал или наличными при самовывозе
+
+          .delivery-row-icons
+            img(src="assets/images/icons/payment-1.png", alt="")
+            img(src="assets/images/icons/payment-2.png", alt="")
+            img(src="assets/images/icons/payment-3.png", alt="")
+            img(src="assets/images/icons/payment-4.png", alt="")
+
+  include ../components/sections/subscribe-section
