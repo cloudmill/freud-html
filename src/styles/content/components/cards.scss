@@ -93,6 +93,10 @@
     position: absolute;
     top: 0;
     right: 0;
+
+    &.active path {
+      fill: var(--color-black);
+    }
   }
 
   &__bottom{

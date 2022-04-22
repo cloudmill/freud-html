@@ -40,8 +40,13 @@ mixin catalog-card
         .catalog-card__labels-item.label-black NEW
         .catalog-card__labels-item.label-brown limited
 
-      button.button--clean.catalog-card__fav
-        +favorites-icon
+      if (attributes.fav)
+        button.button--clean.catalog-card__fav.active
+          +favorites-icon
+
+      else
+        button.button--clean.catalog-card__fav
+          +favorites-icon
 
       +picture(file=`${attributes.img}`)
 

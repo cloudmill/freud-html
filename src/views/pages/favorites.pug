@@ -1,0 +1,48 @@
+extends ../layouts/master
+
+include ../components/buttons
+include ../components/cards
+include ../components/breadcrumbs
+include ../components/block-titles
+include ../components/picture
+
+block content
+
+  section.section--first
+    .container
+      +breadcrumbs(page = 'Избранное')
+
+      .category-top.favorites-top
+        .category-top__line
+          
+          .category-title-block
+            h1.category-title.h2 Избранное
+            .category-items-count 7 товаров
+
+      
+      .category-body
+
+        - for (b=0;b<3;b++)
+          -
+            var content = [
+              {img: 'shop-img-1',
+              brand: 'Ornellaia',
+              ttl: 'Вино St-Emilion AOC Premier Grand Cru Classe',
+              txt: 'Красное, сухое, 750 мл',
+              price: '165 750'},
+
+              {img: 'shop-img-2',
+              brand: 'Gurkha',
+              ttl: 'Сигара Triad Platinum',
+              txt: 'strong',
+              price: '13 820 ₽'}
+            ]
+          
+          each item in content
+            +catalog-card(img=`${item.img}` brand=`${item.brand}` ttl=`${item.ttl}` txt=`${item.txt}` price=`${item.price}` fav=`fav`)
+
+
+  -
+    const smallTitle = true;
+    const nobtn = true;
+  include ../components/sections/shop-section

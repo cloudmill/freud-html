@@ -2,9 +2,9 @@
   @return $px / $width * 1vw;
 }
 
-@function getRem($px) {
-  @return unquote('#{$px / $fs}rem');
-}
+// @function getRem($px) {
+//   @return unquote('#{$px / $fs}rem');
+// }
 
 @function getStatic($px, $width) {
   $percent: $width / 19.2px;

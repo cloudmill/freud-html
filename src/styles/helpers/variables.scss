@@ -1,3 +1,7 @@
+@function getRem($px) {
+  @return unquote('#{$px / $fs}rem');
+}
+
 // fonts
 $fs: 16px;
 
@@ -42,7 +46,7 @@ $col-count-m: 4;
 $col-count-d: 12;
 
 $col-pad-m: 20px;
-$col-pad-d: 240px;
+$col-pad-d: getRem(240px);
 
 $col-gap: 30px;
 
