@@ -8,46 +8,54 @@ include ../components/picture
 
 block content
 
-  section.section--first.section--bottom
+  section.section--first
     .container
-      +breadcrumbs(page = 'Контакты')
+      +breadcrumbs(page = 'Подарочные сертификаты')
 
       .contacts-block
         .contacts-block__top
-          +big-titles(subttl='профессор фрейд' ttl='Контакты' txt='Клуб располагается в самом центре Петербурга напротив Исаакиевского собора,' txt2='недалеко от Невского проспекта, Дворцовой площади и Мариинского театра')
+          +big-titles(subttl='профессор фрейд' ttl='Подарочные сертификаты' txt='Элегантный дизайн сертификата создаст наилучшие' txt2='впечатления о подарке')
 
           .scroll-down
             .scroll-down__line
 
-  section.section.lounge-section
+  section.section--bottom.lounge-section
     .container
-      .two-cols-block
-        .two-cols-block__col
 
-          div
+      .certificates-block
+
+        .certificates-block__row
+
+          .certificates-block__info
 
             +small-titles(ttl='Сертификат' ttl2='на ужин в ресторане')
 
-            .two-cols-block__txt
+            .certificates-block__txt
               |Особенный подарок для любого случая. Камерная атмосфера, изысканное меню и обширная винная карта позволят в полной мере насладиться временем проведенным в нашем клубе
 
-            +brown-button
+            +brown-button.certificates-block__btn
               |Заказать сертификат
 
-          +picture(file='certificates-col-1')
+            .certificates-block__note Закажите сертификат заранее и мы подготовим #[br] его к вашему приезду. Cертификат может быть любого номинала
 
+          +picture.certificates-block__img(file='certificates-col-1')
 
-        .two-cols-block__col
-          +picture(file='certificates-col-2')
+        .certificates-block__row
 
-          +small-titles(ttl='Сертификат' ttl2='на сигары и алкоголь')
+          +picture.certificates-block__img(file='certificates-col-2')
 
-          div
-            .two-cols-block__txt
+          .certificates-block__info
+
+            +small-titles(ttl='Сертификат' ttl2='на сигары и алкоголь')
+
+            .certificates-block__txt
               |В нашем хьюминдоре вы найдете широкий ассортимент сигар Кубы и Карибского бассейна, а винотека порадует большой коллекцией вин Старого Света и уникальными позициями крепкого алкоголя
 
-            +brown-button
+            +brown-button.certificates-block__btn
               |Заказать сертификат
+
+            .certificates-block__note Закажите сертификат заранее и мы подготовим #[br] его к вашему приезду. Cертификат может быть любого номинала
+          
 
   include ../components/sections/rules-section
   include ../components/sections/subscribe-section
