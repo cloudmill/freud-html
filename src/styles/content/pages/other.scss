@@ -1,0 +1,150 @@
+.favorites-top {
+  margin-bottom: getRem(60px);
+}
+
+.search-top {
+  margin-bottom: getRem(45px);
+
+  &__count {
+    margin-top: getRem(15px);
+    @include fsl(20px, 130%);
+  }
+}
+
+.delivery-row {
+  display: flex;
+  justify-content: space-between;
+
+  margin-top: getRem(60px);
+
+  &__item {
+    width: calc(#{$col-part-d} * 4 - #{$col-gap});
+    padding: getRem(50px);
+    border: 1px solid var(--color-border-grey);
+
+    &-ttl {
+      font-family: $ff-titles;
+      @include fsl(36px, 130%);
+      margin-bottom: getRem(20px);
+    }
+  }
+
+  &__txt {
+    @include fsl(18px, 160%);
+    margin: getRem(15px) 0;
+
+    &:first-child {
+      margin-top: 0;
+    }
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__map-link {
+    margin-top: getRem(8px);
+    @include fsl(18px, 130%);
+    font-weight: 600;
+    color: var(--color-brown);
+  }
+
+  &-icons {
+    display: flex;
+    align-items: center;
+
+    img {
+      flex-shrink: 0;
+    }
+
+    img:not(:last-child) {
+      margin-right: getRem(24px);
+    }
+  }
+}
+
+.certificates-block {
+  padding: getRem(60px) calc(#{$col-width-d}) 0;
+
+  // .two-cols-block__col:nth-child(2) {
+  //   justify-content: flex-end;
+  // }
+
+  &__row {
+    display: flex;
+    justify-content: space-between;
+
+    &:first-child {
+      margin-bottom: getRem(120px);
+    }
+  }
+
+  &__img {
+    width: calc(#{$col-part-d} * 5 - (#{$col-gap} * 2));
+  }
+
+  &__info {
+    margin-top: getRem(60px);
+    // width: getRem(500px);
+    width: calc(#{$col-part-d} * 5);
+  }
+
+  .small-titles {
+    margin-bottom: getRem(15px);
+  }
+
+  &__txt {
+    @include fsl(18px, 170%);
+    width: calc(#{$col-part-d} * 4);
+  }
+
+  &__btn {
+    margin-top: getRem(45px);
+  }
+
+  &__note {
+    margin-top: getRem(15px);
+    @include fsl(14px, 160%);
+    color: var(--color-grey);
+  }
+}
+
+.articles-body {
+  padding-top: getRem(90px);
+
+  &-row {
+    margin: getRem(90px) 0;
+
+    &:first-child {
+      margin-top: 0;
+    }
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.articles-top {
+  padding: getRem(60px) 0 getRem(30px);
+  border-bottom: 1px solid var(--color-border-grey);
+
+  display: flex;
+
+  &__item {
+    @include fsl(18px, 120%);
+    font-weight: 600;
+    padding: getRem(12px) getRem(20px);
+    border: 1px solid var(--color-border-grey);
+    cursor: pointer;
+
+    &:not(:last-child) {
+      margin-right: getRem(20px);
+    }
+
+    &:hover {
+      border-color: var(--color-black);
+    }
+    &.active {
+      border-color: var(--color-brown);
+    }
+  }
+}

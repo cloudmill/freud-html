@@ -237,3 +237,122 @@
     @include fsl(18px, 160%);
   }
 }
+
+.articles-card {
+  $comp: &;
+
+  width: calc(#{$col-part-d} * 4 - #{$col-gap});
+  display: flex;
+  flex-direction: column;
+  height: auto;
+
+  &:not(:last-child) {
+    margin-right: #{$col-gap};
+  }
+
+  &__top {
+    position: relative;
+    padding-bottom: getRem(15px);
+    border-bottom: 1px solid var(--color-black-rgba-1);
+
+    .catalog-card__labels {
+      top: getRem(30px);
+      left: getRem(30px);
+    }
+  }
+
+  &__img {
+    object-fit: cover;
+  }
+
+  &__bottom {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    height: 100%;
+
+    &-row {
+      display: flex;
+      justify-content: space-between;
+
+      margin-top: getRem(30px);
+    }
+  }
+
+  &__ttl {
+    margin: getRem(15px) 0;
+
+    font-family: 'Berlingske Serif';
+    @include fsl(30px, 130%);
+  }
+
+  &__txt {
+    @include fsl(18px, 160%);
+
+    @include cropText(3);
+  }
+
+  &__info {
+    display: flex;
+
+    &-col {
+      @include fsl(16px, 150%);
+      color: var(--color-grey);
+      position: relative;
+
+      &:nth-child(1) {
+        padding-right: getRem(15px);
+
+        &::after {
+          content: '';
+          position: absolute;
+          top: 20%;
+          right: 0;
+          width: 1px;
+          height: getRem(11px);
+          background: var(--color-grey);
+        }
+      }
+      &:nth-child(2) {
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        padding-left: getRem(14px);
+      }
+    }
+  }
+
+
+  &--big {
+    display: flex;
+
+    #{$comp}__top, #{$comp}__img {
+      width: calc(#{$col-part-d} * 6 - #{$col-gap});
+    }
+
+    #{$comp}__top {
+      padding-bottom: 0;
+    }
+
+    #{$comp}__bottom {
+      width: calc(#{$col-part-d} * 6);
+      padding: getRem(60px) 0 getRem(60px) calc(#{$col-part-d});
+    }
+
+    #{$comp}__ttl {
+      @include fsl(48px, 130%);
+    }
+    #{$comp}__txt {
+      @include fsl(20px, 160%);
+    }
+
+
+    &-revert {
+      flex-direction: row-reverse;
+
+      #{$comp}__bottom {
+        padding: getRem(60px) calc(#{$col-part-d}) getRem(60px) 0;
+      }
+    }
+  }
+}
