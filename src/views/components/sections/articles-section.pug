@@ -1,5 +1,9 @@
 .container
-  +small-titles.small-titles--mb45(ttl='Справочная информация' txt='Расскажем подробно обо всех тонкостях и нюансах')
+
+  if (articleTtl)
+    +small-titles.small-titles--mb45(ttl=`${articleTtl}` txt=`${articleTxt}`)
+  else
+    +small-titles.small-titles--mb45(ttl='Справочная информация' txt='Расскажем подробно обо всех тонкостях и нюансах')
 
   .articles-row
     
