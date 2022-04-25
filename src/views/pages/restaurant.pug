@@ -1,0 +1,56 @@
+extends ../layouts/master
+
+include ../components/breadcrumbs
+include ../components/buttons
+include ../components/cards
+include ../components/block-titles
+include ../components/picture
+
+block content
+
+  section.section--first.section--grey-extra
+    .container
+      +breadcrumbs(page = 'Ресторан')
+
+      .about-block
+        .section-bg-photo.lounge-main-section.lounge-main-bg 
+          +big-titles.white-ttl(subttl='профессор фрейд' ttl='Ресторан')
+
+          +brown-button
+            |Забронировать стол
+
+        .about-block-bottom
+          each item in ['Основное меню', 'Крабовое меню', 'Винная карта', 'Барная карта', 'б/а напитки']
+
+            a.about-block-bottom__item(href="") #{item}
+
+  section.section--top
+    .container
+      .benefits-block.about-benefits
+        .benefits-cell
+          +big-titles(subttl='для вашего комфорта' ttl='Внимание' ttl2='к деталям')
+
+        -
+          const benefits = [
+            {ttl: 'Опытный фумелье', txt: 'Специалист по сигарам помогает выбрать сигару, подобрать напиток и провести сервировку'},
+            {ttl: 'Виниловый', ttl2: 'проигрыватель', txt: 'Коллекция винила позволит расслабитьс яи отдохнуть от городской суеты, выбирайте музыку под настроение'},
+            {ttl: 'Современный', ttl2: 'камин', txt: 'Безопасный и современный камин создает атмосферу уюта и тепла, наполняет комнату теплым светом'},
+            {ttl: 'Мощная', ttl2: 'вентиляция', txt: 'Уникальная система вентиляции позволяет быстро очищать воздух от сигарного дыма'},
+          ]
+
+        each item, index in benefits
+          .benefits-cell.cell-list
+            +lounge-benefit-ico(`${index}`)
+
+            .benefits-cell__info
+              .benefits-cell__ttl.h3 #{item.ttl}
+                if (item.ttl2)
+                  br
+                  | #{item.ttl2}
+
+              .benefits-cell__txt #{item.txt}
+
+
+  include ../components/sections/certificate-section
+
+  include ../components/sections/subscribe-section

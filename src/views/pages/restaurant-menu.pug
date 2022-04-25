@@ -1,0 +1,29 @@
+extends ../layouts/master
+
+include ../components/breadcrumbs
+include ../components/buttons
+include ../components/cards
+include ../components/block-titles
+include ../components/picture
+
+block content
+
+  section.section--first.section--grey-extra.section--pb120
+    .container
+      +breadcrumbs(items = ['О клубе'] page = 'Сигарный лаунж')
+
+      .about-block
+        .section-bg-photo.lounge-main-section.lounge-main-bg 
+          +big-titles.white-ttl(subttl='профессор фрейд' ttl='Сигарный лаунж')
+
+          +brown-button
+            |Забронировать стол
+
+        .about-block-bottom
+          each item in ['Хьюмидорная комната', 'Сигарный лаунж', 'Кабинет Фрейда', 'Ресторан с баром', 'Винотека в формате bar&shop']
+
+            a.about-block-bottom__item(href="") #{item}
+
+
+
+  include ../components/sections/subscribe-section
