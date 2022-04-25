@@ -67,6 +67,14 @@
       "title": "Контакты"
     },
     {
+      "href": "articles",
+      "title": "Справочная информация"
+    },
+    {
+      "href": "articles-detail",
+      "title": "[Справочная информация] детальная"
+    },
+    {
       "href": "certificates",
       "title": "Подарочный сертификат"
     },
