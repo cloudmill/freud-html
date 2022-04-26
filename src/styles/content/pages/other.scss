@@ -260,6 +260,16 @@
     svg {
       margin-bottom: getRem(40px);
     }
+
+    .card-benefit-ico-1 {
+      width: getRem(54px);
+    }
+    .card-benefit-ico-2 {
+      width: getRem(64px);
+    }
+    .card-benefit-ico-3 {
+      width: getRem(60px);
+    }
   }
 
   &__btn {
@@ -338,6 +348,63 @@
       content: '—';
       position: absolute;
       left: 0;
+    }
+  }
+}
+
+.policy {
+  margin-top: getRem(60px);
+
+  display: flex;
+  justify-content: space-between;
+
+  &__col {
+
+    &:nth-child(1) {
+      width: calc(#{$col-part-d} * 9);
+
+      padding-right: calc(#{$col-part-d});
+    }
+    &:nth-child(2) {
+      width: calc(#{$col-part-d} * 3 - #{$col-gap});
+    }
+  }
+
+  h1 {
+    margin-bottom: getRem(30px);
+  }
+  h2 {
+    margin: getRem(45px) 0 getRem(15px);
+  }
+  p {
+    @include fsl (18px, 170%);
+    margin: getRem(10px) 0;
+
+    &:first-child {
+      margin-top: 0;
+    }
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    a {
+      text-decoration: underline;
+      color: var(--color-brown);
+    }
+  }
+}
+
+.policy-links {
+  padding: getRem(30px);
+  background: var(--background-grey-extra-2);
+
+  &__item {
+    padding: getRem(18px) getRem(30px);
+    @include fsl (16px, 130%);
+    cursor: pointer;
+
+    &.active {
+      color: var(--color-brown);
     }
   }
 }
