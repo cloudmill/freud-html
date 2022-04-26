@@ -13,7 +13,7 @@ block content
       +breadcrumbs(page = 'Ресторан')
 
       .about-block
-        .section-bg-photo.lounge-main-section.lounge-main-bg 
+        .restaurant-main-bg.lounge-main-section
           +big-titles.white-ttl(subttl='профессор фрейд' ttl='Ресторан')
 
           +brown-button
@@ -26,21 +26,21 @@ block content
 
   section.section--top
     .container
-      .benefits-block.about-benefits
+      .benefits-block
         .benefits-cell
-          +big-titles(subttl='для вашего комфорта' ttl='Внимание' ttl2='к деталям')
+          +big-titles(subttl='безупречный сервис' ttl='Камерная' ttl2='атмосфера')
 
         -
           const benefits = [
-            {ttl: 'Опытный фумелье', txt: 'Специалист по сигарам помогает выбрать сигару, подобрать напиток и провести сервировку'},
-            {ttl: 'Виниловый', ttl2: 'проигрыватель', txt: 'Коллекция винила позволит расслабитьс яи отдохнуть от городской суеты, выбирайте музыку под настроение'},
-            {ttl: 'Современный', ttl2: 'камин', txt: 'Безопасный и современный камин создает атмосферу уюта и тепла, наполняет комнату теплым светом'},
-            {ttl: 'Мощная', ttl2: 'вентиляция', txt: 'Уникальная система вентиляции позволяет быстро очищать воздух от сигарного дыма'},
+            {ttl: 'Блюда из камчатского краба', txt: 'Наша гордость и хит меню. Наисвежайший, поставляется в клуб прямо с рыболовного судна, где его предварительно варят в морской воде'},
+            {ttl: 'Авторская', ttl2: 'кухня', txt: 'Мы применяем классические методы готовки из различных кухонь мира. Сочетаем их с региональными продуктами'},
+            {ttl: 'Богатая', ttl2: 'винная карта', txt: 'Часть блюд из меню идеально подойдет для поклонников вина, другая — для тех, кто предпочитает сигары'},
+            {ttl: 'Классические', ttl2: 'коктейли XX века', txt: 'Cвежайший камчатский краб, мурманская треска и другие продукты закупаются у лучших, проверенных годами поставщиков'},
           ]
 
         each item, index in benefits
           .benefits-cell.cell-list
-            +lounge-benefit-ico(`${index}`)
+            +restaurant-benefit-ico(`${index}`)
 
             .benefits-cell__info
               .benefits-cell__ttl.h3 #{item.ttl}
@@ -50,6 +50,72 @@ block content
 
               .benefits-cell__txt #{item.txt}
 
+  section.section.before-interior-block
+    .container
+
+      .certificates-block.restaurant-page-block
+
+        .certificates-block__row
+
+          .certificates-block__info
+
+            +big-titles(subttl='от шеф-повара' ttl='Изысканное' ttl2='меню' txt='В меню ресторана представлены как блюда, хорошо известные каждому поклоннику гастрономии, так и отражающие авторское видение нашего шефа')
+
+            //- .certificates-block__txt
+            //-   |Особенный подарок для любого случая. Камерная атмосфера, изысканное меню и обширная винная карта позволят в полной мере насладиться временем проведенным в нашем клубе
+
+            +brown-button.certificates-block__btn
+              |Смотреть меню
+
+          +picture.certificates-block__img(file='restaurant-1')
+
+  section.section--bottom.section--grey.interior-block
+    .container
+      .restaurant-slider
+        .restaurant-slider__col
+          +control-left#restaurant-slider-prev
+
+        .restaurant-slider__container
+          .swiper-container#restaurant-slider
+            .swiper-wrapper
+              - for (i=0;i<3;i++)
+                .swiper-slide
+                  +picture(file='restaurant-slide')
+
+          .sliders-pagination#restaurant-slider-pagination
+
+        .restaurant-slider__col
+          +control-right#restaurant-slider-next
+
+      .interior-block__col
+        +big-titles(subttl='строгость и элегантность' ttl='Ресторан' txt='Строгий контроль качества продуктов и внимание наших сотрудников позволит вам в полной мере насладиться временем проведенным в его стенах.' txtp='Часть блюд из меню идеально подойдет для поклонников вина, другая – для тех, кто предпочитает сигары, а подобрать правильную гастрономическую пару помогут наши профессиональные сомелье и фумелье')
+
+  section.section
+    .container
+
+      .certificates-block.restaurant-page-block
+
+        .certificates-block__row
+
+          .certificates-block__info
+
+            +big-titles(subttl='рекомендует' ttl='Шеф-повар' txt='Мы тщательно выбираем продукты для своих блюд. Знаем, у кого лучший камчатский краб, мурманская треска, ленский осётр и сезонные овощи')
+
+            +brown-button.certificates-block__btn
+              |Смотреть меню
+
+          +picture.certificates-block__img(file='restaurant-2')
+  
+  section.section--bottom
+    .swiper-container.humidor-slider#humidor-slider
+      .swiper-wrapper
+        - for (i=1;i<5;i++)
+          .swiper-slide
+            +picture(file=`restaurant-page-slide-${i}`)
+
+        - for (i=1;i<3;i++)
+          .swiper-slide
+            +picture(file=`restaurant-page-slide-${i}`)
 
   include ../components/sections/certificate-section
 

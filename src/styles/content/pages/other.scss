@@ -63,6 +63,9 @@
 }
 
 .certificates-block {
+  
+  $comp: &;
+
   padding: getRem(60px) calc(#{$col-width-d}) 0;
 
   // .two-cols-block__col:nth-child(2) {
@@ -73,7 +76,7 @@
     display: flex;
     justify-content: space-between;
 
-    &:first-child {
+    &:not(:last-child) {
       margin-bottom: getRem(120px);
     }
   }
@@ -106,4 +109,21 @@
     @include fsl(14px, 160%);
     color: var(--color-grey);
   }
+}
+
+.restaurant-page-block {
+  padding-top: 0;
+
+  .big-titles__txt {
+    margin-top: getRem(15px);
+    width: calc(#{$col-part-d} * 4);
+  }
+
+  .certificates-block__btn {
+    margin-top: getRem(40px);
+  }
+}
+
+.restaurant-main-bg {
+  background: url(assets/images/restaurant-main-bg.jpg) no-repeat center;
 }
