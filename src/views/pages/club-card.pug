@@ -1,0 +1,105 @@
+extends ../layouts/master
+
+include ../components/breadcrumbs
+include ../components/buttons
+include ../components/cards
+include ../components/block-titles
+include ../components/picture
+
+block content
+
+  section.section--first.section--bottom
+    .container
+      +breadcrumbs(items = ['О клубе'] page = 'Клубная карта')
+
+      .contacts-block
+        .contacts-block__top
+          +big-titles(subttl='Для постоянных клиентов' ttl='Клубная карта' txt='Клубная карта, предоставляющие' txt2='различные привилегии')
+
+          .scroll-down
+            .scroll-down__line
+
+
+  section.section--grey
+    .container
+      .club-card
+        img(src="assets/images/card-logo.png", alt="")
+
+      .benefits-top
+        -
+          const benefits = [
+            'Клубная карта, дающая максимум привилегий',
+            'Клубная атрибутика',
+            'Действует 1 год'
+          ]
+        
+        each item, index in benefits
+          .benefits-top__item
+            +card-benefit-ico(index)
+            |#{item}
+
+      +brown-button.benefits-top__btn
+        |Узнать стоимость
+
+      .benefits-top__line
+
+  section
+    .container
+
+      -
+        const cards = [
+          'Представление индивидуальной именной ячейки в хьюмидоре клуба для хранения сигар и курительных принадлежностей (по желанию клубного гостя)',
+          'Бесплатная бронь кабинета Фрейда на 2 часа (ежедневно) по предварительной записи',
+          '10% скидка на меню ресторана',
+          '10% скидка на ассортимент винотеки и хьюмидора',
+          'Отсутствие бантового сбора на приобретенные и собственные сигары',
+          'Возможность участия во всех событиях организуемых частным клубом «Профессор Фрейд» включая мероприятия club members only (только для членов клуба)',
+          'Возможность использования охраняемого паркинга (при наличии мест)',
+          'Скидки и привилегии у партнеров  клуба при предъявлении клубной карты «Профессор Фрейд»',
+          'Преимущественное право на пролонгацию клубной карты на новый срок',
+          'Индивидуальные подарки от клуба и его партнеров'
+        ]
+
+      .benefit-cards
+        each item in cards
+          .benefit-card #{item}
+
+  section.section--bottom
+    .container
+
+      .partners-block
+
+        +big-titles(subttl='подарки владельцам клубных карты' ttl='Партнёры клуба')
+
+
+        .certificates-block.restaurant-page-block
+
+          .certificates-block__row
+
+            .certificates-block__info
+
+              +small-titles(ttl='INDEVER' txt='Студия индивидуального пошива мужского гардероба предлагает каждому члену клуба различные подарки и скидки')
+
+              ul
+                -
+                  const li = [
+                    'подарок от ателье INDEVER на День Рождения',
+                    'скидка 10% на первый заказ или, при заказе костюма сорочка в подарок',
+                    'услуга «технического осмотра» изделий 2 раза в год',
+                    'услуга «Выездной заказ» бесплатно'
+                  ]
+                
+                each item in li
+                  li #{item}
+
+            +picture.certificates-block__img(file='partners-1')
+
+          .certificates-block__row
+
+            +picture.certificates-block__img(file='partners-2')
+
+            .certificates-block__info
+
+              +small-titles(ttl='Мир сейфов' txt='Члены клуба могут получить скидку 10% в салонах «Мир сейфов» в Санкт-Петербурге по адресу Аптекарский пр. 18 и Москве по адресу Рублевское шоссе, д. 28, к.2')
+
+          
