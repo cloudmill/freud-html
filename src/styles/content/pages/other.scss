@@ -128,6 +128,10 @@
   background: url(assets/images/restaurant-main-bg.jpg) no-repeat center;
 }
 
+.menu-main-bg {
+  background: url(assets/images/menu-main-bg.jpeg) no-repeat center;
+}
+
 .menu-list {
   margin-top: getRem(45px);
   padding: getRem(50px) getRem(40px);
@@ -225,4 +229,12 @@
     padding: 0;
     color: inherit;
   }
+}
+
+.menu-wine-inner {
+  max-height: 500px;
+  overflow-y: scroll;
+
+  padding-right: getRem(40px);
+  margin-bottom: getRem(15px);
 }
