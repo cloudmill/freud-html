@@ -67,6 +67,10 @@
       "title": "Контакты"
     },
     {
+      "href": "clab-card",
+      "title": "Клубная карта"
+    },
+    {
       "href": "articles",
       "title": "Справочная информация"
     },
@@ -75,12 +79,28 @@
       "title": "[Справочная информация] детальная"
     },
     {
+      "href": "restaurant",
+      "title": "Ресторан"
+    },
+    {
+      "href": "restaurant-menu",
+      "title": "[Ресторан] Меню"
+    },
+    {
+      "href": "restaurant-bar",
+      "title": "[Ресторан] Барное меню"
+    },
+    {
       "href": "certificates",
-      "title": "Подарочный сертификат"
+      "title": "Подарочные сертификаты"
     },
     {
       "href": "search",
       "title": "Результаты поиска"
+    },
+    {
+      "href": "policy",
+      "title": "Политика конфиденциальности"
     },
     {
       "href": "delivery",
