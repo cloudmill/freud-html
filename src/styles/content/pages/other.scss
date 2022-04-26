@@ -127,3 +127,67 @@
 .restaurant-main-bg {
   background: url(assets/images/restaurant-main-bg.jpg) no-repeat center;
 }
+
+.menu-list {
+  margin-top: getRem(45px);
+  padding: getRem(50px) getRem(40px);
+  background: var(--background-grey-extra-2);
+
+  &__row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    &:not(:last-child) {
+      margin-bottom: getRem(10px);
+    }
+  }
+
+  &__name {
+    @include fsl(16px, 150%);
+    max-width: 80%;
+  }
+  &__price {
+    @include fsl(18px, 170%);
+    font-weight: 600;
+  }
+  &__weight {
+    width: 100%;
+    // margin-top: getRem(10px);
+    @include fsl(14px, 120%);
+    font-family: $ff-titles;
+    color: var(--color-grey);
+  }
+}
+
+.menu-tabs {
+  justify-content: center;
+  padding: getRem(80px) 0;
+}
+
+.menu-tab {
+  display: flex;
+  align-items: center;
+
+  border: 1px solid var(--menu-tab-border);
+  padding: getRem(20px);
+
+  text-transform: none;
+
+  &.active {
+    border: 1px solid var(--color-brown);
+  }
+  &:hover {
+    border: 1px solid var(--color-black);
+  }
+
+  svg {
+    margin-right: getRem(14px);
+    width: getRem(35px);
+    height: getRem(35px);
+  }
+
+  &:not(:last-child) {
+    margin-right: getRem(30px);
+  }
+}

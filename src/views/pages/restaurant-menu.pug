@@ -8,22 +8,182 @@ include ../components/picture
 
 block content
 
-  section.section--first.section--grey-extra.section--pb120
+  section.section--first.section--grey-extra
     .container
-      +breadcrumbs(items = ['О клубе'] page = 'Сигарный лаунж')
+      +breadcrumbs(items = ['Ресторан'] page = 'Меню')
 
       .about-block
         .section-bg-photo.lounge-main-section.lounge-main-bg 
-          +big-titles.white-ttl(subttl='профессор фрейд' ttl='Сигарный лаунж')
+          +big-titles.white-ttl(subttl='ресторан' ttl='Меню')
 
           +brown-button
             |Забронировать стол
 
-        .about-block-bottom
-          each item in ['Хьюмидорная комната', 'Сигарный лаунж', 'Кабинет Фрейда', 'Ресторан с баром', 'Винотека в формате bar&shop']
+        .about-block-bottom.menu-tabs
 
-            a.about-block-bottom__item(href="") #{item}
+          a.about-block-bottom__item.menu-tab.active(href="")
+            +menu-ico-1
+            |Основное
 
+          each item, index in ['Крабовое', 'Винная карта', 'Барная карта', 'Б/а напитки']
 
+            a.about-block-bottom__item.menu-tab(href="")
+              +menu-ico(index)
+              |#{item}
+
+  section.section
+    .container
+
+      .certificates-block.restaurant-page-block
+
+        .certificates-block__row
+
+          .certificates-block__info
+
+            +big-titles(subttl='Из аутентичных ингредиентов' ttl='Закуски и салаты' txt='Натуральные продукты, традиционные блюда')
+
+            -
+              const menu1 = [
+                {name: 'Фермерская буратта со спелыми томатами и рукколой', price: '750 ₽', weight: '210 г'},
+                {name: 'Вителло Тонато с каперсами и соленым огурцом', price: '700 ₽', weight: '90 г'},
+                {name: 'Икра из печеных овощей', price: '600 ₽', weight: '120 г'},
+                {name: 'Крудо из тунца с томатами и рукколой', price: '700 ₽', weight: '180  г'},
+                {name: 'Тартар из бычка травяного откорма с моченой брусникой', price: '900 ₽', weight: '140 г'},
+                {name: 'Салат из свежих овощей', price: '500 ₽', weight: '320 г'},
+                {name: 'Антипасти', price: '1 400 ₽', weight: '150 г'},
+                {name: 'Сыры с гречишным медом', price: '1 100 ₽', weight: '80 г'}
+              ]
+
+            .menu-list
+
+              each item in menu1
+                .menu-list__row
+                  .menu-list__name #{item.name}
+                  .menu-list__price #{item.price}
+                  .menu-list__weight #{item.weight}
+
+          +picture.certificates-block__img(file='menu-1')
+
+        .certificates-block__row
+
+          +picture.certificates-block__img(file='menu-2')
+
+          .certificates-block__info
+
+            +big-titles(subttl='Авторские рецепты' ttl='Супы' txt='Оригинальная интерпритация классических супов')
+
+            -
+              const menu2 = [
+                {name: 'Суп из осетра с запеченым картофелем и сливочным маслом', price: '750 ₽', weight: '210 г'},
+                {name: 'Суп из печеных перцев с говядиной', price: '700 ₽', weight: '90 г'},
+                {name: 'Cуп с мурманской треской и морепродуктами', price: '600 ₽', weight: '120 г'}
+              ]
+
+            .menu-list
+
+              each item in menu2
+                .menu-list__row
+                  .menu-list__name #{item.name}
+                  .menu-list__price #{item.price}
+                  .menu-list__weight #{item.weight}
+
+        .certificates-block__row
+
+          .certificates-block__info
+
+            +big-titles(subttl='Основной курс' ttl='Горячие блюда' txt='Подчеркиваем естественный вкус ингредиентов')
+
+            -
+              const menu3 = [
+                {name: 'Синекорый палтус с грушей и рукколой', price: '2 000 ₽', weight: '210 г'},
+                {name: 'Рубленный бифштекс из мраморной говядины со спаржей', price: '3 500 ₽', weight: '90 г'},
+                {name: 'Стейк из тунца в миндальной панировке с овощами', price: '3 900 ₽', weight: '120 г'},
+                {name: 'Стейк Рибай с перечным соусом', price: '1 800 ₽', weight: '200 г'},
+                {name: 'Мурманская треска со спаржей и щучьей икрой', price: '2 100 ₽', weight: '200 г'},
+                {name: 'Филе миньон с соусом Сальса Верде', price: '2 100 ₽', weight: '200 г'},
+                {name: 'Утиная грудка с тушеным фенхелем', price: '2 100 ₽', weight: '200 г'}
+              ]
+
+            .menu-list
+
+              each item in menu3
+                .menu-list__row
+                  .menu-list__name #{item.name}
+                  .menu-list__price #{item.price}
+                  .menu-list__weight #{item.weight}
+
+          +picture.certificates-block__img(file='menu-3')
+
+        .certificates-block__row
+
+          +picture.certificates-block__img(file='menu-4')
+
+          .certificates-block__info
+
+            +big-titles(subttl='итальянская кухня' ttl='Гарниры' txt='Отличное дополнение к мясным и рыбным блюдам')
+
+            -
+              const menu4 = [
+                {name: 'Запеченый молодой картофель со страчателлой и щучьей икрой', price: '2 100 ₽', weight: '200 г'},
+                {name: 'Картофельные драники со сметаной', price: '2 100 ₽', weight: '200 г'},
+                {name: 'Спаржа с голандским соусом', price: '2 100 ₽', weight: '200 г'}
+              ]
+
+            .menu-list
+
+              each item in menu4
+                .menu-list__row
+                  .menu-list__name #{item.name}
+                  .menu-list__price #{item.price}
+                  .menu-list__weight #{item.weight}
+
+        .certificates-block__row
+
+          .certificates-block__info
+
+            +big-titles(subttl='Итальянский раздел' ttl='Паста и ризотто' txt='Мы также уделили внимание любителям итальянской кухни, не без оглядки на местные традиции и фирменный стиль')
+
+            -
+              const menu5 = [
+                {name: 'Паста с креветками и Перно Рикар', price: '2 000 ₽', weight: '210 г'},
+                {name: 'Ризотто с белыми грибами', price: '3 900 ₽', weight: '90 г'},
+                {name: 'Ризотто с сыром скаморца', price: '1 800 ₽', weight: '200 г'},
+                {name: 'Ризотто с томлеными телячьими щечками', price: '2 100 ₽', weight: '200 г'}
+              ]
+
+            .menu-list
+
+              each item in menu3
+                .menu-list__row
+                  .menu-list__name #{item.name}
+                  .menu-list__price #{item.price}
+                  .menu-list__weight #{item.weight}
+
+          +picture.certificates-block__img(file='menu-5')
+
+        .certificates-block__row
+
+          +picture.certificates-block__img(file='menu-6')
+
+          .certificates-block__info
+
+            +big-titles(subttl='НА СЛАДКОЕ' ttl='Десерты' txt='Полюбившиеся десерты от нашего шеф-повара')
+
+            -
+              const menu6 = [
+                {name: 'Шоколадный брауни с соленой карамелью', price: '750 ₽', weight: '210 г'},
+                {name: 'Мороженое, сорбет', price: '700 ₽', weight: '90/50 г'},
+                {name: 'Панна-котта из деревенской сметаны с облепихой и белым шоколадом', price: '600 ₽', weight: '120 г'},
+                {name: 'Домашний трюфель из темного шоколада с миндалем', price: '600 ₽', weight: '120 г'},
+                {name: 'Тирамиссу с шафраном', price: '600 ₽', weight: '120 г'}
+              ]
+
+            .menu-list
+
+              each item in menu4
+                .menu-list__row
+                  .menu-list__name #{item.name}
+                  .menu-list__price #{item.price}
+                  .menu-list__weight #{item.weight}
 
   include ../components/sections/subscribe-section
