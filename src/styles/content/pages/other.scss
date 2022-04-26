@@ -173,6 +173,7 @@
   padding: getRem(20px);
 
   text-transform: none;
+  cursor: pointer;
 
   &.active {
     border: 1px solid var(--color-brown);
@@ -189,5 +190,39 @@
 
   &:not(:last-child) {
     margin-right: getRem(30px);
+  }
+}
+
+.menu-wine-top {
+  text-align: center;
+}
+
+.menu-wine-body {
+  padding: getRem(60px) calc(#{$col-part-d}) 0;
+
+  display: flex;
+  justify-content: space-between;
+}
+
+.menu-wine-col {
+  width: calc(#{$col-part-d} * 5 - #{$col-gap} - 20px);
+  border-top: 1px solid var(--color-black-rgba-1);
+
+  .rules-spoiler {
+    border-bottom: 1px solid var(--color-black-rgba-1);
+  }
+  .rules-spoiler__button {
+    background: transparent;
+  }
+  .rules-spoiler__ttl {
+    color: var(--color-black);
+  }
+  .rules-spoiler__arrow path {
+    stroke: var(--color-black);
+  }
+
+  .rules-spoiler__drop-inner {
+    padding: 0;
+    color: inherit;
   }
 }

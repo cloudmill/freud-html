@@ -21,13 +21,13 @@ block content
 
         .about-block-bottom.menu-tabs
 
-          a.about-block-bottom__item.menu-tab.active(href="")
+          .about-block-bottom__item.menu-tab.active
             +menu-ico-1
             |Основное
 
           each item, index in ['Крабовое', 'Винная карта', 'Барная карта', 'Б/а напитки']
 
-            a.about-block-bottom__item.menu-tab(href="")
+            .about-block-bottom__item.menu-tab
               +menu-ico(index)
               |#{item}
 

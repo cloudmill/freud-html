@@ -8,22 +8,58 @@ include ../components/picture
 
 block content
 
-  section.section--first.section--grey-extra.section--pb120
+  section.section--first.section--grey-extra
     .container
-      +breadcrumbs(items = ['О клубе'] page = 'Сигарный лаунж')
+      +breadcrumbs(items = ['Ресторан'] page = 'Меню')
 
       .about-block
         .section-bg-photo.lounge-main-section.lounge-main-bg 
-          +big-titles.white-ttl(subttl='профессор фрейд' ttl='Сигарный лаунж')
+          +big-titles.white-ttl(subttl='ресторан' ttl='Меню')
 
           +brown-button
             |Забронировать стол
 
-        .about-block-bottom
-          each item in ['Хьюмидорная комната', 'Сигарный лаунж', 'Кабинет Фрейда', 'Ресторан с баром', 'Винотека в формате bar&shop']
+        .about-block-bottom.menu-tabs
 
-            a.about-block-bottom__item(href="") #{item}
+          .about-block-bottom__item.menu-tab.active
+            +menu-ico-1
+            |Основное
 
+          each item, index in ['Крабовое', 'Винная карта', 'Барная карта', 'Б/а напитки']
 
+            .about-block-bottom__item.menu-tab
+              +menu-ico(index)
+              |#{item}
+
+  section.section
+    .container
+      +big-titles.menu-wine-top(subttl='лучшие вина' ttl='Винная карта')
+
+      .menu-wine-body
+        .menu-wine-col
+          -
+            const spoilers = [
+              'Вина по бокалам',
+              'Вина в полубутылках',
+              'Шампанское и игристые вина'
+            ]
+
+          each item in spoilers
+
+            .rules-spoiler(data-spoiler='')
+              .rules-spoiler__button(data-spoiler-btn='')
+                .rules-spoiler__ttl #{item}
+                .rules-spoiler__arrow
+                  +arrow-down
+
+              .rules-spoiler__drop
+                .rules-spoiler__drop-inner
+                  ul
+                    li — курение сигар допустимо только в зоне сигарного лаунжа
+                    li — перед посещением хьюмидорной комнаты или других помещений клуба верхнюю одежду необходимо оставить гардеробе
+                    li — в клубе разрешено курить только сигары
+                    li — в клубе принято соблюдать телефонный этикет: снижать громкость звонка до минимума или вибросигнала, вести короткие тихие разговоры, по возможности вне помещений сигарного лаунжаи ресторана клуба
+
+        .menu-wine-col
 
   include ../components/sections/subscribe-section
