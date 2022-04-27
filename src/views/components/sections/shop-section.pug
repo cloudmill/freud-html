@@ -1,4 +1,4 @@
-section.section.shop-section
+mixin shop-section-body
   .container
 
     if (smallTitle)
@@ -38,3 +38,12 @@ section.section.shop-section
     if (!nobtn)
       +brown-border-button.more-btn
         |Перейти в каталог
+
+if (sectionBottom)
+  section.section--bottom.shop-section
+    +shop-section-body
+
+else
+  section.section.shop-section
+    +shop-section-body
+  
