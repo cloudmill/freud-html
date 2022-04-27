@@ -1,0 +1,60 @@
+extends ../layouts/master
+
+include ../components/breadcrumbs
+include ../components/buttons
+include ../components/cards
+include ../components/block-titles
+include ../components/picture
+
+block content
+
+  section.section--first
+    .container
+      +breadcrumbs(items = ['Ресторан'] page = 'Меню')
+
+      .product-top
+        .product-top-picture
+          .product-top-gallery
+            .swiper-container#gallery-slider
+              .swiper-wrapper
+                - for (c=0;c<3;c++)
+                  .swiper-slide
+                    +picture(file='product-1')
+
+          .product-top-img
+            .swiper-container#product-slider
+              .swiper-wrapper
+                - for (c=0;c<3;c++)
+                  .swiper-slide
+                    +picture(file='product-1')
+
+        .product-top-info
+
+          .product-top-labels
+            .catalog-card__labels-item.label-black NEW
+            .catalog-card__labels-item.label-brown limited
+
+          .product-top-code Артикул 022234
+
+          .product-top-ttl Сигара Nicaragua Primeros Mad
+
+          .product-top-availability В наличии
+
+          .product-top-table
+            .product-top-table__row
+              .product-top-table__name Производитель
+              .product-top-table__line
+              .product-top-table__value Gurkha
+
+          .product-top-price.catalog-card__price
+            span.current 13 820 ₽
+            span.old 13 820 ₽
+
+          .product-top-buttons
+
+
+  -
+    const smallTitle = 'Другие товары Gurkha'
+  include ../components/sections/shop-section
+
+  include ../components/sections/articles-section

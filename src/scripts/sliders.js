@@ -1,4 +1,4 @@
-import Swiper, { Navigation, Pagination, Mousewheel } from 'swiper';
+import Swiper, { Navigation, Pagination, Mousewheel, Thumbs } from 'swiper';
 
 
 window.addEventListener('DOMContentLoaded', () => {
@@ -96,4 +96,26 @@ window.addEventListener('DOMContentLoaded', () => {
 
   });
 
+  const gallerySlider = new Swiper('#gallery-slider', {
+
+    modules: [Mousewheel],
+
+    direction: 'vertical',
+    slidesPerView: 'auto',
+    mousewheel: true,
+    slideToClickedSlide: true,
+
+  });
+
+  const productSlider = new Swiper('#product-slider', {
+
+    modules: [Thumbs],
+
+    thumbs: {
+      swiper: gallerySlider
+    },
+
+  });
+
 });
+
