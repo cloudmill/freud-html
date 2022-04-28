@@ -10,7 +10,7 @@ block content
 
   section.section--first.section--bottom
     .container
-      +breadcrumbs(items = ['Магазин', 'Сигары'] page = 'Сигара Nicaragua Primeros Mad')
+      +breadcrumbs(items = ['Магазин', 'Вина'] page = 'Вино Masseto, Toscana IGT')
 
       .product-top
         .product-top-picture
@@ -19,14 +19,14 @@ block content
               .swiper-wrapper
                 - for (c=0;c<3;c++)
                   .swiper-slide
-                    +picture(file='product-1')
+                    +picture(file='product-2')
 
           .product-top-img
             .swiper-container#product-slider
               .swiper-wrapper
                 - for (c=0;c<3;c++)
                   .swiper-slide
-                    +picture(file='product-1')
+                    +picture(file='product-2')
 
         .product-top-info
 
@@ -34,58 +34,60 @@ block content
             .catalog-card__labels-item.label-black NEW
             .catalog-card__labels-item.label-brown limited
 
-          .product-top-code Артикул 022234
+          .product-top-code Артикул 
+            span 022234
 
-          h1.product-top-ttl Сигара Nicaragua Primeros Mad
+          h1.product-top-ttl Вино Masseto, Toscana IGT
 
-          .product-top-availability В наличии
+          .product-top-availability.out-of-stock Нет в наличии
 
-          .product-top-table
-
-            .product-top-table__row
-              .product-top-table__name Производитель
-              .product-top-table__line
-              .product-top-table__value.brand Gurkha
+          dl.product-top-table
 
             .product-top-table__row
-              .product-top-table__name Страна
+              dt.product-top-table__name Производитель
               .product-top-table__line
-              .product-top-table__value Доминикана
+              dd.product-top-table__value.brand Ornellaia
 
             .product-top-table__row
-              .product-top-table__name Крепость
+              dt.product-top-table__name Цвет
               .product-top-table__line
-              .product-top-table__value
-                .catalog-card__strong
-                  - for (i=0;i<4;i++)
-                    .point.active
-                  .point
+              .product-top-table__value Красное
 
             .product-top-table__row
-              .product-top-table__name Формат
+              dt.product-top-table__name Сахар
               .product-top-table__line
-              .product-top-table__value Double Toro
+              dd.product-top-table__value Сухое
 
             .product-top-table__row
-              .product-top-table__name Время курения
+              dt.product-top-table__name Страна
               .product-top-table__line
-              .product-top-table__value 15 минут
+              dd.product-top-table__value Доминикана
 
             .product-top-table__row
-              .product-top-table__name Размер сигары
+              dt.product-top-table__name Регион
               .product-top-table__line
-              .product-top-table__value 127 мм × 50 RG
+              dd.product-top-table__value Трентино-Альто Адидже
 
             .product-top-table__row
-              .product-top-table__name Диаметр
+              dt.product-top-table__name Год
               .product-top-table__line
-              .product-top-table__value 20 мм
+              dd.product-top-table__value 2009
+
+            .product-top-table__row
+              dt.product-top-table__name Крепость
+              .product-top-table__line
+              dd.product-top-table__value 15%
+
+            .product-top-table__row
+              dt.product-top-table__name Объем
+              .product-top-table__line
+              dd.product-top-table__value 750 мл
 
           button.button--clean.product-more-btn Все характеристики
 
           .product-top-price.catalog-card__price
-            span.current 13 820 ₽
-            span.old 13 820 ₽
+            span.current 165 750 ₽
+            span.old 200 820 ₽
 
           .product-top-buttons
             +brown-button.product-button-cart
@@ -99,89 +101,125 @@ block content
               .product-info-bottom__ttl Самовывоз из магазина
               .product-info-bottom__txt Бесплатно, сегодня
 
-            .product-info-bottom__col
-              .product-info-bottom__ttl Доставка
-              .product-info-bottom__txt от 200 ₽, сегодня
-
 
       .product-body
 
-        .product-body__block
+        article.product-body__block
 
           h2.h4.title-font.product-body__ttl Описание
 
-          .product-body__txt Davidoff Oro Blanco выпущены в формате Toro (6” с диаметром RG 54) и представляют собой доминиканские пурос из винтажного табака 2002 года, каждый лист которого был отобран лично Эладио Диасом, мастером-блендером компании «Davidoff». После отбора табак вновь выдерживался, скручивался в сигары и выдерживался вновь уже в готовом виде до тех пор, пока конечный продукт не достиг того уровня, которого от него ожидал Диас... После отбора табак вновь выдерживался, скручивался в сигарыи выдерживался вновь уже в готовом виде до тех пор, пока конечный продукт не достиг того уровня ...
+          h3.product-body__subttl Дегустационные характеристики
 
-          button.button--clean.product-more-btn Показать полностью
+          p.product-body__txt Светло-соломенный c блеском цвет. Восхитительный яркий аромат, богатый тонами цитрусовых, персика и дыни. Вкус среднетелый, с прекрасно сбалансированной кислотностью и легкой пикантной горчинкойв послевкусии
+
+          h3.product-body__subttl Гастрономия
+
+          p.product-body__txt Прекрасно само по себе. Также отлично подойдет к жареному мясу, мясу на гриле, пряным блюдам, дичи и выдержанным сырам
+
+          .product-gastronomy
+            -
+              const gastronomy = [
+                'Красное мясо',
+                'Белое мясо',
+                'Рыба',
+                'Сыры',
+                'Морепродукты'
+              ]
+            
+            each item, index in gastronomy
+              .product-gastronomy__item
+                .product-gastronomy__ico
+                  +gastronomy-ico(index)
+                | #{item}
+
+          h3.product-body__subttl Стилистика
+
+          p.product-body__txt Красное — мощное, насыщенное, выдержанное в дубе
 
         
         .product-body__block
           h2.h4.title-font.product-body__ttl Характеристики
 
-          .product-body-info
+          dl.product-body-info
 
             .product-body-info__col
 
               .product-top-table__row
-                .product-top-table__name Производитель
+                dt.product-top-table__name Производитель
                 .product-top-table__line
-                .product-top-table__value.brand Gurkha
+                dd.product-top-table__value.brand Ornellaia
 
               .product-top-table__row
-                .product-top-table__name Страна
+                dt.product-top-table__name Цвет
                 .product-top-table__line
-                .product-top-table__value Доминикана
+                .product-top-table__value Красное
 
               .product-top-table__row
-                .product-top-table__name Крепость
+                dt.product-top-table__name Сахар
                 .product-top-table__line
-                .product-top-table__value
-                  .catalog-card__strong
-                    - for (i=0;i<4;i++)
-                      .point.active
-                    .point
+                dd.product-top-table__value Сухое
 
               .product-top-table__row
-                .product-top-table__name Формат
+                dt.product-top-table__name Страна
                 .product-top-table__line
-                .product-top-table__value Double Toro
+                dd.product-top-table__value Доминикана
 
               .product-top-table__row
-                .product-top-table__name Время курения
+                dt.product-top-table__name Регион
                 .product-top-table__line
-                .product-top-table__value 15 минут
+                dd.product-top-table__value Трентино-Альто Адидже
 
               .product-top-table__row
-                .product-top-table__name Размер сигары
+                dt.product-top-table__name Год
                 .product-top-table__line
-                .product-top-table__value 127 мм × 50 RG
+                dd.product-top-table__value 2009
 
               .product-top-table__row
-                .product-top-table__name Диаметр
+                dt.product-top-table__name Крепость
                 .product-top-table__line
-                .product-top-table__value 20 мм
+                dd.product-top-table__value 15%
+
+              .product-top-table__row
+                dt.product-top-table__name Объем
+                .product-top-table__line
+                dd.product-top-table__value 750 мл
 
             .product-body-info__col
 
               .product-top-table__row
-                .product-top-table__name Покровный лист
+                dt.product-top-table__name Категория
                 .product-top-table__line
-                .product-top-table__value Куба
+                dd.product-top-table__value Indicazione Geografica Tipica (IGT)
 
               .product-top-table__row
-                .product-top-table__name Связующий лист
+                dt.product-top-table__name Декантация
                 .product-top-table__line
-                .product-top-table__value Куба
+                dd.product-top-table__value Аэрация
 
               .product-top-table__row
-                .product-top-table__name Начинка
+                dt.product-top-table__name Потенциал хранения
                 .product-top-table__line
-                .product-top-table__value Куба
+                dd.product-top-table__value 15-25
 
               .product-top-table__row
-                .product-top-table__name Скрутка
+                dt.product-top-table__name Выдержан в ёмкости
                 .product-top-table__line
-                .product-top-table__value Ручная
+                dd.product-top-table__value Дубовая бочка
+
+              .product-top-table__row
+                dt.product-top-table__name Аппелласьон
+                .product-top-table__line
+                dd.product-top-table__value Toscana
+
+              .product-top-table__row
+                dt.product-top-table__name Тип вина
+                .product-top-table__line
+                dd.product-top-table__value Тихое
+
+              .product-top-table__row
+                dt.product-top-table__name Сорт винограда
+                .product-top-table__line
+                dd.product-top-table__value Мерло
 
         .product-body__block
           h2.h4.title-font.product-body__ttl Способы оплаты и получения заказа
@@ -205,7 +243,7 @@ block content
                 |Доставка и оплата
 
         .product-body__block
-          form.product-body-consult
+          form.product-body-consult(novalidate)
             h2.h4.title-font.product-body__ttl Получите консультацию специалиста
 
             .product-body-consult__row

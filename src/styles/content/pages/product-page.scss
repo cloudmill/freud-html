@@ -82,6 +82,10 @@
 
     background: #1FAA35;
   }
+
+  &.out-of-stock::before {
+    background: var(--color-black-rgba-2);
+  }
 }
 
 .product-top-table {
@@ -196,6 +200,17 @@
     margin-bottom: getRem(30px);
   }
 
+  &__subttl {
+    @include fsl(18px, 130%);
+    font-weight: 600;
+
+    margin: getRem(30px) 0 getRem(10px);
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
   &__txt {
     @include fsl(16px, 160%);
   }
@@ -268,6 +283,39 @@
 
     a {
       color: var(--color-brown);
+    }
+  }
+}
+
+.product-gastronomy {
+  display: flex;
+  margin-top: getRem(15px);
+
+  &__item {
+
+    display: flex;
+    align-items: center;
+
+    &:not(:last-child) {
+      margin-right: getRem(30px);
+    }
+  }
+
+  &__ico {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: getRem(34px);
+    height: getRem(34px);
+    border-radius: 50%;
+    background: var(--background-grey-extra-2);
+
+    margin-right: getRem(12px);
+
+    svg {
+      width: getRem(20px);
+      height: getRem(20px);
     }
   }
 }

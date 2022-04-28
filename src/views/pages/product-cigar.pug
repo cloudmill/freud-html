@@ -1,0 +1,246 @@
+extends ../layouts/master
+
+include ../components/breadcrumbs
+include ../components/buttons
+include ../components/cards
+include ../components/block-titles
+include ../components/picture
+
+block content
+
+  section.section--first.section--bottom
+    .container
+      +breadcrumbs(items = ['Магазин', 'Сигары'] page = 'Сигара Nicaragua Primeros Mad')
+
+      .product-top
+        .product-top-picture
+          .product-top-gallery
+            .swiper-container#gallery-slider
+              .swiper-wrapper
+                - for (c=0;c<3;c++)
+                  .swiper-slide
+                    +picture(file='product-1')
+
+          .product-top-img
+            .swiper-container#product-slider
+              .swiper-wrapper
+                - for (c=0;c<3;c++)
+                  .swiper-slide
+                    +picture(file='product-1')
+
+        .product-top-info
+
+          .product-top-labels
+            .catalog-card__labels-item.label-black NEW
+            .catalog-card__labels-item.label-brown limited
+
+          .product-top-code Артикул 022234
+
+          h1.product-top-ttl Сигара Nicaragua Primeros Mad
+
+          .product-top-availability В наличии
+
+          .product-top-table
+
+            .product-top-table__row
+              .product-top-table__name Производитель
+              .product-top-table__line
+              .product-top-table__value.brand Gurkha
+
+            .product-top-table__row
+              .product-top-table__name Страна
+              .product-top-table__line
+              .product-top-table__value Доминикана
+
+            .product-top-table__row
+              .product-top-table__name Крепость
+              .product-top-table__line
+              .product-top-table__value
+                .catalog-card__strong
+                  - for (i=0;i<4;i++)
+                    .point.active
+                  .point
+
+            .product-top-table__row
+              .product-top-table__name Формат
+              .product-top-table__line
+              .product-top-table__value Double Toro
+
+            .product-top-table__row
+              .product-top-table__name Время курения
+              .product-top-table__line
+              .product-top-table__value 15 минут
+
+            .product-top-table__row
+              .product-top-table__name Размер сигары
+              .product-top-table__line
+              .product-top-table__value 127 мм × 50 RG
+
+            .product-top-table__row
+              .product-top-table__name Диаметр
+              .product-top-table__line
+              .product-top-table__value 20 мм
+
+          button.button--clean.product-more-btn Все характеристики
+
+          .product-top-price.catalog-card__price
+            span.current 13 820 ₽
+            span.old 13 820 ₽
+
+          .product-top-buttons
+            +brown-button.product-button-cart
+              |Добавить в корзину
+
+            button.button--clean.product-button-fav
+              +favorites-icon
+
+          .product-info-bottom
+            .product-info-bottom__col
+              .product-info-bottom__ttl Самовывоз из магазина
+              .product-info-bottom__txt Бесплатно, сегодня
+
+            .product-info-bottom__col
+              .product-info-bottom__ttl Доставка
+              .product-info-bottom__txt от 200 ₽, сегодня
+
+
+      .product-body
+
+        .product-body__block
+
+          h2.h4.title-font.product-body__ttl Описание
+
+          .product-body__txt Davidoff Oro Blanco выпущены в формате Toro (6” с диаметром RG 54) и представляют собой доминиканские пурос из винтажного табака 2002 года, каждый лист которого был отобран лично Эладио Диасом, мастером-блендером компании «Davidoff». После отбора табак вновь выдерживался, скручивался в сигары и выдерживался вновь уже в готовом виде до тех пор, пока конечный продукт не достиг того уровня, которого от него ожидал Диас... После отбора табак вновь выдерживался, скручивался в сигарыи выдерживался вновь уже в готовом виде до тех пор, пока конечный продукт не достиг того уровня ...
+
+          button.button--clean.product-more-btn Показать полностью
+
+        
+        .product-body__block
+          h2.h4.title-font.product-body__ttl Характеристики
+
+          .product-body-info
+
+            .product-body-info__col
+
+              .product-top-table__row
+                .product-top-table__name Производитель
+                .product-top-table__line
+                .product-top-table__value.brand Gurkha
+
+              .product-top-table__row
+                .product-top-table__name Страна
+                .product-top-table__line
+                .product-top-table__value Доминикана
+
+              .product-top-table__row
+                .product-top-table__name Крепость
+                .product-top-table__line
+                .product-top-table__value
+                  .catalog-card__strong
+                    - for (i=0;i<4;i++)
+                      .point.active
+                    .point
+
+              .product-top-table__row
+                .product-top-table__name Формат
+                .product-top-table__line
+                .product-top-table__value Double Toro
+
+              .product-top-table__row
+                .product-top-table__name Время курения
+                .product-top-table__line
+                .product-top-table__value 15 минут
+
+              .product-top-table__row
+                .product-top-table__name Размер сигары
+                .product-top-table__line
+                .product-top-table__value 127 мм × 50 RG
+
+              .product-top-table__row
+                .product-top-table__name Диаметр
+                .product-top-table__line
+                .product-top-table__value 20 мм
+
+            .product-body-info__col
+
+              .product-top-table__row
+                .product-top-table__name Покровный лист
+                .product-top-table__line
+                .product-top-table__value Куба
+
+              .product-top-table__row
+                .product-top-table__name Связующий лист
+                .product-top-table__line
+                .product-top-table__value Куба
+
+              .product-top-table__row
+                .product-top-table__name Начинка
+                .product-top-table__line
+                .product-top-table__value Куба
+
+              .product-top-table__row
+                .product-top-table__name Скрутка
+                .product-top-table__line
+                .product-top-table__value Ручная
+
+        .product-body__block
+          h2.h4.title-font.product-body__ttl Способы оплаты и получения заказа
+
+          .product-body__payment
+
+            .product-body__payment-col
+              .product-body__payment-ttl
+                +paroduct-pay-1
+                |Получение заказа
+              .product-body__payment-txt Самовывоз из клуба «Профессор Фрейд» по адресу г. Санкт-Петербург, ул. Малая Морская, дом 18
+              +read-more-btn
+                |Показать на карте
+
+            .product-body__payment-col
+              .product-body__payment-ttl
+                +paroduct-pay-2
+                |Оплата
+              .product-body__payment-txt Банковской картой через мобильный терминал или наличными при самовывозе
+              +read-more-btn
+                |Доставка и оплата
+
+        .product-body__block
+          form.product-body-consult(novalidate)
+            h2.h4.title-font.product-body__ttl Получите консультацию специалиста
+
+            .product-body-consult__row
+              label.form__label
+                .form__field-name Ваше имя
+                input.form__input(type='text' placeholder='Введите ваше имя' required)
+
+              label.form__label
+                .form__field-name Телефон
+                input.form__input(type='text' placeholder='Введите номер телефона' required)
+
+            +brown-border-button(type='')
+              |Получить консультацию
+
+            .checkbox
+              label.checkbox__label
+                input.checkbox__input(type="checkbox")
+                .checkbox__box
+                  +checkbox-svg.checkbox__svg
+
+              .checkbox__caption
+                |Нажимая на кнопку «Продолжить», вы соглашаетесь #[br]
+                a(href="") с политикой конфиденциальности
+
+  -
+    let smallTitle = 'Другие товары Gurkha';
+    let nobtn = true;
+    sectionBottom = true;
+  include ../components/sections/shop-section
+
+  -
+    smallTitle = 'Вы смотрели ранее';
+    nobtn = true;
+    sectionBottom = true;
+  include ../components/sections/shop-section
+
+  section.section--bottom
+    include ../components/sections/articles-section

@@ -19,8 +19,12 @@
       "title": "[Магазин] Напитки"
     },
     {
-      "href": "product",
-      "title": "Страница продукта"
+      "href": "product-cigar",
+      "title": "[Страница продукта] Сигара"
+    },
+    {
+      "href": "product-wine",
+      "title": "[Страница продукта] Вино"
     },
     {
       "href": "cart-empty",

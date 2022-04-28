@@ -111,11 +111,11 @@ window.addEventListener('DOMContentLoaded', () => {
 
     modules: [Thumbs],
 
+    // direction: 'vertical',
+
     thumbs: {
       swiper: gallerySlider
     },
-
   });
-
 });
 
