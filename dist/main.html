@@ -34,7 +34,7 @@
 										<path d="M4 9.66791C4 4.88005 10.375 3.14238 12.5 7.4929C14.625 3.14238 21 4.88011 21 9.66796C21 14.4558 12.5 20 12.5 20C12.5 20 4 14.4558 4 9.66791Z" stroke="#1B1B1B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="bevel"></path>
 									</svg></a><a class="header__buttons-icon" href=""><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 										<path d="M9.63157 9.05262C9.63157 9.05262 9.63157 7.78956 9.63157 6.52634C9.63157 3.15786 13.8421 3.15791 13.8421 6.52634C13.8421 8.21055 13.8421 9.05262 13.8421 9.05262M6.68421 7.36844L16.7894 7.36847L18.4736 20L5 20L6.68421 7.36844Z" stroke="#1B1B1B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-									</svg></a><button class="button button--brown">Забронировать</button></div>
+									</svg></a><button class="button button--brown" data-popup-button="1">Забронировать</button></div>
 						</div>
 					</div>
 				</div>
@@ -328,7 +328,7 @@
 													<div class="catalog-card__title">Вино St-Emilion AOC Premier Grand Cru Classe</div>
 												</div>
 												<div class="catalog-card__info">
-													<div class="catalog-card__country"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+													<div class="catalog-card__country"><svg class="flag-ico" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 															<mask id="mask0_6848_31995" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="16" height="16">
 																<circle cx="8" cy="8" r="8" fill="#C4C4C4"></circle>
 															</mask>
@@ -372,7 +372,7 @@
 													<div class="catalog-card__title">Сигара Triad Platinum</div>
 												</div>
 												<div class="catalog-card__info">
-													<div class="catalog-card__country"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+													<div class="catalog-card__country"><svg class="flag-ico" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 															<mask id="mask0_6848_31995" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="16" height="16">
 																<circle cx="8" cy="8" r="8" fill="#C4C4C4"></circle>
 															</mask>
@@ -465,6 +465,30 @@
 						<div class="grid-test__col"></div>
 					</div>
 				</div>
+			</div>
+		</div>
+		<div class="modals-container">
+			<div class="modal modal--right booking-popup" data-popup="1">
+				<div class="booking-popup__wrapper booking-popup-form">
+					<h2 class="h4 title-font booking-popup-form__ttl">Бронирование</h2>
+					<div class="cart-stage-form__note"><sup>*</sup>— поля обязательные для заполнения</div>
+					<form novalidate><label class="form__label">
+							<div class="form__field-name">Имя<sup>*</sup></div><input class="form__input" placeholder="Введите ваше имя" required>
+						</label><label class="form__label">
+							<div class="form__field-name">Телефон<sup>*</sup></div><input class="form__input" type="tel" placeholder="Введите номер телефона" required>
+						</label><label class="form__label">
+							<div class="form__field-name">Место<sup>*</sup></div><input class="form__input" placeholder="Ресторан" required>
+						</label>
+						<div class="booking-popup-form__row"><label class="form__label">
+								<div class="form__field-name">Дата<sup>*</sup></div><input class="form__input" placeholder="Дата" data-date-picker="" required>
+							</label><label class="form__label">
+								<div class="form__field-name">Время<sup>*</sup></div><input class="form__input" pattern="(2[0-3]|[0-1]d):[0-5]d" placeholder="Введите время" required>
+							</label></div><label class="form__label">
+							<div class="form__field-name">Количество гостей<sup>*</sup></div><input class="form__input" type="number" placeholder="Введите число гостей" required>
+						</label><button class="button button--brown booking-popup-form__btn">Забронировать</button>
+						<div class="booking-popup-form__note">Нажимая на кнопку «Забронировать», вы соглашаетесь с <a href="">политикой конфиденциальности</a></div>
+					</form>
+				</div><button class="button--clean modal__close"></button>
 			</div>
 		</div>
 	</body>
