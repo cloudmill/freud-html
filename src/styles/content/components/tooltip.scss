@@ -26,7 +26,7 @@
 
     opacity: 0;
     pointer-events: none;
-    transition: .5s;
+    transition: $transition;
 
     &::after {
       content: '';
@@ -48,7 +48,7 @@
   }
 
   svg circle, svg path {
-    transition: .5s;
+    transition: $transition;
   }
 
   &:hover {

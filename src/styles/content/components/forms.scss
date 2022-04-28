@@ -149,3 +149,38 @@
     width: 100%;
   }
 }
+
+.booking-popup-form {
+
+  &__ttl {
+    margin-bottom: getRem(16px);
+  }
+
+  sup {
+    color: var(--color-brown);
+  }
+
+  &__row {
+    display: flex;
+    justify-content: space-between;
+
+    .form__label {
+      width: calc(50% - 10px);
+    }
+  }
+
+  &__btn {
+    width: 100%;
+  }
+
+  &__note {
+    margin-top: getRem(30px);
+    @include fsl(16px, 160%);
+    color: var(--color-grey);
+
+    a {
+      color: var(--color-grey);
+      border-bottom: 1px solid var(--color-grey);
+    }
+  }
+}

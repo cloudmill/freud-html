@@ -15,6 +15,7 @@ $ff-titles: 'Berlingske Serif';
   --color-black: #1B1B1B;
   --color-black-rgba-1: rgba(27, 27, 27, .1);
   --color-black-rgba-2: rgba(27, 27, 27, .2);
+  --color-black-rgba-5: rgba(27, 27, 27, .5);
 
   --color-black-extra: #292929;
   --color-grey: #909090;
@@ -58,3 +59,6 @@ $col-width-d: '((100vw - (#{$col-pad-d} * 2) - (#{$col-gap} * #{$col-count-d - 1
 
 $col-part-m: '(#{$col-width-m} + #{$col-gap})';
 $col-part-d: '(#{$col-width-d} + #{$col-gap})';
+
+
+$transition: .5s;

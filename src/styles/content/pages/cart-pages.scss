@@ -374,7 +374,7 @@
     width: getRem(280px);
 
     cursor: pointer;
-    transition: .5s;
+    transition: $transition;
 
     &:not(:last-child) {
       margin-right: getRem(15px);

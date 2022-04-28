@@ -12,7 +12,7 @@
   position: relative;
   overflow: hidden;
 
-  transition: .5s;
+  transition: $transition;
 
   &.active {
     // height: 100%;
@@ -82,7 +82,7 @@
     pointer-events: none;
 
     transform: translateY(-98%);
-    transition: .5s;
+    transition: $transition;
 
     &-inner {
       @include fsl(18px, 170%);
@@ -91,7 +91,7 @@
       position: absolute;
 
       opacity: 0;
-      transition: .5s;
+      transition: $transition;
     }
   }
 }
