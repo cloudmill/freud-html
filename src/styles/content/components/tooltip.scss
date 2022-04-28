@@ -1,0 +1,68 @@
+.tooltip {
+  $comp: &;
+
+  margin-left: getRem(5px);
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+
+  cursor: pointer;
+
+  &__txt {
+    position: absolute;
+    bottom: getRem(35px);
+    left: getRem(-15px);
+    max-width: getRem(380px);
+    width: max-content;
+    height: auto;
+    padding: getRem(18px);
+    background: var(--color-white);
+    box-shadow: getRem(0px) getRem(2px) getRem(5px) rgba(121, 121, 121, 0.08);
+
+    @include fsl(14px, 150%);
+    font-weight: 400;
+    color: var(--color-grey);
+
+    opacity: 0;
+    pointer-events: none;
+    transition: .5s;
+
+    &::after {
+      content: '';
+      position: absolute;
+      width: getRem(19px);
+      height: getRem(19px);
+      transform: rotate(45deg);
+      background: var(--color-white);
+      bottom: getRem(-10px);
+      left: getRem(15px);
+
+      box-shadow: getRem(2px) getRem(2px) getRem(2px) rgba(121, 121, 121, 0.08);
+    }
+  }
+
+  svg {
+    width: getRem(18px);
+    height: getRem(18px);
+  }
+
+  svg circle, svg path {
+    transition: .5s;
+  }
+
+  &:hover {
+    #{$comp}__txt {
+      opacity: 1;
+    }
+
+    svg {
+      circle {
+        fill: var(--color-brown)
+      }
+      path {
+        fill: var(--color-white);
+      }
+    }
+  }
+}

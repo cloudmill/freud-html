@@ -127,10 +127,6 @@
     font-weight: 600;
 
     margin-bottom: getRem(5px);
-
-    svg {
-      margin-right: getRem(8px);
-    }
   }
   &__txt {
     @include fsl(16px, 130%);

@@ -61,7 +61,9 @@ block content
             .product-top-table__row
               dt.product-top-table__name Страна
               .product-top-table__line
-              dd.product-top-table__value Доминикана
+              dd.product-top-table__value
+                +italy-flag.flag-ico
+                |Италия
 
             .product-top-table__row
               dt.product-top-table__name Регион
@@ -162,7 +164,9 @@ block content
               .product-top-table__row
                 dt.product-top-table__name Страна
                 .product-top-table__line
-                dd.product-top-table__value Доминикана
+                dd.product-top-table__value
+                  +italy-flag.flag-ico
+                  |Италия
 
               .product-top-table__row
                 dt.product-top-table__name Регион
@@ -193,6 +197,11 @@ block content
 
               .product-top-table__row
                 dt.product-top-table__name Декантация
+
+                  .tooltip
+                    +tooltipIco
+                    .tooltip__txt Декантирование — это переливание вина в графин, у которого может быть две разные цели: снятие вина с осадка и насыщение вина кислородом
+
                 .product-top-table__line
                 dd.product-top-table__value Аэрация
 

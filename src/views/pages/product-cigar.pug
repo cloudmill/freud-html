@@ -40,17 +40,19 @@ block content
 
           .product-top-availability В наличии
 
-          .product-top-table
+          dl.product-top-table
 
             .product-top-table__row
-              .product-top-table__name Производитель
+              dt.product-top-table__name Производитель
               .product-top-table__line
-              .product-top-table__value.brand Gurkha
+              dd.product-top-table__value.brand Gurkha
 
             .product-top-table__row
-              .product-top-table__name Страна
+              dt.product-top-table__name Страна
               .product-top-table__line
-              .product-top-table__value Доминикана
+              dd.product-top-table__value
+                +italy-flag.flag-ico
+                |Италия
 
             .product-top-table__row
               .product-top-table__name Крепость
@@ -62,24 +64,29 @@ block content
                   .point
 
             .product-top-table__row
-              .product-top-table__name Формат
+              dt.product-top-table__name Формат
+
+                .tooltip
+                  +tooltipIco
+                  .tooltip__txt Формат — это определенное сочетание формы, длины и диаметра сигары
+
               .product-top-table__line
-              .product-top-table__value Double Toro
+              dd.product-top-table__value Double Toro
 
             .product-top-table__row
-              .product-top-table__name Время курения
+              dt.product-top-table__name Время курения
               .product-top-table__line
-              .product-top-table__value 15 минут
+              dd.product-top-table__value 15 минут
 
             .product-top-table__row
-              .product-top-table__name Размер сигары
+              dt.product-top-table__name Размер сигары
               .product-top-table__line
-              .product-top-table__value 127 мм × 50 RG
+              dd.product-top-table__value 127 мм × 50 RG
 
             .product-top-table__row
-              .product-top-table__name Диаметр
+              dt.product-top-table__name Диаметр
               .product-top-table__line
-              .product-top-table__value 20 мм
+              dd.product-top-table__value 20 мм
 
           button.button--clean.product-more-btn Все характеристики
 
@@ -106,7 +113,7 @@ block content
 
       .product-body
 
-        .product-body__block
+        article.product-body__block
 
           h2.h4.title-font.product-body__ttl Описание
 
@@ -118,19 +125,21 @@ block content
         .product-body__block
           h2.h4.title-font.product-body__ttl Характеристики
 
-          .product-body-info
+          dl.product-body-info
 
             .product-body-info__col
 
               .product-top-table__row
-                .product-top-table__name Производитель
+                dt.product-top-table__name Производитель
                 .product-top-table__line
-                .product-top-table__value.brand Gurkha
+                dd.product-top-table__value.brand Gurkha
 
               .product-top-table__row
-                .product-top-table__name Страна
+                dt.product-top-table__name Страна
                 .product-top-table__line
-                .product-top-table__value Доминикана
+                dd.product-top-table__value
+                  +italy-flag.flag-ico
+                  |Италия
 
               .product-top-table__row
                 .product-top-table__name Крепость
@@ -142,46 +151,51 @@ block content
                     .point
 
               .product-top-table__row
-                .product-top-table__name Формат
+                dt.product-top-table__name Формат
+
+                  .tooltip
+                    +tooltipIco
+                    .tooltip__txt Формат — это определенное сочетание формы, длины и диаметра сигары
+
                 .product-top-table__line
-                .product-top-table__value Double Toro
+                dd.product-top-table__value Double Toro
 
               .product-top-table__row
-                .product-top-table__name Время курения
+                dt.product-top-table__name Время курения
                 .product-top-table__line
-                .product-top-table__value 15 минут
+                dd.product-top-table__value 15 минут
 
               .product-top-table__row
-                .product-top-table__name Размер сигары
+                dt.product-top-table__name Размер сигары
                 .product-top-table__line
-                .product-top-table__value 127 мм × 50 RG
+                dd.product-top-table__value 127 мм × 50 RG
 
               .product-top-table__row
-                .product-top-table__name Диаметр
+                dt.product-top-table__name Диаметр
                 .product-top-table__line
-                .product-top-table__value 20 мм
+                dd.product-top-table__value 20 мм
 
             .product-body-info__col
 
               .product-top-table__row
-                .product-top-table__name Покровный лист
+                dt.product-top-table__name Покровный лист
                 .product-top-table__line
-                .product-top-table__value Куба
+                dd.product-top-table__value Куба
 
               .product-top-table__row
-                .product-top-table__name Связующий лист
+                dt.product-top-table__name Связующий лист
                 .product-top-table__line
-                .product-top-table__value Куба
+                dd.product-top-table__value Куба
 
               .product-top-table__row
-                .product-top-table__name Начинка
+                dt.product-top-table__name Начинка
                 .product-top-table__line
-                .product-top-table__value Куба
+                dd.product-top-table__value Куба
 
               .product-top-table__row
-                .product-top-table__name Скрутка
+                dt.product-top-table__name Скрутка
                 .product-top-table__line
-                .product-top-table__value Ручная
+                dd.product-top-table__value Ручная
 
         .product-body__block
           h2.h4.title-font.product-body__ttl Способы оплаты и получения заказа
