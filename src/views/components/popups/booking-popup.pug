@@ -1,4 +1,4 @@
-.modal.modal--right.booking-popup(data-popup='1')
+.modal.modal--right.booking-popup.active(data-popup='1')
   .booking-popup__wrapper.booking-popup-form
     h2.h4.title-font.booking-popup-form__ttl Бронирование
 
@@ -27,7 +27,7 @@
         label.form__label
           .form__field-name Дата
             sup *
-          input.form__input(type='text' placeholder='Дата' data-date-picker='' required)
+          input.form__input(type='text' placeholder='Дата' data-datepicker='' required)
 
         label.form__label
           .form__field-name Время

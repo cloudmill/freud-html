@@ -22,7 +22,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (modalsContainer.classList.contains('active') && 
           !e.target.closest('.modal') && 
-          !e.target.closest('[data-popup-button]') || 
+          !e.target.closest('[data-popup-button]') &&
+          !e.target.closest('.datepicker-view') || 
           e.target.closest('.modal__close')
       ) {
   

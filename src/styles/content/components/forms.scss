@@ -184,3 +184,98 @@
     }
   }
 }
+
+// .datepicker.active {
+//   z-index: 200;
+// }
+
+.datepicker-picker {
+  padding: getRem(20px);
+}
+
+.datepicker-controls {
+  margin-bottom: getRem(20px);
+}
+
+.datepicker-grid {
+  // width: calc(#{$col-part-d} * 2 + #{$col-pad-d} - getRem(100px));
+  width: getRem(366px);
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  justify-items: center;
+
+  &.months, &.years {
+    grid-template-columns: repeat(4, 1fr);
+    row-gap: getRem(36px);
+    padding: getRem(27px) 0 getRem(20px);
+  }
+}
+
+.days-of-week {
+  border-bottom: 1px solid var(--color-border-grey);
+  color: var(--color-grey);
+  margin:0 getRem(10px) getRem(10px);
+  justify-content: space-between;
+
+  span.dow {
+    flex: none;
+  }
+}
+
+.datepicker-cell {
+  @include fsl(14px);
+
+  &.day {
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: getRem(37px);
+    height: getRem(37px);
+    line-height: unset;
+  
+    &:not(.disabled):not(.selected):not(.focused):hover {
+      border: 1px solid var(--color-grey);
+      background: var(--color-white);
+
+      transition: $transition;
+    }
+  }
+  &.month, &.year {
+    width: getRem(72px);
+    border-radius: getRem(60px);
+    height: getRem(37px) !important;
+    line-height: unset;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:not(.disabled):not(.selected):not(.focused):hover {
+      border: 1px solid var(--color-grey);
+      background: var(--color-white);
+
+      transition: $transition;
+    }
+  }
+}
+
+.datepicker-cell.selected, .datepicker-cell.selected:hover, .datepicker-cell.today:not(.selected), .datepicker-cell.focused:not(.selected) {
+  background: var(--color-brown);
+  color: var(--color-white);
+  font-weight: 600;
+}
+
+.datepicker-arrow {
+  width: getRem(7px);
+  height: getRem(12px);
+
+  &.next {
+    transform: rotate(180deg);
+  }
+  &:hover path {
+    stroke: var(--color-black-rgba-5);
+
+    transition: $transition;
+  }
+}
