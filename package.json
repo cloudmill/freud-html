@@ -14,6 +14,7 @@
     "babel-core": "7.0.0-bridge.0",
     "babel-loader": "^8.2.2",
     "babel-plugin-module-resolver": "^4.1.0",
+    "badger-accordion": "^1.2.4",
     "beautify-html-webpack-plugin": "^1.0.3",
     "copy-webpack-plugin": "^7.0.0",
     "css-loader": "^5.2.4",

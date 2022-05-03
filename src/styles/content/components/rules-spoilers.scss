@@ -5,14 +5,14 @@
 }
 
 .rules-spoiler {
-  height: auto;
+  // height: auto;
 
   border-bottom: 1px solid rgba(255, 255, 255, .1);
 
-  position: relative;
-  overflow: hidden;
+  // position: relative;
+  // overflow: hidden;
 
-  transition: $transition;
+  // transition: $transition;
 
   &.active {
     // height: 100%;
@@ -34,14 +34,15 @@
   &__button {
     display: flex;
     align-items: center;
+    text-align: left;
 
     cursor: pointer;
 
     padding: getRem(30px) 0 getRem(30px);
 
-    position: relative;
-    z-index: 1;
-    background: var(--color-black)
+    // position: relative;
+    // z-index: 1;
+    // background: var(--color-black)
   }
 
   &__num {
@@ -78,20 +79,34 @@
   }
 
   &__drop {
-    height: 0%;
-    pointer-events: none;
+    // height: 0%;
+    // pointer-events: none;
 
-    transform: translateY(-98%);
-    transition: $transition;
+    // transform: translateY(-98%);
+    // transition: $transition;
 
     &-inner {
       @include fsl(18px, 170%);
       color: var(--grey-medium-txt);
       padding: 0 0 getRem(30px) calc(#{$col-part-d});
-      position: absolute;
+      // position: absolute;
 
-      opacity: 0;
-      transition: $transition;
+      // opacity: 0;
+      // transition: $transition;
     }
   }
+}
+
+.badger-accordion__panel {
+  max-height: 75vh;
+  overflow: hidden;
+}
+
+.badger-accordion__panel.-ba-is-hidden {
+  max-height: 0 !important;
+  visibility: hidden;
+}
+
+.badger-accordion--initialized .badger-accordion__panel {
+  transition: all ease-in-out .5s;
 }

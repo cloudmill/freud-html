@@ -1,0 +1,51 @@
+include ../components/buttons
+include ../components/block-titles
+
+
+
+section.section.section--black
+  .container
+    +big-titles.white-ttl(subttl='подробнее о нас' ttl='Правила' ttl2='посещения клуба')
+
+    .rules-block
+
+      //- dl.js-badger-accordion
+      //-   dt
+      //-     button.js-badger-accordion-header.
+            
+      //-       Header Content
+            
+      //-   dd.badger-accordion__panel.js-badger-accordion-panel
+      //-     .js-badger-accordion-panel-inner.
+            
+      //-       Panel Content
+
+      -
+        const spoilers = [
+          {num: '01.', ttl: 'Общие правила'},
+          {num: '02.', ttl: 'Dress code'},
+          {num: '03.', ttl: 'Правилами не допускается'},
+          {num: '04.', ttl: 'Особые условия'},
+        ]
+
+      each item in spoilers
+
+        dl.rules-spoiler.js-badger-accordion
+          dt
+            button.button--clean.rules-spoiler__button.js-badger-accordion-header
+              .rules-spoiler__num #{item.num}
+              .rules-spoiler__ttl #{item.ttl}
+              .rules-spoiler__arrow
+                svg(width="10" height="7" viewBox="0 0 10 7" fill="none" xmlns="http://www.w3.org/2000/svg")
+                  path(d="M1 1.5L5 5.5L9 1.5" stroke="#1B1B1B" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round")
+
+          dd.rules-spoiler__drop.js-badger-accordion-panel.badger-accordion__panel 
+            .rules-spoiler__drop-inner.js-badger-accordion-panel-inner
+              ul
+                li — курение сигар допустимо только в зоне сигарного лаунжа
+                li — перед посещением хьюмидорной комнаты или других помещений клуба верхнюю одежду необходимо оставить гардеробе
+                li — в клубе разрешено курить только сигары
+                li — в клубе принято соблюдать телефонный этикет: снижать громкость звонка до минимума или вибросигнала, вести короткие тихие разговоры, по возможности вне помещений сигарного лаунжаи ресторана клуба
+
+      
+      
