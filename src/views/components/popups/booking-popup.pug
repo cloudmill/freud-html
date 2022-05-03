@@ -1,4 +1,4 @@
-.modal.modal--right.booking-popup(data-popup='1')
+.modal.modal--right.booking-popup.active(data-popup='1')
   .booking-popup__wrapper.booking-popup-form
     h2.h4.title-font.booking-popup-form__ttl Бронирование
 
@@ -18,10 +18,18 @@
         input.form__input(type='tel' placeholder='Введите номер телефона' required)
 
 
-      label.form__label
-        .form__field-name Место
-          sup *
-        input.form__input(type='text' placeholder='Ресторан' required)
+      label.form__label.select-label
+        .select-input
+          .form__field-name Место
+            sup *
+          input.form__input(type='text' data-select-input placeholder='Ресторан' value='Ресторан' readonly required)
+
+        .select(data-select)
+          ul.select__wrapper
+            li.select__option(data-option='Ресторан') Ресторан
+            li.select__option(data-option='Сигарный лаунж') Сигарный лаунж
+            li.select__option(data-option='Кабинет Фрейда') Кабинет Фрейда
+            
 
       .booking-popup-form__row
         label.form__label

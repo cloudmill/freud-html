@@ -113,6 +113,7 @@
 .form {
 
   &__label {
+    position: relative;
     display: block;
     margin-bottom: getRem(20px);
   }
@@ -186,15 +187,73 @@
 
   .form__input::-webkit-calendar-picker-indicator {
     display: none;
-}
+  }
 }
 
-// .datepicker.active {
-//   z-index: 200;
-// }
+.select {
+  position: absolute;
+  left: 0;
+  z-index: 10;
+  width: 95%;
+  background: var(--color-white);
+  padding: getRem(22px) getRem(20px) getRem(20px);
+  box-shadow: 0px getRem(5px) getRem(10px) rgba(86, 86, 86, 0.06);
+
+  opacity: 0;
+  pointer-events: none;
+
+  transition: $transition;
+  transform: translateY(-100%);
+
+  &__option {
+    @include fsl(16px, 160%);
+    margin: getRem(6px) 0;
+    cursor: pointer;
+    transition: $transition;
+
+    &:hover {
+      color: var(--color-brown);
+    }
+
+    &:first-child {
+      margin-top: 0;
+    }
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &-input {
+    background: var(--color-white);
+    position: relative;
+    z-index: 15;
+  }
+  &-label {
+    overflow: hidden;
+
+    &.active {
+      overflow: visible;
+
+      .select {
+        transform: none;
+        opacity: 1;
+        pointer-events: all;
+      }
+    }
+  }
+}
+
+.datepicker-dropdown {
+  right: getRem(50px);
+}
 
 .datepicker-picker {
+  width: 100%;
   padding: getRem(20px);
+
+  .days {
+    width: 100%;
+  }
 }
 
 .datepicker-controls {
@@ -208,7 +267,8 @@
 
 .datepicker-grid {
   // width: calc(#{$col-part-d} * 2 + #{$col-pad-d} - getRem(100px));
-  width: getRem(366px);
+  // width: getRem(366px);
+  width: 100%;
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   justify-items: center;

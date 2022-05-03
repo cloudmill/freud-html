@@ -18,20 +18,23 @@ document.addEventListener('DOMContentLoaded', () => {
         // после потери курсора из инпута проводит валидацию
         // если есть ошибки - обрабатывает
         // если нет - обнуляет поле ошибки
-        item.addEventListener('focusout', (event) => {
+
+        if (!item.hasAttribute('data-select-input')) {
+          item.addEventListener('focusout', (event) => {
       
-          if (item.validity.valid) {
-            console.log('ok');
+            if (item.validity.valid) {
+              console.log('ok');
+      
+              error.textContent = '';
+              error.className = 'form-error';
+      
+            } else {
+              console.log('ne ok');
     
-            error.textContent = '';
-            error.className = 'form-error';
-    
-          } else {
-            console.log('ne ok');
-  
-            showError();
-          }
-        });
+              showError();
+            }
+          });
+        }
 
         // при отправке формы повторная валидация
         form.addEventListener('submit', function (event) {
