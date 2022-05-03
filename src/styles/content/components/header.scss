@@ -17,6 +17,8 @@
     padding: getRem(14px) 0 getRem(15px) 0;
     border-bottom: 1px solid var(--color-border-grey);
 
+    transition: $transition;
+
     &-inner {
       display: flex;
       justify-content: space-between;
@@ -103,8 +105,10 @@
   }
 
   &--short {
+    transform: translateY(getRem(-47px));
+
     #{$comp}__top {
-      display: none;
+      transform: translateY(-100%);
     }
   }
 }
