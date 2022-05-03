@@ -1,4 +1,4 @@
-.modal.modal--right.booking-popup.active(data-popup='1')
+.modal.modal--right.booking-popup(data-popup='1')
   .booking-popup__wrapper.booking-popup-form
     h2.h4.title-font.booking-popup-form__ttl Бронирование
 
@@ -18,7 +18,7 @@
         input.form__input(type='tel' placeholder='Введите номер телефона' required)
 
 
-      label.form__label.select-label
+      .form__label.select-label
         .select-input
           .form__field-name Место
             sup *
@@ -40,7 +40,12 @@
         label.form__label
           .form__field-name Время
             sup *
-          input.form__input(type='time' placeholder='Введите время' required)
+
+            .tooltip
+              +tooltipIco
+              .tooltip__txt Пн-Чт, 12:00 – 00:00 #[br] Пн-Сб, 12:00 – 01:00 #[br] Вс, 13:00 – 23:00
+
+          input.form__input(type='text' placeholder='Введите время' data-input-time required)
 
       label.form__label
         .form__field-name Количество гостей

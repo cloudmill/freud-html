@@ -31,7 +31,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     selectInput.forEach(item => {
 
-      item.addEventListener('click', e => {
+      item.addEventListener('focus', e => {
+
+        console.log('input-click');
 
         const activeLabel = e.target.closest('.select-label');
 
@@ -64,4 +66,13 @@ document.addEventListener('DOMContentLoaded', () => {
       })
     })
   }
+})
+
+
+document.addEventListener('DOMContentLoaded', () => {
+
+  const inputTime = document.querySelector('[data-input-time]');
+
+
+
 })

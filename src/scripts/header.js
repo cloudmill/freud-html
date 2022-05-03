@@ -1,60 +1,40 @@
 import { mediaQuery } from './mediaQueries'
 
-console.log('start1');
-
-// scroll
-// {
-//   $(() => {
-
-//     console.log('start');
-
-//     if (mediaQuery.matches) {
-
-//       const header = $('.header')
+if (mediaQuery.matches) {
+  window.addEventListener('load', () => {
   
-//       const fps = 120
+    const header = document.querySelector('.header');
+    let scrollTop = window.pageYOffset;
   
-//       let scrollTop = $(window).scrollTop()
+    window.addEventListener('scroll', scroll, {once:true});
   
-//       $(window).one('scroll', scroll)
+    function scroll() {
+      update();
   
-//       function scroll() {
-//         console.log('scroll');
-
-//         update()
+      setTimeout(() => {
+        update();
   
-//         setTimeout(() => {
-//           update()
+        window.addEventListener('scroll', scroll, {once:true});
   
-//           $(window).one('scroll', scroll)
-//         }, 1000 / fps)
-//       }
+      }, 1000 / 120)
+    };
   
-//       function update() {
-//         const newScrollTop = $(window).scrollTop()
+    function update() {
+      let newScrollTop = window.pageYOffset;
   
-//         if (Math.abs(scrollTop - newScrollTop) >= 1) {
-//           if (newScrollTop > scrollTop) {
-//             header.addClass('header--up')
-//           } else {
-//             header.removeClass('header--up')
-//           }
-//         }
+      if (Math.abs(scrollTop - newScrollTop) >= 1) {
+        if (newScrollTop > scrollTop) {
+          header.classList.add('header--short')
+        } else {
+          header.classList.remove('header--short')
+        }
+      }
   
-//         if (scrollTop < 1) {
-//           header.removeClass('header--up')
-//         }
+      if (scrollTop < 1) {
+        header.classList.remove('header--short')
+      }
   
-//         if ($('[data-header-transparent]').length) {
-//           if (scrollTop < 1) {
-//             header.addClass('header--transparent')
-//           } else {
-//             header.removeClass('header--transparent')
-//           }
-//         }
-  
-//         scrollTop = newScrollTop
-//       }
-//     }
-//   });
-// }
+      scrollTop = newScrollTop;
+    }
+  })
+}

@@ -113,7 +113,7 @@
 .form {
 
   &__label {
-    position: relative;
+    // position: relative;
     display: block;
     margin-bottom: getRem(20px);
   }
@@ -164,6 +164,7 @@
   &__row {
     display: flex;
     justify-content: space-between;
+    align-items: center;
 
     .form__label {
       width: calc(50% - 10px);
@@ -193,7 +194,7 @@
 .select {
   position: absolute;
   left: 0;
-  z-index: 10;
+  z-index: 60;
   width: 95%;
   background: var(--color-white);
   padding: getRem(22px) getRem(20px) getRem(20px);
@@ -226,10 +227,11 @@
   &-input {
     background: var(--color-white);
     position: relative;
-    z-index: 15;
+    z-index: 65;
   }
   &-label {
     overflow: hidden;
+    position: relative;
 
     &.active {
       overflow: visible;
@@ -245,6 +247,7 @@
 
 .datepicker-dropdown {
   right: getRem(50px);
+  z-index: 60;
 }
 
 .datepicker-picker {
