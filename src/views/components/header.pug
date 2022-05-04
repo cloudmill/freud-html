@@ -1,5 +1,8 @@
 mixin header
   header.header
+
+    .header-body
+
       .header__top
         .container
           .header__top-inner
@@ -22,9 +25,11 @@ mixin header
               +logo.header__logo-svg
 
             nav.header__nav
-              each item in ['Сигарный клуб', 'Магазин', 'Ресторан', 'Контакты']
-                a.header__nav-item(href="")
+              each item, index in ['Сигарный клуб', 'Магазин', 'Ресторан']
+                button.button--clean.header__nav-item(data-header-btn=`${index}`)
                   |#{item}
+
+              a.header__nav-item(href="") Контакты
 
             .header__buttons
               a.header__buttons-icon(href="")
@@ -36,3 +41,46 @@ mixin header
               +brown-button(data-popup-button='1')
                 |Забронировать
 
+
+    .header-modals
+
+      .header-modals__item(data-header-modal='0')
+        .container
+          .header-modals__col
+
+            each item in ['Сигарный лаунж', 'Хьюмидорная комната', 'Кабинет Фрейда', 'Винотека']
+              a.header-modals__big-ttl(href="") #{item}
+
+          .header-modals__col
+
+            each item in ['Сигарный лаунж', 'Хьюмидорная комната', 'Кабинет Фрейда', 'Винотека']
+              a.header-modals__small-ttl(href="") #{item}
+
+      .header-modals__item(data-header-modal='1')
+        .container
+          .header-modals__col
+
+            each item in ['Сигары', 'Сигариллы', 'Хьюмидоры', 'Крепкие напитки']
+              a.header-modals__big-ttl(href="") #{item}
+
+          .header-modals__col
+
+            each item in ['Наборы', 'Вина', 'Аксессуары']
+              a.header-modals__big-ttl(href="") #{item}
+
+      .header-modals__item(data-header-modal='2')
+        .container
+          .header-modals__col
+
+            each item in ['Основное меню', 'Крабовое меню', 'Бранчи', 'Сезонное']
+              a.header-modals__big-ttl(href="") #{item}
+
+          .header-modals__col
+
+            each item in ['Б/а напитки', 'Винная карта', 'Барная карта']
+              a.header-modals__big-ttl(href="") #{item}
+
+          .header-modals__col
+
+            each item in ['О ресторане', 'Подарочные сертификаты']
+              a.header-modals__small-ttl(href="") #{item}

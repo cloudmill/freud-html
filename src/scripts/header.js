@@ -1,6 +1,9 @@
 import { mediaQuery } from './mediaQueries'
 
 if (mediaQuery.matches) {
+
+  // сворачивание хедера при скролле
+
   window.addEventListener('load', () => {
   
     const header = document.querySelector('.header');
@@ -36,5 +39,33 @@ if (mediaQuery.matches) {
   
       scrollTop = newScrollTop;
     }
+  })
+
+  // открытие и закрытие выпадающих блоков меню
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const headerBtns = document.querySelectorAll('[data-header-btn]');
+
+    headerBtns.forEach(item => {
+      item.addEventListener('click', () => {
+
+        const activeId = Number(item.getAttribute('data-header-btn'));
+
+        if (document.querySelector('.header-modals__item.active')) {
+          document.querySelector('.header-modals__item.active').classList.remove('active');
+        }
+        
+        document.querySelector(`[data-header-modal='${activeId}']`).classList.add('active');
+      })
+    })
+
+    window.addEventListener('click', e => {
+
+      if (!e.target.closest('.header__item') && !e.target.closest('[data-header-btn]') && document.querySelector('.header-modals__item.active')) {
+
+        document.querySelector('.header-modals__item.active').classList.remove('active');
+
+      }
+    })
   })
 }
