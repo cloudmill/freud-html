@@ -141,6 +141,7 @@
     &.active {
       transform: translateY(100%);
       pointer-events: all;
+      z-index: 5;
     }
 
     .container {
