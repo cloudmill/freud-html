@@ -196,7 +196,7 @@
       color: var(--color-grey);
     }
 
-    svg {
+    .calendar-svg {
       width: getRem(20px);
       height: getRem(20px);
 
@@ -208,7 +208,7 @@
     &:hover, &:focus {
       border: 1px solid var(--color-black);
 
-      svg path {
+      .calendar-svg path {
         fill: var(--color-black);
       }
     }
