@@ -26,6 +26,7 @@ new Datepicker(datepickerEl, {
 document.addEventListener('DOMContentLoaded', () => {
 
   const selectInput = document.querySelectorAll('[data-select-input]');
+  const selectLabel = document.querySelector('.select-label');
 
   if (selectInput.length > 0) {
 
@@ -34,10 +35,6 @@ document.addEventListener('DOMContentLoaded', () => {
       item.addEventListener('focusin', e => {
 
         console.log('input-click');
-
-        item.addEventListener('focusout', e => {
-          item.closest('.select-label').classList.remove('active')
-        });
 
         const activeLabel = e.target.closest('.select-label');
 
@@ -68,6 +65,15 @@ document.addEventListener('DOMContentLoaded', () => {
           })
         } 
       })
+    })
+
+    // закрытие селекта при клике мимо
+
+    document.addEventListener('click', e => {
+
+      if (selectLabel.classList.contains('active') && e.target.closest('.booking-popup-form') && !e.target.closest('.select-label')) {
+        selectLabel.classList.remove('active');
+      }
     })
   }
 })
