@@ -23,13 +23,13 @@ document.addEventListener('DOMContentLoaded', () => {
           item.addEventListener('focusout', (event) => {
       
             if (item.validity.valid) {
-              console.log('ok');
+              // console.log('ok');
       
               error.textContent = '';
               error.className = 'form-error';
       
             } else {
-              console.log('ne ok');
+              // console.log('ne ok');
     
               showError();
             }
@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
             error.textContent = 'Введено некорректно';
     
           } else {
-            console.log('ne rabotaet');
+            // console.log('ne rabotaet');
           }
           
           // добавляет на ошибку активный класс

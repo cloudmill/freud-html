@@ -21,60 +21,77 @@ new Datepicker(datepickerEl, {
   </svg>`,
 }); 
 
+
 // select
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  const selectInput = document.querySelectorAll('[data-select-input]');
-  const selectLabel = document.querySelector('.select-label');
+  const selectForms = document.querySelectorAll('[data-select-context]');
 
-  if (selectInput.length > 0) {
+  if (selectForms.length) {
 
-    selectInput.forEach(item => {
+    selectForms.forEach(item => {
+      item.addEventListener('click', e => {
 
-      item.addEventListener('focusin', e => {
-
-        console.log('input-click');
-
-        const activeLabel = e.target.closest('.select-label');
-
-        if (activeLabel.classList.contains('active')) {
-
-          console.log('has-remove');
-          activeLabel.classList.remove('active')
-
-        } else {
-          activeLabel.classList.add('active');
-
-          const activeSelect = activeLabel.querySelector('.select');
+        const selectContext = e.target.closest('[data-select-context]');
   
-          activeSelect.addEventListener('click', e => {
-            e.stopPropagation();
+        const clickedInput = e.target.closest('[data-select-input]');
+        const clickedSelect = e.target.closest('[data-select]');
+        const clickedOption = e.target.closest('[data-select-option]');
   
-            if (e.target.closest('.select__option')) {
-              
-              activeLabel.querySelector('input').value = e.target.closest('.select__option').getAttribute('data-option');
+        const clickOff = selectContext.querySelector('.select-label.active') && e.target.closest('[data-select-context]') && !e.target.closest('[data-select]');
+  
 
-              setTimeout(() => {
-                activeLabel.classList.remove('active');
-              }, );
-
-              console.log('final-remove');
-              
-            } 
-          })
-        } 
+        if (clickedInput) {
+  
+          openSelect(clickedInput)
+  
+        } else if (clickedSelect) {
+  
+          if (clickedOption) {
+  
+            postOption(clickedOption)
+  
+          }
+  
+        } else if (clickOff) {
+  
+          selectContext.querySelector('.select-label.active').classList.remove('active')
+  
+        }
       })
-    })
+    })  
+  }
 
-    // закрытие селекта при клике мимо
+  function openSelect(clickedInput) {
 
-    document.addEventListener('click', e => {
+    const selectLabels = document.querySelectorAll('[data-select-label]');
+    
+    const activeLabel = clickedInput.closest('[data-select-label]');
 
-      if (selectLabel.classList.contains('active') && e.target.closest('.booking-popup-form') && !e.target.closest('.select-label')) {
-        selectLabel.classList.remove('active');
-      }
-    })
+    if (activeLabel.classList.contains('active')) {
+
+      activeLabel.classList.remove('active')
+
+    } else {
+
+      selectLabels.forEach(item => {
+        item.classList.remove('active')
+      });
+
+      activeLabel.classList.add('active');
+    }
+
+  }
+
+  function postOption(clickedOption) {
+
+    const currLabel = clickedOption.closest('.select-label.active');
+    const currInput = currLabel.querySelector('input');
+
+    currInput.value = clickedOption.getAttribute('data-select-option');
+
+    currLabel.classList.remove('active');
   }
 })
 
