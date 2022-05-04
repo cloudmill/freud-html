@@ -52,6 +52,8 @@
   }
 
   &:hover {
+    z-index: 1000;
+
     #{$comp}__txt {
       opacity: 1;
     }

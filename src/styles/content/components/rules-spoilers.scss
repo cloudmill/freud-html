@@ -1,35 +1,10 @@
 .rules-block {
-  border-top: 1px solid rgba(255, 255, 255, .1);
+  border-bottom: 1px solid rgba(255, 255, 255, .1);
   width: calc(#{$col-part-d} * 6 - #{$col-gap});
   margin: 0 0 0 auto;
 }
 
 .rules-spoiler {
-  // height: auto;
-
-  border-bottom: 1px solid rgba(255, 255, 255, .1);
-
-  // position: relative;
-  // overflow: hidden;
-
-  // transition: $transition;
-
-  &.active {
-    // height: 100%;
-
-    .rules-spoiler__arrow svg {
-      transform: rotate(180deg);
-    }
-    .rules-spoiler__drop {
-      height: 100%;
-      transform: none;
-      pointer-events: all;
-    }
-    .rules-spoiler__drop-inner {
-      position: relative;
-      opacity: 1;
-    }
-  }
 
   &__button {
     display: flex;
@@ -39,10 +14,13 @@
     cursor: pointer;
 
     padding: getRem(30px) 0 getRem(30px);
+    border-top: 1px solid rgba(255, 255, 255, .1);
 
-    // position: relative;
-    // z-index: 1;
-    // background: var(--color-black)
+    &.-ba-is-active {
+      .rules-spoiler__arrow svg {
+        transform: rotate(180deg);
+      }
+    }
   }
 
   &__num {
@@ -71,6 +49,8 @@
     svg {
       width: getRem(16px);
       height: getRem(8px);
+
+      transition: $transition;
     }
 
     path {
@@ -79,20 +59,13 @@
   }
 
   &__drop {
-    // height: 0%;
-    // pointer-events: none;
-
-    // transform: translateY(-98%);
-    // transition: $transition;
 
     &-inner {
       @include fsl(18px, 170%);
       color: var(--grey-medium-txt);
       padding: 0 0 getRem(30px) calc(#{$col-part-d});
-      // position: absolute;
 
-      // opacity: 0;
-      // transition: $transition;
+      box-sizing: border-box;
     }
   }
 }

@@ -9,28 +9,17 @@ section.section.section--black
 
     .rules-block
 
-      //- dl.js-badger-accordion
-      //-   dt
-      //-     button.js-badger-accordion-header.
-            
-      //-       Header Content
-            
-      //-   dd.badger-accordion__panel.js-badger-accordion-panel
-      //-     .js-badger-accordion-panel-inner.
-            
-      //-       Panel Content
+      dl.js-badger-accordion.badger-accordion
 
-      -
-        const spoilers = [
-          {num: '01.', ttl: 'Общие правила'},
-          {num: '02.', ttl: 'Dress code'},
-          {num: '03.', ttl: 'Правилами не допускается'},
-          {num: '04.', ttl: 'Особые условия'},
-        ]
+        -
+          const spoilers = [
+            {num: '01.', ttl: 'Общие правила'},
+            {num: '02.', ttl: 'Dress code'},
+            {num: '03.', ttl: 'Правилами не допускается'},
+            {num: '04.', ttl: 'Особые условия'},
+          ]
 
-      each item in spoilers
-
-        dl.rules-spoiler.js-badger-accordion
+        each item in spoilers
           dt
             button.button--clean.rules-spoiler__button.js-badger-accordion-header
               .rules-spoiler__num #{item.num}
