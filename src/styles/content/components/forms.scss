@@ -121,6 +121,9 @@
   &__field-name {
     @include fsl(16px, 160%);
     margin-bottom: getRem(8px);
+
+    display: flex;
+    align-items: center;
   }
 
   &__input {
@@ -131,6 +134,8 @@
 
     @include fsl(16px, 160%);
     color: var(--color-grey);
+
+    transition: $transition;
   }
 
   &__textarea {
@@ -164,10 +169,48 @@
   &__row {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
 
     .form__label {
       width: calc(50% - 10px);
+    }
+  }
+
+  &__datepicker {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100%;
+    padding-right: getRem(20px);
+    border: 1px solid var(--color-border-grey);
+    border-radius: 2px;
+
+    transition: $transition;
+
+    input {
+      width: 100%;
+      padding: getRem(10px) getRem(20px);
+      border: none;
+      @include fsl(16px, 160%);
+      color: var(--color-grey);
+    }
+
+    svg {
+      width: getRem(20px);
+      height: getRem(20px);
+
+      path {
+        transition: $transition;
+      }
+    }
+
+    &:hover, &:focus {
+      border: 1px solid var(--color-black);
+
+      svg path {
+        fill: var(--color-black);
+      }
     }
   }
 
@@ -186,8 +229,8 @@
     }
   }
 
-  .form__input::-webkit-calendar-picker-indicator {
-    display: none;
+  .form__input:hover, .form__input:focus {
+    border: 1px solid var(--color-black);
   }
 }
 
@@ -228,10 +271,52 @@
     background: var(--color-white);
     position: relative;
     z-index: 65;
+
+    &__row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      width: 100%;
+      padding-right: getRem(20px);
+      border: 1px solid var(--color-border-grey);
+      border-radius: 2px;
+
+      transition: $transition;
+
+      input {
+        width: 100%;
+        padding: getRem(10px) getRem(20px);
+        border: none;
+        @include fsl(16px, 160%);
+        color: var(--color-grey);
+      }
+
+      svg {
+        width: getRem(10px);
+        height: getRem(7px);
+
+        path {
+          stroke: var(--color-grey);
+          transition: $transition;
+        }
+      }
+
+      &:hover {
+        border: 1px solid var(--color-black);
+  
+        svg path {
+          stroke: var(--color-black);
+        }
+      }
+    }
   }
   &-label {
     overflow: hidden;
     position: relative;
+
+    display: block;
+    margin-bottom: getRem(20px);
 
     &.active {
       overflow: visible;
@@ -247,6 +332,7 @@
 
 .datepicker-dropdown {
   right: getRem(50px);
+  left: getRem(50px) !important;
   z-index: 70;
 }
 

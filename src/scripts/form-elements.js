@@ -31,9 +31,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     selectInput.forEach(item => {
 
-      item.addEventListener('focus', e => {
+      item.addEventListener('focusin', e => {
 
         console.log('input-click');
+
+        item.addEventListener('focusout', e => {
+          item.closest('.select-label').classList.remove('active')
+        });
 
         const activeLabel = e.target.closest('.select-label');
 
@@ -68,11 +72,25 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 })
 
+// input time mask
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  const inputTime = document.querySelector('[data-input-time]');
+  const inputTime = document.querySelector('[data-time-mask]');
 
+  inputTime.setAttribute('placeholder', 'Введите время');
 
+  inputTime.addEventListener('focusin', () => {
+    inputTime.setAttribute('placeholder', '__:__')
+  });
 
+  Maska.create(inputTime, {
+    mask: 'hH:mM',
+    tokens: {
+      'h': { pattern: /[1-2]/ },
+      'H': { pattern: /[0-9]/ },
+      'm': { pattern: /[0-5]/ },
+      'M': { pattern: /[0-9]/ }
+    },
+  });
 })
