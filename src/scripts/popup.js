@@ -1,5 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
-
+function popup() {
   const buttons = document.querySelectorAll('[data-popup-button]');
   const modalsContainer = document.querySelector('.modals-container');
 
@@ -35,4 +34,6 @@ document.addEventListener('DOMContentLoaded', () => {
   
     })
   }
-})
+}
+
+export default popup;

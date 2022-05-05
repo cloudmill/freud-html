@@ -1,8 +1,12 @@
 import BadgerAccordion from 'badger-accordion';
 
-window.addEventListener('load', () => {
+function accordions() {
 
-  var accordionDomNode = document.querySelector('.js-badger-accordion');
-  var accordion = new BadgerAccordion(accordionDomNode);
+  const accordionDomNode = document.querySelector('.js-badger-accordion');
 
-})
+  if (accordionDomNode) {
+    const accordion = new BadgerAccordion(accordionDomNode);
+  }
+}
+
+export default accordions;

@@ -1,8 +1,6 @@
 import Swiper, { Navigation, Pagination, Mousewheel, Thumbs } from 'swiper';
 
-
-window.addEventListener('DOMContentLoaded', () => {
-
+function swipers() {
   const restaurantSlider = new Swiper('#restaurant-slider', {
 
     modules: [Navigation, Pagination],
@@ -18,7 +16,6 @@ window.addEventListener('DOMContentLoaded', () => {
       el: '#restaurant-slider-pagination',
     },
   });
-
 
   const reviewsSlider = new Swiper('#reviews-slider', {
 
@@ -37,7 +34,6 @@ window.addEventListener('DOMContentLoaded', () => {
     },
   });
 
-
   const shopSlider = new Swiper('#shop-slider', {
 
     modules: [Navigation],
@@ -52,7 +48,6 @@ window.addEventListener('DOMContentLoaded', () => {
     },
   });
 
-
   const categoriesSlider = new Swiper('#categories-slider', {
 
     modules: [Navigation],
@@ -66,7 +61,6 @@ window.addEventListener('DOMContentLoaded', () => {
       prevEl: '#categories-slider-prev',
     },
   });
-
 
   const recommendSlider = new Swiper('#recommend-slider', {
 
@@ -117,5 +111,6 @@ window.addEventListener('DOMContentLoaded', () => {
       swiper: gallerySlider
     },
   });
-});
+}
 
+export default swipers;

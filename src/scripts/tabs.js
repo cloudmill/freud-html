@@ -1,13 +1,10 @@
-document.addEventListener('DOMContentLoaded', () => {
-  
+function tabs() {
   const tabs = document.querySelector('[data-tabs]');
 
   if (tabs) {
   
     const content = document.querySelector('[data-tabs-content]');
     const contentItems = content.querySelectorAll('[data-content-item]');
-
-    console.log(content, contentItems);
   
     tabs.querySelectorAll('[data-tabs-item]').forEach((item, index) => {
   
@@ -21,4 +18,6 @@ document.addEventListener('DOMContentLoaded', () => {
     })
   
   }
-})
+}
+
+export default tabs;
