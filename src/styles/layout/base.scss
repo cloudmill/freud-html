@@ -92,3 +92,7 @@ picture {
     padding: 0 #{$col-pad-m};
   }
 }
+
+.no-transition * {
+  transition: none !important;
+}

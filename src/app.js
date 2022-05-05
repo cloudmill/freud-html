@@ -18,7 +18,9 @@ import popup from './scripts/popup';
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  headerDrops();
+  if (mediaQuery.matches) {
+    headerDrops();
+  }
 
   popup();
   swipers();
@@ -31,14 +33,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
   formValidation();
 
-  if (mediaQuery.matches) {}
-
-})
+});
 
 window.addEventListener('load', () => {
 
-  headerOnScroll();
+  document.querySelector('body').classList.remove('no-transition');
+
+  if (mediaQuery.matches) {
+    headerOnScroll();
+  }
+  
   accordions();
 
-  if (mediaQuery.matches) {}
-})
+});

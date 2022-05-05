@@ -13,6 +13,8 @@ include ../components/footer
 
 include ../components/grid-test
 
+include ../components/block-titles
+include ../components/buttons
 
 
 doctype html
@@ -24,7 +26,7 @@ html(lang='ru')
     title= data.title
     meta(name="viewport" content="width=device-width, initial-scale=1")
   
-  body.body
+  body.body.no-transition
 
     .wrapper
 
@@ -41,6 +43,8 @@ html(lang='ru')
         +grid-test
 
     .modals-container
+      include ../components/popups/booking-popup
+
       block modals
         
 
