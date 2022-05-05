@@ -31,6 +31,17 @@
       a:not(:first-child) {
         margin-left: getRem(55px);
       }
+
+      .tel {
+        @include fsl(14px);
+        line-height: 17px;
+
+        transition: $transition;
+
+        &:hover {
+          color: var(--color-brown);
+        }
+      }
     }
 
     &-social svg {
@@ -75,8 +86,14 @@
       text-transform: uppercase;
       white-space: nowrap;
 
+      transition: $transition;
+
       &:not(:first-child) {
         margin-left: getRem(50px);
+      }
+
+      &:hover {
+        color: var(--color-brown);
       }
     }
   }
@@ -91,10 +108,50 @@
       svg {
         width: getRem(24px);
         height: getRem(24px);
+
+        path {
+          transition: $transition;
+        }
       }
 
       &:first-child {
         margin-right: getRem(35px);
+      }
+
+      &:hover {
+        svg path {
+          stroke: var(--color-brown);
+        }
+      } 
+
+      &.count {
+        position: relative;
+
+        .count-num {
+          position: absolute;
+          top: -25%;
+          right: -30%;
+
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          @include fsl(11px);
+          font-weight: 600;
+          color: var(--color-white);
+
+          background: var(--color-black);
+          border-radius: 50%;
+
+          width: getRem(19px);
+          height: getRem(19px);
+
+          transition: $transition;
+        }
+
+        &:hover .count-num {
+          background: var(--color-brown);
+        }
       }
     }
 
@@ -209,6 +266,22 @@
       overflow-y: scroll;
       max-height: getRem(450px);
 
+      scrollbar-width: getRem(4px);
+
+      &::-webkit-scrollbar {
+        width: getRem(4px);
+        background-color: var(--background-grey-extra-2);
+      }
+      &::-webkit-scrollbar-track {
+        background-color: var(--background-grey-extra-2);
+      }
+      &::-webkit-scrollbar-button {
+        display: none;
+      }
+      &::-webkit-scrollbar-thumb {
+        background-color: var(--color-black);
+      }
+
       &__card {
         width: 100%;
         padding: getRem(20px) 0;
@@ -229,6 +302,10 @@
       &__info {
         width: 100%;
         padding: 0 getRem(18px);
+
+        .card-product__add {
+          margin-top: getRem(14px);
+        }
       }
       &__brand {
         @include fsl(14px, 130%);
@@ -244,6 +321,7 @@
         justify-content: space-between;
         align-items: flex-end;
         flex: none;
+        text-align: right;
 
         .catalog-card__price {
           margin-top: 0;
@@ -272,8 +350,22 @@
         width: getRem(320px);
       }
     }
-    &__count {
+    &__fav-count {
       @include fsl(16px, 140%);
+    }
+    &__cart-count {
+      display: flex;
+      flex-direction: column;
+
+      .txt {
+        @include fsl(16px, 140%);
+        color: var(--color-grey);
+        margin-bottom: getRem(6px);
+      }
+      .price {
+        @include fsl(20px, 120%);
+        font-weight: 600;
+      }
     }
 
     &[data-fav-modal] {

@@ -23,6 +23,12 @@
   &--brown {
     background: var(--color-brown);
     color: var(--color-white);
+
+    transition: $transition;
+
+    &:hover {
+      background: var(--color-black);
+    }
   }
 
   &--brown-border {
@@ -30,6 +36,13 @@
     padding: getRem(15px) getRem(38px);
     @include fsl(16px, 120%);
     font-weight: 400;
+
+    transition: $transition;
+
+    &:hover {
+      background: var(--color-brown);
+      color: var(--color-white);
+    }
   }
 }
 

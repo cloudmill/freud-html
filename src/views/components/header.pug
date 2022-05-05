@@ -5,15 +5,15 @@ mixin header
 
       .header__top
         .container
-          .header__top-inner
+          address.header__top-inner
             .header__address
               |г. Санкт-Петербург, ул. Малая Морская, дом 18
 
             .header__top-links
-              a.header__top-social(href="") 
-                +vk-icon
+              //- a.header__top-social(href="") 
+              //-   +vk-icon
 
-              a(href="tel:+78124545656")
+              a.tel(href="tel:+78124545656")
                 |+7 (812) 454-56-56
 
       .header__bottom
@@ -37,6 +37,7 @@ mixin header
 
               button.button--clean.header__buttons-icon.count(data-cart-btn)
                 +cart-icon
+                .count-num 15
 
               +brown-button(data-popup-button='1')
                 |Забронировать
@@ -123,8 +124,7 @@ mixin header
             |&nbsp;товаров в избранном
           +brown-border-button
             |Перейти в избранное
-
-      
+   
       .header-modals-small.not-empty(data-cart-modal data-header-modal='6')
         .header-modals-small__ttl Корзина
 
@@ -136,15 +136,22 @@ mixin header
               .product-list__info
                 .product-list__brand Ornellaia
                 .product-list__ttl Вино Masseto, Toscana IGT
+                .card-product__add
+                  button.button--clean
+                  |2
+                  button.button--clean.plus
               .product-list__col
-                .catalog-card__price
-                  span.current 13 820 ₽
-                  span.old 13 820 ₽
+                div
+                  .catalog-card__price
+                    span.current 13 820 ₽
+                    span.old 13 820 ₽
+                  .card-product__amount 2 шт. х 6 000 ₽
+
                 button.product-list__del.button--clean Удалить
 
         .header-modals-small__bottom
           .header-modals-small__cart-count
-            span 8 
-            |&nbsp;товаров в избранном
+            span.txt Итого
+            span.price 165 820 ₽
           +brown-border-button
             |Перейти в корзину
