@@ -32,10 +32,10 @@ mixin header
               a.header__nav-item(href="") Контакты
 
             .header__buttons
-              buuton.button--clean.header__buttons-icon
+              button.button--clean.header__buttons-icon(data-fav-btn)
                 +favorites-icon
 
-              button.button--clean.header__buttons-icon
+              button.button--clean.header__buttons-icon.count(data-cart-btn)
                 +cart-icon
 
               +brown-button(data-popup-button='1')
@@ -84,3 +84,67 @@ mixin header
 
             each item in ['О ресторане', 'Подарочные сертификаты']
               a.header-modals__small-ttl(href="") #{item}
+
+
+
+      .header-modals-small.empty(data-fav-modal data-header-modal='3')
+        .header-modals-small__ttl Избранное
+        .header-modals-small__txt Вы не добавили товары в избранное. Перейдите в каталог, чтобы добавить товары
+        +brown-border-button
+          |Перейти в каталог
+
+      .header-modals-small.empty(data-cart-modal data-header-modal='4')
+        .header-modals-small__ttl Корзина
+        .header-modals-small__txt В вашей корзине нет товаров. Перейдите в каталог, чтобы добавить товары
+        +brown-border-button
+          |Перейти в каталог
+
+
+      .header-modals-small.not-empty(data-fav-modal data-header-modal='5')
+        .header-modals-small__ttl Избранное
+
+        .product-list
+          - for (a=0;a<5;a++)
+            .product-list__card
+              .product-list__img
+                +picture(file='shop-img-1')
+              .product-list__info
+                .product-list__brand Ornellaia
+                .product-list__ttl Вино Masseto, Toscana IGT
+              .product-list__col
+                .catalog-card__price
+                  span.current 13 820 ₽
+                  span.old 13 820 ₽
+                button.product-list__del.button--clean Удалить
+
+        .header-modals-small__bottom
+          .header-modals-small__fav-count
+            span 8 
+            |&nbsp;товаров в избранном
+          +brown-border-button
+            |Перейти в избранное
+
+      
+      .header-modals-small.not-empty(data-cart-modal data-header-modal='6')
+        .header-modals-small__ttl Корзина
+
+        .product-list
+          - for (a=0;a<5;a++)
+            .product-list__card
+              .product-list__img
+                +picture(file='shop-img-1')
+              .product-list__info
+                .product-list__brand Ornellaia
+                .product-list__ttl Вино Masseto, Toscana IGT
+              .product-list__col
+                .catalog-card__price
+                  span.current 13 820 ₽
+                  span.old 13 820 ₽
+                button.product-list__del.button--clean Удалить
+
+        .header-modals-small__bottom
+          .header-modals-small__cart-count
+            span 8 
+            |&nbsp;товаров в избранном
+          +brown-border-button
+            |Перейти в корзину

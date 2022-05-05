@@ -114,7 +114,8 @@
 
   &__label {
     // position: relative;
-    display: block;
+    display: flex;
+    flex-wrap: wrap;
     margin-bottom: getRem(20px);
   }
 
@@ -153,6 +154,11 @@
   &__btn {
     margin-top: getRem(30px);
     width: 100%;
+  }
+
+  &-error {
+    width: 100%;
+    order: 1;
   }
 }
 

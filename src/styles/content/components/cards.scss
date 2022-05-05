@@ -157,10 +157,14 @@
     margin-top: getRem(30px);
 
     .current {
+      // font-family: 'Montserrat';
+
       @include fsl(20px, 120%);
       font-weight: 600;
     }
     .old {
+      // font-family: 'Montserrat';
+
       @include fsl(18px, 120%);
       text-decoration: line-through;
       color: var(--color-grey);

@@ -1,4 +1,3 @@
-
 function headerOnScroll() {
   const header = document.querySelector('.header');
   let scrollTop = window.pageYOffset;
@@ -37,28 +36,62 @@ function headerOnScroll() {
 
 function headerDrops() {
   const headerBtns = document.querySelectorAll('[data-header-btn]');
+  const headerModals = document.querySelectorAll('[data-header-modal]');
 
-  headerBtns.forEach(item => {
-    item.addEventListener('click', () => {
+  if (headerBtns.length) {
 
-      const activeId = Number(item.getAttribute('data-header-btn'));
+    window.addEventListener('click', e => {
 
-      if (document.querySelector('.header-modals__item.active')) {
-        document.querySelector('.header-modals__item.active').classList.remove('active');
+      const clickedBtn = e.target.closest('[data-header-btn]');
+      const clickOff = document.querySelector('.active[data-header-modal]') && !e.target.closest('[data-header-btn]') && !e.target.closest('[data-header-modal]');
+
+      if (clickedBtn) {
+        openModal(clickedBtn)
+      } else if (clickOff) {
+        closeAllModal()
       }
-      
-      document.querySelector(`[data-header-modal='${activeId}']`).classList.add('active');
     })
-  })
+  }
 
-  window.addEventListener('click', e => {
+  function openModal(clickedBtn) {
+    
+    headerModals.forEach(item => {
+      item.classList.remove('active')
+    });
 
-    if (!e.target.closest('.header__item') && !e.target.closest('[data-header-btn]') && document.querySelector('.header-modals__item.active')) {
+    const activeId = Number(clickedBtn.getAttribute('data-header-btn'));
+    document.querySelector(`[data-header-modal='${activeId}']`).classList.add('active');
+  }
 
-      document.querySelector('.header-modals__item.active').classList.remove('active');
+  function closeAllModal() {
+    headerModals.forEach(item => {
+      item.classList.remove('active')
+    });
+  }
 
-    }
-  })
+  const icoBtns = document.querySelectorAll('.header__buttons-icon');
+  
+  if (icoBtns.length) {
+    icoBtns.forEach(item => {
+  
+      if (item.classList.contains('count')) {
+    
+        if (item.hasAttribute('data-fav-btn')) {
+          item.setAttribute('data-header-btn', '5');
+        } else if (item.hasAttribute('data-cart-btn')) {
+          item.setAttribute('data-header-btn', '6');
+        }
+    
+      } else {
+        
+        if (item.hasAttribute('data-fav-btn')) {
+          item.setAttribute('data-header-btn', '3');
+        } else if (item.hasAttribute('data-cart-btn')) {
+          item.setAttribute('data-header-btn', '4');
+        }
+      }
+    })
+  } 
 }
 
 export { headerOnScroll, headerDrops }

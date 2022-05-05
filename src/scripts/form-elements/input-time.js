@@ -1,5 +1,3 @@
-// input time mask
-
 function inputTime() {
   const input = document.querySelector('[data-time-mask]');
 

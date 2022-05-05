@@ -10,15 +10,18 @@ function formValidation() {
 
       inputs.forEach(item => {
 
-        // добавляет элемент сразу после инпута и сохраняет для ошибки
-        item.insertAdjacentHTML('afterend', `<span class='form-error'></>`)
-        const error = item.nextElementSibling;
+        let error;
 
-        // после потери курсора из инпута проводит валидацию
-        // если есть ошибки - обрабатывает
-        // если нет - обнуляет поле ошибки
+        if (!item.hasAttribute('data-input-novalidate')) {
 
-        if (!item.hasAttribute('data-select-input')) {
+          // добавляет элемент сразу после инпута и сохраняет для ошибки
+          item.insertAdjacentHTML('afterend', `<span class='form-error'></>`)
+          error = item.nextElementSibling;
+
+          // после потери курсора из инпута проводит валидацию
+          // если есть ошибки - обрабатывает
+          // если нет - обнуляет поле ошибки
+
           item.addEventListener('focusout', (event) => {
       
             if (item.validity.valid) {
