@@ -2,8 +2,12 @@ mixin big-titles
   .big-titles(class=attributes.class)
     .big-titles__subttl #{attributes.subttl}
 
-    if (attributes.shop)
+    if (attributes.h1)
       h1.big-titles__ttl.h1 #{attributes.ttl}
+
+        if (attributes.ttl2)
+          br
+          |#{attributes.ttl2}
       
     else
       h2.big-titles__ttl.h1 #{attributes.ttl}
