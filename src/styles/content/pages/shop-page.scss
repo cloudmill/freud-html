@@ -157,6 +157,24 @@
   letter-spacing: 0.1em;
   text-transform: uppercase;
 
+  transition: $transition;
+  svg {
+    path {
+      transition: $transition;
+    }
+    circle {
+      transition: $transition;
+    }
+  }
+
+  &:hover {
+    color: var(--color-brown);
+
+    svg path, svg circle {
+      stroke: var(--color-brown);
+    }
+  }
+
   &:first-child svg {
     margin-right: getRem(10px);
   }

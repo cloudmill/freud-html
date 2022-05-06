@@ -37,6 +37,24 @@
   }
 }
 
+@mixin styled-scrollbar() {
+  scrollbar-width: getRem(4px);
+
+  &::-webkit-scrollbar {
+    width: getRem(4px);
+    background-color: var(--background-grey-extra-2);
+  }
+  &::-webkit-scrollbar-track {
+    background-color: var(--background-grey-extra-2);
+  }
+  &::-webkit-scrollbar-button {
+    display: none;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--color-black);
+  }
+}
+
 @mixin cropText($lineCount) {
   display: -moz-box;
   display: -webkit-box;

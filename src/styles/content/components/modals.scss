@@ -103,7 +103,7 @@
   &__body {
     height: 100%;
     overflow-y: scroll;
-    @include scrollbar-hidden;
+    @include styled-scrollbar;
 
     padding: getRem(60px) getRem(50px);
 
@@ -126,6 +126,100 @@
       color: var(--color-grey);
       text-align: center;
       margin-bottom: getRem(15px);
+    }
+  }
+}
+
+.filters-popup {
+
+  &__body {
+    // @include styled-scrollbar;
+  }
+  
+  &-item {
+
+    padding: getRem(30px) 0;
+    border-bottom: 1px solid var(--color-black-rgba-1);
+
+    &:first-child {
+      padding-top: 0;
+    }
+
+    &__ttl {
+      @include fsl(14px, 130%);
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+
+      margin-bottom: getRem(16px);
+    }
+
+    &__list {
+      display: flex;
+      flex-wrap: wrap;
+      margin-top: getRem(-12px);
+
+      .category-filter-btn {
+        margin-top: getRem(12px);
+
+        &.active {
+          color: var(--color-white);
+          background: var(--color-brown);
+          border-color: var(--color-brown);
+
+          .category-filter-btn__cross::after, .category-filter-btn__cross::before {
+            background: var(--color-white);
+          }
+
+          .point.active {
+            background: var(--color-white);
+          }
+        }
+      }
+    }
+  }
+}
+
+.filter-range {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  &__input {
+    display: block;
+    width: calc(50% - #{getRem(10px)});
+  }
+
+  &__slider {
+    width: 100%;
+    margin-top: getRem(18px);
+    height: getRem(4px);
+
+    .noUi-handle {
+      width: getRem(20px);
+      height: getRem(20px);
+      border-radius: 50%;
+      background: var(--color-black);
+      border: none;
+      box-shadow: none;
+      cursor: grab;
+
+      &::after, &::before {
+        display: none;
+      }
+    }
+    .noUi-connect {
+      background: var(--color-black);
+    }
+  }
+}
+
+.category-filter-btn {
+  .catalog-card__strong .point {
+    margin-left: getRem(6px);
+
+    &:nth-child(1) {
+      margin-left: 0;
     }
   }
 }

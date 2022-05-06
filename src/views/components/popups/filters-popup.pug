@@ -1,0 +1,103 @@
+.modal.modal--right.review-popup.filters-popup.active(data-popup='3')
+  .review-popup__top
+    .review-popup__ttl.h4.title-font Фильтры
+    button.button--clean.modal__close
+
+  .review-popup__body.filters-popup__body
+    .filters-popup-item
+      .filters-popup-item__ttl цена
+
+      .filter-range#range-slider-container
+        input.filter-range__input#range-from(type="number")
+        input.filter-range__input#range-to(type="number")
+        //- input.filter-range__slider(type="range")
+        .filter-range__slider#range-slider
+
+    .filters-popup-item
+      .filters-popup-item__ttl производитель
+
+      .filters-popup-item__list
+
+        button.category-filter-btn.button--clean.active
+          |Alec Bradley
+          span.category-filter-btn__cross
+
+        -
+          const filters1 = [
+            {name: 'Atabey', count: '94'},
+            {name: 'Bugatti', count: '1'},
+            {name: 'Cohiba', count: '1'},
+            {name: 'Davidoff', count: '1'},
+            {name: 'Gurkha', count: '57'},
+          ]
+
+        each item in filters1
+          button.category-filter-btn.button--clean
+            |#{item.name}
+            span.category-filter-btn__count #{item.count}
+
+    .filters-popup-item
+      .filters-popup-item__ttl страна
+
+      .filters-popup-item__list
+
+        button.category-filter-btn.button--clean.active
+          |Гондурас
+          span.category-filter-btn__cross
+
+        -
+          const filters2 = [
+            {name: 'Доминикана', count: '94'},
+            {name: 'Италия', count: '1'},
+            {name: 'Коста-Рика', count: '1'},
+            {name: 'Куба', count: '1'},
+            {name: 'Никарагуа', count: '57'},
+          ]
+
+        each item in filters2
+          button.category-filter-btn.button--clean
+            |#{item.name}
+            span.category-filter-btn__count #{item.count}
+
+    
+    .filters-popup-item
+      .filters-popup-item__ttl крепость
+
+      .filters-popup-item__list
+
+        button.category-filter-btn.button--clean.active
+          .catalog-card__strong
+            .point.active
+          span.category-filter-btn__cross
+
+        button.category-filter-btn.button--clean
+          .catalog-card__strong
+            - for (i=0;i<2;i++)
+              .point.active
+          span.category-filter-btn__count 23
+
+        button.category-filter-btn.button--clean
+          .catalog-card__strong
+            - for (i=0;i<3;i++)
+              .point.active
+          span.category-filter-btn__count 23
+
+        button.category-filter-btn.button--clean
+          .catalog-card__strong
+            - for (i=0;i<4;i++)
+              .point.active
+          span.category-filter-btn__count 23
+
+        button.category-filter-btn.button--clean
+          .catalog-card__strong
+            - for (i=0;i<5;i++)
+              .point.active
+          span.category-filter-btn__count 23
+  
+  .review-popup__bottom
+
+    +brown-button
+      |Показать 250 товаров
+
+    +brown-border-button
+      |Сбросить все фильтры

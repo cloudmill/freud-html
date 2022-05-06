@@ -142,6 +142,8 @@
   &__strong {
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    flex: none;
 
     .point {
       width: getRem(10px);
@@ -150,6 +152,7 @@
       background: var(--color-black);
       opacity: .2;
       margin-left: getRem(10px);
+      flex: none;
 
       &.active {
         opacity: 1;

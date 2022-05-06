@@ -31,7 +31,7 @@ block content
               span.category-filter-btn__count 24  
 
         .category-top__line
-          button.category-filter-drop.button--clean
+          button.category-filter-drop.button--clean(data-popup-button='3')
             +filter-icon
             span все фильтры
 
@@ -134,3 +134,6 @@ block content
 
   section.section--bottom
     include ../components/sections/articles-section
+
+block modals
+  include ../components/popups/filters-popup

@@ -15,6 +15,8 @@ import swipers from './scripts/sliders';
 import tabs from './scripts/tabs';
 import popup from './scripts/popup';
 
+import rangeSlider from './scripts/range-slider';
+
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -32,6 +34,8 @@ document.addEventListener('DOMContentLoaded', () => {
   select();
 
   formValidation();
+
+  rangeSlider();
 
 });
 
