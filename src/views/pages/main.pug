@@ -115,4 +115,31 @@ block content
   include ../components/sections/shop-section
 
 block modals
+  .modal.modal--right.review-popup(data-popup='2')
+    .review-popup__top
+      .review-popup__ttl.h4.title-font Отзывы
+      button.button--clean.modal__close
+
+    .review-popup__body
+      .review-card__top
+        .review-card__name Юлия
+        .review-card__grade
+          - for (i=0;i<4;i++)
+            +grade-star.review-card__star.active
+          +grade-star
+
+      .review-popup__body-txt
+        - for (c=0;c<10;c++)
+          | Богатый ассортимент, уют, комфорт и атмосфера, интересные люди, шикарный интерьер!!! Отличная вытяжка, которую в интерьере не сразу и заметишь. #[br] #[br]
+    
+    .review-popup__bottom
+      .review-popup__bottom-count
+        |Вы просмотрели 
+        span 5
+        |&nbsp;из 
+        span 10 
+        |отзывов
+
+      +brown-button
+        |Следующий отзыв
   

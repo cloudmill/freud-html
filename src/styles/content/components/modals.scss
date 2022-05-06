@@ -35,9 +35,7 @@
   }
 
   &__close {
-    position: absolute;
-    top: getRem(30px);
-    right: getRem(30px);
+    position: relative;
 
     width: getRem(18px);
     height: getRem(18px);
@@ -68,15 +66,66 @@
 
   &--right {
     transform: translateX(200%);
+    width: calc(#{$col-part-d} * 2 + #{$col-pad-d});
+    height: 100vh;
+    background: var(--color-white);
   }
 }
 
 .booking-popup {
-  width: calc(#{$col-part-d} * 2 + #{$col-pad-d});
-  height: 100%;
-  background: var(--color-white);
-
   &__wrapper {
     padding: getRem(180px) getRem(50px) getRem(150px);
+  }
+  .modal__close {
+    position: absolute;
+    top: getRem(30px);
+    right: getRem(30px);
+  }
+}
+
+.review-popup {
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  &__top {
+    padding: getRem(20px) getRem(30px) getRem(20px) getRem(50px);
+    border-bottom: 1px solid var(--color-black-rgba-1);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex: none;
+  }
+  &__ttl {
+  }
+  &__body {
+    height: 100%;
+    overflow-y: scroll;
+    @include scrollbar-hidden;
+
+    padding: getRem(60px) getRem(50px);
+
+    &-txt {
+      @include fsl(18px, 170%);
+      color: #464646;
+    }
+  }
+  &__bottom {
+    padding: getRem(30px);
+    border-top: 1px solid var(--color-black-rgba-1);
+
+    display: flex;
+    flex-direction: column;
+
+    flex: none;
+
+    &-count {
+      @include fsl(16px, 170%);
+      color: var(--color-grey);
+      text-align: center;
+      margin-bottom: getRem(15px);
+    }
   }
 }
