@@ -353,7 +353,7 @@
 				<section class="section--bottom section--grey interior-block">
 					<div class="container">
 						<div class="restaurant-slider">
-							<div class="restaurant-slider__col"><button class="restaurant-slider__control button--clean" id="restaurant-slider-prev"><svg width="9" height="14" viewBox="0 0 9 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<div class="restaurant-slider__col"><button class="slider-control button--clean" id="restaurant-slider-prev"><svg width="9" height="14" viewBox="0 0 9 14" fill="none" xmlns="http://www.w3.org/2000/svg">
 										<path d="M7.57227 0.714355L1.28655 7.00007L7.57227 13.2858" stroke="#B69659" stroke-linecap="round" stroke-linejoin="round"></path>
 									</svg></button></div>
 							<div class="restaurant-slider__container">
@@ -378,7 +378,7 @@
 								</div>
 								<div class="sliders-pagination" id="restaurant-slider-pagination"></div>
 							</div>
-							<div class="restaurant-slider__col"><button class="restaurant-slider__control button--clean" id="restaurant-slider-next"><svg width="9" height="14" viewBox="0 0 9 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<div class="restaurant-slider__col"><button class="slider-control button--clean" id="restaurant-slider-next"><svg width="9" height="14" viewBox="0 0 9 14" fill="none" xmlns="http://www.w3.org/2000/svg">
 										<path d="M1.42773 13.2856L7.71345 6.99993L1.42773 0.714217" stroke="#B69659" stroke-linecap="round" stroke-linejoin="round"></path>
 									</svg></button></div>
 						</div>
@@ -487,7 +487,7 @@
 						</div>
 						<div class="reviews-section__row">
 							<div class="reviews-section__slider">
-								<div class="reviews-section__col"><button class="restaurant-slider__control button--clean" id="reviews-slider-prev"><svg width="9" height="14" viewBox="0 0 9 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<div class="reviews-section__col"><button class="slider-control button--clean" id="reviews-slider-prev"><svg width="9" height="14" viewBox="0 0 9 14" fill="none" xmlns="http://www.w3.org/2000/svg">
 											<path d="M7.57227 0.714355L1.28655 7.00007L7.57227 13.2858" stroke="#B69659" stroke-linecap="round" stroke-linejoin="round"></path>
 										</svg></button></div>
 								<div class="swiper-container" id="reviews-slider">
@@ -590,7 +590,7 @@
 									</div>
 									<div class="sliders-pagination" id="reviews-slider-pagination"></div>
 								</div>
-								<div class="reviews-section__col"><button class="restaurant-slider__control button--clean" id="reviews-slider-next"><svg width="9" height="14" viewBox="0 0 9 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<div class="reviews-section__col"><button class="slider-control button--clean" id="reviews-slider-next"><svg width="9" height="14" viewBox="0 0 9 14" fill="none" xmlns="http://www.w3.org/2000/svg">
 											<path d="M1.42773 13.2856L7.71345 6.99993L1.42773 0.714217" stroke="#B69659" stroke-linecap="round" stroke-linejoin="round"></path>
 										</svg></button></div>
 							</div>
@@ -753,6 +753,31 @@
 						<div class="booking-popup-form__note">Нажимая на кнопку «Забронировать», вы соглашаетесь с <a href="">политикой конфиденциальности</a></div>
 					</form>
 				</div><button class="button--clean modal__close"></button>
+			</div>
+			<div class="modal modal--right review-popup" data-popup="2">
+				<div class="review-popup__top">
+					<div class="review-popup__ttl h4 title-font">Отзывы</div><button class="button--clean modal__close"></button>
+				</div>
+				<div class="review-popup__body">
+					<div class="review-card__top">
+						<div class="review-card__name">Юлия</div>
+						<div class="review-card__grade"><svg class="review-card__star active" width="18" height="16" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M8.33426 1.04894C8.54381 0.404018 9.45619 0.404018 9.66574 1.04894L11.088 5.42614C11.1817 5.71456 11.4505 5.90983 11.7537 5.90983H16.3562C17.0343 5.90983 17.3162 6.77756 16.7676 7.17614L13.0442 9.8814C12.7988 10.0597 12.6962 10.3756 12.7899 10.664L14.2121 15.0412C14.4217 15.6862 13.6835 16.2224 13.1349 15.8239L9.41145 13.1186C9.16611 12.9403 8.83389 12.9403 8.58855 13.1186L4.86508 15.8239C4.31648 16.2224 3.57834 15.6862 3.78789 15.0412L5.21013 10.664C5.30384 10.3756 5.20118 10.0597 4.95584 9.8814L1.23236 7.17614C0.683764 6.77756 0.965707 5.90983 1.64381 5.90983H6.24628C6.54954 5.90983 6.81831 5.71456 6.91202 5.42614L8.33426 1.04894Z" fill="#DCDCDC"></path>
+							</svg><svg class="review-card__star active" width="18" height="16" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M8.33426 1.04894C8.54381 0.404018 9.45619 0.404018 9.66574 1.04894L11.088 5.42614C11.1817 5.71456 11.4505 5.90983 11.7537 5.90983H16.3562C17.0343 5.90983 17.3162 6.77756 16.7676 7.17614L13.0442 9.8814C12.7988 10.0597 12.6962 10.3756 12.7899 10.664L14.2121 15.0412C14.4217 15.6862 13.6835 16.2224 13.1349 15.8239L9.41145 13.1186C9.16611 12.9403 8.83389 12.9403 8.58855 13.1186L4.86508 15.8239C4.31648 16.2224 3.57834 15.6862 3.78789 15.0412L5.21013 10.664C5.30384 10.3756 5.20118 10.0597 4.95584 9.8814L1.23236 7.17614C0.683764 6.77756 0.965707 5.90983 1.64381 5.90983H6.24628C6.54954 5.90983 6.81831 5.71456 6.91202 5.42614L8.33426 1.04894Z" fill="#DCDCDC"></path>
+							</svg><svg class="review-card__star active" width="18" height="16" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M8.33426 1.04894C8.54381 0.404018 9.45619 0.404018 9.66574 1.04894L11.088 5.42614C11.1817 5.71456 11.4505 5.90983 11.7537 5.90983H16.3562C17.0343 5.90983 17.3162 6.77756 16.7676 7.17614L13.0442 9.8814C12.7988 10.0597 12.6962 10.3756 12.7899 10.664L14.2121 15.0412C14.4217 15.6862 13.6835 16.2224 13.1349 15.8239L9.41145 13.1186C9.16611 12.9403 8.83389 12.9403 8.58855 13.1186L4.86508 15.8239C4.31648 16.2224 3.57834 15.6862 3.78789 15.0412L5.21013 10.664C5.30384 10.3756 5.20118 10.0597 4.95584 9.8814L1.23236 7.17614C0.683764 6.77756 0.965707 5.90983 1.64381 5.90983H6.24628C6.54954 5.90983 6.81831 5.71456 6.91202 5.42614L8.33426 1.04894Z" fill="#DCDCDC"></path>
+							</svg><svg class="review-card__star active" width="18" height="16" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M8.33426 1.04894C8.54381 0.404018 9.45619 0.404018 9.66574 1.04894L11.088 5.42614C11.1817 5.71456 11.4505 5.90983 11.7537 5.90983H16.3562C17.0343 5.90983 17.3162 6.77756 16.7676 7.17614L13.0442 9.8814C12.7988 10.0597 12.6962 10.3756 12.7899 10.664L14.2121 15.0412C14.4217 15.6862 13.6835 16.2224 13.1349 15.8239L9.41145 13.1186C9.16611 12.9403 8.83389 12.9403 8.58855 13.1186L4.86508 15.8239C4.31648 16.2224 3.57834 15.6862 3.78789 15.0412L5.21013 10.664C5.30384 10.3756 5.20118 10.0597 4.95584 9.8814L1.23236 7.17614C0.683764 6.77756 0.965707 5.90983 1.64381 5.90983H6.24628C6.54954 5.90983 6.81831 5.71456 6.91202 5.42614L8.33426 1.04894Z" fill="#DCDCDC"></path>
+							</svg><svg width="18" height="16" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M8.33426 1.04894C8.54381 0.404018 9.45619 0.404018 9.66574 1.04894L11.088 5.42614C11.1817 5.71456 11.4505 5.90983 11.7537 5.90983H16.3562C17.0343 5.90983 17.3162 6.77756 16.7676 7.17614L13.0442 9.8814C12.7988 10.0597 12.6962 10.3756 12.7899 10.664L14.2121 15.0412C14.4217 15.6862 13.6835 16.2224 13.1349 15.8239L9.41145 13.1186C9.16611 12.9403 8.83389 12.9403 8.58855 13.1186L4.86508 15.8239C4.31648 16.2224 3.57834 15.6862 3.78789 15.0412L5.21013 10.664C5.30384 10.3756 5.20118 10.0597 4.95584 9.8814L1.23236 7.17614C0.683764 6.77756 0.965707 5.90983 1.64381 5.90983H6.24628C6.54954 5.90983 6.81831 5.71456 6.91202 5.42614L8.33426 1.04894Z" fill="#DCDCDC"></path>
+							</svg></div>
+					</div>
+					<div class="review-popup__body-txt">Богатый ассортимент, уют, комфорт и атмосфера, интересные люди, шикарный интерьер!!! Отличная вытяжка, которую в интерьере не сразу и заметишь.<br><br>Богатый ассортимент, уют, комфорт и атмосфера, интересные люди, шикарный интерьер!!! Отличная вытяжка, которую в интерьере не сразу и заметишь.<br><br>Богатый ассортимент, уют, комфорт и атмосфера, интересные люди, шикарный интерьер!!! Отличная вытяжка, которую в интерьере не сразу и заметишь.<br><br>Богатый ассортимент, уют, комфорт и атмосфера, интересные люди, шикарный интерьер!!! Отличная вытяжка, которую в интерьере не сразу и заметишь.<br><br>Богатый ассортимент, уют, комфорт и атмосфера, интересные люди, шикарный интерьер!!! Отличная вытяжка, которую в интерьере не сразу и заметишь.<br><br>Богатый ассортимент, уют, комфорт и атмосфера, интересные люди, шикарный интерьер!!! Отличная вытяжка, которую в интерьере не сразу и заметишь.<br><br>Богатый ассортимент, уют, комфорт и атмосфера, интересные люди, шикарный интерьер!!! Отличная вытяжка, которую в интерьере не сразу и заметишь.<br><br>Богатый ассортимент, уют, комфорт и атмосфера, интересные люди, шикарный интерьер!!! Отличная вытяжка, которую в интерьере не сразу и заметишь.<br><br>Богатый ассортимент, уют, комфорт и атмосфера, интересные люди, шикарный интерьер!!! Отличная вытяжка, которую в интерьере не сразу и заметишь.<br><br>Богатый ассортимент, уют, комфорт и атмосфера, интересные люди, шикарный интерьер!!! Отличная вытяжка, которую в интерьере не сразу и заметишь.<br><br></div>
+				</div>
+				<div class="review-popup__bottom">
+					<div class="review-popup__bottom-count">Вы просмотрели <span>5</span>&nbsp;из <span>10 </span>отзывов</div><button class="button button--brown">Следующий отзыв</button>
+				</div>
 			</div>
 		</div>
 		<script src="https://cdn.jsdelivr.net/npm/maska@1.5.0/dist/maska.js"></script>
