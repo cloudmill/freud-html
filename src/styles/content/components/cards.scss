@@ -69,7 +69,7 @@
   &__labels {
     position: absolute;
     top: 0;
-    left: 0;
+    left: getRem(30px);
 
     &-item {
       color: var(--color-white);
@@ -97,7 +97,7 @@
   &__fav {
     position: absolute;
     top: 0;
-    right: 0;
+    right: getRem(30px);
 
     &.active path {
       fill: var(--color-black);

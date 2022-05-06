@@ -39,6 +39,11 @@
 
   &__link {
     @include fsl(13px, 130%);
+    transition: $transition;
+
+    &:hover {
+      color: var(--color-grey);
+    }
 
     &:first-letter {
       text-transform: uppercase;

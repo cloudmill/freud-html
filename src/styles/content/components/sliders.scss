@@ -4,12 +4,17 @@
   &__container {
     position: absolute;
     top: 50%;
-    // width: calc(100% + getRem(148px));
     left: getRem(-74px);
     right: getRem(-74px);
 
     display: flex;
     justify-content: space-between;
+  }
+
+  &.shop-slider {
+    .controls-out__container {
+      top: 45%;
+    }
   }
 }
 

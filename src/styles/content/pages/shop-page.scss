@@ -101,8 +101,14 @@
   align-items: center;
   justify-content: center;
 
+  transition: $transition;
+
   &:not(:last-child) {
     margin-right: getRem(12px);
+  }
+
+  &:not(.active-filter):not(.filter-reset):hover {
+    border-color: var(--color-black);
   }
 
   &__count {
