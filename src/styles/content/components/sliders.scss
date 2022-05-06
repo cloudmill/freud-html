@@ -43,18 +43,6 @@
     }
   }
 
-  &__control {
-    width: getRem(44px);
-    height: getRem(44px);
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    border: 1px solid var(--color-brown);
-    border-radius: 50%;
-  }
-
   &__container {
     width: calc(#{$col-part-d} * 10 - #{$col-gap});
     overflow: hidden;
@@ -70,6 +58,9 @@
 
   .swiper-container {
     overflow: hidden;
+
+    padding: 0 getRem(10px) getRem(72px) getRem(10px);
+    margin: 0 getRem(-10px) getRem(-72px) getRem(-10px);
   }
   .swiper-slide {
     width: calc(#{$col-part-d} * 3 - #{$col-gap});

@@ -27,9 +27,10 @@ mixin shop-section-body
 
       .swiper-container#shop-slider
         .swiper-wrapper
-          each item in content
-            .swiper-slide
-              +catalog-card(img=`${item.img}` brand=`${item.brand}` ttl=`${item.ttl}` txt=`${item.txt}` price=`${item.price}`)
+          - for (g=0;g<3;g++)
+            each item in content
+              .swiper-slide
+                +catalog-card(img=`${item.img}` brand=`${item.brand}` ttl=`${item.ttl}` txt=`${item.txt}` price=`${item.price}`)
 
       .controls-out__container
         +control-left#shop-slider-prev

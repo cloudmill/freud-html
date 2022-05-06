@@ -75,7 +75,7 @@ mixin catalog-card
     .catalog-card__bottom
       div
         .catalog-card__brand #{attributes.brand}
-        .catalog-card__title #{attributes.ttl}
+        a.catalog-card__title(href='') #{attributes.ttl}
 
       .catalog-card__info
         if (attributes.noCntry)
@@ -102,8 +102,9 @@ mixin catalog-card
           span.current #{attributes.price}
           span.old #{attributes.price}
     
-    +brown-button.catalog-card__btn
-      |Добавить в корзину
+    .catalog-card__btn-container
+      +brown-button.catalog-card__btn
+        |Добавить в корзину
 
 mixin catalog-card-small
   .catalog-card.catalog-card--small

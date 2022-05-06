@@ -40,7 +40,7 @@ function swipers() {
 
     slidesPerView: 'auto',
     spaceBetween: 30,
-    loop: true,
+    // loop: true,
 
     navigation: {
       nextEl: '#shop-slider-next',

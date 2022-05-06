@@ -46,3 +46,28 @@
   }
 }
 
+.slider-control {
+  width: getRem(44px);
+  height: getRem(44px);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border: 1px solid var(--color-brown);
+  border-radius: 50%;
+
+  transition: $transition;
+
+  svg path {
+    transition: $transition;
+  }
+
+  &:hover {
+    border-color: var(--color-black);
+
+    svg path {
+      stroke: var(--color-black);
+    }
+  }
+}
