@@ -207,7 +207,14 @@
     text-transform: uppercase;
 
     padding-bottom: getRem(5px);
-    border-bottom: 1px solid rgba(27, 27, 27, 0.5);;
+    border-bottom: 1px solid rgba(27, 27, 27, 0.5);
+
+    transition: $transition;
+
+    &:hover {
+      color: var(--color-brown);
+      border-color: var(--color-brown);
+    }
   }
 }
 

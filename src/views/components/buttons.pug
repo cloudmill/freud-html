@@ -11,8 +11,13 @@ mixin brown-border-button
     block
 
 mixin read-more-btn
-  a.two-cols-block__link(href="")
-    block
+
+  if (attributes.btn)
+    button.button--clean.two-cols-block__link&attributes(attributes)
+      block
+  else
+    a.two-cols-block__link(href="")
+      block
 
 mixin control-left
   button.restaurant-slider__control.button--clean&attributes(attributes)
