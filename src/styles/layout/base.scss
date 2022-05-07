@@ -44,6 +44,9 @@ body {
   color: var(--color-black);
   @include fsl(16px, 130%);
   background: var(--color-white);
+
+  // @include styled-scrollbar;
+  // @include scrollbar-hidden;
 }
 
 img {
@@ -95,4 +98,5 @@ picture {
 
 .no-transition * {
   transition: none !important;
+  overflow: hidden;
 }

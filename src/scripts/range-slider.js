@@ -8,17 +8,20 @@ function rangeSlider() {
 
     rangeSliders.forEach(rangeSlider => {
 
+      const rangeMin = Number(rangeSlider.getAttribute('data-range-min'));
+      const rangeMax = Number(rangeSlider.getAttribute('data-range-max'));
+
       const rangeContainer = rangeSlider.closest('#range-slider-container');
 
       const rangeFrom = rangeContainer.querySelector('#range-from');
       const rangeTo = rangeContainer.querySelector('#range-to');
       
       noUiSlider.create(rangeSlider, {
-          start: [10, 40],
+          start: [rangeMin, rangeMax],
           connect: true,
           range: {
-              'min': 0,
-              'max': 50
+              'min': rangeMin,
+              'max': rangeMax
           }
       });
       
@@ -27,7 +30,7 @@ function rangeSlider() {
         var value = values[handle];
       
         if (handle) {
-          rangeTo.value = value;
+          rangeTo.value = Math.round(value);
         } else {
           rangeFrom.value = Math.round(value);
         }

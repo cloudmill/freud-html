@@ -52,7 +52,7 @@ function swipers() {
 
     modules: [Navigation],
 
-    slidesPerView: 'auto',
+    slidesPerView: 3,
     spaceBetween: 30,
     loop: true,
 
@@ -66,7 +66,7 @@ function swipers() {
 
     modules: [Navigation, Pagination],
 
-    slidesPerView: 4,
+    slidesPerView: 3,
     spaceBetween: 30,
     loop: true,
 

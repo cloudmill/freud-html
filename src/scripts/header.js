@@ -46,7 +46,8 @@ function headerDrops() {
       const clickOff = document.querySelector('.active[data-header-modal]') && !e.target.closest('[data-header-btn]') && !e.target.closest('[data-header-modal]');
 
       if (clickedBtn) {
-        openModal(clickedBtn)
+        openModal(clickedBtn);
+        closeOnEsc();
       } else if (clickOff) {
         closeAllModal()
       }
@@ -61,12 +62,20 @@ function headerDrops() {
 
     const activeId = Number(clickedBtn.getAttribute('data-header-btn'));
     document.querySelector(`[data-header-modal='${activeId}']`).classList.add('active');
+    document.querySelector('.body').classList.add('modal-open');
   }
-
   function closeAllModal() {
+    document.querySelector('.body').classList.remove('modal-open');
     headerModals.forEach(item => {
       item.classList.remove('active')
     });
+  }
+  function closeOnEsc() {
+    document.addEventListener('keydown', e => {
+      if (e.code == 'Escape') {
+        closeAllModal()
+      }
+    })
   }
 
   const icoBtns = document.querySelectorAll('.header__buttons-icon');
@@ -90,6 +99,7 @@ function headerDrops() {
           item.setAttribute('data-header-btn', '4');
         }
       }
+
     })
   } 
 }

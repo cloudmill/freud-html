@@ -1,0 +1,61 @@
+.modal.modal--right.review-popup.filters-popup(data-popup='4')
+  .review-popup__top
+    button.button--clean.filter-producers__back(data-popup-button='3')
+      +arrow-left
+    .review-popup__ttl.h4.title-font Производитель
+    button.button--clean.modal__close
+
+  .review-popup__body.filters-popup__body
+
+    .filter-producers__ttl Поиск по производителям
+
+    label.filter-producers__input
+      input(type="search" placeholder="Введите производителя")
+
+      button.button--clean(type="submit")
+        +search-icon
+
+    .filter-checkboxes
+
+      -
+        const checkboxes = [
+          {name: 'Alec Bradley', count: '7'},
+          {name: 'Atabey', count: '7'},
+          {name: 'Bugatti', count: '11'},
+          {name: 'Davidoff', count: '33'},
+          {name: 'Gurkha', count: '22'},
+          {name: 'Juan Lopez', count: '1'},
+          {name: 'La Flor Dominicana', count: '4'},
+          {name: 'Nub', count: '4'},
+          {name: 'Paradiso', count: '4'},
+          {name: 'Plasencia', count: '5'},
+          {name: "Quai D'Orsay", count: '5'},
+          {name: 'Romeo Y Julieta', count: '5'},
+          {name: 'Vegas Robaina', count: '6'},
+          {name: 'Arturo Fuente ', count: '21'},
+          {name: 'AVO', count: '1'},
+          {name: 'Camacho', count: '2'},
+        ]
+
+      each item in checkboxes
+
+        label.checkbox.filter-checkbox
+          .checkbox__label
+            input.checkbox__input(type="checkbox")
+            .checkbox__box
+              +checkbox-white-svg.checkbox__svg
+
+          .checkbox__caption
+            |#{item.name}
+
+            span.count #{item.count}
+
+  .review-popup__bottom
+
+    +brown-button
+      | Показать&nbsp;
+      span 250
+      | &nbsp;товаров
+
+    +brown-border-button
+      |Сбросить все фильтры

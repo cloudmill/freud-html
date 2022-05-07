@@ -15,7 +15,8 @@ function popup() {
       e.target.closest('.modal__close');
 
       if (clickedBtn) {
-        openPopup(clickedBtn)
+        openPopup(clickedBtn);
+        closeOnEsc();
       } else if (clickOff) {
         closePopup()
       }
@@ -38,6 +39,13 @@ function popup() {
       });
       modalsContainer.classList.remove('active');
       document.querySelector('.body').classList.remove('modal-open');
+    }
+    function closeOnEsc() {
+      document.addEventListener('keydown', e => {
+        if (e.code == 'Escape') {
+          closePopup()
+        }
+      })
     }
   }
 }

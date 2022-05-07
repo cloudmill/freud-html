@@ -1,5 +1,6 @@
 .modal-open {
   overflow: hidden;
+  height: auto;
 }
 
 .modals-container {
@@ -37,8 +38,11 @@
   &__close {
     position: relative;
 
-    width: getRem(18px);
-    height: getRem(18px);
+    // width: getRem(18px);
+    // height: getRem(18px);
+
+    width: 18px;
+    height: 18px;
 
     display: flex;
     justify-content: center;
@@ -133,7 +137,8 @@
 .filters-popup {
 
   &__body {
-    // @include styled-scrollbar;
+    overflow-x: hidden;
+    padding: getRem(30px) getRem(50px);
   }
   
   &-item {
@@ -145,13 +150,34 @@
       padding-top: 0;
     }
 
+    &:last-child {
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+
     &__ttl {
       @include fsl(14px, 130%);
       font-weight: 600;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-
       margin-bottom: getRem(16px);
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      span {
+        display: flex;
+        align-items: center;
+      }
+
+      .tooltip {
+        text-transform: none;
+
+        &__txt {
+          max-width: getRem(300px);
+        }
+      }
     }
 
     &__list {
@@ -178,6 +204,18 @@
       }
     }
   }
+
+  .review-popup__bottom {
+    button:not(:last-child) {
+      margin-bottom: getRem(12px);
+    }
+  }
+}
+
+.filter-btn-more {
+  @include fsl(14px, 130%);
+  font-weight: 600;
+  color: var(--color-brown);
 }
 
 .filter-range {
@@ -186,8 +224,23 @@
   justify-content: space-between;
 
   &__input {
-    display: block;
+    display: flex;
     width: calc(50% - #{getRem(10px)});
+    padding: getRem(10px) getRem(20px);
+    border: 1px solid var(--color-border-grey);
+    border-radius: 2px;
+
+    span {
+      margin-right: getRem(12px);
+      @include fsl(16px, 160%);
+    }
+
+    input {
+      border: none;
+      width: 100%;
+      @include fsl(16px, 160%);
+      color: var(--color-grey);
+    }
   }
 
   &__slider {
@@ -214,12 +267,73 @@
   }
 }
 
+.filter-checkbox {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+
+  @include fsl(16px, 120%);
+
+  .checkbox__box {
+    border-color: var(--color-border-grey);
+  }
+  
+  .count {
+    color: var(--color-grey);
+    margin-left: getRem(6px);
+  }
+
+  &:not(:last-child) {
+    margin-bottom: getRem(12px);
+  }
+}
+
 .category-filter-btn {
   .catalog-card__strong .point {
     margin-left: getRem(6px);
 
     &:nth-child(1) {
       margin-left: 0;
+    }
+  }
+}
+
+.filter-producers {
+  &__back {
+    display: flex;
+
+      svg {
+      // width: getRem(9px);
+      // height: getRem(18px);
+
+      path {
+        stroke: var(--color-black);
+      }
+    }
+  }
+  &__ttl {
+    @include fsl(16px, 160%);
+    margin-bottom: getRem(8px);
+  }
+  &__input {
+    width: 100%;
+    padding: getRem(10px) getRem(20px);
+    margin-bottom: getRem(26px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: getRem(2px);
+    background: var(--background-grey-extra-2);
+
+    input {
+      width: 100%;
+      border: none;
+      background: transparent;
+      @include fsl(16px, 160%);
+    }
+    button {
+      display: flex;
     }
   }
 }

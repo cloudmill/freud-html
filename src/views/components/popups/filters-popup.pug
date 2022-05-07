@@ -1,20 +1,29 @@
-.modal.modal--right.review-popup.filters-popup.active(data-popup='3')
+.modal.modal--right.review-popup.filters-popup(data-popup='3')
   .review-popup__top
     .review-popup__ttl.h4.title-font Фильтры
     button.button--clean.modal__close
 
   .review-popup__body.filters-popup__body
     .filters-popup-item
-      .filters-popup-item__ttl цена
+      .filters-popup-item__ttl
+        span цена
 
       .filter-range#range-slider-container
-        input.filter-range__input#range-from(type="number")
-        input.filter-range__input#range-to(type="number")
-        //- input.filter-range__slider(type="range")
-        .filter-range__slider#range-slider
+
+        .filter-range__input
+          span От
+          input#range-from(type="number")
+        .filter-range__input
+          span До
+          input#range-to(type="number")
+
+        .filter-range__slider#range-slider(data-range-min='0' data-range-max='50')
 
     .filters-popup-item
-      .filters-popup-item__ttl производитель
+      .filters-popup-item__ttl
+        span производитель
+
+        button.button--clean.filter-btn-more(data-popup-button='4') Все
 
       .filters-popup-item__list
 
@@ -37,7 +46,8 @@
             span.category-filter-btn__count #{item.count}
 
     .filters-popup-item
-      .filters-popup-item__ttl страна
+      .filters-popup-item__ttl
+        span страна
 
       .filters-popup-item__list
 
@@ -59,9 +69,9 @@
             |#{item.name}
             span.category-filter-btn__count #{item.count}
 
-    
     .filters-popup-item
-      .filters-popup-item__ttl крепость
+      .filters-popup-item__ttl
+        span крепость
 
       .filters-popup-item__list
 
@@ -93,11 +103,136 @@
             - for (i=0;i<5;i++)
               .point.active
           span.category-filter-btn__count 23
-  
+
+    .filters-popup-item
+      .filters-popup-item__ttl
+        span время курения
+
+      .filters-popup-item__list
+
+        button.category-filter-btn.button--clean.active
+          |до 30 мин
+          span.category-filter-btn__cross
+
+        -
+          const filters4 = [
+            {name: '30‒59 мин', count: '9'},
+            {name: '60‒90 мин', count: '12'},
+            {name: 'более 90', count: '24'}
+          ]
+
+        each item in filters4
+          button.category-filter-btn.button--clean
+            |#{item.name}
+            span.category-filter-btn__count #{item.count}
+
+    .filters-popup-item
+      .filters-popup-item__ttl
+        span формат
+          .tooltip
+            +tooltipIco
+            .tooltip__txt Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil provident repellat nostrum laborum! Incidunt facilis.
+
+      .filters-popup-item__list
+
+        button.category-filter-btn.button--clean.active
+          |Petit corona
+          span.category-filter-btn__cross
+
+        -
+          const filters3 = [
+            {name: 'Corda corona', count: '1'},
+            {name: 'Churchill', count: '1'},
+            {name: 'Lonsdale', count: '1'},
+            {name: 'Robusto', count: '57'},
+            {name: 'Long Panatela', count: '57'},
+          ]
+
+        each item in filters3
+          button.category-filter-btn.button--clean
+            |#{item.name}
+            span.category-filter-btn__count #{item.count}
+
+    .filters-popup-item
+      .filters-popup-item__ttl
+        span длина, мм
+
+      .filter-range#range-slider-container
+
+        .filter-range__input
+          span От
+          input#range-from(type="number")
+        .filter-range__input
+          span До
+          input#range-to(type="number")
+
+        .filter-range__slider#range-slider(data-range-min='10' data-range-max='40')
+
+    .filters-popup-item
+      .filters-popup-item__ttl
+        span толщина, RG
+
+      .filter-range#range-slider-container
+
+        .filter-range__input
+          span От
+          input#range-from(type="number")
+        .filter-range__input
+          span До
+          input#range-to(type="number")
+
+        .filter-range__slider#range-slider(data-range-min='20' data-range-max='60')
+
+    .filters-popup-item
+      .filters-popup-item__ttl
+        span наличие
+
+      .filter-checkboxes
+        label.checkbox.filter-checkbox
+          .checkbox__label
+            input.checkbox__input(type="checkbox")
+            .checkbox__box
+              +checkbox-white-svg.checkbox__svg
+
+          .checkbox__caption
+            |В наличии
+
+            span.count 6
+
+
+        label.checkbox.filter-checkbox
+          .checkbox__label
+            input.checkbox__input(type="checkbox")
+            .checkbox__box
+              +checkbox-white-svg.checkbox__svg
+
+          .checkbox__caption
+            |Под заказ
+
+            span.count 6
+
+    .filters-popup-item
+      .filters-popup-item__ttl
+        span редкость
+
+      .filter-checkboxes
+        label.checkbox.filter-checkbox
+          .checkbox__label
+            input.checkbox__input(type="checkbox")
+            .checkbox__box
+              +checkbox-white-svg.checkbox__svg
+
+          .checkbox__caption
+            |Показать только редкие товары
+
+            span.count 6
+
   .review-popup__bottom
 
     +brown-button
-      |Показать 250 товаров
+      | Показать&nbsp;
+      span 250
+      | &nbsp;товаров
 
     +brown-border-button
       |Сбросить все фильтры
