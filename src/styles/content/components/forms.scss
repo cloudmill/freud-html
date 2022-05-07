@@ -444,3 +444,7 @@
     transition: $transition;
   }
 }
+
+.datepicker-cell.year.disabled {
+  display: none;
+}
