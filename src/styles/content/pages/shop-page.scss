@@ -37,8 +37,15 @@
   margin: getRem(60px) auto 0;
 }
 
+.category-page-head {
+  padding-bottom: getRem(90px);
+  z-index: 15;
+  position: relative;
+  background: var(--color-white);
+}
+
 .category-top {
-  margin: getRem(90px) 0 getRem(30px);
+  margin-bottom: getRem(30px);
 
   &__line {
     display: flex;
@@ -46,17 +53,20 @@
     &:nth-child(1) {
       justify-content: space-between;
       align-items: center;
+      z-index: 15;
+      position: relative;
+      background: var(--color-white);
     }
     &.cigars-filters {
       padding: getRem(30px) 0;
+      z-index: 15;
+      position: relative;
+      background: var(--color-white);
     }
     &.drinks-filters {
       padding: getRem(30px) 0 getRem(20px);
     }
     &:nth-child(3) {
-      padding: getRem(25px) 0;
-      border-top: 1px solid var(--color-black-rgba-1);
-      border-bottom: 1px solid var(--color-black-rgba-1);
       margin-bottom: getRem(20px);
     }
     // &:nth-child(4) {
@@ -233,13 +243,19 @@
 
 .filter-drops {
   position: relative;
+  background: var(--color-white);
 }
 
 .filter-drops-btns {
+  position: relative;
   display: flex;
   width: 100%;
-  position: relative;
-  z-index: 2;
+  padding: getRem(25px) 0;
+  background: var(--color-white);
+  z-index: 12;
+
+  border-top: 1px solid var(--color-black-rgba-1);
+  border-bottom: 1px solid var(--color-black-rgba-1);
 }
 
 .filter-drops-container {

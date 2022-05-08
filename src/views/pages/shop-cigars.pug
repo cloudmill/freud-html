@@ -10,7 +10,8 @@ block content
 
   section.section--first.section--bottom
     .container
-      +breadcrumbs(items = ['Магазин'] page = 'сигары')
+      .category-page-head
+        +breadcrumbs(items = ['Магазин'] page = 'сигары')
 
       .category-top
         .category-top__line
@@ -52,6 +53,136 @@ block content
                 +arrow-down
 
           .filter-drops-container
+
+            .filter-drops-modal(data-price-filter data-filter-drop="0")
+              .filters-popup-item__ttl
+                span цена
+
+              .filter-range#range-slider-container
+
+                .filter-range__input
+                  span От
+                  input#range-from(type="number")
+                .filter-range__input
+                  span До
+                  input#range-to(type="number")
+
+                .filter-range__slider#range-slider(data-range-min='0' data-range-max='50')
+
+              label.checkbox.filter-checkbox
+                .checkbox__label
+                  input.checkbox__input(type="checkbox")
+                  .checkbox__box
+                    +checkbox-white-svg.checkbox__svg
+
+                .checkbox__caption Показать только товары со скидкой
+
+                  span.count 250
+
+            .filter-drops-modal(data-producer-filter data-filter-drop="1")
+              .filters-popup-item__ttl
+                span производитель
+
+              .filter-producers__ttl Поиск по производителям
+
+              label.filter-producers__input
+                input(type="search" placeholder="Введите производителя")
+
+                button.button--clean(type="submit")
+                  +search-icon
+
+              .filter-checkboxes
+
+                -
+                  const checkboxes2 = [
+                    {name: 'Alec Bradley', count: '7'},
+                    {name: 'Atabey', count: '7'},
+                    {name: 'Bugatti', count: '11'},
+                    {name: 'Davidoff', count: '33'},
+                    {name: 'Gurkha', count: '22'},
+                    {name: 'Juan Lopez', count: '1'},
+                    {name: 'La Flor Dominicana', count: '4'},
+                    {name: 'Nub', count: '4'},
+                    {name: 'Paradiso', count: '4'},
+                    {name: 'Plasencia', count: '5'},
+                    {name: "Quai D'Orsay", count: '5'},
+                    {name: 'Romeo Y Julieta', count: '5'},
+                    {name: 'Vegas Robaina', count: '6'},
+                    {name: 'Arturo Fuente ', count: '21'},
+                    {name: 'AVO', count: '1'},
+                    {name: 'Camacho', count: '2'},
+                  ]
+
+                each item in checkboxes2
+
+                  label.checkbox.filter-checkbox
+                    .checkbox__label
+                      input.checkbox__input(type="checkbox")
+                      .checkbox__box
+                        +checkbox-white-svg.checkbox__svg
+
+                    .checkbox__caption
+                      |#{item.name}
+
+                      span.count #{item.count}
+
+            .filter-drops-modal(data-strong-filter data-filter-drop="3")
+              .filters-popup-item__ttl
+                span крепость
+
+              .filters-popup-item__list
+
+                button.category-filter-btn.button--clean.active
+                  .catalog-card__strong
+                    .point.active
+                  span.category-filter-btn__cross
+
+                button.category-filter-btn.button--clean
+                  .catalog-card__strong
+                    - for (i=0;i<2;i++)
+                      .point.active
+                  span.category-filter-btn__count 23
+
+                button.category-filter-btn.button--clean
+                  .catalog-card__strong
+                    - for (i=0;i<3;i++)
+                      .point.active
+                  span.category-filter-btn__count 23
+
+                button.category-filter-btn.button--clean
+                  .catalog-card__strong
+                    - for (i=0;i<4;i++)
+                      .point.active
+                  span.category-filter-btn__count 23
+
+                button.category-filter-btn.button--clean
+                  .catalog-card__strong
+                    - for (i=0;i<5;i++)
+                      .point.active
+                  span.category-filter-btn__count 23
+
+            .filter-drops-modal.active(data-duration-filter data-filter-drop="4")
+              .filters-popup-item__ttl
+                span время курения
+
+              .filter-checkboxes
+                label.checkbox.filter-checkbox
+                  .checkbox__label
+                    input.checkbox__input(type="checkbox")
+                    .checkbox__box
+                      +checkbox-white-svg.checkbox__svg
+                  .checkbox__caption
+                    |до 30 мин
+                    span.count 18
+
+                label.checkbox.filter-checkbox
+                  .checkbox__label
+                    input.checkbox__input(type="checkbox")
+                    .checkbox__box
+                      +checkbox-white-svg.checkbox__svg
+                  .checkbox__caption
+                    |30‒59 мин
+                    span.count 9
 
         .category-top__line
           - for (b=0;b<3;b++)

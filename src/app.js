@@ -14,6 +14,7 @@ import formValidation from './scripts/form-elements/form-validation';
 import swipers from './scripts/sliders';
 import tabs from './scripts/tabs';
 import popup from './scripts/popup';
+import filterDrops from './scripts/catalog-filter-drops';
 
 import rangeSlider from './scripts/range-slider';
 
@@ -27,6 +28,8 @@ document.addEventListener('DOMContentLoaded', () => {
   popup();
   swipers();
   tabs();
+
+  filterDrops();
 
   inputDate();
   inputTime();
