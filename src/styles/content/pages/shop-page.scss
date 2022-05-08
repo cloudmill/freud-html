@@ -230,3 +230,22 @@
   width: getRem(17px);
   height: getRem(18px);
 }
+
+.filter-drops {
+  position: relative;
+}
+
+.filter-drops-btns {
+  display: flex;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+}
+
+.filter-drops-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+}

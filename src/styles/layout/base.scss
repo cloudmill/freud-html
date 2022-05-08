@@ -9,12 +9,19 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-a:active, a:focus {outline: none;}
+a:active {outline: none;}
+// a:focus {outline: none;}
 input, textarea {outline:none;}
 input:active, textarea:active {outline:none;}
-button:active, button:focus {outline: none;}
-:focus {outline:none;}
+button:active {outline: none;}
+// button:focus {outline: none;}
+// :focus {outline:none;}
 button::-moz-focus-inner {border: 0;}
+
+a:focus, button:focus {
+  outline: 1px solid var(--color-brown);
+  outline-offset: 3px;
+}
 
 html {
   font-size: getVw($fs, 19.2px);
@@ -98,5 +105,4 @@ picture {
 
 .no-transition * {
   transition: none !important;
-  overflow: hidden;
 }

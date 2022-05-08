@@ -30,25 +30,28 @@ block content
               |Кубинские сигары Bolivar
               span.category-filter-btn__count 24  
 
-        .category-top__line
-          button.category-filter-drop.button--clean(data-popup-button='3')
-            +filter-icon
-            span все фильтры
+        .category-top__line.filter-drops
+          .filter-drops-btns
+            button.category-filter-drop.button--clean(data-popup-button='3')
+              +filter-icon
+              span все фильтры
 
-          -
-            const filters = [
-              'цена',
-              'производитель',
-              'страна',
-              'крепость',
-              'время курения',
-              'Формат',
-              'рекомендуем',
-            ]
-          each item in filters
-            button.category-filter-drop.button--clean
-              span #{item}
-              +arrow-down
+            -
+              const filters = [
+                'цена',
+                'производитель',
+                'страна',
+                'крепость',
+                'время курения',
+                'Формат',
+                'рекомендуем',
+              ]
+            each item, index in filters
+              button.category-filter-drop.button--clean(data-filter-btn=`${index}`)
+                span #{item}
+                +arrow-down
+
+          .filter-drops-container
 
         .category-top__line
           - for (b=0;b<3;b++)

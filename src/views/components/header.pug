@@ -13,7 +13,7 @@ mixin header
               //- a.header__top-social(href="") 
               //-   +vk-icon
 
-              a.tel(href="tel:+78124545656")
+              a.tel(href="tel:+78124545656" tabindex="0")
                 |+7 (812) 454-56-56
 
       .header__bottom
@@ -21,25 +21,25 @@ mixin header
 
           .header__bottom-inner
 
-            a.header__logo(href="") 
+            a.header__logo(href="" tabindex="0") 
               +logo.header__logo-svg
 
             nav.header__nav
               each item, index in ['Сигарный клуб', 'Магазин', 'Ресторан']
-                button.button--clean.header__nav-item(data-header-btn=`${index}`)
+                button.button--clean.header__nav-item(data-header-btn=`${index}` tabindex="0")
                   |#{item}
 
-              a.header__nav-item(href="") Контакты
+              a.header__nav-item(href="" tabindex="0") Контакты
 
             .header__buttons
-              button.button--clean.header__buttons-icon(data-fav-btn)
+              button.button--clean.header__buttons-icon(data-fav-btn tabindex="0")
                 +favorites-icon
 
-              button.button--clean.header__buttons-icon.count(data-cart-btn)
+              button.button--clean.header__buttons-icon.count(data-cart-btn tabindex="0")
                 +cart-icon
                 .count-num 15
 
-              +brown-button(data-popup-button='1')
+              +brown-button(data-popup-button='1' tabindex="0")
                 |Забронировать
 
 
@@ -50,54 +50,54 @@ mixin header
           .header-modals__col
 
             each item in ['Сигарный лаунж', 'Хьюмидорная комната', 'Кабинет Фрейда', 'Винотека']
-              a.header-modals__big-ttl(href="") #{item}
+              a.header-modals__big-ttl(href="" tabindex="-1") #{item}
 
           .header-modals__col
 
             each item in ['Сигарный лаунж', 'Хьюмидорная комната', 'Кабинет Фрейда', 'Винотека']
-              a.header-modals__small-ttl(href="") #{item}
+              a.header-modals__small-ttl(href="" tabindex="-1") #{item}
 
       .header-modals__item(data-header-modal='1')
         .container
           .header-modals__col
 
             each item in ['Сигары', 'Сигариллы', 'Хьюмидоры', 'Крепкие напитки']
-              a.header-modals__big-ttl(href="") #{item}
+              a.header-modals__big-ttl(href="" tabindex="-1") #{item}
 
           .header-modals__col
 
             each item in ['Наборы', 'Вина', 'Аксессуары']
-              a.header-modals__big-ttl(href="") #{item}
+              a.header-modals__big-ttl(href="" tabindex="-1") #{item}
 
       .header-modals__item(data-header-modal='2')
         .container
           .header-modals__col
 
             each item in ['Основное меню', 'Крабовое меню', 'Бранчи', 'Сезонное']
-              a.header-modals__big-ttl(href="") #{item}
+              a.header-modals__big-ttl(href="" tabindex="-1") #{item}
 
           .header-modals__col
 
             each item in ['Б/а напитки', 'Винная карта', 'Барная карта']
-              a.header-modals__big-ttl(href="") #{item}
+              a.header-modals__big-ttl(href="" tabindex="-1") #{item}
 
           .header-modals__col
 
             each item in ['О ресторане', 'Подарочные сертификаты']
-              a.header-modals__small-ttl(href="") #{item}
+              a.header-modals__small-ttl(href="" tabindex="-1") #{item}
 
 
 
       .header-modals-small.empty(data-fav-modal data-header-modal='3')
         .header-modals-small__ttl Избранное
         .header-modals-small__txt Вы не добавили товары в избранное. Перейдите в каталог, чтобы добавить товары
-        +brown-border-button
+        +brown-border-button(tabindex="-1")
           |Перейти в каталог
 
       .header-modals-small.empty(data-cart-modal data-header-modal='4')
         .header-modals-small__ttl Корзина
         .header-modals-small__txt В вашей корзине нет товаров. Перейдите в каталог, чтобы добавить товары
-        +brown-border-button
+        +brown-border-button(tabindex="-1")
           |Перейти в каталог
 
 
@@ -116,13 +116,13 @@ mixin header
                 .catalog-card__price
                   span.current 13 820 ₽
                   span.old 13 820 ₽
-                button.product-list__del.button--clean Удалить
+                button.product-list__del.button--clean(tabindex="-1") Удалить
 
         .header-modals-small__bottom
           .header-modals-small__fav-count
             span 8 
             |&nbsp;товаров в избранном
-          +brown-border-button
+          +brown-border-button(tabindex="-1")
             |Перейти в избранное
    
       .header-modals-small.not-empty(data-cart-modal data-header-modal='6')
@@ -137,9 +137,9 @@ mixin header
                 .product-list__brand Ornellaia
                 .product-list__ttl Вино Masseto, Toscana IGT
                 .card-product__add
-                  button.button--clean
+                  button.button--clean(tabindex="-1")
                   |2
-                  button.button--clean.plus
+                  button.button--clean.plus(tabindex="-1")
               .product-list__col
                 div
                   .catalog-card__price
@@ -147,11 +147,11 @@ mixin header
                     span.old 13 820 ₽
                   .card-product__amount 2 шт. х 6 000 ₽
 
-                button.product-list__del.button--clean Удалить
+                button.product-list__del.button--clean(tabindex="-1") Удалить
 
         .header-modals-small__bottom
           .header-modals-small__cart-count
             span.txt Итого
             span.price 165 820 ₽
-          +brown-border-button
+          +brown-border-button(tabindex="-1")
             |Перейти в корзину

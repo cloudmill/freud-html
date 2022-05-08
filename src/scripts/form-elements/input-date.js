@@ -11,7 +11,7 @@ function inputDate() {
   if (datepickerEl) {
 
     let dateNow = new Date();
-    let dateNowString = String(dateNow.getDate()).padStart(2, '0') + '/' + String(dateNow.getMonth() + 1).padStart(2, '0') + '/' + dateNow.getFullYear();
+    let dateNowString = dateNow.toLocaleDateString('en-GB').replace(/\D/g, '/');
     let dateMax = '31/12/' + String(dateNow.getFullYear() + 1);
 
     new Datepicker(datepickerEl, {

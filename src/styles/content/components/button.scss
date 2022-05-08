@@ -26,7 +26,7 @@
 
     transition: $transition;
 
-    &:hover {
+    &:hover, &:focus {
       background: var(--color-black);
     }
   }
@@ -39,7 +39,7 @@
 
     transition: $transition;
 
-    &:hover {
+    &:hover, &:focus {
       background: var(--color-brown);
       color: var(--color-white);
     }
@@ -63,7 +63,7 @@
     transition: $transition;
   }
 
-  &:hover {
+  &:hover, &:focus {
     border-color: var(--color-black);
 
     svg path {

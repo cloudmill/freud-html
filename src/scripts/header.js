@@ -61,8 +61,17 @@ function headerDrops() {
     });
 
     const activeId = Number(clickedBtn.getAttribute('data-header-btn'));
-    document.querySelector(`[data-header-modal='${activeId}']`).classList.add('active');
+    const activeModal = document.querySelector(`[data-header-modal='${activeId}']`);
+
+    activeModal.classList.add('active');
     document.querySelector('.body').classList.add('modal-open');
+
+    activeModal.querySelectorAll('a').forEach(item => {
+      item.setAttribute('tabindex', '0')
+    });
+    activeModal.querySelectorAll('button').forEach(item => {
+      item.setAttribute('tabindex', '0')
+    });
   }
   function closeAllModal() {
     document.querySelector('.body').classList.remove('modal-open');
