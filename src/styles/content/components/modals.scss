@@ -400,9 +400,77 @@
     max-height: getRem(415px);
     left: getRem(860px);
   }
-  &[data-recommend-filter] {
+  &[data-sorting-filter] {
     width: getRem(300px);
     right: 0;
   }
 }
 
+.sorting-filter {
+  display: flex;
+  flex-direction: column;
+
+  &__label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+    &:hover {
+      input {
+        border: 1px solid var(--color-black);
+      }
+      span {
+        color: var(--color-black-rgba-7)
+      }
+    }
+
+    span {
+      @include fsl(16px, 120%);
+      margin-left: getRem(12px);
+      transition: $transition;
+    }
+
+    input {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+
+      width: getRem(20px);
+      height: getRem(20px);
+      border-radius: 50%;
+      border: 1px solid var(--color-border-grey);
+
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      transition: $transition;
+      &::before {
+        content: '';
+        position: absolute;
+        width: getRem(12px);
+        height: getRem(12px);
+        border-radius: 50%;
+        transition: $transition;
+      }
+
+      &:checked {
+        border: 1px solid var(--color-black);
+
+        &::before {
+          content: '';
+          position: absolute;
+          width: getRem(12px);
+          height: getRem(12px);
+          border-radius: 50%;
+          background: var(--color-black);
+        }
+      }
+    }
+
+    &:not(:last-child) {
+      margin-bottom: getRem(14px);
+    }
+  }
+}

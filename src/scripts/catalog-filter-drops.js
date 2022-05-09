@@ -18,8 +18,6 @@ function filterDrops(eventClick) {
       openDrop(clickedBtn);
       closeOnEsc();
     } else if (clickOff) {
-      console.log('mimo');
-
       closeDrop()
     }
   }

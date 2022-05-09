@@ -242,26 +242,20 @@ block content
 
                       span.count #{item.count}
 
-            .filter-drops-modal(data-recommend-filter data-filter-drop="6")
-
-              .filter-checkboxes
-                label.checkbox.filter-checkbox
-                  .checkbox__label
-                    input.checkbox__input(type="checkbox")
-                    .checkbox__box
-                      +checkbox-white-svg.checkbox__svg
-                  .checkbox__caption
-                    |до 30 мин
-                    span.count 18
-
-                label.checkbox.filter-checkbox
-                  .checkbox__label
-                    input.checkbox__input(type="checkbox")
-                    .checkbox__box
-                      +checkbox-white-svg.checkbox__svg
-                  .checkbox__caption
-                    |30‒59 мин
-                    span.count 9
+            .filter-drops-modal(data-sorting-filter data-filter-drop="6")
+              fieldset.sorting-filter
+                label.sorting-filter__label
+                  input(type="radio" name="sorting")
+                  span Рекомендуем
+                label.sorting-filter__label
+                  input(type="radio" name="sorting")
+                  span Новинки
+                label.sorting-filter__label
+                  input(type="radio" name="sorting")
+                  span По убыванию цены
+                label.sorting-filter__label
+                  input(type="radio" name="sorting")
+                  span По возрастанию цены
 
         .category-top__line
           - for (b=0;b<3;b++)
