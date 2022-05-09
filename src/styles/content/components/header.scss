@@ -95,7 +95,7 @@
         margin-left: getRem(50px);
       }
 
-      &:hover {
+      &:hover, &.active {
         color: var(--color-brown);
       }
     }

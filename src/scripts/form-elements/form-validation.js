@@ -44,6 +44,8 @@ function formValidation() {
           if(!item.validity.valid) {
             showError();
             event.preventDefault();
+          } else {
+            // сделать ответ формы
           }
         });
         

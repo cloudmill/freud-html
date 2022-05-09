@@ -126,44 +126,123 @@ block content
 
                       span.count #{item.count}
 
+            .filter-drops-modal(data-country-filter data-filter-drop="2")
+              .filters-popup-item__ttl
+                span страна
+
+              .filter-producers__ttl Поиск по странам
+
+              label.filter-producers__input
+                input(type="search" placeholder="Введите страну")
+
+                button.button--clean(type="submit")
+                  +search-icon
+
+              .filter-checkboxes
+
+                each item in checkboxes2
+
+                  label.checkbox.filter-checkbox
+                    .checkbox__label
+                      input.checkbox__input(type="checkbox")
+                      .checkbox__box
+                        +checkbox-white-svg.checkbox__svg
+
+                    .checkbox__caption
+                      |#{item.name}
+
+                      span.count #{item.count}
+
             .filter-drops-modal(data-strong-filter data-filter-drop="3")
               .filters-popup-item__ttl
                 span крепость
 
               .filters-popup-item__list
 
-                button.category-filter-btn.button--clean.active
+                button.category-filter-btn.button--clean
                   .catalog-card__strong
                     .point.active
                   span.category-filter-btn__cross
+                  span.category-filter-btn__count 23
 
                 button.category-filter-btn.button--clean
                   .catalog-card__strong
                     - for (i=0;i<2;i++)
                       .point.active
+                  span.category-filter-btn__cross
                   span.category-filter-btn__count 23
 
                 button.category-filter-btn.button--clean
                   .catalog-card__strong
                     - for (i=0;i<3;i++)
                       .point.active
+                  span.category-filter-btn__cross
                   span.category-filter-btn__count 23
 
                 button.category-filter-btn.button--clean
                   .catalog-card__strong
                     - for (i=0;i<4;i++)
                       .point.active
+                  span.category-filter-btn__cross
                   span.category-filter-btn__count 23
 
                 button.category-filter-btn.button--clean
                   .catalog-card__strong
                     - for (i=0;i<5;i++)
                       .point.active
+                  span.category-filter-btn__cross
                   span.category-filter-btn__count 23
 
-            .filter-drops-modal.active(data-duration-filter data-filter-drop="4")
+            .filter-drops-modal(data-duration-filter data-filter-drop="4")
               .filters-popup-item__ttl
                 span время курения
+
+              .filter-checkboxes
+                label.checkbox.filter-checkbox
+                  .checkbox__label
+                    input.checkbox__input(type="checkbox")
+                    .checkbox__box
+                      +checkbox-white-svg.checkbox__svg
+                  .checkbox__caption
+                    |до 30 мин
+                    span.count 18
+
+                label.checkbox.filter-checkbox
+                  .checkbox__label
+                    input.checkbox__input(type="checkbox")
+                    .checkbox__box
+                      +checkbox-white-svg.checkbox__svg
+                  .checkbox__caption
+                    |30‒59 мин
+                    span.count 9
+
+            .filter-drops-modal(data-format-filter data-filter-drop="5")
+              .filters-popup-item__ttl
+                span формат
+              .filter-producers__ttl Поиск по форматам
+
+              label.filter-producers__input
+                input(type="search" placeholder="Введите формат")
+
+                button.button--clean(type="submit")
+                  +search-icon
+
+              .filter-checkboxes
+
+                each item in checkboxes2
+
+                  label.checkbox.filter-checkbox
+                    .checkbox__label
+                      input.checkbox__input(type="checkbox")
+                      .checkbox__box
+                        +checkbox-white-svg.checkbox__svg
+
+                    .checkbox__caption
+                      |#{item.name}
+
+                      span.count #{item.count}
+
+            .filter-drops-modal(data-recommend-filter data-filter-drop="6")
 
               .filter-checkboxes
                 label.checkbox.filter-checkbox

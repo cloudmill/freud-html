@@ -34,47 +34,59 @@ function headerOnScroll() {
   }
 }
 
-function headerDrops() {
+function headerDrops(eventClick) {
   const headerBtns = document.querySelectorAll('[data-header-btn]');
   const headerModals = document.querySelectorAll('[data-header-modal]');
 
-  focusOnTabOff();
-
   if (headerBtns.length) {
+    
+    const clickedBtn = eventClick.target.closest('[data-header-btn]');
 
-    window.addEventListener('click', e => {
+    let clickOff;
 
-      const clickedBtn = e.target.closest('[data-header-btn]');
-      const clickOff = document.querySelector('.active[data-header-modal]') && !e.target.closest('[data-header-btn]') && !e.target.closest('[data-header-modal]');
+    if (clickedBtn) {
+      clickOff = document.querySelector('.active[data-header-modal]') && !eventClick.target.closest('[data-header-btn]') && !eventClick.target.closest('[data-header-modal]') || clickedBtn.classList.contains('active');
+    } else {
+      clickOff = document.querySelector('.active[data-header-modal]') && !eventClick.target.closest('[data-header-btn]') && !eventClick.target.closest('[data-header-modal]');
+    }
 
-      if (clickedBtn) {
-        openModal(clickedBtn);
-        closeOnEsc();
-      } else if (clickOff) {
-        closeAllModal()
+    if (clickedBtn && !clickedBtn.classList.contains('active')) {
+      openModal(clickedBtn);
+      closeOnEsc();
+
+    } else if (clickOff) {
+      closeAllModal();
       }
-    })
   }
 
   function openModal(clickedBtn) {
     
+    headerBtns.forEach(item => {
+      item.classList.remove('active')
+    });
     headerModals.forEach(item => {
       item.classList.remove('active')
     });
-
+    
     const activeId = Number(clickedBtn.getAttribute('data-header-btn'));
     const activeModal = document.querySelector(`[data-header-modal='${activeId}']`);
 
+    clickedBtn.classList.add('active');
     activeModal.classList.add('active');
     document.querySelector('.body').classList.add('modal-open');
 
     focusOnTab(activeModal);
   }
   function closeAllModal() {
-    document.querySelector('.body').classList.remove('modal-open');
+    
+    headerBtns.forEach(item => {
+      item.classList.remove('active')
+    });
     headerModals.forEach(item => {
       item.classList.remove('active')
     });
+
+    document.querySelector('.body').classList.remove('modal-open');
 
     focusOnTabOff()
   }

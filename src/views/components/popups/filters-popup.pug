@@ -27,12 +27,9 @@
 
       .filters-popup-item__list
 
-        button.category-filter-btn.button--clean.active
-          |Alec Bradley
-          span.category-filter-btn__cross
-
         -
           const filters1 = [
+            {name: 'Alec Bradley', count: '24'},
             {name: 'Atabey', count: '94'},
             {name: 'Bugatti', count: '1'},
             {name: 'Cohiba', count: '1'},
@@ -44,6 +41,7 @@
           button.category-filter-btn.button--clean
             |#{item.name}
             span.category-filter-btn__count #{item.count}
+            span.category-filter-btn__cross
 
     .filters-popup-item
       .filters-popup-item__ttl
@@ -51,12 +49,9 @@
 
       .filters-popup-item__list
 
-        button.category-filter-btn.button--clean.active
-          |Гондурас
-          span.category-filter-btn__cross
-
         -
           const filters2 = [
+            {name: 'Гондурас', count: '10'},
             {name: 'Доминикана', count: '94'},
             {name: 'Италия', count: '1'},
             {name: 'Коста-Рика', count: '1'},
@@ -68,6 +63,7 @@
           button.category-filter-btn.button--clean
             |#{item.name}
             span.category-filter-btn__count #{item.count}
+            span.category-filter-btn__cross
 
     .filters-popup-item
       .filters-popup-item__ttl
@@ -75,9 +71,10 @@
 
       .filters-popup-item__list
 
-        button.category-filter-btn.button--clean.active
+        button.category-filter-btn.button--clean
           .catalog-card__strong
             .point.active
+          span.category-filter-btn__count 23
           span.category-filter-btn__cross
 
         button.category-filter-btn.button--clean
@@ -85,24 +82,28 @@
             - for (i=0;i<2;i++)
               .point.active
           span.category-filter-btn__count 23
+          span.category-filter-btn__cross
 
         button.category-filter-btn.button--clean
           .catalog-card__strong
             - for (i=0;i<3;i++)
               .point.active
           span.category-filter-btn__count 23
+          span.category-filter-btn__cross
 
         button.category-filter-btn.button--clean
           .catalog-card__strong
             - for (i=0;i<4;i++)
               .point.active
           span.category-filter-btn__count 23
+          span.category-filter-btn__cross
 
         button.category-filter-btn.button--clean
           .catalog-card__strong
             - for (i=0;i<5;i++)
               .point.active
           span.category-filter-btn__count 23
+          span.category-filter-btn__cross
 
     .filters-popup-item
       .filters-popup-item__ttl
@@ -110,12 +111,9 @@
 
       .filters-popup-item__list
 
-        button.category-filter-btn.button--clean.active
-          |до 30 мин
-          span.category-filter-btn__cross
-
         -
           const filters4 = [
+            {name: 'до 30 мин', count: '10'},
             {name: '30‒59 мин', count: '9'},
             {name: '60‒90 мин', count: '12'},
             {name: 'более 90', count: '24'}
@@ -125,6 +123,7 @@
           button.category-filter-btn.button--clean
             |#{item.name}
             span.category-filter-btn__count #{item.count}
+            span.category-filter-btn__cross
 
     .filters-popup-item
       .filters-popup-item__ttl
@@ -135,12 +134,9 @@
 
       .filters-popup-item__list
 
-        button.category-filter-btn.button--clean.active
-          |Petit corona
-          span.category-filter-btn__cross
-
         -
           const filters3 = [
+            {name: 'Petit corona', count: '2'},
             {name: 'Corda corona', count: '1'},
             {name: 'Churchill', count: '1'},
             {name: 'Lonsdale', count: '1'},
@@ -152,6 +148,7 @@
           button.category-filter-btn.button--clean
             |#{item.name}
             span.category-filter-btn__count #{item.count}
+            span.category-filter-btn__cross
 
     .filters-popup-item
       .filters-popup-item__ttl

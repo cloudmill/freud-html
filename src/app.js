@@ -21,15 +21,8 @@ import rangeSlider from './scripts/range-slider';
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  if (mediaQuery.matches) {
-    headerDrops();
-  }
-
-  popup();
   swipers();
   tabs();
-
-  filterDrops();
 
   inputDate();
   inputTime();
@@ -39,6 +32,20 @@ document.addEventListener('DOMContentLoaded', () => {
   formValidation();
 
   rangeSlider();
+
+  tabOffGlobal();
+
+  document.addEventListener('click', eventClick => {
+
+    if (mediaQuery.matches) {
+      headerDrops(eventClick);
+    }
+
+    popup(eventClick);
+    filterDrops(eventClick);
+    addToFav(eventClick);
+    activeFilter(eventClick);
+  })
 
 });
 
@@ -53,3 +60,56 @@ window.addEventListener('load', () => {
   accordions();
 
 });
+
+function tabOffGlobal() {
+  const headerModals = document.querySelectorAll('[data-header-modal]');
+  const filterDrops = document.querySelectorAll('[data-filter-drop]');
+  const popups = document.querySelectorAll('[data-popup]');
+
+  headerModals.forEach(item => {
+
+    item.querySelectorAll('a').forEach(link => {
+      link.setAttribute('tabindex', '-1')
+    });
+    item.querySelectorAll('input').forEach(input => {
+      input.setAttribute('tabindex', '-1')
+    });
+    item.querySelectorAll('button').forEach(button => {
+      button.setAttribute('tabindex', '-1')
+    });
+  });
+  filterDrops.forEach(item => {
+
+    item.querySelectorAll('a').forEach(link => {
+      link.setAttribute('tabindex', '-1')
+    });
+    item.querySelectorAll('input').forEach(input => {
+      input.setAttribute('tabindex', '-1')
+    });
+    item.querySelectorAll('button').forEach(button => {
+      button.setAttribute('tabindex', '-1')
+    });
+  });
+  popups.forEach(item => {
+
+    item.querySelectorAll('input').forEach(input => {
+      input.setAttribute('tabindex', '-1')
+    });
+    item.querySelectorAll('a').forEach(link => {
+      link.setAttribute('tabindex', '-1')
+    });
+    item.querySelectorAll('button').forEach(button => {
+      button.setAttribute('tabindex', '-1')
+    });
+  });
+}
+function addToFav(eventClick) {
+  if (eventClick.target.closest('.catalog-card__fav')) {
+    eventClick.target.closest('.catalog-card__fav').classList.toggle('active')
+  }
+}
+function activeFilter(eventClick) {
+  if ((eventClick.target.closest('[data-filter-drop]') || eventClick.target.closest('.filters-popup')) && eventClick.target.closest('.category-filter-btn')) {
+    eventClick.target.closest('.category-filter-btn').classList.toggle('active')
+  }
+}

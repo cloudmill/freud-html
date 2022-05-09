@@ -193,6 +193,13 @@
           background: var(--color-brown);
           border-color: var(--color-brown);
 
+          .category-filter-btn__count {
+            display: none;
+          }
+          .category-filter-btn__cross {
+            display: block;
+          }
+
           .category-filter-btn__cross::after, .category-filter-btn__cross::before {
             background: var(--color-white);
           }
@@ -356,6 +363,11 @@
     transform: translateY(100%);
   }
 
+  .filter-checkboxes {
+    overflow-y: auto;
+    @include styled-scrollbar;
+  }
+
   &[data-price-filter] {
     width: getRem(400px);
     left: getRem(150px);
@@ -366,22 +378,31 @@
   }
   &[data-producer-filter] {
     width: getRem(380px);
-    height: getRem(415px);
+    max-height: getRem(415px);
     left: getRem(240px);
-
-    .filter-checkboxes {
-      // height: ;
-      overflow-y: scroll;
-      @include styled-scrollbar;
-    }
+  }
+  &[data-country-filter] {
+    width: getRem(400px);
+    max-height: getRem(415px);
+    left: getRem(430px);
   }
   &[data-strong-filter] {
     width: getRem(340px);
-    left: getRem(530px);
+    left: getRem(540px);
   }
   &[data-duration-filter] {
     width: getRem(300px);
-    left: getRem(670px);
+    max-height: getRem(415px);
+    left: getRem(680px);
+  }
+  &[data-format-filter] {
+    width: getRem(400px);
+    max-height: getRem(415px);
+    left: getRem(860px);
+  }
+  &[data-recommend-filter] {
+    width: getRem(300px);
+    right: 0;
   }
 }
 

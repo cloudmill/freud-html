@@ -1,29 +1,26 @@
-function popup() {
+function popup(eventClick) {
   const buttons = document.querySelectorAll('[data-popup-button]');
   const popups = document.querySelectorAll('[data-popup]');
   const modalsContainer = document.querySelector('.modals-container');
 
-  focusOnTabOff();
-
   if (buttons.length) {
 
-    window.addEventListener('click', e => {
+    const clickedBtn = eventClick.target.closest('[data-popup-button]');
+    const clickOff = modalsContainer.classList.contains('active') && 
+    !eventClick.target.closest('[data-popup]') && 
+    !eventClick.target.closest('[data-popup-button]') &&
+    !eventClick.target.closest('.datepicker-view') || 
+    eventClick.target.closest('.modal__close');
 
-      const clickedBtn = e.target.closest('[data-popup-button]');
-      const clickOff = modalsContainer.classList.contains('active') && 
-      !e.target.closest('[data-popup]') && 
-      !e.target.closest('[data-popup-button]') &&
-      !e.target.closest('.datepicker-view') || 
-      e.target.closest('.modal__close');
-
-      if (clickedBtn) {
-        openPopup(clickedBtn);
-        closeOnEsc();
-      } else if (clickOff) {
-        closePopup()
-      }
-    })
+    if (clickedBtn) {
+      openPopup(clickedBtn);
+      closeOnEsc();
+    } else if (clickOff) {
+      closePopup()
+    }
+    
   }
+
   function openPopup(clickedBtn) {
     popups.forEach(item => {
       item.classList.remove('active')
@@ -35,7 +32,10 @@ function popup() {
     modalsContainer.classList.add('active');
     document.querySelector('.body').classList.add('modal-open');
     activePopup.classList.add('active');
-    activePopup.querySelector('input').focus();
+
+    if (activePopup.querySelector('[data-focus-input]')) {
+      activePopup.querySelector('[data-focus-input]').focus();
+    }
 
     focusOnTab(activePopup);
   }
@@ -69,7 +69,9 @@ function popup() {
       item.querySelectorAll('input').forEach(input => {
         input.setAttribute('tabindex', '-1')
       });
-  
+      item.querySelectorAll('a').forEach(link => {
+        link.setAttribute('tabindex', '-1')
+      });
       item.querySelectorAll('button').forEach(button => {
         button.setAttribute('tabindex', '-1')
       });

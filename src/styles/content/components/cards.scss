@@ -99,6 +99,10 @@
     top: 0;
     right: getRem(30px);
 
+    path {
+      transition: $transition;
+    }
+
     &.active path {
       fill: var(--color-black);
     }

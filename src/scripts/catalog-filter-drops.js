@@ -1,34 +1,39 @@
-function filterDrops() {
+function filterDrops(eventClick) {
 
   const filterBtns = document.querySelectorAll('[data-filter-btn]');
   const filterDrops = document.querySelectorAll('[data-filter-drop]');
 
-  focusOnTabOff();
-
   if (filterBtns.length) {
-    
-    window.addEventListener('click', e => {
 
-      const clickedBtn = e.target.closest('[data-filter-btn]');
-      const clickOff = document.querySelector('.active[data-filter-drop]') && !e.target.closest('[data-filter-btn]') && !e.target.closest('[data-filter-drop]');
+    const clickedBtn = eventClick.target.closest('[data-filter-btn]');
+    let clickOff;
 
-      if (clickedBtn) {
+    if (clickedBtn) {
+      clickOff = document.querySelector('.active[data-filter-drop]') && !clickedBtn && !eventClick.target.closest('[data-filter-drop]') || clickedBtn.classList.contains('active');
+    } else {
+      clickOff = document.querySelector('.active[data-filter-drop]') && !clickedBtn && !eventClick.target.closest('[data-filter-drop]');
+    }
 
-        openDrop(clickedBtn);
-        closeOnEsc();
-        
-      } else if (clickOff) {
-        closeDrop()
-      }
-    })
+    if (clickedBtn && !clickedBtn.classList.contains('active')) {
+      openDrop(clickedBtn);
+      closeOnEsc();
+    } else if (clickOff) {
+      console.log('mimo');
+
+      closeDrop()
+    }
   }
 
   function openDrop(clickedBtn) {
 
-    filterDrops.forEach(item => {
-      item.classList.remove('active')
-    });
+    if (document.querySelector('.active[data-filter-btn]')) {
+      document.querySelector('.active[data-filter-btn]').classList.remove('active');
+    }
+    if (document.querySelector('.active[data-filter-drop]')) {
+      document.querySelector('.active[data-filter-drop]').classList.remove('active');
+    }
 
+    clickedBtn.classList.add('active');
     const activeId = Number(clickedBtn.getAttribute('data-filter-btn'));
     const activeDrop = document.querySelector(`[data-filter-drop='${activeId}']`);
 
@@ -37,9 +42,13 @@ function filterDrops() {
     focusOnTab(activeDrop)
   }
   function closeDrop() {
-    filterDrops.forEach(item => {
-      item.classList.remove('active')
-    });
+    if (document.querySelector('.active[data-filter-btn]')) {
+      document.querySelector('.active[data-filter-btn]').classList.remove('active');
+    }
+    if (document.querySelector('.active[data-filter-drop]')) {
+      document.querySelector('.active[data-filter-drop]').classList.remove('active');
+    }
+
     focusOnTabOff();
   }
   function closeOnEsc() {

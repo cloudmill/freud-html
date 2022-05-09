@@ -16,21 +16,13 @@ function select() {
   
 
         if (clickedInput) {
-  
           openSelect(clickedInput)
-  
         } else if (clickedSelect) {
-  
           if (clickedOption) {
-  
             postOption(clickedOption)
-  
           }
-  
         } else if (clickOff) {
-  
           selectContext.querySelector('.select-label.active').classList.remove('active')
-  
         }
       })
     })  
@@ -56,7 +48,6 @@ function select() {
     }
 
   }
-
   function postOption(clickedOption) {
 
     const currLabel = clickedOption.closest('.select-label.active');
