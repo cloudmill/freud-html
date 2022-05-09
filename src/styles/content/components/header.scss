@@ -40,7 +40,7 @@
 
         transition: $transition;
 
-        &:hover {
+        &:hover, &:focus {
           color: var(--color-brown);
         }
       }
@@ -95,7 +95,7 @@
         margin-left: getRem(50px);
       }
 
-      &:hover, &.active {
+      &:hover, &:focus, &.active {
         color: var(--color-brown);
       }
     }
@@ -121,7 +121,7 @@
         margin-right: getRem(35px);
       }
 
-      &:hover {
+      &:hover, &:focus {
         svg path {
           stroke: var(--color-brown);
         }
@@ -152,7 +152,7 @@
           transition: $transition;
         }
 
-        &:hover .count-num {
+        &:hover .count-num, &:focus .count-num {
           background: var(--color-brown);
         }
       }

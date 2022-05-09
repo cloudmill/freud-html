@@ -45,11 +45,14 @@ block content
                 'крепость',
                 'время курения',
                 'Формат',
-                'рекомендуем',
               ]
             each item, index in filters
               button.category-filter-drop.button--clean(data-filter-btn=`${index}`)
                 span #{item}
+                +arrow-down
+
+            button.category-filter-drop.button--clean(data-filter-btn="6")
+                span(data-sort-filter) рекомендуем
                 +arrow-down
 
           .filter-drops-container
@@ -245,17 +248,17 @@ block content
             .filter-drops-modal(data-sorting-filter data-filter-drop="6")
               fieldset.sorting-filter
                 label.sorting-filter__label
-                  input(type="radio" name="sorting")
-                  span Рекомендуем
+                  input.sorting-filter__input(type="radio" name="sorting")
+                  .sorting-filter__txt Рекомендуем
                 label.sorting-filter__label
-                  input(type="radio" name="sorting")
-                  span Новинки
+                  input.sorting-filter__input(type="radio" name="sorting")
+                  .sorting-filter__txt Новинки
                 label.sorting-filter__label
-                  input(type="radio" name="sorting")
-                  span По убыванию цены
+                  input.sorting-filter__input(type="radio" name="sorting")
+                  .sorting-filter__txt По убыванию цены
                 label.sorting-filter__label
-                  input(type="radio" name="sorting")
-                  span По возрастанию цены
+                  input.sorting-filter__input(type="radio" name="sorting")
+                  .sorting-filter__txt По возрастанию цены
 
         .category-top__line
           - for (b=0;b<3;b++)

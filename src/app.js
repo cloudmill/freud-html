@@ -30,8 +30,8 @@ document.addEventListener('DOMContentLoaded', () => {
   select();
 
   formValidation();
-
   rangeSlider();
+  sortMethod();
 
   tabOffGlobal();
 
@@ -112,4 +112,13 @@ function activeFilter(eventClick) {
   if ((eventClick.target.closest('[data-filter-drop]') || eventClick.target.closest('.filters-popup')) && eventClick.target.closest('.category-filter-btn')) {
     eventClick.target.closest('.category-filter-btn').classList.toggle('active')
   }
+}
+function sortMethod() {
+  // переключение способа сортировки на странице категории каталога 
+
+  document.querySelector('.sorting-filter').addEventListener('change', e => {
+
+    document.querySelector('[data-sort-filter]').innerHTML = e.target.closest('.sorting-filter__label').querySelector('.sorting-filter__txt').innerHTML;
+
+  })
 }

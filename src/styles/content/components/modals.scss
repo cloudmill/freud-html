@@ -407,6 +407,8 @@
 }
 
 .sorting-filter {
+  $comp: &;
+
   display: flex;
   flex-direction: column;
 
@@ -419,15 +421,9 @@
       input {
         border: 1px solid var(--color-black);
       }
-      span {
+      #{$comp}__txt {
         color: var(--color-black-rgba-7)
       }
-    }
-
-    span {
-      @include fsl(16px, 120%);
-      margin-left: getRem(12px);
-      transition: $transition;
     }
 
     input {
@@ -446,6 +442,7 @@
       justify-content: center;
 
       transition: $transition;
+
       &::before {
         content: '';
         position: absolute;
@@ -472,5 +469,12 @@
     &:not(:last-child) {
       margin-bottom: getRem(14px);
     }
+  }
+
+  &__txt {
+    @include fsl(16px, 100%);
+    margin-left: getRem(12px);
+    display: flex;
+    transition: $transition;
   }
 }
