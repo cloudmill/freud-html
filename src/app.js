@@ -2,7 +2,7 @@ import './styles/app.scss';
 
 import { mediaQuery } from './scripts/mediaQueries';
 
-import { headerOnScroll, headerDrops, headerFavAndCartModals } from './scripts/header';
+import { headerOnScroll, headerFavAndCartModals } from './scripts/header';
 import accordions from './scripts/spoiler';
 
 import inputTime from './scripts/form-elements/input-time';
@@ -14,10 +14,11 @@ import formValidation from './scripts/form-elements/form-validation';
 import swipers from './scripts/sliders';
 import tabs from './scripts/tabs';
 import popup from './scripts/popup';
-import filterDrops from './scripts/catalog-filter-drops';
+import dropdownsBlock from './scripts/dropdowns-block';
 
 import rangeSlider from './scripts/range-slider';
 
+let blockScroll;
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -39,12 +40,13 @@ document.addEventListener('DOMContentLoaded', () => {
   document.addEventListener('click', eventClick => {
 
     if (mediaQuery.matches) {
-      headerDrops(eventClick, 'data-header-btn', 'data-header-modal');
+      dropdownsBlock(eventClick, 'data-header-btn', 'data-header-modal', blockScroll = true)
     }
 
     popup(eventClick);
-    filterDrops(eventClick);
+    dropdownsBlock(eventClick, 'data-filter-btn', 'data-filter-drop');
     addToFav(eventClick);
+    addToCart(eventClick);
     activeFilter(eventClick);
   })
 
@@ -109,7 +111,20 @@ function addToFav(eventClick) {
     eventClick.target.closest('.catalog-card__fav').classList.toggle('active')
   }
 }
+function addToCart(eventClick) {
+  if (eventClick.target.closest('.catalog-card__btn')) {
+    if (eventClick.target.closest('.catalog-card.in-cart')) {
+      eventClick.target.closest('.catalog-card').classList.remove('in-cart');
+      eventClick.target.closest('.catalog-card__btn').innerHTML = 'Добавить в корзину';
+    } else {
+      eventClick.target.closest('.catalog-card').classList.add('in-cart');
+      eventClick.target.closest('.catalog-card__btn').innerHTML = 'В корзине';
+    }
+  }
+}
 function activeFilter(eventClick) {
+  // активное состояние для кнопки-фильтра в выпадашке или модалке
+
   if ((eventClick.target.closest('[data-filter-drop]') || eventClick.target.closest('.filters-popup')) && eventClick.target.closest('.category-filter-btn')) {
     eventClick.target.closest('.category-filter-btn').classList.toggle('active')
   }

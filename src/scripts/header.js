@@ -34,93 +34,6 @@ function headerOnScroll() {
   }
 }
 
-function headerDrops(eventClick, btnSelector, modalSelector) {
-
-  const headerBtns = document.querySelectorAll(`[${btnSelector}]`);
-  const headerModals = document.querySelectorAll(`[${modalSelector}]`);
-
-  if (headerBtns.length) {
-    
-    const clickedBtn = eventClick.target.closest(`[${btnSelector}]`);
-
-    let clickOff = document.querySelector(`.active[${modalSelector}]`) && !eventClick.target.closest(`[${btnSelector}]`) && !eventClick.target.closest(`[${modalSelector}]`);
-
-    if (clickedBtn && !clickedBtn.classList.contains('active')) {
-      openModal(clickedBtn);
-      closeOnEsc();
-    } else if (clickedBtn && clickedBtn.classList.contains('active')) {
-      closeAllModal();
-    } else if (clickOff) {
-      closeAllModal();
-    }
-  }
-
-  function openModal(clickedBtn) {
-    
-    headerBtns.forEach(item => {
-      item.classList.remove('active')
-    });
-    headerModals.forEach(item => {
-      item.classList.remove('active')
-    });
-    
-    const activeId = Number(clickedBtn.getAttribute(btnSelector));
-    const activeModal = document.querySelector(`[${modalSelector}='${activeId}']`);
-
-    clickedBtn.classList.add('active');
-    activeModal.classList.add('active');
-    document.querySelector('.body').classList.add('modal-open');
-
-    focusOnTab(activeModal);
-  }
-  function closeAllModal() {
-    
-    headerBtns.forEach(item => {
-      item.classList.remove('active')
-    });
-    headerModals.forEach(item => {
-      item.classList.remove('active')
-    });
-
-    document.querySelector('.body').classList.remove('modal-open');
-
-    focusOnTabOff()
-  }
-  function closeOnEsc() {
-    document.addEventListener('keydown', e => {
-      if (e.code == 'Escape') {
-        closeAllModal()
-      }
-    })
-  }
-  function focusOnTab(activeModal) {
-
-    activeModal.querySelectorAll('a').forEach(item => {
-      item.setAttribute('tabindex', '0')
-    });
-    activeModal.querySelectorAll('input').forEach(item => {
-      item.setAttribute('tabindex', '0')
-    });
-    activeModal.querySelectorAll('button').forEach(item => {
-      item.setAttribute('tabindex', '0')
-    });
-  }
-  function focusOnTabOff() {
-    headerModals.forEach(item => {
-
-      item.querySelectorAll('a').forEach(link => {
-        link.setAttribute('tabindex', '-1')
-      });
-      item.querySelectorAll('input').forEach(input => {
-        input.setAttribute('tabindex', '-1')
-      });
-      item.querySelectorAll('button').forEach(button => {
-        button.setAttribute('tabindex', '-1')
-      });
-    })
-  } 
-}
-
 function headerFavAndCartModals() {
   const icoBtns = document.querySelectorAll('.header__buttons-icon');
 
@@ -148,4 +61,4 @@ function headerFavAndCartModals() {
   }
 }
 
-export { headerOnScroll, headerDrops, headerFavAndCartModals }
+export { headerOnScroll, headerFavAndCartModals }

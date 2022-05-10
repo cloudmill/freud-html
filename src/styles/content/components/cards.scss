@@ -49,6 +49,15 @@
 
   transition: $transition;
 
+  &.in-cart {
+    .catalog-card__btn {
+      background: var(--color-black);
+    }
+    .added-to-cart {
+      opacity: 1;
+    }
+  }
+
   &:hover, &:focus {
     z-index: 10;
     filter: drop-shadow(0px getRem(4px) getRem(4px) rgba(0, 0, 0, 0.25));
@@ -385,8 +394,4 @@
   height: getRem(26px);
   opacity: 0;
   transition: $transition;
-
-  &.active {
-    opacity: 1;
-  }
 }
