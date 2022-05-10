@@ -34,29 +34,25 @@ function headerOnScroll() {
   }
 }
 
-function headerDrops(eventClick) {
-  const headerBtns = document.querySelectorAll('[data-header-btn]');
-  const headerModals = document.querySelectorAll('[data-header-modal]');
+function headerDrops(eventClick, btnSelector, modalSelector) {
+
+  const headerBtns = document.querySelectorAll(`[${btnSelector}]`);
+  const headerModals = document.querySelectorAll(`[${modalSelector}]`);
 
   if (headerBtns.length) {
     
-    const clickedBtn = eventClick.target.closest('[data-header-btn]');
+    const clickedBtn = eventClick.target.closest(`[${btnSelector}]`);
 
-    let clickOff;
-
-    if (clickedBtn) {
-      clickOff = document.querySelector('.active[data-header-modal]') && !eventClick.target.closest('[data-header-btn]') && !eventClick.target.closest('[data-header-modal]') || clickedBtn.classList.contains('active');
-    } else {
-      clickOff = document.querySelector('.active[data-header-modal]') && !eventClick.target.closest('[data-header-btn]') && !eventClick.target.closest('[data-header-modal]');
-    }
+    let clickOff = document.querySelector(`.active[${modalSelector}]`) && !eventClick.target.closest(`[${btnSelector}]`) && !eventClick.target.closest(`[${modalSelector}]`);
 
     if (clickedBtn && !clickedBtn.classList.contains('active')) {
       openModal(clickedBtn);
       closeOnEsc();
-
+    } else if (clickedBtn && clickedBtn.classList.contains('active')) {
+      closeAllModal();
     } else if (clickOff) {
       closeAllModal();
-      }
+    }
   }
 
   function openModal(clickedBtn) {
@@ -68,8 +64,8 @@ function headerDrops(eventClick) {
       item.classList.remove('active')
     });
     
-    const activeId = Number(clickedBtn.getAttribute('data-header-btn'));
-    const activeModal = document.querySelector(`[data-header-modal='${activeId}']`);
+    const activeId = Number(clickedBtn.getAttribute(btnSelector));
+    const activeModal = document.querySelector(`[${modalSelector}='${activeId}']`);
 
     clickedBtn.classList.add('active');
     activeModal.classList.add('active');
@@ -122,10 +118,12 @@ function headerDrops(eventClick) {
         button.setAttribute('tabindex', '-1')
       });
     })
-  }
+  } 
+}
 
+function headerFavAndCartModals() {
   const icoBtns = document.querySelectorAll('.header__buttons-icon');
-  
+
   if (icoBtns.length) {
     icoBtns.forEach(item => {
   
@@ -147,7 +145,7 @@ function headerDrops(eventClick) {
       }
 
     })
-  } 
+  }
 }
 
-export { headerOnScroll, headerDrops }
+export { headerOnScroll, headerDrops, headerFavAndCartModals }

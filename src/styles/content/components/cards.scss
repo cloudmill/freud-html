@@ -170,6 +170,10 @@
   &__price {
     margin-top: getRem(30px);
 
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
     .current {
       // font-family: 'Montserrat';
 
@@ -373,5 +377,16 @@
         padding: getRem(60px) calc(#{$col-part-d}) getRem(60px) 0;
       }
     }
+  }
+}
+
+.added-to-cart {
+  width: getRem(30px);
+  height: getRem(26px);
+  opacity: 0;
+  transition: $transition;
+
+  &.active {
+    opacity: 1;
   }
 }

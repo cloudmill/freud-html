@@ -2,7 +2,7 @@ import './styles/app.scss';
 
 import { mediaQuery } from './scripts/mediaQueries';
 
-import { headerOnScroll, headerDrops } from './scripts/header';
+import { headerOnScroll, headerDrops, headerFavAndCartModals } from './scripts/header';
 import accordions from './scripts/spoiler';
 
 import inputTime from './scripts/form-elements/input-time';
@@ -22,6 +22,7 @@ import rangeSlider from './scripts/range-slider';
 document.addEventListener('DOMContentLoaded', () => {
 
   swipers();
+  headerFavAndCartModals();
   tabs();
 
   inputDate();
@@ -38,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.addEventListener('click', eventClick => {
 
     if (mediaQuery.matches) {
-      headerDrops(eventClick);
+      headerDrops(eventClick, 'data-header-btn', 'data-header-modal');
     }
 
     popup(eventClick);

@@ -99,8 +99,11 @@ mixin catalog-card
               .point
 
         .catalog-card__price
-          span.current #{attributes.price}
-          span.old #{attributes.price}
+          div
+            span.current #{attributes.price}
+            span.old #{attributes.price}
+
+          +addedToCart
     
     .catalog-card__btn-container
       +brown-button.catalog-card__btn(tabindex="-1")

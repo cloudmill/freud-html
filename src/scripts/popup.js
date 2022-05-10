@@ -18,7 +18,6 @@ function popup(eventClick) {
     } else if (clickOff) {
       closePopup()
     }
-    
   }
 
   function openPopup(clickedBtn) {

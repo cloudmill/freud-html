@@ -6,17 +6,13 @@ function filterDrops(eventClick) {
   if (filterBtns.length) {
 
     const clickedBtn = eventClick.target.closest('[data-filter-btn]');
-    let clickOff;
-
-    if (clickedBtn) {
-      clickOff = document.querySelector('.active[data-filter-drop]') && !clickedBtn && !eventClick.target.closest('[data-filter-drop]') || clickedBtn.classList.contains('active');
-    } else {
-      clickOff = document.querySelector('.active[data-filter-drop]') && !clickedBtn && !eventClick.target.closest('[data-filter-drop]');
-    }
+    let clickOff = document.querySelector('.active[data-filter-drop]') && !clickedBtn && !eventClick.target.closest('[data-filter-drop]');
 
     if (clickedBtn && !clickedBtn.classList.contains('active')) {
       openDrop(clickedBtn);
       closeOnEsc();
+    } else if (clickedBtn && clickedBtn.classList.contains('active')) {
+      closeDrop()
     } else if (clickOff) {
       closeDrop()
     }
