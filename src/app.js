@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.addEventListener('click', eventClick => {
 
     if (mediaQuery.matches) {
-      dropdownsBlock(eventClick, 'data-header-btn', 'data-header-modal', blockScroll = true)
+      // dropdownsBlock(eventClick, 'data-header-btn', 'data-header-modal', blockScroll = true)
     }
 
     popup(eventClick);
@@ -48,7 +48,51 @@ document.addEventListener('DOMContentLoaded', () => {
     addToFav(eventClick);
     addToCart(eventClick);
     activeFilter(eventClick);
-  })
+  });
+
+  document.querySelector('.header__bottom-inner').addEventListener('mouseover', eventHover => {
+
+    const triggerBtns = document.querySelectorAll('[data-header-btn]');
+    const dropdowns = document.querySelectorAll('[data-header-modal]');
+
+    const activeBtn = eventHover.target.closest('[data-header-btn]');
+    
+    if (activeBtn) {
+      openByHover()
+    }
+
+    document.addEventListener('click', eventClick => {
+
+      if (document.querySelector(`.active[data-header-modal]`) && !eventClick.target.closest(`[data-header-btn]`) && !eventClick.target.closest(`[data-header-modal]`)) {
+
+        closeByClick()
+        
+      }
+    })
+
+    function openByHover() {
+      triggerBtns.forEach(item => {
+        item.classList.remove('active')
+      });
+      dropdowns.forEach(item => {
+        item.classList.remove('active')
+      });
+
+      const activeId = Number(activeBtn.getAttribute('data-header-btn'));
+      const activeDrop = document.querySelector(`[data-header-modal='${activeId}']`);
+
+      activeBtn.classList.add('active');
+      activeDrop.classList.add('active');
+    }
+    function closeByClick() {
+      triggerBtns.forEach(item => {
+        item.classList.remove('active')
+      });
+      dropdowns.forEach(item => {
+        item.classList.remove('active')
+      });
+    }
+  });
 
 });
 

@@ -26,16 +26,26 @@ mixin header
 
             nav.header__nav
               each item, index in ['Сигарный клуб', 'Магазин', 'Ресторан']
-                button.button--clean.header__nav-item(data-header-btn=`${index}` tabindex="0")
-                  |#{item}
+                a.header__nav-item(href="" tabindex="0" data-header-btn=`${index}`)
+                  | #{item}
+              
+                //- button.button--clean.header__nav-item(data-header-btn=`${index}` tabindex="0")
+                //-   |#{item}
 
               a.header__nav-item(href="" tabindex="0") Контакты
 
             .header__buttons
-              button.button--clean.header__buttons-icon(data-fav-btn tabindex="0")
+              //- button.button--clean.header__buttons-icon(data-fav-btn tabindex="0")
+              //-   +favorites-icon
+
+              a.header__buttons-icon(href="" data-fav-btn tabindex="0")
                 +favorites-icon
 
-              button.button--clean.header__buttons-icon.count(data-cart-btn tabindex="0")
+              //- button.button--clean.header__buttons-icon.count(data-cart-btn tabindex="0")
+              //-   +cart-icon
+              //-   .count-num 15
+
+              a.header__buttons-icon.count(href="" data-cart-btn tabindex="0")
                 +cart-icon
                 .count-num 15
 
