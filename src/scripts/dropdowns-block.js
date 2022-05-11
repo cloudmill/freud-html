@@ -1,37 +1,49 @@
-function dropdownsBlock(eventClick, btnSelector, dropSelector, blockScroll) {
+import { focusOnTab, focusOnTabOff } from "./tabindex-in-modals";
+
+function dropdownsBlock(trigger, btnSelector, dropSelector, blockScroll) {
   
   const triggerBtns = document.querySelectorAll(`[${btnSelector}]`);
   const dropdowns = document.querySelectorAll(`[${dropSelector}]`);
 
-  if (triggerBtns.length) {
-    
-    const clickedBtn = eventClick.target.closest(`[${btnSelector}]`);
+  if (triggerBtns && dropdowns) {
 
-    const clickOff = document.querySelector(`.active[${dropSelector}]`) && !clickedBtn && !eventClick.target.closest(`[${dropSelector}]`);
+    const activeBtn = trigger.target.closest(`[${btnSelector}]`);
+    let clickOff;
 
-    if (clickedBtn && !clickedBtn.classList.contains('active')) {
-      openDrop(clickedBtn);
-      closeOnEsc();
-      
-      if (blockScroll) {
-        document.querySelector('.body').classList.add('modal-open');
-      }
-    } else if (clickedBtn && clickedBtn.classList.contains('active')) {
-      closeDrop();
+    if (trigger.type == 'mouseover' && activeBtn) {
+  
+      openDrop(activeBtn);
+  
+      document.addEventListener('click', eventClick => {
 
-      if (blockScroll) {
-        document.querySelector('.body').classList.remove('modal-open');
-      }
-    } else if (clickOff) {
-      closeDrop();
+        clickOff = document.querySelector(`.active[${dropSelector}]`) && !eventClick.target.closest(`[${btnSelector}]`) && !eventClick.target.closest(`[${dropSelector}]`);
+  
+        if (clickOff) {
+          closeDrop();
+        }
+      })
 
-      if (blockScroll) {
-        document.querySelector('.body').classList.remove('modal-open');
+    } else if (trigger.type == 'click') {
+
+      clickOff = document.querySelector(`.active[${dropSelector}]`) && !activeBtn && !trigger.target.closest(`[${dropSelector}]`);
+
+      if (activeBtn && !activeBtn.classList.contains('active')) {
+
+        openDrop(activeBtn);
+        
+      } else if (activeBtn && activeBtn.classList.contains('active') || clickOff) {
+
+        closeDrop();
+
       }
     }
   }
 
-  function openDrop(clickedBtn) {
+  function openDrop(activeBtn) {
+
+    if (blockScroll) {
+      document.querySelector('.body').classList.add('modal-open');
+    }
     
     triggerBtns.forEach(item => {
       item.classList.remove('active')
@@ -40,15 +52,20 @@ function dropdownsBlock(eventClick, btnSelector, dropSelector, blockScroll) {
       item.classList.remove('active')
     });
     
-    const activeId = Number(clickedBtn.getAttribute(btnSelector));
+    const activeId = Number(activeBtn.getAttribute(btnSelector));
     const activeDrop = document.querySelector(`[${dropSelector}='${activeId}']`);
 
-    clickedBtn.classList.add('active');
+    activeBtn.classList.add('active');
     activeDrop.classList.add('active');
 
+    closeOnEsc();
     focusOnTab(activeDrop);
   }
   function closeDrop() {
+
+    if (blockScroll) {
+      document.querySelector('.body').classList.remove('modal-open');
+    }
     
     triggerBtns.forEach(item => {
       item.classList.remove('active')
@@ -57,39 +74,13 @@ function dropdownsBlock(eventClick, btnSelector, dropSelector, blockScroll) {
       item.classList.remove('active')
     });
 
-    focusOnTabOff()
+    focusOnTabOff(dropdowns)
   }
   function closeOnEsc() {
     document.addEventListener('keydown', e => {
       if (e.code == 'Escape') {
         closeDrop()
       }
-    })
-  }
-  function focusOnTab(activeDrop) {
-
-    activeDrop.querySelectorAll('a').forEach(item => {
-      item.setAttribute('tabindex', '0')
-    });
-    activeDrop.querySelectorAll('input').forEach(item => {
-      item.setAttribute('tabindex', '0')
-    });
-    activeDrop.querySelectorAll('button').forEach(item => {
-      item.setAttribute('tabindex', '0')
-    });
-  }
-  function focusOnTabOff() {
-    dropdowns.forEach(item => {
-
-      item.querySelectorAll('a').forEach(link => {
-        link.setAttribute('tabindex', '-1')
-      });
-      item.querySelectorAll('input').forEach(input => {
-        input.setAttribute('tabindex', '-1')
-      });
-      item.querySelectorAll('button').forEach(button => {
-        button.setAttribute('tabindex', '-1')
-      });
     })
   }
 }

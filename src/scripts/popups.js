@@ -1,11 +1,15 @@
-function popup(eventClick) {
+import { focusOnTab, focusOnTabOff } from "./tabindex-in-modals";
+
+function popups(eventClick) {
+
   const buttons = document.querySelectorAll('[data-popup-button]');
   const popups = document.querySelectorAll('[data-popup]');
   const modalsContainer = document.querySelector('.modals-container');
 
-  if (buttons.length) {
+  if (buttons && popups) {
 
     const clickedBtn = eventClick.target.closest('[data-popup-button]');
+
     const clickOff = modalsContainer.classList.contains('active') && 
     !eventClick.target.closest('[data-popup]') && 
     !eventClick.target.closest('[data-popup-button]') &&
@@ -14,7 +18,6 @@ function popup(eventClick) {
 
     if (clickedBtn) {
       openPopup(clickedBtn);
-      closeOnEsc();
     } else if (clickOff) {
       closePopup()
     }
@@ -36,6 +39,7 @@ function popup(eventClick) {
       activePopup.querySelector('[data-focus-input]').focus();
     }
 
+    closeOnEsc();
     focusOnTab(activePopup);
   }
   function closePopup() {
@@ -45,7 +49,7 @@ function popup(eventClick) {
     modalsContainer.classList.remove('active');
     document.querySelector('.body').classList.remove('modal-open');
 
-    focusOnTabOff()
+    focusOnTabOff(popups)
   }
   function closeOnEsc() {
     document.addEventListener('keydown', e => {
@@ -54,28 +58,6 @@ function popup(eventClick) {
       }
     })
   }
-  function focusOnTab(activePopup) {
-    activePopup.querySelectorAll('input').forEach(input => {
-      input.setAttribute('tabindex', '0')
-    });
-    activePopup.querySelectorAll('button').forEach(button => {
-      button.setAttribute('tabindex', '0')
-    });
-  }
-  function focusOnTabOff() {
-    popups.forEach(item => {
-
-      item.querySelectorAll('input').forEach(input => {
-        input.setAttribute('tabindex', '-1')
-      });
-      item.querySelectorAll('a').forEach(link => {
-        link.setAttribute('tabindex', '-1')
-      });
-      item.querySelectorAll('button').forEach(button => {
-        button.setAttribute('tabindex', '-1')
-      });
-    })
-  }
 }
 
-export default popup;
+export default popups;
