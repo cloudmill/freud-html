@@ -65,6 +65,9 @@
     }
     &.drinks-filters {
       padding: getRem(30px) 0 getRem(20px);
+      z-index: 15;
+      position: relative;
+      background: var(--color-white)
     }
     &:nth-child(3) {
       margin-bottom: getRem(20px);
@@ -238,6 +241,8 @@
     width: calc(#{$col-part-d});
     border: 1px solid transparent;
     padding: getRem(5px) getRem(5px) getRem(10px) getRem(5px);
+    cursor: pointer;
+    transition: $transition;
 
     &:not(:last-child) {
       margin-right: getRem(15px);

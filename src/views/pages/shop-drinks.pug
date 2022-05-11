@@ -10,7 +10,8 @@ block content
 
   section.section--first.section--bottom
     .container
-      +breadcrumbs(items = ['Магазин'] page = 'Вина')
+      .category-page-head
+        +breadcrumbs(items = ['Магазин'] page = 'Вина')
 
       .category-top
         .category-top__line
@@ -41,30 +42,22 @@ block content
               +picture(file='grinks-filter-img')
               .drinks-filters-item__title #{item}
 
-        .category-top__line
-          button.category-filter-drop.button--clean
-            +filter-icon
-            span все фильтры
-
-          -
-            const filters = [
-              'цена',
-              'производитель',
-              'страна',
-              'крепость',
-              'время курения',
-              'Формат',
-              'рекомендуем',
-            ]
-          each item in filters
-            button.category-filter-drop.button--clean
-              span #{item}
-              +arrow-down
+        -
+          const filters = [
+            'цена',
+            'производитель',
+            'страна',
+            'регион',
+            'цвет',
+            'содержание сахара',
+          ]
+        include ../components/filters-row
 
         .category-top__line
-          - for (b=0;b<3;b++)
+
+          each item in ['Тихие вина', 'До 25 000 ₽', 'Красное', 'Сухое']
             button.category-filter-btn.button--clean.active-filter
-              |Alec Bradley
+              | #{item}
               span.category-filter-btn__cross
 
           button.category-filter-btn.button--clean.filter-reset

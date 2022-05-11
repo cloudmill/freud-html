@@ -128,13 +128,20 @@ function activeFilter(eventClick) {
   if ((eventClick.target.closest('[data-filter-drop]') || eventClick.target.closest('.filters-popup')) && eventClick.target.closest('.category-filter-btn')) {
     eventClick.target.closest('.category-filter-btn').classList.toggle('active')
   }
+
+  // активное состояние верхнего фильтра в категории напитков
+  if (eventClick.target.closest('.drinks-filters-item')) {
+    eventClick.target.closest('.drinks-filters-item').classList.toggle('active')
+  }
 }
 function sortMethod() {
   // переключение способа сортировки на странице категории каталога 
 
-  document.querySelector('.sorting-filter').addEventListener('change', e => {
+  if (document.querySelector('.sorting-filter')) {
+    document.querySelector('.sorting-filter').addEventListener('change', e => {
 
-    document.querySelector('[data-sort-filter]').innerHTML = e.target.closest('.sorting-filter__label').querySelector('.sorting-filter__txt').innerHTML;
-
-  })
+      document.querySelector('[data-sort-filter]').innerHTML = e.target.closest('.sorting-filter__label').querySelector('.sorting-filter__txt').innerHTML;
+  
+    })
+  } 
 }
