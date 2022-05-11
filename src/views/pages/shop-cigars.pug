@@ -42,7 +42,7 @@ block content
           ]
         include ../components/filters-row
 
-        .category-top__line
+        .category-top__line(data-active-filters)
           
           each item in ['Alec Bradley', 'Крепость: 1 из 5', 'Длительность курения: 30 мин']
             button.category-filter-btn.button--clean.active-filter
@@ -131,3 +131,8 @@ block content
 block modals
   include ../components/popups/filters-popup
   include ../components/popups/producers-popup
+
+  .modal.modal--center.added-to-cart-popup
+    |привет
+
+

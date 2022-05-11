@@ -23,10 +23,10 @@
 .modal {
   position: absolute;
   top: 0;
-  right: 0;
   bottom: 0;
   z-index: 150;
   overflow-y: scroll;
+  background: var(--color-white);
   transition: $transition;
 
   @include scrollbar-hidden;
@@ -72,7 +72,15 @@
     transform: translateX(200%);
     width: calc(#{$col-part-d} * 2 + #{$col-pad-d});
     height: 100vh;
-    background: var(--color-white);
+    right: 0;
+    // background: var(--color-white);
+  }
+
+  &--center {
+    transform: scale(0);
+    width: getRem(600px);
+    max-height: 70vh;
+    pointer-events: none;
   }
 }
 
@@ -477,4 +485,8 @@
     display: flex;
     transition: $transition;
   }
+}
+
+.added-to-cart-popup {
+
 }
