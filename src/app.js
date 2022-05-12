@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.addEventListener('click', eventClick => {
 
-    popups(eventClick);
+    popups(eventClick, 'data-popup-button', 'data-popup');
     dropdownsBlock(eventClick, 'data-filter-btn', 'data-filter-drop');
     addToFav(eventClick);
     addToCart(eventClick);
