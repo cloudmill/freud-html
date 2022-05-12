@@ -4,6 +4,7 @@ import { mediaQuery } from './scripts/mediaQueries';
 
 import { headerOnScroll, headerFavAndCartModals } from './scripts/header';
 import { addToFav, addToCart, activeFilter, sortMethod, activeFiltersHeader } from './scripts/catalog-scripts';
+import { closeOnEsc } from './scripts/modals-open-close';
 
 import inputTime from './scripts/form-elements/input-time';
 import inputDate from './scripts/form-elements/input-date';
@@ -52,6 +53,8 @@ document.addEventListener('DOMContentLoaded', () => {
     activeFilter(eventClick);
 
   });
+
+  closeOnEsc();
 
   if (mediaQuery.matches) {
 

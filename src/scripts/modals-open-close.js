@@ -27,16 +27,6 @@ function openWindow(activeBtn, triggerBtns, windows, btnSelector, windowSelector
     activeWindow.querySelector('[data-focus-input]').focus();
   }
 
-  document.addEventListener('keydown', e => {
-    if (e.code == 'Escape') {
-      closeWindow(triggerBtns, windows, modalsContainer);
-
-      if (modalsContainer) {
-        modalsContainer.classList.remove('active');
-      }
-    }
-  })
-
   focusOnTab(activeWindow);
 }
 
@@ -60,4 +50,27 @@ function closeWindow(triggerBtns, windows, blockScroll, modalsContainer) {
 
 }
 
-export { openWindow, closeWindow };
+function closeOnEsc() {
+  document.addEventListener('keydown', e => {
+    if (e.code == 'Escape') {
+
+      if (document.querySelector('.modals-container.active')) {
+
+        document.querySelector('.body').classList.remove('modal-open');
+        document.querySelector('.modals-container').classList.remove('active');
+        document.querySelector('[data-popup]').classList.remove('active');
+
+      } else if (document.querySelector('.active[data-filter-drop]')) {
+
+        document.querySelector('.active[data-filter-drop]').classList.remove('active')
+
+      } else if (document.querySelector('.active[data-header-modal]')) {
+
+        document.querySelector('.active[data-header-modal]').classList.remove('active')
+
+      }
+    }
+  })
+}
+
+export { openWindow, closeWindow, closeOnEsc };
