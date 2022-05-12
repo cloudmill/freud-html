@@ -56,9 +56,9 @@ function closeOnEsc() {
 
       if (document.querySelector('.modals-container.active')) {
 
-        document.querySelector('.body').classList.remove('modal-open');
-        document.querySelector('.modals-container').classList.remove('active');
-        document.querySelector('[data-popup]').classList.remove('active');
+        document.querySelector('.body.modal-open').classList.remove('modal-open');
+        document.querySelector('.modals-container.active').classList.remove('active');
+        document.querySelector('.active[data-popup]').classList.remove('active');
 
       } else if (document.querySelector('.active[data-filter-drop]')) {
 
@@ -66,7 +66,8 @@ function closeOnEsc() {
 
       } else if (document.querySelector('.active[data-header-modal]')) {
 
-        document.querySelector('.active[data-header-modal]').classList.remove('active')
+        document.querySelector('.active[data-header-modal]').classList.remove('active');
+        document.querySelector('.body.modal-open').classList.remove('modal-open');
 
       }
     }
