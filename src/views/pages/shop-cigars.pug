@@ -131,28 +131,4 @@ block content
 block modals
   include ../components/popups/filters-popup
   include ../components/popups/producers-popup
-
-  .modal.modal--center.in-cart-popup(data-popup='5')
-
-    .in-cart-popup__top
-
-      .in-cart-popup__ttl.title-font.h4 Товар добавлен в корзину
-      button.button--clean.modal__close(data-modal-close)
-
-    .in-cart-popup-card
-      .in-cart-popup-card__img
-        +picture(file='shop-img-1')
-      .in-cart-popup-card__info
-        .in-cart-popup-card__ttl Вино Masseto, Toscana IGT
-        .in-cart-popup-card__info-list
-          span Доминикана, 
-          span 130 мм x 21 RG, 
-          span длительность курения 75 мин, 
-          span крепость 4 из 5
-        .catalog-card__price
-          span.current 13 820 ₽
-
-    +brown-button-link
-      |Перейти в корзину
-    +brown-border-button(data-modal-close='')
-      |Продолжить покупки
+  include ../components/popups/in-cart-popup

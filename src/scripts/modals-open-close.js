@@ -27,13 +27,21 @@ function openWindow(activeBtn, triggerBtns, windows, btnSelector, windowSelector
     activeWindow.querySelector('[data-focus-input]').focus();
   }
 
-  closeOnEsc(triggerBtns, windows);
+  document.addEventListener('keydown', e => {
+    if (e.code == 'Escape') {
+      closeWindow(triggerBtns, windows, modalsContainer);
+
+      if (modalsContainer) {
+        modalsContainer.classList.remove('active');
+      }
+    }
+  })
+
   focusOnTab(activeWindow);
-  
 }
 
 function closeWindow(triggerBtns, windows, blockScroll, modalsContainer) {
-  
+
   if (blockScroll) {
     document.querySelector('.body').classList.remove('modal-open');
   }
@@ -50,14 +58,6 @@ function closeWindow(triggerBtns, windows, blockScroll, modalsContainer) {
 
   focusOnTabOff(windows)
 
-}
-
-function closeOnEsc(triggerBtns, windows) {
-  document.addEventListener('keydown', e => {
-    if (e.code == 'Escape') {
-      closeWindow(triggerBtns, windows);
-    }
-  })
 }
 
 export { openWindow, closeWindow };

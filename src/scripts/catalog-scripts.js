@@ -6,12 +6,21 @@ function addToFav(eventClick) {
 
 function addToCart(eventClick) {
   if (eventClick.target.closest('.catalog-card__btn')) {
+    
     if (eventClick.target.closest('.catalog-card.in-cart')) {
+
       eventClick.target.closest('.catalog-card').classList.remove('in-cart');
       eventClick.target.closest('.catalog-card__btn').innerHTML = 'Добавить в корзину';
+
     } else {
+
       eventClick.target.closest('.catalog-card').classList.add('in-cart');
       eventClick.target.closest('.catalog-card__btn').innerHTML = 'В корзине';
+
+      document.querySelector('.body').classList.add('modal-open');
+      document.querySelector('.modals-container').classList.add('active');
+      document.querySelector('[data-popup="5"]').classList.add('active');
+
     }
   }
 }
