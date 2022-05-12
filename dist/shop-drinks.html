@@ -820,7 +820,7 @@
 										</div>
 									</div>
 								</div>
-								<div class="catalog-card__btn-container"><button class="button button--brown catalog-card__btn" tabindex="-1" data-popup-button="5">Добавить в корзину</button></div>
+								<div class="catalog-card__btn-container"><button class="button button--brown catalog-card__btn" tabindex="-1">Добавить в корзину</button></div>
 							</div>
 							<div class="catalog-card">
 								<div class="catalog-card__top">
@@ -873,7 +873,7 @@
 										</div>
 									</div>
 								</div>
-								<div class="catalog-card__btn-container"><button class="button button--brown catalog-card__btn" tabindex="-1" data-popup-button="5">Добавить в корзину</button></div>
+								<div class="catalog-card__btn-container"><button class="button button--brown catalog-card__btn" tabindex="-1">Добавить в корзину</button></div>
 							</div>
 							<div class="catalog-card">
 								<div class="catalog-card__top">
@@ -921,7 +921,7 @@
 										</div>
 									</div>
 								</div>
-								<div class="catalog-card__btn-container"><button class="button button--brown catalog-card__btn" tabindex="-1" data-popup-button="5">Добавить в корзину</button></div>
+								<div class="catalog-card__btn-container"><button class="button button--brown catalog-card__btn" tabindex="-1">Добавить в корзину</button></div>
 							</div>
 							<div class="catalog-card">
 								<div class="catalog-card__top">
@@ -974,7 +974,7 @@
 										</div>
 									</div>
 								</div>
-								<div class="catalog-card__btn-container"><button class="button button--brown catalog-card__btn" tabindex="-1" data-popup-button="5">Добавить в корзину</button></div>
+								<div class="catalog-card__btn-container"><button class="button button--brown catalog-card__btn" tabindex="-1">Добавить в корзину</button></div>
 							</div>
 							<div class="catalog-card">
 								<div class="catalog-card__top">
@@ -1022,7 +1022,7 @@
 										</div>
 									</div>
 								</div>
-								<div class="catalog-card__btn-container"><button class="button button--brown catalog-card__btn" tabindex="-1" data-popup-button="5">Добавить в корзину</button></div>
+								<div class="catalog-card__btn-container"><button class="button button--brown catalog-card__btn" tabindex="-1">Добавить в корзину</button></div>
 							</div>
 							<div class="catalog-card">
 								<div class="catalog-card__top">
@@ -1075,7 +1075,7 @@
 										</div>
 									</div>
 								</div>
-								<div class="catalog-card__btn-container"><button class="button button--brown catalog-card__btn" tabindex="-1" data-popup-button="5">Добавить в корзину</button></div>
+								<div class="catalog-card__btn-container"><button class="button button--brown catalog-card__btn" tabindex="-1">Добавить в корзину</button></div>
 							</div>
 							<div class="catalog-card">
 								<div class="catalog-card__top">
@@ -1123,7 +1123,7 @@
 										</div>
 									</div>
 								</div>
-								<div class="catalog-card__btn-container"><button class="button button--brown catalog-card__btn" tabindex="-1" data-popup-button="5">Добавить в корзину</button></div>
+								<div class="catalog-card__btn-container"><button class="button button--brown catalog-card__btn" tabindex="-1">Добавить в корзину</button></div>
 							</div>
 							<div class="catalog-card">
 								<div class="catalog-card__top">
@@ -1176,7 +1176,7 @@
 										</div>
 									</div>
 								</div>
-								<div class="catalog-card__btn-container"><button class="button button--brown catalog-card__btn" tabindex="-1" data-popup-button="5">Добавить в корзину</button></div>
+								<div class="catalog-card__btn-container"><button class="button button--brown catalog-card__btn" tabindex="-1">Добавить в корзину</button></div>
 							</div>
 						</div><button class="button button--brown-border more-btn">Посмотреть еще</button>
 					</div>
@@ -1290,6 +1290,260 @@
 						<div class="booking-popup-form__note">Нажимая на кнопку «Забронировать», вы соглашаетесь с <a href="">политикой конфиденциальности</a></div>
 					</form>
 				</div><button class="button--clean modal__close" data-modal-close></button>
+			</div>
+			<div class="modal modal--right review-popup filters-popup" data-popup="3">
+				<div class="review-popup__top">
+					<div class="review-popup__ttl h4 title-font">Фильтры</div><button class="button--clean modal__close" data-modal-close></button>
+				</div>
+				<div class="review-popup__body filters-popup__body">
+					<div class="filters-popup-item">
+						<div class="filters-popup-item__ttl"><span>цена</span></div>
+						<div class="filter-range" id="range-slider-container">
+							<div class="filter-range__input"><span>От</span><input id="range-from" type="number"></div>
+							<div class="filter-range__input"><span>До</span><input id="range-to" type="number"></div>
+							<div class="filter-range__slider" id="range-slider" data-range-min="0" data-range-max="50"></div>
+						</div>
+					</div>
+					<div class="filters-popup-item">
+						<div class="filters-popup-item__ttl"><span>производитель</span><button class="button--clean filter-btn-more" data-popup-button="4">Все</button></div>
+						<div class="filters-popup-item__list"><button class="category-filter-btn button--clean">Alec Bradley<span class="category-filter-btn__count">24</span><span class="category-filter-btn__cross"></span></button><button class="category-filter-btn button--clean">Atabey<span class="category-filter-btn__count">94</span><span class="category-filter-btn__cross"></span></button><button class="category-filter-btn button--clean">Bugatti<span class="category-filter-btn__count">1</span><span class="category-filter-btn__cross"></span></button><button class="category-filter-btn button--clean">Cohiba<span class="category-filter-btn__count">1</span><span class="category-filter-btn__cross"></span></button><button class="category-filter-btn button--clean">Davidoff<span class="category-filter-btn__count">1</span><span class="category-filter-btn__cross"></span></button><button class="category-filter-btn button--clean">Gurkha<span class="category-filter-btn__count">57</span><span class="category-filter-btn__cross"></span></button></div>
+					</div>
+					<div class="filters-popup-item">
+						<div class="filters-popup-item__ttl"><span>страна</span></div>
+						<div class="filters-popup-item__list"><button class="category-filter-btn button--clean">Гондурас<span class="category-filter-btn__count">10</span><span class="category-filter-btn__cross"></span></button><button class="category-filter-btn button--clean">Доминикана<span class="category-filter-btn__count">94</span><span class="category-filter-btn__cross"></span></button><button class="category-filter-btn button--clean">Италия<span class="category-filter-btn__count">1</span><span class="category-filter-btn__cross"></span></button><button class="category-filter-btn button--clean">Коста-Рика<span class="category-filter-btn__count">1</span><span class="category-filter-btn__cross"></span></button><button class="category-filter-btn button--clean">Куба<span class="category-filter-btn__count">1</span><span class="category-filter-btn__cross"></span></button><button class="category-filter-btn button--clean">Никарагуа<span class="category-filter-btn__count">57</span><span class="category-filter-btn__cross"></span></button></div>
+					</div>
+					<div class="filters-popup-item">
+						<div class="filters-popup-item__ttl"><span>крепость</span></div>
+						<div class="filters-popup-item__list"><button class="category-filter-btn button--clean">
+								<div class="catalog-card__strong">
+									<div class="point active"></div>
+								</div><span class="category-filter-btn__count">23</span><span class="category-filter-btn__cross"></span>
+							</button><button class="category-filter-btn button--clean">
+								<div class="catalog-card__strong">
+									<div class="point active"></div>
+									<div class="point active"></div>
+								</div><span class="category-filter-btn__count">23</span><span class="category-filter-btn__cross"></span>
+							</button><button class="category-filter-btn button--clean">
+								<div class="catalog-card__strong">
+									<div class="point active"></div>
+									<div class="point active"></div>
+									<div class="point active"></div>
+								</div><span class="category-filter-btn__count">23</span><span class="category-filter-btn__cross"></span>
+							</button><button class="category-filter-btn button--clean">
+								<div class="catalog-card__strong">
+									<div class="point active"></div>
+									<div class="point active"></div>
+									<div class="point active"></div>
+									<div class="point active"></div>
+								</div><span class="category-filter-btn__count">23</span><span class="category-filter-btn__cross"></span>
+							</button><button class="category-filter-btn button--clean">
+								<div class="catalog-card__strong">
+									<div class="point active"></div>
+									<div class="point active"></div>
+									<div class="point active"></div>
+									<div class="point active"></div>
+									<div class="point active"></div>
+								</div><span class="category-filter-btn__count">23</span><span class="category-filter-btn__cross"></span>
+							</button></div>
+					</div>
+					<div class="filters-popup-item">
+						<div class="filters-popup-item__ttl"><span>время курения</span></div>
+						<div class="filters-popup-item__list"><button class="category-filter-btn button--clean">до 30 мин<span class="category-filter-btn__count">10</span><span class="category-filter-btn__cross"></span></button><button class="category-filter-btn button--clean">30‒59 мин<span class="category-filter-btn__count">9</span><span class="category-filter-btn__cross"></span></button><button class="category-filter-btn button--clean">60‒90 мин<span class="category-filter-btn__count">12</span><span class="category-filter-btn__cross"></span></button><button class="category-filter-btn button--clean">более 90<span class="category-filter-btn__count">24</span><span class="category-filter-btn__cross"></span></button></div>
+					</div>
+					<div class="filters-popup-item">
+						<div class="filters-popup-item__ttl"><span>формат<div class="tooltip"><svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="9.5" cy="9.5" r="9.5" fill="#DFE7E3"></circle><path d="M9.59264 5.25571C7.94403 5.25571 6.72803 6.24955 6.72803 7.76955H7.79203C7.8271 7.05632 8.27141 6.14432 9.56926 6.14432C10.4696 6.14432 11.1243 6.61201 11.1243 7.36032C11.1243 8.12032 10.645 8.58801 10.037 8.97386C9.0548 9.60525 8.5871 10.0262 8.5871 11.0083V11.4059H9.67449V11.0434C9.67449 10.4003 9.93172 10.1899 10.6566 9.72217C11.4517 9.2194 12.2351 8.43601 12.2351 7.31355C12.2351 5.89878 10.9139 5.25571 9.59264 5.25571ZM9.82649 13.8846V12.54H8.48187V13.8846H9.82649Z" fill="#0F2C2D"></path></svg><div class="tooltip__txt">Формат — это определенное сочетание формы, длины и диаметра сигары</div></div></span></div>
+						<div class="filters-popup-item__list"><button class="category-filter-btn button--clean">Petit corona<span class="category-filter-btn__count">2</span><span class="category-filter-btn__cross"></span></button><button class="category-filter-btn button--clean">Corda corona<span class="category-filter-btn__count">1</span><span class="category-filter-btn__cross"></span></button><button class="category-filter-btn button--clean">Churchill<span class="category-filter-btn__count">1</span><span class="category-filter-btn__cross"></span></button><button class="category-filter-btn button--clean">Lonsdale<span class="category-filter-btn__count">1</span><span class="category-filter-btn__cross"></span></button><button class="category-filter-btn button--clean">Robusto<span class="category-filter-btn__count">57</span><span class="category-filter-btn__cross"></span></button><button class="category-filter-btn button--clean">Long Panatela<span class="category-filter-btn__count">57</span><span class="category-filter-btn__cross"></span></button></div>
+					</div>
+					<div class="filters-popup-item">
+						<div class="filters-popup-item__ttl"><span>длина, мм</span></div>
+						<div class="filter-range" id="range-slider-container">
+							<div class="filter-range__input"><span>От</span><input id="range-from" type="number"></div>
+							<div class="filter-range__input"><span>До</span><input id="range-to" type="number"></div>
+							<div class="filter-range__slider" id="range-slider" data-range-min="10" data-range-max="40"></div>
+						</div>
+					</div>
+					<div class="filters-popup-item">
+						<div class="filters-popup-item__ttl"><span>толщина, RG</span></div>
+						<div class="filter-range" id="range-slider-container">
+							<div class="filter-range__input"><span>От</span><input id="range-from" type="number"></div>
+							<div class="filter-range__input"><span>До</span><input id="range-to" type="number"></div>
+							<div class="filter-range__slider" id="range-slider" data-range-min="20" data-range-max="60"></div>
+						</div>
+					</div>
+					<div class="filters-popup-item">
+						<div class="filters-popup-item__ttl"><span>наличие</span></div>
+						<div class="filter-checkboxes"><label class="checkbox filter-checkbox">
+								<div class="checkbox__label"><input class="checkbox__input" type="checkbox">
+									<div class="checkbox__box"><svg class="checkbox__svg" width="13" height="10" viewBox="0 0 13 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<path d="M11.8715 1.12386C11.7064 0.958713 11.4386 0.958713 11.2735 1.12386L4.41828 7.97906L1.72193 5.28269C1.5568 5.11752 1.28903 5.11752 1.12386 5.28269C0.958713 5.44783 0.958713 5.71559 1.12386 5.88076L4.11928 8.87617C4.28436 9.04125 4.55222 9.0413 4.71735 8.87617L11.8715 1.72193C12.0367 1.55676 12.0367 1.28901 11.8715 1.12386Z" fill="#1B1B1B" stroke="#1B1B1B" stroke-width="0.5"></path>
+										</svg></div>
+								</div>
+								<div class="checkbox__caption">В наличии<span class="count">6</span></div>
+							</label><label class="checkbox filter-checkbox">
+								<div class="checkbox__label"><input class="checkbox__input" type="checkbox">
+									<div class="checkbox__box"><svg class="checkbox__svg" width="13" height="10" viewBox="0 0 13 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<path d="M11.8715 1.12386C11.7064 0.958713 11.4386 0.958713 11.2735 1.12386L4.41828 7.97906L1.72193 5.28269C1.5568 5.11752 1.28903 5.11752 1.12386 5.28269C0.958713 5.44783 0.958713 5.71559 1.12386 5.88076L4.11928 8.87617C4.28436 9.04125 4.55222 9.0413 4.71735 8.87617L11.8715 1.72193C12.0367 1.55676 12.0367 1.28901 11.8715 1.12386Z" fill="#1B1B1B" stroke="#1B1B1B" stroke-width="0.5"></path>
+										</svg></div>
+								</div>
+								<div class="checkbox__caption">Под заказ<span class="count">6</span></div>
+							</label></div>
+					</div>
+					<div class="filters-popup-item">
+						<div class="filters-popup-item__ttl"><span>редкость</span></div>
+						<div class="filter-checkboxes"><label class="checkbox filter-checkbox">
+								<div class="checkbox__label"><input class="checkbox__input" type="checkbox">
+									<div class="checkbox__box"><svg class="checkbox__svg" width="13" height="10" viewBox="0 0 13 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<path d="M11.8715 1.12386C11.7064 0.958713 11.4386 0.958713 11.2735 1.12386L4.41828 7.97906L1.72193 5.28269C1.5568 5.11752 1.28903 5.11752 1.12386 5.28269C0.958713 5.44783 0.958713 5.71559 1.12386 5.88076L4.11928 8.87617C4.28436 9.04125 4.55222 9.0413 4.71735 8.87617L11.8715 1.72193C12.0367 1.55676 12.0367 1.28901 11.8715 1.12386Z" fill="#1B1B1B" stroke="#1B1B1B" stroke-width="0.5"></path>
+										</svg></div>
+								</div>
+								<div class="checkbox__caption">Показать только редкие товары<span class="count">6</span></div>
+							</label></div>
+					</div>
+				</div>
+				<div class="review-popup__bottom"><button class="button button--brown">Показать&nbsp;<span>250</span>&nbsp;товаров</button><button class="button button--brown-border">Сбросить все фильтры</button></div>
+			</div>
+			<div class="modal modal--right review-popup filters-popup" data-popup="4">
+				<div class="review-popup__top"><button class="button--clean filter-producers__back" data-popup-button="3"><svg width="9" height="14" viewBox="0 0 9 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M7.57227 0.714355L1.28655 7.00007L7.57227 13.2858" stroke="#B69659" stroke-linecap="round" stroke-linejoin="round"></path>
+						</svg></button>
+					<div class="review-popup__ttl h4 title-font">Производитель</div><button class="button--clean modal__close" data-modal-close></button>
+				</div>
+				<div class="review-popup__body filters-popup__body">
+					<div class="filter-producers__ttl">Поиск по производителям</div><label class="filter-producers__input"><input type="search" placeholder="Введите производителя"><button class="button--clean" type="submit"><svg class="search-icon" width="17" height="18" viewBox="0 0 17 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M12.3807 13L16.1111 17M2.95262 2.95262C5.55612 0.349126 9.77722 0.349126 12.3807 2.95262C14.9842 5.55612 14.9842 9.77722 12.3807 12.3807C9.77722 14.9842 5.55612 14.9842 2.95262 12.3807C0.349126 9.77722 0.349126 5.55612 2.95262 2.95262Z" stroke="#1B1B1B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+							</svg></button></label>
+					<div class="filter-checkboxes"><label class="checkbox filter-checkbox">
+							<div class="checkbox__label"><input class="checkbox__input" type="checkbox">
+								<div class="checkbox__box"><svg class="checkbox__svg" width="13" height="10" viewBox="0 0 13 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M11.8715 1.12386C11.7064 0.958713 11.4386 0.958713 11.2735 1.12386L4.41828 7.97906L1.72193 5.28269C1.5568 5.11752 1.28903 5.11752 1.12386 5.28269C0.958713 5.44783 0.958713 5.71559 1.12386 5.88076L4.11928 8.87617C4.28436 9.04125 4.55222 9.0413 4.71735 8.87617L11.8715 1.72193C12.0367 1.55676 12.0367 1.28901 11.8715 1.12386Z" fill="#1B1B1B" stroke="#1B1B1B" stroke-width="0.5"></path>
+									</svg></div>
+							</div>
+							<div class="checkbox__caption">Alec Bradley<span class="count">7</span></div>
+						</label><label class="checkbox filter-checkbox">
+							<div class="checkbox__label"><input class="checkbox__input" type="checkbox">
+								<div class="checkbox__box"><svg class="checkbox__svg" width="13" height="10" viewBox="0 0 13 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M11.8715 1.12386C11.7064 0.958713 11.4386 0.958713 11.2735 1.12386L4.41828 7.97906L1.72193 5.28269C1.5568 5.11752 1.28903 5.11752 1.12386 5.28269C0.958713 5.44783 0.958713 5.71559 1.12386 5.88076L4.11928 8.87617C4.28436 9.04125 4.55222 9.0413 4.71735 8.87617L11.8715 1.72193C12.0367 1.55676 12.0367 1.28901 11.8715 1.12386Z" fill="#1B1B1B" stroke="#1B1B1B" stroke-width="0.5"></path>
+									</svg></div>
+							</div>
+							<div class="checkbox__caption">Atabey<span class="count">7</span></div>
+						</label><label class="checkbox filter-checkbox">
+							<div class="checkbox__label"><input class="checkbox__input" type="checkbox">
+								<div class="checkbox__box"><svg class="checkbox__svg" width="13" height="10" viewBox="0 0 13 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M11.8715 1.12386C11.7064 0.958713 11.4386 0.958713 11.2735 1.12386L4.41828 7.97906L1.72193 5.28269C1.5568 5.11752 1.28903 5.11752 1.12386 5.28269C0.958713 5.44783 0.958713 5.71559 1.12386 5.88076L4.11928 8.87617C4.28436 9.04125 4.55222 9.0413 4.71735 8.87617L11.8715 1.72193C12.0367 1.55676 12.0367 1.28901 11.8715 1.12386Z" fill="#1B1B1B" stroke="#1B1B1B" stroke-width="0.5"></path>
+									</svg></div>
+							</div>
+							<div class="checkbox__caption">Bugatti<span class="count">11</span></div>
+						</label><label class="checkbox filter-checkbox">
+							<div class="checkbox__label"><input class="checkbox__input" type="checkbox">
+								<div class="checkbox__box"><svg class="checkbox__svg" width="13" height="10" viewBox="0 0 13 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M11.8715 1.12386C11.7064 0.958713 11.4386 0.958713 11.2735 1.12386L4.41828 7.97906L1.72193 5.28269C1.5568 5.11752 1.28903 5.11752 1.12386 5.28269C0.958713 5.44783 0.958713 5.71559 1.12386 5.88076L4.11928 8.87617C4.28436 9.04125 4.55222 9.0413 4.71735 8.87617L11.8715 1.72193C12.0367 1.55676 12.0367 1.28901 11.8715 1.12386Z" fill="#1B1B1B" stroke="#1B1B1B" stroke-width="0.5"></path>
+									</svg></div>
+							</div>
+							<div class="checkbox__caption">Davidoff<span class="count">33</span></div>
+						</label><label class="checkbox filter-checkbox">
+							<div class="checkbox__label"><input class="checkbox__input" type="checkbox">
+								<div class="checkbox__box"><svg class="checkbox__svg" width="13" height="10" viewBox="0 0 13 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M11.8715 1.12386C11.7064 0.958713 11.4386 0.958713 11.2735 1.12386L4.41828 7.97906L1.72193 5.28269C1.5568 5.11752 1.28903 5.11752 1.12386 5.28269C0.958713 5.44783 0.958713 5.71559 1.12386 5.88076L4.11928 8.87617C4.28436 9.04125 4.55222 9.0413 4.71735 8.87617L11.8715 1.72193C12.0367 1.55676 12.0367 1.28901 11.8715 1.12386Z" fill="#1B1B1B" stroke="#1B1B1B" stroke-width="0.5"></path>
+									</svg></div>
+							</div>
+							<div class="checkbox__caption">Gurkha<span class="count">22</span></div>
+						</label><label class="checkbox filter-checkbox">
+							<div class="checkbox__label"><input class="checkbox__input" type="checkbox">
+								<div class="checkbox__box"><svg class="checkbox__svg" width="13" height="10" viewBox="0 0 13 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M11.8715 1.12386C11.7064 0.958713 11.4386 0.958713 11.2735 1.12386L4.41828 7.97906L1.72193 5.28269C1.5568 5.11752 1.28903 5.11752 1.12386 5.28269C0.958713 5.44783 0.958713 5.71559 1.12386 5.88076L4.11928 8.87617C4.28436 9.04125 4.55222 9.0413 4.71735 8.87617L11.8715 1.72193C12.0367 1.55676 12.0367 1.28901 11.8715 1.12386Z" fill="#1B1B1B" stroke="#1B1B1B" stroke-width="0.5"></path>
+									</svg></div>
+							</div>
+							<div class="checkbox__caption">Juan Lopez<span class="count">1</span></div>
+						</label><label class="checkbox filter-checkbox">
+							<div class="checkbox__label"><input class="checkbox__input" type="checkbox">
+								<div class="checkbox__box"><svg class="checkbox__svg" width="13" height="10" viewBox="0 0 13 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M11.8715 1.12386C11.7064 0.958713 11.4386 0.958713 11.2735 1.12386L4.41828 7.97906L1.72193 5.28269C1.5568 5.11752 1.28903 5.11752 1.12386 5.28269C0.958713 5.44783 0.958713 5.71559 1.12386 5.88076L4.11928 8.87617C4.28436 9.04125 4.55222 9.0413 4.71735 8.87617L11.8715 1.72193C12.0367 1.55676 12.0367 1.28901 11.8715 1.12386Z" fill="#1B1B1B" stroke="#1B1B1B" stroke-width="0.5"></path>
+									</svg></div>
+							</div>
+							<div class="checkbox__caption">La Flor Dominicana<span class="count">4</span></div>
+						</label><label class="checkbox filter-checkbox">
+							<div class="checkbox__label"><input class="checkbox__input" type="checkbox">
+								<div class="checkbox__box"><svg class="checkbox__svg" width="13" height="10" viewBox="0 0 13 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M11.8715 1.12386C11.7064 0.958713 11.4386 0.958713 11.2735 1.12386L4.41828 7.97906L1.72193 5.28269C1.5568 5.11752 1.28903 5.11752 1.12386 5.28269C0.958713 5.44783 0.958713 5.71559 1.12386 5.88076L4.11928 8.87617C4.28436 9.04125 4.55222 9.0413 4.71735 8.87617L11.8715 1.72193C12.0367 1.55676 12.0367 1.28901 11.8715 1.12386Z" fill="#1B1B1B" stroke="#1B1B1B" stroke-width="0.5"></path>
+									</svg></div>
+							</div>
+							<div class="checkbox__caption">Nub<span class="count">4</span></div>
+						</label><label class="checkbox filter-checkbox">
+							<div class="checkbox__label"><input class="checkbox__input" type="checkbox">
+								<div class="checkbox__box"><svg class="checkbox__svg" width="13" height="10" viewBox="0 0 13 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M11.8715 1.12386C11.7064 0.958713 11.4386 0.958713 11.2735 1.12386L4.41828 7.97906L1.72193 5.28269C1.5568 5.11752 1.28903 5.11752 1.12386 5.28269C0.958713 5.44783 0.958713 5.71559 1.12386 5.88076L4.11928 8.87617C4.28436 9.04125 4.55222 9.0413 4.71735 8.87617L11.8715 1.72193C12.0367 1.55676 12.0367 1.28901 11.8715 1.12386Z" fill="#1B1B1B" stroke="#1B1B1B" stroke-width="0.5"></path>
+									</svg></div>
+							</div>
+							<div class="checkbox__caption">Paradiso<span class="count">4</span></div>
+						</label><label class="checkbox filter-checkbox">
+							<div class="checkbox__label"><input class="checkbox__input" type="checkbox">
+								<div class="checkbox__box"><svg class="checkbox__svg" width="13" height="10" viewBox="0 0 13 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M11.8715 1.12386C11.7064 0.958713 11.4386 0.958713 11.2735 1.12386L4.41828 7.97906L1.72193 5.28269C1.5568 5.11752 1.28903 5.11752 1.12386 5.28269C0.958713 5.44783 0.958713 5.71559 1.12386 5.88076L4.11928 8.87617C4.28436 9.04125 4.55222 9.0413 4.71735 8.87617L11.8715 1.72193C12.0367 1.55676 12.0367 1.28901 11.8715 1.12386Z" fill="#1B1B1B" stroke="#1B1B1B" stroke-width="0.5"></path>
+									</svg></div>
+							</div>
+							<div class="checkbox__caption">Plasencia<span class="count">5</span></div>
+						</label><label class="checkbox filter-checkbox">
+							<div class="checkbox__label"><input class="checkbox__input" type="checkbox">
+								<div class="checkbox__box"><svg class="checkbox__svg" width="13" height="10" viewBox="0 0 13 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M11.8715 1.12386C11.7064 0.958713 11.4386 0.958713 11.2735 1.12386L4.41828 7.97906L1.72193 5.28269C1.5568 5.11752 1.28903 5.11752 1.12386 5.28269C0.958713 5.44783 0.958713 5.71559 1.12386 5.88076L4.11928 8.87617C4.28436 9.04125 4.55222 9.0413 4.71735 8.87617L11.8715 1.72193C12.0367 1.55676 12.0367 1.28901 11.8715 1.12386Z" fill="#1B1B1B" stroke="#1B1B1B" stroke-width="0.5"></path>
+									</svg></div>
+							</div>
+							<div class="checkbox__caption">Quai D'Orsay<span class="count">5</span></div>
+						</label><label class="checkbox filter-checkbox">
+							<div class="checkbox__label"><input class="checkbox__input" type="checkbox">
+								<div class="checkbox__box"><svg class="checkbox__svg" width="13" height="10" viewBox="0 0 13 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M11.8715 1.12386C11.7064 0.958713 11.4386 0.958713 11.2735 1.12386L4.41828 7.97906L1.72193 5.28269C1.5568 5.11752 1.28903 5.11752 1.12386 5.28269C0.958713 5.44783 0.958713 5.71559 1.12386 5.88076L4.11928 8.87617C4.28436 9.04125 4.55222 9.0413 4.71735 8.87617L11.8715 1.72193C12.0367 1.55676 12.0367 1.28901 11.8715 1.12386Z" fill="#1B1B1B" stroke="#1B1B1B" stroke-width="0.5"></path>
+									</svg></div>
+							</div>
+							<div class="checkbox__caption">Romeo Y Julieta<span class="count">5</span></div>
+						</label><label class="checkbox filter-checkbox">
+							<div class="checkbox__label"><input class="checkbox__input" type="checkbox">
+								<div class="checkbox__box"><svg class="checkbox__svg" width="13" height="10" viewBox="0 0 13 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M11.8715 1.12386C11.7064 0.958713 11.4386 0.958713 11.2735 1.12386L4.41828 7.97906L1.72193 5.28269C1.5568 5.11752 1.28903 5.11752 1.12386 5.28269C0.958713 5.44783 0.958713 5.71559 1.12386 5.88076L4.11928 8.87617C4.28436 9.04125 4.55222 9.0413 4.71735 8.87617L11.8715 1.72193C12.0367 1.55676 12.0367 1.28901 11.8715 1.12386Z" fill="#1B1B1B" stroke="#1B1B1B" stroke-width="0.5"></path>
+									</svg></div>
+							</div>
+							<div class="checkbox__caption">Vegas Robaina<span class="count">6</span></div>
+						</label><label class="checkbox filter-checkbox">
+							<div class="checkbox__label"><input class="checkbox__input" type="checkbox">
+								<div class="checkbox__box"><svg class="checkbox__svg" width="13" height="10" viewBox="0 0 13 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M11.8715 1.12386C11.7064 0.958713 11.4386 0.958713 11.2735 1.12386L4.41828 7.97906L1.72193 5.28269C1.5568 5.11752 1.28903 5.11752 1.12386 5.28269C0.958713 5.44783 0.958713 5.71559 1.12386 5.88076L4.11928 8.87617C4.28436 9.04125 4.55222 9.0413 4.71735 8.87617L11.8715 1.72193C12.0367 1.55676 12.0367 1.28901 11.8715 1.12386Z" fill="#1B1B1B" stroke="#1B1B1B" stroke-width="0.5"></path>
+									</svg></div>
+							</div>
+							<div class="checkbox__caption">Arturo Fuente <span class="count">21</span></div>
+						</label><label class="checkbox filter-checkbox">
+							<div class="checkbox__label"><input class="checkbox__input" type="checkbox">
+								<div class="checkbox__box"><svg class="checkbox__svg" width="13" height="10" viewBox="0 0 13 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M11.8715 1.12386C11.7064 0.958713 11.4386 0.958713 11.2735 1.12386L4.41828 7.97906L1.72193 5.28269C1.5568 5.11752 1.28903 5.11752 1.12386 5.28269C0.958713 5.44783 0.958713 5.71559 1.12386 5.88076L4.11928 8.87617C4.28436 9.04125 4.55222 9.0413 4.71735 8.87617L11.8715 1.72193C12.0367 1.55676 12.0367 1.28901 11.8715 1.12386Z" fill="#1B1B1B" stroke="#1B1B1B" stroke-width="0.5"></path>
+									</svg></div>
+							</div>
+							<div class="checkbox__caption">AVO<span class="count">1</span></div>
+						</label><label class="checkbox filter-checkbox">
+							<div class="checkbox__label"><input class="checkbox__input" type="checkbox">
+								<div class="checkbox__box"><svg class="checkbox__svg" width="13" height="10" viewBox="0 0 13 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M11.8715 1.12386C11.7064 0.958713 11.4386 0.958713 11.2735 1.12386L4.41828 7.97906L1.72193 5.28269C1.5568 5.11752 1.28903 5.11752 1.12386 5.28269C0.958713 5.44783 0.958713 5.71559 1.12386 5.88076L4.11928 8.87617C4.28436 9.04125 4.55222 9.0413 4.71735 8.87617L11.8715 1.72193C12.0367 1.55676 12.0367 1.28901 11.8715 1.12386Z" fill="#1B1B1B" stroke="#1B1B1B" stroke-width="0.5"></path>
+									</svg></div>
+							</div>
+							<div class="checkbox__caption">Camacho<span class="count">2</span></div>
+						</label></div>
+				</div>
+				<div class="review-popup__bottom"><button class="button button--brown">Показать&nbsp;<span>250</span>&nbsp;товаров</button><button class="button button--brown-border">Сбросить все фильтры</button></div>
+			</div>
+			<div class="modal modal--center in-cart-popup" data-popup="5">
+				<div class="in-cart-popup__top">
+					<div class="in-cart-popup__ttl title-font h4">Товар добавлен в корзину</div><button class="button--clean modal__close" data-modal-close></button>
+				</div>
+				<div class="in-cart-popup-card">
+					<div class="in-cart-popup-card__img">
+						<picture>
+							<source srcset="assets/images/webp/shop-img-1.webp" type="image/webp" /><img src="assets/images/shop-img-1.jpg" alt="" />
+						</picture>
+					</div>
+					<div class="in-cart-popup-card__info">
+						<div class="in-cart-popup-card__ttl">Вино Masseto, Toscana IGT</div>
+						<div class="in-cart-popup-card__info-list"><span>Доминикана, </span><span>130 мм x 21 RG, </span><span>длительность курения 75 мин, </span><span>крепость 4 из 5</span></div>
+						<div class="catalog-card__price"><span class="current">13 820 ₽</span></div>
+					</div>
+				</div><a class="button button--brown" href="">Перейти в корзину</a><button class="button button--brown-border" data-modal-close="">Продолжить покупки</button>
 			</div>
 		</div>
 		<script src="https://cdn.jsdelivr.net/npm/maska@1.5.0/dist/maska.js"></script>
