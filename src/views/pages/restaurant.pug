@@ -16,7 +16,7 @@ block content
         .restaurant-main-bg.lounge-main-section
           +big-titles.white-ttl(subttl='профессор фрейд' ttl='Ресторан' h1)
 
-          +brown-button
+          +brown-button(data-popup-button='1')
             |Забронировать стол
 
         .about-block-bottom
@@ -120,3 +120,7 @@ block content
   include ../components/sections/certificate-section
 
   include ../components/sections/subscribe-section
+
+block modals
+  include ../components/popups/certificate-popup
+  

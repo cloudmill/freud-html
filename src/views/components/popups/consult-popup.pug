@@ -1,0 +1,28 @@
+.modal.modal--right.booking-popup(data-popup='8')
+  .booking-popup__wrapper.booking-popup-form
+    h2.h4.title-font.booking-popup-form__ttl Получите консультацию #[br] специалиста
+
+    .certificate-popup-txt Мы ответим на все ваши вопросы
+
+    .cart-stage-form__note
+      sup *
+      |— поля обязательные для заполнения
+
+    form(novalidate)
+      label.form__label
+        .form__field-name Ваше имя
+          sup *
+        input.form__input(type='text' placeholder='Введите ваше имя' data-focus-input required)
+
+      label.form__label
+        .form__field-name Телефон
+          sup *
+        input.form__input(type='tel' placeholder='Введите номер телефона' required)
+
+      +brown-button.booking-popup-form__btn
+        |Узнать стоимость
+
+      .booking-popup-form__note Нажимая на кнопку «Узнать стоимость», вы соглашаетесь с 
+        a(href='') политикой конфиденциальности
+
+  button.button--clean.modal__close(data-modal-close)

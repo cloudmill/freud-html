@@ -3,7 +3,7 @@ import './styles/app.scss';
 import { mediaQuery } from './scripts/mediaQueries';
 
 import { headerOnScroll, headerFavAndCartModals } from './scripts/header';
-import { addToFav, addToCart, activeFilter, sortMethod, activeFiltersHeader } from './scripts/catalog-scripts';
+import { addToFav, addToCart, activeFilter, sortMethod, activeFiltersHeader, numberOfGoods } from './scripts/catalog-scripts';
 import { closeOnEsc } from './scripts/modals-open-close';
 
 import inputTime from './scripts/form-elements/input-time';
@@ -44,6 +44,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   tabOffGlobal();
 
+  closeOnEsc();
+
   document.addEventListener('click', eventClick => {
 
     popups(eventClick, 'data-popup-button', 'data-popup');
@@ -51,10 +53,9 @@ document.addEventListener('DOMContentLoaded', () => {
     addToFav(eventClick);
     addToCart(eventClick);
     activeFilter(eventClick);
+    numberOfGoods(eventClick);
 
   });
-
-  closeOnEsc();
 
   if (mediaQuery.matches) {
 

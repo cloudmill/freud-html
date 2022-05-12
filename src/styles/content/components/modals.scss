@@ -538,4 +538,17 @@
     padding-top: getRem(15px);
     padding-bottom: getRem(15px);
   }
+
+  .delete-product-txt {
+    margin-top: getRem(30px);
+    @include fsl(18px, 170%);
+  }
+  .delete-product-btn {
+    width: getRem(200px);
+  }
+}
+
+.certificate-popup-txt {
+  @include fsl(18px, 160%);
+  margin-bottom: getRem(20px);
 }

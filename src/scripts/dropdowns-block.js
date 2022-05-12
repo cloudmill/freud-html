@@ -15,6 +15,13 @@ function dropdownsBlock(trigger, btnSelector, windowSelector, blockScroll) {
     if (trigger.type == 'mouseover' && activeBtn) {
   
       openWindow(activeBtn, triggerBtns, windows, btnSelector, windowSelector, blockScroll, modalsContainer);
+
+      document.querySelector('.header__top').addEventListener('mouseover', e => {
+        
+        if (e.relatedTarget == document.querySelector('.header__bottom')) {
+          closeWindow(triggerBtns, windows, blockScroll, modalsContainer);
+        }
+      });
   
       document.addEventListener('click', eventClick => {
 
@@ -25,7 +32,7 @@ function dropdownsBlock(trigger, btnSelector, windowSelector, blockScroll) {
         if (clickOff) {
           closeWindow(triggerBtns, windows, blockScroll, modalsContainer);
         }
-      })
+      });
 
     } else if (trigger.type == 'click') {
 

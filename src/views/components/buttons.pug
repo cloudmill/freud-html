@@ -10,6 +10,10 @@ mixin brown-border-button
   button.button.button--brown-border&attributes(attributes)
     block
 
+mixin brown-border-link
+  a.button.button--brown-border(href="")&attributes(attributes)
+    block
+
 mixin read-more-btn
 
   if (attributes.btn)
@@ -26,4 +30,3 @@ mixin control-left
 mixin control-right
   button.slider-control.button--clean&attributes(attributes)
     +arrow-right
-    

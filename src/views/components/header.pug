@@ -146,10 +146,12 @@ mixin header
               .product-list__info
                 .product-list__brand Ornellaia
                 .product-list__ttl Вино Masseto, Toscana IGT
-                .card-product__add
-                  button.button--clean
-                  |2
-                  button.button--clean.plus
+
+                .card-product__add(data-number-goods)
+                  button.button--clean(data-number-goods-minus)
+                  span(data-number-goods-count) 2
+                  button.button--clean.plus(data-number-goods-plus)
+
               .product-list__col
                 div
                   .catalog-card__price

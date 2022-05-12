@@ -38,7 +38,7 @@ block content
             +card-benefit-ico(index)
             |#{item}
 
-      +brown-button.benefits-top__btn
+      +brown-button.benefits-top__btn(data-popup-button='8')
         |Узнать стоимость
 
       .benefits-top__line
@@ -102,4 +102,7 @@ block content
 
               +small-titles(ttl='Мир сейфов' txt='Члены клуба могут получить скидку 10% в салонах «Мир сейфов» в Санкт-Петербурге по адресу Аптекарский пр. 18 и Москве по адресу Рублевское шоссе, д. 28, к.2')
 
+
+block modals
+  include ../components/popups/consult-popup
           

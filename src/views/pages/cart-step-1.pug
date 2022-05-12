@@ -44,16 +44,18 @@ block content
 
                         button.card-product__btn.button--clean В избранное
                       .card-product__nums
-                        .card-product__add
-                          button.button--clean
-                          |2
-                          button.button--clean.plus
+
+                        .card-product__add(data-number-goods)
+                          button.button--clean(data-number-goods-minus)
+                          span(data-number-goods-count) 2
+                          button.button--clean.plus(data-number-goods-plus)
+
                         .catalog-card__price
                           span.current 13 820 ₽
                           span.old 13 820 ₽
                         .card-product__amount 2 шт. х 6 000 ₽
                       .card-product__last-col
-                        button.card-product__btn.button--clean Удалить
+                        button.card-product__btn.button--clean(data-popup-button='6') Удалить
 
                 +brown-button.cart-stage__product-list-btn
                   |Перейти к оформлению
@@ -107,3 +109,6 @@ block content
             .cart-promocode
               input.cart-promocode__input(type='text' placeholder='Ввести промокод')
               +arrow-right.cart-promocode__arrow
+
+block modals
+  include ../components/popups/delete-product-popup

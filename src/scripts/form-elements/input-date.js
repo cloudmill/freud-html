@@ -1,8 +1,6 @@
 import Datepicker from 'vanillajs-datepicker/Datepicker';
 import ru from 'vanillajs-datepicker/locales/ru';
 
-// datepicker
-
 function inputDate() {
   Object.assign(Datepicker.locales, ru);
 

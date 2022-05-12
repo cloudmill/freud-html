@@ -71,4 +71,26 @@ function activeFiltersHeader() {
   }
 }
 
-export {addToFav, addToCart, activeFilter, sortMethod, activeFiltersHeader};
+function numberOfGoods(eventClick) {
+
+  document.querySelectorAll('[data-number-goods]').forEach(item => {
+    item.addEventListener('click', e => {
+
+      e.stopPropagation();
+
+      let numberGoods = Number(item.querySelector('[data-number-goods-count]').innerHTML);
+
+      if (e.target.closest('[data-number-goods-minus]') && numberGoods > 0) {
+
+        item.querySelector('[data-number-goods-count]').innerHTML = numberGoods - 1;
+        
+      } else if (e.target.closest('[data-number-goods-plus]')) {
+
+        item.querySelector('[data-number-goods-count]').innerHTML = numberGoods + 1;
+
+      }
+    })
+  })
+}
+
+export {addToFav, addToCart, activeFilter, sortMethod, activeFiltersHeader, numberOfGoods };

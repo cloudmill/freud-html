@@ -33,7 +33,7 @@ block content
         .menu-main-bg.lounge-main-section
           +big-titles.white-ttl(subttl='ресторан' ttl='Меню' h1)
 
-          +brown-button
+          +brown-button(data-popup-button='1')
             |Забронировать стол
 
         .about-block-bottom.menu-tabs
@@ -53,7 +53,7 @@ block content
       +big-titles.menu-wine-top(subttl='лучшие вина' ttl='Винная карта')
 
       .menu-wine-body
-        .menu-wine-col
+        dl.menu-wine-col.js-badger-accordion.badger-accordion
           -
             const spoilers = [
               'Вина по бокалам',
@@ -62,25 +62,25 @@ block content
             ]
 
           each item in spoilers
-
-            .rules-spoiler(data-spoiler='')
-              .rules-spoiler__button(data-spoiler-btn='')
+            
+            dt
+              button.button--clean.rules-spoiler__button.js-badger-accordion-header
                 .rules-spoiler__ttl #{item}
                 .rules-spoiler__arrow
                   +arrow-down
 
-              .rules-spoiler__drop
-                .rules-spoiler__drop-inner
+            dd.rules-spoiler__drop.js-badger-accordion-panel.badger-accordion__panel
+              .rules-spoiler__drop-inner.js-badger-accordion-panel-inner
 
-                  .menu-wine-inner
+                .menu-wine-inner
 
-                    each item in menu1
-                      .menu-list__row
-                        .menu-list__name #{item.name}
-                        .menu-list__price #{item.price}
-                        .menu-list__weight #{item.weight}
+                  each item in menu1
+                    .menu-list__row
+                      .menu-list__name #{item.name}
+                      .menu-list__price #{item.price}
+                      .menu-list__weight #{item.weight}
 
-        .menu-wine-col
+        dl.menu-wine-col
           -
             const spoilers2 = [
               'Белые вина',
@@ -89,22 +89,22 @@ block content
             ]
 
           each item in spoilers2
-
-            .rules-spoiler(data-spoiler='')
-              .rules-spoiler__button(data-spoiler-btn='')
+            
+            dt
+              button.button--clean.rules-spoiler__button.js-badger-accordion-header
                 .rules-spoiler__ttl #{item}
                 .rules-spoiler__arrow
                   +arrow-down
 
-              .rules-spoiler__drop
-                .rules-spoiler__drop-inner
+            dd.rules-spoiler__drop.js-badger-accordion-panel.badger-accordion__panel
+              .rules-spoiler__drop-inner.js-badger-accordion-panel-inner
 
-                  .menu-wine-inner
+                .menu-wine-inner
 
-                    each item in menu1
-                      .menu-list__row
-                        .menu-list__name #{item.name}
-                        .menu-list__price #{item.price}
-                        .menu-list__weight #{item.weight}
+                  each item in menu1
+                    .menu-list__row
+                      .menu-list__name #{item.name}
+                      .menu-list__price #{item.price}
+                      .menu-list__weight #{item.weight}
 
   include ../components/sections/subscribe-section
