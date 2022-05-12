@@ -12,6 +12,10 @@
   z-index: 120;
   pointer-events: none;
 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   transition: $transition;
 
   &.active {
@@ -22,8 +26,6 @@
 
 .modal {
   position: absolute;
-  top: 0;
-  bottom: 0;
   z-index: 150;
   overflow-y: scroll;
   background: var(--color-white);
@@ -33,6 +35,7 @@
 
   &.active {
     transform: none;
+    pointer-events: all;
   }
 
   &__close {
@@ -72,14 +75,19 @@
     transform: translateX(200%);
     width: calc(#{$col-part-d} * 2 + #{$col-pad-d});
     height: 100vh;
+    top: 0;
+    bottom: 0;
     right: 0;
     // background: var(--color-white);
+    pointer-events: none;
   }
 
   &--center {
     transform: scale(0);
     width: getRem(600px);
     max-height: 70vh;
+    padding: getRem(30px) getRem(50px) getRem(50px);
+
     pointer-events: none;
   }
 }
@@ -487,6 +495,47 @@
   }
 }
 
-.added-to-cart-popup {
+.in-cart-popup {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 
+  &__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: getRem(30px);
+    border-bottom: 1px solid var(--color-border-grey);
+  }
+
+  &-card {
+    display: flex;
+    margin: getRem(30px) 0 getRem(45px);
+
+    &__img {
+      width: getRem(77px);
+      height: getRem(77px);
+      flex: none;
+    }
+    &__info {
+      padding: 0 getRem(30px);
+
+      &-list {
+        margin-top: getRem(4px);
+        @include fsl(16px, 160%);
+      }
+    }
+    &__ttl {
+      @include fsl(20px, 140%);
+    }
+    .catalog-card__price {
+      margin-top: getRem(4px);
+    }
+  }
+
+  .button {
+    margin-top: getRem(15px);
+    padding-top: getRem(15px);
+    padding-bottom: getRem(15px);
+  }
 }

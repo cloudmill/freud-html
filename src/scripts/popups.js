@@ -16,7 +16,7 @@ function popups(trigger, btnSelector, windowSelector) {
     !trigger.target.closest(`[${windowSelector}]`) && 
     !trigger.target.closest(`[${btnSelector}]`) &&
     !trigger.target.closest('.datepicker-view') || 
-    trigger.target.closest('.modal__close');
+    trigger.target.closest('[data-modal-close]');
 
     if (activeBtn) {
 
