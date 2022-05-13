@@ -1,40 +1,46 @@
+extends ../layouts/master
+
 include ../components/buttons
+include ../components/cards
 include ../components/block-titles
+include ../components/picture
 
+block content
 
+  section.section--bottom.section--main-page.section--first.section--grey.relative
+    .container
+      .first-screen-container
+        .first-screen
 
-section.section.section--black
-  .container
-    +big-titles.white-ttl(subttl='подробнее о нас' ttl='Правила' ttl2='посещения клуба')
+          .first-screen__col1
 
-    .rules-block
+          .first-screen__col2
 
-      dl.js-badger-accordion.badger-accordion
+            .first-screen__txt Для ценителей комфорта, #[br] приватности и высокого сервиса
 
-        -
-          const spoilers = [
-            {num: '01.', ttl: 'Общие правила'},
-            {num: '02.', ttl: 'Dress code'},
-            {num: '03.', ttl: 'Правилами не допускается'},
-            {num: '04.', ttl: 'Особые условия'},
-          ]
+          .first-screen__col3
+            .first-screen__col3-bg
+            .first-screen__col3-transp
 
-        each item in spoilers
-          dt
-            button.button--clean.rules-spoiler__button.js-badger-accordion-header
-              .rules-spoiler__num #{item.num}
-              .rules-spoiler__ttl #{item.ttl}
-              .rules-spoiler__arrow
-                svg(width="10" height="7" viewBox="0 0 10 7" fill="none" xmlns="http://www.w3.org/2000/svg")
-                  path(d="M1 1.5L5 5.5L9 1.5" stroke="#1B1B1B" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round")
+          .first-screen__ttl
+            h1.first-screen__ttl--big Профессор #[br] Фрейд
+            span.first-screen__ttl--small частный клуб
 
-          dd.rules-spoiler__drop.js-badger-accordion-panel.badger-accordion__panel 
-            .rules-spoiler__drop-inner.js-badger-accordion-panel-inner
-              ul
-                li — курение сигар допустимо только в зоне сигарного лаунжа
-                li — перед посещением хьюмидорной комнаты или других помещений клуба верхнюю одежду необходимо оставить гардеробе
-                li — в клубе разрешено курить только сигары
-                li — в клубе принято соблюдать телефонный этикет: снижать громкость звонка до минимума или вибросигнала, вести короткие тихие разговоры, по возможности вне помещений сигарного лаунжаи ресторана клуба
+        .first-screen__video-container
+          video.first-screen__video(autoplay='true' loop='true')
+            source(type="video/mp4" src="assets/videos/main-video-bg.mp4") 
 
-      
-      
+      .first-screen__bottom
+        
+        .first-screen__bottom-col
+          a.icon-circle(href="")
+            +vk-icon.vk-circle-ico
+
+        .scroll-down
+          .scroll-down__txt узнать больше
+
+          .scroll-down__line
+
+        .first-screen__bottom-col
+
+      +message-icon.message-icon

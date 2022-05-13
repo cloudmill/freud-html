@@ -2,10 +2,74 @@
 
   display: flex;
   align-items: flex-end;
+  height: getRem(670px);
 
-  position: relative;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
 
-  padding-bottom: getRem(25px);
+  &-container {
+    position: relative;
+    margin-bottom: getRem(25px);
+    height: getRem(670px);
+  }
+
+  &__col1 {
+    width: getRem(535px);
+    height: getRem(670px);
+    flex-shrink: 0;
+
+    position: relative;
+  }
+  &__col2 {
+    display: flex;
+    align-items: flex-end;
+    width: 100%;
+    height: getRem(670px);
+    background: var(--color-light-grey);
+
+    position: relative;
+  }
+  &__col3 {
+    width: getRem(253px);
+    margin-left: -1px;
+    flex-shrink: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    position: relative;
+
+    &-bg {
+      width: 100%;
+      height: getRem(370px);
+      flex-shrink: 0;
+      background: var(--color-light-grey);
+    }
+    &-transp {
+      width: 100%;
+      height: getRem(300px);
+      flex-shrink: 0;
+    }
+  }
+
+  &__video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    &-container {
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      bottom: 0;
+
+      padding: 1px;
+    }
+  }
 
   &__img {
 
@@ -243,6 +307,7 @@
 .restaurant-block {
   &__col {
     width: calc(#{$col-part-d} * 6 - #{$col-gap});
+    padding-right: calc(#{$col-part-d});
     margin: 0 0 0 auto;
   }
   .big-titles__txt {

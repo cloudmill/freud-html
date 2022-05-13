@@ -9,16 +9,28 @@ block content
 
   section.section--bottom.section--main-page.section--first.section--grey.relative
     .container
-      .first-screen
-        +picture.first-screen__img.first-screen__img--big(file='first-screen-img-1')
+      .first-screen-container
+        .first-screen__video-container
+          video.first-screen__video(autoplay='true' loop='true' muted='true')
+            source(type="video/mp4" src="assets/videos/main-video-bg.mp4")
 
-        .first-screen__txt Для ценителей комфорта, #[br] приватности и высокого сервиса
+        .first-screen
 
-        +picture.first-screen__img.first-screen__img--small(file='first-screen-img-2')
+          .first-screen__col1
 
-        .first-screen__ttl
-          h1.first-screen__ttl--big Профессор #[br] Фрейд
-          span.first-screen__ttl--small частный клуб
+          .first-screen__col2
+
+            .first-screen__txt Для ценителей комфорта, #[br] приватности и высокого сервиса
+
+          .first-screen__col3
+            .first-screen__col3-bg
+            .first-screen__col3-transp
+
+          .first-screen__ttl
+            h1.first-screen__ttl--big Профессор #[br] Фрейд
+            span.first-screen__ttl--small частный клуб
+
+        
 
       .first-screen__bottom
         
