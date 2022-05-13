@@ -2,11 +2,11 @@ import BadgerAccordion from 'badger-accordion';
 
 function accordions() {
 
-  const accordionDomNode = document.querySelector('.js-badger-accordion');
+  const accordions = document.querySelectorAll('.js-badger-accordion');
 
-  if (accordionDomNode) {
-    const accordion = new BadgerAccordion(accordionDomNode);
-  }
+  Array.from(accordions).forEach((accordion) => {
+      const ba = new BadgerAccordion(accordion);
+  });
 }
 
 export default accordions;
