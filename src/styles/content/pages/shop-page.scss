@@ -165,6 +165,13 @@
   }
   &.filter-reset {
     border: 1px solid var(--color-border-grey);
+    transition: $transition;
+
+    &:hover {
+      border-color: var(--color-brown);
+      background: var(--color-brown);
+      color: var(--color-white);
+    }
   }
 }
 

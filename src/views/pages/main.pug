@@ -23,7 +23,7 @@ block content
 
         .first-screen
 
-          .first-screen__col1
+          .first-screen__col1(data-video-show)
 
           .first-screen__col2
 
@@ -31,7 +31,7 @@ block content
 
           .first-screen__col3
             .first-screen__col3-bg
-            .first-screen__col3-transp
+            .first-screen__col3-transp(data-video-show)
 
           .first-screen__ttl
             h1.first-screen__ttl--big Профессор #[br] Фрейд
@@ -97,12 +97,18 @@ block content
             +read-more-btn 
               |узнать больше
 
-  section.section-bg-photo
-    +big-titles.white-ttl(ttl='Деловая обстановка' subttl='место для деловых встреч')
+  section.section-bg-photo.relative
 
-    .two-cols-block__txt.txt-white Профессионализм и компетентность сотрудников гарантируют #[br] гостям комфортное времяпрепровождение
+    .section-bg-vid
+      video.section-bg-vid__video(autoplay='true' loop='true' muted='true' poster="assets/images/main-vid-poster.png")
+        source(type="video/webm" src="assets/videos/interior-bg-vid.webm")
+        source(type="video/mp4" src="assets/videos/interior-bg-vid.mp4")
 
-    +brown-button(data-popup-button='1')
+    +big-titles.white-ttl.relative(ttl='Деловая обстановка' subttl='место для деловых встреч')
+
+    .two-cols-block__txt.txt-white.relative Профессионализм и компетентность сотрудников гарантируют #[br] гостям комфортное времяпрепровождение
+
+    +brown-button.relative(data-popup-button='1')
       |Забронировать стол
 
   section.section

@@ -1,6 +1,5 @@
 .lounge-main-section {
   padding: getRem(140px) 0 !important;
-  text-align: center;
 
   .button {
     margin: getRem(30px) auto 0 !important;
@@ -8,7 +7,7 @@
 }
 
 .lounge-main-bg {
-  background: url(assets/images/lounge-bg.jpeg) no-repeat center !important;
+  background: url(assets/images/lounge-bg.jpeg) no-repeat center;
 }
 
 .fumelier-block {
@@ -32,11 +31,11 @@
 }
 
 .cabinet-main-bg {
-  background: url(assets/images/cabinet-main-bg.jpeg) no-repeat center !important;
+  background: url(assets/images/cabinet-main-bg.jpeg) no-repeat center;
 }
 
 .cabinet-section-bg {
-  background: url(assets/images/cabinet-section-bg.jpeg) no-repeat center !important;
+  background: url(assets/images/cabinet-section-bg.jpeg) no-repeat center;
 }
 
 .cabinet-col {

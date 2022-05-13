@@ -72,6 +72,10 @@ window.addEventListener('load', () => {
 
   document.querySelector('body').classList.remove('no-transition');
 
+  document.querySelectorAll('[data-video-show]').forEach(item => {
+    item.classList.add('loaded')
+  });
+
   if (mediaQuery.matches) {
     headerOnScroll();
   }

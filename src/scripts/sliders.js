@@ -62,23 +62,23 @@ function swipers() {
     },
   });
 
-  const recommendSlider = new Swiper('#recommend-slider', {
+  // const recommendSlider = new Swiper('#recommend-slider', {
 
-    modules: [Navigation, Pagination],
+  //   modules: [Navigation, Pagination],
 
-    slidesPerView: 3,
-    spaceBetween: 30,
-    loop: true,
+  //   slidesPerView: 3,
+  //   spaceBetween: 30,
+  //   loop: true,
 
-    navigation: {
-      nextEl: '#recommend-slider-next',
-      prevEl: '#recommend-slider-prev',
-    },
+  //   navigation: {
+  //     nextEl: '#recommend-slider-next',
+  //     prevEl: '#recommend-slider-prev',
+  //   },
 
-    pagination: {
-      el: '#recommend-slider-pagination',
-    },
-  });
+  //   pagination: {
+  //     el: '#recommend-slider-pagination',
+  //   },
+  // });
 
   const humidorSlider = new Swiper('#humidor-slider', {
 

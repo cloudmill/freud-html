@@ -19,10 +19,6 @@
 
       &:last-child {
         padding: 0 getRem(80px) 0 getRem(110px);
-
-        .icon-circle {
-          margin-top: getRem(20px);
-        }
       }
     }
 
@@ -58,7 +54,6 @@
 
       &:nth-child(1) {
         display: flex;
-        flex-wrap: wrap;
       }
 
       &:nth-child(2) {
@@ -69,13 +64,20 @@
 
     &-links {
       @include fsl(15px, 130%);
-      margin-left: getRem(50px);
+
+      &:not(:last-child) {
+        margin-bottom: getRem(8px);
+      }
+
+      &-col {
+        display: flex;
+        flex-direction: column;
+        margin: 0 getRem(45px);
+      }
     }
 
     .plus18 {
       display: flex;
-      margin-top: getRem(27px);
-      width: 100%;
       @include fsl(14px, 150%);
       color: var(--color-grey);
 
@@ -88,9 +90,9 @@
   }
 
   &__corp {
-    @include fsl(15px, 130%);
+    @include fsl(14px, 140%);
     font-weight: 600;
-    color: var(--color-black);
+    color: var(--color-grey);
   }
 }
 
@@ -117,5 +119,14 @@
 
   &:not(:first-child) {
     margin-top: getRem(8px);
+  }
+}
+
+.footer__socials {
+  display: flex;
+  margin-top: getRem(20px);
+
+  .icon-circle:not(:last-child) {
+    margin-right: getRem(8px);
   }
 }

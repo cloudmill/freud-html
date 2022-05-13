@@ -31,6 +31,10 @@
   }
 }
 
+.about-main-bg {
+  background: url(assets/images/section-bg.jpg) no-repeat center;
+}
+
 .benefits-block {
   display: flex;
   justify-content: space-between;
@@ -97,7 +101,7 @@
 }
 
 .rent-section-bg {
-  background: url(assets/images/section-rent-bg.jpg) no-repeat center !important;
+  background: url(assets/images/section-rent-bg.jpg) no-repeat center;
 }
 
 .club-card-block {
