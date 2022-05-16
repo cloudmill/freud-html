@@ -7,7 +7,7 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1">
 		<script defer="defer" src="assets/vendor.js"></script>
 		<script defer="defer" src="assets/app.js"></script>
-		<link href="styles.css" rel="stylesheet">
+		<link href="38.css" rel="stylesheet">
 		<link href="app.css" rel="stylesheet">
 	</head>
 
@@ -293,7 +293,7 @@
 						</div>
 						<div class="about-block">
 							<div class="restaurant-main-bg lounge-main-section">
-								<div class="big-titles white-ttl">
+								<div class="big-titles white-ttl" data-aos="fade-up">
 									<div class="big-titles__subttl">профессор фрейд</div>
 									<h1 class="big-titles__ttl h1">Ресторан</h1>
 								</div><button class="button button--brown" data-popup-button="1">Забронировать стол</button>
@@ -306,7 +306,7 @@
 					<div class="container">
 						<div class="benefits-block">
 							<div class="benefits-cell">
-								<div class="big-titles">
+								<div class="big-titles" data-aos="fade-up">
 									<div class="big-titles__subttl">безупречный сервис</div>
 									<h2 class="big-titles__ttl h1">Камерная<br />атмосфера</h2>
 								</div>
@@ -382,7 +382,7 @@
 						<div class="certificates-block restaurant-page-block">
 							<div class="certificates-block__row">
 								<div class="certificates-block__info">
-									<div class="big-titles">
+									<div class="big-titles" data-aos="fade-up">
 										<div class="big-titles__subttl">от шеф-повара</div>
 										<h2 class="big-titles__ttl h1">Изысканное<br />меню</h2>
 										<div class="big-titles__txt">В меню ресторана представлены как блюда, хорошо известные каждому поклоннику гастрономии, так и отражающие авторское видение нашего шефа</div>
@@ -428,7 +428,7 @@
 									</svg></button></div>
 						</div>
 						<div class="interior-block__col">
-							<div class="big-titles">
+							<div class="big-titles" data-aos="fade-up">
 								<div class="big-titles__subttl">строгость и элегантность</div>
 								<h2 class="big-titles__ttl h1">Ресторан</h2>
 								<div class="big-titles__txt">Строгий контроль качества продуктов и внимание наших сотрудников позволит вам в полной мере насладиться временем проведенным в его стенах.<p>Часть блюд из меню идеально подойдет для поклонников вина, другая – для тех, кто предпочитает сигары, а подобрать правильную гастрономическую пару помогут наши профессиональные сомелье и фумелье</p>
@@ -442,7 +442,7 @@
 						<div class="certificates-block restaurant-page-block">
 							<div class="certificates-block__row">
 								<div class="certificates-block__info">
-									<div class="big-titles">
+									<div class="big-titles" data-aos="fade-up">
 										<div class="big-titles__subttl">рекомендует</div>
 										<h2 class="big-titles__ttl h1">Шеф-повар</h2>
 										<div class="big-titles__txt">Мы тщательно выбираем продукты для своих блюд. Знаем, у кого лучший камчатский краб, мурманская треска, ленский осётр и сезонные овощи</div>
@@ -495,7 +495,7 @@
 					<div class="container">
 						<div class="certificate-block">
 							<div class="certificate-block__col">
-								<div class="big-titles txt-white">
+								<div class="big-titles txt-white" data-aos="fade-up">
 									<div class="big-titles__subttl">в сигарно-винный магазин</div>
 									<h2 class="big-titles__ttl h1">Подарочный сертификат</h2>
 									<div class="big-titles__txt">Порадуйте ценителей сигарной культуры идеальным подарком. Элегантный дизайн сертификата создаст наилучшие впечатления о подарке. Cертификат может быть любого номинала</div>
@@ -509,13 +509,14 @@
 				</section>
 				<section class="section section--black subscription-section">
 					<div class="container">
-						<div class="big-titles white-ttl">
+						<div class="big-titles white-ttl" data-aos="fade-up">
 							<div class="big-titles__subttl">новые поступления и полезные материалы</div>
 							<h2 class="big-titles__ttl h1">Новости клуба</h2>
 						</div>
 						<div class="two-cols-block__txt txt-white">Подпишитесь на последние обновления — только полезная<br>информация, без спама</div>
-						<form class="subscription-form" novalidate><input class="subscription-form__input" type="email" id="email" placeholder="Ваш e-mail" data-input-mail required><button class="button button--brown subscription-form__button">Подписаться</button>
-							<div class="checkbox subscription-form__checkbox"><label class="checkbox__label"><input class="checkbox__input" type="checkbox">
+						<form class="subscription-form" novalidate>
+							<div class="subscription-form__row"><input class="subscription-form__input" type="email" id="email" placeholder="Ваш e-mail" data-input-mail required><button class="button button--brown subscription-form__button">Подписаться</button></div>
+							<div class="checkbox subscription-form__checkbox"><label class="checkbox__label"><input class="checkbox__input" type="checkbox" id="checkbox" checked="checked" required>
 									<div class="checkbox__box"><svg class="checkbox__svg" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
 											<rect width="20" height="20" fill="#B69659"></rect>
 											<path d="M15.8598 5.13934C15.6797 4.95355 15.3876 4.95355 15.2074 5.13934L7.72903 12.8514L4.78756 9.81802C4.60742 9.63221 4.3153 9.63221 4.13512 9.81802C3.95496 10.0038 3.95496 10.305 4.13512 10.4909L7.40285 13.8607C7.58294 14.0464 7.87515 14.0465 8.05529 13.8607L15.8598 5.81217C16.04 5.62636 16.04 5.32513 15.8598 5.13934Z" fill="white"></path>

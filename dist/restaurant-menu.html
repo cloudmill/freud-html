@@ -7,7 +7,7 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1">
 		<script defer="defer" src="assets/vendor.js"></script>
 		<script defer="defer" src="assets/app.js"></script>
-		<link href="styles.css" rel="stylesheet">
+		<link href="38.css" rel="stylesheet">
 		<link href="app.css" rel="stylesheet">
 	</head>
 
@@ -294,7 +294,7 @@
 						</div>
 						<div class="about-block">
 							<div class="menu-main-bg lounge-main-section">
-								<div class="big-titles white-ttl">
+								<div class="big-titles white-ttl" data-aos="fade-up">
 									<div class="big-titles__subttl">ресторан</div>
 									<h1 class="big-titles__ttl h1">Меню</h1>
 								</div><button class="button button--brown" data-popup-button="1">Забронировать стол</button>
@@ -336,7 +336,7 @@
 						<div class="certificates-block restaurant-page-block">
 							<div class="certificates-block__row">
 								<div class="certificates-block__info">
-									<div class="big-titles">
+									<div class="big-titles" data-aos="fade-up">
 										<div class="big-titles__subttl">Из аутентичных ингредиентов</div>
 										<h2 class="big-titles__ttl h1">Закуски и салаты</h2>
 										<div class="big-titles__txt">Натуральные продукты, традиционные блюда</div>
@@ -393,7 +393,7 @@
 									<source srcset="assets/images/webp/menu-2.webp" type="image/webp" /><img class="certificates-block__img" src="assets/images/menu-2.jpg" alt="" />
 								</picture>
 								<div class="certificates-block__info">
-									<div class="big-titles">
+									<div class="big-titles" data-aos="fade-up">
 										<div class="big-titles__subttl">Авторские рецепты</div>
 										<h2 class="big-titles__ttl h1">Супы</h2>
 										<div class="big-titles__txt">Оригинальная интерпритация классических супов</div>
@@ -419,7 +419,7 @@
 							</div>
 							<div class="certificates-block__row">
 								<div class="certificates-block__info">
-									<div class="big-titles">
+									<div class="big-titles" data-aos="fade-up">
 										<div class="big-titles__subttl">Основной курс</div>
 										<h2 class="big-titles__ttl h1">Горячие блюда</h2>
 										<div class="big-titles__txt">Подчеркиваем естественный вкус ингредиентов</div>
@@ -471,7 +471,7 @@
 									<source srcset="assets/images/webp/menu-4.webp" type="image/webp" /><img class="certificates-block__img" src="assets/images/menu-4.jpg" alt="" />
 								</picture>
 								<div class="certificates-block__info">
-									<div class="big-titles">
+									<div class="big-titles" data-aos="fade-up">
 										<div class="big-titles__subttl">итальянская кухня</div>
 										<h2 class="big-titles__ttl h1">Гарниры</h2>
 										<div class="big-titles__txt">Отличное дополнение к мясным и рыбным блюдам</div>
@@ -497,7 +497,7 @@
 							</div>
 							<div class="certificates-block__row">
 								<div class="certificates-block__info">
-									<div class="big-titles">
+									<div class="big-titles" data-aos="fade-up">
 										<div class="big-titles__subttl">Итальянский раздел</div>
 										<h2 class="big-titles__ttl h1">Паста и ризотто</h2>
 										<div class="big-titles__txt">Мы также уделили внимание любителям итальянской кухни, не без оглядки на местные традиции и фирменный стиль</div>
@@ -549,7 +549,7 @@
 									<source srcset="assets/images/webp/menu-6.webp" type="image/webp" /><img class="certificates-block__img" src="assets/images/menu-6.jpg" alt="" />
 								</picture>
 								<div class="certificates-block__info">
-									<div class="big-titles">
+									<div class="big-titles" data-aos="fade-up">
 										<div class="big-titles__subttl">НА СЛАДКОЕ</div>
 										<h2 class="big-titles__ttl h1">Десерты</h2>
 										<div class="big-titles__txt">Полюбившиеся десерты от нашего шеф-повара</div>
@@ -578,13 +578,14 @@
 				</section>
 				<section class="section section--black subscription-section">
 					<div class="container">
-						<div class="big-titles white-ttl">
+						<div class="big-titles white-ttl" data-aos="fade-up">
 							<div class="big-titles__subttl">новые поступления и полезные материалы</div>
 							<h2 class="big-titles__ttl h1">Новости клуба</h2>
 						</div>
 						<div class="two-cols-block__txt txt-white">Подпишитесь на последние обновления — только полезная<br>информация, без спама</div>
-						<form class="subscription-form" novalidate><input class="subscription-form__input" type="email" id="email" placeholder="Ваш e-mail" data-input-mail required><button class="button button--brown subscription-form__button">Подписаться</button>
-							<div class="checkbox subscription-form__checkbox"><label class="checkbox__label"><input class="checkbox__input" type="checkbox">
+						<form class="subscription-form" novalidate>
+							<div class="subscription-form__row"><input class="subscription-form__input" type="email" id="email" placeholder="Ваш e-mail" data-input-mail required><button class="button button--brown subscription-form__button">Подписаться</button></div>
+							<div class="checkbox subscription-form__checkbox"><label class="checkbox__label"><input class="checkbox__input" type="checkbox" id="checkbox" checked="checked" required>
 									<div class="checkbox__box"><svg class="checkbox__svg" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
 											<rect width="20" height="20" fill="#B69659"></rect>
 											<path d="M15.8598 5.13934C15.6797 4.95355 15.3876 4.95355 15.2074 5.13934L7.72903 12.8514L4.78756 9.81802C4.60742 9.63221 4.3153 9.63221 4.13512 9.81802C3.95496 10.0038 3.95496 10.305 4.13512 10.4909L7.40285 13.8607C7.58294 14.0464 7.87515 14.0465 8.05529 13.8607L15.8598 5.81217C16.04 5.62636 16.04 5.32513 15.8598 5.13934Z" fill="white"></path>
