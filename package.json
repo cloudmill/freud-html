@@ -49,6 +49,7 @@
     "webpack-notifier": "^1.13.0"
   },
   "dependencies": {
+    "aos": "^2.3.4",
     "normalize.css": "^8.0.1",
     "reset-css": "^5.0.1",
     "swiper": "^7.3.2"

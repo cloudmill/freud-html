@@ -5,13 +5,15 @@ section.section.section--black.subscription-section
     .two-cols-block__txt.txt-white Подпишитесь на последние обновления — только полезная #[br] информация, без спама
 
     form.subscription-form(novalidate)
-      input.subscription-form__input(type="email" id="email" placeholder="Ваш e-mail" data-input-mail required)
-      +brown-button.subscription-form__button
-        |Подписаться
+
+      .subscription-form__row
+        input.subscription-form__input(type="email" id="email" placeholder="Ваш e-mail" data-input-mail required)
+        +brown-button.subscription-form__button
+          |Подписаться
       
       .checkbox.subscription-form__checkbox
         label.checkbox__label
-          input.checkbox__input(type="checkbox")
+          input.checkbox__input(type="checkbox" id="checkbox" checked required)
           .checkbox__box
             +checkbox-svg.checkbox__svg
 

@@ -29,7 +29,7 @@ block content
 
           .first-screen__col2
 
-            .first-screen__txt Для ценителей комфорта, #[br] приватности и высокого сервиса
+            .first-screen__txt(data-aos='fade-up') Для ценителей комфорта, #[br] приватности и высокого сервиса
 
           .first-screen__col3
             .first-screen__col3-bg
@@ -40,15 +40,15 @@ block content
               span.from-right Профессор
               br
               span.from-left Фрейд
-            span.first-screen__ttl--small частный клуб
+            span.first-screen__ttl--small(data-aos='fade-up') частный клуб
 
         
 
-      .first-screen__bottom
+      .first-screen__bottom(data-aos='fade-up')
         
         .first-screen__bottom-col
-          a.icon-circle(href="")
-            +vk-icon.vk-circle-ico
+          //- a.icon-circle(href="")
+          //-   +vk-icon.vk-circle-ico
 
         .scroll-down
           .scroll-down__txt узнать больше
@@ -57,21 +57,21 @@ block content
 
         .first-screen__bottom-col
 
-      +message-icon.message-icon
+      //- +message-icon.message-icon
 
   section.section.section--black
     .container
 
       +big-titles.white-ttl(ttl='О клубе' subttl='профессор фрейд')
 
-      .main-page-block__cols
+      .main-page-block__cols(data-aos='fade-up')
         .main-page-block__col
           |Частный клуб «Профессор Фрейд» — это концептуальный проект с уникальным форматом. Место ориентировано на людей, для которых важны камерная атмосфера, приватность и высокий сервис.
 
         .main-page-block__col
           |Клуб идеально подойдет как для поклонников сигарной культуры, так и знатоков вина, ценителей крепкого алкоголя или гастрономии
 
-      .main-page-block__bottom
+      .main-page-block__bottom(data-aos='fade-up')
 
         each item in ['Хьюмидорная комната', 'Сигарный лаунж', 'Кабинет Фрейда', 'Ресторан с баром', 'Винотека в формате bar&shop']
 
@@ -86,7 +86,7 @@ block content
 
             +big-titles(ttl='Сигарный' ttl2='лаунж' subttl='стиль Gentlman’s Club')
 
-            .two-cols-block__txt
+            .two-cols-block__txt(data-aos='fade-up')
               |Атмосфера лаунжа выдержана в стиле #[br] Gentlman’s Club. Каждая деталь продумана и выполнена с любовью
 
           +picture(file='main-lounge-1')
@@ -96,7 +96,7 @@ block content
           +picture(file='main-lounge-2')
 
           div
-            .two-cols-block__txt
+            .two-cols-block__txt(data-aos='fade-up')
               |Лаунж с камином и коллекцией винила располагает как для деловых встреч, так и для интеллектуальных бесед
 
             +read-more-btn 
@@ -111,9 +111,9 @@ block content
 
     +big-titles.white-ttl.relative(ttl='Деловая обстановка' subttl='место для деловых встреч')
 
-    .two-cols-block__txt.txt-white.relative Профессионализм и компетентность сотрудников гарантируют #[br] гостям комфортное времяпрепровождение
+    .two-cols-block__txt.txt-white.relative(data-aos='fade-up') Профессионализм и компетентность сотрудников гарантируют #[br] гостям комфортное времяпрепровождение
 
-    +brown-button.relative(data-popup-button='1')
+    +brown-button.relative(data-popup-button='1' data-aos='fade-up')
       |Забронировать стол
 
   section.section
@@ -122,7 +122,7 @@ block content
         .restaurant-block__col
           +big-titles(ttl='Ресторан' subttl='строгость и элегантность' txt='Неповторимая эстетика «ревущих двадцатых», строгость и элегантность ушедшей эпохи. Строгий контроль качества продуктов и внимание наших сотрудников позволят в полной мере насладиться временем, проведенным в наших стенах')
 
-        .restaurant-slider
+        .restaurant-slider(data-aos='fade-up')
           .restaurant-slider__col
             +control-left#restaurant-slider-prev
 

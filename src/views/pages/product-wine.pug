@@ -46,7 +46,7 @@ block content
             .product-top-table__row
               dt.product-top-table__name Производитель
               .product-top-table__line
-              dd.product-top-table__value.brand Ornellaia
+              dd.product-top-table__value.brand(data-popup-button='9') Ornellaia
 
             .product-top-table__row
               dt.product-top-table__name Цвет
@@ -241,7 +241,7 @@ block content
                 +paroduct-pay-1
                 |Получение заказа
               .product-body__payment-txt Самовывоз из клуба «Профессор Фрейд» по адресу г. Санкт-Петербург, ул. Малая Морская, дом 18
-              +read-more-btn
+              +read-more-btn(data-popup-button='10' btn)
                 |Показать на карте
 
             .product-body__payment-col
@@ -259,18 +259,18 @@ block content
             .product-body-consult__row
               label.form__label
                 .form__field-name Ваше имя
-                input.form__input(type='text' placeholder='Введите ваше имя' required)
+                input.form__input(type='text' data-input-title='name' placeholder='Введите ваше имя' required)
 
               label.form__label
                 .form__field-name Телефон
-                input.form__input(type='text' placeholder='Введите номер телефона' required)
+                input.form__input(type='tel' placeholder='Введите номер телефона' required)
 
             +brown-border-button(type='')
               |Получить консультацию
 
             .checkbox
               label.checkbox__label
-                input.checkbox__input(type="checkbox")
+                input.checkbox__input(type="checkbox" checked required)
                 .checkbox__box
                   +checkbox-svg.checkbox__svg
 
@@ -295,3 +295,5 @@ block content
     
 block modals
   include ../components/popups/in-cart-popup
+  include ../components/popups/brand-popup
+  include ../components/popups/pickup-popup

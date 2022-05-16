@@ -1,6 +1,9 @@
 .checkbox {
   $comp: &;
 
+  display: flex;
+  flex-wrap: wrap;
+
   &__label {
     position: relative;
     z-index: 0;
@@ -9,6 +12,8 @@
     align-items: center;
 
     cursor: pointer;
+
+    user-select: none;
 
     // &:hover {
     //   #{$comp}__box {
@@ -25,7 +30,7 @@
 
     &:checked {
       ~#{$comp}__box {
-        border-color: var(--color-blue);
+        // border-color: var(--color-blue);
 
         #{$comp}__svg {
           opacity: 1;
@@ -64,17 +69,30 @@
   margin-top: getRem(30px);
   padding-left: calc(#{$col-part-d} * 6);
 
+  &__row {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
   &__input {
     width: calc(#{$col-part-d} * 3 - #{$col-gap});
     padding: getRem(11px) getRem(20px);
     background: #303030;
     border: none;
 
+    color: var(--color-grey);
+
     @include fsl(16px, 160%);
   }
 
   &__button {
     width: calc(#{$col-part-d} * 3 - #{$col-gap});
+
+    &:hover {
+      background: var(--hover-on-black);
+    }
   }
 
   &__checkbox {
@@ -89,6 +107,11 @@
 
       a {
         color: var(--color-brown);
+        transition: $transition;
+
+        &:hover {
+          color: var(--color-white);
+        }
       }
     }
   }
@@ -137,6 +160,10 @@
     color: var(--color-grey);
 
     transition: $transition;
+
+    &:hover, &:focus {
+      border: 1px solid var(--color-black);
+    }
   }
 
   &__textarea {
@@ -233,10 +260,6 @@
       color: var(--color-grey);
       border-bottom: 1px solid var(--color-grey);
     }
-  }
-
-  .form__input:hover, .form__input:focus {
-    border: 1px solid var(--color-black);
   }
 }
 
@@ -447,4 +470,53 @@
 
 .datepicker-cell.year.disabled {
   display: none;
+}
+
+.product-body-consult {
+  padding: getRem(50px);
+  background: var(--background-grey-extra-2);
+
+  &__row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  .form__label {
+    width: calc(50% - #{getRem(10px)});
+  }
+  .button {
+    width: calc(50% - #{getRem(10px)});
+  }
+  .checkbox {
+    display: flex;
+    margin-top: getRem(30px);
+  }
+  .checkbox__label {
+    align-items: flex-start;
+    padding-top: getRem(5px);
+  }
+  .form__input {
+    &:focus, &:hover {
+      border-color: var(--color-grey);
+    }
+  }
+  .checkbox__caption {
+    @include fsl(16px, 140%);
+    color: var(--color-grey);
+
+    a {
+      color: var(--color-brown);
+      transition: $transition;
+
+      &:hover {
+        color: var(--color-black);
+      }
+    }
+  }
+}
+
+.form-error.active {
+  @include fsl(16px);
+  color: var(--color-brown);
+  margin-top: getRem(8px);
 }

@@ -1,0 +1,34 @@
+.modal.modal--right.review-popup(data-popup='10')
+  .review-popup__top
+    .review-popup__ttl.h4.title-font Получение заказа
+    button.button--clean.modal__close(data-modal-close)
+
+  .review-popup__body
+
+    .cart-pickup__ttl Самовывоз из клуба «Профессор Фрейд»
+
+    .cart-pickup__info-item
+      +place-ico.cart-pickup__svg
+      div
+        .cart-pickup__info-ttl Адрес
+        .cart-pickup__info-txt г. Санкт-Петербург, ул. Малая Морская, дом 18
+
+    .cart-pickup__info-item
+      +clock-ico.cart-pickup__svg
+      div
+        .cart-pickup__info-ttl Часы работы
+        .cart-pickup__info-txt ВС – ЧТ, 10:00 – 21:00 #[br] пт – сб, 10:00 – 22:00
+
+    .cart-pickup__info-item
+      +attention-ico.cart-pickup__svg
+      div
+        .cart-pickup__info-ttl Можно забрать
+        .cart-pickup__info-txt сегодня и в течение 5 дней, бесплатно
+
+    .pickup-popup-map
+      iframe(src="https://yandex.ru/map-widget/v1/?um=constructor%3A828b2df1c3e646ed9bf707043c5321cb8a73706508a8ea107668fd10d7a284aa&source=constructor", width="100%", height="100%", frameborder="0")
+  
+  .review-popup__bottom
+
+    +brown-border-button(data-modal-close)
+      |Закрыть

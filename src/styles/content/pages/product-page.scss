@@ -160,6 +160,12 @@
 
     &.brand {
       color: var(--color-brown);
+      cursor: pointer;
+      transition: $transition;
+
+      &:hover {
+        color: var(--color-black);
+      }
     }
   }
 }
@@ -299,38 +305,6 @@
     &-txt {
       @include fsl(16px, 160%);
       margin-bottom: getRem(30px);
-    }
-  }
-}
-
-.product-body-consult {
-  padding: getRem(50px);
-  background: var(--background-grey-extra-2);
-
-  &__row {
-    display: flex;
-    justify-content: space-between;
-  }
-  .form__label {
-    width: calc(50% - 10px);
-  }
-  .button {
-    width: calc(50% - 10px);
-  }
-  .checkbox {
-    display: flex;
-    margin-top: getRem(30px);
-  }
-  .checkbox__label {
-    align-items: flex-start;
-    padding-top: getRem(5px);
-  }
-  .checkbox__caption {
-    @include fsl(16px, 140%);
-    color: var(--color-grey);
-
-    a {
-      color: var(--color-brown);
     }
   }
 }

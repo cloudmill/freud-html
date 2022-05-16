@@ -2,6 +2,7 @@ import './styles/app.scss';
 
 import { mediaQuery } from './scripts/mediaQueries';
 
+import AOS from 'aos';
 import { headerOnScroll, headerFavAndCartModals } from './scripts/header';
 import { addToFav, addToCart, activeFilter, sortMethod, activeFiltersHeader, numberOfGoods } from './scripts/catalog-scripts';
 import { closeOnEsc } from './scripts/modals-open-close';
@@ -77,11 +78,13 @@ window.addEventListener('load', () => {
 
   document.querySelector('body').classList.remove('no-transition');
 
-  document.querySelectorAll('[data-video-show]').forEach(item => {
-    item.classList.add('loaded')
-  });
-
-  document.querySelector('.first-screen__ttl').classList.add('loaded');
+  if (document.querySelector('.first-screen')) {
+    document.querySelectorAll('[data-video-show]').forEach(item => {
+      item.classList.add('loaded')
+    });
+  
+    document.querySelector('.first-screen__ttl').classList.add('loaded');
+  }
 
   if (mediaQuery.matches) {
     headerOnScroll();
@@ -89,4 +92,14 @@ window.addEventListener('load', () => {
   
   accordions();
 
+  AOS.init({
+    once: true,
+    offset: 0,
+    duration: 1200,
+  });
+
 });
+
+document.querySelector('.checkbox__input').addEventListener('change', () => {
+  console.log(document.querySelector('.checkbox__input').checked);
+})

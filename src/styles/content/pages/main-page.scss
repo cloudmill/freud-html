@@ -143,9 +143,6 @@
       .from-right, .from-left {
         transform: none;
       }
-      .first-screen__ttl--small {
-        opacity: 1;
-      }
     }
 
     &--big {
@@ -181,9 +178,6 @@
       top: getRem(34px);
       left: getRem(300px);
       white-space: nowrap;
-
-      opacity: 0;
-      transition: 1.2s $transition-func;
     }
   }
 
