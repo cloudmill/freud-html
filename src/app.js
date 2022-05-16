@@ -46,6 +46,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   closeOnEsc();
 
+  if (document.querySelector('[data-show-height]') && document.querySelector('[data-show-diameter]')) {
+    document.querySelector('[data-show-height]').innerHTML = document.querySelector('.product-top-img__cigar-size').getAttribute('data-cigar-height');
+    document.querySelector('[data-show-diameter]').innerHTML = document.querySelector('.product-top-img__cigar-size').getAttribute('data-cigar-diameter'); 
+  }
+
   document.addEventListener('click', eventClick => {
 
     popups(eventClick, 'data-popup-button', 'data-popup');
@@ -75,6 +80,8 @@ window.addEventListener('load', () => {
   document.querySelectorAll('[data-video-show]').forEach(item => {
     item.classList.add('loaded')
   });
+
+  document.querySelector('.first-screen__ttl').classList.add('loaded');
 
   if (mediaQuery.matches) {
     headerOnScroll();

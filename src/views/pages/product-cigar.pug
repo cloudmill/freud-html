@@ -17,16 +17,30 @@ block content
           .product-top-gallery
             .swiper-container#gallery-slider
               .swiper-wrapper
-                - for (c=0;c<3;c++)
+                - for (c=0;c<4;c++)
                   .swiper-slide
                     +picture(file='product-1')
 
           .product-top-img
             .swiper-container#product-slider
               .swiper-wrapper
+
+                .swiper-slide
+                  .product-top-img__cigar
+                    //- +picture(file='product-1')
+                    img(src="assets/images/product-1-no-bg.png", alt="")
+
+                    .product-top-img__cigar-size(data-cigar-height='130 мм' data-cigar-diameter='21 мм')
+                      .top(data-show-height) привет
+                      +cigar-size
+                      .bottom(data-show-diameter) пока
+
                 - for (c=0;c<3;c++)
                   .swiper-slide
-                    +picture(file='product-1')
+                    //- +picture(file='product-1')
+
+                    .product-top-img__cigar
+                      img(src="assets/images/product-1-no-bg.png", alt="")
 
         .product-top-info
 

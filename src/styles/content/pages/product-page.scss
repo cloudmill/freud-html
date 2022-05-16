@@ -5,6 +5,7 @@
 
 .product-top-picture {
   display: flex;
+  align-items: flex-start;
   height: getRem(700px);
 }
 
@@ -31,8 +32,46 @@
 
 .product-top-img {
   width: calc(#{$col-part-d} * 6 - #{$col-gap});
+  height: getRem(670px);
   overflow: hidden;
   background: var(--background-grey-extra-2);
+
+  &__cigar {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: getRem(80px);
+
+    &-size {
+      position: absolute;
+      top: 80px;
+      left: 40px;
+
+      svg {
+        width: getRem(63px);
+        height: getRem(490px);
+      }
+
+      .top {
+        @include fsl(14px);
+        color: var(--color-grey);
+
+        position: absolute;
+        left: getRem(12px);
+        top: getRem(-12px);
+      }
+      .bottom {
+        @include fsl(14px);
+        color: var(--color-grey);
+
+        position: absolute;
+        bottom: 0;
+        right: -50%;
+      }
+    }
+  }
 }
 
 .product-top-info {

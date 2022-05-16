@@ -107,7 +107,7 @@ module.exports = (env) => {
           ],
         },
         {
-          test: /\.(png|jpe?g|gif|svg|ico)(\?.*)?$/,
+          test: /\.(png|jpe?g|gif|svg|ico|webp)(\?.*)?$/,
           use: [
             {
               loader: "url-loader",
@@ -127,7 +127,7 @@ module.exports = (env) => {
           },
         },
         {
-          test: /\.(mp4)(\?.*)?$/,
+          test: /\.(mp4|webm)(\?.*)?$/,
           loader: "url-loader",
           options: {
             limit: 10000,
