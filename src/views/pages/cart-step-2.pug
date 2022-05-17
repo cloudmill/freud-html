@@ -49,26 +49,26 @@ block content
                   |— поля обязательные для заполнения
 
                 form.form(novalidate)
-                  label.form__label
+                  label.form__label.cart-form-label
                     .form__field-name Имя
                       sup *
-                    input.form__input(type='text' placeholder='Введите ваше имя' required)
+                    input.form__input(type='text' data-input-title='name' placeholder='Введите ваше имя' required)
 
-                  label.form__label
+                  label.form__label.cart-form-label
                     .form__field-name Фамилия
                       sup *
-                    input.form__input(type='text' placeholder='Введите вашу фамилию' required)
+                    input.form__input(type='text' data-input-title='sec-name' placeholder='Введите вашу фамилию' required)
 
-                  label.form__label
+                  label.form__label.cart-form-label
                     .form__field-name Телефон
                       sup *
                     input.form__input(type='tel' placeholder='Введите номер телефона' required)
 
-                  label.form__label
+                  label.form__label.cart-form-label
                     .form__field-name E-mail
                     input.form__input(type='email' placeholder='Введите ваш электронный адрес')
 
-                  label.form__label
+                  label.form__label.cart-form-label
                     .form__field-name Комментарии к заказу
                     textarea.form__textarea( placeholder='Введите текст')
 
@@ -77,7 +77,7 @@ block content
 
                   .checkbox.cart-stage-form__checkbox
                     label.checkbox__label
-                      input.checkbox__input(type="checkbox")
+                      input.checkbox__input(type="checkbox" checked required)
                       .checkbox__box
                         +checkbox-white-svg.checkbox__svg
 
@@ -111,4 +111,11 @@ block content
 
             .cart-promocode
               input.cart-promocode__input(type='text' placeholder='Ввести промокод')
-              +arrow-right.cart-promocode__arrow
+
+              button.button--clean.cart-promocode-send
+                +arrow-right.cart-promocode__arrow
+
+              button.button--clean.cart-promocode-delete
+
+            .cart-promocode-error.active — промокод не найден
+

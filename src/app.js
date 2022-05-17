@@ -42,6 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   sortMethod();
   activeFiltersHeader();
+  numberOfGoods();
 
   tabOffGlobal();
 
@@ -95,7 +96,6 @@ document.addEventListener('DOMContentLoaded', () => {
     addToFav(eventClick);
     addToCart(eventClick);
     activeFilter(eventClick);
-    numberOfGoods(eventClick);
 
   });
 

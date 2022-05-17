@@ -12,14 +12,14 @@ block content
     .container
       +breadcrumbs(page = 'О клубе')
 
-      .about-block
+      .about-block(data-aos='fade-up')
         .section-bg-photo.about-main-bg
           +big-titles.white-ttl(ttl='О клубе' subttl='профессор фрейд' h1)
 
-          .scroll-down
+          .scroll-down(data-aos='fade-up')
             .scroll-down__line
 
-        .about-block-bottom
+        .about-block-bottom(data-aos='fade-up')
           each item in ['Хьюмидорная комната', 'Сигарный лаунж', 'Кабинет Фрейда', 'Ресторан с баром', 'Винотека в формате bar&shop']
 
             a.about-block-bottom__item(href="") #{item}
@@ -27,7 +27,7 @@ block content
   section.section--top
     .container
       .benefits-block.before-interior-block
-        .benefits-cell
+        .benefits-cell(data-aos='fade-up')
           +big-titles(subttl='подробнее о нас' ttl='Уникальный' ttl2='проект')
 
         -
@@ -39,7 +39,7 @@ block content
           ]
 
         each item, index in benefits
-          .benefits-cell.cell-list
+          .benefits-cell.cell-list(data-aos='fade-up')
             +about-benefit-ico(`${index}`)
 
             .benefits-cell__info
@@ -75,17 +75,7 @@ block content
 
   include ../components/sections/reviews-section
 
-  section.section
-    .container
-      .club-card-block
-        .club-card-block__col
-          +big-titles(subttl='специальные условия' ttl='Клубная' ttl2='карта' txt='Первоклассное обслуживание с дополнительными привилегиями: скидки, подарки, приглашениена закрытые мероприятия')
-          +read-more-btn
-            |узнать больше
-
-        a.club-card-block__col(href='')
-          +infinity
-          .club-card-block__col__ttl Привилегии #[br] клубной карты
+  include ../components/sections/club-card-section
 
   include ../components/sections/rent-section
 

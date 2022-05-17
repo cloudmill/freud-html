@@ -71,7 +71,7 @@ function activeFiltersHeader() {
   }
 }
 
-function numberOfGoods(eventClick) {
+function numberOfGoods() {
 
   document.querySelectorAll('[data-number-goods]').forEach(item => {
     item.addEventListener('click', e => {

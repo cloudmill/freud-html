@@ -46,6 +46,7 @@
 
     &:nth-child(1) {
       margin-top: getRem(60px);
+      padding-left: calc(#{$col-width-d});
     }
     &:nth-child(1), &:nth-child(2) {
       width: calc(#{$col-part-d} * 6 - #{$col-gap});
@@ -107,6 +108,7 @@
 .club-card-block {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 
   &__col {
     &:nth-child(1) {

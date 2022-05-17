@@ -520,3 +520,17 @@
   color: var(--color-brown);
   margin-top: getRem(8px);
 }
+
+.cart-form-label {
+  @media (min-width: $breakpoint) {
+    position: relative;
+    align-items: center;
+
+    .form-error.active {
+      position: absolute;
+      right: calc(-70% - #{getRem(14px)});
+      max-width: getRem(335px);
+      margin-top: getRem(30px);
+    }
+  }
+}

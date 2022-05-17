@@ -457,7 +457,7 @@
     border: 1px solid var(--color-black-rgba-1);
     padding: getRem(20px) getRem(30px) getRem(30px) getRem(20px);
     display: flex;
-    width: getRem(280px);
+    width: getRem(300px);
 
     cursor: pointer;
     transition: $transition;
@@ -587,10 +587,14 @@
       color: var(--color-brown);
     }
   }
-
+  
   &__form {
     margin-top: getRem(20px);
     width: calc(#{$col-part-d} * 4);
+
+    .form__field-name sup {
+      color: var(--color-brown);
+    }
   }
   &__row {
     display: flex;
@@ -601,7 +605,8 @@
     .checkbox {
       padding-left: getRem(30px);
       display: flex;
-      align-items: center;
+      flex: none;
+      align-items: flex-end;
     }
     .checkbox__box {
       border: 1px solid var(--color-border-grey);

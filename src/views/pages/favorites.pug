@@ -10,9 +10,10 @@ block content
 
   section.section--first
     .container
-      +breadcrumbs(page = 'Избранное')
+      .category-page-head
+        +breadcrumbs(page = 'Избранное')
 
-      .category-top.favorites-top
+      .category-top.favorites-top(data-aos='fade-up')
         .category-top__line
           
           .category-title-block
@@ -20,7 +21,7 @@ block content
             .category-items-count 7 товаров
 
       
-      .category-body
+      .category-body(data-aos='fade-up')
 
         - for (b=0;b<3;b++)
           -
@@ -29,7 +30,7 @@ block content
               brand: 'Ornellaia',
               ttl: 'Вино St-Emilion AOC Premier Grand Cru Classe',
               txt: 'Красное, сухое, 750 мл',
-              price: '165 750'},
+              price: '165 750 ₽'},
 
               {img: 'shop-img-2',
               brand: 'Gurkha',

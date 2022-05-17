@@ -310,16 +310,17 @@
   background: var(--color-black);
   filter: drop-shadow(0px 24px 48px rgba(64, 60, 52, 0.4));
 
-  margin: 0 auto;
-
   display: flex;
   align-items: center;
   justify-content: center;
 
-  transform: translateY(-60px);
-
   img {
     width: getRem(240px);
+  }
+
+  &.on-page {
+    margin: 0 auto;
+    transform: translateY(-60px);
   }
 }
 
@@ -412,4 +413,14 @@
 .pickup-popup-map {
   margin-top: getRem(30px);
   height: getRem(385px);
+}
+
+.about-benefit-ico {
+  width: getRem(60px);
+  height: getRem(60px);
+}
+
+.gastronomy-ico-svg {
+  width: getRem(20px);
+  height: getRem(20px);
 }

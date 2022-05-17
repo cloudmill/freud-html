@@ -56,8 +56,13 @@ function formValidation() {
             showError();
             event.preventDefault();
           } else {
+            event.preventDefault();
+            
+            if (item.closest('.subscription-form')) {
+              item.closest('.subscription-form').querySelector('.subscription-form__button').innerHTML = 'Подписаться еще'
+            }
+
             // сделать ответ формы
-            // form.style.border='1px solid red';
           }
         });
         
@@ -71,6 +76,14 @@ function formValidation() {
 
               error.textContent = '— заполните поле «Имя»';
 
+            } else if (item.getAttribute('data-input-title') == 'sec-name') {
+
+              error.textContent = '— заполните поле «Фамилия»';
+
+            } else if (item.getAttribute('data-input-title') == 'address') {
+
+              error.textContent = '— заполните поле «Адрес»';
+
             } else if (item.getAttribute('type') == 'tel') {
 
               error.textContent = '— заполните поле «Телефон»';
@@ -81,7 +94,7 @@ function formValidation() {
 
             } else if (item.getAttribute('type') == 'checkbox' && !item.checked) {
 
-              error.textContent = '— вы не можете оформить подписку без согласия с политикой конфиденциальности'
+              error.textContent = '— вы не можете продолжить без согласия с политикой конфиденциальности'
 
             } else {
               error.textContent = 'Обязательное поле';
@@ -89,7 +102,14 @@ function formValidation() {
           
           // введенный текст не соответствует типу инпута
           } else if (item.validity.typeMismatch) {
-            error.textContent = 'Введено некорректно';
+
+            if (item.getAttribute('type') == 'email') {
+
+              error.textContent = '— e-mail должен содержать символы «@», «.» проверьте правильность ввода';
+
+            } else {
+              error.textContent = 'Введено некорректно';
+            }
     
           } else {
             // console.log('ne rabotaet');
