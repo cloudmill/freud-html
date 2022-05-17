@@ -8,6 +8,15 @@
 
   padding: getRem(65px) 0;
 
+  &__col {
+    width: calc(100% / 3);
+    text-align: center;
+
+    &:nth-child(2) {
+      border-left: 1px solid var(--color-border-extra);
+      border-right: 1px solid var(--color-border-extra);
+    }
+  }
   &__big {
     font-family: $ff-titles;
     @include fsl(72px, 130%);
@@ -102,7 +111,7 @@
   }
 
   &__col {
-    padding: 0 calc(#{$col-part-d}) 0 calc(#{$col-part-d} + #{$col-gap});
+    padding: 0 calc(#{$col-part-d} + #{$col-width-d}) 0 calc(#{$col-part-d} + #{$col-gap});
 
     .big-titles__txt {
       margin-top: getRem(15px);

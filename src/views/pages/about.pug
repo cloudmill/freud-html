@@ -52,21 +52,22 @@ block content
 
   section.section--bottom.section--grey.interior-block
     .container
-      .restaurant-slider
-        .restaurant-slider__col
-          +control-left#restaurant-slider-prev
+      .interior-block__slider
+        .restaurant-slider(data-aos='fade-up')
+          .restaurant-slider__col
+            +control-left#restaurant-slider-prev
 
-        .restaurant-slider__container
-          .swiper-container#restaurant-slider
-            .swiper-wrapper
-              - for (i=0;i<3;i++)
-                .swiper-slide
-                  +picture(file='main-slide')
+          .restaurant-slider__container
+            .swiper-container#restaurant-slider
+              .swiper-wrapper
+                - for (i=0;i<3;i++)
+                  .swiper-slide
+                    +picture(file='main-slide')
 
-          .sliders-pagination#restaurant-slider-pagination
+            .sliders-pagination#restaurant-slider-pagination
 
-        .restaurant-slider__col
-          +control-right#restaurant-slider-next
+          .restaurant-slider__col
+            +control-right#restaurant-slider-next
 
       .interior-block__col
         +big-titles(subttl='элегантный дизайн' ttl='Интерьер' txt='Строгое респектабельное пространство с атмосферой мужского клуба со стилистической отсылкой к позднему Австрийскому модерну и современному «северному итальянскому модерну» 60-70-х годов XX века')

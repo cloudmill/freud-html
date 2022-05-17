@@ -12,14 +12,14 @@ block content
     .container
       +breadcrumbs(items = ['О клубе'] page = 'Хьюмидорная комната')
 
-      .about-block
+      .about-block(data-aos='fade-up')
         .section-bg-photo.humidor-top-bg
           +big-titles.white-ttl(subttl='профессор фрейд' ttl='Хьюмидорная комната' h1)
 
-          .scroll-down
+          .scroll-down(data-aos='fade-up')
             .scroll-down__line
 
-        .nums-block-bottom
+        .nums-block-bottom(data-aos='fade-up')
 
           -
             const nums = [
@@ -36,7 +36,7 @@ block content
   section.section.section--top
     .container
       .benefits-block
-        .benefits-cell
+        .benefits-cell(data-aos='fade-up')
           +big-titles(subttl='сохраняем качество' ttl='Идеальные' ttl2='условия')
 
         -
@@ -48,7 +48,7 @@ block content
           ]
 
         each item, index in benefits
-          .benefits-cell.cell-list
+          .benefits-cell.cell-list(data-aos='fade-up')
             +humidor-benefit-ico(`${index}`)
 
             .benefits-cell__info
@@ -62,7 +62,7 @@ block content
   section
     .container
       .humidor-block.section--grey
-        .humidor-block__img
+        .humidor-block__img(data-aos='fade-up')
           +picture(file=`humidor-block`)
 
         .humidor-block__col
@@ -70,7 +70,7 @@ block content
 
   section.section
     .container
-      .blockquote
+      .blockquote(data-aos='fade-up')
         .blockquote__txt
           |«Мы проводники #[br] для наших клиентов в мире #[br] сигарной культуры»
         .blockquote__name
@@ -78,7 +78,7 @@ block content
 
   section
 
-    .swiper-container.humidor-slider#humidor-slider
+    .swiper-container.humidor-slider#humidor-slider(data-aos='fade-up')
       .swiper-wrapper
         - for (i=1;i<5;i++)
           .swiper-slide
@@ -94,12 +94,16 @@ block content
       {ttl: 'Подарочные наборы', subttl: 'выбор покупателей'}
     ]
     let newTitle = titles[0];
+    let nobtn = true;
+    let newBtn = 'Смотреть все товары';
   include ../components/sections/shop-section
 
   include ../components/sections/certificate-section
 
   -
     newTitle = titles[1];
+    nobtn;
+    newBtn;
   include ../components/sections/shop-section
 
   section.section--bottom

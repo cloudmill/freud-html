@@ -16,17 +16,17 @@ block content
         .contacts-block__top
           +big-titles(subttl='профессор фрейд' ttl='Контакты' txt='Клуб располагается в самом центре Петербурга напротив Исаакиевского собора,' txt2='недалеко от Невского проспекта, Дворцовой площади и Мариинского театра' h1)
 
-          .scroll-down
+          .scroll-down(data-aos='fade-up')
             .scroll-down__line
 
         .contacts-block__row
           .contacts-block__col
 
-            .contacts-block__item
+            .contacts-block__item(data-aos='fade-up')
               .contacts-block__item-ttl Адрес
               .contacts-block__item-txt г. Санкт-Петербург, #[br] ул. Малая Морская, дом 18
 
-            .contacts-block__item
+            .contacts-block__item(data-aos='fade-up')
               .contacts-block__item-ttl режим работы
               .contacts-block__item-txt Пн-Чт, 12:00 – 00:00
                 br
@@ -34,24 +34,29 @@ block content
                 br
                 |Вс, 13:00 – 23:00
 
-            +brown-button(data-popup-button='1')
+            +brown-button(data-popup-button='1' data-aos='fade-up')
               |Забронировать стол
 
           .contacts-block__col
-            .contacts-block__item
+            .contacts-block__item(data-aos='fade-up')
               .contacts-block__item-ttl telegram/WhatsApp
-              .contacts-block__item-txt +7 (921) 449–18–18
+              a.contacts-block__item-txt(href="tel:+79214491818") +7 (921) 449–18–18
 
-            .contacts-block__item
+            .contacts-block__item(data-aos='fade-up')
               .contacts-block__item-ttl e-mail
-              .contacts-block__item-txt spb@freud.club
+              a.contacts-block__item-txt(href="mailto:mgr@freud.club") mgr@freud.club
 
-            .contacts-block__item
-              .contacts-block__item-ttl социальные сети
+            .contacts-block__item.contacts-block__socials(data-aos='fade-up')
               a.icon-circle(href="")
-                +vk-icon
+                +vk-icon.vk-circle-ico
 
-          .contacts-block__map
+              a.icon-circle(href="")
+                +tg-icon.tg-circle-ico
+
+              a.icon-circle(href="")
+                +wa-icon.wa-circle-ico
+
+          .contacts-block__map(data-aos='fade-up')
             iframe(src="https://yandex.ru/map-widget/v1/?um=constructor%3A828b2df1c3e646ed9bf707043c5321cb8a73706508a8ea107668fd10d7a284aa&source=constructor", width="570", height="450", frameborder="0")
 
   include ../components/sections/rent-section

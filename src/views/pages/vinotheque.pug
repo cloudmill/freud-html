@@ -12,14 +12,14 @@ block content
     .container
       +breadcrumbs(items = ['О клубе'] page = 'Винотека')
 
-      .about-block
+      .about-block(data-aos='fade-up')
         .section-bg-photo.vine-section-bg
           +big-titles.white-ttl(subttl='профессор фрейд' ttl='Винотека' h1)
 
-          .scroll-down
+          .scroll-down(data-aos='fade-up')
             .scroll-down__line
 
-        .nums-block-bottom
+        .nums-block-bottom(data-aos='fade-up')
 
           -
             const nums = [
@@ -36,7 +36,7 @@ block content
   section.section.section--top
     .container
       .benefits-block
-        .benefits-cell
+        .benefits-cell(data-aos='fade-up')
           //- +big-titles(subttl='винная культура' ttl='Концепция' ttl2=`bar&shop`)
 
           .big-titles
@@ -52,7 +52,7 @@ block content
           ]
 
         each item, index in benefits
-          .benefits-cell.cell-list
+          .benefits-cell.cell-list(data-aos='fade-up')
             +vine-benefit-ico(`${index}`)
 
             .benefits-cell__info
@@ -66,31 +66,33 @@ block content
   section
     .container
       .humidor-block.section--grey
-        .humidor-block__img
+        .humidor-block__img(data-aos='fade-up')
           +picture(file=`vine-block`)
 
         .humidor-block__col
-          +big-titles(subttl='клуб профессор фрейд' ttl='Винотека' txt='Дополнительным украшением винотеки является широкая линейка крепкого алкоголя, собранная из лучших представителей крепленых вин, коньяка, виски и рома, граппы.' txt2='Любой блэнд из всех представленных, можно взять прямо с полки и не только купить с собой, но и выпить здесь же, в уютных интерьерах под расслабляющую лаунж музыку, дополняя напитки закусками от шеф-повара')
+          +big-titles(subttl='клуб профессор фрейд' ttl='Винотека' txt='Дополнительным украшением винотеки является широкая линейка крепкого алкоголя, собранная из лучших представителей крепленых вин, коньяка, виски и рома, граппы.' txtp='Любой блэнд из всех представленных, можно взять прямо с полки и не только купить с собой, но и выпить здесь же, в уютных интерьерах под расслабляющую лаунж музыку, дополняя напитки закусками от шеф-повара')
 
   section.section.lounge-section
     .container
       .two-cols-block
         .two-cols-block__col
 
-          .cabinet-col
+          .cabinet-col.two-cols-block__pl
 
             +big-titles(ttl='Шеф-' ttl2='сомелье' subttl='анастасия будникова')
 
-            .two-cols-block__txt
+            .two-cols-block__txt(data-aos='fade-up')
               |Концепция Bar&Shop, винотеки prof. FREUD — отличная возможность насладиться вкусом купленного напитка в сочетании с авторскими закусками от шеф-повара
 
-          +picture(file='vine-col-1')
+          div(data-aos='fade-up')
+            +picture(file='vine-col-1')
 
 
         .two-cols-block__col
-          +picture(file='vine-col-2')
+          div(data-aos='fade-up')
+            +picture(file='vine-col-2')
 
-          div
+          .txt-block(data-aos='fade-up')
             .two-cols-block__txt В свою очередь я, шеф-сомелье, рада поведать об особенностях наших вин, специфике регионов их происхождения, истории отдельного винного дома
 
             +read-more-btn
@@ -99,7 +101,9 @@ block content
   include ../components/sections/certificate-section
 
   -
-    let newTitle = {ttl: 'Онлайн-каталог алкоголя', subttl: 'полный ассортимент'}
+    let newTitle = {ttl: 'Онлайн-каталог алкоголя', subttl: 'полный ассортимент'};
+    let nobtn = true;
+    let newBtn = 'Смотреть все товары';
   include ../components/sections/shop-section
 
   include ../components/sections/subscribe-section

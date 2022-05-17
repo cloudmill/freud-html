@@ -97,6 +97,9 @@
 
   .restaurant-slider {
     margin-top: 0;
+  }
+
+  &__slider {
     transform: translateY(-160px);
   }
 }

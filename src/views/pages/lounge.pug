@@ -12,17 +12,17 @@ block content
     .container
       +breadcrumbs(items = ['О клубе'] page = 'Сигарный лаунж')
 
-      .about-block
+      .about-block(data-aos='fade-up')
         .section-bg-photo.lounge-main-section.lounge-main-bg 
           +big-titles.white-ttl(subttl='профессор фрейд' ttl='Сигарный лаунж' h1)
 
-          +brown-button(data-popup-button='1')
+          +brown-button(data-popup-button='1' data-aos='fade-up')
             |Забронировать стол
 
   section.section--top
     .container
       .benefits-block.before-interior-block
-        .benefits-cell
+        .benefits-cell(data-aos='fade-up')
           +big-titles(subttl='для вашего комфорта' ttl='Внимание' ttl2='к деталям')
 
         -
@@ -34,7 +34,7 @@ block content
           ]
 
         each item, index in benefits
-          .benefits-cell.cell-list
+          .benefits-cell.cell-list(data-aos='fade-up')
             +lounge-benefit-ico(`${index}`)
 
             .benefits-cell__info
@@ -47,21 +47,22 @@ block content
 
   section.section--bottom.section--grey.interior-block
     .container
-      .restaurant-slider
-        .restaurant-slider__col
-          +control-left#restaurant-slider-prev
+      .interior-block__slider
+        .restaurant-slider(data-aos='fade-up')
+          .restaurant-slider__col
+            +control-left#restaurant-slider-prev
 
-        .restaurant-slider__container
-          .swiper-container#restaurant-slider
-            .swiper-wrapper
-              - for (i=0;i<3;i++)
-                .swiper-slide
-                  +picture(file='lounge-slide-1')
+          .restaurant-slider__container
+            .swiper-container#restaurant-slider
+              .swiper-wrapper
+                - for (i=0;i<3;i++)
+                  .swiper-slide
+                    +picture(file='lounge-slide-1')
 
-          .sliders-pagination#restaurant-slider-pagination
+            .sliders-pagination#restaurant-slider-pagination
 
-        .restaurant-slider__col
-          +control-right#restaurant-slider-next
+          .restaurant-slider__col
+            +control-right#restaurant-slider-next
 
       .interior-block__col
         +big-titles(subttl='эпоха фрейда' ttl='Лаунж' txt='Непередаваемая атмосфера сигарного лаунжа и особая эстетика его интерьера переносят гостей в эпоху Фрейда, в 20-30-е годы прошлого века.' txtp='Словно в респектабельных мужских клубах того времени, настроение создает звуки винилового проигрывателя на ламповом усилителе, за неформальность общения отвечает игра теней от огня камина')
@@ -76,15 +77,17 @@ block content
 
             +big-titles(ttl='Культовые' ttl2='коктейли' subttl='XX века')
 
-            .two-cols-block__txt Линейка классических коктейлей перенесет вас в начало прошлого столетия
+            .two-cols-block__txt(data-aos='fade-up') Линейка классических коктейлей перенесет вас в начало прошлого столетия
 
-          +picture(file='cocktail-1')
+          div(data-aos='fade-up')
+            +picture(file='cocktail-1')
 
 
         .two-cols-block__col
-          +picture(file='cocktail-2')
+          div(data-aos='fade-up')
+            +picture(file='cocktail-2')
 
-          div
+          .txt-block(data-aos='fade-up')
             .two-cols-block__txt Мы собрали коллекцию крепкого алкоголя, которые составят идеальную пару к сигаре и сделают ваш вечер еще более расслабленным
 
             +read-more-btn
@@ -95,19 +98,10 @@ block content
       .fumelier-block
         +big-titles(subttl='сигарный этикет' ttl='Помощь' ttl2='фумелье' txt='Поможет подобрать идеальное сочетание напитка и сигары, расскажет о свойствах и особенностях той или иной сигары, правильно сервирует еë')
 
-        +picture.fumelier-block__img(file='fumelier')
+        div(data-aos='fade-up')
+          +picture.fumelier-block__img(file='fumelier')
 
-  section.section
-    .container
-      .club-card-block
-        .club-card-block__col
-          +big-titles(subttl='специальные условия' ttl='Клубная' ttl2='карта' txt='Первоклассное обслуживание с дополнительными привилегиями: скидки, подарки, приглашениена закрытые мероприятия')
-          +read-more-btn
-            |узнать больше
-
-        a.club-card-block__col(href='')
-          +infinity
-          .club-card-block__col__ttl Привилегии #[br] клубной карты
+  include ../components/sections/club-card-section
 
   include ../components/sections/rules-section
 
@@ -120,6 +114,8 @@ block content
       {ttl: 'Подарочные наборы', subttl: 'выбор покупателей'}
     ]
     let newTitle = titles[0];
+    let nobtn = true;
+    let newBtn = 'Смотреть все товары';
   include ../components/sections/shop-section
 
   include ../components/sections/subscribe-section

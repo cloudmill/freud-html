@@ -71,21 +71,22 @@ block content
 
   section.section--bottom.section--grey.interior-block
     .container
-      .restaurant-slider
-        .restaurant-slider__col
-          +control-left#restaurant-slider-prev
+      .interior-block__slider
+        .restaurant-slider(data-aos='fade-up')
+          .restaurant-slider__col
+            +control-left#restaurant-slider-prev
 
-        .restaurant-slider__container
-          .swiper-container#restaurant-slider
-            .swiper-wrapper
-              - for (i=0;i<3;i++)
-                .swiper-slide
-                  +picture(file='restaurant-slide')
+          .restaurant-slider__container
+            .swiper-container#restaurant-slider
+              .swiper-wrapper
+                - for (i=0;i<3;i++)
+                  .swiper-slide
+                    +picture(file='restaurant-slide')
 
-          .sliders-pagination#restaurant-slider-pagination
+            .sliders-pagination#restaurant-slider-pagination
 
-        .restaurant-slider__col
-          +control-right#restaurant-slider-next
+          .restaurant-slider__col
+            +control-right#restaurant-slider-next
 
       .interior-block__col
         +big-titles(subttl='строгость и элегантность' ttl='Ресторан' txt='Строгий контроль качества продуктов и внимание наших сотрудников позволит вам в полной мере насладиться временем проведенным в его стенах.' txtp='Часть блюд из меню идеально подойдет для поклонников вина, другая – для тех, кто предпочитает сигары, а подобрать правильную гастрономическую пару помогут наши профессиональные сомелье и фумелье')

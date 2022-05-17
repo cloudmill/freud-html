@@ -26,7 +26,10 @@
   }
 
   &__item {
-    margin-bottom: getRem(40px);
+
+    &:not(:last-child) {
+      margin-bottom: getRem(40px);
+    }
 
     &-ttl {
       @include fsl(13px, 130%);
@@ -39,6 +42,22 @@
     &-txt {
       font-family: $ff-titles;
       @include fsl(20px, 160%);
+    }
+
+    a {
+      transition: $transition;
+
+      &:hover {
+        color: var(--color-grey);
+      }
+    }
+  }
+
+  &__socials {
+    display: flex;
+
+    .icon-circle:not(:last-child) {
+      margin-right: getRem(8px);
     }
   }
 }

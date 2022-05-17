@@ -308,7 +308,7 @@
     &:nth-child(2) {
       padding-bottom: getRem(65px);
 
-      & > div {
+      .txt-block {
         padding-left: calc(#{$col-part-d});
       }
 
@@ -338,6 +338,10 @@
       color: var(--color-brown);
       border-color: var(--color-brown);
     }
+  }
+
+  &__pl {
+    padding-left: calc(#{$col-width-d});
   }
 }
 

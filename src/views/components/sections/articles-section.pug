@@ -5,7 +5,7 @@
   else
     +small-titles.small-titles--mb45(ttl='Справочная информация' txt='Расскажем подробно обо всех тонкостях и нюансах')
 
-  .articles-row
+  .articles-row(data-aos='fade-up')
     
     -
       const articles = [
@@ -17,5 +17,5 @@
     each item in articles
       +article-card(ttl=`${item.ttl}` txt=`${item.txt}`)
 
-  +brown-border-button.more-btn
+  +brown-border-button.more-btn(data-aos='fade-up')
     |Смотреть все статьи

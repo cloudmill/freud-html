@@ -246,6 +246,12 @@
 
     margin: getRem(15px) 0;
 
+    transition: $transition;
+
+    &:hover {
+      color: var(--color-brown);
+    }
+
     &:first-child {
       margin-top: 0;
     }
@@ -259,6 +265,12 @@
     @include fsl(18px, 160%);
 
     margin: getRem(10px) 0;
+
+    transition: $transition;
+
+    &:hover {
+      color: var(--color-brown);
+    }
 
     &:first-child {
       margin-top: 0;

@@ -37,8 +37,12 @@ mixin shop-section-body
         +control-right#shop-slider-next
 
     if (!nobtn)
-      +brown-border-button.more-btn
+      +brown-border-button.more-btn(data-aos='fade-up')
         |Перейти в каталог
+
+    if (newBtn)
+      +brown-border-button.more-btn(data-aos='fade-up')
+        |#{newBtn}
 
 if (sectionBottom)
   section.section--bottom.shop-section
