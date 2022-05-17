@@ -345,18 +345,18 @@
 										</div>
 										<div class="cart-stage-form">
 											<div class="cart-stage-form__note"><sup>*</sup>— поля обязательные для заполнения</div>
-											<form class="form" novalidate><label class="form__label">
-													<div class="form__field-name">Имя<sup>*</sup></div><input class="form__input" placeholder="Введите ваше имя" required>
-												</label><label class="form__label">
-													<div class="form__field-name">Фамилия<sup>*</sup></div><input class="form__input" placeholder="Введите вашу фамилию" required>
-												</label><label class="form__label">
+											<form class="form" novalidate><label class="form__label cart-form-label">
+													<div class="form__field-name">Имя<sup>*</sup></div><input class="form__input" data-input-title="name" placeholder="Введите ваше имя" required>
+												</label><label class="form__label cart-form-label">
+													<div class="form__field-name">Фамилия<sup>*</sup></div><input class="form__input" data-input-title="sec-name" placeholder="Введите вашу фамилию" required>
+												</label><label class="form__label cart-form-label">
 													<div class="form__field-name">Телефон<sup>*</sup></div><input class="form__input" type="tel" placeholder="Введите номер телефона" required>
-												</label><label class="form__label">
+												</label><label class="form__label cart-form-label">
 													<div class="form__field-name">E-mail</div><input class="form__input" type="email" placeholder="Введите ваш электронный адрес">
-												</label><label class="form__label">
+												</label><label class="form__label cart-form-label">
 													<div class="form__field-name">Комментарии к заказу</div><textarea class="form__textarea" placeholder="Введите текст"></textarea>
 												</label><button class="button button--brown form__btn" type="submit">Продолжить</button>
-												<div class="checkbox cart-stage-form__checkbox"><label class="checkbox__label"><input class="checkbox__input" type="checkbox">
+												<div class="checkbox cart-stage-form__checkbox"><label class="checkbox__label"><input class="checkbox__input" type="checkbox" checked="checked" required>
 														<div class="checkbox__box"><svg class="checkbox__svg" width="13" height="10" viewBox="0 0 13 10" fill="none" xmlns="http://www.w3.org/2000/svg">
 																<path d="M11.8715 1.12386C11.7064 0.958713 11.4386 0.958713 11.2735 1.12386L4.41828 7.97906L1.72193 5.28269C1.5568 5.11752 1.28903 5.11752 1.12386 5.28269C0.958713 5.44783 0.958713 5.71559 1.12386 5.88076L4.11928 8.87617C4.28436 9.04125 4.55222 9.0413 4.71735 8.87617L11.8715 1.72193C12.0367 1.55676 12.0367 1.28901 11.8715 1.12386Z" fill="#1B1B1B" stroke="#1B1B1B" stroke-width="0.5"></path>
 															</svg></div>
@@ -395,9 +395,10 @@
 											<div class="cart-result__value">120 000 ₽</div>
 										</div>
 									</div>
-									<div class="cart-promocode"><input class="cart-promocode__input" placeholder="Ввести промокод"><svg class="cart-promocode__arrow" width="9" height="14" viewBox="0 0 9 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-											<path d="M1.42773 13.2856L7.71345 6.99993L1.42773 0.714217" stroke="#B69659" stroke-linecap="round" stroke-linejoin="round"></path>
-										</svg></div>
+									<div class="cart-promocode"><input class="cart-promocode__input" placeholder="Ввести промокод"><button class="button--clean cart-promocode-send"><svg class="cart-promocode__arrow" width="9" height="14" viewBox="0 0 9 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+												<path d="M1.42773 13.2856L7.71345 6.99993L1.42773 0.714217" stroke="#B69659" stroke-linecap="round" stroke-linejoin="round"></path>
+											</svg></button><button class="button--clean cart-promocode-delete"></button></div>
+									<div class="cart-promocode-error active">— промокод не найден</div>
 								</div>
 							</div>
 						</div>
