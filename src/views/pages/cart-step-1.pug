@@ -95,13 +95,16 @@ block content
           .cart-section__col
 
             .cart-result
-              .cart-result__ttl Итоги
+              .cart-result__ttl Итого
               .cart-result__row
                 .cart-result__name 3 товара на сумму
                 .cart-result__value 135 820 ₽
               .cart-result__row
                 .cart-result__name Скидка
                 .cart-result__value −11 000 ₽
+              .cart-result__row
+                .cart-result__name Промокод «Фрейд»
+                .cart-result__value −1 000 ₽
 
               .cart-result__total
                 .cart-result__name К оплате
@@ -109,7 +112,13 @@ block content
 
             .cart-promocode
               input.cart-promocode__input(type='text' placeholder='Ввести промокод')
-              +arrow-right.cart-promocode__arrow
+
+              button.button--clean.cart-promocode-send
+                +arrow-right.cart-promocode__arrow
+
+              button.button--clean.cart-promocode-delete
+
+            .cart-promocode-error.active — промокод не найден
 
 block modals
   include ../components/popups/delete-product-popup

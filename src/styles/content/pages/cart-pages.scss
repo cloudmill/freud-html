@@ -153,7 +153,10 @@
   &__add {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     @include fsl(16px, 140%);
+
+    width: getRem(120px);
 
     button {
       position: relative;
@@ -168,12 +171,12 @@
       align-items: center;
       justify-content: center;
 
-      &:nth-child(1) {
-        margin-right: getRem(16px);
-      }
-      &:nth-child(3) {
-        margin-left: getRem(16px);
-      }
+      // &:nth-child(1) {
+      //   margin-right: getRem(16px);
+      // }
+      // &:nth-child(3) {
+      //   margin-left: getRem(16px);
+      // }
 
       &::before {
         content: '';
@@ -216,6 +219,7 @@
   &__row {
     display: flex;
     justify-content: space-between;
+    margin-bottom: getRem(10px);
 
     @include fsl(16px, 140%);
 
@@ -237,12 +241,33 @@
   margin-top: getRem(10px);
   padding: getRem(20px) getRem(30px);
   background: var(--background-grey-extra-2);
+  border: 1px solid transparent;
 
   display: flex;
   align-items: center;
   justify-content: space-between;
 
+  position: relative;
+  transition: $transition;
+
+  &.active {
+    border: 1px solid var(--color-brown);
+  }
+  &.send-active {
+    .cart-promocode-send {
+      opacity: 1;
+      pointer-events: all;
+    }
+  }
+  &.delete-active {
+    .cart-promocode-delete {
+      opacity: 1;
+      pointer-events: all;
+    }
+  }
+
   &__input {
+    width: 100%;
     border: none;
     background: transparent;
     @include fsl(16px, 140%);
@@ -250,8 +275,69 @@
       color: var(--color-black);
     }
   }
-  &__arrow path {
-    stroke: var(--color-black);
+  &-send {
+    position: absolute;
+    right: getRem(30px);
+    opacity: 0;
+    pointer-events: none;
+    transition: $transition;
+  }
+  &__arrow {
+    width: getRem(7px);
+    height: getRem(12px);
+
+    &:hover {
+      path {
+        stroke: var(--color-brown);
+      }
+    }
+
+    path {
+      stroke: var(--color-black);
+      transition: $transition;
+    }
+  }
+
+  &-delete {
+    width: getRem(8px);
+    height: getRem(8px);
+
+    position: absolute;
+    right: getRem(30px);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    opacity: 0;
+    pointer-events: none;
+    transition: $transition;
+
+    &::after, &::before {
+      content: '';
+      position: absolute;
+      width: getRem(10px);
+      height: getRem(1px);
+      background: var(--color-black);
+    }
+    &::after {
+      transform: rotate(45deg);
+    }
+    &::before {
+      transform: rotate(-45deg);
+    }
+  }
+
+  &-error {
+    margin-top: getRem(12px);
+    @include fsl(16px, 160%);
+    color: var(--color-brown);
+    transition: $transition;
+    opacity: 0;
+
+    &.active {
+      opacity: 1;
+    }
   }
 }
 

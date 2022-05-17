@@ -295,6 +295,12 @@
   left: 0;
   right: 0;
   width: 100%;
+
+  opacity: 0;
+
+  &.loaded {
+    opacity: 1;
+  }
 }
 
 .active-filters-row {
@@ -307,7 +313,9 @@
   background: var(--color-white);
   padding: getRem(14px) 0;
   border-bottom: 1px solid var(--color-black-rgba-1);
-  transition: $transition;
+  transition: transform $transition;
+
+  opacity: 0;
 
   &.active {
     transform: translateY(100%);

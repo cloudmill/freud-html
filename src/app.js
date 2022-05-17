@@ -47,9 +47,45 @@ document.addEventListener('DOMContentLoaded', () => {
 
   closeOnEsc();
 
+  // передача размеров сигары из дата-атрибута на странице продукта
   if (document.querySelector('[data-show-height]') && document.querySelector('[data-show-diameter]')) {
     document.querySelector('[data-show-height]').innerHTML = document.querySelector('.product-top-img__cigar-size').getAttribute('data-cigar-height');
     document.querySelector('[data-show-diameter]').innerHTML = document.querySelector('.product-top-img__cigar-size').getAttribute('data-cigar-diameter'); 
+  }
+
+  // состояния инпута промокода в корзине
+  if (document.querySelector('.cart-promocode')) {
+
+    const promocodeInput = document.querySelector('.cart-promocode__input');
+
+    promocodeInput.addEventListener('focusin', e => {
+      e.target.closest('.cart-promocode').classList.add('active')
+    });
+
+    promocodeInput.addEventListener('input', () => {
+      const inputValue = promocodeInput.value;
+
+      if (inputValue.length) {
+        promocodeInput.closest('.cart-promocode').classList.add('send-active');
+        promocodeInput.closest('.cart-promocode').classList.remove('delete-active');
+      } else {
+        promocodeInput.closest('.cart-promocode').classList.remove('send-active')
+      }
+    });
+
+    document.querySelector('.cart-promocode-delete').addEventListener('click', e => {
+      e.target.closest('.cart-promocode').querySelector('input').value = '';
+      e.target.closest('.cart-promocode').classList.remove('delete-active');
+    });
+
+    promocodeInput.addEventListener('focusout', e => {
+      e.target.closest('.cart-promocode').classList.remove('active');
+      promocodeInput.closest('.cart-promocode').classList.remove('send-active');
+
+      if (promocodeInput.value) {
+        promocodeInput.closest('.cart-promocode').classList.add('delete-active');
+      }
+    });
   }
 
   document.addEventListener('click', eventClick => {
@@ -78,6 +114,17 @@ window.addEventListener('load', () => {
 
   document.querySelector('body').classList.remove('no-transition');
 
+  // скрытие элементов под хедером пока работает аос
+  setTimeout(() => {
+    document.querySelector('.header').classList.add('loaded');
+
+    if (document.querySelector('.filter-drops-container')) {
+      document.querySelector('.filter-drops-container').classList.add('loaded')
+    }
+
+  }, 1200);
+
+  // анимация открытия видео и выехжание заголовков на главной
   if (document.querySelector('.first-screen')) {
     document.querySelectorAll('[data-video-show]').forEach(item => {
       item.classList.add('loaded')
@@ -99,7 +146,3 @@ window.addEventListener('load', () => {
   });
 
 });
-
-document.querySelector('.checkbox__input').addEventListener('change', () => {
-  console.log(document.querySelector('.checkbox__input').checked);
-})

@@ -1,7 +1,7 @@
 mixin header
   header.header
 
-    .header-body
+    .header-body(data-aos='fade-up')
 
       .header__top
         .container
@@ -12,6 +12,15 @@ mixin header
             .header__top-links
               //- a.header__top-social(href="") 
               //-   +vk-icon
+
+              a.icon-circle(href="")
+                +vk-icon.vk-circle-ico
+
+              a.icon-circle(href="")
+                +tg-icon.tg-circle-ico
+
+              a.icon-circle(href="")
+                +wa-icon.wa-circle-ico
 
               a.tel(href="tel:+78124545656" tabindex="0")
                 |+7 (812) 454-56-56
@@ -95,7 +104,6 @@ mixin header
 
             each item in ['О ресторане', 'Подарочные сертификаты']
               a.header-modals__small-ttl(href="") #{item}
-
 
 
       .header-modals-small.empty(data-fav-modal data-header-modal='3')
