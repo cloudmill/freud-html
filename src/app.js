@@ -97,6 +97,21 @@ document.addEventListener('DOMContentLoaded', () => {
     addToCart(eventClick);
     activeFilter(eventClick);
 
+    // затухание при переходах по страницам
+    if (eventClick.target.closest('a')) {
+      console.log('a');
+
+      eventClick.preventDefault();
+
+      const href = eventClick.target.closest('a').getAttribute('href');
+
+      document.querySelector('.modals-container').classList.add('active');
+
+      setTimeout(() => {
+        window.location.assign(href)
+      }, 1200);
+    }
+
   });
 
   if (mediaQuery.matches) {
@@ -108,6 +123,21 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  document.addEventListener('click', event => {
+    const target = event.target.closest('a')
+
+    if (target) {
+      event.preventDefault()
+
+      const href = target.getAttribute('href');
+
+      document.querySelector('.modals-container').classList.add('acrive');
+
+      setTimeout(() => {
+        window.location.assign(href)
+      }, 500);
+    }
+  })
 });
 
 window.addEventListener('load', () => {
