@@ -16,16 +16,17 @@ block content
         .contacts-block__top
           +big-titles(subttl='Для постоянных клиентов' ttl='Клубная карта' txt='Клубная карта, предоставляющие' txt2='различные привилегии' h1)
 
-          .scroll-down
+          .scroll-down(data-aos='fade-up')
             .scroll-down__line
 
 
   section.section--grey
     .container
-      .club-card.on-page
-        img(src="assets/images/card-logo.png", alt="")
+      div(data-aos='fade-up')
+        .club-card.on-page
+          img(src="assets/images/card-logo.png", alt="")
 
-      .benefits-top
+      .benefits-top(data-aos='fade-up')
         -
           const benefits = [
             'Клубная карта, дающая максимум привилегий',
@@ -38,10 +39,11 @@ block content
             +card-benefit-ico(index)
             |#{item}
 
-      +brown-button.benefits-top__btn(data-popup-button='8')
+      +brown-button.benefits-top__btn(data-popup-button='8' data-aos='fade-up')
         |Узнать стоимость
 
-      .benefits-top__line
+      div(data-aos='fade-up')
+        .benefits-top__line
 
   section
     .container
@@ -60,7 +62,7 @@ block content
           'Индивидуальные подарки от клуба и его партнеров'
         ]
 
-      .benefit-cards
+      .benefit-cards(data-aos='fade-up')
         each item in cards
           .benefit-card #{item}
 
@@ -80,7 +82,7 @@ block content
 
               +small-titles(ttl='INDEVER' txt='Студия индивидуального пошива мужского гардероба предлагает каждому члену клуба различные подарки и скидки')
 
-              ul
+              ul(data-aos='fade-up')
                 -
                   const li = [
                     'подарок от ателье INDEVER на День Рождения',
@@ -92,11 +94,13 @@ block content
                 each item in li
                   li #{item}
 
-            +picture.certificates-block__img(file='partners-1')
+            div(data-aos='fade-up')
+              +picture.certificates-block__img(file='partners-1')
 
           .certificates-block__row
-
-            +picture.certificates-block__img(file='partners-2')
+            
+            div(data-aos='fade-up')
+              +picture.certificates-block__img(file='partners-2')
 
             .certificates-block__info
 

@@ -35,11 +35,16 @@
       display: block;
       @include fsl(16px, 150%);
       color: var(--color-black-extra);
+      transition: $transition;
 
       &:not(:last-child) {
         margin-bottom: getRem(12px);
       }
       
+    }
+
+    a.footer__top-link:hover {
+      color: var(--color-brown);
     }
   }
 
@@ -64,6 +69,11 @@
 
     &-links {
       @include fsl(15px, 130%);
+      transition: $transition;
+
+      &:hover {
+        color: var(--color-brown);
+      }
 
       &:not(:last-child) {
         margin-bottom: getRem(8px);

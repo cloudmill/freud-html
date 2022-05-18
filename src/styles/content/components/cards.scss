@@ -278,6 +278,15 @@
   flex-direction: column;
   height: auto;
 
+  &:hover {
+    .two-cols-block__link {
+      color: var(--color-brown);
+    }
+    .articles-card__img {
+      transform: scale(1.1);
+    }
+  }
+
   &:not(:last-child) {
     margin-right: #{$col-gap};
   }
@@ -286,6 +295,7 @@
     position: relative;
     padding-bottom: getRem(15px);
     border-bottom: 1px solid var(--color-black-rgba-1);
+    overflow: hidden;
 
     .catalog-card__labels {
       top: getRem(30px);
@@ -293,8 +303,12 @@
     }
   }
 
+  &__top-img {
+    overflow: hidden;
+  }
   &__img {
     object-fit: cover;
+    transition: $transition;
   }
 
   &__bottom {

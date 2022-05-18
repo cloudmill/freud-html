@@ -24,11 +24,27 @@
       width: calc(#{$col-part-d} * 3 - #{$col-gap});
       margin-top: getRem(60px);
     }
+    &-img {
+      overflow: hidden;
 
+      img {
+        transition: $transition;
+      }
+    }
     &-ttl {
       font-family: 'Berlingske Serif';
       @include fsl (30px, 130%);
       margin-top: getRem(15px);
+      transition: $transition;
+    }
+
+    &:hover {
+      .shop-page-head__card-ttl {
+        color: var(--color-brown);
+      }
+      img {
+        transform: scale(1.1);
+      }
     }
   }
 }

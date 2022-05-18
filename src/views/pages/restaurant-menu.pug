@@ -13,13 +13,13 @@ block content
       +breadcrumbs(items = ['Ресторан'] page = 'Меню')
 
       .about-block
-        .menu-main-bg.lounge-main-section
+        .menu-main-bg.lounge-main-section(data-aos='fade-up')
           +big-titles.white-ttl(subttl='ресторан' ttl='Меню' h1)
 
-          +brown-button(data-popup-button='1')
+          +brown-button(data-popup-button='1' data-aos='fade-up')
             |Забронировать стол
 
-        .about-block-bottom.menu-tabs
+        .about-block-bottom.menu-tabs(data-aos='fade-up')
 
           .about-block-bottom__item.menu-tab.active
             +menu-ico-1
@@ -54,7 +54,7 @@ block content
                 {name: 'Сыры с гречишным медом', price: '1 100 ₽', weight: '80 г'}
               ]
 
-            .menu-list
+            .menu-list(data-aos='fade-up')
 
               each item in menu1
                 .menu-list__row
@@ -62,11 +62,13 @@ block content
                   .menu-list__price #{item.price}
                   .menu-list__weight #{item.weight}
 
-          +picture.certificates-block__img(file='menu-1')
+          div(data-aos='fade-up')
+            +picture.certificates-block__img(file='menu-1')
 
         .certificates-block__row
 
-          +picture.certificates-block__img(file='menu-2')
+          div(data-aos='fade-up')
+            +picture.certificates-block__img(file='menu-2')
 
           .certificates-block__info
 
@@ -79,7 +81,7 @@ block content
                 {name: 'Cуп с мурманской треской и морепродуктами', price: '600 ₽', weight: '120 г'}
               ]
 
-            .menu-list
+            .menu-list(data-aos='fade-up')
 
               each item in menu2
                 .menu-list__row
@@ -104,7 +106,7 @@ block content
                 {name: 'Утиная грудка с тушеным фенхелем', price: '2 100 ₽', weight: '200 г'}
               ]
 
-            .menu-list
+            .menu-list(data-aos='fade-up')
 
               each item in menu3
                 .menu-list__row
@@ -112,11 +114,13 @@ block content
                   .menu-list__price #{item.price}
                   .menu-list__weight #{item.weight}
 
-          +picture.certificates-block__img(file='menu-3')
+          div(data-aos='fade-up')
+            +picture.certificates-block__img(file='menu-3')
 
         .certificates-block__row
 
-          +picture.certificates-block__img(file='menu-4')
+          div(data-aos='fade-up')
+            +picture.certificates-block__img(file='menu-4')
 
           .certificates-block__info
 
@@ -129,7 +133,7 @@ block content
                 {name: 'Спаржа с голандским соусом', price: '2 100 ₽', weight: '200 г'}
               ]
 
-            .menu-list
+            .menu-list(data-aos='fade-up')
 
               each item in menu4
                 .menu-list__row
@@ -151,7 +155,7 @@ block content
                 {name: 'Ризотто с томлеными телячьими щечками', price: '2 100 ₽', weight: '200 г'}
               ]
 
-            .menu-list
+            .menu-list(data-aos='fade-up')
 
               each item in menu3
                 .menu-list__row
@@ -159,11 +163,13 @@ block content
                   .menu-list__price #{item.price}
                   .menu-list__weight #{item.weight}
 
-          +picture.certificates-block__img(file='menu-5')
+          div(data-aos='fade-up')
+            +picture.certificates-block__img(file='menu-5')
 
         .certificates-block__row
 
-          +picture.certificates-block__img(file='menu-6')
+          div(data-aos='fade-up')
+            +picture.certificates-block__img(file='menu-6')
 
           .certificates-block__info
 
@@ -178,7 +184,7 @@ block content
                 {name: 'Тирамиссу с шафраном', price: '600 ₽', weight: '120 г'}
               ]
 
-            .menu-list
+            .menu-list(data-aos='fade-up')
 
               each item in menu4
                 .menu-list__row

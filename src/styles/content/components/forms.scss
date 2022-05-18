@@ -184,8 +184,15 @@
   }
 
   &-error {
+    display: block;
     width: 100%;
     order: 1;
+
+    &.active {
+      @include fsl(16px);
+      color: var(--color-brown);
+      margin-top: getRem(8px);
+    }
   }
 }
 
@@ -197,6 +204,7 @@
 
   sup {
     color: var(--color-brown);
+    height: 50%;
   }
 
   &__row {
@@ -513,12 +521,6 @@
       }
     }
   }
-}
-
-.form-error.active {
-  @include fsl(16px);
-  color: var(--color-brown);
-  margin-top: getRem(8px);
 }
 
 .cart-form-label {

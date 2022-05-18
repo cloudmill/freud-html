@@ -324,6 +324,7 @@
   }
 
   &__link {
+    display: inline-block;
     @include fsl(18px, 150%);
     font-weight: 600;
     letter-spacing: 0.08em;

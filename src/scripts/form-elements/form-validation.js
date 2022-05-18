@@ -21,6 +21,16 @@ function formValidation() {
             item.closest('.checkbox').insertAdjacentHTML('beforeend', `<span class='form-error'></>`);
             error = item.closest('.checkbox').querySelector('.form-error');
             
+          } else if (item.closest('[data-select-input]')) {
+
+            item.closest('.select-label').insertAdjacentHTML('beforeend', `<span class='form-error'></>`);
+            error = item.closest('.select-label').querySelector('.form-error');
+
+          } else if (item.hasAttribute('data-datepicker')) {
+
+            item.closest('.form__label').insertAdjacentHTML('beforeend', `<span class='form-error'></>`);
+            error = item.closest('.form__label').querySelector('.form-error');
+
           } else {
             item.insertAdjacentHTML('afterend', `<span class='form-error'></>`)
             error = item.nextElementSibling;
@@ -84,7 +94,7 @@ function formValidation() {
 
               error.textContent = '— заполните поле «Адрес»';
 
-            } else if (item.getAttribute('type') == 'tel') {
+            } else if (item.getAttribute('type') == 'tel' && !item.closest('.booking-popup-form')) {
 
               error.textContent = '— заполните поле «Телефон»';
 

@@ -291,16 +291,29 @@
   padding: getRem(120px) 0 getRem(80px);
   border-bottom: 1px solid var(--color-black-rgba-1);
 
-  display: grid;
-  grid-template-columns: repeat(4, calc(#{$col-part-d} * 3 - #{$col-gap}));
-  gap: 30px;
+  // display: grid;
+  // grid-template-columns: repeat(4, calc(#{$col-part-d} * 3 - #{$col-gap}));
+  // gap: 30px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .benefit-card {
-  width: 100%;
+  // width: 100%;
+  width: calc(#{$col-part-d} * 3 - #{$col-gap});
+  min-height: getRem(190px);
+  margin-right: $col-gap;
   padding: getRem(30px);
   background: var(--background-grey-extra-2);
   @include fsl(16px, 160%);
+
+  &:nth-child(1n + 5) {
+    margin-top: $col-gap;
+  }
+  &:nth-child(4n + 4), &:last-child {
+    margin-right: 0;
+  }
 }
 
 .club-card {
@@ -429,4 +442,33 @@
 #map {
   width: 100%;
   height: 100%;
+}
+
+.cabinet-col {
+  .two-cols-block__link {
+    display: inline-block;
+    margin-top: getRem(30px);
+  }
+}
+
+.cabinet-col2 {
+  margin-left: calc(#{$col-gap} * -1);
+  width: calc(#{$col-part-d} * 6 - (#{$col-width-d} / 2) - 10px);
+}
+
+.anchor {
+  color: var(--color-brown);
+  cursor: pointer;
+}
+
+.restaurant-top-links {
+  padding-left: calc(#{$col-part-d});
+  padding-right: calc(#{$col-part-d});
+  justify-content: space-around;
+}
+
+.restaurant-benefit-fix {
+  .benefits-cell:nth-child(3) .benefits-cell__info {
+    margin-right: getRem(-10px);
+  }
 }

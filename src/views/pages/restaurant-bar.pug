@@ -30,13 +30,13 @@ block content
       +breadcrumbs(items = ['Ресторан'] page = 'Меню')
 
       .about-block
-        .menu-main-bg.lounge-main-section
+        .menu-main-bg.lounge-main-section(data-aos='fade-up')
           +big-titles.white-ttl(subttl='ресторан' ttl='Меню' h1)
 
-          +brown-button(data-popup-button='1')
+          +brown-button(data-popup-button='1' data-aos='fade-up')
             |Забронировать стол
 
-        .about-block-bottom.menu-tabs
+        .about-block-bottom.menu-tabs(data-aos='fade-up')
 
           .about-block-bottom__item.menu-tab.active
             +menu-ico-1
@@ -52,7 +52,7 @@ block content
     .container
       +big-titles.menu-wine-top(subttl='лучшие вина' ttl='Винная карта')
 
-      .menu-wine-body
+      .menu-wine-body(data-aos='fade-up')
         dl.menu-wine-col.js-badger-accordion.badger-accordion
           -
             const spoilers = [
