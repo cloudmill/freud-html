@@ -98,10 +98,10 @@ document.addEventListener('DOMContentLoaded', () => {
     addToFav(eventClick);
     addToCart(eventClick);
     activeFilter(eventClick);
+    anchorScroll(eventClick);
 
     // затухание при переходах по страницам
     if (eventClick.target.closest('a')) {
-      console.log('a');
 
       eventClick.preventDefault();
 
@@ -124,22 +124,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     });
   }
-
-  document.addEventListener('click', event => {
-    const target = event.target.closest('a')
-
-    if (target) {
-      event.preventDefault()
-
-      const href = target.getAttribute('href');
-
-      document.querySelector('.modals-container').classList.add('acrive');
-
-      setTimeout(() => {
-        window.location.assign(href)
-      }, 500);
-    }
-  })
 });
 
 window.addEventListener('load', () => {
@@ -156,7 +140,7 @@ window.addEventListener('load', () => {
 
   }, 1200);
 
-  // анимация открытия видео и выехжание заголовков на главной
+  // анимация открытия видео и выезжание заголовков на главной
   if (document.querySelector('.first-screen')) {
     document.querySelectorAll('[data-video-show]').forEach(item => {
       item.classList.add('loaded')
@@ -178,3 +162,20 @@ window.addEventListener('load', () => {
   });
 
 });
+
+function anchorScroll(eventClick) {
+
+  if (eventClick.target.closest('[data-anchor-btn]')) {
+
+    eventClick.preventDefault();
+
+    const activeId = eventClick.target.closest('[data-anchor-btn]').getAttribute('data-anchor-btn');
+
+    document.querySelector(`[data-anchor-target='${activeId}']`).scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
+    })
+
+  }
+
+}

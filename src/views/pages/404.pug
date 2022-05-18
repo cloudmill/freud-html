@@ -4,8 +4,20 @@ include ../components/buttons
 
 block content
   section.error-section.section--first
-    h1.error-section__ttl 404
-    .error-section__subttl страница не найдена
 
-    +brown-button-link.error-section__btn
-      |Главная
+    div(data-aos='fade-up')
+
+      h1.error-section__ttl 404
+
+      .error-section__subttl Такой страницы не существует. #[br] Куда дальше?
+
+      .error-section__btn-row
+
+        +brown-button-link.error-section__btn
+          |Главная
+
+        +brown-button-link.error-section__btn
+          |Магазин
+
+        +brown-button-link.error-section__btn
+          |Ресторан

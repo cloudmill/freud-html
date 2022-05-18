@@ -10,9 +10,10 @@ block content
 
   section.section--first
     .container
-      +breadcrumbs(items = ['Магазин'] page = 'Результаты поиска')
+      .category-page-head
+        +breadcrumbs(items = ['Магазин'] page = 'Результаты поиска')
 
-      .category-top.search-top
+      .category-top.search-top(data-aos='fade-up')
         .category-top__line
           
           .category-title-block
@@ -28,7 +29,7 @@ block content
           | товара по запросу «кубинская сигара»
 
 
-      .category-body
+      .category-body(data-aos='fade-up')
 
         - for (b=0;b<2;b++)
           -
@@ -60,7 +61,7 @@ block content
     .container
       +small-titles(ttl='Другие категории товаров')
 
-      .categories-slider.controls-out
+      .categories-slider.controls-out(data-aos='fade-up')
         .swiper-container#categories-slider
           .swiper-wrapper
             -

@@ -16,10 +16,10 @@ block content
         .contacts-block__top
           +big-titles(subttl='профессор фрейд' ttl='Доставка и оплата' h1)
 
-          .scroll-down
+          .scroll-down(data-aos='fade-up')
             .scroll-down__line
 
-      .delivery-row
+      .delivery-row(data-aos='fade-up')
         .delivery-row__item
           .delivery-row__item-ttl Самовывоз
 
@@ -29,7 +29,7 @@ block content
               .cart-pickup__info-ttl Адрес
               .cart-pickup__info-txt г. Санкт-Петербург, ул. Малая Морская, дом 18
 
-              button.button--clean.delivery-row__map-link Показать на карте
+              button.button--clean.delivery-row__map-link(data-popup-button='10') Показать на карте
 
           .cart-pickup__info-item
             +clock-ico.cart-pickup__svg
@@ -57,6 +57,12 @@ block content
             img(src="assets/images/icons/payment-1.png", alt="")
             img(src="assets/images/icons/payment-2.png", alt="")
             img(src="assets/images/icons/payment-3.png", alt="")
-            img(src="assets/images/icons/payment-4.png", alt="")
+            //- img(src="assets/images/icons/payment-4.png", alt="")
 
   include ../components/sections/subscribe-section
+
+block modals
+  include ../components/popups/pickup-popup
+
+block scripts
+  script(src="https://api-maps.yandex.ru/2.1/?apikey=9eaf2d45-34a5-4620-bac6-0482e9335845&lang=ru_RU" type="text/javascript")
