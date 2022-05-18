@@ -413,6 +413,7 @@
 .pickup-popup-map {
   margin-top: getRem(30px);
   height: getRem(385px);
+  width: 100%;
 }
 
 .about-benefit-ico {
@@ -423,4 +424,9 @@
 .gastronomy-ico-svg {
   width: getRem(20px);
   height: getRem(20px);
+}
+
+#map {
+  width: 100%;
+  height: 100%;
 }

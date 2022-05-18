@@ -18,6 +18,7 @@ import accordions from './scripts/spoiler';
 import tabs from './scripts/tabs';
 import popups from './scripts/popups';
 import dropdownsBlock from './scripts/dropdowns-block';
+import { initMap } from './scripts/map';
 
 import rangeSlider from './scripts/range-slider';
 
@@ -29,6 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   swipers();
   headerFavAndCartModals();
+  initMap();
 
   tabs();
 

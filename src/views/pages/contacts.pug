@@ -56,8 +56,8 @@ block content
               a.icon-circle(href="")
                 +wa-icon.wa-circle-ico
 
-          .contacts-block__map(data-aos='fade-up')
-            iframe(src="https://yandex.ru/map-widget/v1/?um=constructor%3A828b2df1c3e646ed9bf707043c5321cb8a73706508a8ea107668fd10d7a284aa&source=constructor", width="570", height="450", frameborder="0")
+          .contacts-block__map
+            #map
 
   include ../components/sections/rent-section
 
@@ -71,3 +71,6 @@ block modals
   include ../components/popups/review-popup
   include ../components/popups/consult-popup
   include ../components/popups/in-cart-popup
+
+block scripts
+  script(src="https://api-maps.yandex.ru/2.1/?apikey=9eaf2d45-34a5-4620-bac6-0482e9335845&lang=ru_RU" type="text/javascript")

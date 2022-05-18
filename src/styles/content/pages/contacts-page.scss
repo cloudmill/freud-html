@@ -60,4 +60,9 @@
       margin-right: getRem(8px);
     }
   }
+
+  &__map {
+    width: getRem(570px);
+    height: getRem(450px);
+  }
 }
