@@ -109,7 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       setTimeout(() => {
         window.location.assign(href)
-      }, 1200);
+      }, 600);
     }
 
   });
