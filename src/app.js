@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const href = eventClick.target.closest('a').getAttribute('href');
 
-      document.querySelector('.modals-container').classList.add('active');
+      document.querySelector('.modals-container').classList.add('fade');
 
       setTimeout(() => {
         window.location.assign(href)

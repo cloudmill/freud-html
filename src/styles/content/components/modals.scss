@@ -22,6 +22,10 @@
     pointer-events: all;
     background: var(--color-black-rgba-5);
   }
+
+  &.fade {
+    background: var(--color-white);
+  }
 }
 
 .modal {
