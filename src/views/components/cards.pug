@@ -14,7 +14,7 @@ mixin review-card
       |Читать полностью
 
 mixin article-card
-  .articles-card
+  a.articles-card(href='')
     .articles-card__top
       .catalog-card__labels
         .catalog-card__labels-item.label-brown сигары
@@ -27,7 +27,7 @@ mixin article-card
         .articles-card__txt #{attributes.txt}
 
       .articles-card__bottom-row
-        +read-more-btn 
+        +read-more-btn(data-atr='' btn)
           |Читать полностью
 
         .articles-card__info
@@ -35,11 +35,12 @@ mixin article-card
           .articles-card__info-col 5 мин
 
 mixin article-card-big
-  .articles-card--big(class=attributes.class)
+  a.articles-card--big(href='' class=attributes.class)
     .articles-card__top
       .catalog-card__labels
         .catalog-card__labels-item.label-brown сигары
-      +picture.articles-card__img(file=`shop-article-1`)
+      .articles-card__top-img
+        +picture.articles-card__img(file=`shop-article-1`)
 
     .articles-card__bottom
 
@@ -52,7 +53,7 @@ mixin article-card-big
         .articles-card__txt #{attributes.txt}
 
       .articles-card__bottom-row
-        +read-more-btn 
+        +read-more-btn(data-atr='' btn)
           |Читать полностью
 
 
