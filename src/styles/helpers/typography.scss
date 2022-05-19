@@ -1,5 +1,9 @@
 .h1 {
-  @include fsl(72px, 120%);
+  @include fsl(40px, 130%);
+
+  @media (min-width: $breakpoint) {
+    @include fsl(72px, 120%);
+  }
 }
 
 .h2 {

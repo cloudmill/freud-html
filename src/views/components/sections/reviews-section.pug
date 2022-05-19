@@ -5,7 +5,8 @@ section.section.section--grey.reviews-section
     .reviews-section__row
 
       .reviews-section__slider(data-aos='fade-up')
-        .reviews-section__col
+
+        .reviews-section__col.only-desktop
           +control-left#reviews-slider-prev
 
         .swiper-container#reviews-slider
@@ -16,7 +17,7 @@ section.section.section--grey.reviews-section
 
           .sliders-pagination#reviews-slider-pagination
 
-        .reviews-section__col
+        .reviews-section__col.only-desktop
           +control-right#reviews-slider-next
 
       .reviews-section__grade(data-aos='fade-up')

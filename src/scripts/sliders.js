@@ -1,6 +1,8 @@
 import Swiper, { Navigation, Pagination, Mousewheel, Thumbs } from 'swiper';
+import { mediaQuery } from './mediaQueries';
 
 function swipers() {
+
   const restaurantSlider = new Swiper('#restaurant-slider', {
 
     modules: [Navigation, Pagination],
@@ -21,8 +23,14 @@ function swipers() {
 
     modules: [Navigation, Pagination],
 
-    slidesPerView: 'auto',
+    slidesPerView: 1,
     spaceBetween: 30,
+
+    breakpoints: {
+      [1280]: {
+        slidesPerView: 'auto',
+      },
+    },
 
     navigation: {
       nextEl: '#reviews-slider-next',

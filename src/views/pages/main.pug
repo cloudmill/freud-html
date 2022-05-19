@@ -17,7 +17,7 @@ block content
             source(type="video/mp4" src="assets/videos/main-video-comp.mp4")
             //- source(type="video/mp4" src="assets/videos/freud-main.mp4")
 
-          video.first-screen__video.left(autoplay='true' loop='true' muted='true' poster="assets/images/main-vid-poster.png")
+          video.first-screen__video.left.only-desktop(autoplay='true' loop='true' muted='true' poster="assets/images/main-vid-poster.png")
             //- source(type="video/mp4" src="assets/videos/main-video-bg.mp4")
             source(type="video/webm" src="assets/videos/main-video-comp.webm")
             source(type="video/mp4" src="assets/videos/main-video-comp.mp4")
@@ -25,13 +25,13 @@ block content
 
         .first-screen
 
-          .first-screen__col1(data-video-show)
+          .first-screen__col1.only-desktop(data-video-show)
 
           .first-screen__col2
 
             .first-screen__txt(data-aos='fade-up') Для ценителей комфорта, #[br] приватности и высокого сервиса
 
-          .first-screen__col3
+          .first-screen__col3.only-desktop
             .first-screen__col3-bg
             .first-screen__col3-transp(data-video-show)
 
@@ -42,6 +42,8 @@ block content
               span.from-left Фрейд
             span.first-screen__ttl--small(data-aos='fade-up') частный клуб
 
+          +brown-button.only-mobile.first-screen__mob-btn
+            |Забронировать
         
 
       .first-screen__bottom(data-aos='fade-up')
@@ -68,14 +70,17 @@ block content
         .main-page-block__col
           |Частный клуб «Профессор Фрейд» — это концептуальный проект с уникальным форматом. Место ориентировано на людей, для которых важны камерная атмосфера, приватность и высокий сервис.
 
-        .main-page-block__col
+        .main-page-block__col.only-desktop
           |Клуб идеально подойдет как для поклонников сигарной культуры, так и знатоков вина, ценителей крепкого алкоголя или гастрономии
 
       .main-page-block__bottom(data-aos='fade-up')
 
         each item in ['Хьюмидорная комната', 'Сигарный лаунж', 'Кабинет Фрейда', 'Ресторан с баром', 'Винотека в формате bar&shop']
 
-          a.main-page-block__bottom-links(href="") #{item}
+          a.main-page-block__bottom-links(href="")
+            |#{item}
+            .arrow.only-mobile
+              +arrow-right
 
   section.section.lounge-section
     .container
@@ -84,7 +89,8 @@ block content
 
           div
 
-            +big-titles(ttl='Сигарный' ttl2='лаунж' subttl='стиль Gentlman’s Club')
+            +big-titles.only-desktop(ttl='Сигарный' ttl2='лаунж' subttl='стиль Gentlman’s Club')
+            +big-titles.only-mobile(ttl='Сигарный лаунж' subttl='стиль Gentlman’s Club')
 
             .two-cols-block__txt(data-aos='fade-up')
               |Атмосфера лаунжа выдержана в стиле #[br] Gentlman’s Club. Каждая деталь продумана и выполнена с любовью
@@ -114,7 +120,8 @@ block content
 
     +big-titles.white-ttl.relative(ttl='Деловая обстановка' subttl='место для деловых встреч')
 
-    .two-cols-block__txt.txt-white.relative(data-aos='fade-up') Профессионализм и компетентность сотрудников гарантируют #[br] гостям комфортное времяпрепровождение
+    .two-cols-block__txt.txt-white.relative.only-desktop(data-aos='fade-up') Профессионализм и компетентность сотрудников гарантируют #[br] гостям комфортное времяпрепровождение
+    .two-cols-block__txt.txt-white.relative.only-mobile(data-aos='fade-up') Для комфортного времяпрепровождения
 
     +brown-button.relative(data-popup-button='1' data-aos='fade-up')
       |Забронировать стол
@@ -126,7 +133,7 @@ block content
           +big-titles(ttl='Ресторан' subttl='строгость и элегантность' txt='Неповторимая эстетика «ревущих двадцатых», строгость и элегантность ушедшей эпохи. Строгий контроль качества продуктов и внимание наших сотрудников позволят в полной мере насладиться временем, проведенным в наших стенах')
 
         .restaurant-slider(data-aos='fade-up')
-          .restaurant-slider__col
+          .restaurant-slider__col.only-desktop
             +control-left#restaurant-slider-prev
 
           .restaurant-slider__container
@@ -138,7 +145,7 @@ block content
 
             .sliders-pagination#restaurant-slider-pagination
 
-          .restaurant-slider__col
+          .restaurant-slider__col.only-desktop
             +control-right#restaurant-slider-next
 
   include ../components/sections/subscribe-section

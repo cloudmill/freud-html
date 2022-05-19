@@ -1,7 +1,18 @@
 mixin header
   header.header
 
-    .header-body(data-aos='fade-up')
+    .header-mobile
+      a.header__logo(href="" tabindex="0") 
+        +logo.header__logo-svg
+
+      .header-mobile__buttons
+        button.button--clean.header-mobile__buttons-item
+          +header-callback
+
+        button.button--clean.header-mobile__buttons-item
+          +mob-burger
+
+    .header-body.only-desktop(data-aos='fade-up')
 
       .header__top
         .container
@@ -62,7 +73,7 @@ mixin header
                 |Забронировать
 
 
-    .header-modals
+    .header-modals.only-desktop
 
       .header-modals__item(data-header-modal='0')
         .container
@@ -178,7 +189,7 @@ mixin header
           +brown-border-button
             |Перейти в корзину
 
-    .active-filters-row
+    .active-filters-row.only-desktop
       .container
         .active-filters-row__container
           button.category-filter-drop.button--clean(data-popup-button='3')

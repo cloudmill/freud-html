@@ -35,7 +35,11 @@
 
 .restaurant-slider {
   display: flex;
-  margin-top: getRem(150px);
+  margin-top: getRem(45px);
+
+  @media (min-width: $breakpoint) {
+    margin-top: getRem(150px);
+  }
 
   &__col {
     width: calc(#{$col-part-d});
@@ -49,8 +53,11 @@
   }
 
   &__container {
-    width: calc(#{$col-part-d} * 10 - #{$col-gap});
     overflow: hidden;
+
+    @media (min-width: $breakpoint) {
+      width: calc(#{$col-part-d} * 10 - #{$col-gap});
+    }
   }
 }
 
@@ -96,9 +103,12 @@
   display: flex;
 
   .swiper-container {
-    width: calc(#{$col-part-d} * 8 - #{$col-gap});
     overflow: hidden;
     height: fit-content;
+
+    @media (min-width: $breakpoint) {
+      width: calc(#{$col-part-d} * 8 - #{$col-gap});
+    }
   }
 
   &-slide {

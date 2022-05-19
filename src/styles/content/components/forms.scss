@@ -62,22 +62,30 @@
 
 
 .subscription-form {
+
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
 
   margin-top: getRem(30px);
-  padding-left: calc(#{$col-part-d} * 6);
+  
+
+  @media (min-width: $breakpoint) {
+    padding-left: calc(#{$col-part-d} * 6);
+  }
 
   &__row {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
     width: 100%;
+
+    @media (max-width: ($breakpoint - 1px)) {
+      flex-direction: column;
+    }
   }
 
   &__input {
-    width: calc(#{$col-part-d} * 3 - #{$col-gap});
     padding: getRem(11px) getRem(20px);
     background: #303030;
     border: none;
@@ -85,13 +93,22 @@
     color: var(--color-grey);
 
     @include fsl(16px, 160%);
+
+    @media (min-width: $breakpoint) {
+      width: calc(#{$col-part-d} * 3 - #{$col-gap});
+    }
   }
 
   &__button {
-    width: calc(#{$col-part-d} * 3 - #{$col-gap});
+    margin-top: getRem(20px);
 
     &:hover {
       background: var(--hover-on-black);
+    }
+
+    @media (min-width: $breakpoint) {
+      margin-top: 0;
+      width: calc(#{$col-part-d} * 3 - #{$col-gap});
     }
   }
 

@@ -10,10 +10,19 @@
   left: 0;
   bottom: 0;
 
+  @media (max-width: ($breakpoint - 1px)) {
+    height: 100%;
+    flex-direction: column-reverse;
+  }
+
   &-container {
     position: relative;
-    margin-bottom: getRem(25px);
-    height: getRem(670px);
+    height: getRem(500px);
+
+    @media (min-width: $breakpoint) {
+      height: getRem(670px);
+      margin-bottom: getRem(25px);
+    }
   }
 
   &__col1 {
@@ -42,10 +51,13 @@
     display: flex;
     align-items: flex-end;
     width: 100%;
-    height: getRem(670px);
-    background: var(--color-light-grey);
 
     position: relative;
+
+    @media (min-width: $breakpoint) {
+      height: getRem(670px);
+      background: var(--color-light-grey);
+    }
   }
   &__col3 {
     width: getRem(253px);
@@ -105,6 +117,16 @@
       left: 1px;
       bottom: 2px;
       overflow: hidden;
+
+      @media (max-width: ($breakpoint - 1px)) {
+        left: calc(#{$col-width-m});
+        right: calc(#{$col-width-m});
+
+        top: 0;
+        bottom: unset;
+
+        height: getRem(410px);
+      }
     }
   }
 
@@ -123,12 +145,16 @@
   }
 
   &__txt {
-    @include fsl(26px, 130%);
-
+    @include fsl(18px, 160%);
+    text-align: center;
     width: 100%;
-    text-align: right;
+    padding-top: getRem(30px);
 
-    padding: 0 getRem(84px) getRem(110px) calc(#{$col-part-d});
+    @media (min-width: $breakpoint) {
+      @include fsl(26px, 130%);
+      text-align: right;
+      padding: 0 getRem(84px) getRem(110px) calc(#{$col-part-d});
+    }
   }
 
   &__ttl {
@@ -138,6 +164,13 @@
     
     // text-indent: getRem(110px);
     // max-width: getRem(600px);
+
+    @media (max-width: ($breakpoint - 1px)) {
+      width: 100%;
+      top: getRem(90px);
+      left: 0;
+      padding-top: getRem(25px);
+    }
 
     &.loaded {
       .from-right, .from-left {
@@ -153,11 +186,19 @@
   
       @include fsl(144px, 125%);
 
+      @media (max-width: ($breakpoint - 1px)) {
+        @include fsl(56px, 130%);
+      }
+
       .from-right {
         display: inline-block;
         margin-left: getRem(110px);
         transform: translateX(200%);
         transition: 1.2s $transition-func;
+
+        @media (max-width: ($breakpoint - 1px)) {
+          margin-left: getRem(30px);
+        }
       }
       .from-left {
         display: inline-block;
@@ -169,15 +210,24 @@
     &--small {
       font-family: $ff-main;
       color: var(--color-brown);
-      @include fsl(13px, 130%);
+      @include fsl(11px, 130%);
       font-weight: 700;
       letter-spacing: 0.17em;
       text-transform: uppercase;
 
       position: absolute;
-      top: getRem(34px);
-      left: getRem(300px);
       white-space: nowrap;
+
+      @media (min-width: $breakpoint) {
+        @include fsl(13px, 130%);
+        top: getRem(34px);
+        left: getRem(300px);
+      }
+
+      @media (max-width: ($breakpoint - 1px)) {
+        top: 0;
+        right: calc(#{$col-width-m} + #{getRem(20px)});
+      }
     }
   }
 
@@ -192,6 +242,7 @@
     align-items: flex-end;
 
     padding: 0 #{$col-pad-d} getRem(30px);
+
     @media (max-width: ($breakpoint - 1px)) {
       padding: 0 #{$col-pad-m} getRem(30px);
     }
@@ -199,6 +250,10 @@
     &-col {
       width: calc(#{$col-part-d});
     }
+  }
+
+  &__mob-btn {
+    margin: 0 auto getRem(50px);
   }
 }
 
@@ -219,18 +274,26 @@
   align-items: center;
 
   &__txt {
-    @include fsl(13px, 140%);
+    @include fsl(11px, 150%);
     font-weight: 600;
     letter-spacing: 0.1em;
     text-transform: uppercase;
+
+    @media (min-width: $breakpoint) {
+      @include fsl(13px, 140%);
+    }
   }
 
   &__line {
     margin-top: getRem(10px);
 
     width: 1px;
-    height: getRem(50px);
+    height: getRem(30px);
     background: var(--color-black);
+
+    @media (min-width: $breakpoint) {
+      height: getRem(50px);
+    }
   }
 }
 
@@ -250,13 +313,20 @@
     display: flex;
     justify-content: space-between;
 
-    padding: getRem(48px) 0 getRem(150px) calc(#{$col-part-d} * 3);
+    padding: getRem(8px) 0 getRem(45px);
+
+    @media (min-width: $breakpoint) {
+      padding: getRem(48px) 0 getRem(150px) calc(#{$col-part-d} * 3);
+    }
 
     #{$comp}__col {
-      width: calc(#{$col-part-d} * 4 - #{$col-gap});
-
-      @include fsl(20px, 160%);
+      @include fsl(16px, 160%);
       color: var(--color-border-grey);
+
+      @media (min-width: $breakpoint) {
+        width: calc(#{$col-part-d} * 4 - #{$col-gap});
+        @include fsl(20px, 160%);
+      }
     }
   }
 
@@ -268,12 +338,47 @@
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     padding-top: getRem(30px);
 
+    @media (max-width: ($breakpoint - 1px)) {
+      flex-direction: column;
+      padding-top: 0;
+    }
+
     &-links {
       @include fsl(18px, 150%);
       color: var(--color-white);
       font-weight: 600;
       letter-spacing: 0.1em;
       text-transform: uppercase;
+
+      @media (max-width: ($breakpoint - 1px)) {
+        display: flex;
+        justify-content: space-between;
+
+        @include fsl(16px, 150%);
+        padding: getRem(20px) 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .arrow {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid var(--color-white);
+        border-radius: 50%;
+
+        width: getRem(28px);
+        height: getRem(28px);
+        margin-left: getRem(50px);
+
+        svg {
+          width: getRem(48px);
+          height: getRem(8px);
+
+          path {
+            stroke: var(--color-white);
+          }
+        }
+      }
     }
   }
 }
@@ -285,31 +390,59 @@
   display: flex;
   justify-content: space-between;
 
+  @media (max-width: ($breakpoint - 1px)) {
+    flex-direction: column;
+  }
+
   &__col {
-    width: calc(#{$col-part-d} * 6 - #{$col-gap});
 
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 
+    @media (min-width: $breakpoint) {
+      width: calc(#{$col-part-d} * 6 - #{$col-gap});
+    }
+
     &:nth-child(1) {
-      padding-top: getRem(60px);
+      margin-bottom: getRem(20px);
+
+      @media (min-width: $breakpoint) {
+        padding-top: getRem(60px);
+        margin-bottom: 0;
+      }
 
       img {
-        margin-top: getRem(213px);
+        margin-top: getRem(30px);
+
+        @media (min-width: $breakpoint) {
+          margin-top: getRem(213px);
+        }
       }
 
       #{$comp}__txt {
-        margin-top: getRem(20px);
-        width: calc(#{$col-part-d} * 4 - #{$col-gap});
+        margin-top: getRem(8px);
+
+        @media (min-width: $breakpoint) {
+          margin-top: getRem(20px);
+          width: calc(#{$col-part-d} * 4 - #{$col-gap});
+        }
       }
     }
     
     &:nth-child(2) {
-      padding-bottom: getRem(65px);
+
+      @media (min-width: $breakpoint) {
+        padding-bottom: getRem(65px);
+      }
 
       .txt-block {
-        padding-left: calc(#{$col-part-d});
+        margin-top: getRem(30px);
+        
+        @media (min-width: $breakpoint) {
+          margin-top: 0;
+          padding-left: calc(#{$col-part-d});
+        }
       }
 
       // #{$comp}__txt {
@@ -319,8 +452,11 @@
   }
 
   &__txt {
-    @include fsl(20px, 160%);
-    
+    @include fsl(16px, 160%);
+
+    @media (min-width: $breakpoint) {
+      @include fsl(20px, 160%);
+    }
   }
 
   &__link {
@@ -339,6 +475,10 @@
       color: var(--color-brown);
       border-color: var(--color-brown);
     }
+
+    @media (min-width: $breakpoint) {
+      @include fsl(16px, 150%);
+    }
   }
 
   &__pl {
@@ -349,14 +489,22 @@
 .lounge-section {
   .two-cols-block__col:nth-child(2) {
     .two-cols-block__txt {
-      margin-bottom: getRem(30px);
+      margin-bottom: getRem(15px);
+
+      @media (min-width: $breakpoint) {
+        margin-bottom: getRem(30px);
+      }
     }
   }
 }
 
 .section-bg-photo {
-  padding: getRem(250px) 0;
+  padding: getRem(185px) 0;
   text-align: center;
+
+  @media (min-width: $breakpoint) {
+    padding: getRem(250px) 0;
+  }
 
   .two-cols-block__txt {
     margin-top: getRem(8px);
@@ -369,12 +517,18 @@
 
 .restaurant-block {
   &__col {
-    width: calc(#{$col-part-d} * 6 - #{$col-gap});
-    padding-right: calc(#{$col-part-d});
-    margin: 0 0 0 auto;
+    @media (min-width: $breakpoint) {
+      width: calc(#{$col-part-d} * 6 - #{$col-gap});
+      padding-right: calc(#{$col-part-d});
+      margin: 0 0 0 auto;
+    }
   }
   .big-titles__txt {
-    margin-top: getRem(15px);
+    margin-top: getRem(8px);
+
+    @media (min-width: $breakpoint) {
+      margin-top: getRem(15px);
+    }
   }
 }
 
@@ -389,6 +543,10 @@
   &__row {
     margin-top: getRem(45px);
     display: flex;
+
+    @media (max-width: ($breakpoint - 1px)) {
+      flex-direction: column;
+    }
   }
 
   &__col {
@@ -408,13 +566,20 @@
   }
 
   &__grade {
-    width: calc(#{$col-part-d} * 3 - #{$col-gap});
 
     display: flex;
     flex-direction: column;
     justify-content: center;
 
     padding-bottom: getRem(40px);
+
+    @media (min-width: $breakpoint) {
+      width: calc(#{$col-part-d} * 3 - #{$col-gap});
+    }
+
+    @media (max-width: ($breakpoint - 1px)) {
+      text-align: center;
+    }
 
     &-big {
       font-family: 'Berlingske Serif';

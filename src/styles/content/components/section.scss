@@ -1,5 +1,9 @@
 .section {
-  padding: getRem(150px) 0;
+  padding: getRem(60px) 0;
+
+  @media (min-width: $breakpoint) {
+    padding: getRem(150px) 0;
+  }
 
   &--first {
     margin-top: getRem(128px);
@@ -18,7 +22,12 @@
   }
 
   &--main-page {
-    padding-top: getRem(218px);
+    padding-top: getRem(120px);
+    padding-bottom: getRem(132px);
+
+    @media (min-width: $breakpoint) {
+      padding-top: getRem(218px);
+    }
   }
 
   &--black {

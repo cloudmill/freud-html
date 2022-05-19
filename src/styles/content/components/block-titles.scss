@@ -1,11 +1,15 @@
 .big-titles {
 
   &__subttl {
-    @include fsl(13px, 130%);
+    @include fsl(11px, 130%);
     font-weight: 700;
     letter-spacing: 0.13em;
     text-transform: uppercase;
     color: var(--color-brown);
+
+    @media (min-width: $breakpoint) {
+      @include fsl(13px, 130%);
+    }
   }
 
   &__ttl {
@@ -13,7 +17,11 @@
   }
 
   &__txt {
-    @include fsl(20px, 160%);
+    @include fsl(16px, 160%);
+
+    @media (min-width: $breakpoint) {
+      @include fsl(20px, 160%);
+    }
 
     p {
       margin-top: getRem(15px);
