@@ -409,6 +409,9 @@
 }
 
 .policy-links {
+  position: sticky;
+  top: getRem(150px);
+
   padding: getRem(30px);
   background: var(--background-grey-extra-2);
 
@@ -470,5 +473,17 @@
 .restaurant-benefit-fix {
   .benefits-cell:nth-child(3) .benefits-cell__info {
     margin-right: getRem(-10px);
+  }
+}
+
+[data-anchor-target] {
+  position: relative;
+
+  .anchor {
+    position: absolute;
+    display: block;
+    pointer-events: none;
+    top: getRem(-150px);
+    height: getRem(150px);
   }
 }

@@ -169,13 +169,15 @@ function anchorScroll(eventClick) {
 
     eventClick.preventDefault();
 
+    document.querySelectorAll('[data-anchor-target]').forEach(item => {
+      item.insertAdjacentHTML('afterbegin', '<div class="anchor"></div>')
+    })
+
     const activeId = eventClick.target.closest('[data-anchor-btn]').getAttribute('data-anchor-btn');
 
-    document.querySelector(`[data-anchor-target='${activeId}']`).scrollIntoView({
+    document.querySelector(`[data-anchor-target='${activeId}']`).querySelector('.anchor').scrollIntoView({
       behavior: 'smooth',
       block: 'start'
     })
-
   }
-
 }
