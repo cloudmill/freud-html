@@ -1,0 +1,29 @@
+extends ../layouts/master
+
+include ../components/buttons
+include ../components/cards
+include ../components/breadcrumbs
+include ../components/block-titles
+include ../components/picture
+
+block content
+
+  section.section--first.section--bottom
+    .container
+      .category-page-head
+        +breadcrumbs(page = 'Избранное')
+
+      .category-top.favorites-top(data-aos='fade-up')
+        .category-top__line
+          
+          .category-title-block
+            h1.category-title.h2 Избранное
+            .category-items-count 0 товаров
+
+      
+      .cart-empty-block(data-aos='fade-up')
+        .cart-empty-block__ttl(data-aos='fade-up') В Избранном пока ничего нет
+        .cart-empty-block__txt.favorites-emty-txt(data-aos='fade-up') Добавляйте товары с помощью
+          +favorites-icon
+        +brown-border-link.cart-empty-block__btn(data-aos='fade-up')
+          |Перейти в каталог

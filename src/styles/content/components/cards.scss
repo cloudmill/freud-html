@@ -230,8 +230,10 @@
     padding: getRem(20px) getRem(15px);
     height: auto;
 
+    #{$comp}__bottom {
+      padding: 0;
+    }
     #{$comp}__brand {
-      color: var(--color-black);
       @include fsl(14px, 130%);
     }
     #{$comp}__title {

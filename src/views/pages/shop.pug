@@ -16,7 +16,7 @@ block content
 
         +big-titles.shop-page-head__titles(subttl=`более 1000 товаров  в наличии` ttl='Магазин' txt='В нашем интернет-магазине вы найдете коллекцию лучших сигар,' txt2='терпкого алкоголя и ярких вин' h1)
 
-        .shop-page-head__categories(data-aos='fade-up')
+        .shop-page-head__categories
 
           -
             const cards = [
@@ -31,7 +31,7 @@ block content
             ]
 
           each item in cards
-            a.shop-page-head__card(href="")
+            a.shop-page-head__card(href="" data-aos='fade-up')
               .shop-page-head__card-img
                 +picture(file=`${item.file}`)
               .shop-page-head__card-ttl #{item.ttl}

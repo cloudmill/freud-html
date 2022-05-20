@@ -179,6 +179,8 @@
   text-transform: none;
   cursor: pointer;
 
+  transition: $transition;
+
   &.active {
     border: 1px solid var(--color-brown);
   }
@@ -432,7 +434,7 @@
   width: 100%;
 }
 
-.about-benefit-ico {
+.about-benefit-ico, .humidor-benefit-ico, .lounge-benefit-ico, .vine-benefit-ico, .cabinet-benefit-ico, .restaurant-benefit-ico {
   width: getRem(60px);
   height: getRem(60px);
 }
@@ -485,5 +487,14 @@
     pointer-events: none;
     top: getRem(-150px);
     height: getRem(150px);
+  }
+}
+
+.favorites-emty-txt {
+  display: flex;
+  align-items: center;
+
+  svg {
+    margin-left: getRem(10px);
   }
 }

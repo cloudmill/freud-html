@@ -10,7 +10,7 @@ block content
     .container
       .cart-section
 
-        .cart-section__top
+        .cart-section__top(data-aos='fade-up')
           h1.title-font.h2 Оформление заказа
           a.cart-section__back-link(href="") Вернуться к покупкам
 
@@ -18,13 +18,13 @@ block content
 
           .cart-section__col.cart-final
 
-            .cart-final__top
+            .cart-final__top(data-aos='fade-up')
 
               .cart-final__ttl.h4.title-font Заказ № 1156 создан
 
               .cart-final__txt Менеджер свяжется с вами для уточнения деталей в ближайшее время
 
-            .cart-products-notactive
+            .cart-products-notactive(data-aos='fade-up')
               - for (a=0;a<3;a++)
                 .cart-products-item
                   +picture.cart-products-item__img(file='shop-img-1')
@@ -33,7 +33,7 @@ block content
                     div &nbsp;—&nbsp;
                     .cart-products-item__price 13 820 ₽
                 
-            .cart-final__info
+            .cart-final__info(data-aos='fade-up')
               .cart-pickup
                 .cart-pickup__info
                   .cart-pickup__ttl Самовывоз из клуба «Профессор Фрейд»
@@ -58,7 +58,7 @@ block content
                 .cart-pickup__map
                   #map
 
-            .cart-final__info
+            .cart-final__info(data-aos='fade-up')
               .cart-final-delivery
                 .cart-pickup__ttl Доставка
 
@@ -73,13 +73,13 @@ block content
                   div
                     .cart-pickup__info-ttl Стоимость доставки уточнит менеджер
 
-            +brown-button.cart-pickup__btn
+            +brown-button.cart-pickup__btn(data-aos='fade-up')
               |Вернуться на главную
                   
 
           .cart-section__col
 
-            .cart-result
+            .cart-result(data-aos='fade-up')
               .cart-result__ttl Итого
               .cart-result__row
                 .cart-result__name 3 товара на сумму

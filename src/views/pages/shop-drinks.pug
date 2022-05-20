@@ -13,7 +13,7 @@ block content
       .category-page-head
         +breadcrumbs(items = ['Магазин'] page = 'Вина')
 
-      .category-top
+      .category-top(data-aos='fade-up')
         .category-top__line
           
           .category-title-block
@@ -63,7 +63,7 @@ block content
           button.category-filter-btn.button--clean.filter-reset
               |Очистить все
 
-      .category-body
+      .category-body(data-aos='fade-up')
 
         - for (b=0;b<4;b++)
           -

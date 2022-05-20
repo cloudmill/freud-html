@@ -13,7 +13,7 @@ block content
       +breadcrumbs(items = ['Магазин', 'Вина'] page = 'Вино Masseto, Toscana IGT')
 
       .product-top
-        .product-top-picture
+        .product-top-picture(data-aos='fade-up')
           .product-top-gallery
             .swiper-container#gallery-slider
               .swiper-wrapper
@@ -28,7 +28,7 @@ block content
                   .swiper-slide
                     +picture(file='product-2')
 
-        .product-top-info
+        .product-top-info(data-aos='fade-up')
 
           .product-top-labels
             .catalog-card__labels-item.label-black NEW
@@ -107,7 +107,7 @@ block content
 
       .product-body
 
-        article.product-body__block
+        article.product-body__block(data-aos='fade-up')
 
           h2.h4.title-font.product-body__ttl Описание
 
@@ -140,7 +140,7 @@ block content
           p.product-body__txt Красное — мощное, насыщенное, выдержанное в дубе
 
         
-        .product-body__block
+        .product-body__block(data-aos='fade-up')
           h2.h4.title-font.product-body__ttl Характеристики
 
           dl.product-body-info
@@ -231,7 +231,7 @@ block content
                 .product-top-table__line
                 dd.product-top-table__value Мерло
 
-        .product-body__block
+        .product-body__block(data-aos='fade-up')
           h2.h4.title-font.product-body__ttl Способы оплаты и получения заказа
 
           .product-body__payment
@@ -252,7 +252,7 @@ block content
               +read-more-btn
                 |Доставка и оплата
 
-        .product-body__block
+        .product-body__block(data-aos='fade-up')
           form.product-body-consult(novalidate)
             h2.h4.title-font.product-body__ttl Получите консультацию специалиста
 

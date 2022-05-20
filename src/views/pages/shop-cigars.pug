@@ -13,7 +13,7 @@ block content
       .category-page-head
         +breadcrumbs(items = ['Магазин'] page = 'сигары')
 
-      .category-top
+      .category-top(data-aos='fade-up')
         .category-top__line
           
           .category-title-block
@@ -52,7 +52,7 @@ block content
           button.category-filter-btn.button--clean.filter-reset
               |Очистить все
 
-      .category-body
+      .category-body(data-aos='fade-up')
 
         - for (b=0;b<6;b++)
           -
@@ -73,7 +73,7 @@ block content
           each item in content
             +catalog-card(img=`${item.img}` brand=`${item.brand}` ttl=`${item.ttl}` txt=`${item.txt}` price=`${item.price}`)
 
-      +brown-border-button.more-btn
+      +brown-border-button.more-btn(data-aos='fade-up')
         |Посмотреть еще
 
   //- section.section.section--grey
@@ -101,7 +101,7 @@ block content
     .container
       +small-titles(ttl='Другие категории товаров')
 
-      .categories-slider.controls-out
+      .categories-slider.controls-out(data-aos='fade-up')
         .swiper-container#categories-slider
           .swiper-wrapper
             -

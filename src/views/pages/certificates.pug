@@ -16,7 +16,7 @@ block content
         .contacts-block__top
           +big-titles(subttl='профессор фрейд' ttl='Подарочные сертификаты' txt='Элегантный дизайн сертификата создаст наилучшие' txt2='впечатления о подарке' h1)
 
-          .scroll-down
+          .scroll-down(data-aos='fade-up')
             .scroll-down__line
 
   section.section--bottom.lounge-section
@@ -30,31 +30,33 @@ block content
 
             +small-titles(ttl='Сертификат' ttl2='на ужин в ресторане')
 
-            .certificates-block__txt
+            .certificates-block__txt(data-aos='fade-up')
               |Особенный подарок для любого случая. Камерная атмосфера, изысканное меню и обширная винная карта позволят в полной мере насладиться временем проведенным в нашем клубе
 
-            +brown-button.certificates-block__btn(data-popup-button='7')
+            +brown-button.certificates-block__btn(data-popup-button='7' data-aos='fade-up')
               |Заказать сертификат
 
-            .certificates-block__note Закажите сертификат заранее и мы подготовим #[br] его к вашему приезду. Cертификат может быть любого номинала
+            .certificates-block__note(data-aos='fade-up') Закажите сертификат заранее и мы подготовим #[br] его к вашему приезду. Cертификат может быть любого номинала
 
-          +picture.certificates-block__img(file='certificates-col-1')
+          div(data-aos='fade-up')
+            +picture.certificates-block__img(file='certificates-col-1')
 
         .certificates-block__row
 
-          +picture.certificates-block__img(file='certificates-col-2')
+          div(data-aos='fade-up')
+            +picture.certificates-block__img(file='certificates-col-2')
 
           .certificates-block__info
 
             +small-titles(ttl='Сертификат' ttl2='на сигары и алкоголь')
 
-            .certificates-block__txt
+            .certificates-block__txt(data-aos='fade-up')
               |В нашем хьюминдоре вы найдете широкий ассортимент сигар Кубы и Карибского бассейна, а винотека порадует большой коллекцией вин Старого Света и уникальными позициями крепкого алкоголя
 
-            +brown-button.certificates-block__btn(data-popup-button='7')
+            +brown-button.certificates-block__btn(data-popup-button='7' data-aos='fade-up')
               |Заказать сертификат
 
-            .certificates-block__note Закажите сертификат заранее и мы подготовим #[br] его к вашему приезду. Cертификат может быть любого номинала
+            .certificates-block__note(data-aos='fade-up') Закажите сертификат заранее и мы подготовим #[br] его к вашему приезду. Cертификат может быть любого номинала
           
 
   include ../components/sections/rules-section

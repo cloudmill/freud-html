@@ -19,15 +19,15 @@ block content
           +brown-button(data-popup-button='1' data-aos='fade-up')
             |Забронировать стол
 
-        .about-block-bottom.menu-tabs(data-aos='fade-up')
+        .about-block-bottom.menu-tabs(data-tabs data-aos='fade-up')
 
-          .about-block-bottom__item.menu-tab.active
+          .about-block-bottom__item.menu-tab.active(data-tabs-item)
             +menu-ico-1
             |Основное
 
           each item, index in ['Крабовое', 'Винная карта', 'Барная карта', 'Б/а напитки']
 
-            .about-block-bottom__item.menu-tab
+            .about-block-bottom__item.menu-tab(data-tabs-item)
               +menu-ico(index)
               |#{item}
 

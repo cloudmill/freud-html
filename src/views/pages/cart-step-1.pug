@@ -11,7 +11,7 @@ block content
     .container
       .cart-section
 
-        .cart-section__top
+        .cart-section__top(data-aos='fade-up')
           h1.title-font.h2 Оформление заказа
           a.cart-section__back-link(href="") Вернуться к покупкам
 
@@ -20,7 +20,7 @@ block content
           .cart-section__col
 
             .cart-stage.open
-              .cart-stage__row
+              .cart-stage__row(data-aos='fade-up')
                 .cart-stage__row-col
                   .cart-stage__count 1/3
                   .cart-stage__ttl.h4.title-font Ваши товары
@@ -30,7 +30,7 @@ block content
 
                 .cart-stage__product-list
                   - for (i=0;i<3;i++)
-                    .card-product
+                    .card-product(data-aos='fade-up')
                       .card-product__img
                         .catalog-card__labels
                           .catalog-card__labels-item.label-black NEW
@@ -58,12 +58,12 @@ block content
                       .card-product__last-col
                         button.card-product__btn.button--clean(data-popup-button='6') Удалить
 
-                +brown-button.cart-stage__product-list-btn
+                +brown-button.cart-stage__product-list-btn(data-aos='fade-up')
                   |Перейти к оформлению
 
                 .cart-stage__recommend
-                  .cart-stage__recommend-ttl.h4.title-font С этими товарами покупают
-                  .cart-stage__recommend-row
+                  .cart-stage__recommend-ttl.h4.title-font(data-aos='fade-up') С этими товарами покупают
+                  .cart-stage__recommend-row(data-aos='fade-up')
                     - for (a=0;a<2;a++)
                       -
                         var content = [
@@ -80,13 +80,13 @@ block content
                       each item in content
                         +catalog-card-small(img=`${item.img}` brand=`${item.brand}` ttl=`${item.ttl}` price=`${item.price}`)
 
-            .cart-stage.collapsed
+            .cart-stage.collapsed(data-aos='fade-up')
               .cart-stage__row
                 .cart-stage__row-col
                   .cart-stage__count 2/3
                   .cart-stage__ttl.h4.title-font Контактные данные
 
-            .cart-stage.collapsed
+            .cart-stage.collapsed(data-aos='fade-up')
               .cart-stage__row
                 .cart-stage__row-col
                   .cart-stage__count 3/3
@@ -94,7 +94,7 @@ block content
 
           .cart-section__col
 
-            .cart-result
+            .cart-result(data-aos='fade-up')
               .cart-result__ttl Итого
               .cart-result__row
                 .cart-result__name 3 товара на сумму
@@ -110,7 +110,7 @@ block content
                 .cart-result__name К оплате
                 .cart-result__value 120 000 ₽
 
-            .cart-promocode
+            .cart-promocode(data-aos='fade-up')
               input.cart-promocode__input(type='text' placeholder='Ввести промокод')
 
               button.button--clean.cart-promocode-send

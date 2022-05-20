@@ -5,7 +5,7 @@ function addToFav(eventClick) {
 }
 
 function addToCart(eventClick) {
-  if (eventClick.target.closest('.catalog-card__btn')) {
+  if (eventClick.target.closest('.catalog-card__btn') && !eventClick.target.closest('.catalog-card--small')) {
     
     if (eventClick.target.closest('.catalog-card.in-cart')) {
 

@@ -51,6 +51,10 @@
       "title": "Избранное"
     },
     {
+      "href": "favorites-empty",
+      "title": "Избранное пустое"
+    },
+    {
       "href": "about",
       "title": "О клубе"
     },
@@ -105,6 +109,10 @@
     {
       "href": "search",
       "title": "Результаты поиска"
+    },
+    {
+      "href": "search",
+      "title": "[Результаты поиска] пустые"
     },
     {
       "href": "policy",
