@@ -556,3 +556,38 @@
   @include fsl(18px, 160%);
   margin-bottom: getRem(20px);
 }
+
+.success-popup {
+
+  .review-popup__body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  &__icon {
+    width: getRem(50px);
+    height: getRem(50px);
+  }
+
+  &__ttl {
+    margin: getRem(45px) 0 getRem(15px);
+  }
+
+  &__txt {
+
+    @include fsl(18px, 170%);
+
+    @media (min-width: $breakpoint) {
+      @include fsl(20px, 160%);
+    }
+  }
+
+  .modal__close {
+    position: absolute;
+    top: getRem(30px);
+    right: getRem(30px);
+  }
+}

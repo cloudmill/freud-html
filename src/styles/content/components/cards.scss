@@ -292,9 +292,9 @@
     }
   }
 
-  &:not(:last-child) {
-    margin-right: #{$col-gap};
-  }
+  // &:not(:last-child) {
+  //   margin-right: #{$col-gap};
+  // }
 
   &__top {
     position: relative;

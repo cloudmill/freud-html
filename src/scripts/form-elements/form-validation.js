@@ -69,7 +69,11 @@ function formValidation() {
             event.preventDefault();
             
             if (item.closest('.subscription-form')) {
-              item.closest('.subscription-form').querySelector('.subscription-form__button').innerHTML = 'Подписаться еще'
+              
+              document.querySelector('.body').classList.add('modal-open');
+              document.querySelector('.modals-container').classList.add('active');
+              document.querySelector('[data-popup="11"]').classList.add('active');
+
             }
 
             // сделать ответ формы

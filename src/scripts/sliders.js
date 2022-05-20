@@ -56,6 +56,20 @@ function swipers() {
     },
   });
 
+  const articlesSlider = new Swiper('#articles-slider', {
+
+    modules: [Navigation],
+
+    slidesPerView: 'auto',
+    spaceBetween: 30,
+    // loop: true,
+
+    navigation: {
+      nextEl: '#articles-slider-next',
+      prevEl: '#articles-slider-prev',
+    },
+  });
+
   const categoriesSlider = new Swiper('#categories-slider', {
 
     modules: [Navigation],

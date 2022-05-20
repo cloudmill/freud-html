@@ -50,46 +50,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   closeOnEsc();
 
-  // передача размеров сигары из дата-атрибута на странице продукта
-  if (document.querySelector('[data-show-height]') && document.querySelector('[data-show-diameter]')) {
-    document.querySelector('[data-show-height]').innerHTML = document.querySelector('.product-top-img__cigar-size').getAttribute('data-cigar-height');
-    document.querySelector('[data-show-diameter]').innerHTML = document.querySelector('.product-top-img__cigar-size').getAttribute('data-cigar-diameter'); 
-  }
+  cigarSize();
 
-  // состояния инпута промокода в корзине
-  if (document.querySelector('.cart-promocode')) {
-
-    const promocodeInput = document.querySelector('.cart-promocode__input');
-
-    promocodeInput.addEventListener('focusin', e => {
-      e.target.closest('.cart-promocode').classList.add('active')
-    });
-
-    promocodeInput.addEventListener('input', () => {
-      const inputValue = promocodeInput.value;
-
-      if (inputValue.length) {
-        promocodeInput.closest('.cart-promocode').classList.add('send-active');
-        promocodeInput.closest('.cart-promocode').classList.remove('delete-active');
-      } else {
-        promocodeInput.closest('.cart-promocode').classList.remove('send-active')
-      }
-    });
-
-    document.querySelector('.cart-promocode-delete').addEventListener('click', e => {
-      e.target.closest('.cart-promocode').querySelector('input').value = '';
-      e.target.closest('.cart-promocode').classList.remove('delete-active');
-    });
-
-    promocodeInput.addEventListener('focusout', e => {
-      e.target.closest('.cart-promocode').classList.remove('active');
-      promocodeInput.closest('.cart-promocode').classList.remove('send-active');
-
-      if (promocodeInput.value) {
-        promocodeInput.closest('.cart-promocode').classList.add('delete-active');
-      }
-    });
-  }
+  promocodeStates();
 
   document.addEventListener('click', eventClick => {
 
@@ -99,20 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
     addToCart(eventClick);
     activeFilter(eventClick);
     anchorScroll(eventClick);
-
-    // затухание при переходах по страницам
-    if (eventClick.target.closest('a')) {
-
-      eventClick.preventDefault();
-
-      const href = eventClick.target.closest('a').getAttribute('href');
-
-      document.querySelector('.modals-container').classList.add('fade');
-
-      setTimeout(() => {
-        window.location.assign(href)
-      }, 600);
-    }
+    fadeOnLeave(eventClick);
 
   });
 
@@ -179,5 +129,74 @@ function anchorScroll(eventClick) {
       behavior: 'smooth',
       block: 'start'
     })
+  }
+}
+
+function fadeOnLeave(eventClick) {
+
+  // затухание при переходах по страницам
+
+  if (eventClick.target.closest('a')) {
+
+    eventClick.preventDefault();
+
+    const href = eventClick.target.closest('a').getAttribute('href');
+
+    document.querySelector('.modals-container').classList.add('fade');
+
+    setTimeout(() => {
+      window.location.assign(href)
+    }, 600);
+  }
+}
+
+function promocodeStates() {
+
+  // состояния инпута промокода в корзине
+
+  if (document.querySelector('.cart-promocode')) {
+
+    const promocodeInput = document.querySelector('.cart-promocode__input');
+    const activeBlock = promocodeInput.closest('.cart-promocode');
+    const clearBtn =  document.querySelector('.cart-promocode-delete');
+
+    promocodeInput.addEventListener('focusin', e => {
+      e.target.closest('.cart-promocode').classList.add('active')
+    });
+
+    promocodeInput.addEventListener('input', () => {
+      const inputValue = promocodeInput.value;
+
+      if (inputValue.length) {
+        activeBlock.classList.add('send-active');
+        activeBlock.classList.remove('delete-active');
+      } else {
+        activeBlock.classList.remove('send-active')
+      }
+    });
+
+    clearBtn.addEventListener('click', e => {
+      e.target.closest('.cart-promocode').querySelector('input').value = '';
+      e.target.closest('.cart-promocode').classList.remove('delete-active');
+    });
+
+    promocodeInput.addEventListener('focusout', e => {
+      e.target.closest('.cart-promocode').classList.remove('active');
+      activeBlock.classList.remove('send-active');
+
+      if (promocodeInput.value) {
+        activeBlock.classList.add('delete-active');
+      }
+    });
+  }
+}
+
+function cigarSize() {
+
+  // передача размеров сигары из дата-атрибута на странице продукта
+
+  if (document.querySelector('[data-show-height]') && document.querySelector('[data-show-diameter]')) {
+    document.querySelector('[data-show-height]').innerHTML = document.querySelector('.product-top-img__cigar-size').getAttribute('data-cigar-height');
+    document.querySelector('[data-show-diameter]').innerHTML = document.querySelector('.product-top-img__cigar-size').getAttribute('data-cigar-diameter'); 
   }
 }

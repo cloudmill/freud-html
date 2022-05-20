@@ -16,10 +16,10 @@ block content
         .contacts-block__top
           +big-titles(subttl='профессор фрейд' ttl='Справочная информация' txt='Расскажем подробно обо всех тонкостях' txt2='и нюансах' h1)
 
-          .scroll-down
+          .scroll-down(data-aos='fade-up')
             .scroll-down__line
 
-      .articles-top
+      .articles-top(data-aos='fade-up')
 
         .articles-top__item.active
           |Все
@@ -31,10 +31,10 @@ block content
     .container
       .articles-body
 
-        .articles-body-row
+        .articles-body-row(data-aos='fade-up')
           +article-card-big(ttl=`Как выбрать сигару` txt=`А началось все с открытия Колумбом Америки, когда вместе с другими «чудесами» были привезены в Испанию в 1493 году листья табака. И что только с ними не делали...`)
 
-        .articles-row.articles-body-row
+        .articles-row.articles-body-row(data-aos='fade-up')
     
           -
             const articles = [
@@ -46,32 +46,32 @@ block content
           each item in articles
             +article-card(ttl=`${item.ttl}` txt=`${item.txt}`)
 
-        .articles-body-row
+        .articles-body-row(data-aos='fade-up')
           +article-card-big.articles-card--big-revert(ttl=`Как выбрать сигару` txt=`А началось все с открытия Колумбом Америки, когда вместе с другими «чудесами» были привезены в Испанию в 1493 году листья табака. И что только с ними не делали...`)
 
-        .articles-row.articles-body-row
+        .articles-row.articles-body-row(data-aos='fade-up')
 
           each item in articles
             +article-card(ttl=`${item.ttl}` txt=`${item.txt}`)
 
-        .articles-body-row
+        .articles-body-row(data-aos='fade-up')
           +article-card-big(ttl=`Как выбрать сигару` txt=`А началось все с открытия Колумбом Америки, когда вместе с другими «чудесами» были привезены в Испанию в 1493 году листья табака. И что только с ними не делали...`)
 
-        .articles-row.articles-body-row
+        .articles-row.articles-body-row(data-aos='fade-up')
 
           each item in articles
             +article-card(ttl=`${item.ttl}` txt=`${item.txt}`)
 
-        .articles-body-row
+        .articles-body-row(data-aos='fade-up')
           +article-card-big.articles-card--big-revert(ttl=`Как выбрать сигару` txt=`А началось все с открытия Колумбом Америки, когда вместе с другими «чудесами» были привезены в Испанию в 1493 году листья табака. И что только с ними не делали...`)
 
-        .articles-row.articles-body-row
+        .articles-row.articles-body-row(data-aos='fade-up')
 
           each item in articles
             +article-card(ttl=`${item.ttl}` txt=`${item.txt}`)
 
 
-        +brown-border-button.more-btn
+        +brown-border-button.more-btn(data-aos='fade-up')
           |Показать ещё
 
 
@@ -79,7 +79,7 @@ block content
     .container
       +small-titles(ttl='Каталог товаров')
 
-      .categories-slider.controls-out
+      .categories-slider.controls-out(data-aos='fade-up')
         .swiper-container#categories-slider
           .swiper-wrapper
             -
@@ -91,7 +91,8 @@ block content
             each item in cards
               .swiper-slide
                 a.shop-page-head__card(href="")
-                  +picture(file=`${item.file}`)
+                  .shop-page-head__card-img
+                    +picture(file=`${item.file}`)
                   .shop-page-head__card-ttl #{item.ttl}
 
         .controls-out__container
@@ -99,3 +100,6 @@ block content
           +control-right#categories-slider-next
 
   include ../components/sections/subscribe-section
+
+block modals
+  include ../components/popups/subscribe-success-popup
