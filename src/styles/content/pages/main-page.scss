@@ -545,6 +545,7 @@
     display: flex;
 
     @media (max-width: ($breakpoint - 1px)) {
+      margin-top: getRem(20px);
       flex-direction: column;
     }
   }
@@ -571,23 +572,31 @@
     flex-direction: column;
     justify-content: center;
 
-    padding-bottom: getRem(40px);
-
     @media (min-width: $breakpoint) {
       width: calc(#{$col-part-d} * 3 - #{$col-gap});
+      padding-bottom: getRem(40px);
     }
 
     @media (max-width: ($breakpoint - 1px)) {
       text-align: center;
+      margin-top: getRem(44px);
     }
 
     &-big {
       font-family: 'Berlingske Serif';
-      @include fsl(144px, 130%);
+      @include fsl(60px, 130%);
+
+      @media (min-width: $breakpoint) {
+        @include fsl(144px, 130%);
+      }
     }
 
     &-txt {
       @include fsl(20px, 160%);
+
+      @media (min-width: $breakpoint) {
+        @include fsl(18px, 160%);
+      }
     }
   }
 }

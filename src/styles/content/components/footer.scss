@@ -55,14 +55,25 @@
 
     padding-top: getRem(33px);
 
+    @media (max-width: ($breakpoint - 1px)) {
+      flex-direction: column;
+    }
+
     &-col {
 
       &:nth-child(1) {
         display: flex;
+        flex: none;
       }
 
       &:nth-child(2) {
+        width: 100%;
         margin-right: calc(#{$col-part-d});
+        display: flex;
+
+        @media (max-width: ($breakpoint - 1px)) {
+          flex-wrap: wrap;
+        }
       }
 
     }
@@ -82,7 +93,10 @@
       &-col {
         display: flex;
         flex-direction: column;
-        margin: 0 getRem(45px);
+
+        @media (min-width: $breakpoint) {
+          margin: 0 getRem(45px);
+        }
       }
     }
 
@@ -122,6 +136,12 @@
   white-space: nowrap;
   color: var(--color-grey);
   @include fsl(14px, 140%);
+
+  &-col {
+    @media (min-width: $breakpoint) {
+      margin: 0 0 0 auto;
+    }
+  }
 
   a {
     color: var(--color-black);

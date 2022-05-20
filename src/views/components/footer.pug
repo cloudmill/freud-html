@@ -3,7 +3,7 @@ mixin footer
 
     .container
 
-      .footer__top(data-aos='fade-up')
+      .footer__top.only-desktop(data-aos='fade-up')
 
         .footer__top-col
 
@@ -63,23 +63,29 @@ mixin footer
             a.icon-circle(href="")
               +wa-icon.wa-circle-ico
 
-      .footer__bottom(data-aos='fade-up')
-        .footer__bottom-col
+      .footer__top-mob.only-mobile(data-aos='fade-up')
 
+      .footer__bottom(data-aos='fade-up')
+
+        .footer__bottom-col
           .plus18
             img(src="assets/images/18plus.png", alt="")
             div На сайте используются фотографии курящих людей. #[br] Курение вредит вашему здоровью минздрав предупреждает
 
-          div.footer__bottom-links-col
+
+        .footer__bottom-col
+
+
+          .footer__bottom-links-col
             a.footer__bottom-links(href="") Политика конфиденциальности
             a.footer__bottom-links(href="") Доставка и оплата
 
           .footer__corp © FREUD CLUB, 2018−2021
 
-        .footer__bottom-col
-          .footer__authors
-            |Дизайн 
-            a(href="") Mojo
-          .footer__authors
-            |Разработка и поддержка 
-            a(href="") CloudMill
+          .footer__authors-col
+            .footer__authors
+              |Дизайн 
+              a(href="") Mojo
+            .footer__authors
+              |Разработка и поддержка 
+              a(href="") CloudMill

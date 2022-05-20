@@ -10,8 +10,10 @@ mixin review-card
     .review-card__txt
       |Богатый ассортимент, уют, комфорт и атмосфера, интересные люди, шикарный интерьер!!! Отличная вытяжка, которую в интерьере не сразу и заметишь.
 
-    +read-more-btn(data-popup-button='2' btn)
+    +read-more-btn.only-desktop(data-popup-button='2' btn)
       |Читать полностью
+
+    button.button--clean.review-card__btn.only-mobile Читать полностью
 
 mixin article-card
   a.articles-card(href='')

@@ -11,15 +11,23 @@
   &__top {
     display: flex;
     align-items: center;
-    margin-bottom: getRem(20px);
+    margin-bottom: getRem(8px);
+
+    @media (min-width: $breakpoint) {
+      margin-bottom: getRem(20px);
+    }
   }
 
   &__name {
-    margin-right: getRem(10px);
+    margin-right: getRem(8px);
 
-    @include fsl(20px, 130%);
+    @include fsl(18px, 130%);
     font-weight: 600;
 
+    @media (min-width: $breakpoint) {
+      margin-right: getRem(10px);
+      @include fsl(20px, 130%);
+    }
   }
 
   &__grade {
@@ -34,8 +42,13 @@
   }
 
   &__txt {
-    @include fsl(20px, 160%);
-    margin: getRem(20px) 0;
+    @include fsl(16px, 170%);
+    margin: getRem(8px) 0 getRem(6px);
+
+    @media (min-width: $breakpoint) {
+      @include fsl(20px, 160%);
+      margin: getRem(20px) 0;
+    }
   }
 }
 
@@ -43,16 +56,21 @@
   $comp: &;
 
   background: var(--background-grey-extra-2);
-  padding: getRem(30px) 0 getRem(15px);
+  padding: getRem(15px);
 
   height: 100%;
-  width: calc(#{$col-part-d} * 3 - #{$col-gap});
+  width: getRem(186px);
 
   position: relative;
   display: flex;
   flex-direction: column;
 
   transition: $transition;
+
+  @media (min-width: $breakpoint) {
+    width: calc(#{$col-part-d} * 3 - #{$col-gap});
+    padding: getRem(30px) 0 getRem(15px);
+  }
 
   &.in-cart {
     .catalog-card__btn {
@@ -63,12 +81,14 @@
     }
   }
 
-  &:hover, &:focus {
-    z-index: 10;
-    filter: drop-shadow(0px getRem(4px) getRem(4px) rgba(0, 0, 0, 0.25));
+  @media (min-width: $breakpoint) {
+    &:hover, &:focus {
+      z-index: 10;
+      filter: drop-shadow(0px getRem(4px) getRem(4px) rgba(0, 0, 0, 0.25));
 
-    #{$comp}__btn-container {
-      transform: translateY(getRem(63px));
+      #{$comp}__btn-container {
+        transform: translateY(getRem(63px));
+      }
     }
   }
 
@@ -77,13 +97,18 @@
     z-index: 1;
     background: var(--background-grey-extra-2);
 
-    padding: 0 getRem(30px);
+    @media (min-width: $breakpoint) {
+      padding: 0 getRem(30px);
+    }
   }
 
   &__labels {
     position: absolute;
     top: 0;
-    left: getRem(30px);
+
+    @media (min-width: $breakpoint) {
+      left: getRem(30px);
+    }
 
     &-item {
       color: var(--color-white);
@@ -111,7 +136,11 @@
   &__fav {
     position: absolute;
     top: 0;
-    right: getRem(30px);
+    right: 0;
+
+    @media (min-width: $breakpoint) {
+      right: getRem(30px);
+    }
 
     path {
       transition: $transition;
@@ -125,34 +154,59 @@
   &__bottom {
     position: relative;
     z-index: 1;
-    padding: 0 getRem(30px) getRem(15px);
+    padding-bottom: getRem(15px);
     background: var(--background-grey-extra-2);
 
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     height: 100%;
+
+    @media (min-width: $breakpoint) {
+      padding: 0 getRem(30px) getRem(15px);
+    }
   }
   &__brand {
-    @include fsl(16px, 130%);
+    @include fsl(14px, 130%);
     color: var(--color-brown);
+
+    @media (min-width: $breakpoint) {
+      @include fsl(16px, 130%);
+    }
   }
   &__title {
-    @include fsl(20px, 140%);
-    min-height: getRem(56px);
-    margin-top: getRem(5px)
+    @include fsl(16px, 130%);
+    margin-top: getRem(4px);
+
+    @media (min-width: $breakpoint) {
+      @include fsl(20px, 140%);
+      margin-top: getRem(5px);
+      min-height: getRem(56px);
+    }
   }
   &__info {
-    margin-top: getRem(14px);
+    margin-top: getRem(8px);
+
+    @media (max-width: ($breakpoint - 1px)) {
+      height: getRem(105px);
+    }
+
+    @media (min-width: $breakpoint) {
+      margin-top: getRem(14px);
+    }
   }
   &__country {
     display: flex;
     align-items: center;
 
-    @include fsl(16px, 130%);
+    @include fsl(14px, 130%);
     font-weight: 600;
 
     margin-bottom: getRem(5px);
+
+    @media (min-width: $breakpoint) {
+      @include fsl(16px, 130%);
+    }
   }
   &__txt {
     @include fsl(16px, 130%);
@@ -163,44 +217,69 @@
     flex: none;
 
     .point {
-      width: getRem(10px);
-      height: getRem(10px);
+      width: getRem(8px);
+      height: getRem(8px);
       border-radius: 50%;
       background: var(--color-black);
       opacity: .2;
-      margin-left: getRem(10px);
+      margin-left: getRem(8px);
       flex: none;
+
+      @media (min-width: $breakpoint) {
+        width: getRem(10px);
+        height: getRem(10px);
+        margin-left: getRem(10px);
+      }
 
       &.active {
         opacity: 1;
       }
 
       &:nth-child(1) {
-        margin-left: getRem(12px);
+        margin-left: getRem(10px);
+
+        @media (min-width: $breakpoint) {
+          margin-left: getRem(12px);
+        }
       }
     }
   }
 
   &__price {
-    margin-top: getRem(30px);
+    margin-top: getRem(12px);
 
     display: flex;
     align-items: center;
     justify-content: space-between;
 
+    @media (min-width: $breakpoint) {
+      margin-top: getRem(30px);
+    }
+
     .current {
       // font-family: 'Montserrat';
 
-      @include fsl(20px, 120%);
+      @include fsl(15px, 120%);
       font-weight: 600;
+      white-space: nowrap;
+
+      @media (min-width: $breakpoint) {
+        @include fsl(20px, 120%);
+      }
     }
     .old {
       // font-family: 'Montserrat';
 
-      @include fsl(18px, 120%);
+      @include fsl(14px, 120%);
       text-decoration: line-through;
       color: var(--color-grey);
-      margin-left: getRem(15px);
+      margin-left: getRem(10px);
+      white-space: nowrap;
+
+      @media (min-width: $breakpoint) {
+        @include fsl(18px, 120%);
+        margin-left: getRem(15px);
+      }
     }
   }
 
@@ -212,16 +291,18 @@
     white-space: nowrap;
 
     &-container {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-
-      background: var(--background-grey-extra-2);
-
-      padding: 0 getRem(30px) getRem(30px);
-
       transition: $transition;
+
+      @media (min-width: $breakpoint) {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+
+        background: var(--background-grey-extra-2);
+
+        padding: 0 getRem(30px) getRem(30px);
+      }
     }
   }
 

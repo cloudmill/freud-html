@@ -62,8 +62,12 @@
 }
 
 .shop-slider {
-  margin-top: getRem(45px);
+  margin-top: getRem(20px);
   z-index: 1;
+
+  @media (min-width: $breakpoint) {
+    margin-top: getRem(45px);
+  }
 
   &__row {
     display: flex;
@@ -72,11 +76,16 @@
   .swiper-container {
     overflow: hidden;
 
-    padding: 0 getRem(10px) getRem(72px) getRem(10px);
-    margin: 0 getRem(-10px) getRem(-72px) getRem(-10px);
+    margin: 0 -20px;
+    padding-left: 20px;
+
+    @media (min-width: $breakpoint) {
+      padding: 0 getRem(10px) getRem(72px) getRem(10px);
+      margin: 0 getRem(-10px) getRem(-72px) getRem(-10px);
+    }
   }
   .swiper-slide {
-    width: calc(#{$col-part-d} * 3 - #{$col-gap});
+    width: auto;
     height: auto;
   }
 

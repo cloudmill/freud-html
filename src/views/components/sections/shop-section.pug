@@ -32,7 +32,7 @@ mixin shop-section-body
               .swiper-slide
                 +catalog-card(img=`${item.img}` brand=`${item.brand}` ttl=`${item.ttl}` txt=`${item.txt}` price=`${item.price}`)
 
-      .controls-out__container
+      .controls-out__container.only-desktop
         +control-left#shop-slider-prev
         +control-right#shop-slider-next
 
