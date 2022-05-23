@@ -102,13 +102,46 @@
 }
 
 .booking-popup {
-  &__wrapper {
-    padding: getRem(180px) getRem(50px) getRem(150px);
+
+  @media (max-width: ($breakpoint - 1px)) {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
+
+  &__wrapper {
+    padding: getRem(30px) getRem(20px);
+
+    @media (max-width: ($breakpoint - 1px)) {
+      overflow-y: auto;
+
+      @include styled-scrollbar;
+    }
+    @media (min-width: $breakpoint) {
+      padding: getRem(180px) getRem(50px) getRem(150px);
+    }
+  }
+
   .modal__close {
-    position: absolute;
-    top: getRem(30px);
-    right: getRem(30px);
+    @media (min-width: $breakpoint) {
+      position: absolute;
+      top: getRem(30px);
+      right: getRem(30px);
+    }
+  }
+
+  .cart-stage-form__note {
+    @media (max-width: ($breakpoint - 1px)) {
+      margin-bottom: getRem(20px);
+    }
+  }
+
+  .review-popup__bottom {
+    @media (max-width: ($breakpoint - 1px)) {
+      button:not(:first-child) {
+        margin-top: getRem(12px);
+      }
+    }
   }
 }
 

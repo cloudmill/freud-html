@@ -12,7 +12,7 @@
   &__txt {
     position: absolute;
     bottom: getRem(35px);
-    left: getRem(-15px);
+    
     max-width: getRem(380px);
     width: max-content;
     height: auto;
@@ -28,6 +28,14 @@
     pointer-events: none;
     transition: $transition;
 
+    @media (max-width: ($breakpoint - 1px)) {
+      right: calc(#{$col-part-m} * -1);
+    }
+
+    @media (min-width: $breakpoint) {
+      left: getRem(-15px);
+    }
+
     &::after {
       content: '';
       position: absolute;
@@ -39,6 +47,10 @@
       left: getRem(15px);
 
       box-shadow: getRem(2px) getRem(2px) getRem(2px) rgba(121, 121, 121, 0.08);
+
+      @media (max-width: ($breakpoint - 1px)) {
+        left: 40%;
+      }
     }
   }
 

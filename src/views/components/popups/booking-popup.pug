@@ -1,9 +1,12 @@
 .modal.modal--right.booking-popup(data-popup='1' data-select-context)
+
+  .review-popup__top
+    .review-popup__ttl.h4.title-font Бронирование
+    button.button--clean.modal__close(data-modal-close)
+
   .booking-popup__wrapper.booking-popup-form
 
-    .review-popup__top
-      .review-popup__ttl.h4.title-font Бронирование
-      button.button--clean.modal__close(data-modal-close)
+    
 
     h2.h4.title-font.booking-popup-form__ttl.only-desktop Бронирование
 
@@ -62,10 +65,18 @@
           sup *
         input.form__input(type='number' placeholder='Введите число гостей' required)
 
-      +brown-button.booking-popup-form__btn
+      +brown-button.booking-popup-form__btn.only-desktop
         |Забронировать
 
       .booking-popup-form__note Нажимая на кнопку «Забронировать», вы соглашаетесь с 
         a(href='') политикой конфиденциальности
+
+  .review-popup__bottom.only-mobile
+
+    +brown-button
+      | Забронировать
+
+    +brown-border-button
+      |Закрыть
 
   button.button--clean.modal__close.only-desktop(data-modal-close)

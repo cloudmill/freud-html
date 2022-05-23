@@ -291,9 +291,14 @@
   }
 
   &__note {
-    margin-top: getRem(30px);
-    @include fsl(16px, 160%);
+    margin-top: getRem(20px);
+    @include fsl(14px, 160%);
     color: var(--color-grey);
+
+    @media (min-width: $breakpoint) {
+      margin-top: getRem(30px);
+      @include fsl(16px, 160%);
+    }
 
     a {
       color: var(--color-grey);
@@ -364,6 +369,8 @@
         width: getRem(10px);
         height: getRem(7px);
 
+        transition: $transition;
+
         path {
           stroke: var(--color-grey);
           transition: $transition;
@@ -394,14 +401,23 @@
         opacity: 1;
         pointer-events: all;
       }
+
+      .select-input__row svg {
+        transform: rotate(180deg);
+      }
     }
   }
 }
 
 .datepicker-dropdown {
-  right: getRem(50px);
-  left: getRem(50px) !important;
+  right: getRem(20px);
+  left: getRem(20px) !important;
   z-index: 70;
+
+  @media (min-width: $breakpoint) {
+    left: getRem(50px) !important;
+    right: getRem(50px);
+  }
 }
 
 .datepicker-picker {
