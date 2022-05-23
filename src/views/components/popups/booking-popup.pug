@@ -1,6 +1,11 @@
 .modal.modal--right.booking-popup(data-popup='1' data-select-context)
   .booking-popup__wrapper.booking-popup-form
-    h2.h4.title-font.booking-popup-form__ttl Бронирование
+
+    .review-popup__top
+      .review-popup__ttl.h4.title-font Бронирование
+      button.button--clean.modal__close(data-modal-close)
+
+    h2.h4.title-font.booking-popup-form__ttl.only-desktop Бронирование
 
     .cart-stage-form__note
       sup *
@@ -63,4 +68,4 @@
       .booking-popup-form__note Нажимая на кнопку «Забронировать», вы соглашаетесь с 
         a(href='') политикой конфиденциальности
 
-  button.button--clean.modal__close(data-modal-close)
+  button.button--clean.modal__close.only-desktop(data-modal-close)

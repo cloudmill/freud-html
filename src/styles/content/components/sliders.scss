@@ -19,7 +19,11 @@
 }
 
 .sliders-pagination {
-  margin-top: getRem(20px);
+  margin-top: getRem(15px);
+
+  @media (min-width: $breakpoint) {
+    margin-top: getRem(20px);
+  }
 
   .swiper-pagination-bullet {
     width: getRem(30px);
@@ -76,8 +80,8 @@
   .swiper-container {
     overflow: hidden;
 
-    margin: 0 -20px;
-    padding-left: 20px;
+    margin: 0 calc(#{$col-pad-m} * (-1));
+    padding-left: $col-pad-m;
 
     @media (min-width: $breakpoint) {
       padding: 0 getRem(10px) getRem(72px) getRem(10px);

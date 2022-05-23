@@ -15,7 +15,11 @@
 }
 
 .h4 {
-  @include fsl(30px, 130%);
+  @include fsl(24px, 130%);
+
+  @media (min-width: $breakpoint) {
+    @include fsl(30px, 130%);
+  }
 }
 
 .title-font {

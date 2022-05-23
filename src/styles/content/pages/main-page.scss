@@ -32,6 +32,17 @@
     overflow: hidden;
     position: relative;
 
+    @media (max-width: ($breakpoint - 1px)) {
+      position: absolute;
+      width: auto;
+      left: calc(#{$col-width-m});
+      right: calc(#{$col-width-m});
+      top: 0;
+      bottom: unset;
+
+      height: getRem(410px);
+    }
+
     &.loaded::after {
       transform: translateY(-100%)
     }

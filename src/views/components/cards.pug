@@ -13,7 +13,7 @@ mixin review-card
     +read-more-btn.only-desktop(data-popup-button='2' btn)
       |Читать полностью
 
-    button.button--clean.review-card__btn.only-mobile Читать полностью
+    button.button--clean.review-card__btn.only-mobile(data-popup-button='2') Читать полностью
 
 mixin article-card
   a.articles-card(href='')
@@ -82,25 +82,26 @@ mixin catalog-card
         a.catalog-card__title(href='') #{attributes.ttl}
 
       .catalog-card__info
-        if (attributes.noCntry)
-
-        else
-          .catalog-card__country
-            +italy-flag.flag-ico
-            |Италия
-
-        if (attributes.txt)
-
-          if (attributes.txt !== 'strong')
-            .catalog-card__txt #{attributes.txt}
+        div
+          if (attributes.noCntry)
 
           else
-            .catalog-card__strong
-              |Крепость
+            .catalog-card__country
+              +italy-flag.flag-ico
+              |Италия
 
-              - for (i=0;i<4;i++)
-                .point.active
-              .point
+          if (attributes.txt)
+
+            if (attributes.txt !== 'strong')
+              .catalog-card__txt #{attributes.txt}
+
+            else
+              .catalog-card__strong
+                |Крепость
+
+                - for (i=0;i<4;i++)
+                  .point.active
+                .point
 
         .catalog-card__price
           div

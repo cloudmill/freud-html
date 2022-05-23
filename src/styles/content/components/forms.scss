@@ -115,12 +115,26 @@
   &__checkbox {
     width: 100%;
     margin-top: getRem(33px);
-    display: flex;
-    align-items: center;
+    display: flex;   
+
+    @media (min-width: $breakpoint) {
+      align-items: center;
+    }
+
+    .checkbox__label {
+      @media (max-width: ($breakpoint - 1px)) {
+        align-items: flex-start;
+        padding-top: getRem(5px);
+      }
+    }
 
     .checkbox__caption {
       @include fsl(16px, 160%);
       color: var(--color-grey);
+
+      @media (max-width: ($breakpoint - 1px)) {
+        width: 90%;
+      }
 
       a {
         color: var(--color-brown);

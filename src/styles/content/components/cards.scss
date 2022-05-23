@@ -50,6 +50,11 @@
       margin: getRem(20px) 0;
     }
   }
+
+  &__btn {
+    @include fsl(16px, 130%);
+    font-weight: 600;
+  }
 }
 
 .catalog-card {
@@ -186,6 +191,10 @@
   }
   &__info {
     margin-top: getRem(8px);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
     @media (max-width: ($breakpoint - 1px)) {
       height: getRem(105px);

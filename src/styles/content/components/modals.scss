@@ -76,14 +76,19 @@
   }
 
   &--right {
+    width: 100vw;
     transform: translateX(200%);
-    width: calc(#{$col-part-d} * 2 + #{$col-pad-d});
+    
     height: 100vh;
     top: 0;
     bottom: 0;
     right: 0;
     // background: var(--color-white);
     pointer-events: none;
+
+    @media (min-width: $breakpoint) {
+      width: calc(#{$col-part-d} * 2 + #{$col-pad-d});
+    }
   }
 
   &--center {
@@ -114,13 +119,17 @@
   justify-content: space-between;
 
   &__top {
-    padding: getRem(20px) getRem(30px) getRem(20px) getRem(50px);
+    padding: getRem(14px) $col-pad-m;
     border-bottom: 1px solid var(--color-black-rgba-1);
 
     display: flex;
     align-items: center;
     justify-content: space-between;
     flex: none;
+
+    @media (min-width: $breakpoint) {
+      padding: getRem(20px) getRem(30px) getRem(20px) getRem(50px);
+    }
   }
   &__ttl {
   }
@@ -129,15 +138,23 @@
     overflow-y: scroll;
     @include styled-scrollbar;
 
-    padding: getRem(60px) getRem(50px);
+    padding: getRem(30px) $col-pad-m;
+
+    @media (min-width: $breakpoint) {
+      padding: getRem(60px) getRem(50px);
+    }
 
     &-txt {
-      @include fsl(18px, 170%);
+      @include fsl(16px, 170%);
       color: #464646;
+
+      @media (min-width: $breakpoint) {
+        @include fsl(18px, 170%);
+      }
     }
   }
   &__bottom {
-    padding: getRem(30px);
+    padding: getRem(14px) $col-pad-m getRem(20px);
     border-top: 1px solid var(--color-black-rgba-1);
 
     display: flex;
@@ -145,11 +162,19 @@
 
     flex: none;
 
+    @media (min-width: $breakpoint) {
+      padding: getRem(30px);
+    }
+
     &-count {
       @include fsl(16px, 170%);
       color: var(--color-grey);
       text-align: center;
       margin-bottom: getRem(15px);
+
+      @media (min-width: $breakpoint) {
+        margin-bottom: getRem(12px);
+      }
     }
   }
 }
