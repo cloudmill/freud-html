@@ -258,12 +258,17 @@
 }
 
 .vk-circle-ico {
-  width: getRem(22px);
-  height: getRem(13px);
+  width: getRem(15px);
+  height: getRem(9px);
+
+  @media (min-width: $breakpoint) {
+    width: getRem(22px);
+    height: getRem(13px);
+  }
 }
 .tg-circle-ico, .wa-circle-ico {
-  width: getRem(23px);
-  height: getRem(23px);
+  width: getRem(16px);
+  height: getRem(16px);
 }
 
 .scroll-down {

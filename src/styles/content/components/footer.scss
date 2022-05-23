@@ -2,6 +2,10 @@
   background: var(--color-background-grey);
   padding: getRem(70px) 0 getRem(64px) 0;
 
+  @media (min-width: $breakpoint) {
+    padding: getRem(60px) 0
+  }
+
   &__top {
     display: flex;
     justify-content: space-between;
@@ -38,7 +42,11 @@
       transition: $transition;
 
       &:not(:last-child) {
-        margin-bottom: getRem(12px);
+        margin-bottom: getRem(10px);
+
+        @media (min-width: $breakpoint) {
+          margin-bottom: getRem(12px);
+        }
       }
       
     }
@@ -53,10 +61,12 @@
     display: flex;
     justify-content: space-between;
 
-    padding-top: getRem(33px);
-
     @media (max-width: ($breakpoint - 1px)) {
       flex-direction: column;
+    }
+
+    @media (min-width: $breakpoint) {
+      padding-top: getRem(33px);
     }
 
     &-col {
@@ -64,6 +74,12 @@
       &:nth-child(1) {
         display: flex;
         flex: none;
+
+        @media (max-width: ($breakpoint - 1px)) {
+          padding: getRem(20px) 0;
+          border-top: 1px solid #DADADA;
+          border-bottom: 1px solid #DADADA;
+        }
       }
 
       &:nth-child(2) {
@@ -73,14 +89,22 @@
 
         @media (max-width: ($breakpoint - 1px)) {
           flex-wrap: wrap;
+          flex-direction: column;
+          justify-content: space-between;
+          max-height: getRem(150px);
+          padding-top: getRem(20px);
         }
       }
 
     }
 
     &-links {
-      @include fsl(15px, 130%);
+      @include fsl(14px, 130%);
       transition: $transition;
+
+      @media (min-width: $breakpoint) {
+        @include fsl(15px, 130%);
+      }
 
       &:hover {
         color: var(--color-brown);
@@ -93,9 +117,13 @@
       &-col {
         display: flex;
         flex-direction: column;
+        // width: calc(#{$col-part-m} * 3 - #{$col-gap-m});
+        width: 60%;
 
         @media (min-width: $breakpoint) {
           margin: 0 getRem(45px);
+          width: auto;
+          padding-right: 0;
         }
       }
     }
@@ -115,8 +143,71 @@
 
   &__corp {
     @include fsl(14px, 140%);
-    font-weight: 600;
     color: var(--color-grey);
+
+    // width: calc(#{$col-part-m} * 3);
+    width: 50%;
+
+    @media (max-width: ($breakpoint)) {
+      margin-top: getRem(12px);
+      white-space: nowrap;
+    }
+
+    @media (min-width: $breakpoint) {
+      width: auto;
+      font-weight: 600;
+    }
+  }
+
+  &__contacts {
+    display: flex;
+    padding-bottom: getRem(20px);
+    border-bottom: 1px solid #DADADA;
+
+    &-col {
+      width: calc(#{$col-part-m} * 2);
+      flex: none;
+   }
+
+    & > .footer__top-link {
+      padding-right: $col-gap-m;
+    }
+  }
+
+  &__spoilers {
+    padding: getRem(20px) 0;
+
+    &-top:not(:first-child) {
+      margin-top: getRem(15px);
+    }
+
+    .js-badger-accordion-header {
+      @include fsl(16px, 130%);
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      &.-ba-is-active {
+        .footer__spoilers-arrows {
+          transform: rotate(180deg);
+        }
+      }
+    }
+
+    &-arrows {
+      transition: $transition;
+      // width: getRem(8px);
+      // height: getRem(4px);
+    }
+
+    .js-badger-accordion-panel-inner {
+      padding-top: getRem(10px);
+    }
   }
 }
 
@@ -127,19 +218,31 @@
   align-items: center;
   justify-content: center;
 
-  width: getRem(45px);
-  height: getRem(45px);
-  padding: getRem(12px);
+  width: getRem(30px);
+  height: getRem(30px);
+
+  @media (min-width: $breakpoint) {
+    width: getRem(45px);
+    height: getRem(45px);
+    padding: getRem(12px);
+  }
 }
 
 .footer__authors {
-  white-space: nowrap;
   color: var(--color-grey);
   @include fsl(14px, 140%);
 
+  @media (min-width: $breakpoint) {
+    white-space: nowrap;
+  }
+
   &-col {
+    width: 40%;
+    padding-right: $col-gap-m;
     @media (min-width: $breakpoint) {
       margin: 0 0 0 auto;
+      width: auto;
+      padding-right: 0;
     }
   }
 
