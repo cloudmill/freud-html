@@ -172,6 +172,8 @@
     position: absolute;
     top: getRem(51px);
     left: getRem(257px);
+
+    cursor: default;
     
     // text-indent: getRem(110px);
     // max-width: getRem(600px);
@@ -288,7 +290,7 @@
 }
 
 .scroll-down {
-  cursor: pointer;
+  // cursor: pointer;
 
   display: flex;
   flex-direction: column;
@@ -299,6 +301,12 @@
     font-weight: 600;
     letter-spacing: 0.1em;
     text-transform: uppercase;
+
+    transition: .3s;
+
+    &:hover {
+      color: var(--color-brown);
+    }
 
     @media (min-width: $breakpoint) {
       @include fsl(13px, 140%);
@@ -371,7 +379,7 @@
       letter-spacing: 0.1em;
       text-transform: uppercase;
 
-      transition: $transition;
+      transition: .3s;
 
       @media (max-width: ($breakpoint - 1px)) {
         display: flex;
