@@ -164,6 +164,7 @@
     text-align: center;
     width: 100%;
     padding-top: getRem(30px);
+    cursor: default;
 
     @media (min-width: $breakpoint) {
       @include fsl(26px, 130%);
