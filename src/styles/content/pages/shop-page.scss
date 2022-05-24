@@ -96,6 +96,8 @@
 
 .category-top {
   margin-bottom: getRem(30px);
+  position: relative;
+  z-index: 1;
 
   @media (min-width: $breakpoint) {
     margin-bottom: getRem(45px);
@@ -128,7 +130,15 @@
       padding: getRem(30px) 0 getRem(20px);
       z-index: 15;
       position: relative;
-      background: var(--color-white)
+      background: var(--color-white);
+
+      @media (max-width: ($breakpoint - 1px)) {
+        padding: getRem(20px) $col-pad-m;
+        margin: 0 -$col-pad-m;
+
+        overflow: auto;
+        @include scrollbar-hidden;
+      }
     }
     &:nth-child(3) {
       margin: 0 -$col-pad-m getRem(12px);
@@ -350,11 +360,21 @@
 .drinks-filters {
 
   &-item {
-    width: calc(#{$col-part-d});
+    width: getRem(123px);
     border: 1px solid transparent;
     padding: getRem(5px) getRem(5px) getRem(10px) getRem(5px);
     cursor: pointer;
+    flex: none;
+
     transition: $transition;
+
+    @media (min-width: $breakpoint) {
+      width: calc(#{$col-part-d});
+
+      &:hover {
+        border: 1px solid var(--color-brown);
+      }
+    }
 
     &:not(:last-child) {
       margin-right: getRem(15px);
@@ -366,7 +386,7 @@
       text-align: center;
     }
 
-    &.active, &:hover {
+    &.active {
       border: 1px solid var(--color-brown);
     }
   }

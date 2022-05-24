@@ -93,11 +93,16 @@
 
   &--center {
     transform: scale(0);
-    width: getRem(600px);
+    width: calc(100vw - #{$col-pad-m});
     max-height: 70vh;
-    padding: getRem(30px) getRem(50px) getRem(50px);
+    padding: getRem(15px) getRem(20px) getRem(20px);
 
     pointer-events: none;
+
+    @media (min-width: $breakpoint) {
+      width: getRem(600px);
+      padding: getRem(30px) getRem(50px) getRem(50px);
+    }
   }
 }
 
@@ -216,7 +221,11 @@
 
   &__body {
     overflow-x: hidden;
-    padding: getRem(30px) getRem(50px);
+    padding: getRem(25px) getRem(20px);
+
+    @media (min-width: $breakpoint) {
+      padding: getRem(30px) getRem(50px);
+    }
   }
   
   &-item {
@@ -254,6 +263,15 @@
 
         &__txt {
           max-width: getRem(300px);
+
+          @media (max-width: ($breakpoint - 1px)) {
+            left: getRem(-80px);
+            right: auto;
+
+            &::after {
+              left: 27%;
+            }
+          }
         }
       }
     }
@@ -566,13 +584,29 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-bottom: getRem(30px);
+    padding-bottom: getRem(13px);
     border-bottom: 1px solid var(--color-border-grey);
+
+    @media (min-width: $breakpoint) {
+      padding-bottom: getRem(30px);
+    }
+  }
+
+  &__ttl {
+    @include fsl(20px, 130%);
+
+    @media (min-width: $breakpoint) {
+      @include fsl(30px, 130%);
+    }
   }
 
   &-card {
     display: flex;
-    margin: getRem(30px) 0 getRem(45px);
+    margin: getRem(43px) 0 getRem(30px);
+
+    @media (min-width: $breakpoint) {
+      margin: getRem(30px) 0 getRem(45px);
+    }
 
     &__img {
       width: getRem(77px);
@@ -580,25 +614,59 @@
       flex: none;
     }
     &__info {
-      padding: 0 getRem(30px);
+      padding: 0 getRem(12px);
+
+      @media (min-width: $breakpoint) {
+        padding: 0 getRem(30px);
+      }
 
       &-list {
-        margin-top: getRem(4px);
-        @include fsl(16px, 160%);
+        margin-top: getRem(8px);
+        @include fsl(14px, 140%);
+
+        @media (min-width: $breakpoint) {
+          margin-top: getRem(4px);
+          @include fsl(16px, 160%);
+        }
       }
     }
     &__ttl {
-      @include fsl(20px, 140%);
+      @include fsl(18px, 140%);
+
+      @media (min-width: $breakpoint) {
+        @include fsl(20px, 140%);
+      }
     }
     .catalog-card__price {
-      margin-top: getRem(4px);
+      margin-top: getRem(15px);
+      @media (min-width: $breakpoint) {
+        margin-top: getRem(4px);
+      }
+
+      .current {
+        @media (max-width: ($breakpoint - 1px)) {
+          @include fsl(20px, 130%);
+        }
+      }
     }
   }
 
-  .button {
-    margin-top: getRem(15px);
-    padding-top: getRem(15px);
-    padding-bottom: getRem(15px);
+  .button {  
+    padding-top: getRem(12px);
+    padding-bottom: getRem(12px);
+
+    @media (min-width: $breakpoint) {
+      padding-top: getRem(15px);
+      padding-bottom: getRem(15px);
+    }
+
+    &:last-child {
+      margin-top: getRem(12px);
+
+      @media (min-width: $breakpoint) {
+        margin-top: getRem(15px);
+      }
+    }
   }
 
   .delete-product-txt {

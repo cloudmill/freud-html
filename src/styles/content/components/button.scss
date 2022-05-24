@@ -26,8 +26,10 @@
 
     transition: $transition;
 
-    &:hover {
-      background: var(--color-black);
+    @media (min-width: $breakpoint) {
+      &:hover {
+        background: var(--color-black);
+      }
     }
   }
 

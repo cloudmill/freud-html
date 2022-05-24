@@ -305,9 +305,15 @@
   &__btn {
     // margin-top: getRem(15px);
     width: 100%;
-    height: getRem(48px);
-
     white-space: nowrap;
+
+    @media (max-width: ($breakpoint - 1px)) {
+      padding: getRem(10px);
+    }
+
+    @media (min-width: $breakpoint) {
+      height: getRem(48px);
+    }
 
     &-container {
       transition: $transition;

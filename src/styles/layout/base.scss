@@ -96,6 +96,10 @@ picture {
   flex-shrink: 0;
 }
 
+.wrapper {
+  overflow: hidden;
+}
+
 .container {
   padding: 0 #{$col-pad-d};
   @media (max-width: ($breakpoint - 1px)) {
