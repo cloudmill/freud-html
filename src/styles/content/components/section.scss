@@ -6,11 +6,19 @@
   }
 
   &--first {
-    margin-top: getRem(128px);
+    margin-top: getRem(60px);
+
+    @media (min-width: $breakpoint) {
+      margin-top: getRem(128px);
+    }
   }
 
   &--bottom {
-    padding-bottom: getRem(150px);
+    padding-bottom: getRem(60px);
+
+    @media (min-width: $breakpoint) {
+      padding-bottom: getRem(150px);
+    }
   }
 
   &--top {

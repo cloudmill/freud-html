@@ -3,11 +3,19 @@
   // margin-bottom: getRem(150px);
 
   &__titles {
-    margin: getRem(90px) 0;
+    margin: getRem(60px) 0 getRem(30px);
     text-align: center;
 
+    @media (min-width: $breakpoint) {
+      margin: getRem(90px) 0;
+    }
+
     .big-titles__txt {
-      margin-top: getRem(15px);
+      margin-top: getRem(12px);
+
+      @media (min-width: $breakpoint) {
+        margin-top: getRem(15px);
+      }
     }
   }
 
@@ -15,18 +23,30 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+
+    @media (max-width: ($breakpoint - 1px)) {
+      margin-bottom: getRem(-20px);
+    }
   }
 
   &__card {
-    width: calc(#{$col-part-d} * 4 - #{$col-gap});
+    width: calc(#{$col-part-m} * 2 - #{$col-gap-m});
 
-    &:nth-child(1n + 4) {
-      width: calc(#{$col-part-d} * 3 - #{$col-gap});
-      margin-top: getRem(60px);
+    @media (min-width: $breakpoint) {
+      width: calc(#{$col-part-d} * 4 - #{$col-gap});
+
+      &:nth-child(1n + 4) {
+        width: calc(#{$col-part-d} * 3 - #{$col-gap});
+        margin-top: getRem(60px);
+      }
     }
-    
+
     &-img {
       overflow: hidden;
+
+      @media (max-width: ($breakpoint - 1px)) {
+        height: getRem(210px);
+      }
 
       img {
         transition: $transition;
@@ -34,9 +54,14 @@
     }
     &-ttl {
       font-family: 'Berlingske Serif';
-      @include fsl (30px, 130%);
-      margin-top: getRem(15px);
+      // @include fsl (30px, 130%);
+      padding: getRem(8px) 0 getRem(20px);
+
       transition: $transition;
+
+      @media (min-width: $breakpoint) {
+        margin-top: getRem(15px);
+      }
     }
 
     &:hover {

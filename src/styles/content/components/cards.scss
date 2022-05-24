@@ -370,10 +370,20 @@
 .articles-card {
   $comp: &;
 
-  width: calc(#{$col-part-d} * 4 - #{$col-gap});
+  
   display: flex;
   flex-direction: column;
   height: auto;
+
+  @media (max-width: ($breakpoint - 1px)) {
+    &:not(:last-child) {
+      margin-bottom: getRem(30px);
+    }
+  }
+
+  @media (min-width: $breakpoint) {
+    width: calc(#{$col-part-d} * 4 - #{$col-gap});
+  }
 
   &:hover {
     .two-cols-block__link {
@@ -390,20 +400,32 @@
 
   &__top {
     position: relative;
-    padding-bottom: getRem(15px);
-    border-bottom: 1px solid var(--color-black-rgba-1);
-    height: getRem(274px);
+
+    @media (min-width: $breakpoint) {
+      height: getRem(274px);
+      padding-bottom: getRem(15px);
+      border-bottom: 1px solid var(--color-black-rgba-1);
+    }
 
     .catalog-card__labels {
-      top: getRem(30px);
-      left: getRem(30px);
+      top: getRem(20px);
+      left: getRem(20px);
       z-index: 1;
+
+      @media (min-width: $breakpoint) {
+        top: getRem(30px);
+        left: getRem(30px);
+      }
     }
   }
 
   &__top-img {
     overflow: hidden;
-    height: 100%;
+    height: getRem(200px);
+
+    @media (min-width: $breakpoint) {
+      height: 100%;
+    }
   }
   &__img {
     object-fit: cover;
@@ -421,21 +443,37 @@
       display: flex;
       justify-content: space-between;
 
-      margin-top: getRem(30px);
+      margin-top: getRem(8px);
+      @media (min-width: $breakpoint) {
+        margin-top: getRem(30px);
+      }
+
+      .two-cols-block__link {
+        @media (max-width: ($breakpoint - 1px)) {
+          @include fsl(13px, 150%);
+          padding-bottom: 0;
+        }
+      }
     }
   }
 
   &__ttl {
-    margin: getRem(15px) 0;
-
+    margin: getRem(8px) 0 getRem(6px);
     font-family: 'Berlingske Serif';
-    @include fsl(30px, 130%);
+
+    @media (min-width: $breakpoint) {
+      margin: getRem(15px) 0;
+    }
   }
 
   &__txt {
-    @include fsl(18px, 160%);
+    @include fsl(14px, 170%);
 
     @include cropText(3);
+
+    @media (min-width: $breakpoint) {
+      @include fsl(18px, 160%);
+    }
   }
 
   &__info {

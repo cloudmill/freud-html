@@ -50,7 +50,7 @@ $breakpoint-xl: 1680px;
 $breakpoint-xxl: 1920px;
 
 // grid columns
-$col-count-m: 5;
+$col-count-m: 4;
 $col-count-d: 12;
 
 $col-pad-m: getRem(20px);
@@ -62,7 +62,7 @@ $col-gap-m: 20px;
 $col-width-m: '((100vw - (#{$col-pad-m} * 2) - (#{$col-gap-m} * #{$col-count-m - 1})) / #{$col-count-m})';
 $col-width-d: '((100vw - (#{$col-pad-d} * 2) - (#{$col-gap} * #{$col-count-d - 1})) / #{$col-count-d})';
 
-$col-part-m: '(#{$col-width-m} + #{$col-gap})';
+$col-part-m: '(#{$col-width-m} + #{$col-gap-m})';
 $col-part-d: '(#{$col-width-d} + #{$col-gap})';
 
 

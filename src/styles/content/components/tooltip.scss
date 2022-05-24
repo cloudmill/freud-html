@@ -29,7 +29,8 @@
     transition: $transition;
 
     @media (max-width: ($breakpoint - 1px)) {
-      right: calc(#{$col-part-m} * -1);
+      // right: calc(#{$col-part-m} * -1);
+      right: getRem(-80px);
     }
 
     @media (min-width: $breakpoint) {

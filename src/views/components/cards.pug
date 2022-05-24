@@ -25,14 +25,14 @@ mixin article-card
 
     .articles-card__bottom
       div
-        .articles-card__ttl #{attributes.ttl}
+        .articles-card__ttl.h4 #{attributes.ttl}
         .articles-card__txt #{attributes.txt}
 
       .articles-card__bottom-row
         +read-more-btn(data-atr='' btn)
           |Читать полностью
 
-        .articles-card__info
+        .articles-card__info.only-desktop
           .articles-card__info-col 20.04.2021
           .articles-card__info-col 5 мин
 

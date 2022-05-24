@@ -7,7 +7,11 @@
 }
 
 .h2 {
-  @include fsl(48px, 130%);
+  @include fsl(36px, 130%);
+
+  @media (min-width: $breakpoint) {
+    @include fsl(48px, 130%);
+  }
 }
 
 .h3 {

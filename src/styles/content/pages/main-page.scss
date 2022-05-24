@@ -35,8 +35,10 @@
     @media (max-width: ($breakpoint - 1px)) {
       position: absolute;
       width: auto;
-      left: calc(#{$col-width-m});
-      right: calc(#{$col-width-m});
+      // left: calc(#{$col-width-m});
+      // right: calc(#{$col-width-m});
+      left: getRem(50px);
+      right: getRem(50px);
       top: 0;
       bottom: unset;
 
@@ -130,8 +132,10 @@
       overflow: hidden;
 
       @media (max-width: ($breakpoint - 1px)) {
-        left: calc(#{$col-width-m});
-        right: calc(#{$col-width-m});
+        // left: calc(#{$col-width-m});
+        // right: calc(#{$col-width-m});
+        left: getRem(50px);
+        right: getRem(50px);
 
         top: 0;
         bottom: unset;

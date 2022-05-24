@@ -165,7 +165,8 @@
     border-bottom: 1px solid #DADADA;
 
     &-col {
-      width: calc(#{$col-part-m} * 2);
+      // width: calc(#{$col-part-m} * 2);
+      width: 50%;
       flex: none;
    }
 

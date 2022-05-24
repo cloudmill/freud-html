@@ -46,6 +46,10 @@
 .articles-row {
   display: flex;
 
+  @media (max-width: ($breakpoint - 1px)) {
+    flex-direction: column;
+  }
+
   .swiper-container {
     overflow: hidden;
   }

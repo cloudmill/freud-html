@@ -30,18 +30,31 @@
 }
 
 .small-titles {
-  margin-bottom: getRem(60px);
+  margin-bottom: getRem(20px);
+
+  @media (min-width: $breakpoint) {
+    margin-bottom: getRem(60px);
+  }
 
   &--mb45 {
-    margin-bottom: getRem(45px);
+    margin-bottom: getRem(30px);
+
+    @media (min-width: $breakpoint) {
+      margin-bottom: getRem(45px);
+    }
   }
 
   &__ttl {
     font-family: 'Berlingske Serif';
   }
   &__txt {
-    @include fsl(20px, 170%);
-    margin-top: getRem(10px);
+    @include fsl(16px, 160%);
+    margin-top: getRem(8px);
+
+    @media (min-width: $breakpoint) {
+      @include fsl(20px, 170%);
+      margin-top: getRem(10px);
+    }
   }
 }
 

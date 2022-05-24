@@ -5,7 +5,7 @@
   else
     +small-titles.small-titles--mb45(ttl='Справочная информация' txt='Расскажем подробно обо всех тонкостях и нюансах')
 
-  .articles-row.controls-out(data-aos='fade-up')
+  .articles-row.controls-out.only-desktop(data-aos='fade-up')
     .swiper-container#articles-slider
       .swiper-wrapper
     
@@ -27,6 +27,20 @@
     .controls-out__container
       +control-left#articles-slider-prev
       +control-right#articles-slider-next
+
+
+  .articles-row.only-mobile
+
+    -
+      const articlesMob = [
+        {ttl: 'Как хранить сигару', txt: 'Что же из себя представляет современная сигара? По способу производства различают сигары ручной работы.'},
+        {ttl: 'Какую сигару выбрать к вину', txt: 'Что же из себя представляет современная сигара? По способу производства различают сигары ручной работы. Что же из себя представляет современная сигара? По способу производства различают сигары ...'},
+        {ttl: 'Как хранить сигару', txt: 'Что же из себя представляет современная сигара? По способу производства различают сигары ручной работы.'},
+      ] 
+
+    each item in articlesMob
+      +article-card(ttl=`${item.ttl}` txt=`${item.txt}`)
+
 
   +brown-border-button.more-btn(data-aos='fade-up')
     |Смотреть все статьи
