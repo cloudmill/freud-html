@@ -146,16 +146,17 @@
     color: var(--color-grey);
 
     // width: calc(#{$col-part-m} * 3);
-    width: 50%;
+    
 
     @media (max-width: ($breakpoint)) {
       margin-top: getRem(12px);
       white-space: nowrap;
+
+      width: 50%;
     }
 
     @media (min-width: $breakpoint) {
-      width: auto;
-      font-weight: 600;
+      margin-top: getRem(8px);
     }
   }
 
