@@ -5,7 +5,7 @@
       span все фильтры
 
     each item, index in filters
-      button.category-filter-drop.button--clean(data-filter-btn=`${index}`)
+      button.category-filter-drop.button--clean.only-desktop(data-filter-btn=`${index}`)
         span #{item}
         +arrow-down
 
@@ -15,7 +15,7 @@
 
   .filter-drops-container
 
-    .filter-drops-modal(data-price-filter data-filter-drop="0")
+    .filter-drops-modal.only-desktop(data-price-filter data-filter-drop="0")
       .filters-popup-item__ttl
         span цена
 
@@ -40,7 +40,7 @@
 
           span.count 250
 
-    .filter-drops-modal(data-producer-filter data-filter-drop="1")
+    .filter-drops-modal.only-desktop(data-producer-filter data-filter-drop="1")
       .filters-popup-item__ttl
         span производитель
 
@@ -87,7 +87,7 @@
 
               span.count #{item.count}
 
-    .filter-drops-modal(data-country-filter data-filter-drop="2")
+    .filter-drops-modal.only-desktop(data-country-filter data-filter-drop="2")
       .filters-popup-item__ttl
         span страна
 
@@ -114,7 +114,7 @@
 
               span.count #{item.count}
 
-    .filter-drops-modal(data-strong-filter data-filter-drop="3")
+    .filter-drops-modal.only-desktop(data-strong-filter data-filter-drop="3")
       .filters-popup-item__ttl
         span крепость
 
@@ -154,7 +154,7 @@
           span.category-filter-btn__cross
           span.category-filter-btn__count 23
 
-    .filter-drops-modal(data-duration-filter data-filter-drop="4")
+    .filter-drops-modal.only-desktop(data-duration-filter data-filter-drop="4")
       .filters-popup-item__ttl
         span время курения
 
@@ -177,7 +177,7 @@
             |30‒59 мин
             span.count 9
 
-    .filter-drops-modal(data-format-filter data-filter-drop="5")
+    .filter-drops-modal.only-desktop(data-format-filter data-filter-drop="5")
       .filters-popup-item__ttl
         span формат
       .filter-producers__ttl Поиск по форматам

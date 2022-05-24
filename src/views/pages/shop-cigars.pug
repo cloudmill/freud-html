@@ -20,7 +20,7 @@ block content
             h1.category-title.h2 Сигары
             .category-items-count 96 товаров
 
-          .category-search
+          .category-search.only-desktop
             input.category-search__input(type='search' placeholder='Поиск по каталогу')
             +search-icon
 
@@ -117,7 +117,7 @@ block content
                     +picture(file=`${item.file}`)
                   .shop-page-head__card-ttl #{item.ttl}
 
-        .controls-out__container
+        .controls-out__container.only-desktop
           +control-left#categories-slider-prev
           +control-right#categories-slider-next
 
