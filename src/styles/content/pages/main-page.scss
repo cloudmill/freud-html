@@ -261,6 +261,11 @@
     &-col {
       width: calc(#{$col-part-d});
     }
+
+    .scroll-down__line {
+      background: linear-gradient(rgba(27, 27, 27, 0) 0%, rgba(27, 27, 27, 1) 100%);
+      animation: loop 3s infinite;
+    } 
   }
 
   &__mob-btn {
@@ -366,6 +371,8 @@
       letter-spacing: 0.1em;
       text-transform: uppercase;
 
+      transition: $transition;
+
       @media (max-width: ($breakpoint - 1px)) {
         display: flex;
         justify-content: space-between;
@@ -373,6 +380,10 @@
         @include fsl(16px, 150%);
         padding: getRem(20px) 0;
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      &:hover {
+        color: var(--color-brown);
       }
 
       .arrow {

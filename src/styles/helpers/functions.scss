@@ -10,3 +10,22 @@
   $percent: $width / 19.2px;
   @return $px * $percent;
 }
+
+@keyframes loop {
+  0% { 
+    transform: scaleY(1); 
+    transform-origin: bottom center; 
+  }
+  35% { 
+    transform: scaleY(0); 
+    transform-origin: bottom center; 
+  }
+  65% { 
+    transform: scaleY(0); 
+    transform-origin: top center; 
+  }
+  100% { 
+    transform: scaleY(1); 
+    transform-origin: top center; 
+  }
+}
