@@ -73,13 +73,14 @@ mixin catalog-card
       else
         button.button--clean.catalog-card__fav
           +favorites-icon
+      
+      a(href='')
+        +picture(file=`${attributes.img}`)
 
-      +picture(file=`${attributes.img}`)
-
-    .catalog-card__bottom
+    a.catalog-card__bottom(href='')
       div
         .catalog-card__brand #{attributes.brand}
-        a.catalog-card__title(href='') #{attributes.ttl}
+        .catalog-card__title #{attributes.ttl}
 
       .catalog-card__info
         div

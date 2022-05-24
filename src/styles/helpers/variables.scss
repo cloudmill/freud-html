@@ -66,5 +66,6 @@ $col-part-m: '(#{$col-width-m} + #{$col-gap-m})';
 $col-part-d: '(#{$col-width-d} + #{$col-gap})';
 
 
-$transition: .6s cubic-bezier(0.83, 0, 0.17, 1);
+$transition: .3s;
+$transition-tz: .6s cubic-bezier(0.83, 0, 0.17, 1);
 $transition-func: cubic-bezier(0.83, 0, 0.17, 1);

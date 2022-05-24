@@ -57,7 +57,7 @@
       bottom: 0;
       left: 0;
       background: var(--color-light-grey);
-      transition: transform 1.2s cubic-bezier(0.83, 0, 0.17, 1);
+      transition: transform 1.2s $transition-func;
     }
   }
   &__col2 {
@@ -107,7 +107,7 @@
         bottom: 0;
         left: 0;
         background: var(--color-light-grey);
-        transition: transform 1.2s cubic-bezier(0.83, 0, 0.17, 1);
+        transition: transform 1.2s $transition-func;
       }
     }
   }

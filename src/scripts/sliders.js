@@ -74,9 +74,16 @@ function swipers() {
 
     modules: [Navigation],
 
-    slidesPerView: 3,
-    spaceBetween: 30,
+    slidesPerView: 'auto',
+    spaceBetween: 20,
     loop: true,
+
+    breakpoints: {
+      [1280]: {
+        slidesPerView: 3,
+        spaceBetween: 30,
+      },
+    },
 
     navigation: {
       nextEl: '#categories-slider-next',

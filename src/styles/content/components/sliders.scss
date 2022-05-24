@@ -131,11 +131,25 @@
 
 .categories-slider {
   .swiper-container {
-    overflow: hidden;
+    @media (min-width: $breakpoint) {
+      overflow: hidden;
+    }
   }
-  .swiper-slide {
-    width: fit-content;
+  .swiper-slide { 
+
+    @media (min-width: $breakpoint) {
+      width: fit-content;
+    }
+
+    @media (max-width: ($breakpoint - 1px)) {
+      width: calc(#{$col-part-m} * 3 - #{$col-gap-m});
+      .shop-page-head__card {
+        width: 100%;
+      }
+    }
   }
+
+
 }
 
 .recommend-slider {
