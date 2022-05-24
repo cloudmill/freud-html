@@ -24,6 +24,7 @@
       width: calc(#{$col-part-d} * 3 - #{$col-gap});
       margin-top: getRem(60px);
     }
+    
     &-img {
       overflow: hidden;
 
