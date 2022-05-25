@@ -121,12 +121,22 @@ function swipers() {
 
   const gallerySlider = new Swiper('#gallery-slider', {
 
-    modules: [Mousewheel],
+    modules: [Mousewheel, Navigation],
 
-    direction: 'vertical',
     slidesPerView: 'auto',
     mousewheel: true,
     slideToClickedSlide: true,
+
+    breakpoints: {
+      [1280]: {
+        direction: 'vertical',
+      },
+    },
+
+    navigation: {
+      nextEl: '#gallery-slider-next',
+      prevEl: '#gallery-slider-prev',
+    },
 
   });
 

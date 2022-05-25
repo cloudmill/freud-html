@@ -522,19 +522,36 @@
 }
 
 .product-body-consult {
-  padding: getRem(50px);
+  padding: getRem(50px) getRem(20px);
+  margin: 0 -$col-gap-m;
   background: var(--background-grey-extra-2);
+
+  @media (min-width: $breakpoint) {
+    padding: getRem(50px);
+    margin: 0;
+  }
 
   &__row {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
+
+    @media (max-width: ($breakpoint - 1px)) {
+      flex-direction: column;
+    }
   }
   .form__label {
-    width: calc(50% - #{getRem(10px)});
+    width: 100%;
+    @media (min-width: $breakpoint) {
+      width: calc(50% - #{getRem(10px)});
+    }
   }
   .button {
-    width: calc(50% - #{getRem(10px)});
+    width: 100%;
+    white-space: nowrap;
+    @media (min-width: $breakpoint) {
+      width: calc(50% - #{getRem(10px)});
+    }
   }
   .checkbox {
     display: flex;
@@ -552,6 +569,10 @@
   .checkbox__caption {
     @include fsl(16px, 140%);
     color: var(--color-grey);
+
+    @media (max-width: ($breakpoint - 1px)) {
+      width: 80%;
+    }
 
     a {
       color: var(--color-brown);

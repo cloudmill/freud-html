@@ -13,13 +13,24 @@ block content
       +breadcrumbs(items = ['Магазин', 'Сигары'] page = 'Сигара Nicaragua Primeros Mad')
 
       .product-top
+
+        .product-top-mob.only-mobile
+
+          h1.product-top-ttl Сигара Nicaragua Primeros Mad
+
+          .product-top-availability В наличии
+          .product-top-code Артикул 022234
+
         .product-top-picture(data-aos='fade-up')
           .product-top-gallery
             .swiper-container#gallery-slider
               .swiper-wrapper
-                - for (c=0;c<4;c++)
+                - for (c=0;c<5;c++)
                   .swiper-slide
                     +picture(file='product-1')
+
+            button.button--clean.product-top-gallery__control.only-mobile#gallery-slider-next
+              +arrow-right
 
           .product-top-img
             .swiper-container#product-slider
@@ -44,15 +55,15 @@ block content
 
         .product-top-info(data-aos='fade-up')
 
-          .product-top-labels
+          .product-top-labels.only-desktop
             .catalog-card__labels-item.label-black NEW
             .catalog-card__labels-item.label-brown limited
 
-          .product-top-code Артикул 022234
+          .product-top-code.only-desktop Артикул 022234
 
-          h1.product-top-ttl Сигара Nicaragua Primeros Mad
+          h1.product-top-ttl.only-desktop Сигара Nicaragua Primeros Mad
 
-          .product-top-availability В наличии
+          .product-top-availability.only-desktop В наличии
 
           dl.product-top-table
 
@@ -118,12 +129,18 @@ block content
 
           .product-info-bottom
             .product-info-bottom__col
-              .product-info-bottom__ttl Самовывоз из магазина
-              .product-info-bottom__txt Бесплатно, сегодня
+              .product-info-bottom__ttl.only-desktop Самовывоз из магазина
+              .product-info-bottom__txt.only-desktop Бесплатно, сегодня
+
+              span.product-info-bottom__ttl.only-mobile Самовывоз из магазина — 
+              span.product-info-bottom__txt.only-mobile бесплатно, сегодня
 
             .product-info-bottom__col
-              .product-info-bottom__ttl Доставка
-              .product-info-bottom__txt от 200 ₽, сегодня
+              .product-info-bottom__ttl.only-desktop Доставка
+              .product-info-bottom__txt.only-desktop от 200 ₽, сегодня
+
+              span.product-info-bottom__ttl.only-mobile Доставка — 
+              span.product-info-bottom__txt.only-mobile от 200 ₽, сегодня
 
 
       .product-body
@@ -143,6 +160,7 @@ block content
           dl.product-body-info
 
             .product-body-info__col
+              .product-body-info__col-ttl Основные
 
               .product-top-table__row
                 dt.product-top-table__name Производитель
@@ -191,6 +209,7 @@ block content
                 dd.product-top-table__value 20 мм
 
             .product-body-info__col
+              .product-body-info__col-ttl Состав
 
               .product-top-table__row
                 dt.product-top-table__name Покровный лист
@@ -255,8 +274,12 @@ block content
                 .checkbox__box
                   +checkbox-svg.checkbox__svg
 
-              .checkbox__caption
+              .checkbox__caption.only-desktop
                 |Нажимая на кнопку «Продолжить», вы соглашаетесь #[br]
+                a(href="") с политикой конфиденциальности
+
+              .checkbox__caption.only-mobile
+                |Нажимая на кнопку «Продолжить», вы соглашаетесь 
                 a(href="") с политикой конфиденциальности
 
   -

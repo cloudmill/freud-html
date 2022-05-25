@@ -1,3 +1,5 @@
+import { mediaQuery } from './mediaQueries';
+
 function addToFav(eventClick) {
   if (eventClick.target.closest('.catalog-card__fav')) {
     eventClick.target.closest('.catalog-card__fav').classList.toggle('active')
@@ -10,7 +12,12 @@ function addToCart(eventClick) {
     if (eventClick.target.closest('.catalog-card.in-cart')) {
 
       eventClick.target.closest('.catalog-card').classList.remove('in-cart');
-      eventClick.target.closest('.catalog-card__btn').innerHTML = 'Добавить в корзину';
+
+      if (mediaQuery.matches) {
+        eventClick.target.closest('.catalog-card__btn').innerHTML = 'Добавить в корзину'
+      } else {
+        eventClick.target.closest('.catalog-card__btn').innerHTML = 'В корзину'
+      }
 
     } else {
 

@@ -1,40 +1,100 @@
 .product-top {
   display: flex;
   margin-top: getRem(60px);
+
+  @media (max-width: ($breakpoint - 1px)) {
+    margin-top: getRem(30px);
+    flex-direction: column;
+  }
+
+  &-mob {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: getRem(20px);
+
+    .product-top-ttl {
+      width: 100%;
+    }
+
+    .product-top-availability, .product-top-code {
+      width: 50%;
+    }
+  }
 }
 
 .product-top-picture {
   display: flex;
   align-items: flex-start;
   height: getRem(700px);
+
+  @media (max-width: ($breakpoint - 1px)) {
+    flex-direction: column-reverse;
+    height: getRem(425px);
+    margin-bottom: getRem(30px);
+  }
 }
 
 .product-top-gallery {
-  width: calc(#{$col-part-d});
-  padding-right: getRem(20px);
+  width: 100%;
   overflow: hidden;
+  position: relative;
+
+  @media (max-width: ($breakpoint - 1px)) {
+    height: getRem(80px);
+    margin-top: getRem(8px);
+  }
+
+  @media (min-width: $breakpoint) {
+    width: calc(#{$col-part-d});
+    padding-right: getRem(20px);
+  }
 
   .swiper-container {
     height: 100%;
   }
 
   .swiper-slide {
-    margin-bottom: getRem(10px);
     height: auto;
-
     background: var(--background-grey-extra-2);
+
+    @media (max-width: ($breakpoint - 1px)) {
+      width: getRem(80px);
+      margin-right: getRem(2px);
+      padding: getRem(5px);
+      background-clip: content-box;
+    }
+    @media (min-width: $breakpoint) {
+      margin-bottom: getRem(10px);
+    }
   }
 
   .swiper-slide-thumb-active {
     border: 1px solid var(--color-brown);
   }
+
+  &__control {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+
+    width: getRem(50px);
+    height: 100%;
+    background: var(--color-white);
+  }
 }
 
 .product-top-img {
-  width: calc(#{$col-part-d} * 6 - #{$col-gap});
-  height: getRem(670px);
+  width: 100%;
+  height: getRem(335px);
   overflow: hidden;
   background: var(--background-grey-extra-2);
+
+  @media (min-width: $breakpoint) {
+    width: calc(#{$col-part-d} * 6 - #{$col-gap});
+    height: getRem(670px);
+  }
 
   &__cigar {
     position: relative;
@@ -42,41 +102,88 @@
     align-items: center;
     justify-content: center;
 
-    padding: getRem(80px);
+    padding: getRem(30px);
+
+    @media (min-width: $breakpoint) {
+      padding: getRem(80px);
+    }
+
+    img {
+      @media (max-width: ($breakpoint - 1px)) {
+        height: getRem(230px);
+      }
+    }
 
     &-size {
       position: absolute;
-      top: 80px;
-      left: 40px;
+      // top: 50px;
+      top: getRem(30px);
+      right: 20px;
+
+      @media (min-width: $breakpoint) {
+        top: 80px;
+        left: 40px;
+      }
 
       svg {
-        width: getRem(63px);
-        height: getRem(490px);
+        width: getRem(32px);
+        height: getRem(257px);
+
+        @media (max-width: ($breakpoint - 1px)) {
+          transform: scaleX(-1);
+        }
+
+        @media (min-width: $breakpoint) {
+          width: getRem(63px);
+          height: getRem(490px);
+        }
       }
 
       .top {
-        @include fsl(14px);
+        @include fsl(13px);
         color: var(--color-grey);
+        white-space: nowrap;
 
         position: absolute;
-        left: getRem(12px);
-        top: getRem(-12px);
+        top: getRem(-8px);
+
+        @media (max-width: ($breakpoint - 1px)) {
+          right: getRem(5px);
+        }
+
+        @media (min-width: $breakpoint) {
+          @include fsl(14px);
+          left: getRem(12px);
+          top: getRem(-12px);
+        }
       }
       .bottom {
-        @include fsl(14px);
+        @include fsl(13px);
         color: var(--color-grey);
+        white-space: nowrap;
 
         position: absolute;
-        bottom: 0;
-        right: -50%;
+        bottom: getRem(8px);
+
+        @media (max-width: ($breakpoint - 1px)) {
+          left: -110%;
+        }
+
+        @media (min-width: $breakpoint) {
+          @include fsl(14px);
+          bottom: 0;
+          right: -50%;
+        }
       }
     }
   }
 }
 
 .product-top-info {
-  width: calc(#{$col-part-d} * 5);
-  padding-left: getRem(60px);
+  @media (min-width: $breakpoint) {
+    width: calc(#{$col-part-d} * 5);
+    padding-left: getRem(60px);
+  }
 }
 
 .product-top-labels {
@@ -91,13 +198,25 @@
 .product-top-code {
   @include fsl(13px, 130%);
   color: var(--color-grey);
-  margin: getRem(15px) 0;
+
+  @media (max-width: ($breakpoint - 1px)) {
+    text-align: right;
+  }
+
+  @media (min-width: $breakpoint) {
+    margin: getRem(15px) 0;
+  }
 }
 
 .product-top-ttl {
-  @include fsl(24px, 140%);
+  @include fsl(22px, 140%);
   font-weight: 600;
-  margin: getRem(15px) 0;
+  margin-bottom: getRem(8px);
+
+  @media (min-width: $breakpoint) {
+    @include fsl(24px, 140%);
+    margin: getRem(15px) 0;
+  }
 }
 
 .product-top-availability {
@@ -106,10 +225,13 @@
 
   @include fsl(14px, 130%);
 
-  margin: getRem(15px) 0;
   position: relative;
 
   padding-left: getRem(18px);
+
+  @media (min-width: $breakpoint) {
+    margin: getRem(15px) 0;
+  }
 
   &::before {
     content: '';
@@ -147,13 +269,24 @@
   &__name {
     flex-shrink: 0;
     // white-space: nowrap;
+
+    @media (max-width: ($breakpoint - 1px)) {
+      .tooltip__txt {
+        max-width: 50vw;
+        right: getRem(-100px);
+      }
+    }
   }
   &__line {
     width: 100%;
     border-bottom: 1px dashed var(--color-border-grey);
   }
   &__value {
-    width: calc(#{$col-part-d} * 2);
+
+    @media (min-width: $breakpoint) {
+      width: calc(#{$col-part-d} * 2);
+    }
+
     flex-shrink: 0;
 
     display: flex;
@@ -182,18 +315,35 @@
   font-weight: 600;
   color: var(--color-brown);
   margin: getRem(20px) 0;
-  padding-bottom: getRem(4px);
-  border-bottom: 1px dashed var(--color-brown);
+  
+
+  @media (min-width: $breakpoint) {
+    margin: getRem(15px) 0 getRem(30px);
+    padding-bottom: getRem(4px);
+    border-bottom: 1px dashed var(--color-brown);
+  }
 }
 
 .product-top-price {
 
   .current {
-    @include fsl(30px, 130%);
+    @include fsl(22px, 130%);
     font-weight: 600;
+
+    @media (min-width: $breakpoint) {
+      @include fsl(30px, 130%);
+    }
   }
   .old {
-    @include fsl(20px, 130%);
+    @include fsl(16px, 130%);
+
+    @media (max-width: ($breakpoint - 1px)) {
+      margin-left: getRem(16px);
+    }
+
+    @media (min-width: $breakpoint) {
+      @include fsl(20px, 130%);
+    }
   }
   span {
     font-family: 'Montserrat';
@@ -203,16 +353,24 @@
 .product-top-buttons {
   display: flex;
 
-  margin: getRem(30px) 0;
+  margin: getRem(20px) 0 getRem(30px);
+
+  @media (min-width: $breakpoint) {
+    margin: getRem(30px) 0;
+  }
 }
 
 .product-button-cart {
-  width: calc(#{$col-part-d} * 3);
+  width: calc(100% - #{getRem(55px)});
+
+  @media (min-width: $breakpoint) {
+    width: calc(#{$col-part-d} * 3);
+  }
 }
 
 .product-button-fav {
-  width: getRem(50px);
-  height: getRem(50px);
+  width: getRem(44px);
+  height: getRem(44px);
 
   display: flex;
   align-items: center;
@@ -220,38 +378,72 @@
 
   border: 1px solid var(--color-border-grey);
 
-  margin-left: getRem(12px);
+  margin-left: getRem(10px);
+
+  @media (min-width: $breakpoint) {
+    width: getRem(50px);
+    height: getRem(50px);
+    margin-left: getRem(12px);
+  }
 }
 
 .product-info-bottom {
   display: flex;
   margin-top: getRem(30px);
 
+  @media (max-width: ($breakpoint - 1px)) {
+    flex-direction: column;
+  }
+
   &__col {
-    width: calc(#{$col-part-d} * 2);
+    @media (max-width: ($breakpoint - 1px)) {
+      margin-top: getRem(10px);
+    }
+    @media (min-width: $breakpoint) {
+      width: calc(#{$col-part-d} * 2);
+    }
+  }
+  &__ttl {
   }
   &__txt {
-    margin-top: getRem(4px);
     color: var(--color-grey);
+    @media (min-width: $breakpoint) {
+      margin-top: getRem(4px);
+    }
   }
 }
 
 .product-body {
-  margin-top: getRem(90px);
-  width: calc(#{$col-part-d} * 7 - #{$col-gap});
+  margin-top: getRem(45px);
+
+  @media (min-width: $breakpoint) {
+    margin-top: getRem(90px);
+    width: calc(#{$col-part-d} * 7 - #{$col-gap});
+  }
 
   &__block {
 
     &:not(:first-child) {
-      margin-top: getRem(90px);
+      margin-top: getRem(45px);
+
+      @media (min-width: $breakpoint) {
+        margin-top: getRem(90px);
+      }
     }
-    &:nth-child(2) {
-      margin-top: getRem(75px);
+
+    @media (min-width: $breakpoint) {
+      &:nth-child(2) {
+        margin-top: getRem(75px);
+      }
     }
   }
 
   &__ttl {
-    margin-bottom: getRem(30px);
+    margin-bottom: getRem(12px);
+
+    @media (min-width: $breakpoint) {
+      margin-bottom: getRem(30px);
+    }
   }
 
   &__subttl {
@@ -273,8 +465,30 @@
     display: flex;
     justify-content: space-between;
 
+    @media (max-width: ($breakpoint - 1px)) {
+      flex-direction: column;
+    }
+
     &__col {
-      width: calc(50% - 25px);
+      @media (min-width: $breakpoint) {
+        width: calc(50% - 25px);
+      }
+
+      @media (max-width: ($breakpoint - 1px)) {
+        &:not(:last-child) {
+          margin-bottom: getRem(20px);
+        }
+      }
+
+      &-ttl {
+        @include fsl(18px, 130%);
+        font-weight: 600;
+        margin-bottom: getRem(12px);
+
+        @media (min-width: $breakpoint) {
+          margin-bottom: getRem(14px);
+        }
+      }
     }
 
     .product-top-table__value {
@@ -286,9 +500,31 @@
     display: flex;
     justify-content: space-between;
 
-    &-col {
-      width: calc(50% - 25px);
+    @media (max-width: ($breakpoint - 1px)) {
+      flex-direction: column;
+      margin-top: getRem(20px);
     }
+    
+    &-col {
+      @media (max-width: ($breakpoint - 1px)) {
+        &:not(:first-child) {
+          margin-top: getRem(20px);
+        }
+        
+        .two-cols-block__link {
+          @include fsl(16px, 130%);
+          color: var(--color-brown);
+          text-transform: none;
+          letter-spacing: normal;
+          border-bottom: none;
+          padding-bottom: 0;
+        }
+      }
+      @media (min-width: $breakpoint) {
+        width: calc(50% - 25px);
+      }
+    }
+
     &-ttl {
       @include fsl(18px, 130%);
       font-weight: 600;
@@ -296,7 +532,10 @@
       display: flex;
       align-items: center;
 
-      margin-bottom: getRem(15px);
+      margin-bottom: getRem(12px);
+      @media (min-width: $breakpoint) {
+        margin-bottom: getRem(15px);
+      }
 
       svg {
         margin-right: getRem(14px);
@@ -304,7 +543,11 @@
     }
     &-txt {
       @include fsl(16px, 160%);
-      margin-bottom: getRem(30px);
+      margin-bottom: getRem(8px);
+
+      @media (min-width: $breakpoint) {
+        margin-bottom: getRem(30px);
+      }
     }
   }
 }

@@ -5,15 +5,21 @@
 
   &__list {
     display: flex;
-
     gap: getRem(8px);
+    overflow-x: auto;
+    @include scrollbar-hidden;
+
+    @media (max-width: ($breakpoint - 1px)) {
+      padding: 0 $col-gap-m;
+      margin: 0 -$col-gap-m;
+    }
   }
 
   &__item {
     display: flex;
     position: relative;
 
-    
+    white-space: nowrap;
 
     &:not(:first-child) {
 
