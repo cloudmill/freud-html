@@ -223,6 +223,12 @@
   width: getRem(30px);
   height: getRem(30px);
 
+  transition: $transition;
+
+  svg path {
+    transition: $transition;
+  }
+
   @media (min-width: $breakpoint) {
     width: getRem(45px);
     height: getRem(45px);
@@ -250,6 +256,11 @@
 
   a {
     color: var(--color-black);
+    transition: $transition;
+
+    &:hover {
+      color: var(--color-brown);
+    }
   }
 
   &:not(:first-child) {
@@ -263,5 +274,14 @@
 
   .icon-circle:not(:last-child) {
     margin-right: getRem(8px);
+  }
+
+  .icon-circle:hover {
+    background: var(--color-brown);
+    border-color: var(--color-brown);
+
+    svg path {
+      fill: var(--color-white);
+    }
   }
 }

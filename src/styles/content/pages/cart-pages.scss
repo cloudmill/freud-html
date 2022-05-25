@@ -160,8 +160,10 @@
 
     button {
       position: relative;
-      width: getRem(36px);
-      height: getRem(36px);
+      // width: getRem(36px);
+      // height: getRem(36px);
+      width: 37px;
+      height: 37px;
       border: .5px solid var(--color-grey);
       border-radius: 50%;
       color: var(--color-grey);
@@ -170,6 +172,9 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      flex: none;
+
+      user-select: none;
 
       // &:nth-child(1) {
       //   margin-right: getRem(16px);
@@ -181,6 +186,7 @@
       &::before {
         content: '';
         position: absolute;
+        // width: getRem(11px);
         width: 9px;
         height: 1px;
         background: var(--color-grey);
@@ -189,6 +195,7 @@
         content: '';
         position: absolute;
         width: 1px;
+        // height: getRem(11px);
         height: 9px;
         background: var(--color-grey);
       }
