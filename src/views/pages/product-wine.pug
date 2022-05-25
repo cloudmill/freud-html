@@ -13,13 +13,25 @@ block content
       +breadcrumbs(items = ['Магазин', 'Вина'] page = 'Вино Masseto, Toscana IGT')
 
       .product-top
+
+        .product-top-mob.only-mobile(data-aos='fade-up')
+
+          h1.product-top-ttl Вино Masseto, Toscana IGT
+
+          .product-top-availability.out-of-stock Нет в наличии
+          .product-top-code Артикул 
+            span 022234
+
         .product-top-picture(data-aos='fade-up')
           .product-top-gallery
             .swiper-container#gallery-slider
               .swiper-wrapper
-                - for (c=0;c<3;c++)
+                - for (c=0;c<5;c++)
                   .swiper-slide
                     +picture(file='product-2')
+
+            button.button--clean.product-top-gallery__control.only-mobile#gallery-slider-next
+              +arrow-right
 
           .product-top-img
             .swiper-container#product-slider
@@ -28,18 +40,22 @@ block content
                   .swiper-slide
                     +picture(file='product-2')
 
+            .product-top-labels.only-mobile
+              .catalog-card__labels-item.label-black NEW
+              .catalog-card__labels-item.label-brown limited
+
         .product-top-info(data-aos='fade-up')
 
-          .product-top-labels
+          .product-top-labels.only-desktop
             .catalog-card__labels-item.label-black NEW
             .catalog-card__labels-item.label-brown limited
 
-          .product-top-code Артикул 
+          .product-top-code.only-desktop Артикул 
             span 022234
 
-          h1.product-top-ttl Вино Masseto, Toscana IGT
+          h1.product-top-ttl.only-desktop Вино Masseto, Toscana IGT
 
-          .product-top-availability.out-of-stock Нет в наличии
+          .product-top-availability.out-of-stock.only-desktop Нет в наличии
 
           dl.product-top-table
 

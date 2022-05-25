@@ -14,12 +14,13 @@ block content
 
       .product-top
 
-        .product-top-mob.only-mobile
+        .product-top-mob.only-mobile(data-aos='fade-up')
 
           h1.product-top-ttl Сигара Nicaragua Primeros Mad
 
           .product-top-availability В наличии
-          .product-top-code Артикул 022234
+          .product-top-code Артикул 
+            span 022234
 
         .product-top-picture(data-aos='fade-up')
           .product-top-gallery
@@ -53,13 +54,18 @@ block content
                     .product-top-img__cigar
                       img(src="assets/images/product-1-no-bg.png", alt="")
 
+            .product-top-labels.only-mobile
+              .catalog-card__labels-item.label-black NEW
+              .catalog-card__labels-item.label-brown limited
+
         .product-top-info(data-aos='fade-up')
 
           .product-top-labels.only-desktop
             .catalog-card__labels-item.label-black NEW
             .catalog-card__labels-item.label-brown limited
 
-          .product-top-code.only-desktop Артикул 022234
+          .product-top-code.only-desktop Артикул 
+            span 022234
 
           h1.product-top-ttl.only-desktop Сигара Nicaragua Primeros Mad
 

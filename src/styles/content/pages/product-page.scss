@@ -40,8 +40,12 @@
   position: relative;
 
   @media (max-width: ($breakpoint - 1px)) {
+    width: calc(100% + #{$col-pad-m});
     height: getRem(80px);
     margin-top: getRem(8px);
+
+    padding-left: $col-pad-m;
+    margin-left: -$col-pad-m;
   }
 
   @media (min-width: $breakpoint) {
@@ -90,6 +94,8 @@
   height: getRem(335px);
   overflow: hidden;
   background: var(--background-grey-extra-2);
+
+  position: relative;
 
   @media (min-width: $breakpoint) {
     width: calc(#{$col-part-d} * 6 - #{$col-gap});
@@ -189,6 +195,13 @@
 .product-top-labels {
   display: flex;
   margin-bottom: getRem(15px);
+
+  @media (max-width: ($breakpoint - 1px)) {
+    position: absolute;
+    z-index: 1;
+    top: getRem(20px);
+    left: getRem(20px);
+  }
 
   .catalog-card__labels-item:not(:first-child) {
     margin: 0 0 0 getRem(8px);
@@ -556,13 +569,26 @@
   display: flex;
   margin-top: getRem(15px);
 
+  @media (max-width: ($breakpoint - 1px)) {
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
   &__item {
 
     display: flex;
     align-items: center;
 
-    &:not(:last-child) {
-      margin-right: getRem(30px);
+    font-weight: 600;
+
+    @media (max-width: ($breakpoint - 1px)) {
+      width: calc(#{$col-part-m} * 2 - #{$col-gap-m});
+      @include fsl(14px, 130%);
+    }
+    @media (min-width: $breakpoint) {
+      &:not(:last-child) {
+        margin-right: getRem(30px);
+      }
     }
   }
 
