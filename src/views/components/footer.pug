@@ -7,7 +7,7 @@ mixin footer
 
         .footer__top-col
 
-          .footer__top-ttl Главная
+          a.footer__top-ttl(href="") Главная
           
           each item in ['Клубная карта', 'Подарочные сертификаты', 'Справочная информация']
 
@@ -16,7 +16,7 @@ mixin footer
 
         .footer__top-col
 
-          .footer__top-ttl Сигарный клуб
+          a.footer__top-ttl(href="") О клубе
           
           each item in ['Хьюмидорная комната', 'Сигарный лаунж', 'Кабинет Фрейда', 'Винотека']
 
@@ -25,7 +25,7 @@ mixin footer
 
         .footer__top-col
 
-          .footer__top-ttl Магазин
+          a.footer__top-ttl(href="") Магазин
           
           each item in ['Сигары', 'Сигариллы', 'Подарочные наборы', 'Вина', 'Крепкие напитки', 'Аксессуары']
 
@@ -34,7 +34,7 @@ mixin footer
 
         .footer__top-col
 
-          .footer__top-ttl Ресторан
+          a.footer__top-ttl(href="") Ресторан
           
           each item in ['Меню']
 
@@ -43,7 +43,7 @@ mixin footer
 
         .footer__top-col
 
-          .footer__top-ttl Контакты
+          a.footer__top-ttl(href="") Контакты
           
           //- each item in ['Меню']
 
@@ -105,7 +105,7 @@ mixin footer
 
           dt.footer__spoilers-top
             button.button--clean.js-badger-accordion-header
-              |Сигарный клуб
+              |О клубе
 
               +arrow-down.footer__spoilers-arrows
                 

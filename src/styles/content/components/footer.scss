@@ -27,12 +27,19 @@
     }
 
     &-ttl {
+      display: block;
       @include fsl(16px, 130%);
       font-weight: 600;
       letter-spacing: 0.1em;
       text-transform: uppercase;
 
       margin-bottom: getRem(18px);
+
+      transition: $transition;
+
+      &:hover {
+        color: var(--color-brown);
+      }
     }
 
     &-link {
@@ -229,6 +236,15 @@
     transition: $transition;
   }
 
+  &:hover {
+    background: var(--color-brown);
+    border-color: var(--color-brown);
+
+    svg path {
+      fill: var(--color-white);
+    }
+  }
+
   @media (min-width: $breakpoint) {
     width: getRem(45px);
     height: getRem(45px);
@@ -274,14 +290,5 @@
 
   .icon-circle:not(:last-child) {
     margin-right: getRem(8px);
-  }
-
-  .icon-circle:hover {
-    background: var(--color-brown);
-    border-color: var(--color-brown);
-
-    svg path {
-      fill: var(--color-white);
-    }
   }
 }
