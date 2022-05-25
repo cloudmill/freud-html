@@ -392,7 +392,7 @@
   h2 {
     margin: getRem(45px) 0 getRem(15px);
   }
-  p {
+  p, ul {
     @include fsl (18px, 170%);
     margin: getRem(10px) 0;
 
@@ -407,6 +407,14 @@
       text-decoration: underline;
       color: var(--color-brown);
     }
+  }
+
+  ul {
+    
+  }
+
+  li {
+    margin-left: getRem(20px);
   }
 }
 
