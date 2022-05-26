@@ -1,5 +1,5 @@
 .cart-section {
-  padding: getRem(40px) 0 getRem(100px);
+  padding: getRem(15px) 0 getRem(60px);
 
   @media (min-width: $breakpoint) {
     padding: getRem(90px) 0 getRem(150px);
@@ -11,25 +11,57 @@
     align-items: center;
 
     margin-bottom: getRem(60px);
+
+    @media (max-width: ($breakpoint - 1px)) {
+      flex-direction: column-reverse;
+      align-items: flex-start;
+
+      margin-bottom: getRem(30px);
+    }
   }
 
   &__back-link {
     color: var(--color-grey);
     @include fsl(16px, 140%);
+
+    @media (max-width: ($breakpoint - 1px)) {
+      margin-bottom: getRem(30px);
+
+      display: flex;
+      align-items: center;
+
+      svg {
+        margin-right: getRem(12px);
+        height: getRem(12px);
+        width: getRem(8px);
+
+        path {
+          stroke: var(--color-grey);
+        }
+      }
+    }
   }
 
   &__body {
     display: flex;
     justify-content: space-between;
+
+    @media (max-width: ($breakpoint - 1px)) {
+      flex-direction: column;
+    }
   }
 
   &__col {
 
     &:nth-child(1) {
-      width: calc(#{$col-part-d} * 8 - #{$col-gap});
+      @media (min-width: $breakpoint) {
+        width: calc(#{$col-part-d} * 8 - #{$col-gap});
+      }
     }
     &:nth-child(2) {
-      width: calc(#{$col-part-d} * 4 - #{$col-gap});
+      @media (min-width: $breakpoint) {
+        width: calc(#{$col-part-d} * 4 - #{$col-gap});
+      }
     }
   }
 }
@@ -43,23 +75,40 @@
     &-col {
       display: flex;
       align-items: center;
+
+      @media (max-width: ($breakpoint - 1px)) {
+        flex-wrap: wrap;
+      }
     }
   }
   &__count {
-    @include fsl(30px, 130%);
+    @include fsl(24px, 130%);
     font-family: $ff-titles;
+    margin-right: getRem(10px);
 
-    width: calc(#{$col-width-d});
+    @media (min-width: $breakpoint) {
+      @include fsl(30px, 130%);
+      width: calc(#{$col-width-d});
+      margin-right: 0;
+    }
   }
   &__products {
-    height: getRem(28px);
     @include fsl(16px, 100%);
+    color: var(--color-grey);
+
     display: flex;
     align-items: center;
-    margin-left: getRem(16px);
-    padding-left: getRem(16px);
-    border-left: 1px solid var(--color-grey);
-    color: var(--color-grey);
+
+    @media (max-width: ($breakpoint - 1px)) {
+      width: 100%;
+      margin-top: getRem(5px);
+    }
+    @media (min-width: $breakpoint) {
+      height: getRem(28px);
+      margin-left: getRem(16px);
+      padding-left: getRem(16px);
+      border-left: 1px solid var(--color-grey);
+    }
   }
   &__product-list {
     margin-top: getRem(30px);
@@ -70,41 +119,73 @@
 
     &-btn {
       margin: getRem(30px) auto 0;
+
+      @media (max-width: ($breakpoint - 1px)) {
+        margin: getRem(20px) 0 0;
+        width: 100%;
+      }
     }
   }
 
   &__recommend {
     margin-top: getRem(90px);
 
+    @media (max-width: ($breakpoint - 1px)) {
+      margin-top: getRem(45px);
+    }
+
     &-ttl {
       margin-bottom: getRem(30px);
+
+      @media (max-width: ($breakpoint - 1px)) {
+        margin-bottom: getRem(20px);
+      }
     }
 
     &-row {
       display: flex;
       justify-content: space-between;
 
-      .catalog-card {
-        width: calc(#{$col-part-d} + #{$col-width-d});
+      @media (max-width: ($breakpoint - 1px)) {
+        overflow-x: auto;
+        @include scrollbar-hidden;
+
+        margin: 0 -$col-pad-m;
+        padding: 0 $col-pad-m;
       }
     }
   }
 
   &__edit {
     @include fsl(16px, 130%);
-    font-weight: 600;
-    color: var(--color-brown);
+
+    @media (max-width: ($breakpoint - 1px)) {
+      margin-top: getRem(20px);
+      width: 100%;
+    }
+    @media (min-width: $breakpoint) {
+      color: var(--color-brown);
+      font-weight: 600;
+    }
   }
 
   &:not(:first-child) {
     border-top: 1px solid var(--color-black-rgba-1);
     padding: getRem(45px) 0;
+
+    @media (max-width: ($breakpoint - 1px)) {
+      padding: getRem(30px) 0;
+    }
   }
   &.collapsed {
     color: var(--color-grey);
   }
   &.open {
     padding-bottom: getRem(90px);
+
+    @media (max-width: ($breakpoint - 1px)) {
+      padding-bottom: getRem(45px);
+    }
   }
   &:last-child {
     padding-bottom: 0;
@@ -116,9 +197,23 @@
 
   display: flex;
 
+  @media (max-width: ($breakpoint - 1px)) {
+    flex-wrap: wrap;
+    justify-content: space-between;
+    min-height: getRem(357px);
+    padding: getRem(20px) $col-pad-m;
+    margin-left: -$col-pad-m;
+    margin-right: -$col-pad-m;
+  }
+
   &__img {
     width: calc(#{$col-part-d} + #{$col-width-d});
     position: relative;
+
+    @media (max-width: ($breakpoint - 1px)) {
+      width: getRem(80px);
+      height: getRem(80px);
+    }
 
     .catalog-card__labels {
       top: 15px;
@@ -132,17 +227,35 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
+    @media (max-width: ($breakpoint - 1px)) {
+      width: calc(#{$col-part-m} * 3 - #{$col-gap-m});
+      padding: 0;
+    }
   }
   &__brand {
     @include fsl(16px, 130%);
     margin-bottom: getRem(4px);
+
+    @media (max-width: ($breakpoint - 1px)) {
+      color: var(--color-brown);
+      @include fsl(14px, 130%);
+    }
   }
   &__ttl {
     @include fsl(20px, 140%);
     margin-bottom: getRem(6px);
+
+    @media (max-width: ($breakpoint - 1px)) {
+      @include fsl(18px, 140%);
+    }
   }
   &__txt {
     @include fsl(16px, 140%);
+
+    @media (max-width: ($breakpoint - 1px)) {
+      @include fsl(14px, 140%);
+    }
   }
   &__btn {
     @include fsl(16px, 140%);
@@ -153,6 +266,23 @@
   &__nums {
     width: calc(#{$col-part-d} * 2 + #{$col-gap});
     padding: getRem(30px) 0;
+
+    @media (max-width: ($breakpoint - 1px)) {
+      width: calc(#{$col-part-m} * 3 - #{$col-gap-m});
+      margin-left: calc(#{$col-part-m});
+      padding: getRem(18px) 0;
+
+      .catalog-card__price {
+        margin-top: getRem(18px);
+
+        .current {
+          @include fsl(20px, 140%);
+        }
+        .old {
+          @include fsl(16px, 140%);
+        }
+      }
+    }
   }
   &__add {
     display: flex;
@@ -208,11 +338,23 @@
   &__amount {
     @include fsl(14px, 140%);
     margin-top: getRem(6px);
+
+    @media (max-width: ($breakpoint - 1px)) {
+      margin-top: getRem(2px);
+    }
   }
   &__last-col {
     display: flex;
     align-items: flex-end;
     padding-bottom: getRem(30px);
+
+    @media (max-width: ($breakpoint - 1px)) {
+      width: 100%;
+      align-items: flex-start;
+      justify-content: space-between;
+      padding: getRem(16px) 0 0;
+      border-top: 1px solid var(--color-black-rgba-1);
+    }
   }
 }
 
@@ -221,6 +363,10 @@
 
   padding: getRem(40px) getRem(30px);
   background: var(--background-grey-extra-2);
+
+  @media (max-width: ($breakpoint - 1px)) {
+    margin: getRem(8px) 0 getRem(45px);
+  }
 
   &__ttl {
     @include fsl(20px, 140%);
@@ -261,6 +407,11 @@
   position: relative;
   transition: $transition;
 
+  @media (max-width: ($breakpoint - 1px)) {
+    margin: 0 0 getRem(8px);
+    padding: getRem(14px) getRem(20px);
+  }
+
   &.active {
     border: 1px solid var(--color-brown);
   }
@@ -283,7 +434,7 @@
     background: transparent;
     @include fsl(16px, 140%);
     @include placeholder {
-      color: var(--color-black);
+      color: var(--color-grey);
     }
   }
   &-send {
@@ -292,6 +443,10 @@
     opacity: 0;
     pointer-events: none;
     transition: $transition;
+
+    @media (max-width: ($breakpoint - 1px)) {
+      right: getRem(20px);
+    }
   }
   &__arrow {
     width: getRem(7px);
@@ -345,9 +500,17 @@
     color: var(--color-brown);
     transition: $transition;
     opacity: 0;
+    position: absolute;
+    pointer-events: none;
+
+    @media (max-width: ($breakpoint - 1px)) {
+      margin-top: getRem(6px);
+    }
 
     &.active {
       opacity: 1;
+      position: relative;
+      pointer-events: all;
     }
   }
 }
@@ -375,19 +538,25 @@
     display: flex;
     padding-left: getRem(12px);
     @include fsl(16px, 160%);
+
+    @media (max-width: ($breakpoint - 1px)) {
+      flex-wrap: wrap;
+      padding-left: getRem(10px);
+    }
   }
 }
 
 .cart-empty {
 
+  @media (max-width: ($breakpoint - 1px)) {
+    padding: getRem(40px) 0 getRem(100px);
+  }
+
   &__ttl {
     font-family: $ff-titles;
     margin-bottom: getRem(30px);
 
-    @include fsl(40px, 100%);
-
     @media (min-width: $breakpoint) {
-      @include fsl(48px, 130%);
       argin-bottom: getRem(60px);
     }
   }
@@ -435,8 +604,11 @@
 }
 
 .cart-stage-form {
-  margin: getRem(12px) 0 0 calc(#{$col-width-d});
-  width: calc(#{$col-part-d} * 4);
+
+  @media (min-width: $breakpoint) {
+    margin: getRem(12px) 0 0 calc(#{$col-width-d});
+    width: calc(#{$col-part-d} * 4);
+  }
 
   sup {
     color: var(--color-brown);
@@ -445,6 +617,10 @@
 
   &__note {
     margin-bottom: getRem(30px);
+
+    @media (max-width: ($breakpoint - 1px)) {
+      margin: getRem(8px) 0 getRem(15px);
+    }
   }
 
   &__checkbox {
@@ -463,6 +639,10 @@
     .checkbox__caption {
       color: var(--color-grey);
       @include fsl(16px, 160%);
+
+      @media (max-width: ($breakpoint - 1px)) {
+        width: 80%;
+      }
 
       a {
         color: var(--color-grey);

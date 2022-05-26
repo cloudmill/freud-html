@@ -333,8 +333,18 @@
 
 
   &--small {
+    width: calc(#{$col-part-d} + #{$col-width-d});
     padding: getRem(20px) getRem(15px);
     height: auto;
+
+    @media (max-width: ($breakpoint - 1px)) {
+      width: getRem(180px);
+      flex: none;
+
+      &:not(:last-child) {
+        margin-right: getRem(15px);
+      }
+    }
 
     #{$comp}__bottom {
       padding: 0;
@@ -349,6 +359,10 @@
     }
     #{$comp}__info {
       margin-top: getRem(20px);
+
+      @media (max-width: ($breakpoint - 1px)) {
+        height: auto;
+      }
     }
     #{$comp}__price {
       margin-top: 0;

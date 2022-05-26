@@ -13,7 +13,9 @@ block content
 
         .cart-section__top(data-aos='fade-up')
           h1.title-font.h2 Оформление заказа
-          a.cart-section__back-link(href="") Вернуться к покупкам
+          a.cart-section__back-link(href="")
+            +arrow-left.only-mobile
+            |Вернуться к покупкам
 
         .cart-section__body
 
@@ -26,7 +28,7 @@ block content
                   .cart-stage__ttl.h4.title-font Ваши товары
                   .cart-stage__products 3 товара
 
-                button.button--clean.cart-stage__edit Изменить
+                button.button--clean.cart-stage__edit.only-desktop Изменить
 
               .cart-products-notactive
                 - for (a=0;a<3;a++)
@@ -36,6 +38,9 @@ block content
                       .cart-products-item__ttl Сигара Nicaragua Primeros Mad
                       div &nbsp;—&nbsp;
                       .cart-products-item__price 13 820 ₽
+
+              +brown-border-button.cart-stage__edit.only-mobile
+                |Изменить
                 
             .cart-stage.open(data-aos='fade-up')
               .cart-stage__row(data-aos='fade-up')
@@ -81,8 +86,12 @@ block content
                       .checkbox__box
                         +checkbox-white-svg.checkbox__svg
 
-                    .checkbox__caption
+                    .checkbox__caption.only-desktop
                       |Нажимая на кнопку «Продолжить», вы соглашаетесь #[br]
+                      a(href="") с политикой конфиденциальности
+
+                    .checkbox__caption.only-mobile
+                      |Нажимая на кнопку «Продолжить», вы соглашаетесь 
                       a(href="") с политикой конфиденциальности
 
             .cart-stage.collapsed(data-aos='fade-up')
@@ -91,7 +100,7 @@ block content
                   .cart-stage__count 3/3
                   .cart-stage__ttl.h4.title-font Получение заказа
 
-          .cart-section__col
+          .cart-section__col.only-desktop
 
             .cart-result(data-aos='fade-up')
               .cart-result__ttl Итого

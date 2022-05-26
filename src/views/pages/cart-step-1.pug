@@ -12,8 +12,10 @@ block content
       .cart-section
 
         .cart-section__top(data-aos='fade-up')
-          h1.title-font.h2 Оформление заказа
-          a.cart-section__back-link(href="") Вернуться к покупкам
+          h1.title-font.h2--big Оформление заказа
+          a.cart-section__back-link(href="")
+            +arrow-left.only-mobile
+            |Вернуться к покупкам
 
         .cart-section__body
 
@@ -32,7 +34,7 @@ block content
                   - for (i=0;i<3;i++)
                     .card-product(data-aos='fade-up')
                       .card-product__img
-                        .catalog-card__labels
+                        .catalog-card__labels.only-desktop
                           .catalog-card__labels-item.label-black NEW
 
                         +picture(file='shop-img-1')
@@ -42,7 +44,7 @@ block content
                           .card-product__ttl Сигара Nicaragua Primeros Mad
                           .card-product__txt Доминикана, 130 мм x 21 RG, длительность курения 75 мин, крепость 4 из 5
 
-                        button.card-product__btn.button--clean В избранное
+                        button.card-product__btn.button--clean.only-desktop В избранное
                       .card-product__nums
 
                         .card-product__add(data-number-goods)
@@ -58,7 +60,9 @@ block content
                       .card-product__last-col
                         button.card-product__btn.button--clean(data-popup-button='6') Удалить
 
-                +brown-button.cart-stage__product-list-btn(data-aos='fade-up')
+                        button.card-product__btn.button--clean.only-mobile В избранное
+
+                +brown-button.cart-stage__product-list-btn.only-desktop(data-aos='fade-up')
                   |Перейти к оформлению
 
                 .cart-stage__recommend
@@ -70,7 +74,7 @@ block content
                           {img: 'shop-img-1',
                           brand: 'Ornellaia',
                           ttl: 'Вино St-Emilion AOC Premier Grand Cru Classe',
-                          price: '165 750'},
+                          price: '165 750 ₽'},
 
                           {img: 'shop-img-2',
                           brand: 'Gurkha',
@@ -79,6 +83,36 @@ block content
                         ]
                       each item in content
                         +catalog-card-small(img=`${item.img}` brand=`${item.brand}` ttl=`${item.ttl}` price=`${item.price}`)
+
+            .cart-promocode.only-mobile(data-aos='fade-up')
+              input.cart-promocode__input(type='text' placeholder='Ввести промокод')
+
+              button.button--clean.cart-promocode-send
+                +arrow-right.cart-promocode__arrow
+
+              button.button--clean.cart-promocode-delete
+
+            .cart-promocode-error.only-mobile.active — промокод не найден
+
+            .cart-result.only-mobile(data-aos='fade-up')
+              .cart-result__ttl Итого
+              .cart-result__row
+                .cart-result__name 3 товара на сумму
+                .cart-result__value 135 820 ₽
+              .cart-result__row
+                .cart-result__name Скидка
+                .cart-result__value −11 000 ₽
+              .cart-result__row
+                .cart-result__name Промокод «Фрейд»
+                .cart-result__value −1 000 ₽
+
+              .cart-result__total
+                .cart-result__name К оплате
+                .cart-result__value 120 000 ₽
+
+              +brown-button.cart-stage__product-list-btn(data-aos='fade-up')
+                |Перейти к оформлению
+
 
             .cart-stage.collapsed(data-aos='fade-up')
               .cart-stage__row
@@ -92,7 +126,7 @@ block content
                   .cart-stage__count 3/3
                   .cart-stage__ttl.h4.title-font Получение заказа
 
-          .cart-section__col
+          .cart-section__col.only-desktop
 
             .cart-result(data-aos='fade-up')
               .cart-result__ttl Итого
