@@ -1,5 +1,9 @@
 .cart-section {
-  padding: getRem(90px) 0 getRem(150px);
+  padding: getRem(40px) 0 getRem(100px);
+
+  @media (min-width: $breakpoint) {
+    padding: getRem(90px) 0 getRem(150px);
+  }
 
   &__top {
     display: flex;
@@ -378,12 +382,19 @@
 
   &__ttl {
     font-family: $ff-titles;
-    margin-bottom: getRem(60px);
+    margin-bottom: getRem(30px);
+
+    @include fsl(40px, 100%);
+
+    @media (min-width: $breakpoint) {
+      @include fsl(48px, 130%);
+      argin-bottom: getRem(60px);
+    }
   }
 
   &-block {
     background: var(--background-grey-extra-2);
-    padding: getRem(80px);
+    padding: getRem(68px) getRem(20px);
     text-align: center;
 
     display: flex;
@@ -391,17 +402,34 @@
     justify-content: center;
     align-items: center;
 
+    @media (min-width: $breakpoint) {
+      padding: getRem(80px);
+    }
+
     &__ttl {
-      @include fsl(24px, 130%);
+      @include fsl(18px, 130%);
       font-weight: 600;
+
+      @media (min-width: $breakpoint) {
+        @include fsl(24px, 130%);
+      }
     }
     &__txt {
       @include fsl(16px, 130%);
-      margin-top: getRem(17px);
+      margin-top: getRem(12px);
+
+      @media (min-width: $breakpoint) {
+        margin-top: getRem(17px);
+      }
     }
     &__btn {
-      width: getRem(320px);
-      margin-top: getRem(40px);
+      width: 100%;
+      margin-top: getRem(30px);
+
+      @media (min-width: $breakpoint) {
+        width: getRem(320px);
+        margin-top: getRem(40px);
+      }
     }
   }
 }
