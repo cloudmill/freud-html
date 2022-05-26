@@ -13,7 +13,9 @@ block content
 
         .cart-section__top(data-aos='fade-up')
           h1.title-font.h2 Оформление заказа
-          a.cart-section__back-link(href="") Вернуться к покупкам
+          a.cart-section__back-link(href="")
+            +arrow-left.only-mobile
+            |Вернуться к покупкам
 
         .cart-section__body
 
@@ -26,7 +28,7 @@ block content
                   .cart-stage__ttl.h4.title-font Ваши товары
                   .cart-stage__products 3 товара
 
-                button.button--clean.cart-stage__edit Изменить
+                button.button--clean.cart-stage__edit.only-desktop Изменить
 
               .cart-products-notactive
                 - for (a=0;a<3;a++)
@@ -36,6 +38,9 @@ block content
                       .cart-products-item__ttl Сигара Nicaragua Primeros Mad
                       div &nbsp;—&nbsp;
                       .cart-products-item__price 13 820 ₽
+
+              +brown-border-button.cart-stage__edit.only-mobile
+                |Изменить
                 
             .cart-stage.open(data-aos='fade-up')
               .cart-stage__row
@@ -43,13 +48,16 @@ block content
                   .cart-stage__count 2/3
                   .cart-stage__ttl.h4.title-font Контактные данные
 
-                button.button--clean.cart-stage__edit Изменить
+                button.button--clean.cart-stage__edit.only-desktop Изменить
 
               .cart-stage-form--result
                 p Алексей Иванов
                 p +7 (900) 454-56-56
                 p pochta@mail.ru
                 .note «Домофон не работает, позвоните»‎
+
+              +brown-border-button.cart-stage__edit.only-mobile
+                |Изменить
 
             .cart-stage(data-aos='fade-up')
               .cart-stage__row
