@@ -357,7 +357,8 @@
 						<div class="big-titles__subttl">под ваше мероприятие</div>
 						<h2 class="big-titles__ttl h1">Аренда клуба</h2>
 					</div>
-					<div class="two-cols-block__txt txt-white" data-aos="fade-up">У нас можно арендовать определенную зону или весь клуб<br>целиком, в зависимости от формата мероприятия</div><button class="button button--brown" data-popup-button="8" data-aos="fade-up">Получить консультацию</button>
+					<div class="two-cols-block__txt txt-white only-desktop" data-aos="fade-up">У нас можно арендовать определенную зону или весь клуб<br>целиком, в зависимости от формата мероприятия</div>
+					<div class="two-cols-block__txt txt-white only-mobile" data-aos="fade-up">У нас можно арендовать определенную<br>зону или весь клуб целиком,<br>в зависимости от формата мероприятия</div><button class="button button--brown" data-popup-button="8" data-aos="fade-up">Получить консультацию</button>
 				</section>
 				<section class="section section--grey reviews-section">
 					<div class="container">
@@ -983,7 +984,7 @@
 		</div>
 		<div class="modals-container">
 			<div class="modal modal--right booking-popup" data-popup="1" data-select-context>
-				<div class="review-popup__top">
+				<div class="review-popup__top only-mobile">
 					<div class="review-popup__ttl h4 title-font">Бронирование</div><button class="button--clean modal__close" data-modal-close></button>
 				</div>
 				<div class="booking-popup__wrapper booking-popup-form">
@@ -1066,18 +1067,22 @@
 				</div>
 			</div>
 			<div class="modal modal--right booking-popup" data-popup="8">
+				<div class="review-popup__top only-mobile">
+					<div class="review-popup__ttl h4 title-font">Получите консультацию специалиста</div><button class="button--clean modal__close" data-modal-close></button>
+				</div>
 				<div class="booking-popup__wrapper booking-popup-form">
-					<h2 class="h4 title-font booking-popup-form__ttl">Получите консультацию<br>специалиста</h2>
-					<div class="certificate-popup-txt">Мы ответим на все ваши вопросы</div>
+					<h2 class="h4 title-font booking-popup-form__ttl only-desktop">Получите консультацию<br>специалиста</h2>
+					<div class="certificate-popup-txt only-desktop">Мы ответим на все ваши вопросы</div>
 					<div class="cart-stage-form__note"><sup>*</sup>— поля обязательные для заполнения</div>
 					<form novalidate><label class="form__label">
 							<div class="form__field-name">Ваше имя<sup>*</sup></div><input class="form__input" placeholder="Введите ваше имя" data-focus-input required>
 						</label><label class="form__label">
 							<div class="form__field-name">Телефон<sup>*</sup></div><input class="form__input" type="tel" placeholder="Введите номер телефона" required>
-						</label><button class="button button--brown booking-popup-form__btn">Узнать стоимость</button>
+						</label><button class="button button--brown booking-popup-form__btn only-desktop">Узнать стоимость</button>
 						<div class="booking-popup-form__note">Нажимая на кнопку «Узнать стоимость», вы соглашаетесь с <a href="">политикой конфиденциальности</a></div>
 					</form>
-				</div><button class="button--clean modal__close" data-modal-close></button>
+				</div>
+				<div class="review-popup__bottom only-mobile"><button class="button button--brown">Узнать стоимость</button></div><button class="button--clean modal__close only-desktop" data-modal-close></button>
 			</div>
 			<div class="modal modal--center in-cart-popup" data-popup="5">
 				<div class="in-cart-popup__top">
