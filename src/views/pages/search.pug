@@ -17,7 +17,10 @@ block content
         .category-top__line
           
           .category-title-block
-            h1.category-title.h2 Результаты поиска
+
+            h1.category-title.h2.only-desktop Результаты поиска
+            h1.category-title.h2.only-mobile Поиск
+
             .category-items-count 4 товара
 
           .category-search
@@ -38,7 +41,7 @@ block content
               brand: 'Ornellaia',
               ttl: 'Вино St-Emilion AOC Premier Grand Cru Classe',
               txt: 'Красное, сухое, 750 мл',
-              price: '165 750'},
+              price: '165 750 ₽'},
 
               {img: 'shop-img-2',
               brand: 'Gurkha',
@@ -75,7 +78,7 @@ block content
                 a.shop-page-head__card(href="")
                   .shop-page-head__card-img
                     +picture(file=`${item.file}`)
-                  .shop-page-head__card-ttl #{item.ttl}
+                  .shop-page-head__card-ttl.h4 #{item.ttl}
 
         .controls-out__container
           +control-left#categories-slider-prev

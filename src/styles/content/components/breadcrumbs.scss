@@ -10,8 +10,9 @@
     @include scrollbar-hidden;
 
     @media (max-width: ($breakpoint - 1px)) {
+      margin-left: -$col-gap-m;
+      margin-right: -$col-gap-m;
       padding: 0 $col-gap-m;
-      margin: 0 -$col-gap-m;
     }
   }
 

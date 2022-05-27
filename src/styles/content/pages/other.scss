@@ -5,9 +5,18 @@
 .search-top {
   margin-bottom: getRem(45px);
 
+  @media (max-width: ($breakpoint - 1px)) {
+    margin-bottom: getRem(30px);
+  }
+
   &__count {
     margin-top: getRem(15px);
     @include fsl(20px, 130%);
+
+    @media (max-width: ($breakpoint - 1px)) {
+      margin-top: getRem(8px);
+      @include fsl(16px, 130%);
+    }
   }
 }
 
@@ -502,10 +511,17 @@
 }
 
 .policy {
-  margin-top: getRem(60px);
+  margin-top: getRem(30px);
 
-  display: flex;
-  justify-content: space-between;
+  @media (max-width: ($breakpoint - 1px)) {
+    border-bottom: 1px solid var(--color-black-rgba-1);
+  }
+
+  @media (min-width: $breakpoint) {
+    margin-top: getRem(60px);
+    display: flex;
+    justify-content: space-between;
+  }
 
   &__col {
 
@@ -529,6 +545,10 @@
     @include fsl (18px, 170%);
     margin: getRem(10px) 0;
 
+    @media (max-width: ($breakpoint - 1px)) {
+      @include fsl (16px, 160%);
+    }
+
     &:first-child {
       margin-top: 0;
     }
@@ -548,6 +568,34 @@
 
   li {
     margin-left: getRem(20px);
+  }
+
+  .rules-spoiler {
+    &__button {
+      border-color: var(--color-black-rgba-1);
+      padding: getRem(22px) 0;
+      align-items: flex-start;
+    }
+    &__num {
+      color: var(--color-black);
+      @include fsl(20px, 130%);
+      font-family: $ff-titles;
+      padding-right: getRem(10px);
+    }
+    &__ttl {
+      color: var(--color-black);
+      @include fsl(20px, 130%);
+      font-family: $ff-titles;
+    }
+    &__arrow {
+      path {
+        stroke: var(--color-black);
+      }
+    }
+    &__drop-inner {
+      color: var(--color-black);
+      @include fsl(20px, 130%);
+    }
   }
 }
 
