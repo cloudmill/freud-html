@@ -319,18 +319,29 @@
 }
 
 .club-card {
-  width: getRem(458px);
-  height: getRem(289px);
-  border-radius: getRem(17px);
+  width: getRem(335px);
+  height: getRem(211px);
+  border-radius: getRem(12.5px);
   background: var(--color-black);
-  filter: drop-shadow(0px 24px 48px rgba(64, 60, 52, 0.4));
+  filter: drop-shadow(0px 17.5546px 35.1092px rgba(64, 60, 52, 0.4));
 
   display: flex;
   align-items: center;
   justify-content: center;
 
+  @media (min-width: $breakpoint) {
+    width: getRem(458px);
+    height: getRem(289px);
+    border-radius: getRem(17px);
+    filter: drop-shadow(0px 24px 48px rgba(64, 60, 52, 0.4));
+  }
+
   img {
-    width: getRem(240px);
+    width: getRem(175px);
+
+    @media (min-width: $breakpoint) {
+      width: getRem(240px);
+    }
   }
 
   &.on-page {
@@ -443,8 +454,13 @@
 }
 
 .about-benefit-ico, .humidor-benefit-ico, .lounge-benefit-ico, .vine-benefit-ico, .cabinet-benefit-ico, .restaurant-benefit-ico {
-  width: getRem(60px);
+  width: getRem(40px);
+  height: getRem(40px);
+
+  @media (min-width: $breakpoint) {
+    width: getRem(60px);
   height: getRem(60px);
+  }
 }
 
 .gastronomy-ico-svg {

@@ -22,7 +22,11 @@
   }
 
   &--top {
-    padding-top: getRem(150px);
+    padding-top: getRem(60px);
+
+    @media (min-width: $breakpoint) {
+      padding-top: getRem(150px);
+    }
   }
 
   &--pb120 {

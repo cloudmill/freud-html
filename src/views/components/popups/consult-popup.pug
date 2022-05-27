@@ -1,8 +1,13 @@
 .modal.modal--right.booking-popup(data-popup='8')
-  .booking-popup__wrapper.booking-popup-form
-    h2.h4.title-font.booking-popup-form__ttl Получите консультацию #[br] специалиста
 
-    .certificate-popup-txt Мы ответим на все ваши вопросы
+  .review-popup__top.only-mobile
+    .review-popup__ttl.h4.title-font Получите консультацию специалиста
+    button.button--clean.modal__close(data-modal-close)
+
+  .booking-popup__wrapper.booking-popup-form
+    h2.h4.title-font.booking-popup-form__ttl.only-desktop Получите консультацию #[br] специалиста
+
+    .certificate-popup-txt.only-desktop Мы ответим на все ваши вопросы
 
     .cart-stage-form__note
       sup *
@@ -19,10 +24,15 @@
           sup *
         input.form__input(type='tel' placeholder='Введите номер телефона' required)
 
-      +brown-button.booking-popup-form__btn
+      +brown-button.booking-popup-form__btn.only-desktop
         |Узнать стоимость
 
       .booking-popup-form__note Нажимая на кнопку «Узнать стоимость», вы соглашаетесь с 
         a(href='') политикой конфиденциальности
 
-  button.button--clean.modal__close(data-modal-close)
+  .review-popup__bottom.only-mobile
+
+    +brown-button
+      | Узнать стоимость
+
+  button.button--clean.modal__close.only-desktop(data-modal-close)

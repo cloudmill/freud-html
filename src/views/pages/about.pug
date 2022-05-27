@@ -22,7 +22,10 @@ block content
         .about-block-bottom(data-aos='fade-up')
           each item in ['Хьюмидорная комната', 'Сигарный лаунж', 'Кабинет Фрейда', 'Ресторан с баром', 'Винотека в формате bar&shop']
 
-            a.about-block-bottom__item(href="") #{item}
+            a.about-block-bottom__item(href="") 
+              |#{item}
+              .arrow.only-mobile
+                +arrow-right
 
   section.section--top
     .container

@@ -119,6 +119,7 @@
 
     @media (max-width: ($breakpoint - 1px)) {
       overflow-y: auto;
+      height: 100%;
 
       @include styled-scrollbar;
     }
@@ -670,11 +671,24 @@
   }
 
   .delete-product-txt {
-    margin-top: getRem(30px);
     @include fsl(18px, 170%);
+    margin: getRem(30px) 0 getRem(20px);
+    
+    @media (max-width: ($breakpoint - 1px)) {
+      padding-bottom: getRem(30px);
+      border-bottom: 1px solid var(--color-border-grey);
+    }
+    @media (min-width: $breakpoint) {
+      margin: getRem(30px) 0 0;
+      @include fsl(16px, 160%);
+    }
   }
   .delete-product-btn {
-    width: getRem(200px);
+    width: 100%;
+
+    @media (min-width: $breakpoint) {
+      width: getRem(200px);
+    }
   }
 }
 

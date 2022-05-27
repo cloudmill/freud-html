@@ -47,8 +47,14 @@ function swipers() {
     modules: [Navigation],
 
     slidesPerView: 'auto',
-    spaceBetween: 30,
+    spaceBetween: 15,
     // loop: true,
+
+    breakpoints: {
+      [1280]: {
+        spaceBetween: 30,
+      },
+    },
 
     navigation: {
       nextEl: '#shop-slider-next',

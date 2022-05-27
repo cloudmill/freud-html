@@ -2,15 +2,27 @@
   padding-top: getRem(60px);
 
   .section-bg-photo {
-    padding: getRem(177px) 0 getRem(60px);
+    padding: getRem(172px) 0 getRem(45px);
+
+    @media (min-width: $breakpoint) {
+      padding: getRem(177px) 0 getRem(60px);
+    }
   }
 
   .big-titles__ttl {
-    @include fsl(100px, 130%);
+    @include fsl(40px, 100%);
+
+    @media (min-width: $breakpoint) {
+      @include fsl(100px, 130%);
+    }
   }
 
   .scroll-down {
-    margin-top: getRem(66px);
+    margin-top: getRem(97px);
+
+    @media (min-width: $breakpoint) {
+      margin-top: getRem(66px);
+    }
 
     &__line {
       background: var(--color-white);
@@ -18,15 +30,57 @@
   }
 
   &-bottom {
-    padding: getRem(90px) 0 getRem(120px);
+    padding: getRem(60px) 0;
     display: flex;
     justify-content: space-between;
+
+    @media (max-width: ($breakpoint - 1px)) {
+      flex-direction: column;
+    }
+    @media (min-width: $breakpoint) {
+      padding: getRem(90px) 0 getRem(120px);
+    }
 
     &__item {
       @include fsl(18px, 150%);
       font-weight: 600;
       letter-spacing: 0.1em;
       text-transform: uppercase;
+
+      @media (max-width: ($breakpoint - 1px)) {
+        @include fsl(16px, 150%);
+        border-top: 1px solid #DADADA;
+        padding: getRem(20px) 0;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .arrow {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border: .5px solid #DADADA;
+          border-radius: 50%;
+          width: getRem(28px);
+          height: getRem(28px);
+          margin-left: getRem(10px);
+          flex: none;
+
+          svg {
+            width: getRem(4px);
+            height: getRem(8px);
+
+            path {
+              stroke: var(--color-grey);
+            }
+          }
+        }
+
+        &:last-child {
+          border-bottom: 1px solid #DADADA;
+        }
+      }
     }
   }
 }
@@ -40,55 +94,100 @@
   justify-content: space-between;
   flex-wrap: wrap;
 
+  @media (max-width: ($breakpoint - 1px)) {
+    flex-direction: column;
+  }
+
   .benefits-cell {
-    width: calc(#{$col-part-d} * 4 - #{$col-gap});
+    width: 100%;
     height: auto;
 
+    @media (min-width: $breakpoint) {
+      width: calc(#{$col-part-d} * 4 - #{$col-gap});
+    }
+
     &:nth-child(1) {
-      margin-top: getRem(60px);
-      padding-left: calc(#{$col-width-d});
+      @media (max-width: ($breakpoint - 1px)) {
+        margin-bottom: getRem(20px);
+      }
+      @media (min-width: $breakpoint) {
+        margin-top: getRem(60px);
+        padding-left: calc(#{$col-width-d});
+      }
     }
     &:nth-child(1), &:nth-child(2) {
-      width: calc(#{$col-part-d} * 6 - #{$col-gap});
+      @media (min-width: $breakpoint) {
+        width: calc(#{$col-part-d} * 6 - #{$col-gap});
+      }
     }
     &:nth-child(1n + 3) {
-      margin-top: getRem(30px);
+      margin-top: getRem(20px);
+
+      @media (min-width: $breakpoint) {
+        margin-top: getRem(30px);
+      }
     }
     &:nth-child(2) {
-      .benefits-cell__ttl {
-        margin-top: getRem(118px);
+      @media (min-width: $breakpoint) {
+        .benefits-cell__ttl {
+          margin-top: getRem(118px);
+        }
       }
     }
 
     &__ttl {
       font-family: $ff-titles;
-      margin: getRem(25px) 0 getRem(12px);
+      margin: getRem(100px) 0 getRem(8px);
+
+      @media (min-width: $breakpoint) {
+        margin: getRem(25px) 0 getRem(12px);
+      }
     }
     &__txt {
-      @include fsl(18px, 170%);
+      @include fsl(16px, 160%);
+
+      @media (min-width: $breakpoint) {
+        @include fsl(18px, 170%);
+      }
     }
   }
 
   .cell-list {
     background: var(--background-grey-extra-2);
-    padding: getRem(40px);
+    padding: getRem(20px);
 
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
+    @media (min-width: $breakpoint) {
+      padding: getRem(40px);
+    }
   }
 }
 
 .before-interior-block {
-  padding-bottom: getRem(310px);
+  padding-bottom: getRem(60px);
+
+  @media (min-width: $breakpoint) {
+    padding-bottom: getRem(310px);
+  }
 }
 
 .interior-block {
 
+  @media (max-width: ($breakpoint - 1px)) {
+    padding-top: getRem(60px);
+  }
+
   &__col {
-    margin: getRem(-70px) 0 0 auto;
-    width: calc(#{$col-part-d} * 6 - #{$col-gap});
-    padding-right: calc(#{$col-part-d});
+    margin: getRem(45px) 0 0;
+
+    @media (min-width: $breakpoint) {
+      width: calc(#{$col-part-d} * 6 - #{$col-gap});
+      margin: getRem(-70px) 0 0 auto;
+      padding-right: calc(#{$col-part-d});
+    }
 
     .big-titles__txt {
       margin-top: getRem(15px)
@@ -100,7 +199,9 @@
   }
 
   &__slider {
-    transform: translateY(-160px);
+    @media (min-width: $breakpoint) {
+      transform: translateY(-160px);
+    }
   }
 }
 
@@ -110,16 +211,30 @@
 
 .club-card-block {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+
+  @media (max-width: ($breakpoint - 1px)) {
+    flex-direction: column;
+  }
+  @media (min-width: $breakpoint) {
+    justify-content: space-between;
+    align-items: center;
+  }
 
   &__col {
     &:nth-child(1) {
-      padding: getRem(98px) 0;
-      width: calc(#{$col-part-d} * 4);
+      padding-bottom: getRem(45px);
+
+      @media (min-width: $breakpoint) {
+        padding: getRem(98px) 0;
+        width: calc(#{$col-part-d} * 4);
+      }
 
       .big-titles__txt {
-        margin: getRem(15px) 0 getRem(30px);
+        margin: getRem(8px) 0 getRem(20px);
+
+        @media (min-width: $breakpoint) {
+          margin: getRem(15px) 0 getRem(30px);
+        }
       }
     }
     &:nth-child(2) {
