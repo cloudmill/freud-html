@@ -12,6 +12,16 @@
     .scroll-down {
       margin-top: getRem(60px);
     }
+
+    &-btn {
+      margin: getRem(30px) auto getRem(45px);
+    }
+
+    &.mob-line {
+      @media (max-width: ($breakpoint - 1px)) {
+        border-bottom: 1px solid var(--color-black-rgba-1);
+      }
+    }
   }
 
   &__row {
@@ -19,25 +29,58 @@
     padding: 0 calc(#{$col-width-d});
     display: flex;
     justify-content: space-between;
+
+    @media (max-width: ($breakpoint - 1px)) {
+      flex-direction: column;
+      padding: 0;
+
+      margin-top: getRem(45px);
+    }
   }
 
   &__col {
-    margin-right: getRem(85px);
+
+    @media (min-width: $breakpoint) {
+      margin-right: getRem(85px);
+    }
+
+    @media (max-width: ($breakpoint - 1px)) {
+
+      margin-bottom: getRem(30px);
+
+      &:nth-child(1) {
+        .contacts-block__item:not(:first-child) {
+          margin-top: getRem(15px);
+        }
+      }
+      &:nth-child(2) {
+        order: -1;
+      }
+    }
   }
 
   &__item {
 
-    &:not(:last-child) {
-      margin-bottom: getRem(40px);
+    &:not(:first-child) {
+      margin-top: getRem(30px);
+
+      @media (min-width: $breakpoint) {
+        margin-top: getRem(40px);
+      }
     }
 
     &-ttl {
-      @include fsl(13px, 130%);
+      @include fsl(11px, 130%);
       font-weight: 700;
       letter-spacing: 0.13em;
       text-transform: uppercase;
       color: var(--color-brown);
-      margin-bottom: getRem(5px);
+      margin-bottom: getRem(2px);
+
+      @media (min-width: $breakpoint) {
+        @include fsl(13px, 130%);
+        margin-bottom: getRem(5px);
+      }
     }
     &-txt {
       font-family: $ff-titles;
@@ -59,10 +102,34 @@
     .icon-circle:not(:last-child) {
       margin-right: getRem(8px);
     }
+
+    @media (max-width: ($breakpoint - 1px)) {
+      .icon-circle {
+        width: getRem(40px);
+        height: getRem(40px);
+
+        .tg-circle-ico, .wa-circle-ico {
+          width: getRem(20.5px);
+          height: getRem(20.5px);
+        }
+        .vk-circle-ico {
+          width: getRem(20px);
+          height: getRem(12px);
+        }
+      }
+    }
   }
 
   &__map {
-    width: getRem(570px);
+    width: 100vw;
     height: getRem(450px);
+
+    @media (max-width: ($breakpoint - 1px)) {
+      margin: 0 -$col-pad-m;
+    }
+    @media (min-width: $breakpoint) {
+      width: getRem(570px);
+      height: getRem(450px);
+    }
   }
 }

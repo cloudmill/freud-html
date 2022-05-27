@@ -13,10 +13,15 @@ block content
       +breadcrumbs(page = 'Контакты')
 
       .contacts-block
-        .contacts-block__top
-          +big-titles(subttl='профессор фрейд' ttl='Контакты' txt='Клуб располагается в самом центре Петербурга напротив Исаакиевского собора,' txt2='недалеко от Невского проспекта, Дворцовой площади и Мариинского театра' h1)
+        .contacts-block__top.mob-line(data-aos='fade-up')
+          +big-titles.only-desktop(subttl='профессор фрейд' ttl='Контакты' txt='Клуб располагается в самом центре Петербурга напротив Исаакиевского собора,' txt2='недалеко от Невского проспекта, Дворцовой площади и Мариинского театра' h1)
 
-          .scroll-down(data-aos='fade-up')
+          +big-titles.only-mobile(subttl='профессор фрейд' ttl='Контакты' txt='Клуб располагается в самом центре' txt2='Петербурга напротив Исаакиевского собора' h1)
+
+          +brown-button.contacts-block__top-btn.only-mobile(data-popup-button='1' data-aos='fade-up')
+            |Забронировать стол
+
+          .scroll-down.only-desktop(data-aos='fade-up')
             .scroll-down__line
 
         .contacts-block__row
@@ -34,7 +39,7 @@ block content
                 br
                 |Вс, 13:00 – 23:00
 
-            +brown-button(data-popup-button='1' data-aos='fade-up')
+            +brown-button.only-desktop(data-popup-button='1' data-aos='fade-up')
               |Забронировать стол
 
           .contacts-block__col
