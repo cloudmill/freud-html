@@ -68,13 +68,13 @@
 
   padding: getRem(60px) calc(#{$col-width-d}) 0;
 
-  // .two-cols-block__col:nth-child(2) {
-  //   justify-content: flex-end;
-  // }
-
   &__row {
     display: flex;
     justify-content: space-between;
+
+    @media (max-width: ($breakpoint - 1px)) {
+      flex-direction: column-reverse;
+    }
 
     &:not(:last-child) {
       margin-bottom: getRem(120px);
@@ -82,13 +82,17 @@
   }
 
   &__img {
-    width: calc(#{$col-part-d} * 5 - (#{$col-gap} * 2));
+    @media (min-width: $breakpoint) {
+      width: calc(#{$col-part-d} * 5 - (#{$col-gap} * 2));
+    }
   }
 
   &__info {
     margin-top: getRem(60px);
-    // width: getRem(500px);
-    width: calc(#{$col-part-d} * 5);
+    
+    @media (min-width: $breakpoint) {
+      width: calc(#{$col-part-d} * 5);
+    }
   }
 
   .small-titles {
@@ -97,7 +101,10 @@
 
   &__txt {
     @include fsl(18px, 170%);
-    width: calc(#{$col-part-d} * 4);
+
+    @media (min-width: $breakpoint) {
+      width: calc(#{$col-part-d} * 4);
+    }
   }
 
   &__btn {
@@ -245,6 +252,10 @@
   display: flex;
   justify-content: space-between;
 
+  @media (max-width: ($breakpoint - 1px)) {
+    flex-direction: column;
+  }
+
   &__item {
     width: calc(#{$col-part-d} * 4 - #{$col-gap});
     padding: getRem(40px);
@@ -259,24 +270,57 @@
     align-items: center;
     justify-content: center;
 
-    svg {
-      margin-bottom: getRem(40px);
+    @media (max-width: ($breakpoint - 1px)) {
+      width: 100%;
+      min-height: getRem(177px);
+      padding: getRem(20px);
+      justify-content: flex-start;
+      @include fsl(20px, 160%);
+
+      &:not(:last-child) {
+        margin-bottom: getRem(20px);
+      }
+    }
+
+    @media (min-width: $breakpoint) {
+      svg {
+        margin-bottom: getRem(40px);
+      }
     }
 
     .card-benefit-ico-1 {
       width: getRem(54px);
+
+      @media (max-width: ($breakpoint - 1px)) {
+        width: getRem(40px);
+        margin-bottom: getRem(30px);
+      }
     }
     .card-benefit-ico-2 {
       width: getRem(64px);
+
+      @media (max-width: ($breakpoint - 1px)) {
+        width: getRem(47px);
+        margin-bottom: getRem(45px);
+      }
     }
     .card-benefit-ico-3 {
       width: getRem(60px);
+
+      @media (max-width: ($breakpoint - 1px)) {
+        width: getRem(44px);
+        margin-bottom: getRem(25px);
+      }
     }
   }
 
   &__btn {
     margin: getRem(30px) auto;
     width: calc(#{$col-part-d} * 4 - #{$col-gap});
+
+    @media (max-width: ($breakpoint - 1px)) {
+      width: 100%;
+    }
   }
 
   &__line {
@@ -286,6 +330,11 @@
     margin: getRem(-60px) auto 0;
 
     transform: translateY(50%);
+
+    @media (max-width: ($breakpoint - 1px)) {
+      height: getRem(60px);
+      margin: getRem(-30px) auto 0;
+    }
   }
 }
 
@@ -293,29 +342,41 @@
   padding: getRem(120px) 0 getRem(80px);
   border-bottom: 1px solid var(--color-black-rgba-1);
 
-  // display: grid;
-  // grid-template-columns: repeat(4, calc(#{$col-part-d} * 3 - #{$col-gap}));
-  // gap: 30px;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+
+  @media (max-width: ($breakpoint - 1px)) {
+    flex-direction: column;
+    padding: getRem(60px) 0;
+  }
 }
 
 .benefit-card {
-  // width: 100%;
-  width: calc(#{$col-part-d} * 3 - #{$col-gap});
-  min-height: getRem(190px);
-  margin-right: $col-gap;
-  padding: getRem(30px);
+  width: 100%;
+  padding: getRem(20px);
   background: var(--background-grey-extra-2);
   @include fsl(16px, 160%);
 
-  &:nth-child(1n + 5) {
-    margin-top: $col-gap;
+  @media (max-width: ($breakpoint - 1px)) {
+    &:not(:last-child) {
+      margin-bottom: getRem(8px);
+    }
   }
-  &:nth-child(4n + 4), &:last-child {
-    margin-right: 0;
-  }
+
+  @media (min-width: $breakpoint) {
+    width: calc(#{$col-part-d} * 3 - #{$col-gap});
+    min-height: getRem(190px);
+    margin-right: $col-gap;
+    padding: getRem(30px);
+
+    &:nth-child(1n + 5) {
+      margin-top: $col-gap;
+    }
+    &:nth-child(4n + 4), &:last-child {
+      margin-right: 0;
+    }
+  }  
 }
 
 .club-card {
@@ -351,25 +412,63 @@
 }
 
 .partners-block {
+
+  .certificates-block__row {
+    @media (max-width: ($breakpoint - 1px)) {
+      &:not(:last-child) {
+        margin-bottom: getRem(45px);
+      }
+
+      &:nth-child(2n + 2) {
+        flex-direction: column;
+      }
+    }
+  }
+  .certificates-block__info {
+    @media (max-width: ($breakpoint - 1px)) {
+      margin-top: getRem(30px);
+    }
+  }
+  
   .big-titles {
-    text-align: center;
-    margin: getRem(80px) 0 getRem(100px);
+
+    margin: getRem(60px) 0 getRem(45px);
+
+    @media (min-width: $breakpoint) {
+      text-align: center;
+      margin: getRem(80px) 0 getRem(100px);
+    }
   }
 
   .small-titles {
-    width: calc(#{$col-part-d} * 4 + #{$col-gap});
+    @media (min-width: $breakpoint) {
+      width: calc(#{$col-part-d} * 4 + #{$col-gap});
+
+      &:not(:last-child) {
+        margin-bottom: getRem(12px);
+      }
+    }
   }
 
   .small-titles__txt {
     margin-top: getRem(20px);
+
+    @media (max-width: ($breakpoint - 1px)) {
+      margin-top: getRem(8px);
+    }
   }
 
   ul li {
-    @include fsl (20px, 170%);
-    margin-top: getRem(10px);
+    @include fsl (16px, 160%);
+    margin-top: getRem(8px);
 
     padding-left: 30px;
     position: relative;
+
+    @media (min-width: $breakpoint) {
+      @include fsl (20px, 170%);
+      margin-top: getRem(10px);
+    }
 
     &::before {
       content: '—';
@@ -586,6 +685,19 @@
         svg path {
           stroke: var(--color-brown);
         }
+      }
+    }
+  }
+}
+
+.card-page-top {
+  @media (max-width: ($breakpoint - 1px)) {
+    .scroll-down {
+      margin: getRem(45px) 0;
+
+      &__line {
+        margin: 0;
+        height: getRem(50px);
       }
     }
   }
