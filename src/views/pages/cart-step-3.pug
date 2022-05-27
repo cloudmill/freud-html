@@ -144,7 +144,9 @@ block content
                         .form__field-name Комментарии к заказу
                         textarea.form__textarea( placeholder='Введите текст')
                       
-                      .cart-receiving-form__txt Доставка разрешена не для всех товаров из нашего каталога. #[br] Менеджер перезвонит вам в ближайшее время и проконсультирует вас
+                      .cart-receiving-form__txt.only-desktop Доставка разрешена не для всех товаров из нашего каталога. #[br] Менеджер перезвонит вам в ближайшее время и проконсультирует вас
+
+                      .cart-receiving-form__txt.only-mobile Доставка разрешена не для всех товаров из нашего каталога. Менеджер перезвонит вам в ближайшее время и проконсультирует вас
 
                       +brown-button.cart-receiving-form__btn
                         |Оформить заказ
@@ -152,7 +154,7 @@ block content
                       a.cart-receiving-form__link(href="https://minzdrav.gov.ru/documents/5736-federalnyy-zakon-15-fz-ot-23-fevralya-2013-g" target="_blank") Федеральный закон №15-ФЗ от 23 февраля 2013 года 
 
 
-          .cart-section__col(data-aos='fade-up')
+          .cart-section__col.only-desktop(data-aos='fade-up')
 
             .cart-result
               .cart-result__ttl Итого
