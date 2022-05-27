@@ -1,5 +1,5 @@
 .error-section {
-  padding: getRem(210px) 0;
+  padding: getRem(90px) 0 getRem(80px);
 
   display: flex;
   justify-content: center;
@@ -7,10 +7,21 @@
   flex-direction: column;
   text-align: center;
 
+  @media (min-width: $breakpoint) {
+    padding: getRem(210px) 0;
+  }
+
   &__ttl {
     font-family: 'Berlingske Serif';
-    @include fsl(180px, 100%);
+    @include fsl(100px, 100%);
     color: var(--color-grey);
+
+    @media (max-width: ($breakpoint - 1px)) {
+      margin-bottom: getRem(20px);
+    }
+    @media (min-width: $breakpoint) {
+      @include fsl(180px, 100%);
+    }
   }
 
   &__subttl {
@@ -23,11 +34,18 @@
 
   &__btn-row {
     display: flex;
-    margin: getRem(40px) auto 0;
+    margin-top: getRem(26px);
+
+    @media (min-width: $breakpoint) {
+      margin: getRem(40px) auto 0;
+    }
   }
 
   &__btn {
-    width: fit-content;
+    width: getRem(102px);
+    @media (min-width: $breakpoint) {
+      width: fit-content;
+    }
 
     &:not(:last-child) {
       margin-right: getRem(20px);

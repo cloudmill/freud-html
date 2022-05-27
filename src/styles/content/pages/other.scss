@@ -26,21 +26,47 @@
 
   margin-top: getRem(60px);
 
+  @media (max-width: ($breakpoint - 1px)) {
+    margin-top: getRem(45px);
+    flex-direction: column;
+  }
+
   &__item {
-    width: calc(#{$col-part-d} * 4 - #{$col-gap});
-    padding: getRem(50px);
+    width: 100%;
+    padding: getRem(30px) getRem(20px);
     border: 1px solid var(--color-border-grey);
+
+    @media (min-width: $breakpoint) {
+      width: calc(#{$col-part-d} * 4 - #{$col-gap});
+      padding: getRem(50px);
+    }
+
+    &:not(:last-child) {
+      @media (max-width: ($breakpoint - 1px)) {
+        margin-bottom: getRem(20px);
+      }
+    }
 
     &-ttl {
       font-family: $ff-titles;
-      @include fsl(36px, 130%);
-      margin-bottom: getRem(20px);
+      @include fsl(24px, 130%);
+      margin-bottom: getRem(12px);
+
+      @media (min-width: $breakpoint) {
+        @include fsl(36px, 130%);
+        margin-bottom: getRem(20px);
+      }
     }
   }
 
   &__txt {
-    @include fsl(18px, 160%);
-    margin: getRem(15px) 0;
+    @include fsl(16px, 160%);
+    margin: getRem(12px) 0;
+
+    @media (min-width: $breakpoint) {
+      @include fsl(18px, 160%);
+      margin: getRem(15px) 0;
+    }
 
     &:first-child {
       margin-top: 0;

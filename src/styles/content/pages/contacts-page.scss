@@ -1,6 +1,10 @@
 .contacts-block {
 
-  margin-top: getRem(90px);
+  margin-top: getRem(60px);
+
+  @media (min-width: $breakpoint) {
+    margin-top: getRem(90px);
+  }
 
   &__top {
     text-align: center;
