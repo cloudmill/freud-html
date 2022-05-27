@@ -30,7 +30,11 @@
   }
 
   &--pb120 {
-    padding-bottom: getRem(120px);
+    padding-bottom: getRem(60px);
+
+    @media (min-width: $breakpoint) {
+      padding-bottom: getRem(120px);
+    }
   }
 
   &--main-page {

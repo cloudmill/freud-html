@@ -8,18 +8,31 @@
 }
 
 .lounge-main-bg {
-  background: url(assets/images/lounge-bg.jpeg) no-repeat center;
+  background: url(assets/images/lounge-bg-mob.jpeg) no-repeat center;
+
+  @media (min-width: $breakpoint) {
+    background: url(assets/images/lounge-bg.jpeg) no-repeat center;
+  }
 }
 
 .fumelier-block {
   display: flex;
   justify-content: space-between;
 
-  padding: 0 calc(#{$col-width-d});
+  @media (max-width: ($breakpoint - 1px)) {
+    flex-direction: column-reverse;
+  }
+  @media (min-width: $breakpoint) {
+    padding: 0 calc(#{$col-width-d});
+  }
 
   .big-titles {
-    margin-top: getRem(90px);
-    width: calc(#{$col-part-d} * 4);
+    margin-top: getRem(45px);
+
+    @media (min-width: $breakpoint) {
+      margin-top: getRem(90px);
+      width: calc(#{$col-part-d} * 4);
+    }
   }
 
   .big-titles__txt {
@@ -27,12 +40,18 @@
   }
 
   &__img {
-    width: calc(#{$col-part-d} * 5);
+    @media (min-width: $breakpoint) {
+      width: calc(#{$col-part-d} * 5);
+    }
   }
 }
 
 .cabinet-main-bg {
-  background: url(assets/images/cabinet-main-bg.jpeg) no-repeat center;
+  background: url(assets/images/cabinet-main-bg-mob.jpeg) no-repeat center;
+
+  @media (min-width: $breakpoint) {
+    background: url(assets/images/cabinet-main-bg.jpeg) no-repeat center;
+  }
 }
 
 .cabinet-section-bg {

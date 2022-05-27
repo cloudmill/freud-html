@@ -481,8 +481,10 @@
 }
 
 .cabinet-col2 {
-  margin-left: calc(#{$col-gap} * -1);
-  width: calc(#{$col-part-d} * 6 - (#{$col-width-d} / 2) - 10px);
+  @media (min-width: $breakpoint) {
+    margin-left: calc(#{$col-gap} * -1);
+    width: calc(#{$col-part-d} * 6 - (#{$col-width-d} / 2) - 10px);
+  }
 }
 
 .anchor {

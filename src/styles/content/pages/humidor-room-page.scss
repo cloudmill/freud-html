@@ -1,5 +1,9 @@
 .humidor-top-bg {
-  background: url(assets/images/humidor-block-bg.jpeg) no-repeat center;
+  background: url(assets/images/humidor-block-bg-mob.jpeg) no-repeat center;
+
+  @media (min-width: $breakpoint) {
+    background: url(assets/images/humidor-block-bg.jpeg) no-repeat center;
+  }
 }
 
 .nums-block-bottom {

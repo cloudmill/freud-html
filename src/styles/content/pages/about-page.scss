@@ -86,7 +86,11 @@
 }
 
 .about-main-bg {
-  background: url(assets/images/section-bg.jpg) no-repeat center;
+  background: url(assets/images/section-bg-mob.jpeg) no-repeat center;
+
+  @media (min-width: $breakpoint) {
+    background: url(assets/images/section-bg.jpg) no-repeat center;
+  }
 }
 
 .benefits-block {
