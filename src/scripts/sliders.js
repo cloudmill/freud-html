@@ -97,31 +97,23 @@ function swipers() {
     },
   });
 
-  // const recommendSlider = new Swiper('#recommend-slider', {
-
-  //   modules: [Navigation, Pagination],
-
-  //   slidesPerView: 3,
-  //   spaceBetween: 30,
-  //   loop: true,
-
-  //   navigation: {
-  //     nextEl: '#recommend-slider-next',
-  //     prevEl: '#recommend-slider-prev',
-  //   },
-
-  //   pagination: {
-  //     el: '#recommend-slider-pagination',
-  //   },
-  // });
-
   const humidorSlider = new Swiper('#humidor-slider', {
 
     modules: [Mousewheel],
 
     mousewheel: true,
     slidesPerView: 'auto',
-    spaceBetween: 30,
+    spaceBetween: 15,
+    centeredSlides: true,
+    initialSlide: 1,
+
+    breakpoints: {
+      [1280]: {
+        spaceBetween: 30,
+        centeredSlides: false,
+        initialSlide: 0,
+      },
+    },
 
   });
 

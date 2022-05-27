@@ -8,22 +8,43 @@
 
   padding: getRem(65px) 0;
 
+  @media (max-width: ($breakpoint - 1px)) {
+    flex-direction: column;
+    padding: getRem(30px) 0;
+  }
+
   &__col {
-    width: calc(100% / 3);
     text-align: center;
 
+    @media (max-width: ($breakpoint - 1px)) {
+      padding: getRem(30px) 0;
+    }
+    @media (min-width: $breakpoint) {
+      width: calc(100% / 3);
+    }
+
     &:nth-child(2) {
-      border-left: 1px solid var(--color-border-extra);
-      border-right: 1px solid var(--color-border-extra);
+      border: 1px solid var(--color-border-extra);
+
+      @media (max-width: ($breakpoint - 1px)) {
+        border-left: none;
+        border-right: none;
+      }
+      @media (min-width: $breakpoint) {
+        border-top: none;
+        border-bottom: none;
+      }
     }
   }
   &__big {
-    font-family: $ff-titles;
-    @include fsl(72px, 130%);
   }
   &__txt {
-    @include fsl(20px, 160%);
+    @include fsl(18px, 160%);
     color: var(--color-grey);
+
+    @media (min-width: $breakpoint) {
+      @include fsl(20px, 160%);
+    }
   }
 }
 
@@ -39,24 +60,37 @@
     content: '';
     position: absolute;
     top: 0;
-    width: getRem(60px);
+    width: getRem(50px);
     height: getRem(1px);
     background: var(--color-brown);
+
+    @media (min-width: $breakpoint) {
+      width: getRem(60px);
+    }
   }
 
   &__txt {
     font-family: $ff-titles;
-    @include fsl(60px, 140%);
+    @include fsl(30px, 140%);
 
-    margin: getRem(30px) 0;
+    margin: getRem(20px) 0 getRem(30px);
+
+    @media (min-width: $breakpoint) {
+      @include fsl(60px, 140%);
+      margin: getRem(30px) 0;
+    }
   }
 
   &__name {
-    @include fsl(13px, 130%);
+    @include fsl(11px, 150%);
     font-weight: 700;
     letter-spacing: 0.13em;
     text-transform: uppercase;
     color: var(--color-brown);
+
+    @media (min-width: $breakpoint) {
+      @include fsl(13px, 130%);
+    }
   }
 }
 
@@ -65,7 +99,21 @@
   overflow: hidden;
 
   .swiper-slide {
-    width: fit-content;
+
+    @media (max-width: ($breakpoint - 1px)) {
+      width: getRem(300px);
+      height: auto;
+    }
+    @media (min-width: $breakpoint) {
+      width: fit-content;
+    }
+
+    picture, img {
+      @media (max-width: ($breakpoint - 1px)) {
+        height: 100%;
+        object-fit: cover;
+      }
+    }
   }
 }
 
@@ -74,36 +122,76 @@
   justify-content: space-between;
   align-items: center;
 
-  padding: 0 calc(#{$col-width-d});
+  @media (max-width: ($breakpoint - 1px)) {
+    flex-direction: column-reverse;
+  }
+  @media (min-width: $breakpoint) {
+    padding: 0 calc(#{$col-width-d});
+  }
 
   &__col {
-    width: calc(#{$col-part-d} * 4 + #{$col-gap});
-    margin-right: calc(#{$col-part-d});
+    @media (max-width: ($breakpoint - 1px)) {
+      margin-top: getRem(43px);
+    }
+    @media (min-width: $breakpoint) {
+      width: calc(#{$col-part-d} * 4 + #{$col-gap});
+      margin-right: calc(#{$col-part-d});
+    }
   }
 
   &__img {
-    width: calc(#{$col-part-d} * 5);
+    @media (min-width: $breakpoint) {
+      width: calc(#{$col-part-d} * 5);
+    }
   }
 
   .big-titles__txt {
-    margin-top: getRem(15px);
+    margin-top: getRem(8px);
+    @media (min-width: $breakpoint) {
+      margin-top: getRem(15px);
+    }
   }
 
   .button {
     margin-top: getRem(60px);
+    @media (max-width: ($breakpoint - 1px)) {
+      width: 100%;
+      margin-top: getRem(30px);
+    }
+  }
+}
+
+.humidor-section {
+  @media (max-width: ($breakpoint - 1px)) {
+    padding-top: getRem(45px);
   }
 }
 
 .humidor-block {
-  padding: getRem(130px) 0;
-
   display: flex;
   align-items: center;
 
+  @media (max-width: ($breakpoint - 1px)) {
+    flex-direction: column;
+    padding: 0 $col-gap-m getRem(60px);
+    margin: 0 -$col-gap-m;
+  }
+  @media (min-width: $breakpoint) {
+    padding: getRem(130px) 0;
+  }
+
   &__img {
-    width: calc((#{$col-part-d} * 5 - #{$col-gap}) + 240px);
-    margin-left: calc(#{$col-pad-d} * -1);
+    
     flex-shrink: 0;
+
+    @media (max-width: ($breakpoint - 1px)) {
+      margin-top: getRem(-45px);
+    }
+
+    @media (min-width: $breakpoint) {
+      width: calc((#{$col-part-d} * 5 - #{$col-gap}) + 240px);
+      margin-left: calc(#{$col-pad-d} * -1);
+    }
 
     img {
       width: 100%;
@@ -111,10 +199,19 @@
   }
 
   &__col {
-    padding: 0 calc(#{$col-part-d} + #{$col-width-d}) 0 calc(#{$col-part-d} + #{$col-gap});
+    @media (max-width: ($breakpoint - 1px)) {
+      margin-top: getRem(45px);
+    }
+    @media (min-width: $breakpoint) {
+      padding: 0 calc(#{$col-part-d} + #{$col-width-d}) 0 calc(#{$col-part-d} + #{$col-gap});
+    }
 
     .big-titles__txt {
-      margin-top: getRem(15px);
+      margin-top: getRem(8px);
+
+      @media (min-width: $breakpoint) {
+        margin-top: getRem(15px);
+      }
     }
   }
 }

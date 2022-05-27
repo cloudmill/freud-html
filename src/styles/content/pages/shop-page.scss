@@ -78,6 +78,10 @@
 .more-btn {
   margin: getRem(30px) auto 0;
 
+  @media (max-width: ($breakpoint - 1px)) {
+    width: 100%;
+    margin: getRem(30px) auto 0;
+  }
   @media (min-width: $breakpoint) {
     margin: getRem(60px) auto 0;
   }

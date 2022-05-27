@@ -30,7 +30,7 @@ block content
 
           each item in nums
             .nums-block-bottom__col
-              .nums-block-bottom__big #{item.num}
+              .nums-block-bottom__big.h1.title-font #{item.num}
               .nums-block-bottom__txt #{item.txt}
 
   section.section.section--top
@@ -59,7 +59,7 @@ block content
 
               .benefits-cell__txt #{item.txt}
 
-  section
+  section.humidor-section
     .container
       .humidor-block.section--grey
         .humidor-block__img(data-aos='fade-up')
@@ -71,10 +71,17 @@ block content
   section.section
     .container
       .blockquote(data-aos='fade-up')
-        .blockquote__txt
+        .blockquote__txt.only-desktop
           |«Мы проводники #[br] для наших клиентов в мире #[br] сигарной культуры»
-        .blockquote__name
+
+        .blockquote__txt.only-mobile
+          |«Мы проводники #[br] для наших клиентов #[br] в мире сигарной #[br] культуры»
+
+        .blockquote__name.only-desktop
           |станислав аверкиев — витолье-фумелье клуба профессор фрейд
+
+        .blockquote__name.only-mobile
+          |станислав аверкиев — витолье-фумелье #[br] клуба профессор фрейд
 
   section
 
