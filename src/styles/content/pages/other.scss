@@ -68,16 +68,28 @@
 
   padding: getRem(60px) calc(#{$col-width-d}) 0;
 
+  @media (max-width: ($breakpoint - 1px)) {
+    padding-right: 0;
+  }
+
   &__row {
     display: flex;
     justify-content: space-between;
 
     @media (max-width: ($breakpoint - 1px)) {
       flex-direction: column-reverse;
+
+      &:nth-child(2n + 2) {
+        flex-direction: column;
+      }
     }
 
     &:not(:last-child) {
-      margin-bottom: getRem(120px);
+      margin-bottom: getRem(60px);
+
+      @media (min-width: $breakpoint) {
+        margin-bottom: getRem(120px);
+      }
     }
   }
 
@@ -88,33 +100,48 @@
   }
 
   &__info {
-    margin-top: getRem(60px);
+    margin-top: getRem(45px);
     
     @media (min-width: $breakpoint) {
       width: calc(#{$col-part-d} * 5);
+      margin-top: getRem(60px);
     }
   }
 
   .small-titles {
-    margin-bottom: getRem(15px);
+    margin-bottom: getRem(8px);
+
+    @media (min-width: $breakpoint) {
+      margin-bottom: getRem(15px);
+    }
   }
 
   &__txt {
-    @include fsl(18px, 170%);
+    @include fsl(16px, 160%);
 
     @media (min-width: $breakpoint) {
       width: calc(#{$col-part-d} * 4);
+      @include fsl(18px, 170%);
     }
   }
 
   &__btn {
     margin-top: getRem(45px);
+
+    @media (max-width: ($breakpoint - 1px)) {
+      width: 100%;
+      margin-top: getRem(30px);
+    }
   }
 
   &__note {
     margin-top: getRem(15px);
     @include fsl(14px, 160%);
     color: var(--color-grey);
+
+    @media (max-width: ($breakpoint - 1px)) {
+      margin-top: getRem(20px);
+    }
   }
 }
 
@@ -417,10 +444,6 @@
     @media (max-width: ($breakpoint - 1px)) {
       &:not(:last-child) {
         margin-bottom: getRem(45px);
-      }
-
-      &:nth-child(2n + 2) {
-        flex-direction: column;
       }
     }
   }

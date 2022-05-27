@@ -14,9 +14,10 @@ block content
 
       .contacts-block
         .contacts-block__top
-          +big-titles(subttl='профессор фрейд' ttl='Подарочные сертификаты' txt='Элегантный дизайн сертификата создаст наилучшие' txt2='впечатления о подарке' h1)
+          +big-titles.only-desktop(subttl='профессор фрейд' ttl='Подарочные сертификаты' txt='Элегантный дизайн сертификата создаст наилучшие' txt2='впечатления о подарке' h1)
+          +big-titles.only-mobile(subttl='профессор фрейд' ttl='Подарочные сертификаты' txt='Элегантный дизайн сертификата создаст' txt2='наилучшие впечатления о подарке' h1)
 
-          .scroll-down(data-aos='fade-up')
+          .scroll-down.only-desktop(data-aos='fade-up')
             .scroll-down__line
 
   section.section--bottom.lounge-section
@@ -28,7 +29,8 @@ block content
 
           .certificates-block__info
 
-            +small-titles(ttl='Сертификат' ttl2='на ужин в ресторане')
+            +small-titles.only-desktop(ttl='Сертификат' ttl2='на ужин в ресторане')
+            +small-titles.only-mobile(ttl='Сертификат на' ttl2='ужин в ресторане')
 
             .certificates-block__txt(data-aos='fade-up')
               |Особенный подарок для любого случая. Камерная атмосфера, изысканное меню и обширная винная карта позволят в полной мере насладиться временем проведенным в нашем клубе
@@ -48,7 +50,8 @@ block content
 
           .certificates-block__info
 
-            +small-titles(ttl='Сертификат' ttl2='на сигары и алкоголь')
+            +small-titles.only-desktop(ttl='Сертификат' ttl2='на сигары и алкоголь')
+            +small-titles.only-mobile(ttl='Сертификат на' ttl2='сигары и алкоголь')
 
             .certificates-block__txt(data-aos='fade-up')
               |В нашем хьюминдоре вы найдете широкий ассортимент сигар Кубы и Карибского бассейна, а винотека порадует большой коллекцией вин Старого Света и уникальными позициями крепкого алкоголя
