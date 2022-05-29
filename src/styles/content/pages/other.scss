@@ -327,12 +327,25 @@
 
   display: flex;
   justify-content: space-between;
+
+  @media (max-width: ($breakpoint - 1px)) {
+    padding: getRem(30px) 0 0;
+    flex-direction: column;
+  }
 }
 
 .menu-wine-col {
   width: calc(#{$col-part-d} * 5 - #{$col-gap} - 20px);
   border-bottom: 1px solid var(--color-black-rgba-1);
   height: fit-content;
+
+  @media (max-width: ($breakpoint - 1px)) {
+    width: 100%;
+
+    &:first-child {
+      border-bottom: none;
+    }
+  }
 
   .rules-spoiler__button {
     background: transparent;
@@ -348,6 +361,11 @@
   .rules-spoiler__drop-inner {
     padding: 0 0 getRem(15px);
     color: inherit;
+  }
+  .menu-list__weight {
+    @media (max-width: ($breakpoint - 1px)) {
+      margin-top: getRem(6px);
+    }
   }
 }
 

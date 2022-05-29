@@ -20,8 +20,12 @@
     cursor: pointer;
 
     width: 100%;
-    padding: getRem(30px) 0 getRem(30px);
+    padding: getRem(20px) 0;
     border-top: 1px solid rgba(255, 255, 255, .1);
+
+    @media (min-width: $breakpoint) {
+      padding: getRem(30px) 0;
+    }
 
     &.-ba-is-active {
       .rules-spoiler__arrow svg {
