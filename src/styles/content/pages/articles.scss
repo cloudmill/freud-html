@@ -89,7 +89,11 @@
 }
 
 .articles-detail {
-  padding: getRem(90px) calc(#{$col-part-d} * 2) 0;
+  padding-top: getRem(45px);
+
+  @media (min-width: $breakpoint) {
+    padding: getRem(90px) calc(#{$col-part-d} * 2) 0;
+  }
 
   &__top {
     margin-bottom: getRem(30px);
@@ -98,7 +102,11 @@
     justify-content: center;
 
     .articles-card__info-col {
-      @include fsl(18px, 150%);
+      @include fsl(16px, 150%);
+
+      @media (min-width: $breakpoint) {
+        @include fsl(18px, 150%);
+      }
     }
     .articles-card__info-col:nth-child(1)::after {
       top: 25%;
@@ -109,12 +117,21 @@
   }
 
   &__img-inner {
-    padding: getRem(60px) 0;
+    padding: getRem(30px) 0;
+
+    @media (min-width: $breakpoint) {
+      padding: getRem(60px) 0;
+    }
   }
 
   p {
-    margin: getRem(30px) 0;
-    @include fsl(20px, 160%);
+    margin: getRem(15px) 0;
+    @include fsl(16px, 160%);
+
+    @media (min-width: $breakpoint) {
+      @include fsl(20px, 160%);
+      margin: getRem(30px) 0;
+    }
 
     &:first-child {
       margin-top: 0;
@@ -125,10 +142,15 @@
   }
 
   h2 {
-    margin: getRem(90px) 0 getRem(30px);
+    margin: getRem(30px) 0 getRem(8px);
 
     font-family: $ff-titles;
-    @include fsl(30px, 130%);
+    @include fsl(24px, 130%);
+
+    @media (min-width: $breakpoint) {
+      @include fsl(30px, 130%);
+      margin: getRem(90px) 0 getRem(30px);
+    }
 
     &:first-child {
       margin-top: 0;
@@ -151,10 +173,15 @@
 
     li {
       margin: getRem(8px) 0;
-      @include fsl(20px, 160%);
+      @include fsl(16px, 160%);
 
       position: relative;
-      padding-left: getRem(50px);
+      padding-left: getRem(20px);
+
+      @media (min-width: $breakpoint) {
+        @include fsl(20px, 160%);
+        padding-left: getRem(50px);
+      }
   
       &:first-child {
         margin-top: 0;
@@ -166,13 +193,19 @@
   }
 
   blockquote {
-    margin: getRem(90px) 0;
-    padding: getRem(60px);
+    margin: getRem(30px) 0;
+    padding: getRem(20px);
     text-align: center;
     background: var(--background-grey-extra-2);
 
-    @include fsl(30px, 130%);
+    @include fsl(24px, 130%);
     font-family: $ff-titles;
+
+    @media (min-width: $breakpoint) {
+      padding: getRem(60px);
+      margin: getRem(90px) 0;
+      @include fsl(30px, 130%);
+    }
 
     &:first-child {
       margin-top: 0;
@@ -198,6 +231,10 @@
   p + .articles-detail__img {
     margin-top: getRem(60px);
 
+    @media (max-width: ($breakpoint - 1px)) {
+      margin-top: getRem(30px);
+    }
+
     .articles-detail__img-inner {
       padding-top: 0;
     }
@@ -205,12 +242,25 @@
   h2 + .articles-detail__img {
     margin-top: getRem(60px);
 
+    @media (max-width: ($breakpoint - 1px)) {
+      margin-top: getRem(30px);
+    }
+
     .articles-detail__img-inner {
       padding-top: 0;
     }
   }
+  h2 + ul {
+    @media (max-width: ($breakpoint - 1px)) {
+      margin-top: getRem(8px);
+    }
+  }
   ul + .articles-detail__img {
     margin-top: getRem(60px);
+
+    @media (max-width: ($breakpoint - 1px)) {
+      margin-top: getRem(30px);
+    }
 
     .articles-detail__img-inner {
       padding-top: 0;
@@ -218,6 +268,10 @@
   }
   blockquote + .articles-detail__img {
     margin-top: getRem(60px);
+
+    @media (max-width: ($breakpoint - 1px)) {
+      margin-top: getRem(30px);
+    }
 
     .articles-detail__img-inner {
       padding-top: 0;
@@ -233,6 +287,11 @@
   width: getRem(20px);
   height: 1px;
   background: var(--color-brown);
+
+  @media (max-width: ($breakpoint - 1px)) {
+    top: getRem(12px);
+    width: getRem(14px);
+  }
 }
 
 .list-num li::before {
@@ -245,4 +304,9 @@
   position: absolute;
   top: getRem(3px);
   left: 0;
+
+  @media (max-width: ($breakpoint - 1px)) {
+    @include fsl(16px, 160%);
+    top: 0;
+  }
 }
