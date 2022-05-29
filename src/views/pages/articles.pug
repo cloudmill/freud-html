@@ -16,16 +16,16 @@ block content
         .contacts-block__top
           +big-titles(subttl='профессор фрейд' ttl='Справочная информация' txt='Расскажем подробно обо всех тонкостях' txt2='и нюансах' h1)
 
-          .scroll-down(data-aos='fade-up')
+          .scroll-down.only-desktop(data-aos='fade-up')
             .scroll-down__line
 
-      .articles-top(data-aos='fade-up')
+      .articles-top(data-aos='fade-up' data-tabs)
 
-        .articles-top__item.active
+        .articles-top__item.active(data-tabs-item)
           |Все
 
         each item in ['Сигары', 'Алкоголь', 'Новости']
-          .articles-top__item #{item}
+          .articles-top__item(data-tabs-item) #{item}
 
   section.section--bottom
     .container

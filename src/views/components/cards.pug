@@ -32,7 +32,7 @@ mixin article-card
         +read-more-btn(data-atr='' btn)
           |Читать полностью
 
-        .articles-card__info.only-desktop
+        .articles-card__info
           .articles-card__info-col 20.04.2021
           .articles-card__info-col 5 мин
 
@@ -46,7 +46,7 @@ mixin article-card-big
 
     .articles-card__bottom
 
-      .articles-card__info
+      .articles-card__info.only-desktop
         .articles-card__info-col 20.04.2021
         .articles-card__info-col 5 мин
 
@@ -57,6 +57,10 @@ mixin article-card-big
       .articles-card__bottom-row
         +read-more-btn(data-atr='' btn)
           |Читать полностью
+
+        .articles-card__info.only-mobile
+          .articles-card__info-col 20.04.2021
+          .articles-card__info-col 5 мин
 
 
 mixin catalog-card

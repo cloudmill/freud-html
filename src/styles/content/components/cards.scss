@@ -510,12 +510,20 @@
     display: flex;
 
     &-col {
-      @include fsl(16px, 150%);
+      @include fsl(13px, 150%);
       color: var(--color-grey);
       position: relative;
 
+      @media (min-width: $breakpoint) {
+        @include fsl(16px, 150%);
+      }
+
       &:nth-child(1) {
-        padding-right: getRem(15px);
+        padding-right: getRem(10px);
+
+        @media (min-width: $breakpoint) {
+          padding-right: getRem(15px);
+        }
 
         &::after {
           content: '';
@@ -523,14 +531,22 @@
           top: 20%;
           right: 0;
           width: 1px;
-          height: getRem(11px);
+          height: getRem(10px);
           background: var(--color-grey);
+
+          @media (min-width: $breakpoint) {
+            height: getRem(11px);
+          }
         }
       }
       &:nth-child(2) {
         letter-spacing: 0.05em;
         text-transform: uppercase;
-        padding-left: getRem(14px);
+        padding-left: getRem(9px);
+
+        @media (min-width: $breakpoint) {
+          padding-left: getRem(14px);
+        }
       }
     }
   }
@@ -538,6 +554,10 @@
 
   &--big {
     display: flex;
+
+    @media (max-width: ($breakpoint - 1px)) {
+      flex-direction: column;
+    }
 
     &:hover {
       .two-cols-block__link {
@@ -549,7 +569,9 @@
     }
 
     #{$comp}__top, #{$comp}__img {
-      width: calc(#{$col-part-d} * 6 - #{$col-gap});
+      @media (min-width: $breakpoint) {
+        width: calc(#{$col-part-d} * 6 - #{$col-gap});
+      }
     }
 
     #{$comp}__top {
@@ -558,23 +580,35 @@
     }
 
     #{$comp}__bottom {
-      width: calc(#{$col-part-d} * 6);
-      padding: getRem(60px) 0 getRem(60px) calc(#{$col-part-d});
+      @media (min-width: $breakpoint) {
+        width: calc(#{$col-part-d} * 6);
+        padding: getRem(60px) 0 getRem(60px) calc(#{$col-part-d});
+      }
     }
 
     #{$comp}__ttl {
-      @include fsl(48px, 130%);
+      @include fsl(24px, 130%);
+
+      @media (min-width: $breakpoint) {
+        @include fsl(48px, 130%);
+      }
     }
     #{$comp}__txt {
-      @include fsl(20px, 160%);
+      @include fsl(14px, 160%);
+
+      @media (min-width: $breakpoint) {
+        @include fsl(20px, 160%);
+      }
     }
 
 
     &-revert {
-      flex-direction: row-reverse;
+      @media (min-width: $breakpoint) {
+        flex-direction: row-reverse;
 
-      #{$comp}__bottom {
-        padding: getRem(60px) calc(#{$col-part-d}) getRem(60px) 0;
+        #{$comp}__bottom {
+          padding: getRem(60px) calc(#{$col-part-d}) getRem(60px) 0;
+        }
       }
     }
   }
