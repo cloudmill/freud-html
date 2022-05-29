@@ -22,11 +22,14 @@ block content
         .about-block-bottom.restaurant-top-links(data-aos='fade-up')
           each item in ['Основное меню', 'Крабовое меню', 'Винная карта', 'Барная карта', 'б/а напитки']
 
-            a.about-block-bottom__item(href="") #{item}
+            a.about-block-bottom__item(href="")
+              |#{item}
+              .arrow.only-mobile
+                +arrow-right
 
   section.section--top
     .container
-      .benefits-block.restaurant-benefit-fix
+      .benefits-block.restaurant-benefit-fix.only-desktop
         .benefits-cell(data-aos='fade-up')
           +big-titles(subttl='безупречный сервис' ttl='Камерная' ttl2='атмосфера')
 
@@ -55,6 +58,36 @@ block content
                 if (item.txt3)
                   br 
                   |#{item.txt3}
+
+      .benefits-block.only-mobile
+        .benefits-cell(data-aos='fade-up')
+          +big-titles(subttl='безупречный сервис' ttl='Камерная' ttl2='атмосфера')
+
+        -
+          const benefitsMob = [
+            {ttl: 'Блюда из камчатского краба', txt: 'Наша гордость и хит меню. Наисвежайший, поставляется в клуб прямо с рыболовного судна, где его предварительно варят в морской воде'},
+            {ttl: 'Авторская', ttl2: 'кухня', txt: 'Мы применяем классические методы готовки из различных кухонь мира. Сочетаем их с региональными продуктами'},
+            {ttl: 'Богатая', ttl2: 'винная карта', txt: 'Часть блюд из меню идеально подойдет для поклонников вина, другая — для тех, кто предпочитает сигары'},
+            {ttl: 'Классические', ttl2: 'коктейли XX века', txt: 'Cвежайший камчатский краб, мурманская треска и другие продукты закупаются у лучших, проверенных годами поставщиков'},
+          ]
+
+        each item, index in benefitsMob
+          .benefits-cell.cell-list(data-aos='fade-up')
+            +restaurant-benefit-ico(`${index}`)
+
+            .benefits-cell__info
+              .benefits-cell__ttl.h3 #{item.ttl}
+                if (item.ttl2)
+                  br
+                  | #{item.ttl2}
+
+              .benefits-cell__txt #{item.txt}
+                if (item.txt2)
+                  br 
+                  |#{item.txt2}
+                if (item.txt3)
+                  br 
+                  |#{item.txt3}  
 
   section.section.before-interior-block
     .container
