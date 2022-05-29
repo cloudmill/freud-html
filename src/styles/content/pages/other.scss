@@ -184,8 +184,12 @@
   padding-top: 0;
 
   .big-titles__txt {
-    margin-top: getRem(15px);
-    width: calc(#{$col-part-d} * 4);
+    margin-top: getRem(8px);
+
+    @media (min-width: $breakpoint) {
+      margin-top: getRem(15px);
+      width: calc(#{$col-part-d} * 4);
+    }
   }
 
   .certificates-block__btn {
@@ -202,9 +206,14 @@
 }
 
 .menu-list {
-  margin-top: getRem(45px);
-  padding: getRem(50px) getRem(40px);
+  margin-top: getRem(20px);
+  padding: getRem(30px) getRem(20px);
   background: var(--background-grey-extra-2);
+
+  @media (min-width: $breakpoint) {
+    margin-top: getRem(45px);
+    padding: getRem(50px) getRem(40px);
+  }
 
   &__row {
     display: flex;
@@ -212,7 +221,11 @@
     justify-content: space-between;
 
     &:not(:last-child) {
-      margin-bottom: getRem(10px);
+      margin-bottom: getRem(14px);
+
+      @media (min-width: $breakpoint) {
+        margin-bottom: getRem(10px);
+      }
     }
   }
 
@@ -221,21 +234,40 @@
     max-width: 80%;
   }
   &__price {
-    @include fsl(18px, 170%);
+    @include fsl(16px, 170%);
     font-weight: 600;
+
+    @media (min-width: $breakpoint) {
+      @include fsl(18px, 170%);
+    }
   }
   &__weight {
     width: 100%;
-    // margin-top: getRem(10px);
     @include fsl(14px, 120%);
     font-family: $ff-titles;
     color: var(--color-grey);
+
+    @media (max-width: ($breakpoint - 1px)) {
+      margin-top: getRem(8px);
+    }
   }
 }
 
 .menu-tabs {
   justify-content: center;
   padding: getRem(80px) 0;
+
+  @media (max-width: ($breakpoint - 1px)) {
+    flex-direction: row;
+    justify-content: flex-start;
+
+    padding: getRem(45px) $col-pad-m getRem(60px);
+    margin: 0 -$col-pad-m;
+
+    overflow-x: auto;
+
+    @include scrollbar-hidden;
+  }
 }
 
 .menu-tab {
@@ -250,21 +282,39 @@
 
   transition: $transition;
 
+  @media (max-width: ($breakpoint - 1px)) {
+    padding: getRem(8px) getRem(15px);
+    white-space: nowrap;
+  }
+
   &.active {
     border: 1px solid var(--color-brown);
   }
-  &:hover {
-    border: 1px solid var(--color-black);
+
+  @media (min-width: $breakpoint) {
+    &:hover {
+      border: 1px solid var(--color-black);
+    }
   }
 
   svg {
     margin-right: getRem(14px);
     width: getRem(35px);
     height: getRem(35px);
+
+    @media (max-width: ($breakpoint - 1px)) {
+      margin-right: getRem(8px);
+      width: getRem(24px);
+      height: getRem(24px);
+    }
   }
 
   &:not(:last-child) {
     margin-right: getRem(30px);
+
+    @media (max-width: ($breakpoint - 1px)) {
+      margin-right: getRem(12px);
+    }
   }
 }
 

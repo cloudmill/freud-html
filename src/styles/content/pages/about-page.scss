@@ -1,5 +1,9 @@
 .about-block {
-  padding-top: getRem(60px);
+  padding-top: getRem(30px);
+
+  @media (min-width: $breakpoint) {
+    padding-top: getRem(60px);
+  }
 
   .section-bg-photo {
     padding: getRem(172px) 0 getRem(45px);
