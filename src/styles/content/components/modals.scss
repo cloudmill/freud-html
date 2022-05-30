@@ -220,6 +220,68 @@
 
 .filters-popup {
 
+  &__top {
+    @media (max-width: ($breakpoint - 1px)) {
+      position: relative;
+      // overflow: hidden;
+      // z-index: 5;
+
+      padding: 0;
+      border-bottom: none;
+    }
+
+    &-inner {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      position: relative;
+      z-index: 5;
+
+      @media (max-width: ($breakpoint - 1px)) {
+        padding: getRem(14px) $col-pad-m;
+        border-bottom: 1px solid var(--color-black-rgba-1);
+        background: var(--color-white);
+      }
+    }
+  }
+
+  &__active-filters {
+    display: none;
+
+    @media (max-width: ($breakpoint - 1px)) {
+      display: flex;
+      flex-wrap: wrap;
+      overflow-x: auto;
+      @include scrollbar-hidden;
+
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+
+      padding: getRem(10px) getRem(20px) 0 getRem(20px);
+
+      background: var(--color-white);
+      box-shadow: 0px 4px 4px 1px rgba(203, 203, 203, 0.14);
+
+      transition: $transition;
+    }
+
+    &.active {
+      @media (max-width: ($breakpoint - 1px)) {
+        transform: translateY(100%);
+      }
+    }
+
+    .category-filter-btn {
+      @media (max-width: ($breakpoint - 1px)) {
+        margin-bottom: getRem(10px);
+      }
+    }
+  }
+
   &__body {
     overflow-x: hidden;
     padding: getRem(25px) getRem(20px);
@@ -284,6 +346,7 @@
 
       .category-filter-btn {
         margin-top: getRem(12px);
+        position: relative;
 
         &.active {
           color: var(--color-white);
@@ -291,10 +354,13 @@
           border-color: var(--color-brown);
 
           .category-filter-btn__count {
-            display: none;
+            // display: none;
+            opacity: 0;
           }
           .category-filter-btn__cross {
-            display: block;
+            // display: block;
+            opacity: 1;
+            pointer-events: all;
           }
 
           .category-filter-btn__cross::after, .category-filter-btn__cross::before {

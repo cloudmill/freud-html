@@ -35,8 +35,60 @@ function addToCart(eventClick) {
 function activeFilter(eventClick) {
   // активное состояние для кнопки-фильтра в выпадашке или модалке
 
-  if ((eventClick.target.closest('[data-filter-drop]') || eventClick.target.closest('.filters-popup')) && eventClick.target.closest('.category-filter-btn')) {
-    eventClick.target.closest('.category-filter-btn').classList.toggle('active')
+  const clickOnDrop = eventClick.target.closest('[data-filter-drop]');
+  const clickOnPopup = eventClick.target.closest('.filters-popup');
+  const clickOnBtn = eventClick.target.closest('.category-filter-btn');
+  const mobFilters = document.querySelector('[data-mob-filters]');
+
+  if ((clickOnDrop || clickOnPopup) && clickOnBtn && mediaQuery.matches) {
+
+    clickOnBtn.classList.toggle('active')
+
+  } else if (clickOnPopup && clickOnBtn && !mediaQuery.matches) {
+
+    if (!eventClick.target.closest('[data-mob-filters]')) {
+
+      if (clickOnBtn.classList.contains('active')) {
+
+        clickOnBtn.classList.remove('active');
+
+        document.querySelector('[data-mob-filters]').querySelectorAll('.category-filter-btn.active-filter').forEach(item => {
+          if (item.textContent == clickOnBtn.textContent) {
+            item.remove()
+          }
+        })
+
+        if (!mobFilters.innerHTML) {
+          mobFilters.classList.remove('active');
+        }
+        
+      } else {
+
+        clickOnBtn.classList.add('active');
+        mobFilters.classList.add('active');
+
+        const clickedBtnInner = clickOnBtn.innerHTML;
+
+        mobFilters.insertAdjacentHTML('beforeend', `<button class="category-filter-btn button--clean active-filter">${clickedBtnInner}</button>`);
+
+      }
+
+    } else if (eventClick.target.closest('[data-mob-filters]')) {
+
+      clickOnBtn.remove();
+
+      document.querySelector('.filters-popup').querySelectorAll('.category-filter-btn.active').forEach(item => {
+        if (item.textContent == clickOnBtn.textContent) {
+          item.classList.remove('active');
+        }
+      });
+
+      if (!mobFilters.innerHTML) {
+        mobFilters.classList.remove('active');
+      }
+
+    }
+
   }
 
   // активное состояние верхнего фильтра в категории напитков

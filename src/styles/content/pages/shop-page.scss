@@ -229,11 +229,14 @@
   }
 
   &__cross {
-    display: none;
+    position: absolute;
+    // top: getRem(6px);
+    right: getRem(15px);
+    opacity: 0;
+    pointer-events: none;
 
-    position: relative;
     width: 10px;
-    height: 100%;
+    // height: 100%;
     margin-left: getRem(8px);
     
     &::before, &::after {
@@ -241,7 +244,7 @@
       position: absolute;
       top: 50%;
       left: 50%;
-      width: 8px;
+      width: getRem(12px);
       height: 1px;
       background: var(--color-black);
     }
@@ -256,9 +259,16 @@
   &.active-filter {
     border: none;
     background: #F7EFE0;
+    position: relative;
+    padding-right: getRem(30px);
 
     .category-filter-btn__cross {
-      display: block;
+      // display: block;
+      opacity: 1;
+      pointer-events: all;
+    }
+    .category-filter-btn__count {
+      display: none;
     }
   }
   &.filter-reset {
