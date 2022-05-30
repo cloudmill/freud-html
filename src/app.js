@@ -84,6 +84,32 @@ document.addEventListener('DOMContentLoaded', () => {
       document.querySelector('[data-menu-btn]').classList.toggle('active');
     });
 
+    // переход в раздел мобильного меню
+
+    document.querySelectorAll('[data-memu-link]').forEach(item => {
+
+      item.addEventListener('click', e => {
+
+        const btnIndex = item.getAttribute('data-memu-link');
+
+        document.querySelector(`[data-menu-item='${btnIndex}'`).classList.add('active');
+
+      })
+
+    });
+
+    // закрытие раздела мобильного меню
+
+    document.querySelectorAll('[data-menu-close]').forEach(item => {
+
+      item.addEventListener('click', e => {
+
+        e.target.closest('.mobile-menu-item.active').classList.remove('active');
+
+      })
+
+    });
+
   }
 });
 
