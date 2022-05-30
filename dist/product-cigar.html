@@ -380,6 +380,9 @@
 											<div class="swiper-slide">
 												<div class="product-top-img__cigar"><img src="assets/images/product-1-no-bg.png" alt=""></div>
 											</div>
+											<div class="swiper-slide">
+												<div class="product-top-img__cigar"><img src="assets/images/product-1-no-bg.png" alt=""></div>
+											</div>
 										</div>
 									</div>
 									<div class="product-top-labels only-mobile">
@@ -1699,7 +1702,7 @@
 				<div class="booking-popup__wrapper booking-popup-form">
 					<h2 class="h4 title-font booking-popup-form__ttl only-desktop">Бронирование</h2>
 					<div class="cart-stage-form__note"><sup>*</sup>— поля обязательные для заполнения</div>
-					<form novalidate><label class="form__label">
+					<form novalidate id="booking-form"><label class="form__label">
 							<div class="form__field-name">Имя<sup>*</sup></div><input class="form__input" placeholder="Введите ваше имя" data-focus-input required>
 						</label><label class="form__label">
 							<div class="form__field-name">Телефон<sup>*</sup></div><input class="form__input" type="tel" placeholder="Введите номер телефона" required>
@@ -1748,7 +1751,7 @@
 						<div class="booking-popup-form__note">Нажимая на кнопку «Забронировать», вы соглашаетесь с <a href="">политикой конфиденциальности</a></div>
 					</form>
 				</div>
-				<div class="review-popup__bottom only-mobile"><button class="button button--brown">Забронировать</button><button class="button button--brown-border">Закрыть</button></div><button class="button--clean modal__close only-desktop" data-modal-close></button>
+				<div class="review-popup__bottom only-mobile"><button class="button button--brown" form="booking-form">Забронировать</button><button class="button button--brown-border">Закрыть</button></div><button class="button--clean modal__close only-desktop" data-modal-close></button>
 			</div>
 			<div class="modal modal--center in-cart-popup" data-popup="5">
 				<div class="in-cart-popup__top">
@@ -1777,7 +1780,7 @@
 					</div>
 					<div class="review-popup__body-txt">Этот бренд хорошо знаком истинным ценителям сигар. Выпускаются они флоридской компанией Beach Cigar Group. Свое название эти сигары получили в честь гуркхов — британских колониальных войск, набиравшихся из непальских добровольцев с конца 19 века и по сей день.</div>
 				</div>
-				<div class="review-popup__bottom"><button class="button button--brown">Все товары этого производителя</button><button class="button button--brown-border">Закрыть</button></div>
+				<div class="review-popup__bottom"><button class="button button--brown">Все товары этого производителя</button><button class="button button--brown-border" data-modal-close="">Закрыть</button></div>
 			</div>
 			<div class="modal modal--right review-popup" data-popup="10">
 				<div class="review-popup__top">
@@ -1817,7 +1820,7 @@
 						<div id="map"></div>
 					</div>
 				</div>
-				<div class="review-popup__bottom"><button class="button button--brown-border">Закрыть</button></div>
+				<div class="review-popup__bottom"><button class="button button--brown-border" data-modal-close="">Закрыть</button></div>
 			</div>
 		</div>
 		<div class="mobile-menu-container">

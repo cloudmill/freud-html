@@ -14,7 +14,7 @@
       sup *
       |— поля обязательные для заполнения
 
-    form(novalidate)
+    form(novalidate id='booking-form')
       label.form__label
         .form__field-name Имя
           sup *
@@ -73,8 +73,8 @@
 
   .review-popup__bottom.only-mobile
 
-    +brown-button
-      | Забронировать
+    +brown-button(form='booking-form')
+      |Забронировать
 
     +brown-border-button
       |Закрыть

@@ -527,7 +527,7 @@
 				<div class="booking-popup__wrapper booking-popup-form">
 					<h2 class="h4 title-font booking-popup-form__ttl only-desktop">Бронирование</h2>
 					<div class="cart-stage-form__note"><sup>*</sup>— поля обязательные для заполнения</div>
-					<form novalidate><label class="form__label">
+					<form novalidate id="booking-form"><label class="form__label">
 							<div class="form__field-name">Имя<sup>*</sup></div><input class="form__input" placeholder="Введите ваше имя" data-focus-input required>
 						</label><label class="form__label">
 							<div class="form__field-name">Телефон<sup>*</sup></div><input class="form__input" type="tel" placeholder="Введите номер телефона" required>
@@ -576,7 +576,7 @@
 						<div class="booking-popup-form__note">Нажимая на кнопку «Забронировать», вы соглашаетесь с <a href="">политикой конфиденциальности</a></div>
 					</form>
 				</div>
-				<div class="review-popup__bottom only-mobile"><button class="button button--brown">Забронировать</button><button class="button button--brown-border">Закрыть</button></div><button class="button--clean modal__close only-desktop" data-modal-close></button>
+				<div class="review-popup__bottom only-mobile"><button class="button button--brown" form="booking-form">Забронировать</button><button class="button button--brown-border">Закрыть</button></div><button class="button--clean modal__close only-desktop" data-modal-close></button>
 			</div>
 			<div class="modal modal--right review-popup" data-popup="10">
 				<div class="review-popup__top">
@@ -616,7 +616,7 @@
 						<div id="map"></div>
 					</div>
 				</div>
-				<div class="review-popup__bottom"><button class="button button--brown-border">Закрыть</button></div>
+				<div class="review-popup__bottom"><button class="button button--brown-border" data-modal-close="">Закрыть</button></div>
 			</div>
 			<div class="modal modal--right review-popup success-popup" data-popup="11">
 				<div class="review-popup__body"><svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
