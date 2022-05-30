@@ -32,7 +32,7 @@
             sup *
 
           .select-input__row(data-select-input)
-            input(type='text' placeholder='Ресторан' required)
+            input(type='text' placeholder='Ресторан' data-readonly readonly required)
             +arrow-down
 
         .select(data-select)
@@ -47,7 +47,7 @@
           .form__field-name Дата
             sup *
           .booking-popup-form__datepicker
-            input(type='text' placeholder='__/__/____' data-datepicker required)
+            input(type='text' placeholder='__/__/____' readonly data-readonly data-datepicker required)
             +calendar
 
         label.form__label

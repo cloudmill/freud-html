@@ -42,7 +42,7 @@ function formValidation() {
 
           item.addEventListener('focusout', (event) => {
       
-            if (item.validity.valid) {
+            if (item.validity.valid || item.hasAttribute('data-readonly') && !item.value.length) {
               // console.log('ok');
       
               error.textContent = '';
@@ -61,7 +61,7 @@ function formValidation() {
 
           // console.log(item.validity.valid, item.getAttribute('type') == 'checkbox' && !item.checked);
         
-          if(!item.validity.valid || (item.getAttribute('type') == 'checkbox' && !item.checked)) {
+          if(!item.validity.valid || (item.getAttribute('type') == 'checkbox' && !item.checked) || item.hasAttribute('data-readonly') && !item.value.length) {
 
             showError();
             event.preventDefault();
@@ -125,6 +125,9 @@ function formValidation() {
               error.textContent = 'Введено некорректно';
             }
     
+          } else if (item.hasAttribute('data-readonly') && !item.value.length) {
+            error.textContent = 'Обязательное поле';
+
           } else {
             // console.log('ne rabotaet');
           }

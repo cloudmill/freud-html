@@ -107,9 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
         e.target.closest('.mobile-menu-item.active').classList.remove('active');
 
       })
-
     });
-
   }
 });
 
