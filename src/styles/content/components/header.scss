@@ -233,6 +233,55 @@
   }
 }
 
+.mob-burger {
+  position: relative;
+  display: block;
+  width: getRem(21px);
+  height: getRem(18px);
+
+  transition: $transition;
+
+  &-inner {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 1px;
+    background: var(--color-black);
+    transition: $transition;
+
+    &::after, &::before {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      display: block;
+      width: 100%;
+      height: 1px;
+      background: var(--color-black);
+      content: "";
+      transform-origin: 50% 0%;
+      transition: transform $transition;
+    }
+    &::after {
+      transform: translate(-50%, #{getRem(8px)});
+    }
+    &::before {
+      transform: translate(-50%, #{getRem(-8px)});
+    }
+  }
+
+  &.active {
+    .mob-burger-inner {
+      background: transparent;
+    }
+    .mob-burger-inner::after {
+      transform: translate(-50%, 0) rotate(-45deg);
+    }
+    .mob-burger-inner::before {
+      transform: translate(-50%, 0) rotate(45deg);
+    }
+  }
+}
+
 .header-modals {
   position: absolute;
   width: 100%;

@@ -74,6 +74,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     });
   }
+
+  if (!mediaQuery.matches) {
+
+    // открытие мобильного меню и анимация бургера
+
+    document.querySelector('[data-menu-btn]').addEventListener('click', () => {
+      document.querySelector('[data-mobile-menu]').classList.toggle('active');
+      document.querySelector('[data-menu-btn]').classList.toggle('active');
+    });
+
+  }
 });
 
 window.addEventListener('load', () => {
