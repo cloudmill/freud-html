@@ -192,10 +192,19 @@
   }
 
   &--short {
-    transform: translateY(getRem(-47px));
+    @media (max-width: ($breakpoint - 1px)) {
+      transform: translateY(getRem(-61px));
 
-    #{$comp}__top {
-      transform: translateY(-100%);
+      .header-mobile {
+        transform: translateY(-100%);
+      }
+    }
+    @media (min-width: $breakpoint) {
+      transform: translateY(getRem(-47px));
+
+      #{$comp}__top {
+        transform: translateY(-100%);
+      }
     }
   }
 }

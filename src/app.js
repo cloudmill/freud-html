@@ -99,9 +99,7 @@ window.addEventListener('load', () => {
     document.querySelector('.first-screen__ttl').classList.add('loaded');
   }
 
-  if (mediaQuery.matches) {
-    headerOnScroll();
-  }
+  headerOnScroll();
   
   accordions();
 

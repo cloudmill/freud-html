@@ -189,12 +189,16 @@ mixin header
           +brown-border-button
             |Перейти в корзину
 
-    .active-filters-row.only-desktop
+    .active-filters-row
       .container
         .active-filters-row__container
-          button.category-filter-drop.button--clean(data-popup-button='3')
+          button.category-filter-drop.button--clean.only-desktop(data-popup-button='3')
             +filter-icon
             span все фильтры
+
+          button.category-filter-drop.button--clean.only-mobile(data-popup-button='3')
+            +filter-icon
+            span фильтры
 
           .active-filters-row__list
             each item in ['Alec Bradley', 'Крепость: 1 из 5', 'Длительность курения: 30 мин']

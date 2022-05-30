@@ -1,36 +1,42 @@
+import { mediaQuery } from './mediaQueries';
+
 function headerOnScroll() {
   const header = document.querySelector('.header');
   let scrollTop = window.pageYOffset;
 
-  window.addEventListener('scroll', scroll, {once:true});
+  if (header && (mediaQuery.matches || document.querySelector('[data-category-page]'))) {
 
-  function scroll() {
-    update();
+    window.addEventListener('scroll', scroll, {once:true});
 
-    setTimeout(() => {
+    function scroll() {
       update();
 
-      window.addEventListener('scroll', scroll, {once:true});
+      setTimeout(() => {
+        update();
 
-    }, 1000 / 120)
-  };
+        window.addEventListener('scroll', scroll, {once:true});
 
-  function update() {
-    let newScrollTop = window.pageYOffset;
+      }, 1000 / 120)
+    };
 
-    if (Math.abs(scrollTop - newScrollTop) >= 1) {
-      if (newScrollTop > scrollTop) {
-        header.classList.add('header--short')
-      } else {
+    function update() {
+      let newScrollTop = window.pageYOffset;
+
+      if (Math.abs(scrollTop - newScrollTop) >= 1) {
+        if (newScrollTop > scrollTop) {
+          header.classList.add('header--short')
+        } else {
+          header.classList.remove('header--short')
+        }
+      }
+
+      if (scrollTop < 1) {
         header.classList.remove('header--short')
       }
-    }
 
-    if (scrollTop < 1) {
-      header.classList.remove('header--short')
+      scrollTop = newScrollTop;
     }
-
-    scrollTop = newScrollTop;
+    
   }
 }
 
