@@ -204,6 +204,11 @@
     @media (min-width: $breakpoint) {
       padding: getRem(30px);
     }
+    @media (max-width: ($breakpoint - 1px)) {
+      .button {
+        padding: getRem(15px);
+      }
+    }
 
     &-count {
       @include fsl(16px, 170%);
@@ -223,8 +228,7 @@
   &__top {
     @media (max-width: ($breakpoint - 1px)) {
       position: relative;
-      // overflow: hidden;
-      // z-index: 5;
+      z-index: 5;
 
       padding: 0;
       border-bottom: none;
