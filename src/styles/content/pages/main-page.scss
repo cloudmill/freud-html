@@ -563,6 +563,19 @@
       margin: 0 0 0 auto;
     }
   }
+  &__btn {
+    margin-top: getRem(20px);
+
+    @media (min-width: $breakpoint) {
+      margin-top: getRem(30px);
+    }
+
+    .two-cols-block__link {
+      @media (max-width: ($breakpoint - 1px)) {
+        @include fsl(16px, 150%);
+      }
+    }
+  }
   .big-titles__txt {
     margin-top: getRem(8px);
 
