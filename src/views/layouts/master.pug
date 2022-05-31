@@ -1,9 +1,10 @@
 -
-  var test = 'test'
+  var test = 'test';
 
 block variables
-  - var param = false
-
+  -
+    var param = false;
+    var modalsContainer = false;
 
 
 include ../components/svg
@@ -44,11 +45,18 @@ html(lang='ru')
 
       block grid-test
         +grid-test
+    
+    if (modalsContainer == 'plug')
+      .modals-container.plug
+        include ../components/popups/plug-popup
 
-    .modals-container
-      include ../components/popups/booking-popup
+        block modals
 
-      block modals
+    else
+      .modals-container
+        include ../components/popups/booking-popup
+
+        block modals
 
     .mobile-menu-container
       include ../components/popups/mobile-menu

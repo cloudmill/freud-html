@@ -64,6 +64,13 @@ document.addEventListener('DOMContentLoaded', () => {
     anchorScroll(eventClick);
     fadeOnLeave(eventClick);
 
+    if (eventClick.target.closest('[data-plug-close]')) {
+      
+      document.querySelector('.plug-popup.active').classList.remove('active');
+      document.querySelector('.modals-container.plug').classList.remove('plug');
+
+    }
+
   });
 
   if (mediaQuery.matches) {
