@@ -867,3 +867,40 @@
     }
   }
 }
+
+.offer-popup-body {
+  .review-card__name {
+    margin: getRem(20px) 0 getRem(8px);
+
+    &:first-child {
+      margin-top: 0;
+    }
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  .review-popup__body-txt {
+    li {
+      position: relative;
+      display: flex;
+      margin: getRem(6px) 0;
+
+      &::before {
+        content: '—';
+        margin-right: getRem(14px);
+
+        @media (max-width: ($breakpoint - 1px)) {
+          margin-right: getRem(11px);
+          color: var(--color-brown);
+        }
+      }
+
+      &:first-child {
+        margin-top: 0;
+      }
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}

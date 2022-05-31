@@ -85,8 +85,9 @@ block content
 
             .two-cols-block__txt(data-aos='fade-up') Каждый может почувствовать себя членом закрытого клуба и провести вечер в окружении друзей, роскоши и спокойствия
 
-            +read-more-btn(data-aos='fade-up')
-              |узнать больше
+            div(data-aos='fade-up' data-popup-button='12')
+              +read-more-btn(data-attr='' btn)
+                |узнать больше
 
           div(data-aos='fade-up')
             +picture(file='cabinet-1')
@@ -134,3 +135,4 @@ block modals
   include ../components/popups/in-cart-popup
   include ../components/popups/consult-popup
   include ../components/popups/subscribe-success-popup
+  include ../components/popups/offer-popup
