@@ -45,11 +45,18 @@
       overflow: hidden;
 
       @media (max-width: ($breakpoint - 1px)) {
-        height: getRem(210px);
+        // height: getRem(210px);
+        height: 56vw;
+      }
+
+      picture, img {
+        width: 100%;
+        height: 100%;
       }
 
       img {
         transition: $transition;
+        object-fit: cover;
       }
     }
     &-ttl {

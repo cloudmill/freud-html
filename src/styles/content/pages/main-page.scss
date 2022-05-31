@@ -13,6 +13,7 @@
   @media (max-width: ($breakpoint - 1px)) {
     height: 100%;
     flex-direction: column-reverse;
+    align-items: center;
   }
 
   &-container {
@@ -22,6 +23,10 @@
     @media (min-width: $breakpoint) {
       height: getRem(670px);
       margin-bottom: getRem(25px);
+    }
+    @media (max-width: ($breakpoint - 1px)) {
+      width: getRem(335px);
+      margin: 0 auto;
     }
   }
 
@@ -34,11 +39,16 @@
 
     @media (max-width: ($breakpoint - 1px)) {
       position: absolute;
-      width: auto;
+      // width: auto;
+      width: getRem(235px);
+      margin: 0 auto;
+
       // left: calc(#{$col-width-m});
       // right: calc(#{$col-width-m});
-      left: getRem(50px);
-      right: getRem(50px);
+
+      // left: getRem(50px);
+      // right: getRem(50px);
+
       top: 0;
       bottom: unset;
 
@@ -134,8 +144,12 @@
       @media (max-width: ($breakpoint - 1px)) {
         // left: calc(#{$col-width-m});
         // right: calc(#{$col-width-m});
-        left: getRem(50px);
-        right: getRem(50px);
+
+        // left: getRem(50px);
+        // right: getRem(50px);
+
+        width: getRem(235px);
+        margin: 0 auto;
 
         top: 0;
         bottom: unset;
@@ -244,7 +258,8 @@
 
       @media (max-width: ($breakpoint - 1px)) {
         top: 0;
-        right: calc(#{$col-width-m} + #{getRem(20px)});
+        // right: calc(#{$col-width-m} + #{getRem(20px)});
+        right: getRem(70px);
       }
     }
   }

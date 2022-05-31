@@ -14,7 +14,7 @@ function formValidation() {
 
         if (!item.hasAttribute('data-input-novalidate')) {
 
-          // добавляет элемент сразу после инпута и сохраняет для ошибки
+          // добавляет элемент блок для текста ошибки в зависимости от верстки
 
           if (item.getAttribute('type') == 'checkbox') {
 
@@ -73,6 +73,12 @@ function formValidation() {
               document.querySelector('.body').classList.add('modal-open');
               document.querySelector('.modals-container').classList.add('active');
               document.querySelector('[data-popup="11"]').classList.add('active');
+
+            } else if (item.closest('.product-body-consult')) {
+
+              document.querySelector('.body').classList.add('modal-open');
+              document.querySelector('.modals-container').classList.add('active');
+              document.querySelector('[data-popup="13"]').classList.add('active');
 
             }
 

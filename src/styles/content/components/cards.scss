@@ -118,12 +118,17 @@
     &-item {
       color: var(--color-white);
       width: fit-content;
-      padding: getRem(4px) getRem(8px);
+      padding: getRem(4px);
 
-      @include fsl(14px, 120%);
+      @include fsl(14px, 100%);
       font-weight: 600;
-      letter-spacing: 0.1em;
+      
       text-transform: uppercase;
+
+      @media (min-width: $breakpoint) {
+        letter-spacing: 0.1em;
+        padding: getRem(4px) getRem(8px);
+      }
 
       &:not(:first-child) {
         margin-top: getRem(6px);
