@@ -124,6 +124,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
 window.addEventListener('load', () => {
 
+  document.querySelectorAll('[data-cart-content]').forEach(item => {
+
+    console.log(item.offsetHeight);
+
+    const contentHeight = String(item.offsetHeight);
+
+    item.style.height = contentHeight + 'px';
+    
+  
+  })
+  
+  document.querySelector('[data-cart-next]').addEventListener('click', e => {
+  
+    e.target.closest('[data-cart-stage]').classList.remove('open');
+    e.target.closest('[data-cart-stage]').classList.add('collapsed');
+  
+  })
+
   document.querySelector('body').classList.remove('no-transition');
 
   // скрытие элементов под хедером пока работает аос
@@ -244,3 +262,5 @@ function cigarSize() {
     document.querySelector('[data-show-diameter]').innerHTML = document.querySelector('.product-top-img__cigar-size').getAttribute('data-cigar-diameter'); 
   }
 }
+
+

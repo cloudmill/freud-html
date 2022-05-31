@@ -179,6 +179,12 @@
   }
   &.collapsed {
     color: var(--color-grey);
+
+    [data-cart-content] {
+      height: 0 !important;
+      opacity: 0;
+      pointer-events: none;
+    }
   }
   &.open {
     padding-bottom: getRem(90px);
@@ -186,7 +192,20 @@
     @media (max-width: ($breakpoint - 1px)) {
       padding-bottom: getRem(45px);
     }
+
+    [data-cart-content] {
+      opacity: 1;
+      pointer-events: all;
+    }
   }
+
+  [data-cart-content] {
+    opacity: 1;
+    pointer-events: all;
+    transition: $transition;
+    // height: 1188px;
+  }
+
   &:last-child {
     padding-bottom: 0;
   }
