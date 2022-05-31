@@ -64,6 +64,10 @@ document.addEventListener('DOMContentLoaded', () => {
     anchorScroll(eventClick);
     fadeOnLeave(eventClick);
 
+    if (eventClick.target.closest('[data-cookie-close]')) {
+      document.querySelector('.cookie.active').classList.remove('active');
+    }
+
     if (eventClick.target.closest('[data-plug-close]')) {
       
       document.querySelector('.plug-popup.active').classList.remove('active');
