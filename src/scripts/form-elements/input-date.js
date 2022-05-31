@@ -1,5 +1,6 @@
 import Datepicker from 'vanillajs-datepicker/Datepicker';
 import ru from 'vanillajs-datepicker/locales/ru';
+import { mediaQuery } from '../mediaQueries';
 
 function inputDate() {
   Object.assign(Datepicker.locales, ru);
@@ -27,7 +28,22 @@ function inputDate() {
       nextArrow: `<svg class="datepicker-arrow next" width="7" height="12" viewBox="0 0 7 12" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M6 11L1 6L6 1" stroke="#1B1B1B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>`,
+
     }); 
+  }
+
+  if (!mediaQuery.matches) {
+    
+    document.querySelector('[data-datepicker]').addEventListener('click', () => {
+
+      setTimeout(() => {
+        document.querySelector('[data-datepicker]').scrollIntoView({
+          behavior: 'smooth',
+          block: 'end'
+        });
+      }, );
+
+    })
   }
 }
 

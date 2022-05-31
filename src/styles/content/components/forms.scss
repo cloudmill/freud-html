@@ -412,6 +412,11 @@
     left: getRem(50px) !important;
     right: getRem(50px);
   }
+  @media (max-width: ($breakpoint - 1px)) {
+    position: fixed;
+    bottom: getRem(145px);
+    top: auto !important;
+  }
 }
 
 .datepicker-picker {
