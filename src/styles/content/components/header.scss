@@ -507,8 +507,10 @@
 }
 
 .header-callback-svg {
-  width: getRem(22px);
-  height: getRem(22px);
+  // width: getRem(22px);
+  // height: getRem(22px);
+  width: getRem(18px);
+  height: getRem(18px);
 }
 
 .mob-burger {

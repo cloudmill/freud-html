@@ -700,6 +700,10 @@
   padding: getRem(30px);
   background: var(--background-grey-extra-2);
 
+  // max-height: 100vh;
+  // overflow-y: scroll;
+  // @include styled-scrollbar;
+
   &__item {
     padding: getRem(18px) getRem(30px);
     @include fsl (16px, 130%);

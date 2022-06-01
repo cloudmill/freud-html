@@ -2,17 +2,26 @@
   
   .mobile-menu__wrapper
 
-    .mobile-menu__link(data-memu-link='1')
-      |Сигарный клуб
-      +arrow-right
+    .mobile-menu__link
 
-    .mobile-menu__link(data-memu-link='2')
-      |Магазин
-      +arrow-right
+      a(href="") Сигарный клуб
 
-    .mobile-menu__link(data-memu-link='3')
-      |Ресторан
-      +arrow-right
+      .mobile-menu__link-arrow(data-menu-link='1')
+        +arrow-right
+
+    .mobile-menu__link
+
+      a(href="") Магазин
+
+      .mobile-menu__link-arrow(data-menu-link='2')
+        +arrow-right
+
+    .mobile-menu__link
+
+      a(href="") Ресторан
+
+      .mobile-menu__link-arrow(data-menu-link='3')
+        +arrow-right
 
     a.mobile-menu__link(href='')
       |Контакты

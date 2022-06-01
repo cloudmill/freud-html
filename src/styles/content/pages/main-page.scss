@@ -367,6 +367,9 @@
     @media (min-width: $breakpoint) {
       padding: getRem(48px) 0 getRem(150px) calc(#{$col-part-d} * 3);
     }
+    @media (max-width: ($breakpoint - 1px)) {
+      flex-direction: column;
+    }
 
     #{$comp}__col {
       @include fsl(16px, 160%);
@@ -375,6 +378,12 @@
       @media (min-width: $breakpoint) {
         width: calc(#{$col-part-d} * 4 - #{$col-gap});
         @include fsl(20px, 160%);
+      }
+
+      &:nth-child(2) {
+        @media (max-width: ($breakpoint - 1px)) {
+          margin-top: getRem(10px);
+        }
       }
     }
   }

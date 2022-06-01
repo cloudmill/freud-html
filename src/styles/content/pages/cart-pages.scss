@@ -75,7 +75,7 @@
   &__col {
 
     &:nth-child(1) {
-      overflow: hidden;
+      overflow: visible;
       @media (min-width: $breakpoint) {
         width: calc(#{$col-part-d} * 8 - #{$col-gap});
       }

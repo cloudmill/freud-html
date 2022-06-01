@@ -833,6 +833,14 @@
 
     @include fsl(18px, 160%);
 
+    &-arrow, a {
+      width: 50%;
+    }
+    &-arrow {
+      display: flex;
+      justify-content: flex-end;
+    }
+
     svg {
       path {
         stroke: var(--color-black);
