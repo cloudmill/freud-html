@@ -45,8 +45,9 @@
   &__body {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
 
-    transition: $transition;
+    transition: .8s;
 
     @media (max-width: ($breakpoint - 1px)) {
       flex-direction: column;
@@ -56,7 +57,7 @@
       height: 0 !important;
       opacity: 0;
       pointer-events: none;
-      position: absolute;
+      position: relative;
       z-index: -1;
     }
 
@@ -102,7 +103,7 @@
     .cart-stage__edit {
       opacity: 0;
       pointer-events: none;
-      transition: $transition
+      transition: .8s;
     }
   }
   &__count {
@@ -262,13 +263,13 @@
     pointer-events: none;
     position: absolute;
 
-    transition: $transition;
+    transition: .8s
   }
 
   [data-cart-content] {
     opacity: 1;
     pointer-events: all;
-    transition: $transition;
+    transition: .8s;
     // position: absolute;
   }
 
@@ -445,6 +446,24 @@
 
 .cart-price-mob {
   margin-top: getRem(45px);
+}
+
+.cart-result-container {
+  // position: fixed;
+  // position: sticky;
+  top: getRem(240px);
+  bottom: 1000px;
+  width: calc(#{$col-part-d} * 4 - #{$col-gap});
+
+  &__top {
+    text-align: right;
+    margin-bottom: getRem(70px);
+  }
+
+  // .cart-section__back-link {
+  //   display: block;
+    
+  // }
 }
 
 .cart-result {

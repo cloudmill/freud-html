@@ -904,3 +904,13 @@
     }
   }
 }
+
+.articles-section {
+  .container {
+    padding: 0;
+  }
+
+  @media (min-width: $breakpoint) {
+    width: calc(100vw - #{$col-pad-d} * 2);
+  }
+}

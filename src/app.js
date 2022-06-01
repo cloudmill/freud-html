@@ -128,6 +128,13 @@ window.addEventListener('load', () => {
 
   if (document.querySelector('[data-cart-stage-general]')) {
 
+    document.querySelector('.footer').querySelectorAll('[data-aos]').forEach(item => {
+      item.removeAttribute('data-aos')
+    });
+    document.querySelector('.articles-section').querySelectorAll('[data-aos]').forEach(item => {
+      item.removeAttribute('data-aos')
+    });
+
     document.querySelectorAll('[data-cart-content]').forEach(item => {
 
       const contentHeight = String(item.offsetHeight);
@@ -138,7 +145,6 @@ window.addEventListener('load', () => {
   
     document.querySelectorAll('.cart-stage.collapsed').forEach(item => {
       item.querySelector('[data-cart-content]').classList.add('hide-content');
-  
     })
     
     document.querySelectorAll('[data-cart-next]').forEach(item => {
@@ -157,6 +163,16 @@ window.addEventListener('load', () => {
             document.querySelector(`[data-cart-stage='${btnId}']`).classList.remove('previous');
             document.querySelector(`[data-cart-stage='${btnId}']`).classList.remove('collapsed');
             document.querySelector(`[data-cart-stage='${btnId}']`).classList.add('open');
+
+            setTimeout(() => {
+
+              document.querySelector(`[data-next-target='${btnId}']`).scrollIntoView({
+                // behavior: 'smooth',
+                // block: 'start'
+              })
+              
+            },);
+            
     
             if (!mediaQuery.matches) {
     
@@ -198,7 +214,7 @@ window.addEventListener('load', () => {
 
         setTimeout(() => {
 
-          console.log(item.closest('form').querySelector('.form-error.active'));
+          // console.log(item.closest('form').querySelector('.form-error.active'));
           
           if (!Boolean(item.closest('form')) || item.closest('form') && !item.closest('form').querySelector('.form-error.active')) {
   
