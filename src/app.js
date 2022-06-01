@@ -167,7 +167,7 @@ window.addEventListener('load', () => {
             setTimeout(() => {
 
               document.querySelector(`[data-next-target='${btnId}']`).scrollIntoView({
-                // behavior: 'smooth',
+                behavior: 'smooth',
                 // block: 'start'
               })
               
