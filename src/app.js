@@ -221,6 +221,15 @@ window.addEventListener('load', () => {
             document.querySelector('[data-cart-body-stages]').classList.add('hide');
             document.querySelector('[data-cart-body-result]').classList.remove('hide');
             // document.querySelector('[data-cart-body-result]').classList.add('show');
+
+            setTimeout(() => {
+
+              document.querySelector(`html`).scrollIntoView({
+                behavior: 'smooth'
+                // block: 'start'
+              })
+              
+            },);
     
           }
 

@@ -11,7 +11,7 @@ block content
     .container
       .cart-section(data-cart-stage-general='')
 
-        .cart-section__top(data-aos='fade-up')
+        .cart-section__top.only-mobile(data-aos='fade-up')
           h1.title-font.h2--big Оформление заказа
           a.cart-section__back-link.only-mobile(href="")
             +arrow-left.only-mobile
@@ -20,9 +20,11 @@ block content
         .cart-section__body(data-cart-body-stages='')
 
           .cart-section__col
+            .cart-section__top.only-desktop(data-aos='fade-up')
+              h1.title-font.h2--big Оформление заказа
 
-            .cart-stage.open(data-cart-stage='')
-              .cart-stage__row(data-aos='fade-up')
+            .cart-stage.open(data-cart-stage='' data-aos='fade-up')
+              .cart-stage__row
                 .cart-stage__row-col
                   .cart-stage__count 1/3
                   .cart-stage__ttl.h4.title-font Ваши товары
@@ -291,9 +293,9 @@ block content
 
                       a.cart-receiving-form__link(href="https://minzdrav.gov.ru/documents/5736-federalnyy-zakon-15-fz-ot-23-fevralya-2013-g" target="_blank") Федеральный закон №15-ФЗ от 23 февраля 2013 года 
 
-          .cart-section__col.only-desktop.relative
+          .cart-section__col.only-desktop
 
-            .cart-result-container
+            .cart-result-container(data-aos='fade-up')
               .cart-result-container__top
                 a.cart-section__back-link(href="")
                   |Вернуться к покупкам
@@ -327,6 +329,9 @@ block content
         .cart-section__body.hide(data-cart-body-result='')
 
           .cart-section__col.cart-final
+
+            .cart-section__top.only-desktop(data-aos='fade-up')
+              h1.title-font.h2--big Оформление заказа
 
             .cart-final__top
 
@@ -404,6 +409,10 @@ block content
                   
 
           .cart-section__col.only-desktop
+
+            .cart-result-container__top
+              a.cart-section__back-link(href="")
+                |Вернуться к покупкам
 
             .cart-result(data-aos='fade-up')
               .cart-result__ttl Итого
