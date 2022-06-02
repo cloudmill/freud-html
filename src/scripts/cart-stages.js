@@ -4,25 +4,33 @@ function cartStages() {
   
   if (document.querySelector('[data-cart-stage-general]')) {
 
-    document.querySelector('.footer').querySelectorAll('[data-aos]').forEach(item => {
-      item.removeAttribute('data-aos')
-    });
-    document.querySelector('.articles-section').querySelectorAll('[data-aos]').forEach(item => {
-      item.removeAttribute('data-aos')
-    });
-
+    // измеряет и задает строгую высоту блоков с контентом
+    // после измерения блоков с контентом - сворачивает
     document.querySelectorAll('[data-cart-content]').forEach(item => {
-
       const contentHeight = String(item.offsetHeight);
-  
       item.style.height = contentHeight + 'px';
-      
-    })
-  
-    document.querySelectorAll('.cart-stage.collapsed').forEach(item => {
-      item.querySelector('[data-cart-content]').classList.add('hide-content');
-    })
+
+      // if (item.closest('.cart-stage.collapsed')) {
+
+      //   // как-будто без сворачивания лучше выглядит
+
+      //   item.classList.add('hide-content');
+
+      // }
+    });
+
+    // в третьем этапе две анкеты разного размера
+    // при переключении на большую строгий размер сбрасывается
+    document.querySelector('[data-cart-big-form]').addEventListener('click', e => {
+      e.target.closest('.cart-receiving').classList.add('height-auto')
+    });
+    document.querySelector('[data-cart-small-form]').addEventListener('click', e => {
+      e.target.closest('.cart-receiving').classList.remove('height-auto')
+    });
     
+    // обработка кнопок перехода к следующему этапу
+    // если кнопка в форме - проверяет наличие ошибок
+    // если ошибок нет - скролл к следующему этапу
     document.querySelectorAll('[data-cart-next]').forEach(item => {
   
       item.addEventListener('click', e => {
@@ -59,8 +67,9 @@ function cartStages() {
           }
         }, );
       })
-    })
-  
+    });
+
+    // возврат к изменению уже пройденного этапа
     document.querySelectorAll('[data-stage-edit]').forEach(item => {
   
       item.addEventListener('click', e => {
@@ -80,20 +89,13 @@ function cartStages() {
       })
     })
   
-    document.querySelector('[data-cart-big-form]').addEventListener('click', e => {
-      e.target.closest('.cart-receiving').classList.add('height-auto')
-    });
-    document.querySelector('[data-cart-small-form]').addEventListener('click', e => {
-      e.target.closest('.cart-receiving').classList.remove('height-auto')
-    })
-  
+    // переход на экран успешного оформления
+    // так же проверяет наличие ошибок в случае зполнения формы на доставку
     document.querySelectorAll('[data-cart-final]').forEach(item => {
   
       item.addEventListener('click', e => {
 
         setTimeout(() => {
-
-          // console.log(item.closest('form').querySelector('.form-error.active'));
           
           if (!Boolean(item.closest('form')) || item.closest('form') && !item.closest('form').querySelector('.form-error.active')) {
   
@@ -109,15 +111,12 @@ function cartStages() {
               })
               
             },);
-    
           }
-
         }, );
       })
-
     })
-  }
 
+  }
 }
 
 export default cartStages;

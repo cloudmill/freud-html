@@ -1,77 +1,62 @@
-mixin footer
-  footer.footer
+mixin footer(noaos)
 
-    .container
+  //- два варианта - с аосом и без
 
-      .footer__top.only-desktop(data-aos='fade-up')
+  if (noaos)
 
-        .footer__top-col
+    footer.footer
 
-          a.footer__top-ttl(href="") Главная
-          
-          each item in ['Клубная карта', 'Подарочные сертификаты', 'Справочная информация']
+      .container
 
-            a.footer__top-link(href="") #{item}
+        .footer__top.only-desktop
 
+          .footer__top-col
 
-        .footer__top-col
+            a.footer__top-ttl(href="") Главная
+            
+            each item in ['Клубная карта', 'Подарочные сертификаты', 'Справочная информация']
 
-          a.footer__top-ttl(href="") О клубе
-          
-          each item in ['Хьюмидорная комната', 'Сигарный лаунж', 'Кабинет Фрейда', 'Винотека']
-
-            a.footer__top-link(href="") #{item}
-           
-
-        .footer__top-col
-
-          a.footer__top-ttl(href="") Магазин
-          
-          each item in ['Сигары', 'Сигариллы', 'Подарочные наборы', 'Вина', 'Крепкие напитки', 'Аксессуары']
-
-            a.footer__top-link(href="") #{item}
+              a.footer__top-link(href="") #{item}
 
 
-        .footer__top-col
+          .footer__top-col
 
-          a.footer__top-ttl(href="") Ресторан
-          
-          each item in ['Меню']
+            a.footer__top-ttl(href="") О клубе
+            
+            each item in ['Хьюмидорная комната', 'Сигарный лаунж', 'Кабинет Фрейда', 'Винотека']
 
-            a.footer__top-link(href="") #{item}
+              a.footer__top-link(href="") #{item}
+            
+
+          .footer__top-col
+
+            a.footer__top-ttl(href="") Магазин
+            
+            each item in ['Сигары', 'Сигариллы', 'Подарочные наборы', 'Вина', 'Крепкие напитки', 'Аксессуары']
+
+              a.footer__top-link(href="") #{item}
 
 
-        .footer__top-col
+          .footer__top-col
 
-          a.footer__top-ttl(href="") Контакты
-          
-          //- each item in ['Меню']
+            a.footer__top-ttl(href="") Ресторан
+            
+            each item in ['Меню']
 
-          a.footer__top-link(href="tel:+79214491818") +7 (921) 449-18-18
+              a.footer__top-link(href="") #{item}
 
-          a.footer__top-link(href="mailto:mgr@freud.club") mgr@freud.club
 
-          a.footer__top-link(href="") г. Санкт-Петербург, #[br] ул. Малая Морская, дом 18
+          .footer__top-col
 
-          .footer__socials
-            a.icon-circle(href="")
-              +vk-icon.vk-circle-ico
-
-            a.icon-circle(href="")
-              +tg-icon.tg-circle-ico
-
-            a.icon-circle(href="")
-              +wa-icon.wa-circle-ico
-
-      .footer__top-mob.only-mobile(data-aos='fade-up')
-
-        .footer__contacts(data-aos='fade-up')
-
-          .footer__contacts-col
+            a.footer__top-ttl(href="") Контакты
+            
+            //- each item in ['Меню']
 
             a.footer__top-link(href="tel:+79214491818") +7 (921) 449-18-18
 
             a.footer__top-link(href="mailto:mgr@freud.club") mgr@freud.club
+
+            a.footer__top-link(href="") г. Санкт-Петербург, #[br] ул. Малая Морская, дом 18
 
             .footer__socials
               a.icon-circle(href="")
@@ -81,100 +66,302 @@ mixin footer
                 +tg-icon.tg-circle-ico
 
               a.icon-circle(href="")
-                +wa-icon.wa-circle-ico   
+                +wa-icon.wa-circle-ico
 
-          a.footer__top-link(href="") г. Санкт-Петербург, #[br] ул. Малая Морская, дом 18     
+        .footer__top-mob.only-mobile
 
-        dl.footer__spoilers.js-badger-accordion.badger-accordion(data-aos='fade-up')
+          .footer__contacts
 
-          dt.footer__spoilers-top
-            button.button--clean.js-badger-accordion-header
+            .footer__contacts-col
 
-              a(href="") главная
+              a.footer__top-link(href="tel:+79214491818") +7 (921) 449-18-18
 
-              +arrow-down.footer__spoilers-arrows
+              a.footer__top-link(href="mailto:mgr@freud.club") mgr@freud.club
+
+              .footer__socials
+                a.icon-circle(href="")
+                  +vk-icon.vk-circle-ico
+
+                a.icon-circle(href="")
+                  +tg-icon.tg-circle-ico
+
+                a.icon-circle(href="")
+                  +wa-icon.wa-circle-ico   
+
+            a.footer__top-link(href="") г. Санкт-Петербург, #[br] ул. Малая Морская, дом 18     
+
+          dl.footer__spoilers.js-badger-accordion.badger-accordion
+
+            dt.footer__spoilers-top
+              button.button--clean.js-badger-accordion-header
+
+                a(href="") главная
+
+                +arrow-down.footer__spoilers-arrows
+                  
+
+            dd.js-badger-accordion-panel.badger-accordion__panel
+
+              .js-badger-accordion-panel-inner
                 
+                each item in ['Клубная карта', 'Подарочные сертификаты', 'Справочная информация']
 
-          dd.js-badger-accordion-panel.badger-accordion__panel
-
-            .js-badger-accordion-panel-inner
-              
-              each item in ['Клубная карта', 'Подарочные сертификаты', 'Справочная информация']
-
-                a.footer__top-link(href="") #{item}
+                  a.footer__top-link(href="") #{item}
 
 
-          dt.footer__spoilers-top
-            button.button--clean.js-badger-accordion-header
-              a(href="") О клубе
+            dt.footer__spoilers-top
+              button.button--clean.js-badger-accordion-header
+                a(href="") О клубе
 
-              +arrow-down.footer__spoilers-arrows
+                +arrow-down.footer__spoilers-arrows
+                  
+
+            dd.js-badger-accordion-panel.badger-accordion__panel
+
+              .js-badger-accordion-panel-inner
                 
+                each item in ['Хьюмидорная комната', 'Сигарный лаунж', 'Кабинет Фрейда', 'Винотека']
 
-          dd.js-badger-accordion-panel.badger-accordion__panel
-
-            .js-badger-accordion-panel-inner
-              
-              each item in ['Хьюмидорная комната', 'Сигарный лаунж', 'Кабинет Фрейда', 'Винотека']
-
-                a.footer__top-link(href="") #{item}
+                  a.footer__top-link(href="") #{item}
 
 
-          dt.footer__spoilers-top
-            button.button--clean.js-badger-accordion-header
-              a(href="") Магазин
+            dt.footer__spoilers-top
+              button.button--clean.js-badger-accordion-header
+                a(href="") Магазин
 
-              +arrow-down.footer__spoilers-arrows
+                +arrow-down.footer__spoilers-arrows
+                  
+
+            dd.js-badger-accordion-panel.badger-accordion__panel
+
+              .js-badger-accordion-panel-inner
                 
+                each item in ['Сигары', 'Сигариллы', 'Подарочные наборы', 'Вина', 'Крепкие напитки', 'Аксессуары']
 
-          dd.js-badger-accordion-panel.badger-accordion__panel
-
-            .js-badger-accordion-panel-inner
-              
-              each item in ['Сигары', 'Сигариллы', 'Подарочные наборы', 'Вина', 'Крепкие напитки', 'Аксессуары']
-
-                a.footer__top-link(href="") #{item}
+                  a.footer__top-link(href="") #{item}
 
 
-          dt.footer__spoilers-top
-            button.button--clean.js-badger-accordion-header
-              a(href="") Ресторан
+            dt.footer__spoilers-top
+              button.button--clean.js-badger-accordion-header
+                a(href="") Ресторан
 
-              +arrow-down.footer__spoilers-arrows
+                +arrow-down.footer__spoilers-arrows
+                  
+
+            dd.js-badger-accordion-panel.badger-accordion__panel
+
+              .js-badger-accordion-panel-inner
                 
+                each item in ['Меню']
 
-          dd.js-badger-accordion-panel.badger-accordion__panel
-
-            .js-badger-accordion-panel-inner
-              
-              each item in ['Меню']
-
-                a.footer__top-link(href="") #{item}
+                  a.footer__top-link(href="") #{item}
 
 
-      .footer__bottom(data-aos='fade-up')
+        .footer__bottom
 
-        .footer__bottom-col
-          .plus18
-            img(src="assets/images/18plus.png", alt="")
-            div На сайте используются фотографии курящих людей. #[br] Курение вредит вашему здоровью минздрав предупреждает
-
-
-        .footer__bottom-col
+          .footer__bottom-col
+            .plus18
+              img(src="assets/images/18plus.png", alt="")
+              div На сайте используются фотографии курящих людей. #[br] Курение вредит вашему здоровью минздрав предупреждает
 
 
-          .footer__bottom-links-col
-            a.footer__bottom-links(href="") Политика обработки персональных данных
-            a.footer__bottom-links(href="") Доставка и оплата
+          .footer__bottom-col
 
-          .footer__corp.only-mobile © FREUD CLUB, 2018−2021
 
-          .footer__authors-col
-            .footer__authors
-              |Дизайн 
-              a(href="") Mojo
-            .footer__authors
-              |Разработка и поддержка 
-              a(href="") CloudMill
+            .footer__bottom-links-col
+              a.footer__bottom-links(href="") Политика обработки персональных данных
+              a.footer__bottom-links(href="") Доставка и оплата
 
-            .footer__corp.only-desktop © FREUD CLUB, 2018−2021
+            .footer__corp.only-mobile © FREUD CLUB, 2018−2021
+
+            .footer__authors-col
+              .footer__authors
+                |Дизайн 
+                a(href="") Mojo
+              .footer__authors
+                |Разработка и поддержка 
+                a(href="") CloudMill
+
+              .footer__corp.only-desktop © FREUD CLUB, 2018−2021
+
+  else
+
+    footer.footer
+
+      .container
+
+        .footer__top.only-desktop(data-aos='fade-up')
+
+          .footer__top-col
+
+            a.footer__top-ttl(href="") Главная
+            
+            each item in ['Клубная карта', 'Подарочные сертификаты', 'Справочная информация']
+
+              a.footer__top-link(href="") #{item}
+
+
+          .footer__top-col
+
+            a.footer__top-ttl(href="") О клубе
+            
+            each item in ['Хьюмидорная комната', 'Сигарный лаунж', 'Кабинет Фрейда', 'Винотека']
+
+              a.footer__top-link(href="") #{item}
+            
+
+          .footer__top-col
+
+            a.footer__top-ttl(href="") Магазин
+            
+            each item in ['Сигары', 'Сигариллы', 'Подарочные наборы', 'Вина', 'Крепкие напитки', 'Аксессуары']
+
+              a.footer__top-link(href="") #{item}
+
+
+          .footer__top-col
+
+            a.footer__top-ttl(href="") Ресторан
+            
+            each item in ['Меню']
+
+              a.footer__top-link(href="") #{item}
+
+
+          .footer__top-col
+
+            a.footer__top-ttl(href="") Контакты
+            
+            //- each item in ['Меню']
+
+            a.footer__top-link(href="tel:+79214491818") +7 (921) 449-18-18
+
+            a.footer__top-link(href="mailto:mgr@freud.club") mgr@freud.club
+
+            a.footer__top-link(href="") г. Санкт-Петербург, #[br] ул. Малая Морская, дом 18
+
+            .footer__socials
+              a.icon-circle(href="")
+                +vk-icon.vk-circle-ico
+
+              a.icon-circle(href="")
+                +tg-icon.tg-circle-ico
+
+              a.icon-circle(href="")
+                +wa-icon.wa-circle-ico
+
+        .footer__top-mob.only-mobile(data-aos='fade-up')
+
+          .footer__contacts(data-aos='fade-up')
+
+            .footer__contacts-col
+
+              a.footer__top-link(href="tel:+79214491818") +7 (921) 449-18-18
+
+              a.footer__top-link(href="mailto:mgr@freud.club") mgr@freud.club
+
+              .footer__socials
+                a.icon-circle(href="")
+                  +vk-icon.vk-circle-ico
+
+                a.icon-circle(href="")
+                  +tg-icon.tg-circle-ico
+
+                a.icon-circle(href="")
+                  +wa-icon.wa-circle-ico   
+
+            a.footer__top-link(href="") г. Санкт-Петербург, #[br] ул. Малая Морская, дом 18     
+
+          dl.footer__spoilers.js-badger-accordion.badger-accordion(data-aos='fade-up')
+
+            dt.footer__spoilers-top
+              button.button--clean.js-badger-accordion-header
+
+                a(href="") главная
+
+                +arrow-down.footer__spoilers-arrows
+                  
+
+            dd.js-badger-accordion-panel.badger-accordion__panel
+
+              .js-badger-accordion-panel-inner
+                
+                each item in ['Клубная карта', 'Подарочные сертификаты', 'Справочная информация']
+
+                  a.footer__top-link(href="") #{item}
+
+
+            dt.footer__spoilers-top
+              button.button--clean.js-badger-accordion-header
+                a(href="") О клубе
+
+                +arrow-down.footer__spoilers-arrows
+                  
+
+            dd.js-badger-accordion-panel.badger-accordion__panel
+
+              .js-badger-accordion-panel-inner
+                
+                each item in ['Хьюмидорная комната', 'Сигарный лаунж', 'Кабинет Фрейда', 'Винотека']
+
+                  a.footer__top-link(href="") #{item}
+
+
+            dt.footer__spoilers-top
+              button.button--clean.js-badger-accordion-header
+                a(href="") Магазин
+
+                +arrow-down.footer__spoilers-arrows
+                  
+
+            dd.js-badger-accordion-panel.badger-accordion__panel
+
+              .js-badger-accordion-panel-inner
+                
+                each item in ['Сигары', 'Сигариллы', 'Подарочные наборы', 'Вина', 'Крепкие напитки', 'Аксессуары']
+
+                  a.footer__top-link(href="") #{item}
+
+
+            dt.footer__spoilers-top
+              button.button--clean.js-badger-accordion-header
+                a(href="") Ресторан
+
+                +arrow-down.footer__spoilers-arrows
+                  
+
+            dd.js-badger-accordion-panel.badger-accordion__panel
+
+              .js-badger-accordion-panel-inner
+                
+                each item in ['Меню']
+
+                  a.footer__top-link(href="") #{item}
+
+
+        .footer__bottom(data-aos='fade-up')
+
+          .footer__bottom-col
+            .plus18
+              img(src="assets/images/18plus.png", alt="")
+              div На сайте используются фотографии курящих людей. #[br] Курение вредит вашему здоровью минздрав предупреждает
+
+
+          .footer__bottom-col
+
+
+            .footer__bottom-links-col
+              a.footer__bottom-links(href="") Политика обработки персональных данных
+              a.footer__bottom-links(href="") Доставка и оплата
+
+            .footer__corp.only-mobile © FREUD CLUB, 2018−2021
+
+            .footer__authors-col
+              .footer__authors
+                |Дизайн 
+                a(href="") Mojo
+              .footer__authors
+                |Разработка и поддержка 
+                a(href="") CloudMill
+
+              .footer__corp.only-desktop © FREUD CLUB, 2018−2021    

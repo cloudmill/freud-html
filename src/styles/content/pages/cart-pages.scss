@@ -75,7 +75,8 @@
   &__col {
 
     &:nth-child(1) {
-      overflow: visible;
+      // overflow: visible;
+      width: 100%;
       @media (min-width: $breakpoint) {
         width: calc(#{$col-part-d} * 8 - #{$col-gap});
       }
@@ -230,6 +231,10 @@
       position: absolute;
       top: 0;
       z-index: -1;
+
+      @media (max-width: ($breakpoint - 1px)) {
+        max-width: calc(100vw - #{$col-pad-m} * 2);
+      }
     }
     .hide-content {
       height: 0 !important;
@@ -251,6 +256,10 @@
       pointer-events: all;
       height: auto;
       position: relative;
+
+      @media (max-width: ($breakpoint - 1px)) {
+        max-width: calc(100vw - #{$col-pad-m} * 2);
+      }
     }
 
     .previous-show {
@@ -274,6 +283,10 @@
       position: absolute;
       top: 0;
       z-index: -1;
+
+      @media (max-width: ($breakpoint - 1px)) {
+        max-width: calc(100vw - #{$col-pad-m} * 2);
+      }
     }
 
     .previous-show {
@@ -291,7 +304,11 @@
     position: absolute;
     top: 0;
 
-    transition: .8s
+    transition: .8s;
+
+    @media (max-width: ($breakpoint - 1px)) {
+      max-width: calc(100vw - #{$col-pad-m} * 2);
+    }
   }
 
   [data-cart-content] {
@@ -1019,10 +1036,11 @@
       padding: getRem(10px) 0 0 getRem(20px);
       display: flex;
       flex: none;
-      align-items: flex-end;
+      align-items: center;
 
       @media (min-width: $breakpoint) {
         padding: 0 0 0 getRem(30px);
+        align-items: flex-end;
       }
     }
     .checkbox__box {

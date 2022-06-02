@@ -45,7 +45,7 @@ block content
                         div &nbsp;—&nbsp;
                         .cart-products-item__price 13 820 ₽
 
-                +brown-border-button.cart-stage__edit.only-mobile
+                +brown-border-button.cart-stage__edit.only-mobile(data-stage-edit='')
                   |Изменить
 
               div(data-cart-content='')
@@ -152,7 +152,7 @@ block content
                   p pochta@mail.ru
                   .note «Домофон не работает, позвоните» U+200E
 
-                +brown-border-button.cart-stage__edit.only-mobile
+                +brown-border-button.cart-stage__edit.only-mobile(data-stage-edit='')
                   |Изменить
 
               .cart-stage-form(data-cart-content='')
@@ -390,7 +390,7 @@ block content
                       .cart-pickup__info-ttl Алкоголь можно забрать до 22:00
 
                 .cart-pickup__map
-                  #map
+                  #map2
 
             .cart-final__info
               .cart-final-delivery
@@ -434,7 +434,12 @@ block content
                 .cart-result__value 120 000 ₽
 
           .articles-section.section--top
+            - var noaos = true
             include ../components/sections/articles-section
+
+block footer
+  - var noaos = true
+  +footer(noaos)
 
 block modals
   include ../components/popups/delete-product-popup
