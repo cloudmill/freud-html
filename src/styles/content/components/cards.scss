@@ -341,7 +341,8 @@
 
 
   &--small {
-    width: calc(#{$col-part-d} + #{$col-width-d});
+    // width: calc(#{$col-part-d} + #{$col-width-d});
+    width: 100%;
     padding: getRem(20px) getRem(15px);
     height: auto;
 

@@ -125,12 +125,13 @@ mixin catalog-card
 
 mixin catalog-card-small
   .catalog-card.catalog-card--small
-    .catalog-card__top
+    a.catalog-card__top(href='')
 
       +picture(file=`${attributes.img}`)
 
     .catalog-card__bottom
-      div
+
+      a(href="")
         .catalog-card__brand #{attributes.brand}
         .catalog-card__title #{attributes.ttl}
 

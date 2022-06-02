@@ -91,7 +91,7 @@
 .cart-stage {
 
   background: var(--color-white);
-  position: relative;
+  // position: relative;
 
   &__row {
     display: flex;
@@ -174,15 +174,23 @@
     }
 
     &-row {
-      display: flex;
-      justify-content: space-between;
 
       @media (max-width: ($breakpoint - 1px)) {
+        display: flex;
+        justify-content: space-between;
+
         overflow-x: auto;
         @include scrollbar-hidden;
 
         margin: 0 -$col-pad-m;
         padding: 0 $col-pad-m;
+      }
+
+      @media (min-width: $breakpoint) {
+
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        column-gap: getRem(20px);
       }
     }
   }
@@ -215,6 +223,12 @@
       // height: 0 !important;
       opacity: 0;
       pointer-events: none;
+
+      margin-top: 0;
+      margin-bottom: 0;
+
+      position: absolute;
+      top: 0;
     }
     .hide-content {
       height: 0 !important;
@@ -235,7 +249,7 @@
       opacity: 1;
       pointer-events: all;
       height: auto;
-      // position: relative;
+      position: relative;
     }
 
     .previous-show {
@@ -255,6 +269,9 @@
       pointer-events: none;
       margin-top: 0;
       margin-bottom: 0;
+
+      position: absolute;
+      top: 0;
     }
 
     .previous-show {
@@ -270,6 +287,7 @@
     opacity: 0;
     pointer-events: none;
     position: absolute;
+    top: 0;
 
     transition: .8s
   }
