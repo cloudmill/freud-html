@@ -97,6 +97,16 @@
 
   position: relative;
 
+  @media (max-width: ($breakpoint - 1px)) {
+    .swiper-container, picture, img {
+      height: 100%;
+    }
+    .swiper-slide {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
   @media (min-width: $breakpoint) {
     width: calc(#{$col-part-d} * 6 - #{$col-gap});
     height: getRem(670px);
@@ -110,6 +120,7 @@
     align-items: center;
     justify-content: center;
 
+    width: 100%;
     padding: getRem(30px);
 
     @media (min-width: $breakpoint) {
