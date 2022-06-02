@@ -229,6 +229,7 @@
 
       position: absolute;
       top: 0;
+      z-index: -1;
     }
     .hide-content {
       height: 0 !important;
@@ -272,6 +273,7 @@
 
       position: absolute;
       top: 0;
+      z-index: -1;
     }
 
     .previous-show {

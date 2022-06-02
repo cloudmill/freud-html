@@ -67,8 +67,11 @@ function cartStages() {
   
         document.querySelectorAll('[data-cart-stage]').forEach(item => {
           item.classList.remove('open');
-          item.classList.add('collapsed');
-        })
+
+          if (!item.classList.contains('previous')) {
+            item.classList.add('collapsed');
+          }
+        });
   
         e.target.closest('[data-cart-stage]').classList.remove('collapsed');
         e.target.closest('[data-cart-stage]').classList.remove('previous');
