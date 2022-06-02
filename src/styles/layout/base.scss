@@ -101,7 +101,9 @@ button {
 }
 
 .wrapper {
-  // overflow-x: hidden;
+  @media (max-width: ($breakpoint - 1px)) {
+    overflow-x: hidden;
+  }
 }
 
 .container {
