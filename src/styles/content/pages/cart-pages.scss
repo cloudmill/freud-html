@@ -318,13 +318,17 @@
   [data-cart-content] {
     opacity: 1;
     pointer-events: all;
-    transition: .8s;
+    // transition: .8s;
     // position: absolute;
   }
 
   &:last-child {
     padding-bottom: 0;
   }
+}
+
+.add-transition [data-cart-content] {
+  transition: .8s;
 }
 
 .card-product {

@@ -17,6 +17,9 @@
   &__col {
     width: calc(#{$col-width-m});
 
+    @media (min-width: $breakpoint-m) and (max-width: ($breakpoint - 1px)) {
+      width: calc(#{$col-width-t});
+    }
     @media (min-width: $breakpoint) {
       width: calc(#{$col-width-d});
     }
@@ -28,6 +31,11 @@
 
     // скрываем на мобильном лишние колонки
     &:nth-child(-n + #{$col-count-d - $col-count-m}) {
+      @media (max-width: ($breakpoint-m - 1px)) {
+        display: none;
+      }
+    }
+    &:nth-child(-n + #{$col-count-d - $col-count-t}) {
       @media (max-width: ($breakpoint - 1px)) {
         display: none;
       }

@@ -40,6 +40,7 @@ function cartStages() {
           if (!Boolean(item.closest('form')) || item.closest('form') && !item.closest('form').querySelector('.form-error.active')) {
   
             e.target.closest('[data-cart-stage]').classList.remove('open');
+            e.target.closest('[data-cart-stage]').classList.remove('add-transition');
             e.target.closest('[data-cart-stage]').classList.add('previous');
     
             const btnId = item.getAttribute('data-cart-next');
@@ -76,6 +77,7 @@ function cartStages() {
   
         document.querySelectorAll('[data-cart-stage]').forEach(item => {
           item.classList.remove('open');
+          item.classList.remove('add-transition');
 
           if (!item.classList.contains('previous')) {
             item.classList.add('collapsed');
@@ -85,6 +87,7 @@ function cartStages() {
         e.target.closest('[data-cart-stage]').classList.remove('collapsed');
         e.target.closest('[data-cart-stage]').classList.remove('previous');
         e.target.closest('[data-cart-stage]').classList.add('open');
+        e.target.closest('[data-cart-stage]').classList.add('add-transition');
   
       })
     })
