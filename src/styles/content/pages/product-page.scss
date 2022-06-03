@@ -44,7 +44,7 @@
     height: getRem(80px);
     margin-top: getRem(8px);
 
-    padding-left: $col-pad-m;
+    padding-left: calc(#{$col-pad-m} + #{getRem(45px)});
     margin-left: -$col-pad-m;
   }
 
