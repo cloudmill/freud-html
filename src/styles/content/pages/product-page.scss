@@ -214,10 +214,16 @@
     z-index: 1;
     top: getRem(20px);
     left: getRem(20px);
+
+    flex-direction: column;
   }
 
   .catalog-card__labels-item:not(:first-child) {
     margin: 0 0 0 getRem(8px);
+
+    @media (max-width: ($breakpoint - 1px)) {
+      margin: getRem(6px) 0 0 0;
+    }
   }
 }
 
@@ -341,7 +347,6 @@
   font-weight: 600;
   color: var(--color-brown);
   margin: getRem(20px) 0;
-  
 
   @media (min-width: $breakpoint) {
     margin: getRem(15px) 0 getRem(30px);
@@ -574,6 +579,12 @@
       @media (min-width: $breakpoint) {
         margin-bottom: getRem(30px);
       }
+    }
+  }
+
+  .product-more-btn {
+    @media (max-width: ($breakpoint - 1px)) {
+      margin: getRem(8px) 0 0 0;
     }
   }
 }

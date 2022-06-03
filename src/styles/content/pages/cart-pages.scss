@@ -1047,8 +1047,8 @@
       align-items: center;
 
       @media (min-width: $breakpoint) {
-        padding: 0 0 0 getRem(30px);
-        align-items: flex-end;
+        padding: getRem(10px) 0 0 getRem(30px);
+        // align-items: flex-end;
       }
     }
     .checkbox__box {
