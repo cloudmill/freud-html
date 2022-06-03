@@ -1,7 +1,3 @@
-@function getRem($px) {
-  @return unquote('#{$px / $fs}rem');
-}
-
 // fonts
 $fs: 16px;
 
@@ -50,6 +46,17 @@ $breakpoint-ll: 1440px;
 $breakpoint-xl: 1680px;
 $breakpoint-xxl: 1920px;
 
+// 
+
+// $fs2: 12px;
+// @media (min-width: $breakpoint) {
+//   $fs2: 16px;
+// }
+
+@function getRem($px) {
+  @return unquote('#{$px / $fs}rem');
+}
+
 // grid columns
 $col-count-m: 4;
 $col-count-t: 8;
@@ -66,7 +73,7 @@ $col-width-t: '((100vw - (#{$col-pad-m} * 2) - (#{$col-gap-m} * #{$col-count-t -
 $col-width-d: '((100vw - (#{$col-pad-d} * 2) - (#{$col-gap} * #{$col-count-d - 1})) / #{$col-count-d})';
 
 $col-part-m: '(#{$col-width-m} + #{$col-gap-m})';
-$col-part-m: '(#{$col-width-t} + #{$col-gap-m})';
+$col-part-t: '(#{$col-width-t} + #{$col-gap-m})';
 $col-part-d: '(#{$col-width-d} + #{$col-gap})';
 
 

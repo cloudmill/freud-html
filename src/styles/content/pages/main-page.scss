@@ -12,20 +12,26 @@
 
   @media (max-width: ($breakpoint - 1px)) {
     height: 100%;
+  }
+
+  @media (max-width: ($breakpoint-m - 1px)) {
     flex-direction: column-reverse;
     align-items: center;
   }
 
   &-container {
     position: relative;
-    height: getRem(500px);
 
     @media (min-width: $breakpoint) {
       height: getRem(670px);
       margin-bottom: getRem(25px);
     }
     @media (max-width: ($breakpoint - 1px)) {
+      height: getRem(327px);
+    }
+    @media (max-width: ($breakpoint-m - 1px)) {
       width: getRem(335px);
+      height: getRem(500px);
       margin: 0 auto;
     }
   }
@@ -38,6 +44,11 @@
     position: relative;
 
     @media (max-width: ($breakpoint - 1px)) {
+      width: calc(#{$col-part-t} * 3 - #{$col-gap-m});
+      height: 100%;
+    }
+
+    @media (max-width: ($breakpoint-m - 1px)) {
       position: absolute;
       // width: auto;
       width: getRem(235px);
@@ -77,9 +88,13 @@
 
     position: relative;
 
+    @media (min-width: $breakpoint-m) {
+      background: var(--color-light-grey);
+      height: 100%;
+    }
+
     @media (min-width: $breakpoint) {
       height: getRem(670px);
-      background: var(--color-light-grey);
     }
   }
   &__col3 {
@@ -92,11 +107,23 @@
 
     position: relative;
 
+    @media (max-width: ($breakpoint - 1px)) {
+      width: calc(#{$col-part-t});
+    }
+
+    @media (max-width: ($breakpoint-m - 1px)) {
+      display: none;
+    }
+
     &-bg {
       width: 100%;
       height: getRem(370px);
       flex-shrink: 0;
       background: var(--color-light-grey);
+
+      @media (max-width: ($breakpoint - 1px)) {
+        height: getRem(215px);
+      }
     }
     &-transp {
       width: 100%;
@@ -104,6 +131,10 @@
       flex-shrink: 0;
       overflow: hidden;
       position: relative;
+
+      @media (max-width: ($breakpoint - 1px)) {
+        height: getRem(112px);
+      }
 
       &.loaded::after {
         transform: translateY(-100%)
@@ -131,6 +162,10 @@
 
     &.left {
       left: -33%;
+
+      @media (max-width: ($breakpoint-m - 1px)) {
+        display: none;
+      }
     }
 
     &-container {
@@ -141,7 +176,7 @@
       bottom: 2px;
       overflow: hidden;
 
-      @media (max-width: ($breakpoint - 1px)) {
+      @media (max-width: ($breakpoint-m - 1px)) {
         // left: calc(#{$col-width-m});
         // right: calc(#{$col-width-m});
 
@@ -180,6 +215,10 @@
     padding-top: getRem(30px);
     cursor: default;
 
+    @media (min-width: $breakpoint-m) {
+      text-align: right;
+      padding: 0 getRem(20px) getRem(27px) 0;
+    }
     @media (min-width: $breakpoint) {
       @include fsl(26px, 130%);
       text-align: right;
@@ -198,6 +237,11 @@
     // max-width: getRem(600px);
 
     @media (max-width: ($breakpoint - 1px)) {
+      top: getRem(45px);
+      left: getRem(154px);
+    }
+
+    @media (max-width: ($breakpoint-m - 1px)) {
       width: 100%;
       top: getRem(90px);
       left: 0;
@@ -218,6 +262,9 @@
   
       @include fsl(144px, 125%);
 
+      @media (min-width: $breakpoint-m) and (max-width: ($breakpoint - 1px)) {
+        margin-top: getRem(20px);
+      }
       @media (max-width: ($breakpoint - 1px)) {
         @include fsl(56px, 130%);
       }
@@ -229,6 +276,9 @@
         transition: 1.2s $transition-func;
 
         @media (max-width: ($breakpoint - 1px)) {
+          margin-left: getRem(42px);
+        }
+        @media (max-width: ($breakpoint-m - 1px)) {
           margin-left: getRem(30px);
         }
       }
@@ -250,13 +300,16 @@
       position: absolute;
       white-space: nowrap;
 
+      @media (min-width: $breakpoint-m) {
+        top: 0;
+        left: getRem(125px);
+      }
       @media (min-width: $breakpoint) {
         @include fsl(13px, 130%);
         top: getRem(34px);
         left: getRem(300px);
       }
-
-      @media (max-width: ($breakpoint - 1px)) {
+      @media (max-width: ($breakpoint-m - 1px)) {
         top: 0;
         // right: calc(#{$col-width-m} + #{getRem(20px)});
         right: getRem(70px);
@@ -292,6 +345,10 @@
 
   &__mob-btn {
     margin: 0 auto getRem(50px);
+
+    @media (min-width: $breakpoint-m) {
+      display: none;
+    }
   }
 }
 

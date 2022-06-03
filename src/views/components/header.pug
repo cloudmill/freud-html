@@ -9,6 +9,9 @@ mixin header
         button.button--clean.header-mobile__buttons-item
           +header-callback
 
+        +brown-button.header-mobile__buttons-item.only-tablet(data-popup-button='1')
+          |Забронировать
+
         button.button--clean.header-mobile__buttons-item.mob-burger(data-menu-btn)
           //- +mob-burger
           .mob-burger-inner

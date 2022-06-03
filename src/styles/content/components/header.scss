@@ -226,6 +226,7 @@
 
   &__buttons {
     display: flex;
+    align-items: center;
 
     &-item:not(:first-child) {
       margin-left: getRem(20px);

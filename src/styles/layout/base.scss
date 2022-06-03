@@ -31,7 +31,7 @@ html {
   @media (max-width: ($breakpoint-t - 1px)) {
     font-size: getVw($fs, 10.24px);
   }
-  @media (max-width: ($breakpoint-m - 1px)) {
+  @media (max-width: ($breakpoint-m)) {
     font-size: getVw($fs, 7.68px);
   }
   @media (max-width: ($breakpoint-s - 1px)) {
@@ -101,9 +101,9 @@ button {
 }
 
 .wrapper {
-  @media (max-width: ($breakpoint - 1px)) {
-    overflow-x: hidden;
-  }
+  // @media (max-width: ($breakpoint - 1px)) {
+  //   overflow-x: hidden;
+  // }
 }
 
 .container {

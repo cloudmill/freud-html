@@ -4,6 +4,15 @@
   }
 }
 
+.only-tablet {
+  @media (max-width: ($breakpoint-m - 1px)) {
+    display: none !important;
+  }
+  @media (min-width: $breakpoint) {
+    display: none !important;
+  }
+}
+
 .only-desktop {
   @media (max-width: ($breakpoint - 1px)) {
     display: none !important;
