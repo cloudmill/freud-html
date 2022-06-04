@@ -424,7 +424,7 @@
     @media (min-width: $breakpoint) {
       padding: getRem(48px) 0 getRem(150px) calc(#{$col-part-d} * 3);
     }
-    @media (max-width: ($breakpoint - 1px)) {
+    @media (max-width: ($breakpoint-m - 1px)) {
       flex-direction: column;
     }
 
@@ -432,13 +432,16 @@
       @include fsl(16px, 160%);
       color: var(--color-border-grey);
 
+      @media (min-width: $breakpoint-m) {
+        width: calc(#{$col-part-t} * 4 - #{$col-gap-m});
+      }
       @media (min-width: $breakpoint) {
         width: calc(#{$col-part-d} * 4 - #{$col-gap});
         @include fsl(20px, 160%);
       }
 
       &:nth-child(2) {
-        @media (max-width: ($breakpoint - 1px)) {
+        @media (max-width: ($breakpoint-m - 1px)) {
           margin-top: getRem(10px);
         }
       }
@@ -511,7 +514,7 @@
   display: flex;
   justify-content: space-between;
 
-  @media (max-width: ($breakpoint - 1px)) {
+  @media (max-width: ($breakpoint-m - 1px)) {
     flex-direction: column;
   }
 
@@ -521,6 +524,9 @@
     flex-direction: column;
     justify-content: space-between;
 
+    @media (min-width: $breakpoint-m) {
+      width: calc(#{$col-part-t} * 4 - #{$col-gap-m});
+    }
     @media (min-width: $breakpoint) {
       width: calc(#{$col-part-d} * 6 - #{$col-gap});
     }
@@ -528,14 +534,21 @@
     &:nth-child(1) {
       margin-bottom: getRem(20px);
 
+      @media (min-width: $breakpoint-m) {
+        padding-top: getRem(30px);
+        margin-bottom: 0;
+      }
       @media (min-width: $breakpoint) {
         padding-top: getRem(60px);
-        margin-bottom: 0;
+        // margin-bottom: 0;
       }
 
       img {
         margin-top: getRem(30px);
 
+        @media (min-width: $breakpoint-m) {
+          margin-top: getRem(188px);
+        }
         @media (min-width: $breakpoint) {
           margin-top: getRem(213px);
         }
@@ -553,6 +566,9 @@
     
     &:nth-child(2) {
 
+      @media (min-width: $breakpoint-m) {
+        padding-bottom: getRem(30px);
+      }
       @media (min-width: $breakpoint) {
         padding-bottom: getRem(65px);
       }

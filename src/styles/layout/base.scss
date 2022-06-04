@@ -100,11 +100,11 @@ button {
   color: var(--color-black);
 }
 
-.wrapper {
-  // @media (max-width: ($breakpoint - 1px)) {
-  //   overflow-x: hidden;
-  // }
-}
+// .wrapper {
+//   @media (max-width: ($breakpoint - 1px)) {
+//     overflow-x: hidden;
+//   }
+// }
 
 .container {
   padding: 0 #{$col-pad-d};

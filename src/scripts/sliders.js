@@ -24,11 +24,14 @@ function swipers() {
     modules: [Navigation, Pagination],
 
     slidesPerView: 1,
-    spaceBetween: 30,
 
     breakpoints: {
-      [1280]: {
+      [768]: {
         slidesPerView: 'auto',
+        spaceBetween: 15,
+      },
+      [1280]: {
+        spaceBetween: 30,
       },
     },
 

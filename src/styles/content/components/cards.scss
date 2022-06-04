@@ -3,6 +3,9 @@
   padding: getRem(25px) getRem(20px);
   background: var(--color-white);
 
+  @media (min-width: $breakpoint-m) {
+    width: getRem(322px);
+  }
   @media (min-width: $breakpoint) {
     width: calc(#{$col-part-d} * 4 - #{$col-gap});
     padding: getRem(50px);
