@@ -71,7 +71,11 @@
 .articles-row {
   display: flex;
 
-  @media (max-width: ($breakpoint - 1px)) {
+  @media (min-width: $breakpoint-m) and (max-width: ($breakpoint - 1px)) {
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  @media (max-width: ($breakpoint-m - 1px)) {
     flex-direction: column;
   }
 

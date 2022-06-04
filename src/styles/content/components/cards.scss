@@ -411,18 +411,25 @@
 
 .articles-card {
   $comp: &;
-
   
   display: flex;
   flex-direction: column;
   height: auto;
 
   @media (max-width: ($breakpoint - 1px)) {
+    &:not(:nth-child(1)):not(:nth-child(2)) {
+      margin-top: getRem(30px);
+    }
+  }
+  @media (max-width: ($breakpoint-m - 1px)) {
     &:not(:last-child) {
       margin-bottom: getRem(30px);
     }
   }
 
+  @media (min-width: $breakpoint-m) {
+    width: calc(#{$col-part-t} * 4 - #{$col-gap-m});;
+  }
   @media (min-width: $breakpoint) {
     width: calc(#{$col-part-d} * 4 - #{$col-gap});
   }
@@ -468,8 +475,14 @@
     @media (min-width: $breakpoint) {
       height: 100%;
     }
+
+    picture {
+      width: 100%;
+      object-fit: cover;
+    }
   }
   &__img {
+    width: 100%;
     object-fit: cover;
     transition: $transition;
   }

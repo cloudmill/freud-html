@@ -32,6 +32,15 @@
   &__card {
     width: calc(#{$col-part-m} * 2 - #{$col-gap-m});
 
+    @media (min-width: $breakpoint-m) {
+      width: 31.4%;
+
+      &:nth-child(1n + 4) {
+        width: calc(#{$col-part-t} * 2 - #{$col-gap-m});
+        margin-top: getRem(20px);
+      }
+    }
+
     @media (min-width: $breakpoint) {
       width: calc(#{$col-part-d} * 4 - #{$col-gap});
 
@@ -46,6 +55,9 @@
 
       @media (max-width: ($breakpoint - 1px)) {
         // height: getRem(210px);
+        height: 36vw;
+      }
+      @media (max-width: ($breakpoint-m - 1px)) {
         height: 56vw;
       }
 
@@ -381,8 +393,12 @@
     }
   }
 
-  @media (min-width: $breakpoint) {
+  @media (min-width: $breakpoint-m) {
     grid-template-columns: repeat(4, 1fr);
+    gap: getRem(4px);
+  }
+
+  @media (min-width: $breakpoint) {
     gap: getRem(30px);
   }
 }
