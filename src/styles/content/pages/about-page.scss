@@ -190,6 +190,12 @@
       padding: getRem(40px);
     }
   }
+
+  .mob-and-desk {
+    @media (min-width: $breakpoint-m) and (max-width: ($breakpoint - 1px)) {
+      display: none;
+    }
+  }
 }
 
 .before-interior-block {

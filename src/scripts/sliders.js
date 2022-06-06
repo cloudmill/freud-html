@@ -111,13 +111,15 @@ function swipers() {
     initialSlide: 1,
 
     breakpoints: {
+      [768]: {
+        centeredSlides: false,
+      },
+
       [1280]: {
         spaceBetween: 30,
-        centeredSlides: false,
         initialSlide: 0,
       },
     },
-
   });
 
   const gallerySlider = new Swiper('#gallery-slider', {

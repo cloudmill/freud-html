@@ -24,7 +24,8 @@ block content
     .container
       .benefits-block.before-interior-block
         .benefits-cell(data-aos='fade-up')
-          +big-titles(subttl='для вашего комфорта' ttl='Внимание' ttl2='к деталям')
+          +big-titles.only-tablet(subttl='для вашего комфорта' ttl='Внимание к деталям')
+          +big-titles.mob-and-desk(subttl='для вашего комфорта' ttl='Внимание' ttl2='к деталям')
 
         -
           const benefits = [
