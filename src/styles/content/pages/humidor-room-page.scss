@@ -1,7 +1,8 @@
 .humidor-top-bg {
   background: url(assets/images/humidor-block-bg-mob.jpeg) no-repeat center;
+  background-size: cover;
 
-  @media (min-width: $breakpoint) {
+  @media (min-width: $breakpoint-m) {
     background: url(assets/images/humidor-block-bg.jpeg) no-repeat center;
   }
 }
@@ -12,8 +13,10 @@
 
   padding: getRem(65px) 0;
 
-  @media (max-width: ($breakpoint - 1px)) {
+  @media (max-width: ($breakpoint-m - 1px)) {
     flex-direction: column;
+  }
+  @media (max-width: ($breakpoint - 1px)) {
     padding: getRem(30px) 0;
   }
 
@@ -23,18 +26,18 @@
     @media (max-width: ($breakpoint - 1px)) {
       padding: getRem(30px) 0;
     }
-    @media (min-width: $breakpoint) {
+    @media (min-width: $breakpoint-m) {
       width: calc(100% / 3);
     }
 
     &:nth-child(2) {
       border: 1px solid var(--color-border-extra);
 
-      @media (max-width: ($breakpoint - 1px)) {
+      @media (max-width: ($breakpoint-m - 1px)) {
         border-left: none;
         border-right: none;
       }
-      @media (min-width: $breakpoint) {
+      @media (min-width: $breakpoint-m) {
         border-top: none;
         border-bottom: none;
       }

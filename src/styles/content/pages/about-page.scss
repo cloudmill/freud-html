@@ -8,6 +8,9 @@
   .section-bg-photo {
     padding: getRem(172px) 0 getRem(45px);
 
+    @media (min-width: $breakpoint-m) {
+      padding: getRem(100px) 0 getRem(45px);
+    }
     @media (min-width: $breakpoint) {
       padding: getRem(177px) 0 getRem(60px);
     }
@@ -24,6 +27,13 @@
   .scroll-down {
     margin-top: getRem(97px);
 
+    &__line {
+      margin-top: 0;
+    }
+
+    @media (min-width: $breakpoint-m) {
+      margin-top: getRem(24px);
+    }
     @media (min-width: $breakpoint) {
       margin-top: getRem(66px);
     }
@@ -91,8 +101,9 @@
 
 .about-main-bg {
   background: url(assets/images/section-bg-mob.jpeg) no-repeat center;
+  background-size: cover;
 
-  @media (min-width: $breakpoint) {
+  @media (min-width: $breakpoint-m) {
     background: url(assets/images/section-bg.jpg) no-repeat center;
   }
 }
@@ -102,7 +113,7 @@
   justify-content: space-between;
   flex-wrap: wrap;
 
-  @media (max-width: ($breakpoint - 1px)) {
+  @media (max-width: ($breakpoint-m - 1px)) {
     flex-direction: column;
   }
 
@@ -114,6 +125,12 @@
       width: calc(#{$col-part-d} * 4 - #{$col-gap});
     }
 
+    &:not(:first-child) {
+      @media (min-width: $breakpoint-m) and (max-width: ($breakpoint - 1px)) {
+        width: calc(#{$col-part-t} * 4 - #{$col-gap-m});
+        margin-top: $col-gap-m;
+      }
+    }
     &:nth-child(1) {
       @media (max-width: ($breakpoint - 1px)) {
         margin-bottom: getRem(20px);
@@ -129,8 +146,9 @@
       }
     }
     &:nth-child(1n + 3) {
-      margin-top: getRem(20px);
-
+      @media (max-width: ($breakpoint-m - 1px)) {
+        margin-top: getRem(20px);
+      }
       @media (min-width: $breakpoint) {
         margin-top: getRem(30px);
       }
@@ -220,10 +238,10 @@
 .club-card-block {
   display: flex;
 
-  @media (max-width: ($breakpoint - 1px)) {
+  @media (max-width: ($breakpoint-m - 1px)) {
     flex-direction: column;
   }
-  @media (min-width: $breakpoint) {
+  @media (min-width: $breakpoint-m) {
     justify-content: space-between;
     align-items: center;
   }
@@ -232,6 +250,10 @@
     &:nth-child(1) {
       padding-bottom: getRem(45px);
 
+      @media (min-width: $breakpoint-m) {
+        width: calc(#{$col-part-t} * 4 - #{$col-gap-m});
+        padding-bottom: 0;
+      }
       @media (min-width: $breakpoint) {
         padding: getRem(98px) 0;
         width: calc(#{$col-part-d} * 4);
@@ -242,6 +264,19 @@
 
         @media (min-width: $breakpoint) {
           margin: getRem(15px) 0 getRem(30px);
+        }
+      }
+
+      .two-cols-block__link {
+        @media (max-width: ($breakpoint - 1px)) {
+          @include fsl(16px, 150%);
+          padding-bottom: getRem(4px);
+        }
+      }
+
+      .mob-and-desk {
+        @media (min-width: $breakpoint-m) and (max-width: ($breakpoint - 1px)) {
+          display: none;
         }
       }
     }
