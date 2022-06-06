@@ -111,7 +111,7 @@
     width: calc(#{$col-part-d} * 6 - #{$col-gap});
     height: getRem(670px);
 
-    cursor: url(assets/images/zoom-cursor.png), default;
+    // cursor: url(assets/images/zoom-cursor.png), default;
   }
 
   &__cigar {
