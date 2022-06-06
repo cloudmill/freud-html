@@ -146,7 +146,24 @@
     margin-top: getRem(30px);
 
     .card-product:not(:first-child) {
-      margin-top: getRem(10px);
+      @media (max-width: ($breakpoint-m - 1px)) and (min-width: $breakpoint) {
+       margin-top: getRem(10px);
+      }
+    }
+    .card-product:nth-child(1n + 3) {
+      @media (min-width: $breakpoint-m) and (max-width: ($breakpoint - 1px)) {
+        margin-top: getRem(6px);
+       }
+    }
+
+    @media (min-width: $breakpoint-m) and (max-width: ($breakpoint - 1px)) {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+
+      margin-left: -$col-pad-m;
+      margin-right: -$col-pad-m;
+      padding: 0 getRem(6px);
     }
 
     &-btn {
@@ -337,10 +354,17 @@
   display: flex;
 
   @media (max-width: ($breakpoint - 1px)) {
+    width: calc(50% - #{getRem(3px)});
+
     flex-wrap: wrap;
     justify-content: space-between;
     min-height: getRem(357px);
     padding: getRem(20px) $col-pad-m;
+    // margin-left: -$col-pad-m;
+    // margin-right: -$col-pad-m;
+  }
+  @media (max-width: ($breakpoint-m - 1px)) {
+    width: 100%;
     margin-left: -$col-pad-m;
     margin-right: -$col-pad-m;
   }
@@ -368,8 +392,11 @@
     justify-content: space-between;
 
     @media (max-width: ($breakpoint - 1px)) {
-      width: calc(#{$col-part-m} * 3 - #{$col-gap-m});
+      width: calc(#{$col-part-t} * 2 + #{$col-width-t} / 2);
       padding: 0;
+    }
+    @media (max-width: ($breakpoint-m - 1px)) {
+      width: calc(#{$col-part-m} * 3 - #{$col-gap-m});
     }
   }
   &__brand {
@@ -407,8 +434,8 @@
     padding: getRem(30px) 0;
 
     @media (max-width: ($breakpoint - 1px)) {
-      width: calc(#{$col-part-m} * 3 - #{$col-gap-m});
-      margin-left: calc(#{$col-part-m});
+      width: calc(#{$col-part-t} * 2 + #{$col-width-t} / 2);
+      margin: 0 0 0 auto;
       padding: getRem(18px) 0;
 
       .catalog-card__price {
@@ -421,6 +448,10 @@
           @include fsl(16px, 140%);
         }
       }
+    }
+    @media (max-width: ($breakpoint-m - 1px)) {
+      width: calc(#{$col-part-m} * 3 - #{$col-gap-m});
+      margin-left: calc(#{$col-part-m});
     }
   }
   &__add {
@@ -835,7 +866,10 @@
 
 .cart-receiving-options {
 
-  @media (min-width: $breakpoint) {
+  @media (min-width: $breakpoint-m) and (max-width: ($breakpoint - 1px)) {
+    justify-content: space-between;
+  }
+  @media (min-width: $breakpoint-m) {
     display: flex;
   }
 
@@ -849,6 +883,9 @@
 
     width: 100%;
 
+    @media (min-width: $breakpoint-m) {
+      width: calc(#{$col-part-t} * 4 - #{$col-gap-m});
+    }
     @media (min-width: $breakpoint) {
       width: getRem(300px);
       padding: getRem(20px) getRem(30px) getRem(30px) getRem(20px);
@@ -858,7 +895,9 @@
     }
 
     &:not(:last-child) {
-      margin-bottom: getRem(12px);
+      @media (max-width: ($breakpoint-m - 1px)) {
+        margin-bottom: getRem(12px);
+      }
 
       @media (min-width: $breakpoint) {
         margin-right: getRem(15px);
