@@ -118,6 +118,10 @@
   }
   &__ttl {
     text-align: center;
+
+    @media (max-width: ($breakpoint - 1px)) {
+      line-height: 100%;
+    }
   }
 
   &__img-inner {

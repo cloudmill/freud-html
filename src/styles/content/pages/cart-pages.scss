@@ -145,15 +145,20 @@
   &__product-list {
     margin-top: getRem(30px);
 
-    .card-product:not(:first-child) {
-      @media (max-width: ($breakpoint-m - 1px)) and (min-width: $breakpoint) {
-       margin-top: getRem(10px);
-      }
-    }
     .card-product:nth-child(1n + 3) {
       @media (min-width: $breakpoint-m) and (max-width: ($breakpoint - 1px)) {
         margin-top: getRem(6px);
        }
+    }
+    .card-product:not(:first-child) {
+      @media (max-width: ($breakpoint-m - 1px)) {
+        margin-top: getRem(8px);
+      }
+    }
+    .card-product:not(:first-child) {
+      @media (min-width: $breakpoint) {
+        margin-top: getRem(10px);
+      }
     }
 
     @media (min-width: $breakpoint-m) and (max-width: ($breakpoint - 1px)) {
@@ -354,19 +359,17 @@
   display: flex;
 
   @media (max-width: ($breakpoint - 1px)) {
-    width: calc(50% - #{getRem(3px)});
-
     flex-wrap: wrap;
     justify-content: space-between;
     min-height: getRem(357px);
     padding: getRem(20px) $col-pad-m;
-    // margin-left: -$col-pad-m;
-    // margin-right: -$col-pad-m;
   }
   @media (max-width: ($breakpoint-m - 1px)) {
-    width: 100%;
     margin-left: -$col-pad-m;
     margin-right: -$col-pad-m;
+  }
+  @media (min-width: $breakpoint-m) and (max-width: ($breakpoint - 1px)) {
+    width: calc(50% - #{getRem(3px)});
   }
 
   &__img {
