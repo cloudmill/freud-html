@@ -89,13 +89,17 @@ block content
               +read-more-btn(data-attr='' btn)
                 |узнать больше
 
-          div(data-aos='fade-up')
+          .only-desktop(data-aos='fade-up')
             +picture(file='cabinet-1')
-
+          .only-mobile(data-aos='fade-up')
+            +picture(file='cabinet-2')
 
         .two-cols-block__col
-          div(data-aos='fade-up')
+
+          .only-desktop(data-aos='fade-up')
             +picture(file='cabinet-2')
+          .only-mobile(data-aos='fade-up')
+            +picture(file='cabinet-1')
 
           .txt-block.cabinet-col2(data-aos='fade-up')
             .two-cols-block__txt Индивидуальный подход, интересный рассказ витолье, таинство сервировки и курения сигар из разных уголков мира в сочетании с уникальным авторским коктейлем «Сон о воине», крепким алкоголем и специальным меню закусок от нашего шеф-повара оставят самые теплые и яркие воспоминания об этом вечере

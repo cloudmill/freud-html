@@ -753,6 +753,16 @@
     margin-left: calc(#{$col-gap} * -1);
     width: calc(#{$col-part-d} * 6 - (#{$col-width-d} / 2) - 10px);
   }
+
+  @media (max-width: ($breakpoint-m - 1px)) {
+    .two-cols-block__txt {
+      padding-right: $col-gap-m;
+    }
+    .button {
+        width: 100%;
+        margin-top: getRem(20px);
+      }
+  }
 }
 
 .anchor {

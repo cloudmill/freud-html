@@ -61,5 +61,10 @@
 
 
 .vine-section-bg {
-  background: url(assets/images/vine-main-bg.jpg) no-repeat center;
+  background: url(assets/images/vine-main-bg-mob.jpeg) no-repeat center;
+  background-size: cover;
+
+  @media (min-width: $breakpoint-m) {
+    background-image: url(assets/images/vine-main-bg.jpg);
+  }
 }

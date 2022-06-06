@@ -48,11 +48,6 @@ $breakpoint-xxl: 1920px;
 
 // 
 
-// $fs2: 12px;
-// @media (min-width: $breakpoint) {
-//   $fs2: 16px;
-// }
-
 @function getRem($px) {
   @return unquote('#{$px / $fs}rem');
 }

@@ -61,6 +61,10 @@
         order: -1;
       }
     }
+
+    &-btn {
+      margin-top: getRem(40px);
+    }
   }
 
   &__item {

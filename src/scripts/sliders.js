@@ -23,7 +23,7 @@ function swipers() {
 
     modules: [Navigation, Pagination],
 
-    slidesPerView: 1,
+    slidesPerView: 1.1,
 
     breakpoints: {
       [768]: {

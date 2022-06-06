@@ -8,6 +8,9 @@
   .section-bg-photo {
     padding: getRem(172px) 0 getRem(45px);
 
+    @media (max-width: ($breakpoint-m - 1px)) {
+      height: getRem(400px);
+    }
     @media (min-width: $breakpoint-m) {
       padding: getRem(100px) 0 getRem(45px);
     }

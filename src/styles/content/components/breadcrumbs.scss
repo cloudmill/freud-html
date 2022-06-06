@@ -1,7 +1,10 @@
 .breadcrumbs {
   $comp: &;
 
-  padding-top: getRem(30px);
+  padding-top: getRem(15px);
+  @media (min-width: $breakpoint) {
+    padding-top: getRem(30px);
+  }
 
   &__list {
     display: flex;

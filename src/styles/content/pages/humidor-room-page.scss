@@ -24,6 +24,9 @@
     text-align: center;
 
     @media (max-width: ($breakpoint - 1px)) {
+      padding: 0 getRem(30px);
+    }
+    @media (max-width: ($breakpoint-m - 1px)) {
       padding: getRem(30px) 0;
     }
     @media (min-width: $breakpoint-m) {
