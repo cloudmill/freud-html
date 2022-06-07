@@ -6,18 +6,22 @@ function cartStages() {
 
     // измеряет и задает строгую высоту блоков с контентом
     // после измерения блоков с контентом - сворачивает
-    document.querySelectorAll('[data-cart-content]').forEach(item => {
-      const contentHeight = String(item.offsetHeight);
-      item.style.height = contentHeight + 'px';
 
-      // if (item.closest('.cart-stage.collapsed')) {
-
-      //   // как-будто без сворачивания лучше выглядит
-
-      //   item.classList.add('hide-content');
-
-      // }
-    });
+    if (mediaQuery.matches) {
+      document.querySelectorAll('[data-cart-content]').forEach(item => {
+        const contentHeight = String(item.offsetHeight);
+        item.style.height = contentHeight + 'px';
+  
+        // if (item.closest('.cart-stage.collapsed')) {
+  
+        //   // как-будто без сворачивания лучше выглядит
+  
+        //   item.classList.add('hide-content');
+  
+        // }
+      });
+    }
+    
 
     // в третьем этапе две анкеты разного размера
     // при переключении на большую строгий размер сбрасывается

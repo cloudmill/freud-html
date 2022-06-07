@@ -804,8 +804,9 @@
   }
 
   sup {
+    display: inline-block;
     color: var(--color-brown);
-    height: 50%;
+    top: -0.1em;
   }
 
   &__note {

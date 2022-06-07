@@ -32,6 +32,7 @@ function swipers() {
       },
       [1280]: {
         spaceBetween: 30,
+        slidesPerView: 'auto',
       },
     },
 

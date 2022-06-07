@@ -26,6 +26,10 @@
         border-bottom: 1px solid var(--color-black-rgba-1);
       }
     }
+
+    .only-mobile .h1 {
+      line-height: 100%;
+    }
   }
 
   &__row {

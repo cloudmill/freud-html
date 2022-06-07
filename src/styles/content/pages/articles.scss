@@ -1,3 +1,17 @@
+.contacts-block.articles-head {
+  @media (max-width: ($breakpoint - 1px)) {
+    margin-top: getRem(45px);
+  }
+}
+
+.articles-ttls {
+  @media (max-width: ($breakpoint - 1px)) {
+    .h1 {
+      line-height: 100%;
+    }
+  }
+}
+
 .articles-body {
   padding-top: getRem(90px);
 

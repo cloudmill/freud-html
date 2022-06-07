@@ -78,9 +78,13 @@
 
   &__map-link {
     margin-top: getRem(8px);
-    @include fsl(18px, 130%);
+    @include fsl(16px, 130%);
     font-weight: 600;
     color: var(--color-brown);
+
+    @media (min-width: $breakpoint) {
+      @include fsl(18px, 130%);
+    }
   }
 
   &-icons {
@@ -694,6 +698,15 @@
     &__drop-inner {
       color: var(--color-black);
       @include fsl(20px, 130%);
+    }
+  }
+
+  .rules-spoiler__arrow svg {
+    @media (max-width: ($breakpoint - 1px)) {
+      width: getRem(14px);
+      height: auto;
+
+      margin: getRem(8px) getRem(8px) 0 0;
     }
   }
 }
