@@ -29,50 +29,15 @@ block content
 
   section.section--bottom
     .container
-
       -
         const articles = [
           {ttl: 'Как хранить сигару', txt: 'Что же из себя представляет современная сигара? По способу производства различают сигары ручной работы.'},
           {ttl: 'Какую сигару выбрать к вину', txt: 'Что же из себя представляет современная сигара? По способу производства различают сигары ручной работы. Что же из себя представляет современная сигара? По способу производства различают сигары ...'}
         ]
 
-      .articles-body
+      .articles-body2
 
-        - for (i=0;i<12;i++)
+        - for (i=0;i<4;i++)
 
           each item in articles
             +article-card(ttl=`${item.ttl}` txt=`${item.txt}`)
-
-
-        +brown-border-button.more-btn(data-aos='fade-up')
-          |Показать ещё
-
-
-  section.section--bottom
-    .container
-      +small-titles(ttl='Каталог товаров')
-
-      .categories-slider.controls-out(data-aos='fade-up')
-        .swiper-container#categories-slider
-          .swiper-wrapper
-            -
-              const cards = [
-                {file: 'shop-category-1', ttl: 'Сигары'},
-                {file: 'shop-category-2', ttl: 'Сигариллы'},
-                {file: 'shop-category-1', ttl: 'Хьюмидоры'},
-              ]
-            each item in cards
-              .swiper-slide
-                a.shop-page-head__card(href="")
-                  .shop-page-head__card-img
-                    +picture(file=`${item.file}`)
-                  .shop-page-head__card-ttl.h4 #{item.ttl}
-
-        .controls-out__container
-          +control-left#categories-slider-prev
-          +control-right#categories-slider-next
-
-  include ../components/sections/subscribe-section
-
-block modals
-  include ../components/popups/subscribe-success-popup

@@ -416,14 +416,14 @@
   flex-direction: column;
   height: auto;
 
-  @media (max-width: ($breakpoint - 1px)) {
-    &:not(:nth-child(1)):not(:nth-child(2)) {
+  @media (max-width: ($breakpoint-m - 1px)) {
+    &:not(:first-child) {
       margin-top: getRem(30px);
     }
   }
-  @media (max-width: ($breakpoint-m - 1px)) {
-    &:not(:last-child) {
-      margin-bottom: getRem(30px);
+  @media (min-width: $breakpoint-m) and (max-width: ($breakpoint - 1px)) {
+    &:not(:nth-child(1)):not(:nth-child(2)) {
+      margin-top: getRem(30px);
     }
   }
 
@@ -576,6 +576,9 @@
     }
   }
 
+  .big-card {
+    display: none;
+  }
 
   &--big {
     display: flex;

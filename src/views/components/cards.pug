@@ -24,6 +24,10 @@ mixin article-card
         +picture.articles-card__img(file=`shop-article-1`)
 
     .articles-card__bottom
+      .articles-card__info.only-desktop.big-card
+        .articles-card__info-col 20.04.2021
+        .articles-card__info-col 5 мин
+
       div
         .articles-card__ttl.h4 #{attributes.ttl}
         .articles-card__txt #{attributes.txt}
@@ -32,7 +36,7 @@ mixin article-card
         +read-more-btn(data-atr='' btn)
           |Читать полностью
 
-        .articles-card__info
+        .articles-card__info.small-card
           .articles-card__info-col 20.04.2021
           .articles-card__info-col 5 мин
 
