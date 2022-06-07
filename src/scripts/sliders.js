@@ -118,6 +118,7 @@ function swipers() {
       [1280]: {
         spaceBetween: 30,
         initialSlide: 0,
+        centeredSlides: false,
       },
     },
   });

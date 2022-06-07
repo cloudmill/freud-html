@@ -3,6 +3,7 @@
 
   @media  (max-width: ($breakpoint-m - 1px)) {
     padding: getRem(105px) 0 !important;
+    height: getRem(400px);
   }
   @media (min-width: $breakpoint-m) and (max-width: ($breakpoint - 1px)) {
     padding: getRem(40px) 0 !important;
@@ -13,7 +14,7 @@
 
   .button {
     @media (max-width: ($breakpoint-m - 1px)) {
-      margin-top: getRem(45px) !important;
+      margin: getRem(45px) auto 0 !important;
     }
     @media (min-width: $breakpoint-m) {
       margin: getRem(30px) auto 0 !important;

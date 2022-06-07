@@ -202,7 +202,12 @@
 }
 
 .menu-main-bg {
-  background: url(assets/images/menu-main-bg.jpeg) no-repeat center;
+  background: url(assets/images/menu-main-bg-mob.jpg) no-repeat center;
+  background-size: cover;
+
+  @media (min-width: $breakpoint) {
+    background-image: url(assets/images/menu-main-bg.jpeg);
+  }
 }
 
 .menu-list {
@@ -935,5 +940,13 @@
 
   @media (min-width: $breakpoint) {
     width: calc(100vw - #{$col-pad-d} * 2);
+  }
+}
+
+.mob-section-border {
+  @media (max-width: ($breakpoint - 1px)) {
+    width: 100%;
+    height: 1px;
+    background: #434343;
   }
 }

@@ -131,25 +131,27 @@ block content
 
           p.product-body__txt Светло-соломенный c блеском цвет. Восхитительный яркий аромат, богатый тонами цитрусовых, персика и дыни. Вкус среднетелый, с прекрасно сбалансированной кислотностью и легкой пикантной горчинкойв послевкусии
 
-          h3.product-body__subttl Гастрономия
+          .gastronomy-block
 
-          p.product-body__txt Прекрасно само по себе. Также отлично подойдет к жареному мясу, мясу на гриле, пряным блюдам, дичи и выдержанным сырам
+            h3.product-body__subttl Гастрономия
 
-          .product-gastronomy
-            -
-              const gastronomy = [
-                'Красное мясо',
-                'Белое мясо',
-                'Рыба',
-                'Сыры',
-                'Морепродукты'
-              ]
-            
-            each item, index in gastronomy
-              .product-gastronomy__item
-                .product-gastronomy__ico
-                  +gastronomy-ico(index)
-                | #{item}
+            p.product-body__txt Прекрасно само по себе. Также отлично подойдет к жареному мясу, мясу на гриле, пряным блюдам, дичи и выдержанным сырам
+
+            .product-gastronomy
+              -
+                const gastronomy = [
+                  'Красное мясо',
+                  'Белое мясо',
+                  'Рыба',
+                  'Сыры',
+                  'Морепродукты'
+                ]
+              
+              each item, index in gastronomy
+                .product-gastronomy__item
+                  .product-gastronomy__ico
+                    +gastronomy-ico(index)
+                  | #{item}
 
           h3.product-body__subttl Стилистика
 

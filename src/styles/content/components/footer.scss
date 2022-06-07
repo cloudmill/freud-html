@@ -1,9 +1,9 @@
 .footer {
   background: var(--color-background-grey);
-  padding: getRem(70px) 0 getRem(64px) 0;
+  padding: getRem(60px) 0;
 
   @media (min-width: $breakpoint) {
-    padding: getRem(60px) 0
+    padding-bottom: getRem(32px);
   }
 
   &__top {

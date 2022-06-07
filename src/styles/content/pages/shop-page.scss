@@ -388,9 +388,9 @@
   @media (max-width: ($breakpoint - 1px)) {
     margin: 0 -$col-pad-m;
 
-    .catalog-card {
-      width: 100%;
-    }
+    // .catalog-card {
+    //   width: 100%;
+    // }
   }
 
   @media (min-width: $breakpoint-m) {

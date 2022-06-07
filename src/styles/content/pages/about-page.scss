@@ -241,7 +241,11 @@
 }
 
 .rent-section-bg {
-  background: url(assets/images/section-rent-bg.jpg) no-repeat center;
+  background: url(assets/images/section-rent-bg-mob.jpeg) no-repeat center;
+  @media (min-width: $breakpoint) {
+    background-image: url(assets/images/section-rent-bg.jpg);
+  }
+  background-size: cover;
 }
 
 .club-card-block {

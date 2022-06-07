@@ -81,13 +81,17 @@ block content
 
             .two-cols-block__txt(data-aos='fade-up') Линейка классических коктейлей перенесет вас в начало прошлого столетия
 
-          div(data-aos='fade-up')
+          .only-desktop(data-aos='fade-up')
             +picture(file='cocktail-1')
-
+          .only-mobile(data-aos='fade-up')
+            +picture(file='cocktail-2')
 
         .two-cols-block__col
-          div(data-aos='fade-up')
+
+          .only-desktop(data-aos='fade-up')
             +picture(file='cocktail-2')
+          .only-mobile(data-aos='fade-up')
+            +picture(file='cocktail-1')
 
           .txt-block(data-aos='fade-up')
             .two-cols-block__txt Мы собрали коллекцию крепкого алкоголя, которые составят идеальную пару к сигаре и сделают ваш вечер еще более расслабленным

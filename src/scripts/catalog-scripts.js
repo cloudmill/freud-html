@@ -3,6 +3,8 @@ import { mediaQuery } from './mediaQueries';
 function addToFav(eventClick) {
   if (eventClick.target.closest('.catalog-card__fav')) {
     eventClick.target.closest('.catalog-card__fav').classList.toggle('active')
+  } else if (eventClick.target.closest('.product-button-fav')) {
+    eventClick.target.closest('.product-button-fav').classList.toggle('active')
   }
 }
 
