@@ -40,31 +40,31 @@ mixin article-card
           .articles-card__info-col 20.04.2021
           .articles-card__info-col 5 мин
 
-mixin article-card-big
-  a.articles-card--big(href='' class=attributes.class)
-    .articles-card__top
-      .catalog-card__labels
-        .catalog-card__labels-item.label-brown сигары
-      .articles-card__top-img
-        +picture.articles-card__img(file=`shop-article-1`)
+//- mixin article-card-big
+//-   a.articles-card--big(href='' class=attributes.class)
+//-     .articles-card__top
+//-       .catalog-card__labels
+//-         .catalog-card__labels-item.label-brown сигары
+//-       .articles-card__top-img
+//-         +picture.articles-card__img(file=`shop-article-1`)
 
-    .articles-card__bottom
+//-     .articles-card__bottom
 
-      .articles-card__info.only-desktop
-        .articles-card__info-col 20.04.2021
-        .articles-card__info-col 5 мин
+//-       .articles-card__info.only-desktop
+//-         .articles-card__info-col 20.04.2021
+//-         .articles-card__info-col 5 мин
 
-      div
-        .articles-card__ttl #{attributes.ttl}
-        .articles-card__txt #{attributes.txt}
+//-       div
+//-         .articles-card__ttl #{attributes.ttl}
+//-         .articles-card__txt #{attributes.txt}
 
-      .articles-card__bottom-row
-        +read-more-btn(data-atr='' btn)
-          |Читать полностью
+//-       .articles-card__bottom-row
+//-         +read-more-btn(data-atr='' btn)
+//-           |Читать полностью
 
-        .articles-card__info.only-mobile
-          .articles-card__info-col 20.04.2021
-          .articles-card__info-col 5 мин
+//-         .articles-card__info.only-mobile
+//-           .articles-card__info-col 20.04.2021
+//-           .articles-card__info-col 5 мин
 
 
 mixin catalog-card

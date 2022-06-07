@@ -580,66 +580,66 @@
     display: none;
   }
 
-  &--big {
-    display: flex;
+  // &--big {
+  //   display: flex;
 
-    @media (max-width: ($breakpoint - 1px)) {
-      flex-direction: column;
-    }
+  //   @media (max-width: ($breakpoint - 1px)) {
+  //     flex-direction: column;
+  //   }
 
-    &:hover {
-      .two-cols-block__link {
-        color: var(--color-brown);
-      }
-      .articles-card__img {
-        transform: scale(1.1);
-      }
-    }
+  //   &:hover {
+  //     .two-cols-block__link {
+  //       color: var(--color-brown);
+  //     }
+  //     .articles-card__img {
+  //       transform: scale(1.1);
+  //     }
+  //   }
 
-    #{$comp}__top, #{$comp}__img {
-      @media (min-width: $breakpoint) {
-        width: calc(#{$col-part-d} * 6 - #{$col-gap});
-      }
-    }
+  //   #{$comp}__top, #{$comp}__img {
+  //     @media (min-width: $breakpoint) {
+  //       width: calc(#{$col-part-d} * 6 - #{$col-gap});
+  //     }
+  //   }
 
-    #{$comp}__top {
-      padding-bottom: 0;
-      height: 100%;
-    }
+  //   #{$comp}__top {
+  //     padding-bottom: 0;
+  //     height: 100%;
+  //   }
 
-    #{$comp}__bottom {
-      @media (min-width: $breakpoint) {
-        width: calc(#{$col-part-d} * 6);
-        padding: getRem(60px) 0 getRem(60px) calc(#{$col-part-d});
-      }
-    }
+  //   #{$comp}__bottom {
+  //     @media (min-width: $breakpoint) {
+  //       width: calc(#{$col-part-d} * 6);
+  //       padding: getRem(60px) 0 getRem(60px) calc(#{$col-part-d});
+  //     }
+  //   }
 
-    #{$comp}__ttl {
-      @include fsl(24px, 130%);
+  //   #{$comp}__ttl {
+  //     @include fsl(24px, 130%);
 
-      @media (min-width: $breakpoint) {
-        @include fsl(48px, 130%);
-      }
-    }
-    #{$comp}__txt {
-      @include fsl(14px, 160%);
+  //     @media (min-width: $breakpoint) {
+  //       @include fsl(48px, 130%);
+  //     }
+  //   }
+  //   #{$comp}__txt {
+  //     @include fsl(14px, 160%);
 
-      @media (min-width: $breakpoint) {
-        @include fsl(20px, 160%);
-      }
-    }
+  //     @media (min-width: $breakpoint) {
+  //       @include fsl(20px, 160%);
+  //     }
+  //   }
 
 
-    &-revert {
-      @media (min-width: $breakpoint) {
-        flex-direction: row-reverse;
+  //   &-revert {
+  //     @media (min-width: $breakpoint) {
+  //       flex-direction: row-reverse;
 
-        #{$comp}__bottom {
-          padding: getRem(60px) calc(#{$col-part-d}) getRem(60px) 0;
-        }
-      }
-    }
-  }
+  //       #{$comp}__bottom {
+  //         padding: getRem(60px) calc(#{$col-part-d}) getRem(60px) 0;
+  //       }
+  //     }
+  //   }
+  // }
 }
 
 .added-to-cart {
