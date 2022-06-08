@@ -63,11 +63,12 @@
 .catalog-card {
   $comp: &;
 
+  width: 100%;
   background: var(--background-grey-extra-2);
   padding: getRem(15px);
 
   height: 100%;
-  width: getRem(186px);
+  // width: getRem(186px);
 
   position: relative;
   display: flex;

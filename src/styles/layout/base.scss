@@ -106,6 +106,12 @@ button {
 //   }
 // }
 
+.main {
+  @media (max-width: ($breakpoint - 1px)) {
+    overflow-x: hidden;
+  }
+}
+
 .container {
   padding: 0 #{$col-pad-d};
   @media (max-width: ($breakpoint - 1px)) {
