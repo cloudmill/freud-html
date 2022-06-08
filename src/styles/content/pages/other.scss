@@ -843,6 +843,10 @@
     display: none;
   }
 
+  &.index-raise {
+    z-index: 150;
+  }
+
   &__item {
     display: flex;
     flex-direction: column;
@@ -893,7 +897,7 @@
         }
       }
 
-      &:nth-child(2), &:nth-child(3), &:nth-child(4) {
+      &:not(:nth-child(1)) {
         svg path {
           stroke: var(--color-brown);
         }

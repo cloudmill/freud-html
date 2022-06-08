@@ -159,6 +159,11 @@
     color: var(--color-grey);
     @include fsl(14px, 120%);
   }
+
+  &.mob {
+    width: 100%;
+    margin-top: getRem(80px);
+  }
 }
 
 .form {
