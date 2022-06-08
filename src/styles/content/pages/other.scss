@@ -830,6 +830,7 @@
 
   display: flex;
   justify-content: space-between;
+  align-items: flex-end;
 
   padding: getRem(10px) $col-pad-m;
   background: var(--color-white);
@@ -862,6 +863,11 @@
       margin-bottom: getRem(5px);
     }
 
+    svg.search-icon {
+      width: getRem(16.06px);
+      height: getRem(17px);
+    }
+
     &:nth-child(1) {
       svg path {
         &:nth-child(1), &:nth-child(2) {
@@ -891,6 +897,45 @@
         svg path {
           stroke: var(--color-brown);
         }
+      }
+    }
+
+    &-count {
+
+      position: relative;
+      display: flex;
+      margin-bottom: getRem(3px);
+
+      svg {
+        margin-bottom: 0;
+        width: getRem(24px);
+        height: getRem(24px);
+      }
+
+      .count-num {
+        position: absolute;
+        top: -20%;
+        right: -35%;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        @include fsl(11px);
+        font-weight: 600;
+        color: var(--color-white);
+
+        background: var(--color-black);
+        border-radius: 50%;
+
+        width: getRem(19px);
+        height: getRem(19px);
+
+        transition: $transition;
+      }
+
+      &:hover .count-num, &:focus .count-num {
+        background: var(--color-brown);
       }
     }
   }

@@ -1,13 +1,37 @@
-.mobile-nav
-  a.mobile-nav__item.active
-    +mob-nav-logo
-    |Главная
-  a.mobile-nav__item
-    +mob-nav-shop
-    |Магазин
-  a.mobile-nav__item 
-    +mob-nav-cigar
-    |Сигарный клуб
-  a.mobile-nav__item
-    +mob-nav-rest
-    |Ресторан
+if (!shopNav)
+
+  .mobile-nav
+    a.mobile-nav__item.active
+      +mob-nav-logo
+      |Главная
+    a.mobile-nav__item
+      +mob-nav-shop
+      |Магазин
+    a.mobile-nav__item 
+      +mob-nav-cigar
+      |Сигарный клуб
+    a.mobile-nav__item
+      +mob-nav-rest
+      |Ресторан
+
+else
+  .mobile-nav
+    a.mobile-nav__item.active(href="")
+      +mob-nav-logo
+      |Главная
+    a.mobile-nav__item(href="")
+      +mob-nav-shop
+      |Магазин
+    a.mobile-nav__item(href="")
+      .mobile-nav__item-count
+        +cart-icon
+        .count-num 15
+      |Корзина
+    a.mobile-nav__item(href="")
+      .mobile-nav__item-count
+        +favorites-icon
+        .count-num 15
+      |Избранное
+    a.mobile-nav__item(href="")
+      +search-icon
+      |Поиск
