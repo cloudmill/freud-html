@@ -132,7 +132,8 @@
     }
   }
 
-  &__img {
+  &__img, picture {
+    width: 100%;
     @media (min-width: $breakpoint) {
       width: calc(#{$col-part-d} * 5 - (#{$col-gap} * 2));
     }
@@ -203,15 +204,30 @@
 
 .restaurant-main-bg {
   background: url(assets/images/restaurant-main-bg.jpg) no-repeat center;
+
+  @media (max-width: ($breakpoint-m - 1px)) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  @media (min-width: $breakpoint-m) {
+    background-image: url(assets/images/restaurant-main-bg.jpg);
+  }
+  background-size: cover;
 }
 
 .menu-main-bg {
   background: url(assets/images/menu-main-bg-mob.jpg) no-repeat center;
-  background-size: cover;
 
-  @media (min-width: $breakpoint) {
+  @media (max-width: ($breakpoint-m - 1px)) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  @media (min-width: $breakpoint-m) {
     background-image: url(assets/images/menu-main-bg.jpeg);
   }
+  background-size: cover;
 }
 
 .menu-list {

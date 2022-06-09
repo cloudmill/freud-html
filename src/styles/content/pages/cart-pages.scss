@@ -724,8 +724,10 @@
   align-items: center;
 
   &__img {
-    height: getRem(77px);
+    height: getRem(80px);
+    width: getRem(80px);
     object-fit: cover;
+    flex: none;
   }
   &__row {
     display: flex;
@@ -785,9 +787,12 @@
       }
     }
     &__btn {
-      width: 100%;
+      
       margin-top: getRem(30px);
 
+      @media (max-width: ($breakpoint-m - 1px)) {
+        width: 100%;
+      }
       @media (min-width: $breakpoint) {
         width: getRem(320px);
         margin-top: getRem(40px);

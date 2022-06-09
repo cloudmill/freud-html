@@ -6,7 +6,7 @@
   }
 
   .section-bg-photo {
-    padding: getRem(172px) 0 getRem(45px);
+    padding: getRem(152px) 0 getRem(45px);
 
     @media (max-width: ($breakpoint-m - 1px)) {
       height: getRem(400px);
@@ -28,7 +28,7 @@
   }
 
   .scroll-down {
-    margin-top: getRem(97px);
+    margin-top: getRem(77px);
 
     &__line {
       margin-top: 0;
@@ -111,7 +111,16 @@
 .about-main-bg {
   background: url(assets/images/section-bg-mob.jpeg) no-repeat center;
   background-size: cover;
+  @media (max-width: ($breakpoint-m - 1px)) {
+    padding-top: getRem(172px);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
 
+    .scroll-down {
+      margin-top: getRem(97px);
+    }
+  }
   @media (min-width: $breakpoint-m) {
     background: url(assets/images/section-bg.jpg) no-repeat center;
   }
@@ -128,7 +137,6 @@
 
   .benefits-cell {
     width: 100%;
-    height: getRem(320px);
 
     @media (min-width: $breakpoint) {
       width: calc(#{$col-part-d} * 4 - #{$col-gap});
@@ -194,8 +202,11 @@
 
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-between; 
 
+    @media (max-width: ($breakpoint - 1px)) {
+      height: getRem(320px);
+    }
     @media (min-width: $breakpoint) {
       padding: getRem(40px);
     }

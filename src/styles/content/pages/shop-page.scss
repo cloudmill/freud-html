@@ -48,7 +48,17 @@
         width: calc(#{$col-part-d} * 3 - #{$col-gap});
         margin-top: getRem(60px);
       }
+
+      &:hover {
+        .shop-page-head__card-ttl {
+          color: var(--color-brown);
+        }
+        img {
+          transform: scale(1.1);
+        }
+      }
     }
+    
 
     &-img {
       overflow: hidden;
@@ -80,15 +90,6 @@
 
       @media (min-width: $breakpoint) {
         margin-top: getRem(15px);
-      }
-    }
-
-    &:hover {
-      .shop-page-head__card-ttl {
-        color: var(--color-brown);
-      }
-      img {
-        transform: scale(1.1);
       }
     }
   }

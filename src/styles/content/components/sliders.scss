@@ -89,8 +89,20 @@
     }
   }
   .swiper-slide {
-    width: auto;
+    width: calc(#{$col-part-m} * 3);
     height: auto;
+
+    @media (min-width: $breakpoint) {
+      width: calc(#{$col-part-m} * 3);
+    }
+    @media (min-width: $breakpoint-m) {
+      width: calc(#{$col-part-t} * 3);
+    }
+
+
+    @media (min-width: $breakpoint) {
+      width: auto;
+    }
   }
 
   &__col {
@@ -116,10 +128,14 @@
   display: flex;
 
   .swiper-container {
-    width: 100%;
+    // width: 100%;
     height: fit-content;
     overflow: hidden;
 
+    @media (max-width: ($breakpoint - 1px)) {
+      margin: 0 -$col-pad-m;
+      padding-left: $col-pad-m;
+    }
     @media (min-width: $breakpoint) {
       width: calc(#{$col-part-d} * 8 - #{$col-gap});
       overflow: hidden;
@@ -133,8 +149,11 @@
 
 .categories-slider {
   .swiper-container {
-    @media (min-width: $breakpoint) {
-      overflow: hidden;
+    overflow: hidden;
+
+    @media (max-width: ($breakpoint - 1px)) {
+      margin: 0 -$col-pad-m;
+      padding-left: $col-pad-m;
     }
   }
   .swiper-slide { 

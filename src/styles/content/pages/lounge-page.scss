@@ -76,16 +76,17 @@
 .cabinet-main-bg {
   background: url(assets/images/cabinet-main-bg-mob.jpeg) no-repeat center;
 
-  @media (min-width: $breakpoint) {
+  @media (min-width: $breakpoint-m) {
     background: url(assets/images/cabinet-main-bg.jpeg) no-repeat center;
   }
+  background-size: cover;
 }
 
 .cabinet-section-bg {
   background: url(assets/images/cabinet-section-bg.jpeg) no-repeat center;
-  background-size: cover;
 
   @media (max-width: ($breakpoint-m - 1px)) {
     background-image: url(assets/images/cabinet-section-bg-mob.jpeg);
   }
+  background-size: cover;
 }
