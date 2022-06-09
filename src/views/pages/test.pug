@@ -1,65 +1,40 @@
-extends ../layouts/master
-
 include ../components/buttons
-include ../components/cards
-include ../components/block-titles
-include ../components/picture
 
-block variables
-  - var noCookie = true
-
-block content
-
-  section.section--bottom.section--main-page.section--grey.relative
+section.section--bottom.section--main-page.section--grey.relative
     .container
       .first-screen-container
         .first-screen__video-container
-          video.first-screen__video(autoplay='true' loop='true' muted='true' poster="assets/images/main-vid-poster.png")
-            //- source(type="video/mp4" src="assets/videos/main-video-bg.mp4")
+
+          video.first-screen__video.only-desktop(autoplay='true' loop='true' muted='true' preload="auto")
             source(type="video/webm" src="assets/videos/main-video-comp.webm")
             source(type="video/mp4" src="assets/videos/main-video-comp.mp4")
-            //- source(type="video/mp4" src="assets/videos/freud-main.mp4")
+          //- video.first-screen__video.only-mobile(autoplay='true' loop='true' muted='true' poster="assets/images/main-vid-poster.png")
+          //-   source(type="video/mp4" src="assets/videos/main-video-comp-mob.mp4")
 
           //- video.first-screen__video.left.only-desktop(autoplay='true' loop='true' muted='true' poster="assets/images/main-vid-poster.png")
-            //- source(type="video/mp4" src="assets/videos/main-video-bg.mp4")
-            source(type="video/webm" src="assets/videos/main-video-comp.webm")
-            source(type="video/mp4" src="assets/videos/main-video-comp.mp4")
-            //- source(type="video/mp4" src="assets/videos/freud-main.mp4")
+          //-   source(type="video/webm" src="assets/videos/main-video-comp.webm")
+          //-   source(type="video/mp4" src="assets/videos/main-video-comp.mp4")
+          //- video.first-screen__video.left.only-mobile(autoplay='true' loop='true' muted='true' poster="assets/images/main-vid-poster.png")
+          //-   source(type="video/mp4" src="assets/videos/main-video-comp-mob.mp4")
+
 
         .first-screen
 
-          //- .first-screen__col1(data-video-show)
+          //- .first-screen__col1.loaded(data-video-show)
 
           //- .first-screen__col2
 
-            .first-screen__txt(data-aos='fade-up') Для ценителей комфорта, #[br] приватности и высокого сервиса
+          //-   .first-screen__txt(data-aos='fade-up') Для ценителей комфорта, #[br] приватности и высокого сервиса
 
-          //- .first-screen__col3.only-desktop
-            .first-screen__col3-bg
-            .first-screen__col3-transp(data-video-show)
+          //- .first-screen__col3
+          //-   .first-screen__col3-bg
+          //-   .first-screen__col3-transp.loaded(data-video-show)
 
-          .first-screen__ttl
+          .first-screen__ttl.loaded
             h1.first-screen__ttl--big 
               span.from-right Профессор
               br
               span.from-left Фрейд
             span.first-screen__ttl--small(data-aos='fade-up') частный клуб
 
-          +brown-button.only-mobile.first-screen__mob-btn(data-aos='fade-up' data-popup-button='1')
-            |Забронировать
-        
-
-      .first-screen__bottom(data-aos='fade-up')
-        
-        .first-screen__bottom-col
-          //- a.icon-circle(href="")
-          //-   +vk-icon.vk-circle-ico
-
-        .scroll-down
-          button.button--clean.scroll-down__txt(data-anchor-btn='1') узнать больше
-
-          .scroll-down__line
-
-        .first-screen__bottom-col
-
-      //- +message-icon.message-icon
+      

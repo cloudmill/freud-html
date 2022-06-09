@@ -230,6 +230,7 @@
     position: absolute;
     top: getRem(51px);
     left: getRem(257px);
+    // mix-blend-mode: exclusion;
 
     cursor: default;
     
@@ -256,8 +257,6 @@
 
     &--big {
       font-family: 'Berlingske Serif';
-
-      mix-blend-mode: exclusion;
       color: var(--color-white);
   
       @include fsl(144px, 125%);
@@ -273,6 +272,7 @@
         display: inline-block;
         margin-left: getRem(110px);
         transform: translateX(200%);
+        mix-blend-mode: exclusion;
         transition: 1.2s $transition-func;
 
         @media (max-width: ($breakpoint - 1px)) {
@@ -284,6 +284,7 @@
       }
       .from-left {
         display: inline-block;
+        mix-blend-mode: exclusion;
         transform: translateX(-250%);
         transition: 1.2s $transition-func;
       }
@@ -299,6 +300,8 @@
 
       position: absolute;
       white-space: nowrap;
+      z-index: 5;
+      mix-blend-mode: unset;
 
       @media (min-width: $breakpoint-m) {
         top: 0;
@@ -306,8 +309,8 @@
       }
       @media (min-width: $breakpoint) {
         @include fsl(13px, 130%);
-        top: getRem(34px);
-        left: getRem(300px);
+        top: getRem(83px);
+        left: getRem(560px);
       }
       @media (max-width: ($breakpoint-m - 1px)) {
         top: 0;

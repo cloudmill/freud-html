@@ -174,6 +174,10 @@ window.addEventListener('load', () => {
     });
   
     document.querySelector('.first-screen__ttl').classList.add('loaded');
+
+    setTimeout(() => {
+      document.querySelector('.first-screen__ttl').classList.add('blend-mode');
+    }, 1200);
   }
 
   headerOnScroll();
