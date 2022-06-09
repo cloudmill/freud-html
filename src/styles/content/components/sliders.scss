@@ -118,6 +118,7 @@
   .swiper-container {
     width: 100%;
     height: fit-content;
+    overflow: hidden;
 
     @media (min-width: $breakpoint) {
       width: calc(#{$col-part-d} * 8 - #{$col-gap});

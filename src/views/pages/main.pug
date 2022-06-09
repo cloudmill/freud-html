@@ -12,16 +12,16 @@ block content
       .first-screen-container
         .first-screen__video-container
 
-          video.first-screen__video.only-desktop(autoplay='true' loop='true' muted='true' poster="assets/images/main-vid-poster.png")
-            source(type="video/webm" src="assets/videos/main-video-comp.webm")
+          video.first-screen__video.only-desktop(autoplay='true' loop='true' muted='true' preload="metadata" poster="assets/images/main-vid-poster.png")
+            //- source(type="video/webm" src="assets/videos/main-video-comp.webm")
             source(type="video/mp4" src="assets/videos/main-video-comp.mp4")
-          video.first-screen__video.only-mobile(autoplay='true' loop='true' muted='true' poster="assets/images/main-vid-poster.png")
+          video.first-screen__video.only-mobile(autoplay='true' loop='true' muted='true' preload="metadata" poster="assets/images/main-vid-poster.png")
             source(type="video/mp4" src="assets/videos/main-video-comp-mob.mp4")
 
-          video.first-screen__video.left.only-desktop(autoplay='true' loop='true' muted='true' poster="assets/images/main-vid-poster.png")
-            source(type="video/webm" src="assets/videos/main-video-comp.webm")
+          video.first-screen__video.left.only-desktop(autoplay='true' loop='true' muted='true' preload="metadata" poster="assets/images/main-vid-poster.png")
+            //- source(type="video/webm" src="assets/videos/main-video-comp.webm")
             source(type="video/mp4" src="assets/videos/main-video-comp.mp4")
-          video.first-screen__video.left.only-mobile(autoplay='true' loop='true' muted='true' poster="assets/images/main-vid-poster.png")
+          video.first-screen__video.left.only-mobile(autoplay='true' loop='true' muted='true' preload="metadata" poster="assets/images/main-vid-poster.png")
             source(type="video/mp4" src="assets/videos/main-video-comp-mob.mp4")
 
 
@@ -119,11 +119,11 @@ block content
   section.section-bg-photo.relative
 
     .section-bg-vid
-      video.section-bg-vid__video.only-desktop(autoplay='true' loop='true' muted='true' poster="assets/images/main-vid-poster.png")
+      video.section-bg-vid__video.only-desktop(autoplay='true' loop='true' muted='true' preload="metadata" poster="assets/images/main-vid-poster.png")
         source(type="video/webm" src="assets/videos/interior-bg-vid.webm")
         source(type="video/mp4" src="assets/videos/interior-bg-vid.mp4")
 
-      video.section-bg-vid__video.only-mobile(autoplay='true' loop='true' muted='true' poster="assets/images/main-vid-poster.png")
+      video.section-bg-vid__video.only-mobile(autoplay='true' loop='true' muted='true' preload="metadata" poster="assets/images/main-vid-poster.png")
         source(type="video/mp4" src="assets/videos/interior-bg-vid-mob.mp4")
 
     +big-titles.white-ttl.relative(ttl='Деловая обстановка' subttl='место для деловых встреч')
