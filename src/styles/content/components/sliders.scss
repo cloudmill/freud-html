@@ -163,7 +163,19 @@
     }
 
     @media (max-width: ($breakpoint - 1px)) {
+      width: calc(#{$col-part-t} * 3 - #{$col-gap-m});
+      
+      .shop-page-head__card {
+        width: 100%;
+      }
+      .shop-page-head__card-img {
+        height: getRem(326px);
+      }
+    }
+
+    @media (max-width: ($breakpoint-m - 1px)) {
       width: calc(#{$col-part-m} * 3 - #{$col-gap-m});
+
       .shop-page-head__card {
         width: 100%;
       }
@@ -172,8 +184,6 @@
       }
     }
   }
-
-
 }
 
 .recommend-slider {

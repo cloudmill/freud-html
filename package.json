@@ -2,7 +2,7 @@
   "main": "app.js",
   "scripts": {
     "build": "rimraf dist && webpack --config webpack/webpack.config.js --env NODE_ENV=production --mode=production --progress",
-    "dev": "webpack server --config webpack/webpack.config.js --env NODE_ENV=development --mode development --progress --open --host 0.0.0.0 --port 8000 --hot",
+    "dev": "webpack server --config webpack/webpack.config.js --env NODE_ENV=development --mode development --progress --open",
     "script": "rimraf dist && webpack --config webpack/webpack.config.script.js --env NODE_ENV=production --mode=production"
   },
   "devDependencies": {

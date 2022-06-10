@@ -27,6 +27,10 @@ module.exports = (env) => {
     devServer: {
       contentBase: path.resolve(__dirname, "../src"),
       openPage: "index",
+      host: '0.0.0.0',
+      port: '8000',
+      hot: true,
+      open: true,
     },
     devtool: env.NODE_ENV === "development" ? "source-map" : false,
     resolve: {
