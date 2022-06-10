@@ -23,24 +23,42 @@ button::-moz-focus-inner {border: 0;}
 //   outline-offset: 3px;
 // }
 
+// html {
+//   font-size: getVw($fs, 19.2px);
+//   @media (max-width: ($breakpoint - 1px)) {
+//     font-size: getVw($fs, 12.8px);
+//   }
+//   @media (max-width: ($breakpoint-t - 1px)) {
+//     font-size: getVw($fs, 10.24px);
+//   }
+//   @media (max-width: ($breakpoint-m)) {
+//     // font-size: getVw($fs, 7.68px);
+//     font-size: 16px;
+//   }
+//   // @media (max-width: ($breakpoint-s - 1px)) {
+//   //   font-size: getVw($fs, 5.76px);
+//   // }
+//   // @media (max-width: 414px) {
+//   //   font-size: 16px;
+//   // }
+//   @media (max-width: ($breakpoint-xs)) {
+//     font-size: getVw($fs, 3.75px);
+//   }
+//   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+// }
+
 html {
-  font-size: getVw($fs, 19.2px);
-  @media (max-width: ($breakpoint - 1px)) {
-    font-size: getVw($fs, 12.8px);
+  font-size: $fs;
+
+  @each $breakpoint in (320px, 375px, 576px, 768px, 1024px, 1280px, 1366px, 1440px, 1680px) {
+    @media (min-width: #{$breakpoint}) {
+      font-size: getVw($fs, $breakpoint / 100);
+    }
   }
-  @media (max-width: ($breakpoint-t - 1px)) {
-    font-size: getVw($fs, 10.24px);
+
+  @media (min-width: 1920px) {
+    font-size: $fs;
   }
-  @media (max-width: ($breakpoint-m)) {
-    font-size: getVw($fs, 7.68px);
-  }
-  @media (max-width: ($breakpoint-s - 1px)) {
-    font-size: getVw($fs, 5.76px);
-  }
-  @media (max-width: ($breakpoint-xs)) {
-    font-size: getVw($fs, 3.75px);
-  }
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 body {
