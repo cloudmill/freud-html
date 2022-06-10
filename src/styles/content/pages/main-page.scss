@@ -27,7 +27,8 @@
       margin-bottom: getRem(25px);
     }
     @media (max-width: ($breakpoint - 1px)) {
-      height: getRem(327px);
+      // height: getRem(327px);
+      height: 327px;
     }
     @media (max-width: ($breakpoint-m - 1px)) {
       width: getRem(335px);
@@ -122,7 +123,8 @@
       background: var(--color-light-grey);
 
       @media (max-width: ($breakpoint - 1px)) {
-        height: getRem(215px);
+        // height: getRem(215px);
+        height: 215px;
       }
     }
     &-transp {
@@ -133,7 +135,8 @@
       position: relative;
 
       @media (max-width: ($breakpoint - 1px)) {
-        height: getRem(112px);
+        // height: getRem(112px);
+        height: 112px;
       }
 
       &.loaded::after {
@@ -239,7 +242,8 @@
 
     @media (max-width: ($breakpoint - 1px)) {
       top: getRem(45px);
-      left: getRem(154px);
+      // left: getRem(154px);
+      left: calc(#{$col-part-t} * 2 + #{$col-width-t} - #{getRem(110px)});
     }
 
     @media (max-width: ($breakpoint-m - 1px)) {
@@ -250,8 +254,16 @@
     }
 
     &.loaded {
-      .from-right, .from-left {
+      .from-right {
         transform: none;
+      }
+
+      .from-left {
+        transform: translateX(-10px);
+
+        @media (min-width: $breakpoint-m) {
+          transform: none;
+        }
       }
     }
 
@@ -281,12 +293,20 @@
         @media (max-width: ($breakpoint-m - 1px)) {
           margin-left: getRem(30px);
         }
+
+        @media (min-width: 800px) and (max-width: ($breakpoint - 1px)) {
+          transform: translateX(400%);
+        }
       }
       .from-left {
         display: inline-block;
         mix-blend-mode: exclusion;
         transform: translateX(-250%);
         transition: 1.2s $transition-func;
+
+        @media (min-width: 800px) and (max-width: ($breakpoint - 1px)) {
+          transform: translateX(-400%);
+        }
       }
     }
 
@@ -305,7 +325,8 @@
 
       @media (min-width: $breakpoint-m) {
         top: getRem(40px);
-        left: getRem(280px);
+        // left: getRem(280px);
+        left: calc(#{$col-part-t} * 3);
       }
       @media (min-width: $breakpoint) {
         @include fsl(13px, 130%);
