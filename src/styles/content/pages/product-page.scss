@@ -574,6 +574,12 @@
       }
       @media (min-width: $breakpoint) {
         width: calc(50% - 25px);
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      .two-cols-block__link {
+        white-space: nowrap;
       }
     }
 

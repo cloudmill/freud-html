@@ -50,12 +50,14 @@ button::-moz-focus-inner {border: 0;}
 html {
   font-size: $fs;
 
-  @each $breakpoint in (320px, 375px, 576px, 768px, 1024px, 1280px, 1366px, 1440px, 1680px) {
+  @each $breakpoint in (320px, 375px, 576px, 768px, 1024px) {
     @media (min-width: #{$breakpoint}) {
       font-size: getVw($fs, $breakpoint / 100);
     }
   }
-
+  @media (min-width: $breakpoint) {
+    font-size: getVw($fs, 19.2px);
+  }
   @media (min-width: 1920px) {
     font-size: $fs;
   }
