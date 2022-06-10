@@ -215,7 +215,7 @@ function fadeOnLeave(eventClick) {
 
   // затухание при переходах по страницам
 
-  if (eventClick.target.closest('a')) {
+  if (eventClick.target.closest('a') && !eventClick.target.closest('a').hasAttribute('data-nolink')) {
 
     eventClick.preventDefault();
 
@@ -226,6 +226,7 @@ function fadeOnLeave(eventClick) {
     setTimeout(() => {
       window.location.assign(href)
     }, 600);
+    
   }
 }
 

@@ -6,7 +6,7 @@ mixin header
         +logo.header__logo-svg
 
       .header-mobile__buttons
-        button.button--clean.header-mobile__buttons-item
+        a.button--clean.header-mobile__buttons-item(href='tel:+79214491818' data-nolink='')
           +header-callback
 
         +brown-button.header-mobile__buttons-item.only-tablet(data-popup-button='1')
@@ -37,7 +37,7 @@ mixin header
               a.icon-circle(href="")
                 +wa-icon.wa-circle-ico
 
-              a.tel(href="tel:+78124545656" tabindex="0")
+              a.tel(href="tel:+78124545656" tabindex="0" data-nolink='')
                 |+7 (812) 454-56-56
 
       .header__bottom

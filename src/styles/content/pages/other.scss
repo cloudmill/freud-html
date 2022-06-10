@@ -264,11 +264,14 @@
 
   &__name {
     @include fsl(16px, 150%);
-    max-width: 80%;
+    max-width: 70%;
   }
   &__price {
     @include fsl(16px, 170%);
     font-weight: 600;
+    max-width: 20%;
+    white-space: nowrap;
+    margin-left: getRem(10px);
 
     @media (min-width: $breakpoint) {
       @include fsl(18px, 170%);

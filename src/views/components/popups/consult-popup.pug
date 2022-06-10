@@ -13,7 +13,7 @@
       sup *
       |— поля обязательные для заполнения
 
-    form(novalidate)
+    form(novalidate id='consult-form')
       label.form__label
         .form__field-name Ваше имя
           sup *
@@ -32,7 +32,7 @@
 
   .review-popup__bottom.only-mobile
 
-    +brown-button
-      | Узнать стоимость
+    +brown-button(form='consult-form')
+      |Узнать стоимость
 
   button.button--clean.modal__close.only-desktop(data-modal-close)

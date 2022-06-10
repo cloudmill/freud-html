@@ -29,21 +29,21 @@ function inputDate() {
       <path d="M6 11L1 6L6 1" stroke="#1B1B1B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>`,
 
-    }); 
-  }
+    });
 
-  if (!mediaQuery.matches) {
+    if (!mediaQuery.matches) {
     
-    document.querySelector('[data-datepicker]').addEventListener('click', () => {
-
-      setTimeout(() => {
-        document.querySelector('[data-datepicker]').scrollIntoView({
-          behavior: 'smooth',
-          block: 'end'
-        });
-      }, );
-
-    })
+      document.querySelector('[data-datepicker]').addEventListener('click', () => {
+  
+        setTimeout(() => {
+          document.querySelector('[data-datepicker]').scrollIntoView({
+            behavior: 'smooth',
+            block: 'end'
+          });
+        }, );
+  
+      })
+    }
   }
 }
 

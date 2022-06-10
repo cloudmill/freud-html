@@ -66,8 +66,10 @@
 
       transition: $transition;
 
-      &:hover {
-        color: var(--color-brown);
+      @media (min-width: $breakpoint) {
+        &:hover {
+          color: var(--color-brown);
+        }
       }
 
       @media (max-width: ($breakpoint - 1px)) {

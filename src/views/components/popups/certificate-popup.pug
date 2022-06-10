@@ -13,7 +13,7 @@
       sup *
       |— поля обязательные для заполнения
 
-    form(novalidate)
+    form(novalidate id='certificates-form')
       label.form__label
         .form__field-name Ваше имя
           sup *
@@ -32,7 +32,7 @@
 
   .review-popup__bottom.only-mobile
 
-    +brown-button
+    +brown-button(form='certificates-form')
       |Заказать сертификат
 
   button.button--clean.modal__close.only-desktop(data-modal-close)

@@ -38,7 +38,6 @@
   width: 100%;
   overflow: hidden;
   position: relative;
-
   
   @media (max-width: ($breakpoint - 1px)) {
     width: calc(100% + #{$col-pad-m});
@@ -50,6 +49,7 @@
   }
   @media (max-width: ($breakpoint-m - 1px)) {
     padding-left: calc(#{$col-pad-m} + #{getRem(45px)});
+    padding-right: getRem(50px);
     margin-left: -$col-pad-m;
   }
 
