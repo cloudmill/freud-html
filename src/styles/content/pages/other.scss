@@ -434,7 +434,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    // justify-content: center;
 
     @media (max-width: ($breakpoint - 1px)) {
       width: 32%;
@@ -452,17 +452,13 @@
       }
     }
 
-    @media (min-width: $breakpoint) {
-      svg {
-        margin-bottom: getRem(40px);
-      }
-    }
-
     .card-benefit-ico-1 {
       width: getRem(54px);
 
       @media (max-width: ($breakpoint - 1px)) {
         width: getRem(40px);
+      }
+      @media (max-width: ($breakpoint-m - 1px)) {
         margin-bottom: getRem(30px);
       }
     }
@@ -471,6 +467,8 @@
 
       @media (max-width: ($breakpoint - 1px)) {
         width: getRem(47px);
+      }
+      @media (max-width: ($breakpoint-m - 1px)) {
         margin-bottom: getRem(45px);
       }
     }
@@ -479,9 +477,27 @@
 
       @media (max-width: ($breakpoint - 1px)) {
         width: getRem(44px);
+      }
+      @media (max-width: ($breakpoint-m - 1px)) {
         margin-bottom: getRem(25px);
       }
     }
+  }
+
+  &__ico {
+    display: flex;
+    
+    @media (min-width: $breakpoint-m) {
+      height: getRem(50px);
+      margin-bottom: getRem(20px);
+      
+      align-items: center;
+    }
+    @media (min-width: $breakpoint) {
+      height: getRem(66px);
+      margin-bottom: getRem(34px);
+    }
+
   }
 
   &__btn {

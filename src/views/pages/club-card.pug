@@ -36,7 +36,8 @@ block content
         
         each item, index in benefits
           .benefits-top__item
-            +card-benefit-ico(index)
+            .benefits-top__ico
+              +card-benefit-ico(index)
             |#{item}
 
       +brown-button.benefits-top__btn(data-popup-button='8' data-aos='fade-up')
