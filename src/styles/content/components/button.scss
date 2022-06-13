@@ -49,6 +49,10 @@
       @include fsl(16px, 120%);
     }
   }
+
+  &--on-black:hover {
+    background: var(--hover-on-black);
+  }
 }
 
 .slider-control {

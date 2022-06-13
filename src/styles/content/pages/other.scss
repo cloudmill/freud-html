@@ -334,6 +334,7 @@
   @media (min-width: $breakpoint) {
     &:hover {
       border: 1px solid var(--color-black);
+      color: var(--color-black);
     }
   }
 
