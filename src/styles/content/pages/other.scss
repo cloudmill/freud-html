@@ -205,8 +205,12 @@
     }
   }
 
-  .certificates-block__btn {
-    margin-top: getRem(40px);
+  &__btn {
+    margin-top: getRem(20px);
+
+    @media (min-width: $breakpoint) {
+      margin-top: getRem(30px);
+    }
   }
 }
 
