@@ -22,6 +22,12 @@ function dropdownsBlock(trigger, btnSelector, windowSelector, blockScroll) {
           closeWindow(triggerBtns, windows, blockScroll, modalsContainer);
         }
       });
+
+      document.querySelector('[data-drop-close]').addEventListener('mouseover', e => {
+        
+        closeWindow(triggerBtns, windows, blockScroll, modalsContainer);
+
+      });
   
       document.addEventListener('click', eventClick => {
 

@@ -111,6 +111,10 @@ function swipers() {
     centeredSlides: true,
     initialSlide: 1,
 
+    mousewheel: {
+      releaseOnEdges: true,
+    },
+
     breakpoints: {
       [768]: {
         centeredSlides: false,
