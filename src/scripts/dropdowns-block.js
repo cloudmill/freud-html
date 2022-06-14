@@ -30,11 +30,10 @@ function dropdownsBlock(trigger, btnSelector, windowSelector, blockScroll) {
           item.classList.remove('active')
         }
       });
+      
       windows.forEach(item => {
 
         if (item.classList.contains('header-modals__item')) {
-
-          console.log(123);
 
           if (item !== activeWindow) {
             item.style.zIndex = '4';

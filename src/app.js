@@ -158,7 +158,7 @@ window.addEventListener('load', () => {
   document.querySelector('body').classList.remove('no-transition');
 
   
-  console.log(document.documentElement.clientHeight);
+  // console.log(document.documentElement.clientHeight);
 
   // скрытие элементов под хедером пока работает аос
   setTimeout(() => {
