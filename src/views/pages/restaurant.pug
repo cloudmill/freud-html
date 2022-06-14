@@ -156,7 +156,8 @@ block content
           div(data-aos='fade-up')
             +picture.certificates-block__img(file='restaurant-2')
   
-  section.section--bottom
+  section.section--bottom.relative
+    .humidor-slider-overlay
     div(data-aos='fade-up')
       .swiper-container.humidor-slider#humidor-slider
         .swiper-wrapper
@@ -175,5 +176,6 @@ block content
 
 block modals
   include ../components/popups/certificate-popup
+  include ../components/popups/certificate2-popup
   include ../components/popups/subscribe-success-popup
   

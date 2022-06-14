@@ -9,8 +9,13 @@ section.section.section--black
         else
           +big-titles.txt-white(subttl='в ресторан' ttl='Подарочный сертификат' txt='Порадуйте ценителей высокой кухни идеальным подарком. Элегантный дизайн сертификата создаст наилучшие впечатления о подарке. Cертификат может быть любого номинала')
 
-        +brown-button.certificate-block__btn.button--on-black(data-popup-button='7' data-aos='fade-up')
-          |Заказать сертификат
+        if (!restaurant)
+          +brown-button.certificate-block__btn.button--on-black(data-popup-button='7' data-aos='fade-up')
+            |Заказать сертификат
+
+        else
+          +brown-button.certificate-block__btn.button--on-black(data-popup-button='15' data-aos='fade-up')
+            |Заказать сертификат
 
       div(data-aos='fade-up')
         +picture.certificate-block__img(file=`certificate`)

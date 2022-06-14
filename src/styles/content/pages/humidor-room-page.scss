@@ -108,6 +108,17 @@
 
   overflow: hidden;
 
+  @media (min-width: $breakpoint) {
+    &-overlay {
+      position: absolute;
+      z-index: 10;
+
+      width: 100vw;
+      height: 100vh;
+      top: calc((50vh - 280px) * -1);
+    }
+  }
+
   .swiper-slide {
 
     @media (max-width: ($breakpoint - 1px)) {
