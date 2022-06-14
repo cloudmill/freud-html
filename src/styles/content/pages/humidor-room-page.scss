@@ -118,6 +118,11 @@
       top: calc((50vh - 280px) * -1);
     }
 
+    &-container {
+      position: sticky;
+      top: 20vh;
+    }
+
     &-section {
       height: 300vh;
     }

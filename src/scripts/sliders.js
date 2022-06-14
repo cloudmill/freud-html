@@ -109,12 +109,13 @@ function swipers() {
     spaceBetween: 15,
     centeredSlides: true,
     initialSlide: 1,
+    mousewheel: true,
 
-    mousewheel: {
-      releaseOnEdges: true,
-      // sensitivity: 5,
-      eventsTarget: '.humidor-slider-overlay',
-    },
+    // mousewheel: {
+    //   releaseOnEdges: true,
+    //   // sensitivity: 5,
+    //   eventsTarget: '.humidor-slider-section',
+    // },
 
     breakpoints: {
       [768]: {
