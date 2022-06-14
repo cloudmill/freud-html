@@ -280,5 +280,3 @@ function cigarSize() {
     document.querySelector('[data-show-diameter]').innerHTML = document.querySelector('.product-top-img__cigar-size').getAttribute('data-cigar-diameter'); 
   }
 }
-
-
