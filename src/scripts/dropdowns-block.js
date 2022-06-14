@@ -1,4 +1,5 @@
 import { openWindow, closeWindow } from './modals-open-close';
+import { focusOnTab, focusOnTabOff } from "./tabindex-in-modals";
 
 function dropdownsBlock(trigger, btnSelector, windowSelector, blockScroll) {
   
@@ -14,7 +15,53 @@ function dropdownsBlock(trigger, btnSelector, windowSelector, blockScroll) {
 
     if (trigger.type == 'mouseover' && activeBtn) {
   
-      openWindow(activeBtn, triggerBtns, windows, btnSelector, windowSelector, blockScroll, modalsContainer);
+      if (blockScroll) {
+        document.querySelector('.body').classList.add('modal-open');
+      }
+      if (modalsContainer) {
+        modalsContainer.classList.add('active');
+      }
+    
+      const activeId = Number(activeBtn.getAttribute(btnSelector));
+      const activeWindow = document.querySelector(`[${windowSelector}='${activeId}']`);
+
+      triggerBtns.forEach(item => {
+        if (item.getAttribute(btnSelector) !== activeId) {
+          item.classList.remove('active')
+        }
+      });
+      windows.forEach(item => {
+
+        if (item.classList.contains('header-modals__item')) {
+
+          console.log(123);
+
+          if (item !== activeWindow) {
+            item.style.zIndex = '4';
+  
+            setTimeout(() => {
+              item.classList.remove('active');
+              item.style.zIndex = '';
+            }, 300);
+            
+          }
+          
+        } else {
+
+          item.classList.remove('active');
+
+        }
+
+      });
+    
+      activeBtn.classList.add('active');
+      activeWindow.classList.add('active');
+    
+      if (activeWindow.querySelector('[data-focus-input]')) {
+        activeWindow.querySelector('[data-focus-input]').focus();
+      }
+    
+      focusOnTab(activeWindow);
 
       document.querySelector('.header__top').addEventListener('mouseover', e => {
         

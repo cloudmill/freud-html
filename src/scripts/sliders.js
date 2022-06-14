@@ -105,7 +105,6 @@ function swipers() {
 
     modules: [Mousewheel],
 
-    mousewheel: true,
     slidesPerView: 'auto',
     spaceBetween: 15,
     centeredSlides: true,
@@ -113,6 +112,8 @@ function swipers() {
 
     mousewheel: {
       releaseOnEdges: true,
+      // sensitivity: 5,
+      eventsTarget: '.humidor-slider-overlay',
     },
 
     breakpoints: {
