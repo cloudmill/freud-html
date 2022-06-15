@@ -118,13 +118,33 @@
       top: calc((50vh - 280px) * -1);
     }
 
-    &-container {
-      position: sticky;
-      top: 20vh;
-    }
+    // &-container {
+    //   position: sticky;
+    //   top: 20vh;
+    // }
 
     &-section {
       height: 300vh;
+    }
+
+    &-desktop {
+      display: flex;
+      overflow-x: scroll;
+      @include scrollbar-hidden;
+
+      position: sticky;
+      top: 20vh;
+
+      transition: .3s;
+    }
+
+    &__slide {
+      width: calc(#{$col-part-d} * 3 + #{$col-width-d});
+      flex: none;
+
+      &:not(:last-child) {
+        margin-right: $col-gap;
+      }
     }
   }
 

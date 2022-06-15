@@ -1,0 +1,21 @@
+section.section--bottom.relative.humidor-slider-section
+
+  .humidor-slider-desktop.only-desktop
+    - for (i=1;i<5;i++)
+      .humidor-slider__slide
+        +picture(file=`restaurant-page-slide-${i}`)
+
+    - for (i=1;i<3;i++)
+      .humidor-slider__slide
+        +picture(file=`restaurant-page-slide-${i}`)
+
+  .humidor-slider-container.only-mobile(data-aos='fade-up')
+    .swiper-container.humidor-slider#humidor-slider
+      .swiper-wrapper
+        - for (i=1;i<5;i++)
+          .swiper-slide
+            +picture(file=`restaurant-page-slide-${i}`)
+
+        - for (i=1;i<3;i++)
+          .swiper-slide
+            +picture(file=`restaurant-page-slide-${i}`)

@@ -157,8 +157,66 @@ window.addEventListener('load', () => {
 
   document.querySelector('body').classList.remove('no-transition');
 
+
+
+  var callback = function(entries, observer) {
+      console.log('hello')
+  };
+
+  var observer = new IntersectionObserver(callback, {
+    root: null,
+    rootMargin: '0px',
+    threshold: 1.0
+  });
+
+  var target = document.querySelector('.humidor-slider-desktop');
+
+  observer.observe(target);
+
   
-  // console.log(document.documentElement.clientHeight);
+  // humidor slider
+
+  const humidorSection = document.querySelector('.humidor-slider-section');
+  const humidorSlider = document.querySelector('.humidor-slider-desktop');
+
+  if (humidorSlider) {
+
+    humidorSlider.style.transform = 'translateX(0px)';
+
+    document.addEventListener('scroll', () => {
+
+      const scrollTop = humidorSection.getBoundingClientRect().top;
+      // console.log(scrollTop);
+
+      if (scrollTop < 80 && scrollTop > -2100) {
+
+        setTimeout(() => {
+
+          const newScrollTop = humidorSection.getBoundingClientRect().top;
+          const currentTransform = humidorSlider.style.transform;
+
+
+          if ((scrollTop > 0) && (scrollTop > newScrollTop) || (scrollTop < 0) && (scrollTop < newScrollTop)) {
+
+            const transformNum = Number(currentTransform.match(/\d/g).join('')) + 5;
+            humidorSlider.style.transform =`translateX(-${transformNum}px)`;
+            
+          } else {
+
+            const transformNum = Number(currentTransform.match(/\d/g).join('')) + 5;
+            humidorSlider.style.transform =`translateX(${transformNum}px)`;
+            
+          }
+          
+        }, 100);
+        
+      }
+  
+    })
+    
+  }
+
+  
 
   // скрытие элементов под хедером пока работает аос
   setTimeout(() => {
