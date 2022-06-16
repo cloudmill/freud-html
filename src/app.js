@@ -14,6 +14,7 @@ import select from './scripts/form-elements/select';
 import formValidation from './scripts/form-elements/form-validation';
 
 import swipers from './scripts/sliders';
+import humidorSlider from './scripts/slider-humidor';
 import accordions from './scripts/spoiler';
 import tabs from './scripts/tabs';
 import popups from './scripts/popups';
@@ -47,6 +48,8 @@ document.addEventListener('DOMContentLoaded', () => {
   sortMethod();
   activeFiltersHeader();
   numberOfGoods();
+
+  humidorSlider();
 
   tabOffGlobal();
 
@@ -157,64 +160,52 @@ window.addEventListener('load', () => {
 
   document.querySelector('body').classList.remove('no-transition');
 
+  
 
-
-  var callback = function(entries, observer) {
-      console.log('hello')
-  };
-
-  var observer = new IntersectionObserver(callback, {
-    root: null,
-    rootMargin: '0px',
-    threshold: 1.0
-  });
-
-  var target = document.querySelector('.humidor-slider-desktop');
-
-  observer.observe(target);
+  
 
   
   // humidor slider
 
-  const humidorSection = document.querySelector('.humidor-slider-section');
-  const humidorSlider = document.querySelector('.humidor-slider-desktop');
+  // const humidorSection = document.querySelector('.humidor-slider-section');
+  // const humidorSlider = document.querySelector('.humidor-slider-desktop');
 
-  if (humidorSlider) {
+  // if (humidorSlider) {
 
-    humidorSlider.style.transform = 'translateX(0px)';
+  //   humidorSlider.style.transform = 'translateX(0px)';
 
-    document.addEventListener('scroll', () => {
+  //   document.addEventListener('scroll', () => {
 
-      const scrollTop = humidorSection.getBoundingClientRect().top;
-      // console.log(scrollTop);
+  //     const scrollTop = humidorSection.getBoundingClientRect().top;
+  //     // console.log(scrollTop);
 
-      if (scrollTop < 80 && scrollTop > -2100) {
+  //     if (scrollTop < 80 && scrollTop > -2100) {
 
-        setTimeout(() => {
+  //       setTimeout(() => {
 
-          const newScrollTop = humidorSection.getBoundingClientRect().top;
-          const currentTransform = humidorSlider.style.transform;
+  //         const newScrollTop = humidorSection.getBoundingClientRect().top;
+  //         const currentTransform = humidorSlider.style.transform;
 
 
-          if ((scrollTop > 0) && (scrollTop > newScrollTop) || (scrollTop < 0) && (scrollTop < newScrollTop)) {
+  //         if ((scrollTop > 0) && (scrollTop > newScrollTop) || (scrollTop < 0) && (scrollTop < newScrollTop)) {
 
-            const transformNum = Number(currentTransform.match(/\d/g).join('')) + 5;
-            humidorSlider.style.transform =`translateX(-${transformNum}px)`;
+  //           const transformNum = Number(currentTransform.match(/\d/g).join('')) + 5;
+  //           humidorSlider.style.transform =`translateX(-${transformNum}px)`;
             
-          } else {
+  //         } else {
 
-            const transformNum = Number(currentTransform.match(/\d/g).join('')) + 5;
-            humidorSlider.style.transform =`translateX(${transformNum}px)`;
+  //           const transformNum = Number(currentTransform.match(/\d/g).join('')) + 5;
+  //           humidorSlider.style.transform =`translateX(${transformNum}px)`;
             
-          }
+  //         }
           
-        }, 100);
+  //       }, 100);
         
-      }
+  //     }
   
-    })
+  //   })
     
-  }
+  // }
 
   
 

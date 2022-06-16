@@ -194,6 +194,12 @@
 
         height: getRem(410px);
       }
+
+      img.only-mobile {
+        height: 100%;
+        object-fit: cover;
+        filter: grayscale(100%);
+      }
     }
   }
 
@@ -780,6 +786,11 @@
   right: 0;
   bottom: 0;
   left: 0;
+
+  @media (max-width: ($breakpoint - 1px)) {
+    background: url(assets/images/section-bg-mob.jpeg) no-repeat center;
+    background-size: cover;
+  }
 
   &::after {
     content: '';

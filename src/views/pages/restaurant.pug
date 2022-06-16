@@ -156,18 +156,20 @@ block content
           div(data-aos='fade-up')
             +picture.certificates-block__img(file='restaurant-2')
   
-  section.section--bottom.relative
-    .humidor-slider-overlay
-    div(data-aos='fade-up')
-      .swiper-container.humidor-slider#humidor-slider
-        .swiper-wrapper
-          - for (i=1;i<5;i++)
-            .swiper-slide
-              +picture(file=`restaurant-page-slide-${i}`)
+  //- section.section--bottom.relative
+  //-   .humidor-slider-overlay
+  //-   div(data-aos='fade-up')
+  //-     .swiper-container.humidor-slider#humidor-slider
+  //-       .swiper-wrapper
+  //-         - for (i=1;i<5;i++)
+  //-           .swiper-slide
+  //-             +picture(file=`restaurant-page-slide-${i}`)
 
-          - for (i=1;i<3;i++)
-            .swiper-slide
-              +picture(file=`restaurant-page-slide-${i}`)
+  //-         - for (i=1;i<3;i++)
+  //-           .swiper-slide
+  //-             +picture(file=`restaurant-page-slide-${i}`)
+
+  include ../components/sections/humidor-slider-section
 
   - var restaurant = true
   include ../components/sections/certificate-section

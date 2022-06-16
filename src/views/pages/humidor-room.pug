@@ -83,17 +83,19 @@ block content
         .blockquote__name.only-mobile
           |станислав аверкиев — витолье-фумелье #[br] клуба профессор фрейд
 
-  section
+  //- section
 
-    .swiper-container.humidor-slider#humidor-slider(data-aos='fade-up')
-      .swiper-wrapper
-        - for (i=1;i<5;i++)
-          .swiper-slide
-            +picture(file=`humidor-slider-${i}`)
+  //-   .swiper-container.humidor-slider#humidor-slider(data-aos='fade-up')
+  //-     .swiper-wrapper
+  //-       - for (i=1;i<5;i++)
+  //-         .swiper-slide
+  //-           +picture(file=`humidor-slider-${i}`)
 
-        - for (i=1;i<3;i++)
-          .swiper-slide
-            +picture(file=`humidor-slider-${i}`)
+  //-       - for (i=1;i<3;i++)
+  //-         .swiper-slide
+  //-           +picture(file=`humidor-slider-${i}`)
+
+  include ../components/sections/humidor-slider-section
 
   -
     const titles = [

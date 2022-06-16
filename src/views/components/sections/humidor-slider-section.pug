@@ -1,21 +1,31 @@
 section.section--bottom.relative.humidor-slider-section
+  .humidor-slider-overlay
 
-  .humidor-slider-desktop.only-desktop
-    - for (i=1;i<5;i++)
-      .humidor-slider__slide
-        +picture(file=`restaurant-page-slide-${i}`)
+  //- .humidor-slider-desktop.only-desktop
+  //-   - for (i=1;i<5;i++)
+  //-     .humidor-slider__slide
+  //-       +picture(file=`restaurant-page-slide-${i}`)
 
-    - for (i=1;i<3;i++)
-      .humidor-slider__slide
-        +picture(file=`restaurant-page-slide-${i}`)
+  //-   - for (i=1;i<3;i++)
+  //-     .humidor-slider__slide
+  //-       +picture(file=`restaurant-page-slide-${i}`)
 
-  .humidor-slider-container.only-mobile(data-aos='fade-up')
+  //-   .humidor-slider__slide.last-slide
+  //-       +picture(file=`restaurant-page-slide-1`)
+
+  .humidor-slider-container(data-aos='fade-up')
     .swiper-container.humidor-slider#humidor-slider
       .swiper-wrapper
-        - for (i=1;i<5;i++)
+        .swiper-slide.first-slide
+          +picture(file=`restaurant-page-slide-1`)
+
+        - for (i=2;i<5;i++)
           .swiper-slide
             +picture(file=`restaurant-page-slide-${i}`)
 
-        - for (i=1;i<3;i++)
+        - for (i=1;i<2;i++)
           .swiper-slide
             +picture(file=`restaurant-page-slide-${i}`)
+
+        .swiper-slide.last-slide
+            +picture(file=`restaurant-page-slide-3`)

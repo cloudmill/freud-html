@@ -111,11 +111,17 @@
   @media (min-width: $breakpoint) {
     &-overlay {
       position: absolute;
-      z-index: 10;
+      z-index: -1;
 
       width: 100vw;
-      height: 100vh;
+      height: 95vh;
       top: calc((50vh - 280px) * -1);
+
+      // background-color: var(--color-black-rgba-1);
+
+      &.active {
+        z-index: 10;
+      }
     }
 
     // &-container {
@@ -123,9 +129,9 @@
     //   top: 20vh;
     // }
 
-    &-section {
-      height: 300vh;
-    }
+    // &-section {
+    //   height: 300vh;
+    // }
 
     &-desktop {
       display: flex;
