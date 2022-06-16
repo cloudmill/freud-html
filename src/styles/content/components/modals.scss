@@ -224,6 +224,21 @@
         margin-bottom: getRem(12px);
       }
     }
+
+    &-btn {
+      height: getRem(48px);
+      @media (min-width: $breakpoint) {
+        height: getRem(50px);
+      }
+    }
+    &-btn2 {
+      margin-top: getRem(12px);
+      height: getRem(48px);
+      @media (min-width: $breakpoint) {
+        margin-top: getRem(15px);
+        height: getRem(50px);
+      }
+    }
   }
 }
 
@@ -796,6 +811,17 @@
 
     @media (min-width: $breakpoint) {
       @include fsl(20px, 160%);
+    }
+  }
+
+  &__txt-small {
+    @include fsl(14px, 170%);
+    color: var(--color-grey);
+    margin-top: getRem(20px);
+
+    @media (min-width: $breakpoint) {
+      @include fsl(18px, 170%);
+      margin-top: getRem(30px);
     }
   }
 

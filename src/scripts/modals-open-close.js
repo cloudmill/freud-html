@@ -54,11 +54,14 @@ function closeOnEsc() {
   document.addEventListener('keydown', e => {
     if (e.code == 'Escape') {
 
-      if (document.querySelector('.modals-container.active')) {
+      if (document.querySelector('.modals-container.active') || document.querySelector('.active[data-popup]')) {
 
         document.querySelector('.body.modal-open').classList.remove('modal-open');
         document.querySelector('.modals-container.active').classList.remove('active');
-        document.querySelector('.active[data-popup]').classList.remove('active');
+
+        document.querySelectorAll('.active[data-popup]').forEach(item => {
+          item.classList.remove('active')
+        });
 
       } else if (document.querySelector('.active[data-filter-drop]')) {
 

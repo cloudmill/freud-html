@@ -61,12 +61,17 @@ function formValidation() {
 
           // console.log(item.validity.valid, item.getAttribute('type') == 'checkbox' && !item.checked);
         
-          if(!item.validity.valid || (item.getAttribute('type') == 'checkbox' && !item.checked) || item.hasAttribute('data-readonly') && !item.value.length) {
+          if(!item.validity.valid || (item.getAttribute('type') == 'checkbox' && !item.checked) || item.hasAttribute('data-readonly') && !item.value.length || item.closest('form').querySelector('.form-error.active')) {
 
             showError();
             event.preventDefault();
+
+            console.log('form-error');
+
           } else {
             event.preventDefault();
+
+            console.log('form-success');
             
             if (item.closest('.subscription-form')) {
               
@@ -79,6 +84,14 @@ function formValidation() {
               document.querySelector('.body').classList.add('modal-open');
               document.querySelector('.modals-container').classList.add('active');
               document.querySelector('[data-popup="13"]').classList.add('active');
+
+            } else if (item.closest('#certificates-form')) {
+
+              document.querySelector('[data-popup="13"]').classList.add('active');
+
+            } else if (item.closest('#booking-form')) {
+
+              document.querySelector('[data-popup="16"]').classList.add('active');
 
             }
 

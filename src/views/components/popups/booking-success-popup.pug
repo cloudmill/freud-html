@@ -1,0 +1,15 @@
+.modal.modal--right.review-popup.success-popup(data-popup='16')
+
+  .review-popup__body
+
+    +form-success.success-popup__icon
+    .success-popup__ttl.title-font.h4 Ваша заявка принята
+    .success-popup__txt Менеджер перезвонит вам в ближайшее #[br] время , для подтверждения брони. #[br] Пожалуйста, ожидайте звонка
+    .success-popup__txt-small Вы забронировали столик на 4 персоны #[br] в зоне «Винотека». Ждем вас 16.08.21 в 19:00
+  
+  .review-popup__bottom
+
+    +brown-border-button(data-modal-close='')
+      |Закрыть
+
+  button.button--clean.modal__close(data-modal-close)
