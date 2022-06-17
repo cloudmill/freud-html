@@ -1,4 +1,5 @@
 import './styles/app.scss';
+import './scripts/backend';
 
 import { mediaQuery } from './scripts/mediaQueries';
 

@@ -19,7 +19,7 @@ export function initMap() {
             myPlacemark = new ymaps.Placemark([59.934277, 30.309636], {
             }, {
                 iconLayout: 'default#image',
-                iconImageHref: 'assets/images/placemark.png',
+                iconImageHref: '/local/templates/main/assets/images/placemark.png',
                 iconImageSize: [45.71, 64],
                 iconImageOffset: [-22, -64]
             });
