@@ -262,10 +262,12 @@
     &.loaded {
       .from-right {
         transform: none;
+        transition: 1.2s $transition-func;
       }
 
       .from-left {
         transform: translateX(-10px);
+        transition: 1.2s $transition-func;
 
         @media (min-width: $breakpoint-m) {
           transform: none;
@@ -291,7 +293,8 @@
         margin-left: getRem(110px);
         transform: translateX(200%);
         mix-blend-mode: exclusion;
-        transition: 1.2s $transition-func;
+        // transition: 1.2s $transition-func;
+        transition: none;
 
         @media (max-width: ($breakpoint - 1px)) {
           margin-left: getRem(42px);
@@ -308,7 +311,8 @@
         display: inline-block;
         mix-blend-mode: exclusion;
         transform: translateX(-250%);
-        transition: 1.2s $transition-func;
+        // transition: 1.2s $transition-func;
+        transition: none;
 
         @media (min-width: 800px) and (max-width: ($breakpoint - 1px)) {
           transform: translateX(-400%);

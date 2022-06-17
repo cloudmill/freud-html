@@ -60,6 +60,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
   promocodeStates();
 
+  if (document.querySelector('.first-screen')) {
+    
+
+    setTimeout(() => {
+
+      document.querySelectorAll('[data-video-show]').forEach(item => {
+        item.classList.add('loaded')
+      });
+    
+      document.querySelector('.first-screen__ttl').classList.add('loaded');
+      
+    }, 1000);
+
+    setTimeout(() => {
+      document.querySelector('.first-screen__ttl').classList.add('blend-mode');
+    }, 1200);
+  }
+
+
   document.addEventListener('click', eventClick => {
 
     popups(eventClick, 'data-popup-button', 'data-popup');
@@ -160,54 +179,6 @@ window.addEventListener('load', () => {
   cartStages();
 
   document.querySelector('body').classList.remove('no-transition');
-
-  
-
-  
-
-  
-  // humidor slider
-
-  // const humidorSection = document.querySelector('.humidor-slider-section');
-  // const humidorSlider = document.querySelector('.humidor-slider-desktop');
-
-  // if (humidorSlider) {
-
-  //   humidorSlider.style.transform = 'translateX(0px)';
-
-  //   document.addEventListener('scroll', () => {
-
-  //     const scrollTop = humidorSection.getBoundingClientRect().top;
-  //     // console.log(scrollTop);
-
-  //     if (scrollTop < 80 && scrollTop > -2100) {
-
-  //       setTimeout(() => {
-
-  //         const newScrollTop = humidorSection.getBoundingClientRect().top;
-  //         const currentTransform = humidorSlider.style.transform;
-
-
-  //         if ((scrollTop > 0) && (scrollTop > newScrollTop) || (scrollTop < 0) && (scrollTop < newScrollTop)) {
-
-  //           const transformNum = Number(currentTransform.match(/\d/g).join('')) + 5;
-  //           humidorSlider.style.transform =`translateX(-${transformNum}px)`;
-            
-  //         } else {
-
-  //           const transformNum = Number(currentTransform.match(/\d/g).join('')) + 5;
-  //           humidorSlider.style.transform =`translateX(${transformNum}px)`;
-            
-  //         }
-          
-  //       }, 100);
-        
-  //     }
-  
-  //   })
-    
-  // }
-
   
 
   // скрытие элементов под хедером пока работает аос
@@ -221,17 +192,17 @@ window.addEventListener('load', () => {
   }, 1200);
 
   // анимация открытия видео и выезжание заголовков на главной
-  if (document.querySelector('.first-screen')) {
-    document.querySelectorAll('[data-video-show]').forEach(item => {
-      item.classList.add('loaded')
-    });
+  // if (document.querySelector('.first-screen')) {
+  //   document.querySelectorAll('[data-video-show]').forEach(item => {
+  //     item.classList.add('loaded')
+  //   });
   
-    document.querySelector('.first-screen__ttl').classList.add('loaded');
+  //   document.querySelector('.first-screen__ttl').classList.add('loaded');
 
-    setTimeout(() => {
-      document.querySelector('.first-screen__ttl').classList.add('blend-mode');
-    }, 1200);
-  }
+  //   setTimeout(() => {
+  //     document.querySelector('.first-screen__ttl').classList.add('blend-mode');
+  //   }, 1200);
+  // }
 
   headerOnScroll();
   

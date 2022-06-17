@@ -139,6 +139,6 @@ button {
   }
 }
 
-.no-transition * {
+.no-transition *:not(.from-right):not(.from-left) {
   transition: none !important;
 }
