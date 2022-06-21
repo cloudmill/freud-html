@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
       document.querySelector('.first-screen__ttl').classList.add('loaded');
       
-    }, 1000);
+    }, 600);
 
     setTimeout(() => {
       document.querySelector('.first-screen__ttl').classList.add('blend-mode');
