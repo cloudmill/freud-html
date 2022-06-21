@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
       // document.querySelector('.first-screen__ttl').classList.add('blend-mode');
       // document.querySelector('.first-screen').classList.add('loaded');
       
-    }, 600);
+    }, 1000);
 
     // setTimeout(() => {
     //   document.querySelector('.first-screen__ttl').classList.add('blend-mode');
