@@ -19,6 +19,39 @@
     align-items: center;
   }
 
+  &.loaded {
+    [data-video-show] {
+      transform: translateY(-100%);
+      transition: transform 1.2s $transition-func;
+    }
+    .first-screen__ttl {
+      .from-right {
+        transform: none;
+        transition: 1.2s $transition-func;
+      }
+
+      .from-left {
+        transform: translateX(-10px);
+        transition: 1.2s $transition-func;
+
+        @media (min-width: $breakpoint-m) {
+          transform: none;
+        }
+      }
+    }
+    [data-fade-up] {
+      transform: none;
+      opacity: 1;
+      transition: 1.2s $transition-func;
+    }
+  }
+
+  [data-fade-up] {
+    transform: translateY(200%);
+    opacity: 0;
+    transition: 1.2s $transition-func;
+  }
+
   &-container {
     position: relative;
 
@@ -67,9 +100,10 @@
       height: getRem(410px);
     }
 
-    &.loaded::after {
-      transform: translateY(-100%)
-    }
+    // &.loaded::after {
+    //   transform: translateY(-100%);
+    //   transition: transform 1.2s $transition-func;
+    // }
 
     &::after {
       content: '';
@@ -139,9 +173,10 @@
         height: 112px;
       }
 
-      &.loaded::after {
-        transform: translateY(-100%)
-      }
+      // &.loaded::after {
+      //   transform: translateY(-100%);
+      //   transition: transform 1.2s $transition-func;
+      // }
 
       &::after {
         content: '';
@@ -259,21 +294,21 @@
       padding-top: getRem(25px);
     }
 
-    &.loaded {
-      .from-right {
-        transform: none;
-        transition: 1.2s $transition-func;
-      }
+    // &.loaded {
+    //   .from-right {
+    //     transform: none;
+    //     transition: 1.2s $transition-func;
+    //   }
 
-      .from-left {
-        transform: translateX(-10px);
-        transition: 1.2s $transition-func;
+    //   .from-left {
+    //     transform: translateX(-10px);
+    //     transition: 1.2s $transition-func;
 
-        @media (min-width: $breakpoint-m) {
-          transform: none;
-        }
-      }
-    }
+    //     @media (min-width: $breakpoint-m) {
+    //       transform: none;
+    //     }
+    //   }
+    // }
 
     &--big {
       font-family: 'Berlingske Serif';

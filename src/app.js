@@ -62,20 +62,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (document.querySelector('.first-screen')) {
     
-
     setTimeout(() => {
 
-      document.querySelectorAll('[data-video-show]').forEach(item => {
-        item.classList.add('loaded')
-      });
+      // document.querySelectorAll('[data-video-show]').forEach(item => {
+      //   item.classList.add('loaded')
+      // });
     
-      document.querySelector('.first-screen__ttl').classList.add('loaded');
+      document.querySelector('.first-screen').classList.add('loaded');
       
     }, 600);
 
     setTimeout(() => {
       document.querySelector('.first-screen__ttl').classList.add('blend-mode');
     }, 1200);
+
   }
 
 
