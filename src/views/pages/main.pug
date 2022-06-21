@@ -33,7 +33,7 @@ block content
 
           .first-screen__col2
 
-            .first-screen__txt(data-fade-up='') Для ценителей комфорта, #[br] приватности и высокого сервиса
+            .first-screen__txt(data-fade-up='' data-transition) Для ценителей комфорта, #[br] приватности и высокого сервиса
 
           .first-screen__col3
             .first-screen__col3-bg
@@ -41,13 +41,13 @@ block content
 
           .first-screen__ttl
             h1.first-screen__ttl--big
-              span.from-right Профессор
+              span.from-right(data-transition) Профессор
               br
-              span.from-left Фрейд
+              span.from-left(data-transition) Фрейд
 
-          span.first-screen__ttl--small(data-fade-up='') частный клуб
+          span.first-screen__ttl--small(data-fade-up='' data-transition) частный клуб
 
-          +brown-button.only-mobile.first-screen__mob-btn(data-fade-up='' data-popup-button='1')
+          +brown-button.only-mobile.first-screen__mob-btn(data-fade-up='' data-transition data-popup-button='1')
             |Забронировать
         
 

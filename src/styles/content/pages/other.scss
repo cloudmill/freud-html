@@ -1078,9 +1078,7 @@
 }
 
 .mob-section-border {
-  @media (max-width: ($breakpoint - 1px)) {
-    width: 100%;
-    height: 1px;
-    background: #434343;
-  }
+  width: 100%;
+  height: 1px;
+  background: #434343;
 }

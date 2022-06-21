@@ -64,17 +64,22 @@ document.addEventListener('DOMContentLoaded', () => {
     
     setTimeout(() => {
 
-      // document.querySelectorAll('[data-video-show]').forEach(item => {
-      //   item.classList.add('loaded')
-      // });
-    
-      document.querySelector('.first-screen').classList.add('loaded');
+      document.querySelectorAll('[data-video-show]').forEach(item => {
+        item.classList.add('loaded')
+      });
+      document.querySelectorAll('[data-fade-up]').forEach(item => {
+        item.classList.add('loaded')
+      });
+      document.querySelector('.first-screen__ttl').classList.add('loaded');
+
+      // document.querySelector('.first-screen__ttl').classList.add('blend-mode');
+      // document.querySelector('.first-screen').classList.add('loaded');
       
     }, 600);
 
-    setTimeout(() => {
-      document.querySelector('.first-screen__ttl').classList.add('blend-mode');
-    }, 1200);
+    // setTimeout(() => {
+    //   document.querySelector('.first-screen__ttl').classList.add('blend-mode');
+    // }, 1200);
 
   }
 
@@ -187,22 +192,17 @@ window.addEventListener('load', () => {
 
     if (document.querySelector('.filter-drops-container')) {
       document.querySelector('.filter-drops-container').classList.add('loaded')
-    }
+    };
 
   }, 1200);
 
-  // анимация открытия видео и выезжание заголовков на главной
-  // if (document.querySelector('.first-screen')) {
-  //   document.querySelectorAll('[data-video-show]').forEach(item => {
-  //     item.classList.add('loaded')
-  //   });
-  
-  //   document.querySelector('.first-screen__ttl').classList.add('loaded');
+  // фикс бленд мода на заголовке первого экрана главной
+  if (document.querySelector('.first-screen')) {
 
-  //   setTimeout(() => {
-  //     document.querySelector('.first-screen__ttl').classList.add('blend-mode');
-  //   }, 1200);
-  // }
+    setTimeout(() => {
+      document.querySelector('.first-screen__ttl').classList.add('blend-mode');
+    }, 500);
+  }
 
   headerOnScroll();
   

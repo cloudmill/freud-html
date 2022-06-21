@@ -49,7 +49,12 @@
   [data-fade-up] {
     transform: translateY(200%);
     opacity: 0;
-    transition: 1.2s $transition-func;
+
+    &.loaded {
+      transform: none;
+      opacity: 1;
+      transition: 1.2s $transition-func;
+    }
   }
 
   &-container {
@@ -100,10 +105,10 @@
       height: getRem(410px);
     }
 
-    // &.loaded::after {
-    //   transform: translateY(-100%);
-    //   transition: transform 1.2s $transition-func;
-    // }
+    &.loaded::after {
+      transform: translateY(-100%);
+      transition: transform 1.2s $transition-func;
+    }
 
     &::after {
       content: '';
@@ -173,10 +178,10 @@
         height: 112px;
       }
 
-      // &.loaded::after {
-      //   transform: translateY(-100%);
-      //   transition: transform 1.2s $transition-func;
-      // }
+      &.loaded::after {
+        transform: translateY(-100%);
+        transition: transform 1.2s $transition-func;
+      }
 
       &::after {
         content: '';
@@ -294,27 +299,30 @@
       padding-top: getRem(25px);
     }
 
-    // &.loaded {
-    //   .from-right {
-    //     transform: none;
-    //     transition: 1.2s $transition-func;
-    //   }
+    &.loaded {
+      // mix-blend-mode: exclusion;
+      .from-right {
+        transform: none;
+        transition: 1.2s $transition-func;
+      }
 
-    //   .from-left {
-    //     transform: translateX(-10px);
-    //     transition: 1.2s $transition-func;
+      .from-left {
+        transform: translateX(-10px);
+        transition: 1.2s $transition-func;
 
-    //     @media (min-width: $breakpoint-m) {
-    //       transform: none;
-    //     }
-    //   }
-    // }
+        @media (min-width: $breakpoint-m) {
+          transform: none;
+        }
+      }
+    }
 
     &--big {
       font-family: 'Berlingske Serif';
       color: var(--color-white);
   
       @include fsl(144px, 125%);
+
+      // mix-blend-mode: exclusion;
 
       @media (min-width: $breakpoint-m) and (max-width: ($breakpoint - 1px)) {
         margin-top: getRem(20px);
@@ -366,7 +374,7 @@
       position: absolute;
       white-space: nowrap;
       z-index: 5;
-      mix-blend-mode: unset;
+      // mix-blend-mode: unset;
 
       @media (min-width: $breakpoint-m) {
         top: getRem(40px);
