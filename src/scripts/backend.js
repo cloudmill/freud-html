@@ -1,7 +1,25 @@
 $(function () {
     forms();
     snippetImg();
+    roger();
 });
+
+function roger() {
+    $(document).on("click", "[data-type=roger-cookie]", function (e) {
+        console.log("roger");
+        e.preventDefault();
+
+        $.ajax({
+            type: "POST",
+            url: "/local/templates/main/include/ajax/roger.php",
+            data: 'yes',
+            success: function (r) {
+                console.log(r);
+            },
+        });
+    });
+}
+
 function snippetImg() {
     $(document).ready(function () {
         let img = $(document).find('[data-type=snippet-img-hide]');
