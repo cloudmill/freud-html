@@ -15,13 +15,15 @@ block content
           video.first-screen__video.only-desktop(autoplay loop muted poster="assets/images/main-vid-poster.png")
             //- source(type="video/webm" src="assets/videos/main-video-comp.webm")
             source(type="video/mp4" src="assets/videos/main-video-comp.mp4")
-          video.first-screen__video.only-mobile(loop muted playsinline autoplay poster="assets/images/main-vid-poster.png")
+          video.first-screen__video.only-mobile(loop muted playsinline autoplay)
+            source(type="video/webm" src="assets/videos/main-video-comp-mob.webm")
             source(type="video/mp4" src="assets/videos/main-video-comp-mob.mp4")
 
           video.first-screen__video.left.only-desktop(autoplay loop muted poster="assets/images/main-vid-poster.png")
             //- source(type="video/webm" src="assets/videos/main-video-comp.webm")
             source(type="video/mp4" src="assets/videos/main-video-comp.mp4")
-          video.first-screen__video.left.only-mobile(autoplay loop muted poster="assets/images/main-vid-poster.png")
+          video.first-screen__video.left.only-mobile(autoplay loop muted)
+            source(type="video/webm" src="assets/videos/main-video-comp-mob.webm")
             source(type="video/mp4" src="assets/videos/main-video-comp-mob.mp4")
 
           //- img.only-mobile(src="assets/images/main-vid-poster.png", alt="")
