@@ -1,18 +1,25 @@
 $(function () {
     forms();
     snippetImg();
-    roger();
+    cookie();
 });
 
-function roger() {
-    $(document).on("click", "[data-type=roger-cookie]", function (e) {
-        console.log("roger");
+function cookie() {
+    $(document).on("click", "[data-type=cookie]", function (e) {
+        console.log("cookie");
         e.preventDefault();
+
+        let link = $(this),
+            url = "/local/templates/main/include/ajax/cookie.php",
+            name = link.attr("data-name"),
+            data = {};
+
+        data['name'] = name;
 
         $.ajax({
             type: "POST",
-            url: "/local/templates/main/include/ajax/roger.php",
-            data: 'yes',
+            url: url,
+            data: data,
             success: function (r) {
                 console.log(r);
             },
