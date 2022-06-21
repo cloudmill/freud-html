@@ -30,43 +30,43 @@ import { tabOffGlobal } from './scripts/tabindex-in-modals';
 
 let blockScroll;
 
-if (document.querySelector('.first-screen') && mediaQuery.matches) {
+// if (document.querySelector('.first-screen') && mediaQuery.matches) {
 
-  document.querySelector('[data-basic-video-desk]').addEventListener('play', () => {
-    console.log('play');
+//   document.querySelector('[data-basic-video-desk]').addEventListener('play', () => {
+//     console.log('play');
 
-    document.querySelectorAll('[data-video-show]').forEach(item => {
-      item.classList.add('loaded')
-    });
-    document.querySelectorAll('[data-fade-up]').forEach(item => {
-      item.classList.add('loaded')
-    });
-    document.querySelector('.first-screen__ttl').classList.add('loaded');
-  })
+//     document.querySelectorAll('[data-video-show]').forEach(item => {
+//       item.classList.add('loaded')
+//     });
+//     document.querySelectorAll('[data-fade-up]').forEach(item => {
+//       item.classList.add('loaded')
+//     });
+//     document.querySelector('.first-screen__ttl').classList.add('loaded');
+//   })
 
-  setTimeout(() => {
-    document.querySelector('.first-screen__ttl').classList.add('blend-mode');
-  }, 500);
+//   // setTimeout(() => {
+//   //   document.querySelector('.first-screen__ttl').classList.add('blend-mode');
+//   // }, 2000);
 
-} else if (document.querySelector('.first-screen') && !mediaQuery.matches) {
+// } else if (document.querySelector('.first-screen') && !mediaQuery.matches) {
 
-  document.querySelector('[data-basic-video-mob]').addEventListener('play', () => {
-    console.log('play');
+//   document.querySelector('[data-basic-video-mob]').addEventListener('play', () => {
+//     console.log('play');
 
-    document.querySelectorAll('[data-video-show]').forEach(item => {
-      item.classList.add('loaded')
-    });
-    document.querySelectorAll('[data-fade-up]').forEach(item => {
-      item.classList.add('loaded')
-    });
-    document.querySelector('.first-screen__ttl').classList.add('loaded');
-  })
+//     document.querySelectorAll('[data-video-show]').forEach(item => {
+//       item.classList.add('loaded')
+//     });
+//     document.querySelectorAll('[data-fade-up]').forEach(item => {
+//       item.classList.add('loaded')
+//     });
+//     document.querySelector('.first-screen__ttl').classList.add('loaded');
+//   })
 
-  setTimeout(() => {
-    document.querySelector('.first-screen__ttl').classList.add('blend-mode');
-  }, 500);
+//   setTimeout(() => {
+//     document.querySelector('.first-screen__ttl').classList.add('blend-mode');
+//   }, 500);
 
-}
+// }
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -102,17 +102,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (document.querySelector('.first-screen')) {
     
-    // setTimeout(() => {
+    // анимация первого экрана
+    setTimeout(() => {
 
-    //   document.querySelectorAll('[data-video-show]').forEach(item => {
-    //     item.classList.add('loaded')
-    //   });
-    //   document.querySelectorAll('[data-fade-up]').forEach(item => {
-    //     item.classList.add('loaded')
-    //   });
-    //   document.querySelector('.first-screen__ttl').classList.add('loaded');
+      document.querySelectorAll('[data-video-show]').forEach(item => {
+        item.classList.add('loaded')
+      });
+      document.querySelectorAll('[data-fade-up]').forEach(item => {
+        item.classList.add('loaded')
+      });
+      document.querySelector('.first-screen__ttl').classList.add('loaded');
       
-    // }, 1000);
+    }, 1000);
   }
 
 
@@ -217,7 +218,6 @@ window.addEventListener('load', () => {
 
   document.querySelector('body').classList.remove('no-transition');
   
-
   // скрытие элементов под хедером пока работает аос
   setTimeout(() => {
     document.querySelector('.header').classList.add('loaded');
@@ -228,13 +228,19 @@ window.addEventListener('load', () => {
 
   }, 1200);
 
-  // фикс бленд мода на заголовке первого экрана главной
-  // if (document.querySelector('.first-screen')) {
+  // отложенный запуск второго видео на главной странице
+  if (document.querySelector('.first-screen')) {
 
-  //   setTimeout(() => {
-  //     document.querySelector('.first-screen__ttl').classList.add('blend-mode');
-  //   }, 500);
-  // }
+    setTimeout(() => {
+      document.querySelectorAll('.section-bg-vid__video').forEach(item => {
+        item.play()
+      });
+    }, 1000);
+
+    // setTimeout(() => {
+    //   document.querySelector('.first-screen__ttl').classList.add('blend-mode');
+    // }, 500);
+  }
 
   headerOnScroll();
   
