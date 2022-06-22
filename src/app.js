@@ -30,7 +30,6 @@ import { tabOffGlobal } from './scripts/tabindex-in-modals';
 
 let blockScroll;
 
-
 document.addEventListener('DOMContentLoaded', () => {
 
   swipers();
@@ -63,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   
 
-  if (document.querySelector('.first-screen')) {
+  if (document.querySelector('.first-screen') && !mediaQuery.matches) {
     
     // анимация первого экрана
     setTimeout(() => {
@@ -205,6 +204,22 @@ window.addEventListener('load', () => {
       });
     }, 1000);
     
+  }
+
+  if (document.querySelector('.first-screen') && mediaQuery.matches) {
+    
+    // анимация первого экрана
+    document.querySelectorAll('[data-video-show]').forEach(item => {
+      item.classList.add('loaded')
+    });
+    document.querySelectorAll('[data-fade-up]').forEach(item => {
+      item.classList.add('loaded')
+    });
+    document.querySelector('.first-screen__ttl').classList.add('loaded');
+
+    // фикс бленд мода в сафари
+    document.querySelector('.first-screen__ttl').classList.add('blend-mode');
+
   }
 
   headerOnScroll();
