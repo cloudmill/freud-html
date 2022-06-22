@@ -406,8 +406,13 @@
       }
       &__img {
         width: getRem(100px);
+        height: getRem(100px);
         display: flex;
         flex: none;
+
+        picture, img {
+          height: 100%;
+        }
       }
       &__info {
         width: 100%;
