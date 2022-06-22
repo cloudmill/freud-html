@@ -281,16 +281,28 @@
 
   &__ttl {
     position: absolute;
+    z-index: 1;
     top: getRem(51px);
     left: getRem(257px);
+    cursor: default;
+
+    font-family: 'Berlingske Serif';
+    color: var(--color-white);
+  
+    @include fsl(144px, 125%);
+
     // mix-blend-mode: exclusion;
 
-    cursor: default;
-    
-    // text-indent: getRem(110px);
-    // max-width: getRem(600px);
+
+    @media (min-width: $breakpoint-m) and (max-width: ($breakpoint - 1px)) {
+      margin-top: getRem(20px);
+    }
+    // @media (max-width: ($breakpoint - 1px)) {
+    //   @include fsl(56px, 130%);
+    // }
 
     @media (max-width: ($breakpoint - 1px)) {
+      @include fsl(56px, 130%);
       top: getRem(45px);
       // left: getRem(154px);
       left: calc(#{$col-part-t} * 2 + #{$col-width-t} - #{getRem(110px)});
@@ -304,7 +316,6 @@
     }
 
     &.loaded {
-      // mix-blend-mode: exclusion;
       .from-right {
         transform: none;
         transition: 1.2s $transition-func;
@@ -320,50 +331,34 @@
       }
     }
 
-    &--big {
-      font-family: 'Berlingske Serif';
-      color: var(--color-white);
-  
-      @include fsl(144px, 125%);
+    .from-right {
+      display: inline-block;
+      margin-left: getRem(110px);
+      transform: translateX(200%);
+      mix-blend-mode: exclusion;
+      transition: 1.2s $transition-func;
+      transition: none;
 
-      // mix-blend-mode: exclusion;
-
-      @media (min-width: $breakpoint-m) and (max-width: ($breakpoint - 1px)) {
-        margin-top: getRem(20px);
-      }
       @media (max-width: ($breakpoint - 1px)) {
-        @include fsl(56px, 130%);
+        margin-left: getRem(42px);
+      }
+      @media (max-width: ($breakpoint-m - 1px)) {
+        margin-left: getRem(30px);
       }
 
-      .from-right {
-        display: inline-block;
-        margin-left: getRem(110px);
-        transform: translateX(200%);
-        mix-blend-mode: exclusion;
-        // transition: 1.2s $transition-func;
-        transition: none;
-
-        @media (max-width: ($breakpoint - 1px)) {
-          margin-left: getRem(42px);
-        }
-        @media (max-width: ($breakpoint-m - 1px)) {
-          margin-left: getRem(30px);
-        }
-
-        @media (min-width: 800px) and (max-width: ($breakpoint - 1px)) {
-          transform: translateX(400%);
-        }
+      @media (min-width: 800px) and (max-width: ($breakpoint - 1px)) {
+        transform: translateX(400%);
       }
-      .from-left {
-        display: inline-block;
-        mix-blend-mode: exclusion;
-        transform: translateX(-250%);
-        // transition: 1.2s $transition-func;
-        transition: none;
+    }
+    .from-left {
+      display: inline-block;
+      mix-blend-mode: exclusion;
+      transform: translateX(-250%);
+      transition: 1.2s $transition-func;
+      transition: none;
 
-        @media (min-width: 800px) and (max-width: ($breakpoint - 1px)) {
-          transform: translateX(-400%);
-        }
+      @media (min-width: 800px) and (max-width: ($breakpoint - 1px)) {
+        transform: translateX(-400%);
       }
     }
 

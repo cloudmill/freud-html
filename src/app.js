@@ -30,43 +30,6 @@ import { tabOffGlobal } from './scripts/tabindex-in-modals';
 
 let blockScroll;
 
-// if (document.querySelector('.first-screen') && mediaQuery.matches) {
-
-//   document.querySelector('[data-basic-video-desk]').addEventListener('play', () => {
-//     console.log('play');
-
-//     document.querySelectorAll('[data-video-show]').forEach(item => {
-//       item.classList.add('loaded')
-//     });
-//     document.querySelectorAll('[data-fade-up]').forEach(item => {
-//       item.classList.add('loaded')
-//     });
-//     document.querySelector('.first-screen__ttl').classList.add('loaded');
-//   })
-
-//   // setTimeout(() => {
-//   //   document.querySelector('.first-screen__ttl').classList.add('blend-mode');
-//   // }, 2000);
-
-// } else if (document.querySelector('.first-screen') && !mediaQuery.matches) {
-
-//   document.querySelector('[data-basic-video-mob]').addEventListener('play', () => {
-//     console.log('play');
-
-//     document.querySelectorAll('[data-video-show]').forEach(item => {
-//       item.classList.add('loaded')
-//     });
-//     document.querySelectorAll('[data-fade-up]').forEach(item => {
-//       item.classList.add('loaded')
-//     });
-//     document.querySelector('.first-screen__ttl').classList.add('loaded');
-//   })
-
-//   setTimeout(() => {
-//     document.querySelector('.first-screen__ttl').classList.add('blend-mode');
-//   }, 500);
-
-// }
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -114,6 +77,11 @@ document.addEventListener('DOMContentLoaded', () => {
       document.querySelector('.first-screen__ttl').classList.add('loaded');
       
     }, 1000);
+
+    // фикс бленд мода в сафари
+    setTimeout(() => {
+      document.querySelector('.first-screen__ttl').classList.add('blend-mode');
+    }, 1200);
   }
 
 
@@ -236,10 +204,7 @@ window.addEventListener('load', () => {
         item.play()
       });
     }, 1000);
-
-    // setTimeout(() => {
-    //   document.querySelector('.first-screen__ttl').classList.add('blend-mode');
-    // }, 500);
+    
   }
 
   headerOnScroll();
