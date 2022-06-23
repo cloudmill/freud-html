@@ -2,7 +2,21 @@ $(function () {
     forms();
     snippetImg();
     cookie();
+    modalManuf();
 });
+
+function modalManuf() {
+    $(document).on("click", "[data-type=manuf-modal]", function (e) {
+        console.log("manuf modal");
+        e.preventDefault();
+
+        let txtMore = $(this).attr("data-text-more"),
+            nameManuf = $(this).html();
+
+        $(document).find('[data-type=modal-manuf-name]').html(nameManuf);
+        $(document).find('[data-type=modal-manuf-text]').html(txtMore);
+    });
+}
 
 function cookie() {
     $(document).on("click", "[data-type=cookie]", function (e) {
