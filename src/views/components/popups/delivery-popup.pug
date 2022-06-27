@@ -1,0 +1,45 @@
+.modal.modal--right.review-popup(data-popup='18')
+  .review-popup__top
+    .review-popup__ttl.h4.title-font Доставка и оплата
+    button.button--clean.modal__close(data-modal-close)
+
+  .review-popup__body
+    .delivery-popup-block
+      .delivery-popup-ttl.h4.title-font Самовывоз
+
+      .cart-pickup__info-item
+        +place-ico.cart-pickup__svg
+        div
+          .cart-pickup__info-ttl Адрес
+          .cart-pickup__info-txt г. Санкт-Петербург, ул. Малая Морская, дом 18
+
+      .cart-pickup__info-item
+        +clock-ico.cart-pickup__svg
+        div
+          .cart-pickup__info-ttl Часы работы
+          .cart-pickup__info-txt ПН – ЧТ, 12:00 – 00:00 #[br] ПТ – СБ, 12:00 – 01:00 #[br] ВС, 13:00 – 23:00
+
+      .cart-pickup__info-item
+        +attention-ico.cart-pickup__svg
+        div
+          .cart-pickup__info-ttl Алкоголь можно забрать до 22:00
+
+    .delivery-popup-block
+      .delivery-popup-ttl.h4.title-font Доставка курьером
+
+      .delivery-row__txt Бесплатная доставка по Санкт-Петербургу и РФ при сумме заказа от 5 000 ₽. Доставка по ЛО — платная.
+      .delivery-row__txt Точную стоимость доставки сообщит менеджер. Доставка доступна только для аксессуаров. 
+
+    .delivery-popup-block
+      .delivery-popup-ttl.h4.title-font Оплата
+
+      .delivery-row__txt Банковской картой через мобильный терминал или наличными при самовывозе
+      .delivery-row-icons
+        img(src="assets/images/icons/payment-1.png", alt="")
+        img(src="assets/images/icons/payment-2.png", alt="")
+        img(src="assets/images/icons/payment-3.png", alt="")
+  
+  .review-popup__bottom
+
+    +brown-border-button.review-popup__bottom-btn(data-modal-close='')
+      |Закрыть

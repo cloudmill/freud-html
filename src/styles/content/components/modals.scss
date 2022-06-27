@@ -1061,3 +1061,26 @@
     }
   }
 }
+
+.delivery-popup-ttl {
+  margin-bottom: getRem(12px);
+
+  @media (min-width: $breakpoint) {
+    margin-bottom: getRem(20px);
+  }
+}
+
+.delivery-popup-block {
+
+  .delivery-row-icons {
+    margin-top: getRem(30px);
+  }
+
+  &:not(:last-child) {
+    margin-bottom: getRem(30px);
+  
+    @media (min-width: $breakpoint) {
+      margin-bottom: getRem(50px);
+    }
+  }
+}
