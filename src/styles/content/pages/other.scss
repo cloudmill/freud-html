@@ -552,6 +552,7 @@
 }
 
 .benefit-card {
+  position: relative;
   width: 100%;
   padding: getRem(20px);
   background: var(--background-grey-extra-2);
@@ -583,7 +584,19 @@
     &:nth-child(4n + 4), &:last-child {
       margin-right: 0;
     }
-  }  
+  }
+
+  svg {
+    position: absolute;
+    right: getRem(15px);
+    bottom: getRem(15px);
+    width: getRem(32px);
+    height: getRem(32px);
+
+    @media (max-width: ($breakpoint - 1px)) {
+      display: none;
+    }
+  }
 }
 
 .club-card {

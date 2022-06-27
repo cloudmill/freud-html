@@ -65,7 +65,9 @@ block content
 
       .benefit-cards(data-aos='fade-up')
         each item in cards
-          .benefit-card #{item}
+          .benefit-card 
+            |#{item}
+            +benefit-card-ico
 
   section.section--bottom
     .container
