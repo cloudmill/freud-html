@@ -1,17 +1,21 @@
-section.section--bottom.relative.humidor-slider-section
-  .humidor-slider-overlay
+section.section--bottom.relative.humidor-slider2-section
 
-  //- .humidor-slider-desktop.only-desktop
-  //-   - for (i=1;i<5;i++)
-  //-     .humidor-slider__slide
-  //-       +picture(file=`restaurant-page-slide-${i}`)
+  .humidor-slider2-container
 
-  //-   - for (i=1;i<3;i++)
-  //-     .humidor-slider__slide
-  //-       +picture(file=`restaurant-page-slide-${i}`)
+    .humidor-slider2-slider
+      - for (i=1;i<5;i++)
+        .humidor-slider2-slide
+          +picture(file=`restaurant-page-slide-${i}`)
 
-  //-   .humidor-slider__slide.last-slide
-  //-       +picture(file=`restaurant-page-slide-1`)
+      - for (i=1;i<3;i++)
+        .humidor-slider2-slide
+          +picture(file=`restaurant-page-slide-${i}`)
+
+      .humidor-slider2-slide
+          +picture(file=`restaurant-page-slide-1`)
+
+
+section.section--bottom.relative.humidor-slider-section.only-mobile
 
   .humidor-slider-container(data-aos='fade-up')
     .swiper-container.humidor-slider#humidor-slider

@@ -104,6 +104,43 @@
   }
 }
 
+.humidor-slider2 {
+
+  &-section {
+    height: 300vh;
+    position: relative;
+
+    @media (max-width: ($breakpoint - 1px)) {
+      display: none !important;
+    }
+  }
+
+  &-container {
+    position: sticky;
+
+    display: flex;
+    align-items: center;
+  }
+
+  &-slider {
+    display: flex;
+  }
+
+  &-slide {
+    width: calc((100vw - 90px) / 4);
+    flex-shrink: 0;
+
+    picture, img {
+      width: 100%;
+      height: 100%;
+    }
+    
+    &:not(:first-child) {
+      margin-left: 30px;
+    }
+  }
+}
+
 .humidor-slider {
 
   overflow: hidden;
@@ -122,26 +159,6 @@
       &.active {
         z-index: 10;
       }
-    }
-
-    // &-container {
-    //   position: sticky;
-    //   top: 20vh;
-    // }
-
-    // &-section {
-    //   height: 300vh;
-    // }
-
-    &-desktop {
-      display: flex;
-      overflow-x: scroll;
-      @include scrollbar-hidden;
-
-      position: sticky;
-      top: 20vh;
-
-      transition: .3s;
     }
 
     &__slide {

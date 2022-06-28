@@ -156,7 +156,24 @@ block content
           div(data-aos='fade-up')
             +picture.certificates-block__img(file='restaurant-2')
   
-  include ../components/sections/humidor-slider-section
+  //- include ../components/sections/humidor-slider-section
+  section.section--bottom.relative.humidor-slider2-section
+
+    .humidor-slider2-container
+
+      .humidor-slider2-slider
+        - for (i=1;i<5;i++)
+          .humidor-slider2-slide
+            +picture(file=`restaurant-page-slide-${i}`)
+
+        - for (i=1;i<3;i++)
+          .humidor-slider2-slide
+            +picture(file=`restaurant-page-slide-${i}`)
+
+        .humidor-slider2-slide
+            +picture(file=`restaurant-page-slide-1`)
+
+
 
   - var restaurant = true
   include ../components/sections/certificate-section
