@@ -12,7 +12,7 @@ function humidorSlider() {
     const observerOverlay = new IntersectionObserver(callbackOverlay, {
       root: null,
       rootMargin: '0px',
-      threshold: 1.0
+      threshold: 0.98,
     });
 
     observerOverlay.observe(humidorOverlay);
@@ -21,7 +21,7 @@ function humidorSlider() {
     const observerLastSlide = new IntersectionObserver(callbackLastSlide, {
       root: null,
       rootMargin: '0px',
-      threshold: 1.0
+      threshold: 0.95,
     });
 
     observerLastSlide.observe(lastSlide);
@@ -30,7 +30,7 @@ function humidorSlider() {
     const observerFirstSlide = new IntersectionObserver(callbackFirstSlide, {
       root: null,
       rootMargin: '0px',
-      threshold: 1.0
+      threshold: 0.95,
     });
 
     observerFirstSlide.observe(firstSlide);
@@ -39,6 +39,8 @@ function humidorSlider() {
 
   function addLastClass() {
     if (humidorOverlay.getBoundingClientRect().top < -600) {
+      console.log('last class');
+
       humidorOverlay.classList.add('at-last');
       document.removeEventListener('scroll', addLastClass)
     }
@@ -46,9 +48,12 @@ function humidorSlider() {
 
   function callbackOverlay(entries, observer) {
 
+    console.log('callback overlay 1');
+    console.log(humidorOverlay.getBoundingClientRect().top < 0, !humidorOverlay.classList.contains('at-first'));
+
     if (humidorOverlay.getBoundingClientRect().top < 0 && !humidorOverlay.classList.contains('at-first') || humidorOverlay.classList.contains('at-last')) {
 
-      // console.log('callback overlay', humidorOverlay.getBoundingClientRect().top);
+      console.log('callback overlay 2');
 
       document.querySelector('body').classList.add('fix-scroll');
       humidorOverlay.classList.add('active');
@@ -61,7 +66,7 @@ function humidorSlider() {
 
     if (humidorOverlay.getBoundingClientRect().top < 100) {
 
-      // console.log('callback last slide');
+      console.log('callback last slide');
 
       document.querySelector('body').classList.remove('fix-scroll');
       humidorOverlay.classList.remove('active');
@@ -73,11 +78,9 @@ function humidorSlider() {
 
   function callbackFirstSlide(entries, observer) {
 
-    // console.log(humidorOverlay.getBoundingClientRect().top < 0, humidorOverlay.classList.contains('at-last'), humidorOverlay.getBoundingClientRect().top );
-
     if (humidorOverlay.getBoundingClientRect().top < 200 && humidorOverlay.classList.contains('at-last')) {
 
-      // console.log('callback first slide');
+      console.log('callback first slide');
 
       document.querySelector('body').classList.remove('fix-scroll');
       humidorOverlay.classList.remove('active');
@@ -92,6 +95,8 @@ function humidorSlider() {
 
   function removeFirstClass() {
     if (humidorOverlay.getBoundingClientRect().top > 200) {
+      console.log('remove first class');
+
       humidorOverlay.classList.remove('at-first');
       document.removeEventListener('scroll', removeFirstClass)
     }

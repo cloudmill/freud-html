@@ -50,8 +50,6 @@ document.addEventListener('DOMContentLoaded', () => {
   activeFiltersHeader();
   numberOfGoods();
 
-  humidorSlider();
-
   tabOffGlobal();
 
   closeOnEsc();
@@ -182,6 +180,7 @@ document.addEventListener('DOMContentLoaded', () => {
 window.addEventListener('load', () => {
 
   cartStages();
+  humidorSlider();
 
   document.querySelector('body').classList.remove('no-transition');
   
