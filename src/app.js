@@ -32,6 +32,8 @@ let blockScroll;
 
 document.addEventListener('DOMContentLoaded', () => {
 
+  document.querySelector('.body').setAttribute('data-js', 'true');
+
   swipers();
   headerFavAndCartModals();
   initMap();
@@ -225,12 +227,14 @@ window.addEventListener('load', () => {
   
   accordions();
 
-  AOS.init({
-    once: true,
-    offset: 0,
-    duration: 1200,
-  });
-
+  if (document.querySelector('.body').getAttribute('data-js') == 'true') {
+    AOS.init({
+      once: true,
+      offset: 0,
+      duration: 1200,
+    });
+  };
+  
 });
 
 function anchorScroll(eventClick) {
