@@ -506,6 +506,11 @@
         // height: 9px;
         background: var(--color-grey);
       }
+
+      &.hide {
+        opacity: 0;
+        pointer-events: none;
+      }
     }
   }
   &__amount {

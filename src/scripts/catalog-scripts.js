@@ -143,9 +143,17 @@ function numberOfGoods() {
 
       if (e.target.closest('[data-number-goods-minus]') && numberGoods > 0) {
 
+        if (numberGoods == 1) {
+          item.querySelector('[data-number-goods-minus]').classList.add('hide');
+        }
+
         item.querySelector('[data-number-goods-count]').innerHTML = numberGoods - 1;
         
       } else if (e.target.closest('[data-number-goods-plus]')) {
+
+        if (numberGoods == 0) {
+          item.querySelector('[data-number-goods-minus]').classList.remove('hide');
+        }
 
         item.querySelector('[data-number-goods-count]').innerHTML = numberGoods + 1;
 

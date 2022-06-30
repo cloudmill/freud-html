@@ -104,6 +104,7 @@
   }
   @media (min-width: $breakpoint) {
     margin: getRem(60px) auto 0;
+    width: fit-content;
   }
 }
 

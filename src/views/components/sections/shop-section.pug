@@ -38,11 +38,11 @@ mixin shop-section-body
 
     if (!nobtn)
       div(data-aos='fade-up')
-        +brown-border-button.more-btn
+        +brown-border-link.more-btn
           |Перейти в каталог
 
     if (newBtn)
-      +brown-border-button.more-btn(data-aos='fade-up')
+      +brown-border-link.more-btn(data-aos='fade-up')
         |#{newBtn}
 
 if (sectionBottom)
