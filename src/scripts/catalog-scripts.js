@@ -143,7 +143,7 @@ function numberOfGoods() {
 
       if (e.target.closest('[data-number-goods-minus]') && numberGoods > 0) {
 
-        if (numberGoods == 1) {
+        if (numberGoods == 2) {
           item.querySelector('[data-number-goods-minus]').classList.add('hide');
         }
 
@@ -151,7 +151,7 @@ function numberOfGoods() {
         
       } else if (e.target.closest('[data-number-goods-plus]')) {
 
-        if (numberGoods == 0) {
+        if (numberGoods == 1) {
           item.querySelector('[data-number-goods-minus]').classList.remove('hide');
         }
 
