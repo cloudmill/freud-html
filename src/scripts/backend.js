@@ -3,7 +3,31 @@ $(function () {
     snippetImg();
     cookie();
     modalManuf();
+    favorAdd();
 });
+
+function favorAdd() {
+    $(document).on("click", "[data-type=favor-add]", function (e) {
+        console.log("favorite add");
+        e.preventDefault();
+
+        let link = $(this),
+            url = "/local/templates/main/include/ajax/favor.php",
+            id = link.attr("data-id"),
+            data = {};
+
+        data['id'] = id;
+
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: data,
+            success: function (r) {
+                console.log(r);
+            },
+        });
+    });
+}
 
 function modalManuf() {
     $(document).on("click", "[data-type=manuf-modal]", function (e) {
