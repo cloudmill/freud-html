@@ -62,8 +62,9 @@ mixin header
               //- button.button--clean.header__buttons-icon(data-fav-btn tabindex="0")
               //-   +favorites-icon
 
-              a.header__buttons-icon(href="" data-fav-btn tabindex="0")
+              a.header__buttons-icon.count(href="" data-fav-btn tabindex="0")
                 +favorites-icon
+                .count-num 15
 
               //- button.button--clean.header__buttons-icon.count(data-cart-btn tabindex="0")
               //-   +cart-icon
