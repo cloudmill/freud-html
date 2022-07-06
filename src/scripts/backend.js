@@ -23,7 +23,33 @@ function favorAdd() {
             url: url,
             data: data,
             success: function (r) {
-                console.log(r);
+                console.log(r.count);
+                $(document).find("[data-type=count-favor-header]").empty();
+                $(document).find("[data-type=count-favor-header]").html(r.count);
+                $.ajax({
+                    type: 'POST',
+                    url: window.location.pathname,
+                    dataType: 'html',
+                    data: {
+                        favorajax: true,
+                    },
+                    success: function (r) {
+                        $(document).find("[data-type=favor-header]").empty();
+                        $(document).find("[data-type=favor-header]").html(r);
+                    }
+                });
+                $.ajax({
+                    type: 'POST',
+                    url: window.location.pathname,
+                    dataType: 'html',
+                    data: {
+                        favorajaxlist: true,
+                    },
+                    success: function (r) {
+                        $(document).find("[data-type=favor-list]").empty();
+                        $(document).find("[data-type=favor-list]").html(r);
+                    }
+                });
             },
         });
     });
