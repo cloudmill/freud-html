@@ -15,11 +15,6 @@
 
     user-select: none;
 
-    // &:hover {
-    //   #{$comp}__box {
-    //     border-color: var(--color-blue);
-    //   }
-    // }
   }
 
   &__input {
@@ -104,10 +99,6 @@
 
   &__button {
     margin-top: getRem(20px);
-
-    // &:hover {
-    //   background: var(--hover-on-black);
-    // }
 
     @media (min-width: $breakpoint) {
       margin-top: 0;
