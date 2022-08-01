@@ -162,4 +162,57 @@ function numberOfGoods() {
   })
 }
 
-export {addToFav, addToCart, activeFilter, sortMethod, activeFiltersHeader, numberOfGoods };
+function promocodeStates() {
+
+  // состояния инпута промокода в корзине
+
+  if (document.querySelector('.cart-promocode')) {
+
+    const promocodeInput = document.querySelector('.cart-promocode__input');
+    const activeBlock = promocodeInput.closest('.cart-promocode');
+    const clearBtn =  document.querySelector('.cart-promocode-delete');
+
+    promocodeInput.addEventListener('focusin', e => {
+      e.target.closest('.cart-promocode').classList.add('active')
+    });
+
+    promocodeInput.addEventListener('input', () => {
+      const inputValue = promocodeInput.value;
+
+      if (inputValue.length) {
+        activeBlock.classList.add('send-active');
+        activeBlock.classList.remove('delete-active');
+      } else {
+        activeBlock.classList.remove('send-active')
+      }
+    });
+
+    clearBtn.addEventListener('click', e => {
+      e.target.closest('.cart-promocode').querySelector('input').value = '';
+      e.target.closest('.cart-promocode').classList.remove('delete-active');
+    });
+
+    promocodeInput.addEventListener('focusout', e => {
+      e.target.closest('.cart-promocode').classList.remove('active');
+      activeBlock.classList.remove('send-active');
+
+      if (promocodeInput.value) {
+        activeBlock.classList.add('delete-active');
+      }
+    });
+  }
+}
+
+function cigarSize() {
+
+  // передача размеров сигары из дата-атрибута на странице продукта
+
+  if (document.querySelector('[data-show-height]') && document.querySelector('[data-show-diameter]')) {
+
+    document.querySelector('[data-show-height]').innerHTML = document.querySelector('.product-top-img__cigar-size').getAttribute('data-cigar-height');
+    document.querySelector('[data-show-diameter]').innerHTML = document.querySelector('.product-top-img__cigar-size').getAttribute('data-cigar-diameter');
+
+  }
+}
+
+export {addToFav, addToCart, activeFilter, sortMethod, activeFiltersHeader, numberOfGoods, promocodeStates, cigarSize };

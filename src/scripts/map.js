@@ -35,8 +35,6 @@ export function initMap() {
   
   if (document.querySelector('#map2')) {
 
-    console.log(document.querySelector('#map2'));
-
     try {
 
       ymaps.ready(function () {
