@@ -1,5 +1,5 @@
 function inputTime() {
-  const input = document.querySelector('[data-time-mask]');
+  const input = document.querySelector('[data-time-input]');
 
   if (input) {
     input.setAttribute('placeholder', 'Введите время');
@@ -9,7 +9,6 @@ function inputTime() {
     });
 
     Maska.create(input, {
-      mask: 'hH:mM',
       tokens: {
         'h': { pattern: /[1-2]/ },
         'H': { pattern: /[0-9]/ },

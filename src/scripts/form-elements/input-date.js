@@ -6,6 +6,7 @@ function inputDate() {
   Object.assign(Datepicker.locales, ru);
 
   const datepickerEl = document.querySelector('[data-datepicker]');
+  const timeInput = document.querySelector('[data-time-input]');
 
   if (datepickerEl) {
 
@@ -13,7 +14,17 @@ function inputDate() {
     let dateNowString = dateNow.toLocaleDateString('en-GB').replace(/\D/g, '/');
     let dateMax = '31/12/' + String(dateNow.getFullYear() + 1);
 
-    new Datepicker(datepickerEl, {
+    const weekdays = {
+      0: 'voskr',
+      1: 'pnd',
+      2: 'vtor',
+      3: 'sreda',
+      4: 'chet',
+      5: 'pyat',
+      6: 'sub'
+    }
+
+    const datepicker = new Datepicker(datepickerEl, {
       format: 'dd/mm/yyyy',
       autohide: true,
       language: 'ru',
@@ -30,6 +41,14 @@ function inputDate() {
       </svg>`,
 
     });
+
+    datepickerEl.addEventListener('changeDate', (e) => {
+
+      const dayNum = e.detail.date.getDay();
+      const weekday = weekdays[dayNum];
+
+      timeInput.setAttribute('data-weekday', `${weekday}`)
+    })
 
     if (!mediaQuery.matches) {
     

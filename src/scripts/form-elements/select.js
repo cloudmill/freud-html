@@ -1,5 +1,12 @@
 function select() {
   const selectForms = document.querySelectorAll('[data-select-context]');
+  const timeInput = document.querySelector('[data-time-input]');
+
+  const places = {
+    'Ресторан': 'rest',
+    'Сигарный лаунж': 'lounge',
+    'Кабинет Фрейда': 'cabinet'
+  }
 
   if (selectForms.length) {
 
@@ -52,8 +59,10 @@ function select() {
 
     const currLabel = clickedOption.closest('.select-label.active');
     const currInput = currLabel.querySelector('input');
+    const place = clickedOption.getAttribute('data-select-option');
 
-    currInput.value = clickedOption.getAttribute('data-select-option');
+    currInput.value = place;
+    timeInput.setAttribute('data-place', `${places[place]}`);
 
     currLabel.classList.remove('active');
   }
