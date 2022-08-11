@@ -1,8 +1,5 @@
 $(function () {
-  window.backend = {
-    templPath: $('[data-type=templ-path]').val(),
-  };
-
+  initData();
   forms();
   snippetImg();
   cookie();
@@ -10,6 +7,12 @@ $(function () {
   favorAdd();
   basketEvent();
 });
+
+function initData() {
+  window.backend = {
+    templPath: $('[data-type=templ-path]').val(),
+  };
+}
 
 function basketEvent() {
   $(document).on('click', '[data-type=basket]', function() {
