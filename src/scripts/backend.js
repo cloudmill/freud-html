@@ -1,10 +1,37 @@
 $(function () {
-    forms();
-    snippetImg();
-    cookie();
-    modalManuf();
-    favorAdd();
+  window.backend = {
+    templPath: $('[data-type=templ-path]').val(),
+  };
+
+  forms();
+  snippetImg();
+  cookie();
+  modalManuf();
+  favorAdd();
+  basketEvent();
 });
+
+function basketEvent() {
+  $(document).on('click', '[data-type=basket]', function() {
+    const thisObj = $(this);
+
+    $.ajax({
+      type: 'POST',
+      url: `${window.backend.templPath}/include/ajax/basket/${thisObj.data('event')}.php`,
+      dataType: 'json',
+      data: {
+        id: thisObj.data('id'),
+      },
+      success: function (r) {
+        if (r.success) {
+
+        } else {
+          alert(r.message);
+        }
+      },
+    });
+  });
+}
 
 function favorAdd() {
     $(document).on("click", "[data-type=favor-add]", function (e) {
