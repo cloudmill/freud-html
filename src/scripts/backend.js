@@ -6,7 +6,20 @@ $(function () {
   modalManuf();
   favorAdd();
   basketEvent();
+  transferData();
 });
+
+function transferData() {
+  $(document).on('click', '[data-type=transfer-data]', function() {
+    const thisObj = $(this),
+      data = thisObj.data('transfer'),
+      success = $(thisObj.data('success'));
+
+    $.each(data, (field, val) => {
+      success.attr(field, val);
+    });
+  });
+}
 
 function initData() {
   window.backend = {
