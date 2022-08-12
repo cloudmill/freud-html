@@ -10,7 +10,7 @@ function addToFav(eventClick) {
 
 function addToCart(eventClick) {
   if (eventClick.target.closest('.catalog-card__btn') && !eventClick.target.closest('.catalog-card--small')) {
-    
+
     if (eventClick.target.closest('.catalog-card.in-cart')) {
 
       eventClick.target.closest('.catalog-card').classList.remove('in-cart');
@@ -63,7 +63,7 @@ function activeFilter(eventClick) {
         if (!mobFilters.innerHTML) {
           mobFilters.classList.remove('active');
         }
-        
+
       } else {
 
         clickOnBtn.classList.add('active');
@@ -100,15 +100,15 @@ function activeFilter(eventClick) {
 }
 
 function sortMethod() {
-  // переключение способа сортировки на странице категории каталога 
+  // переключение способа сортировки на странице категории каталога
 
   if (document.querySelector('.sorting-filter')) {
     document.querySelector('.sorting-filter').addEventListener('change', e => {
 
       document.querySelector('[data-sort-filter]').innerHTML = e.target.closest('.sorting-filter__label').querySelector('.sorting-filter__txt').innerHTML;
-  
+
     })
-  } 
+  }
 }
 
 function activeFiltersHeader() {
@@ -116,19 +116,19 @@ function activeFiltersHeader() {
   const filtersOnPage = document.querySelector('[data-active-filters]');
 
   if (filtersOnPage && filtersOnPage.querySelectorAll('.active-filter').length) {
-    
+
     window.addEventListener('scroll', () => {
 
       const filtersInHeader = document.querySelector('.active-filters-row');
       const minHeaderHeight = document.querySelector('.header__bottom').offsetHeight;
-  
+
       if (filtersOnPage.getBoundingClientRect().top - 20 - minHeaderHeight <= 0) {
         filtersInHeader.classList.add('active')
       } else {
         filtersInHeader.classList.remove('active')
       }
     });
-    
+
   }
 }
 
@@ -137,7 +137,7 @@ function numberOfGoods() {
   document.querySelectorAll('[data-number-goods]').forEach(item => {
     item.addEventListener('click', e => {
 
-      e.stopPropagation();
+      // e.stopPropagation();
 
       let numberGoods = Number(item.querySelector('[data-number-goods-count]').innerHTML);
 
@@ -148,7 +148,7 @@ function numberOfGoods() {
         }
 
         item.querySelector('[data-number-goods-count]').innerHTML = numberGoods - 1;
-        
+
       } else if (e.target.closest('[data-number-goods-plus]')) {
 
         if (numberGoods == 1) {

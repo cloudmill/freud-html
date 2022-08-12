@@ -45,15 +45,22 @@ window.basketEventSuccess = {
 function basketEvent() {
   $(document).on('click', '[data-type=basket]', function() {
     const thisObj = $(this),
-      event = thisObj.data('event');
+      event = thisObj.data('event'),
+      additionalData = thisObj.data('additional');
+
+    let data = {
+      id: thisObj.attr('data-id'),
+    };
+
+    if (additionalData) {
+      data = Object.assign(additionalData, data);
+    }
 
     $.ajax({
       type: 'POST',
       url: `${window.backend.templPath}/include/ajax/basket/${event}.php`,
       dataType: 'json',
-      data: {
-        id: thisObj.attr('data-id'),
-      },
+      data: data,
       success: function (r) {
         if (r.success) {
           try {
