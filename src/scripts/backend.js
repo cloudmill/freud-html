@@ -1,3 +1,5 @@
+import {closeWindow} from './modals-open-close';
+
 $(function () {
   initData();
   forms();
@@ -27,20 +29,40 @@ function initData() {
   };
 }
 
+window.basketEventSuccess = {
+  delete: elem => {
+    closeWindow(
+      document.querySelectorAll('[data-popup-button]'),
+      document.querySelectorAll('[data-popup]'),
+      true,
+      document.querySelector('.modals-container')
+    );
+
+    console.log($(`[data-item-id=${elem.data('id')}]`));
+
+    $(`[data-item-id=${elem.data('id')}]`).remove();
+  }
+}
+
 function basketEvent() {
   $(document).on('click', '[data-type=basket]', function() {
-    const thisObj = $(this);
+    const thisObj = $(this),
+      event = thisObj.data('event');
 
     $.ajax({
       type: 'POST',
-      url: `${window.backend.templPath}/include/ajax/basket/${thisObj.data('event')}.php`,
+      url: `${window.backend.templPath}/include/ajax/basket/${event}.php`,
       dataType: 'json',
       data: {
         id: thisObj.data('id'),
       },
       success: function (r) {
         if (r.success) {
-
+          try {
+            window.basketEventSuccess[event](thisObj);
+          } catch(e) {
+            console.log('not found callback success');
+          }
         } else {
           alert(r.message);
         }
