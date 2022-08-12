@@ -38,9 +38,7 @@ window.basketEventSuccess = {
       document.querySelector('.modals-container')
     );
 
-    console.log($(`[data-item-id=${elem.data('id')}]`));
-
-    $(`[data-item-id=${elem.data('id')}]`).remove();
+    $(`[data-item-id=${elem.attr('data-id')}]`).remove();
   }
 }
 
@@ -54,7 +52,7 @@ function basketEvent() {
       url: `${window.backend.templPath}/include/ajax/basket/${event}.php`,
       dataType: 'json',
       data: {
-        id: thisObj.data('id'),
+        id: thisObj.attr('data-id'),
       },
       success: function (r) {
         if (r.success) {
