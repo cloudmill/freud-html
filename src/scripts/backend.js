@@ -38,8 +38,26 @@ window.basketEventSuccess = {
       document.querySelector('.modals-container')
     );
 
-    $(`[data-item-id=${elem.attr('data-id')}]`).remove();
-  }
+    const item = $(`[data-item-id=${elem.attr('data-id')}]`);
+
+    if ($('[data-reload]').length) {
+      if (item.filter('[data-type=item-modal]').parent().children().length === 1) {
+        document.location.href = window.location.href;
+      } else {
+        item.remove();
+      }
+    } else {
+      item.remove();
+    }
+  },
+  add: (elem) => {
+    const item = elem.parents('[data-type=item]'),
+      basket = $('[data-container=header-basket]');
+
+    basket.append('')
+
+    basketCount.text(+basketCount.text() + 1);
+  },
 }
 
 function basketEvent() {
