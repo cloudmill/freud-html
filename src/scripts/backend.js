@@ -38,7 +38,8 @@ window.basketEventSuccess = {
       document.querySelector('.modals-container')
     );
 
-    const item = $(`[data-item-id=${elem.attr('data-id')}]`);
+    const item = $(`[data-item-id=${elem.attr('data-id')}]`),
+      basketCount = $('[data-type=basket-count]');
 
     if ($('[data-reload]').length) {
       if (item.filter('[data-type=item-modal]').parent().children().length === 1) {
@@ -49,13 +50,20 @@ window.basketEventSuccess = {
     } else {
       item.remove();
     }
+
+    basketCount.text(+basketCount.text() - 1);
   },
   add: (elem) => {
     const item = elem.parents('[data-type=item]'),
-      basket = $('[data-container=header-basket]');
+      basket = $('[data-container=header-basket]'),
+      basketCount = $('[data-type=basket-count]'),
+      itemTemplate = basket.find('template').content();
 
-    basket.append('')
+    item.find('[data-field]').each(function() {
+      itemTemplate.find(`[data-field=${$(this).data('field')}]`).text($(this).text());
+    });
 
+    basket.append(itemTemplate);
     basketCount.text(+basketCount.text() + 1);
   },
 }
