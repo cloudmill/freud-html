@@ -807,8 +807,9 @@
     padding: getRem(18px) getRem(30px);
     @include fsl (16px, 130%);
     cursor: pointer;
+    transition: $transition;
 
-    &.active {
+    &:hover {
       color: var(--color-brown);
     }
   }
