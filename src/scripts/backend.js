@@ -53,18 +53,35 @@ window.basketEventSuccess = {
 
     basketCount.text(+basketCount.text() - 1);
   },
-  add: (elem) => {
+  add: (elem, response) => {
     const item = elem.parents('[data-type=item]'),
+      productId = elem.data('id'),
       basket = $('[data-container=header-basket]'),
-      basketCount = $('[data-type=basket-count]'),
-      itemTemplate = basket.find('template').content();
+      basketItem = basket.find(`[data-product-id=${productId}]`);
 
-    item.find('[data-field]').each(function() {
-      itemTemplate.find(`[data-field=${$(this).data('field')}]`).text($(this).text());
-    });
+    if (basketItem.length) {
+      const count = basketItem.find('[data-type=count]');
 
-    basket.append(itemTemplate);
-    basketCount.text(+basketCount.text() + 1);
+      console.log(count[0].text());
+
+      // count.text(+count[0].text() + 1);
+    } else {
+      const itemTemplate = basket.find('template').contents(),
+        basketCount = $('[data-type=basket-count]');
+
+      itemTemplate.find('[data-item-id]').attr('data-item-id', response.data.ID);
+      itemTemplate.find('[data-id]').attr('data-id', response.data.ID);
+      itemTemplate.find('[data-product-id]').attr('data-product-id', productId);
+      itemTemplate.find('img').attr('src', item.find('img').attr('src'));
+      item.find('[data-field]').each(function() {
+        itemTemplate.find(`[data-field=${$(this).data('field')}]`).text($(this).text());
+      });
+
+      console.log(itemTemplate);
+
+      basket.append(itemTemplate);
+      basketCount.text(+basketCount.text() + 1);
+    }
   },
 }
 
@@ -90,9 +107,9 @@ function basketEvent() {
       success: function (r) {
         if (r.success) {
           try {
-            window.basketEventSuccess[event](thisObj);
+            window.basketEventSuccess[event](thisObj, r);
           } catch(e) {
-            console.log('not found callback success');
+            console.log(e.message);
           }
         } else {
           alert(r.message);
