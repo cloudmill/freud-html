@@ -54,6 +54,12 @@ window.basketEventSuccess = {
     basketCount.text(+basketCount.text() - 1);
   },
   add: (elem, response) => {
+    const basketContainer = $('.not-empty');
+
+    if (!basketContainer.hasClass('active')) {
+      basketContainer.addClass('active');
+    }
+
     const item = elem.parents('[data-type=item]'),
       productId = elem.data('id'),
       basket = $('[data-container=header-basket]'),
@@ -62,22 +68,18 @@ window.basketEventSuccess = {
     if (basketItem.length) {
       const count = basketItem.find('[data-type=count]');
 
-      console.log(count[0].text());
-
-      // count.text(+count[0].text() + 1);
+      count.text(+count[0].textContent + 1);
     } else {
-      const itemTemplate = basket.find('template').contents(),
+      const itemTemplate = basket.find('template').clone().contents(),
         basketCount = $('[data-type=basket-count]');
 
-      itemTemplate.find('[data-item-id]').attr('data-item-id', response.data.ID);
+      itemTemplate.filter('[data-item-id]').attr('data-item-id', response.data.ID);
+      itemTemplate.filter('[data-product-id]').attr('data-product-id', productId);
       itemTemplate.find('[data-id]').attr('data-id', response.data.ID);
-      itemTemplate.find('[data-product-id]').attr('data-product-id', productId);
       itemTemplate.find('img').attr('src', item.find('img').attr('src'));
       item.find('[data-field]').each(function() {
         itemTemplate.find(`[data-field=${$(this).data('field')}]`).text($(this).text());
       });
-
-      console.log(itemTemplate);
 
       basket.append(itemTemplate);
       basketCount.text(+basketCount.text() + 1);
