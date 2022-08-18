@@ -15,9 +15,30 @@ $(function () {
 function order() {
   $(document).on('click', '[data-type=order]', function() {
     const thisObj = $(this),
-      container = thisObj.parents('[data-container=order]');
+      container = thisObj.parents('[data-container=order]'),
+      data = {};
 
-    container.find('[data-type=get-field]')
+    container.find('[data-type=get-field]').each(function() {
+        data[$(this).data('field')] = $(this).text();
+    });
+
+    container.find('[data-type=get-field-container].active').find('[data-type=get-field-select], input:checked').each(function() {
+      const inpValue = $(this).val();
+
+      data[$(this).data('field')] = inpValue ? inpValue : $(this).data('value');
+    });
+
+    $.ajax({
+      type: 'POST',
+      url: `${window.backend.templPath}/include/ajax/order/add.php`,
+      dataType: 'json',
+      data: data,
+      success: function (r) {
+        if (!r.success) {
+          alert(r.message);
+        }
+      },
+    });
   });
 }
 
