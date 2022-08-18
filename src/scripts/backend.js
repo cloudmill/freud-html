@@ -9,7 +9,17 @@ $(function () {
   favorAdd();
   basketEvent();
   transferData();
+  order();
 });
+
+function order() {
+  $(document).on('click', '[data-type=order]', function() {
+    const thisObj = $(this),
+      container = thisObj.parents('[data-container=order]');
+
+    container.find('[data-type=get-field]')
+  });
+}
 
 function transferData() {
   $(document).on('click', '[data-type=transfer-data]', function() {
