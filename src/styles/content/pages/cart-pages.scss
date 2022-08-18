@@ -376,6 +376,10 @@
     width: calc(#{$col-part-d} + #{$col-width-d});
     position: relative;
 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     @media (max-width: ($breakpoint - 1px)) {
       width: getRem(80px);
       height: getRem(80px);
