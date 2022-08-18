@@ -42,7 +42,7 @@ window.basketEventSuccess = {
       basketCount = $('[data-type=basket-count]');
 
     if ($('[data-reload]').length) {
-      if (item.filter('[data-type=item-modal]').parent().children().length === 1) {
+      if (item.filter('[data-type=item-modal]').parent().find('[data-type=item-modal]').length === 1) {
         document.location.href = window.location.href;
       } else {
         item.remove();
