@@ -1,4 +1,5 @@
 import {closeWindow} from './modals-open-close';
+import {finalStage} from './cart-stages';
 
 $(function () {
   initData();
@@ -32,7 +33,7 @@ function order() {
       const inpVal = $(this).val(),
         val = $(this).data('value');
 
-      if (!val) {
+      if (!val && !inpVal) {
         return;
       }
 
@@ -47,7 +48,7 @@ function order() {
       success: function (r) {
         if (r.success) {
           $('[data-type=order-result-id]').text(r.data.ID);
-
+          finalStage(thisObj[0]);
         } else {
           alert(r.message);
         }
