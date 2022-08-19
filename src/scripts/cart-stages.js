@@ -53,6 +53,19 @@ function cartStages() {
             document.querySelector(`[data-cart-stage='${btnId}']`).classList.remove('collapsed');
             document.querySelector(`[data-cart-stage='${btnId}']`).classList.add('open');
 
+            if (btnId == 2) {
+
+              document.querySelector('[data-name-result]').innerText = `${document.querySelector('[data-cart-name]').value} ${document.querySelector('[data-cart-name2]').value}`;
+
+              document.querySelector('[data-tel-result]').innerText = document.querySelector('[data-cart-tel]').value;
+
+              document.querySelector('[data-mail-result]').innerText = document.querySelector('[data-cart-mail]').value;
+
+              document.querySelector('[data-note-result]').innerText = document.querySelector('[data-cart-comment]').value;
+              
+
+            }
+
             setTimeout(() => {
 
               document.querySelector(`[data-next-target='${btnId}']`).scrollIntoView({

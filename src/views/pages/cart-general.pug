@@ -147,10 +147,10 @@ block content
 
               .previous-show(data-next-target='2')
                 .cart-stage-form--result
-                  p Алексей Иванов
-                  p +7 (900) 454-56-56
-                  p pochta@mail.ru
-                  .note «Домофон не работает, позвоните» U+200E
+                  p(data-name-result='')
+                  p(data-tel-result='')
+                  p(data-mail-result='')
+                  .note(data-note-result='')
 
                 +brown-border-button.cart-stage__edit.only-mobile(data-stage-edit='')
                   |Изменить
@@ -164,25 +164,25 @@ block content
                   label.form__label.cart-form-label
                     .form__field-name Имя
                       sup *
-                    input.form__input(type='text' data-input-title='name' placeholder='Введите ваше имя' required)
+                    input.form__input(type='text' data-input-title='name' data-cart-name='' placeholder='Введите ваше имя' required)
 
                   label.form__label.cart-form-label
                     .form__field-name Фамилия
                       sup *
-                    input.form__input(type='text' data-input-title='sec-name' placeholder='Введите вашу фамилию' required)
+                    input.form__input(type='text' data-input-title='sec-name' data-cart-name2='' placeholder='Введите вашу фамилию' required)
 
                   label.form__label.cart-form-label
                     .form__field-name Телефон
                       sup *
-                    input.form__input(type='tel' placeholder='Введите номер телефона' required)
+                    input.form__input(type='tel' placeholder='Введите номер телефона' data-cart-tel='' required)
 
                   label.form__label.cart-form-label
                     .form__field-name E-mail
-                    input.form__input(type='email' placeholder='Введите ваш электронный адрес')
+                    input.form__input(type='email' placeholder='Введите ваш электронный адрес' data-cart-mail='')
 
                   label.form__label.cart-form-label
                     .form__field-name Комментарии к заказу
-                    textarea.form__textarea( placeholder='Введите текст')
+                    textarea.form__textarea(data-cart-comment='' placeholder='Введите текст')
 
                   +brown-button.form__btn(type='submit' data-cart-next='2')
                     |Продолжить
