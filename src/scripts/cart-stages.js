@@ -123,6 +123,18 @@ function cartStages() {
             document.querySelector('[data-cart-body-result]').classList.remove('hide');
             // document.querySelector('[data-cart-body-result]').classList.add('show');
 
+            if (item.hasAttribute('type', 'submit')) {
+              
+              document.querySelector('[data-result-adsress]').innerText = `${document.querySelector('[data-dostavka-address]').value} ${document.querySelector('[data-dostavka-address2]').value}`;
+
+              document.querySelector('[data-result-samovyvos]').style.display = 'none';
+
+            } else {
+
+              document.querySelector('[data-result-dostavka]').style.display = 'none'
+
+            }
+
             setTimeout(() => {
 
               document.querySelector(`html`).scrollIntoView({

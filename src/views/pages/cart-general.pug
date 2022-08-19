@@ -267,12 +267,12 @@ block content
                       label.form__label
                         .form__field-name Адрес
                           sup *
-                        input.form__input(type='text' data-input-title='address' placeholder='Введите город, улицу, дом, корпус' required)
+                        input.form__input(type='text' data-input-title='address' placeholder='Введите город, улицу, дом, корпус' data-dostavka-address='' required)
 
                       .cart-receiving-form__row
                         label.form__label
                           .form__field-name Номер квартиры/офиса
-                          input.form__input(type='number' placeholder='Введите номер')
+                          input.form__input(type='number' placeholder='Введите номер' data-dostavka-address2='')
 
                         .checkbox
                           label.checkbox__label
@@ -367,7 +367,7 @@ block content
                 .cart-result__name К оплате
                 .cart-result__value 120 000 ₽
                 
-            .cart-final__info
+            .cart-final__info(data-result-samovyvos)
               .cart-pickup
                 .cart-pickup__info
                   .cart-pickup__ttl Самовывоз из клуба «Профессор Фрейд»
@@ -392,7 +392,7 @@ block content
                 .cart-pickup__map
                   #map2
 
-            .cart-final__info
+            .cart-final__info(data-result-dostavka)
               .cart-final-delivery
                 .cart-pickup__ttl Доставка
 
@@ -400,7 +400,7 @@ block content
                   +place-ico.cart-pickup__svg
                   div
                     .cart-pickup__info-ttl Адрес
-                    .cart-pickup__info-txt г. Санкт-Петербург, ул. Малая Морская, дом 18
+                    .cart-pickup__info-txt(data-result-adsress)
 
                 .cart-pickup__info-item
                   +attention-ico.cart-pickup__svg
