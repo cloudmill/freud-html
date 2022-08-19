@@ -661,10 +661,10 @@
 													<div class="cart-receiving-form__ttl">Укажите адрес доставки</div>
 													<div class="cart-receiving-form__note"><sup>*</sup>— поля обязательные для заполнения</div>
 													<form class="cart-receiving-form__form" novalidate><label class="form__label">
-															<div class="form__field-name">Адрес<sup>*</sup></div><input class="form__input" data-input-title="address" placeholder="Введите город, улицу, дом, корпус" required>
+															<div class="form__field-name">Адрес<sup>*</sup></div><input class="form__input" data-input-title="address" placeholder="Введите город, улицу, дом, корпус" data-dostavka-address="" required>
 														</label>
 														<div class="cart-receiving-form__row"><label class="form__label">
-																<div class="form__field-name">Номер квартиры/офиса</div><input class="form__input" type="number" placeholder="Введите номер">
+																<div class="form__field-name">Номер квартиры/офиса</div><input class="form__input" type="number" placeholder="Введите номер" data-dostavka-address2="">
 															</label>
 															<div class="checkbox"><label class="checkbox__label"><input class="checkbox__input" type="checkbox" data-input-novalidate>
 																	<div class="checkbox__box"><svg class="checkbox__svg" width="13" height="10" viewBox="0 0 13 10" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -773,7 +773,7 @@
 											<div class="cart-result__value">120 000 ₽</div>
 										</div>
 									</div>
-									<div class="cart-final__info">
+									<div class="cart-final__info" data-result-samovyvos>
 										<div class="cart-pickup">
 											<div class="cart-pickup__info">
 												<div class="cart-pickup__ttl">Самовывоз из клуба «Профессор Фрейд»</div>
@@ -810,7 +810,7 @@
 											</div>
 										</div>
 									</div>
-									<div class="cart-final__info">
+									<div class="cart-final__info" data-result-dostavka>
 										<div class="cart-final-delivery">
 											<div class="cart-pickup__ttl">Доставка</div>
 											<div class="cart-pickup__info-item"><svg class="cart-pickup__svg" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -819,7 +819,7 @@
 												</svg>
 												<div>
 													<div class="cart-pickup__info-ttl">Адрес</div>
-													<div class="cart-pickup__info-txt">г. Санкт-Петербург, ул. Малая Морская, дом 18</div>
+													<div class="cart-pickup__info-txt" data-result-adsress></div>
 												</div>
 											</div>
 											<div class="cart-pickup__info-item"><svg class="cart-pickup__svg" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
