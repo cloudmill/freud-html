@@ -19,13 +19,24 @@ function order() {
       data = {};
 
     container.find('[data-type=get-field]').each(function() {
-        data[$(this).data('field')] = $(this).text();
+        const val = $(this).text();
+
+        if (!val) {
+          return;
+        }
+
+        data[$(this).data('field')] = val;
     });
 
     container.find('[data-type=get-field-container].active').find('[data-type=get-field-select], input:checked').each(function() {
-      const inpValue = $(this).val();
+      const inpVal = $(this).val(),
+        val = $(this).data('value');
 
-      data[$(this).data('field')] = inpValue ? inpValue : $(this).data('value');
+      if (!val) {
+        return;
+      }
+
+      data[$(this).data('field')] = inpVal ? inpVal : val;
     });
 
     $.ajax({
@@ -34,7 +45,10 @@ function order() {
       dataType: 'json',
       data: data,
       success: function (r) {
-        if (!r.success) {
+        if (r.success) {
+          $('[data-type=order-result-id]').text(r.data.ID);
+
+        } else {
           alert(r.message);
         }
       },
