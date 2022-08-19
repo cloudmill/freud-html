@@ -85,7 +85,8 @@ window.basketEventSuccess = {
     );
 
     const item = $(`[data-item-id=${elem.attr('data-id')}]`),
-      basketCount = $('[data-type=basket-count]');
+      basketCount = $('[data-type=basket-count]'),
+      totalPriceElem = $('[data-type=basket-price-total]');
 
     if ($('[data-reload]').length) {
       if (item.filter('[data-type=item-modal]').parent().find('[data-type=item-modal]').length === 1) {
@@ -98,6 +99,7 @@ window.basketEventSuccess = {
     }
 
     basketCount.text(+basketCount.text() - 1);
+    totalPriceElem.text(+totalPriceElem.text() - +item[0].querySelector('[data-type=price]').textContent);
   },
   add: (elem, response) => {
     const basketContainer = $('.not-empty');
@@ -109,7 +111,8 @@ window.basketEventSuccess = {
     const item = elem.parents('[data-type=item]'),
       productId = elem.data('id'),
       basket = $('[data-container=header-basket]'),
-      basketItem = basket.find(`[data-product-id=${productId}]`);
+      basketItem = basket.find(`[data-product-id=${productId}]`),
+      totalPriceElem = basketContainer.find('[data-type=basket-price-total]');
 
     if (basketItem.length) {
       const count = basketItem.find('[data-type=count]');
@@ -130,6 +133,8 @@ window.basketEventSuccess = {
       basket.append(itemTemplate);
       basketCount.text(+basketCount.text() + 1);
     }
+
+    totalPriceElem.text(+totalPriceElem.text() + +item.find('[data-type=price]').text());
   },
 }
 
