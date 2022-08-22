@@ -12,13 +12,25 @@ $(function () {
   transferData();
   order();
   showMore();
+  bookingForm();
 });
+
+function bookingForm() {
+  let bookingForm = $(document).find("#booking-form");
+
+  if (bookingForm) {
+    let section = bookingForm.find("[data-uf=UF_SEC]").val(),
+      inpurtPlace = bookingForm.find("[data-uf=UF_PLACE]").attr("placeholder");
+
+    console.log(section);
+    console.log(inpurtPlace);
+  }
+}
 
 function showMore() {
   $(document).on("click", "[data-type=show_more_click]", function (e) {
     let thisObj = $(this),
-      url = thisObj.attr("data-url"),
-      itemsContainer = thisObj.parents("[data-container=items]");
+      url = thisObj.attr("data-url");
 
     if (url) {
       thisObj.remove();
