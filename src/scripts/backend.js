@@ -1,5 +1,5 @@
-import {closeWindow} from './modals-open-close';
-import {finalStage} from './cart-stages';
+import { closeWindow } from './modals-open-close';
+import { finalStage } from './cart-stages';
 
 $(function () {
   initData();
@@ -11,25 +11,53 @@ $(function () {
   basketEvent();
   transferData();
   order();
+  showMore();
 });
 
+function showMore() {
+  $(document).on("click", "[data-type=show_more_click]", function (e) {
+    let thisObj = $(this),
+      url = thisObj.attr("data-url"),
+      itemsContainer = thisObj.parents("[data-container=items]");
+
+    if (url) {
+      thisObj.remove();
+
+      $.ajax({
+        method: "POST",
+        url: url,
+        data: {
+          ajax: 1
+        },
+      }).done(function (r) {
+        let itemsContainerEv = $(document).find("[data-container=items]");
+
+        console.log(itemsContainerEv);
+        console.log($(r));
+
+        itemsContainerEv.append($(r));
+      });
+    }
+  });
+}
+
 function order() {
-  $(document).on('click', '[data-type=order]', function() {
+  $(document).on('click', '[data-type=order]', function () {
     const thisObj = $(this),
       container = thisObj.parents('[data-container=order]'),
       data = {};
 
-    container.find('[data-type=get-field]').each(function() {
-        const val = $(this).text();
+    container.find('[data-type=get-field]').each(function () {
+      const val = $(this).text();
 
-        if (!val) {
-          return;
-        }
+      if (!val) {
+        return;
+      }
 
-        data[$(this).data('field')] = val;
+      data[$(this).data('field')] = val;
     });
 
-    container.find('[data-type=get-field-container].active').find('[data-type=get-field-select], input:checked').each(function() {
+    container.find('[data-type=get-field-container].active').find('[data-type=get-field-select], input:checked').each(function () {
       const inpVal = $(this).val(),
         val = $(this).data('value');
 
@@ -58,7 +86,7 @@ function order() {
 }
 
 function transferData() {
-  $(document).on('click', '[data-type=transfer-data]', function() {
+  $(document).on('click', '[data-type=transfer-data]', function () {
     const thisObj = $(this),
       data = thisObj.data('transfer'),
       success = $(thisObj.data('success'));
@@ -126,7 +154,7 @@ window.basketEventSuccess = {
       itemTemplate.filter('[data-product-id]').attr('data-product-id', productId);
       itemTemplate.find('[data-id]').attr('data-id', response.data.ID);
       itemTemplate.find('img').attr('src', item.find('img').attr('src'));
-      item.find('[data-field]').each(function() {
+      item.find('[data-field]').each(function () {
         itemTemplate.find(`[data-field=${$(this).data('field')}]`).text($(this).text());
       });
 
@@ -139,7 +167,7 @@ window.basketEventSuccess = {
 }
 
 function basketEvent() {
-  $(document).on('click', '[data-type=basket]', function() {
+  $(document).on('click', '[data-type=basket]', function () {
     const thisObj = $(this),
       event = thisObj.data('event'),
       additionalData = thisObj.data('additional');
@@ -161,7 +189,7 @@ function basketEvent() {
         if (r.success) {
           try {
             window.basketEventSuccess[event](thisObj, r);
-          } catch(e) {
+          } catch (e) {
             console.log(e.message);
           }
         } else {
@@ -173,160 +201,160 @@ function basketEvent() {
 }
 
 function favorAdd() {
-    $(document).on("click", "[data-type=favor-add]", function (e) {
-        console.log("favorite add");
-        e.preventDefault();
+  $(document).on("click", "[data-type=favor-add]", function (e) {
+    console.log("favorite add");
+    e.preventDefault();
 
-        let link = $(this),
-            url = "/local/templates/main/include/ajax/favor.php",
-            id = link.attr("data-id"),
-            data = {};
+    let link = $(this),
+      url = "/local/templates/main/include/ajax/favor.php",
+      id = link.attr("data-id"),
+      data = {};
 
-        data['id'] = id;
+    data['id'] = id;
 
+    $.ajax({
+      type: "POST",
+      url: url,
+      data: data,
+      success: function (r) {
+        console.log(r.count);
+        $(document).find("[data-type=count-favor-header]").empty();
+        $(document).find("[data-type=count-favor-header]").html(r.count);
         $.ajax({
-            type: "POST",
-            url: url,
-            data: data,
-            success: function (r) {
-                console.log(r.count);
-                $(document).find("[data-type=count-favor-header]").empty();
-                $(document).find("[data-type=count-favor-header]").html(r.count);
-                $.ajax({
-                    type: 'POST',
-                    url: window.location.pathname,
-                    dataType: 'html',
-                    data: {
-                        favorajax: true,
-                    },
-                    success: function (r) {
-                        $(document).find("[data-type=favor-header]").empty();
-                        $(document).find("[data-type=favor-header]").html(r);
-                    }
-                });
-                $.ajax({
-                    type: 'POST',
-                    url: window.location.pathname,
-                    dataType: 'html',
-                    data: {
-                        favorajaxlist: true,
-                    },
-                    success: function (r) {
-                        $(document).find("[data-type=favor-list]").empty();
-                        $(document).find("[data-type=favor-list]").html(r);
-                    }
-                });
-            },
+          type: 'POST',
+          url: window.location.pathname,
+          dataType: 'html',
+          data: {
+            favorajax: true,
+          },
+          success: function (r) {
+            $(document).find("[data-type=favor-header]").empty();
+            $(document).find("[data-type=favor-header]").html(r);
+          }
         });
+        $.ajax({
+          type: 'POST',
+          url: window.location.pathname,
+          dataType: 'html',
+          data: {
+            favorajaxlist: true,
+          },
+          success: function (r) {
+            $(document).find("[data-type=favor-list]").empty();
+            $(document).find("[data-type=favor-list]").html(r);
+          }
+        });
+      },
     });
+  });
 }
 
 function modalManuf() {
-    $(document).on("click", "[data-type=manuf-modal]", function (e) {
-        console.log("manuf modal");
-        e.preventDefault();
+  $(document).on("click", "[data-type=manuf-modal]", function (e) {
+    console.log("manuf modal");
+    e.preventDefault();
 
-        let txtMore = $(this).attr("data-text-more"),
-            nameManuf = $(this).html();
+    let txtMore = $(this).attr("data-text-more"),
+      nameManuf = $(this).html();
 
-        $(document).find('[data-type=modal-manuf-name]').html(nameManuf);
-        $(document).find('[data-type=modal-manuf-text]').html(txtMore);
-    });
+    $(document).find('[data-type=modal-manuf-name]').html(nameManuf);
+    $(document).find('[data-type=modal-manuf-text]').html(txtMore);
+  });
 }
 
 function cookie() {
-    $(document).on("click", "[data-type=cookie]", function (e) {
-        console.log("cookie");
-        e.preventDefault();
+  $(document).on("click", "[data-type=cookie]", function (e) {
+    console.log("cookie");
+    e.preventDefault();
 
-        let link = $(this),
-            url = "/local/templates/main/include/ajax/cookie.php",
-            name = link.attr("data-name"),
-            data = {};
+    let link = $(this),
+      url = "/local/templates/main/include/ajax/cookie.php",
+      name = link.attr("data-name"),
+      data = {};
 
-        data['name'] = name;
+    data['name'] = name;
 
-        $.ajax({
-            type: "POST",
-            url: url,
-            data: data,
-            success: function (r) {
-                console.log(r);
-            },
-        });
+    $.ajax({
+      type: "POST",
+      url: url,
+      data: data,
+      success: function (r) {
+        console.log(r);
+      },
     });
+  });
 }
 
 function snippetImg() {
-    $(document).ready(function () {
-        let img = $(document).find('[data-type=snippet-img-hide]');
+  $(document).ready(function () {
+    let img = $(document).find('[data-type=snippet-img-hide]');
 
-        $(document).find('[data-type=snippet-img-show]').html(img);
-    });
+    $(document).find('[data-type=snippet-img-show]').html(img);
+  });
 }
 
 function forms() {
-    $(document).on("submit", "[data-type=js-form]", function (e) {
-        console.log("form submit");
-        e.preventDefault();
+  $(document).on("submit", "[data-type=js-form]", function (e) {
+    console.log("form submit");
+    e.preventDefault();
 
-        let form = $(this),
-            url = form.attr("data-url"),
-            count = 0,
-            file = form.find('[data-type=get-field-file]').length ? form.find('[data-type=get-field-file]') : false,
-            contentType = file ? false : 'application/x-www-form-urlencoded; charset=UTF-8',
-            processData = file ? false : true,
-            data = file ? new FormData() : {};
+    let form = $(this),
+      url = form.attr("data-url"),
+      count = 0,
+      file = form.find('[data-type=get-field-file]').length ? form.find('[data-type=get-field-file]') : false,
+      contentType = file ? false : 'application/x-www-form-urlencoded; charset=UTF-8',
+      processData = file ? false : true,
+      data = file ? new FormData() : {};
 
-        if (file) {
-            $.each(file.files, function (key, input) {
-                data.append('file[]', input);
-            });
-            data.append('file', file[0].files[0]);
-        }
+    if (file) {
+      $.each(file.files, function (key, input) {
+        data.append('file[]', input);
+      });
+      data.append('file', file[0].files[0]);
+    }
 
-        form.find("[data-type=get-field]").each(function () {
-            let field = $(this).attr("data-uf"),
-                val = $(this).val();
+    form.find("[data-type=get-field]").each(function () {
+      let field = $(this).attr("data-uf"),
+        val = $(this).val();
 
-            file ? data.append(field, val) : (data[field] = val);
-        });
-
-        form.find("[data-type=get-field-multi]").each(function () {
-            let field = $(this).attr("data-uf");
-
-            data[field] = [];
-        });
-
-        form.find("[data-type=get-field-multi]").each(function () {
-            if ($(this).is(":checked")) {
-                let field = $(this).attr("data-uf"),
-                    val = $(this).attr("text");
-
-                data[field][count] = val;
-                count++
-            }
-        });
-
-        form.find("[data-type=get-field-radio]").each(function () {
-            if ($(this).is(":checked")) {
-                let field = $(this).attr("data-uf"),
-                    val = $(this).attr("data-value");
-
-                data[field] = val;
-            }
-        });
-
-        $.ajax({
-            type: "POST",
-            url: url,
-            dataType: "json",
-            contentType: contentType,
-            processData: processData,
-            data: data,
-            success: function (r) {
-                console.log(r);
-            },
-        });
+      file ? data.append(field, val) : (data[field] = val);
     });
+
+    form.find("[data-type=get-field-multi]").each(function () {
+      let field = $(this).attr("data-uf");
+
+      data[field] = [];
+    });
+
+    form.find("[data-type=get-field-multi]").each(function () {
+      if ($(this).is(":checked")) {
+        let field = $(this).attr("data-uf"),
+          val = $(this).attr("text");
+
+        data[field][count] = val;
+        count++
+      }
+    });
+
+    form.find("[data-type=get-field-radio]").each(function () {
+      if ($(this).is(":checked")) {
+        let field = $(this).attr("data-uf"),
+          val = $(this).attr("data-value");
+
+        data[field] = val;
+      }
+    });
+
+    $.ajax({
+      type: "POST",
+      url: url,
+      dataType: "json",
+      contentType: contentType,
+      processData: processData,
+      data: data,
+      success: function (r) {
+        console.log(r);
+      },
+    });
+  });
 }
