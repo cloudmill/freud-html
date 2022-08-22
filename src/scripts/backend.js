@@ -5,7 +5,6 @@ import { eventPromoDelete } from './catalog-scripts';
 $(function () {
   initData();
   forms();
-  snippetImg();
   cookie();
   modalManuf();
   favorAdd();
@@ -368,14 +367,6 @@ function cookie() {
         console.log(r);
       },
     });
-  });
-}
-
-function snippetImg() {
-  $(document).ready(function () {
-    let img = $(document).find('[data-type=snippet-img-hide]');
-
-    $(document).find('[data-type=snippet-img-show]').html(img);
   });
 }
 
