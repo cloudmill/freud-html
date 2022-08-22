@@ -12,6 +12,8 @@ function aosInit(e) {
 
   }, 1200);
 
+
+
   if (document.querySelector('.body').getAttribute('data-js') == 'true') {
     AOS.init({
       once: true,
