@@ -67,6 +67,7 @@ function promoAdd() {
       },
       success: function (r) {
         if (r.success) {
+          htmlReload();
           $('.cart-promocode-error').removeClass('active');
         } else {
           $('.cart-promocode-error').addClass('active');
@@ -90,6 +91,7 @@ function promoDelete() {
       },
       success: function (r) {
         if (r.success) {
+          htmlReload();
           eventPromoDelete(container[0]);
           $('.cart-promocode-error').removeClass('active');
         } else {
@@ -97,6 +99,23 @@ function promoDelete() {
         }
       },
     });
+  });
+}
+
+function htmlReload() {
+  $.ajax({
+    type: 'GET',
+    url: window.location.href,
+    dataType: 'html',
+    data: {
+      ajax: 'promo',
+    },
+    success: function (r) {
+      $('[data-type=replace]').each(function() {
+        $(this).empty();
+        $(this).append($(r).find(`[data-replace=${$(this).data('replace')}]`).children());
+      });
+    },
   });
 }
 
