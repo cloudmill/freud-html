@@ -162,9 +162,9 @@ function numberOfGoods() {
   })
 }
 
-function promocodeStates() {
+// состояния инпута промокода в корзине
 
-  // состояния инпута промокода в корзине
+function promocodeStates() {
 
   const promocodes = document.querySelectorAll('.cart-promocode');
 
