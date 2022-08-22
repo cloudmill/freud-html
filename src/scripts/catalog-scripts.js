@@ -166,40 +166,45 @@ function promocodeStates() {
 
   // состояния инпута промокода в корзине
 
-  if (document.querySelector('.cart-promocode')) {
+  const promocodes = document.querySelectorAll('.cart-promocode');
 
-    const promocodeInput = document.querySelector('.cart-promocode__input');
-    const activeBlock = promocodeInput.closest('.cart-promocode');
-    const clearBtn =  document.querySelector('.cart-promocode-delete');
+  if (promocodes.length) {
 
-    promocodeInput.addEventListener('focusin', e => {
-      e.target.closest('.cart-promocode').classList.add('active')
-    });
+    promocodes.forEach((block) => {
 
-    promocodeInput.addEventListener('input', () => {
-      const inputValue = promocodeInput.value;
+      const promocodeInput = block.querySelector('.cart-promocode__input');
+      const clearBtn = block.querySelector('.cart-promocode-delete');
 
-      if (inputValue.length) {
-        activeBlock.classList.add('send-active');
-        activeBlock.classList.remove('delete-active');
-      } else {
-        activeBlock.classList.remove('send-active')
-      }
-    });
+      promocodeInput.addEventListener('focusin', e => {
+        block.classList.add('active')
+      });
 
-    clearBtn.addEventListener('click', e => {
-      e.target.closest('.cart-promocode').querySelector('input').value = '';
-      e.target.closest('.cart-promocode').classList.remove('delete-active');
-    });
+      promocodeInput.addEventListener('input', () => {
+        const inputValue = promocodeInput.value;
+  
+        if (inputValue.length) {
+          block.classList.add('send-active');
+          block.classList.remove('delete-active');
+        } else {
+          block.classList.remove('send-active')
+        }
+      });
 
-    promocodeInput.addEventListener('focusout', e => {
-      e.target.closest('.cart-promocode').classList.remove('active');
-      activeBlock.classList.remove('send-active');
+      clearBtn.addEventListener('click', e => {
+        block.querySelector('input').value = '';
+        block.classList.remove('delete-active');
+      });
 
-      if (promocodeInput.value) {
-        activeBlock.classList.add('delete-active');
-      }
-    });
+      promocodeInput.addEventListener('focusout', e => {
+        block.classList.remove('active');
+        block.classList.remove('send-active');
+  
+        if (promocodeInput.value) {
+          block.classList.add('delete-active');
+        }
+      });
+
+    })
   }
 }
 
