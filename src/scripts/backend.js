@@ -127,7 +127,7 @@ window.basketEventSuccess = {
     }
 
     basketCount.text(+basketCount.text() - 1);
-    totalPriceElem.text(+totalPriceElem.text() - +item[0].querySelector('[data-type=price]').textContent);
+    totalPriceElem.text(+totalPriceElem.text() - (+item[0].querySelector('[data-type=price]').textContent * +item[0].querySelector('[data-type=count]').textContent));
   },
   add: (elem, response) => {
     const basketContainer = $('.not-empty');
