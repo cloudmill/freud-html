@@ -1,5 +1,6 @@
 import { closeWindow } from './modals-open-close';
 import { finalStage } from './cart-stages';
+import { eventPromoDelete } from './catalog-scripts';
 
 $(function () {
   initData();
@@ -13,6 +14,8 @@ $(function () {
   order();
   showMore();
   bookingForm();
+  promoAdd();
+  promoDelete();
 });
 
 function bookingForm() {
@@ -25,6 +28,51 @@ function bookingForm() {
     console.log(section);
     console.log(inpurtPlace);
   }
+  
+};
+
+function promoAdd() {
+  $(document).on('change', '[data-type=promo-add]', function() {
+    $.ajax({
+      type: 'POST',
+      url: `${window.backend.templPath}/include/ajax/promo/add.php`,
+      dataType: 'json',
+      data: {
+        code: $(this).val(),
+      },
+      success: function (r) {
+        if (r.success) {
+          $('.cart-promocode-error').removeClass('active');
+        } else {
+          $('.cart-promocode-error').addClass('active');
+        }
+      },
+    });
+  });
+}
+
+function promoDelete() {
+  $(document).on('click', '[data-type=promo-delete]', function() {
+    const thisObj = $(this),
+      container = thisObj.parents('[data-container=promo-code]');
+
+    $.ajax({
+      type: 'POST',
+      url: `${window.backend.templPath}/include/ajax/promo/delete.php`,
+      dataType: 'json',
+      data: {
+        code: container.find('[data-type=promo-add]').val(),
+      },
+      success: function (r) {
+        if (r.success) {
+          eventPromoDelete(container[0]);
+          $('.cart-promocode-error').removeClass('active');
+        } else {
+          alert(r.message);
+        }
+      },
+    });
+  });
 }
 
 function showMore() {
