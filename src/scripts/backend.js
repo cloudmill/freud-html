@@ -13,26 +13,52 @@ $(function () {
   transferData();
   order();
   showMore();
-  bookingForm();
+  bookingFormStart();
+  bookingFormChange();
   promoAdd();
   promoDelete();
 });
 
-function bookingForm() {
+function bookingFormStart() {
   let bookingForm = $(document).find("#booking-form");
 
   if (bookingForm) {
     let section = bookingForm.find("[data-uf=UF_SEC]").val(),
-      inpurtPlace = bookingForm.find("[data-uf=UF_PLACE]").attr("placeholder");
+      inputPlace = bookingForm.find("[data-uf=UF_PLACE]"),
+      placeholderNew = false;
 
     console.log(section);
-    console.log(inpurtPlace);
+    console.log(inputPlace);
+
+    bookingForm.find('[data-type=place-option]').each(function () {
+      let pathAttr = $(this).attr("data-path"),
+        nameAttr = $(this).attr("data-select-option");
+
+      if (section == pathAttr) {
+        placeholderNew = nameAttr;
+      }
+    });
+
+    if (placeholderNew) {
+      inputPlace.attr("placeholder", placeholderNew);
+      inputPlace.val(placeholderNew);
+    }
   }
-  
 };
 
+function bookingFormChange() {
+  $(document).on('click', '[data-booking=date]', function () {
+    let date = $(this).val(),
+      sibDiv = $(this).siblings(".datepicker");
+
+    if (!sibDiv.hasClass("active")) {
+      console.log('date = ' + date);
+    }
+  });
+}
+
 function promoAdd() {
-  $(document).on('change', '[data-type=promo-add]', function() {
+  $(document).on('change', '[data-type=promo-add]', function () {
     $.ajax({
       type: 'POST',
       url: `${window.backend.templPath}/include/ajax/promo/add.php`,
@@ -52,7 +78,7 @@ function promoAdd() {
 }
 
 function promoDelete() {
-  $(document).on('click', '[data-type=promo-delete]', function() {
+  $(document).on('click', '[data-type=promo-delete]', function () {
     const thisObj = $(this),
       container = thisObj.parents('[data-container=promo-code]');
 
