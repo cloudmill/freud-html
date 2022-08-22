@@ -173,7 +173,7 @@ function promocodeStates() {
     promocodes.forEach((block) => {
 
       const promocodeInput = block.querySelector('.cart-promocode__input');
-      const clearBtn = block.querySelector('.cart-promocode-delete');
+      const clearBtn = block.querySelector('[data-event=promo-delete]');
 
       promocodeInput.addEventListener('focusin', e => {
         block.classList.add('active')
@@ -181,7 +181,7 @@ function promocodeStates() {
 
       promocodeInput.addEventListener('input', () => {
         const inputValue = promocodeInput.value;
-  
+
         if (inputValue.length) {
           block.classList.add('send-active');
           block.classList.remove('delete-active');
@@ -190,15 +190,16 @@ function promocodeStates() {
         }
       });
 
-      clearBtn.addEventListener('click', e => {
-        block.querySelector('input').value = '';
-        block.classList.remove('delete-active');
-      });
+      if (clearBtn) {
+        clearBtn.addEventListener('click', e => {
+          eventPromoDelete(block);
+        });
+      }
 
       promocodeInput.addEventListener('focusout', e => {
         block.classList.remove('active');
         block.classList.remove('send-active');
-  
+
         if (promocodeInput.value) {
           block.classList.add('delete-active');
         }
@@ -206,6 +207,11 @@ function promocodeStates() {
 
     })
   }
+}
+
+function eventPromoDelete(elem) {
+  elem.querySelector('input').value = '';
+  elem.classList.remove('delete-active');
 }
 
 function cigarSize() {
@@ -220,4 +226,4 @@ function cigarSize() {
   }
 }
 
-export {addToFav, addToCart, activeFilter, sortMethod, activeFiltersHeader, numberOfGoods, promocodeStates, cigarSize };
+export {addToFav, addToCart, activeFilter, sortMethod, activeFiltersHeader, numberOfGoods, promocodeStates, cigarSize, eventPromoDelete };
