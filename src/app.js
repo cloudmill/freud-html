@@ -2,6 +2,7 @@ import './styles/app.scss';
 import './scripts/backend';
 
 import { mediaQuery } from './scripts/mediaQueries';
+import AOS from 'aos';
 
 import { headerOnScroll, headerFavAndCartModals } from './scripts/header';
 import { addToFav, addToCart, activeFilter, sortMethod, activeFiltersHeader, numberOfGoods, promocodeStates, cigarSize } from './scripts/catalog-scripts';
@@ -116,6 +117,18 @@ window.addEventListener('load', (e) => {
   accordions();
   
 });
+
+window.addEventListener('scroll', aosRefresh);
+
+function aosRefresh() {
+  const timeout = setTimeout( () => {
+    clearTimeout(timeout)
+    AOS.refresh();
+    window.addEventListener('scroll', aosRefresh);
+  },1000);
+
+  window.removeEventListener('scroll', aosRefresh);
+}
 
 function anchorScroll(eventClick) {
 
