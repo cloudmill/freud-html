@@ -231,7 +231,7 @@ window.basketEventSuccess = {
     }
 
     basketCount.text(+basketCount.text() - 1);
-    totalPriceElem.text(+totalPriceElem.text() - (+item[0].querySelector('[data-type=price]').textContent * +item[0].querySelector('[data-type=count]').textContent));
+    totalPriceElem.text(+totalPriceElem[0].textContent - (+item[0].querySelector('[data-type=price]').textContent * +item[0].querySelector('[data-type=count]').textContent));
   },
   add: (elem, response) => {
     const basketContainer = $('.not-empty');
@@ -268,6 +268,22 @@ window.basketEventSuccess = {
 
     totalPriceElem.text(+totalPriceElem.text() + +item.find('[data-type=price]').text());
   },
+  update: elem => {
+    const thisElems = $(`[data-item-id=${elem.attr('data-id')}]`),
+      price = +thisElems[0].querySelector('[data-type=price]').textContent,
+      totalElem = $('[data-type=basket-price-total]');
+
+    thisElems.find('[data-type=count]').text(elem.parent().find('[data-type=count-stepper]').text());
+    totalElem.text(elem.data('additional').operator === '+' ? +totalElem[0].textContent + price : +totalElem[0].textContent - price);
+
+    let count = 0;
+
+    elem.parents('[data-type=replace]').find('[data-item-id]').each(function() {
+      count += +$(this).find('[data-type=count-stepper]').text();
+    });
+
+    $('[data-type=basket-items-count]').text(count);
+  }
 }
 
 function basketEvent() {
@@ -283,6 +299,8 @@ function basketEvent() {
     if (additionalData) {
       data = Object.assign(additionalData, data);
     }
+
+    console.log(event);
 
     $.ajax({
       type: 'POST',
