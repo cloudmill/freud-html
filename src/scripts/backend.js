@@ -13,7 +13,8 @@ $(function () {
   order();
   showMore();
   bookingFormStart();
-  bookingFormChange();
+  bookingFormDate();
+  bookingFormPlace();
   promoAdd();
   promoDelete();
 });
@@ -41,20 +42,49 @@ function bookingFormStart() {
     if (placeholderNew) {
       inputPlace.attr("placeholder", placeholderNew);
       inputPlace.val(placeholderNew);
+
+      bookingForm.find('[data-booking=date]').removeAttr("disabled");
     }
   }
 };
 
-function bookingFormChange() {
+function bookingFormDate() {
   $(document).on('click', '[data-booking=date]', function () {
     let date = $(this).val(),
-      sibDiv = $(this).siblings(".datepicker");
+      sibDiv = $(this).siblings(".datepicker"),
+      bookingForm = $(this).parents("#booking-form"),
+      place = bookingForm.find("[data-uf=UF_PLACE]").val(),
+      data = {};
 
     if (!sibDiv.hasClass("active")) {
       console.log('date = ' + date);
     }
+
+    if (date) {
+      data['date'] = date;
+      data['place'] = place;
+
+      $.ajax({
+        type: 'POST',
+        url: `${window.backend.templPath}/include/ajax/booking.php`,
+        dataType: 'json',
+        data: data,
+        success: function (r) {
+          console.log(r);
+        },
+      });
+    }
   });
 }
+
+function bookingFormPlace() {
+  $(document).on('click', '[data-type=place-option]', function () {
+    let bookingForm = $(this).parents("#booking-form");
+
+    bookingForm.find('[data-booking=date]').removeAttr("disabled");
+  });
+}
+
 
 function promoAdd() {
   $(document).on('change', '[data-type=promo-add]', function () {
@@ -111,7 +141,7 @@ function htmlReload() {
       ajax: 'promo',
     },
     success: function (r) {
-      $('[data-type=replace]').each(function() {
+      $('[data-type=replace]').each(function () {
         $(this).empty();
         $(this).append($(r).find(`[data-replace=${$(this).data('replace')}]`).children());
       });
