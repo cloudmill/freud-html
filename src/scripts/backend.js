@@ -71,6 +71,17 @@ function bookingFormDate() {
         data: data,
         success: function (r) {
           console.log(r);
+          if (r.success) {
+            let timeInput = bookingForm.find('[data-uf=UF_TIME]'),
+              timeTooltip = bookingForm.find('[data-type=tooltip-date]');
+
+            timeInput.removeAttr("disabled");
+
+            timeInput.attr('data-mask', r.mask);
+
+            timeTooltip.empty();
+            timeTooltip.html(r.tooltip);
+          }
         },
       });
     }
