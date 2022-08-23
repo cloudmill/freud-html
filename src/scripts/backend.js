@@ -349,7 +349,7 @@ window.basketEventSuccess = {
     if (fullPriceElem.length) {
       const fullPrice = thisElems[0].querySelector('[data-type=full-price]') ? +thisElems[0].querySelector('[data-type=full-price]').textContent : null;
 
-      fullPriceElem.text(elem.data('additional').operator === '+' ? +fullPriceElem[0].textContent + (fullPrice ? fullPrice :price) : +fullPriceElem[0].textContent - (fullPrice ? fullPrice :price));
+      fullPriceElem.text(elem.data('additional').operator === '+' ? +fullPriceElem[0].textContent + (fullPrice ? fullPrice : price) : +fullPriceElem[0].textContent - (fullPrice ? fullPrice : price));
       $('[data-type=discount]').text(+fullPriceElem[0].textContent - +totalElem[0].textContent);
     }
 
@@ -543,6 +543,12 @@ function forms() {
       data: data,
       success: function (r) {
         console.log(r);
+        if (r.response) {
+          let responseBlock = $(document).find("[data-type=response-text]");
+
+          responseBlock.empty();
+          responseBlock.html(r.response);
+        }
       },
     });
   });
