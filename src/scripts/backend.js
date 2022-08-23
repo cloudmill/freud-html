@@ -73,9 +73,11 @@ function bookingFormDate() {
           console.log(r);
           if (r.success) {
             let timeInput = bookingForm.find('[data-uf=UF_TIME]'),
-              timeTooltip = bookingForm.find('[data-type=tooltip-date]');
+              timeTooltip = bookingForm.find('[data-type=tooltip-date]'),
+              timeTooltipBlock = bookingForm.find('[data-type=tooltip-date-block]');
 
             timeInput.removeAttr("disabled");
+            timeTooltipBlock.removeAttr("style");
 
             timeInput.attr('data-mask', r.mask);
 
@@ -90,12 +92,20 @@ function bookingFormDate() {
 
 function bookingFormPlace() {
   $(document).on('click', '[data-type=place-option]', function () {
-    let bookingForm = $(this).parents("#booking-form");
+    let bookingForm = $(this).parents("#booking-form"),
+      timeInput = bookingForm.find('[data-uf=UF_TIME]'),
+      dateInput = bookingForm.find('[data-uf=UF_DATE]'),
+      timeTooltipBlock = bookingForm.find('[data-type=tooltip-date-block]');;
 
-    bookingForm.find('[data-booking=date]').removeAttr("disabled");
+    timeInput.val("");
+    dateInput.val("");
+
+    timeInput.attr("disabled", "");
+    timeTooltipBlock.attr("style", "display:none;");
+
+    dateInput.removeAttr("disabled");
   });
 }
-
 
 function promoAdd() {
   $(document).on('change', '[data-type=promo-add]', function () {
@@ -329,13 +339,13 @@ window.basketEventSuccess = {
     totalElem.text(elem.data('additional').operator === '+' ? +totalElem[0].textContent + price : +totalElem[0].textContent - price);
 
     if (fullPriceElem.length) {
-      fullPriceElem.text(elem.data('additional').operator === '+' ? +fullPriceElem[0].textContent + (fullPrice ? fullPrice :price) : +fullPriceElem[0].textContent - (fullPrice ? fullPrice :price));
+      fullPriceElem.text(elem.data('additional').operator === '+' ? +fullPriceElem[0].textContent + (fullPrice ? fullPrice : price) : +fullPriceElem[0].textContent - (fullPrice ? fullPrice : price));
       $('[data-type=discount]').text(+fullPriceElem[0].textContent - +totalElem[0].textContent);
     }
 
     let count = 0;
 
-    elem.parents('[data-type=replace]').find('[data-item-id]').each(function() {
+    elem.parents('[data-type=replace]').find('[data-item-id]').each(function () {
       count += +$(this).find('[data-type=count-stepper]').text();
     });
 
