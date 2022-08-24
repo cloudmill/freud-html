@@ -11,7 +11,7 @@ $(function () {
   basketEvent();
   transferData();
   order();
-  showMore();
+  pagen();
   bookingFormStart();
   bookingFormDate();
   bookingFormPlace();
@@ -170,29 +170,28 @@ function htmlReload() {
   });
 }
 
-function showMore() {
-  $(document).on("click", "[data-type=show_more_click]", function (e) {
-    let thisObj = $(this),
-      url = thisObj.attr("data-url");
+function pagen() {
+  $(document).on("click", "[data-type=pagen]", function () {
+    const thisObj = $(this);
 
-    if (url) {
-      thisObj.remove();
+    $.ajax({
+      method: "GET",
+      url: thisObj.data('url'),
+      data: {
+        ajax: 'pagen',
+      },
+      success: function (r) {
+        const container = thisObj.parents('[data-container=base]'),
+          pagenResponse = $(r).filter('[data-type=pagen]');
 
-      $.ajax({
-        method: "POST",
-        url: url,
-        data: {
-          ajax: 1
-        },
-      }).done(function (r) {
-        let itemsContainerEv = $(document).find("[data-container=items]");
+        container.find('[data-container=items]').append($(r).filter('[data-container=items]').children());
+        container.find('[data-type=pagen]').remove();
 
-        console.log(itemsContainerEv);
-        console.log($(r));
-
-        itemsContainerEv.append($(r));
-      });
-    }
+        if (pagenResponse.length) {
+          container.find('[data-type=pagen-append]').after(pagenResponse);
+        }
+      },
+    });
   });
 }
 
