@@ -90,6 +90,7 @@ function bookingFormTime() {
       place = bookingForm.find("[data-uf=UF_PLACE]").val(),
       date = bookingForm.find("[data-uf=UF_DATE]").val(),
       errorSpan = $(this).siblings(".form-error"),
+      tooltipBlock = bookingForm.find("[data-type=tooltip-date-block]"),
       data = {};
 
     data['date'] = date;
@@ -103,6 +104,10 @@ function bookingFormTime() {
       data: data,
       success: function (r) {
         if (r.txter) {
+          tooltipBlock.trigger('mouseenter');
+          tooltipBlock.trigger('hover');
+          tooltipBlock.trigger('mouseover');
+
           errorSpan.addClass("active");
           errorSpan.html(r.txter);
         }
