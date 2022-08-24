@@ -15,9 +15,9 @@ $(function () {
   bookingFormStart();
   bookingFormDate();
   bookingFormPlace();
+  bookingFormTime();
   promoAdd();
   promoDelete();
-  bookingFormTime();
 });
 
 function bookingFormStart() {
@@ -27,9 +27,6 @@ function bookingFormStart() {
     let section = bookingForm.find("[data-uf=UF_SEC]").val(),
       inputPlace = bookingForm.find("[data-uf=UF_PLACE]"),
       placeholderNew = false;
-
-    console.log(section);
-    console.log(inputPlace);
 
     bookingForm.find('[data-type=place-option]').each(function () {
       let pathAttr = $(this).attr("data-path"),
@@ -58,46 +55,42 @@ function bookingFormDate() {
       data = {};
 
     if (!sibDiv.hasClass("active")) {
-      console.log('date = ' + date);
+      data['date'] = date;
+      data['place'] = place;
+
+      $.ajax({
+        type: 'POST',
+        url: `${window.backend.templPath}/include/ajax/booking.php`,
+        dataType: 'json',
+        data: data,
+        success: function (r) {
+          console.log(r);
+          if (r.success) {
+            let timeInput = bookingForm.find('[data-uf=UF_TIME]'),
+              timeTooltip = bookingForm.find('[data-type=tooltip-date]'),
+              timeTooltipBlock = bookingForm.find('[data-type=tooltip-date-block]');
+
+            timeInput.removeAttr("disabled");
+            timeTooltipBlock.removeAttr("style");
+
+            timeTooltip.empty();
+            timeTooltip.html(r.tooltip);
+          }
+        },
+      });
     }
-
-    data['date'] = date;
-    data['place'] = place;
-
-    $.ajax({
-      type: 'POST',
-      url: `${window.backend.templPath}/include/ajax/booking.php`,
-      dataType: 'json',
-      data: data,
-      success: function (r) {
-        console.log(r);
-        if (r.success) {
-          let timeInput = bookingForm.find('[data-uf=UF_TIME]'),
-            timeTooltip = bookingForm.find('[data-type=tooltip-date]'),
-            timeTooltipBlock = bookingForm.find('[data-type=tooltip-date-block]');
-
-          timeInput.removeAttr("disabled");
-          timeTooltipBlock.removeAttr("style");
-
-          timeTooltip.empty();
-          timeTooltip.html(r.tooltip);
-        }
-      },
-    });
   });
 }
 
 function bookingFormTime() {
-  $(document).on('change', '[data-uf=UF_TIME]', function () {
+  let inputTime = $(document).find("[data-time-input]");
+  inputTime.on('change', function () {
     let time = $(this).val(),
       bookingForm = $(this).parents("#booking-form"),
       place = bookingForm.find("[data-uf=UF_PLACE]").val(),
       date = bookingForm.find("[data-uf=UF_DATE]").val(),
+      errorSpan = $(this).siblings(".form-error"),
       data = {};
-
-    if (!sibDiv.hasClass("active")) {
-      console.log('date = ' + date);
-    }
 
     data['date'] = date;
     data['place'] = place;
@@ -109,9 +102,9 @@ function bookingFormTime() {
       dataType: 'json',
       data: data,
       success: function (r) {
-        console.log(r);
-        if (r.success) {
-
+        if (r.txter) {
+          errorSpan.addClass("active");
+          errorSpan.html(r.txter);
         }
       },
     });
