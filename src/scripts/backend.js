@@ -17,6 +17,7 @@ $(function () {
   bookingFormPlace();
   promoAdd();
   promoDelete();
+  bookingFormTime();
 });
 
 function bookingFormStart() {
@@ -60,33 +61,60 @@ function bookingFormDate() {
       console.log('date = ' + date);
     }
 
-    if (date) {
-      data['date'] = date;
-      data['place'] = place;
+    data['date'] = date;
+    data['place'] = place;
 
-      $.ajax({
-        type: 'POST',
-        url: `${window.backend.templPath}/include/ajax/booking.php`,
-        dataType: 'json',
-        data: data,
-        success: function (r) {
-          console.log(r);
-          if (r.success) {
-            let timeInput = bookingForm.find('[data-uf=UF_TIME]'),
-              timeTooltip = bookingForm.find('[data-type=tooltip-date]'),
-              timeTooltipBlock = bookingForm.find('[data-type=tooltip-date-block]');
+    $.ajax({
+      type: 'POST',
+      url: `${window.backend.templPath}/include/ajax/booking.php`,
+      dataType: 'json',
+      data: data,
+      success: function (r) {
+        console.log(r);
+        if (r.success) {
+          let timeInput = bookingForm.find('[data-uf=UF_TIME]'),
+            timeTooltip = bookingForm.find('[data-type=tooltip-date]'),
+            timeTooltipBlock = bookingForm.find('[data-type=tooltip-date-block]');
 
-            timeInput.removeAttr("disabled");
-            timeTooltipBlock.removeAttr("style");
+          timeInput.removeAttr("disabled");
+          timeTooltipBlock.removeAttr("style");
 
-            timeInput.attr('data-mask', r.mask);
+          timeTooltip.empty();
+          timeTooltip.html(r.tooltip);
+        }
+      },
+    });
+  });
+}
 
-            timeTooltip.empty();
-            timeTooltip.html(r.tooltip);
-          }
-        },
-      });
+function bookingFormTime() {
+  $(document).on('change', '[data-uf=UF_TIME]', function () {
+    let time = $(this).val(),
+      bookingForm = $(this).parents("#booking-form"),
+      place = bookingForm.find("[data-uf=UF_PLACE]").val(),
+      date = bookingForm.find("[data-uf=UF_DATE]").val(),
+      data = {};
+
+    if (!sibDiv.hasClass("active")) {
+      console.log('date = ' + date);
     }
+
+    data['date'] = date;
+    data['place'] = place;
+    data['time'] = time;
+
+    $.ajax({
+      type: 'POST',
+      url: `${window.backend.templPath}/include/ajax/booking.php`,
+      dataType: 'json',
+      data: data,
+      success: function (r) {
+        console.log(r);
+        if (r.success) {
+
+        }
+      },
+    });
   });
 }
 
