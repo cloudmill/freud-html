@@ -13,7 +13,7 @@ function dropdownsBlock(trigger, btnSelector, windowSelector, blockScroll) {
     const activeBtn = trigger.target.closest(`[${btnSelector}]`);
     let clickOff;
 
-    if (trigger.type == 'mouseover' && activeBtn) {
+    if (trigger.type == 'mouseenter' && activeBtn) {
     
       dropOnHover(activeBtn, btnSelector, windowSelector, triggerBtns, windows, blockScroll, modalsContainer, clickOff, trigger)
 

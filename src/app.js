@@ -94,11 +94,13 @@ document.addEventListener('DOMContentLoaded', (e) => {
 
   if (mediaQuery.matches) {
 
-    document.querySelector('.header__bottom-inner').addEventListener('mouseover', eventHover => {
-
-      dropdownsBlock(eventHover, 'data-header-btn', 'data-header-modal', blockScroll = true);
-
-    });
+    document.querySelectorAll('[data-header-btn]').forEach(item => {
+      item.addEventListener('mouseenter', eventHover => {
+  
+        dropdownsBlock(eventHover, 'data-header-btn', 'data-header-modal', blockScroll = true);
+  
+      });
+    })
   }
 });
 

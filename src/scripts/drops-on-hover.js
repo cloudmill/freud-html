@@ -5,7 +5,6 @@ export default function dropOnHover(activeBtn, btnSelector, windowSelector, trig
 
   if (activeBtn.classList.contains('active')) {
 
-    console.log('close');
     closeWindow(triggerBtns, windows, blockScroll, modalsContainer)
     
   } else {
