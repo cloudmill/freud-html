@@ -54,9 +54,19 @@
 
       .filter-checkboxes
 
+        label.checkbox.filter-checkbox.disabled
+          .checkbox__label
+            input.checkbox__input(type="checkbox")
+            .checkbox__box
+              +checkbox-white-svg.checkbox__svg
+
+          .checkbox__caption
+            |Alec Bradley
+
+            span.count 7
+
         -
           const checkboxes2 = [
-            {name: 'Alec Bradley', count: '7'},
             {name: 'Atabey', count: '7'},
             {name: 'Bugatti', count: '11'},
             {name: 'Davidoff', count: '33'},

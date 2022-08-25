@@ -480,6 +480,11 @@
   &:not(:last-child) {
     margin-bottom: getRem(12px);
   }
+
+  &.disabled {
+    opacity: .3;
+    pointer-events: none;
+  }
 }
 
 .category-filter-btn {
