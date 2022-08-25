@@ -42,9 +42,9 @@ block content
           ]
         include ../components/filters-row
 
-        .category-top__line(data-active-filters)
+        .category-top__line.category-active-filters(data-active-filters)
           
-          each item in ['Alec Bradley', 'Крепость: 1 из 5', 'Длительность курения: 30 мин']
+          each item in ['Alec Bradley', 'Крепость: 1 из 5', 'Длительность курения: 30 мин', 'Alec Bradley', 'Крепость: 1 из 5', 'Длительность курения: 30 мин', 'Alec Bradley', 'Крепость: 1 из 5', 'Длительность курения: 30 мин', 'Alec Bradley', 'Крепость: 1 из 5', 'Длительность курения: 30 мин']
             button.category-filter-btn.button--clean.active-filter
               | #{item}
               span.category-filter-btn__cross
@@ -75,27 +75,6 @@ block content
 
       +brown-border-button.more-btn(data-aos='fade-up')
         |Посмотреть еще
-
-  //- section.section.section--grey
-  //-   .container
-  //-     +small-titles(ttl='Выберите идеальную пару')
-
-  //-     .recommend-slider.controls-out
-  //-       .swiper-container#recommend-slider
-  //-         .swiper-wrapper
-
-  //-           - for (i=0;i<3;i++)
-  //-             .swiper-slide
-  //-               .recommend-card
-  //-                 +picture(file='recommend-1')
-  //-                 .recommend-card__ttl Сигара COHIBA BHK 52 и игристое вино Chateau Mouton Rothschild, Pauillac AOC
-  //-                 .recommend-card__txt Лучше всего сигары сочетаются с крепкими спиртными напитками. Сочетание сигар и алкоголя приносят курильщику
-
-  //-       .controls-out__container
-  //-         +control-left#recommend-slider-prev
-  //-         +control-right#recommend-slider-next
-
-  //-     .sliders-pagination#recommend-slider-pagination
 
   section
     .container

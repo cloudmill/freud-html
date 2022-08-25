@@ -32,7 +32,7 @@ block content
 
           -
             const titles = [
-              'Игристые вина',
+              'Игристые вина Игристые вина Игристые вина',
               'Шампанское',
               'Крепленые вина',
             ]
@@ -53,7 +53,7 @@ block content
           ]
         include ../components/filters-row
 
-        .category-top__line(data-active-filters)
+        .category-top__line.category-active-filters(data-active-filters)
 
           each item in ['Тихие вина', 'До 25 000 ₽', 'Красное', 'Сухое']
             button.category-filter-btn.button--clean.active-filter

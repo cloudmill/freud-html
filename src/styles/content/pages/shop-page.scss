@@ -172,13 +172,17 @@
         margin: 0 0 getRem(20px);
       }
     }
-    &:nth-child(4) {
+    &.category-active-filters {
       @media (max-width: ($breakpoint - 1px)) {
         overflow-x: auto;
         @include scrollbar-hidden;
 
         padding: 0 $col-pad-m;
         margin: 0 -$col-pad-m;
+      }
+      @media (min-width: $breakpoint) {
+        flex-wrap: wrap;
+        row-gap: getRem(12px);
       }
     }
   }
@@ -409,6 +413,7 @@
 
   &-item {
     width: getRem(123px);
+    height: fit-content;
     border: 1px solid transparent;
     padding: getRem(5px) getRem(5px) getRem(10px) getRem(5px);
     cursor: pointer;

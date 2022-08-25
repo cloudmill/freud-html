@@ -106,6 +106,10 @@
     z-index: 1;
     background: var(--background-grey-extra-2);
 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     @media (min-width: $breakpoint) {
       padding: 0 getRem(30px);
     }
