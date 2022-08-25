@@ -16,9 +16,37 @@ $(function () {
   bookingFormDate();
   bookingFormPlace();
   bookingFormTime();
+  checkInput();
   promoAdd();
   promoDelete();
 });
+
+function checkInput() {
+  let checkInput = $(document).find("[data-input=check]");
+  checkInput.on('change', function () {
+    let inputVal = $(this).val(),
+      form = $(this).parents("[data-type=js-form]"),
+      url = form.attr("data-url"),
+      errorSpan = checkInput.siblings(".form-error"),
+      data = {};
+
+    data['UF_EMAIL'] = inputVal;
+    data['type'] = 'check';
+
+    $.ajax({
+      type: 'POST',
+      url: url,
+      dataType: 'json',
+      data: data,
+      success: function (r) {
+        if (r.txter) {
+          errorSpan.addClass("active");
+          errorSpan.html(r.txter);
+        }
+      },
+    });
+  });
+}
 
 function bookingFormStart() {
   let bookingForm = $(document).find("#booking-form");
