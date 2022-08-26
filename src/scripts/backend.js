@@ -27,13 +27,38 @@ window.filters = {
   ajax: 'filter',
 };
 
+window.filtersEvent = {
+  styles: {
+    enable: {
+      checkbox: elem => {
+        elem.parents('[data-container=filter-item]').find('[data-type=filter]').prop('checked', true);
+      },
+      button: elem => {
+        elem.parent().addClass('active');
+      }
+    },
+    disable: {
+      checkbox: elem => {
+        elem.parents('[data-container=filter-item]').find('[data-type=filter]').prop('checked', false);
+      },
+      button: elem => {
+        elem.parent().removeClass('active');
+      }
+    }
+  }
+}
+
 function filterEvent() {
   $(document).on('click', '[data-type=filter]', function() {
     const thisObj = $(this),
       filterContainer = thisObj.parents('[data-container=filter]').length ? thisObj.parents('[data-container=filter]') : thisObj,
-      filterKey = filterContainer.data('filter-key'),
+      filterKey = filterContainer.attr('data-filter-key'),
       filterElem = thisObj.parents('[data-container=filter-item]').length ? thisObj.parents('[data-container=filter-item]') : thisObj,
-      val = filterElem.find('[data-type=filter-val]').text();
+      valElem = filterElem.find('[data-type=filter-val]'),
+      val = valElem.text(),
+      allFilters = $(`[data-filter-key=${filterKey}]`).find(`[data-type=filter-val]:contains(${val})`).filter((i, item) => item.getAttribute('data-style') !== valElem.attr('data-style'));
+
+    let isSelect = 'enable';
 
     if (!window.filters.filter[filterKey]) {
       window.filters.filter[filterKey] = {};
@@ -41,13 +66,20 @@ function filterEvent() {
 
     if (window.filters.filter[filterKey][val]) {
       delete window.filters.filter[filterKey][val];
-      $(`[data-filter-key=${filterKey}]`).find(`[data-type=filter-val]:contains(${val})`).parents('[data-type=filter]').removeClass('active');
       removeFilterValue(val);
+      isSelect = 'disable';
     } else {
       window.filters.filter[filterKey][val] = val;
-      $(`[data-filter-key=${filterKey}]`).find(`[data-type=filter-val]:contains(${val})`).parents('[data-type=filter]').addClass('active');
       addFilterValue(filterKey, val);
     }
+
+    allFilters.each((i, item) => {
+      try {
+        window.filtersEvent.styles[isSelect][item.getAttribute('data-style')]($(item));
+      } catch (e) {
+        console.log(e.message);
+      }
+    });
 
     return;
 
