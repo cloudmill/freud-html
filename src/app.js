@@ -106,6 +106,8 @@ document.addEventListener('DOMContentLoaded', (e) => {
 
 window.addEventListener('load', (e) => {
 
+  categoryFilters();
+
   document.querySelector('body').classList.remove('no-transition');
 
   firstScreen(e);
@@ -167,5 +169,25 @@ function fadeOnLeave(eventClick) {
       window.location.assign(href)
     }, 600);
     
+  }
+}
+
+function categoryFilters() {
+
+  const filterBtns = document.querySelectorAll('[data-filter-btn]');
+
+  if (filterBtns.length) {
+
+    filterBtns.forEach(item => {
+
+      if (!(item.getAttribute('data-filter-btn') == '6')) {
+  
+        const pad = document.querySelector('.filter-drops-btns').getBoundingClientRect().left;
+        const btnNum = item.getAttribute('data-filter-btn');
+        const drop = document.querySelector(`[data-filter-drop='${btnNum}']`);
+  
+        drop.style.left = `${item.getBoundingClientRect().left - pad - 10}px`
+      }
+    }) 
   }
 }
