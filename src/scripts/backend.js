@@ -19,7 +19,102 @@ $(function () {
   checkInput();
   promoAdd();
   promoDelete();
+  filterEvent();
 });
+
+window.filters = {
+  filter: {},
+  ajax: 'filter',
+};
+
+function filterEvent() {
+  $(document).on('click', '[data-type=filter]', function() {
+    const thisObj = $(this),
+      filterContainer = thisObj.parents('[data-container=filter]').length ? thisObj.parents('[data-container=filter]') : thisObj,
+      filterKey = filterContainer.data('filter-key'),
+      filterElem = thisObj.parents('[data-container=filter-item]').length ? thisObj.parents('[data-container=filter-item]') : thisObj,
+      val = filterElem.find('[data-type=filter-val]').text();
+
+    if (!window.filters.filter[filterKey]) {
+      window.filters.filter[filterKey] = {};
+    }
+
+    if (window.filters.filter[filterKey][val]) {
+      delete window.filters.filter[filterKey][val];
+      $(`[data-filter-key=${filterKey}]`).find(`[data-type=filter-val]:contains(${val})`).parents('[data-type=filter]').removeClass('active');
+      removeFilterValue(val);
+    } else {
+      window.filters.filter[filterKey][val] = val;
+      $(`[data-filter-key=${filterKey}]`).find(`[data-type=filter-val]:contains(${val})`).parents('[data-type=filter]').addClass('active');
+      addFilterValue(filterKey, val);
+    }
+
+    return;
+
+    $.ajax({
+      type: 'GET',
+      url: window.location.href,
+      dataType: 'html',
+      data: window.filters,
+      success: function (r) {
+        if (r.success) {
+          try {
+            window.basketEventSuccess[event](thisObj, r);
+          } catch (e) {
+            console.log(e.message);
+          }
+        } else {
+          alert(r.message);
+        }
+      },
+    });
+  });
+}
+
+function removeFilterValue(val) {
+  const container = $('[data-container=filter-line]');
+
+  container.find(`[data-type=filter-val]:contains(${val})`).parent().remove();
+
+  if (container.find('[data-type=filter-val]').length) {
+    return;
+  }
+
+  container.find('[data-type=filter-reset]').css({
+    'display': 'none',
+  });
+}
+
+function addFilterValue(key, val) {
+  filterLineInit();
+
+  const container = $('[data-container=filter-line]'),
+    template = container.find('template').clone().contents(),
+    clearElem = container.find('[data-type=filter-reset]');
+
+  template.attr('data-filter-key', key);
+  template.find('[data-type=filter-val]').text(val);
+  container.prepend(template);
+
+  if (clearElem.css('display') === 'block') {
+    return;
+  }
+
+  clearElem.css({
+    'display': 'block',
+  });
+}
+
+function filterLineInit() {
+  const templElem = $('[data-template=filter-line]'),
+    templContent = templElem.contents();
+
+  if (!templContent) {
+    return;
+  }
+
+  templElem.after(templContent);
+}
 
 function checkInput() {
   let checkInput = $(document).find("[data-input=check]");
