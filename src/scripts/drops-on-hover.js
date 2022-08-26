@@ -1,7 +1,7 @@
 import { closeWindow } from './modals-open-close';
 import { focusOnTab } from "./tabindex-in-modals";
 
-export default function dropOnHover(activeBtn, btnSelector, windowSelector, triggerBtns, windows, blockScroll, modalsContainer, clickOff, trigger) {
+export default function dropOnHover(activeBtn, btnSelector, windowSelector, triggerBtns, windows, blockScroll, modalsContainer, clickOff) {
 
   if (activeBtn.classList.contains('active')) {
 
@@ -63,6 +63,15 @@ export default function dropOnHover(activeBtn, btnSelector, windowSelector, trig
       closeWindow(triggerBtns, windows, blockScroll, modalsContainer);
 
     });
+
+    function closeOnMouseover(e) {
+      if (!e.target.closest('.header')) {
+        closeWindow(triggerBtns, windows, blockScroll, modalsContainer);
+        document.removeEventListener('mouseover', closeOnMouseover)
+      }
+    };
+
+    document.addEventListener('mouseover', closeOnMouseover);
 
     document.addEventListener('click', eventClick => {
 
