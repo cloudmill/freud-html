@@ -437,8 +437,8 @@
   }
 
   &__slider {
-    width: 100%;
-    margin-top: getRem(18px);
+    width: calc(100% - #{getRem(20px)});
+    margin: getRem(18px) auto 0;
     height: getRem(4px);
 
     .noUi-handle {
@@ -449,6 +449,9 @@
       border: none;
       box-shadow: none;
       cursor: grab;
+
+      top: getRem(-9px);
+      right: getRem(-10px);
 
       &::after, &::before {
         display: none;
