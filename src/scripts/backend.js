@@ -20,7 +20,24 @@ $(function () {
   promoAdd();
   promoDelete();
   filterEvent();
+  searchEvent();
 });
+
+function searchEvent() {
+  $(document).on('input', '[data-search]', function() {
+    const thisObj = $(this),
+      container = thisObj.parents('[data-search-container]'),
+      q = thisObj.val();
+
+    container.find('[data-type=filter-val]').each((i, item) => {
+      if (new RegExp(q).test(item.textContent)) {
+        $(item).parents('[data-container=filter-item]').css('display', 'flex');
+      } else {
+        $(item).parents('[data-container=filter-item]').css('display', 'none');
+      }
+    });
+  });
+}
 
 window.filters = {
   filter: {},
