@@ -21,7 +21,29 @@ $(function () {
   promoDelete();
   filterEvent();
   searchEvent();
+  showAllData();
 });
+
+function showAllData() {
+  $(document).on('click', '[data-show-all]', function() {
+    const thisObj = $(this),
+      data = thisObj.data('show-obj'),
+      container = $(`[data-show=${thisObj.data('show-all')}]`),
+      content = container.find('[data-container=content]'),
+      template = content.find('template');
+
+    for (let property in data.replace) {
+      container.find(`[data-replace=${property}]`).text(data.replace[property]);
+    }
+
+    data.data.value.forEach(item => {
+      const result = template.clone().contents();
+
+      result.find('[data-type=filter-val]').text(item);
+      content.append(result);
+    });
+  });
+}
 
 function searchEvent() {
   $(document).on('input', '[data-search]', function() {
