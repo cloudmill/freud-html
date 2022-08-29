@@ -39,6 +39,56 @@ function searchEvent() {
   });
 }
 
+window.filterSuccess = {
+  shop: (elem, response) => {
+    const containers = $('[data-container=filters]'),
+      responseContainers = response.find('[data-container=filters]'),
+      styles = {
+        enable: {
+          'opacity': 1,
+          'pointer-events': 'auto',
+        },
+        disable: {
+          'opacity': 0.3,
+          'pointer-events': 'none',
+        }
+      };
+
+    let i = 0;
+
+    containers.each((index, item) => {
+      $(item).find('[data-container=filter]').each(function() {
+        if (elem.parents('[data-container=filter]').data('filter-key') === $(this).data('filter-key')) {
+          i++;
+          return;
+        }
+
+        const responseFilter = responseContainers.find('[data-container=filter]').eq(i);
+
+        if ($(this).data('filter-key') !== responseFilter.data('filter-key')) {
+          $(this).css(styles.disable);
+        } else {
+          const arr = responseFilter.find('[data-type=filter-val]').map((arrI, item) => item.textContent);
+
+          $(this).find('[data-type=filter-val]').each(function() {
+            const filterContainer = $(this).parents('[data-container=filter-item]').length ? $(this).parents('[data-container=filter-item]') : $(this).parents('[data-type=filter]');
+
+            if (Object.values(arr).includes($(this).text())) {
+              filterContainer.css(styles.enable);
+            } else {
+              filterContainer.css(styles.disable);
+            }
+          });
+
+          $(this).css(styles.enable);
+
+          i++;
+        }
+      });
+    });
+  }
+}
+
 window.filters = {
   filter: {},
   ajax: 'filter',
@@ -98,22 +148,24 @@ function filterEvent() {
       }
     });
 
-    return;
-
     $.ajax({
       type: 'GET',
       url: window.location.href,
       dataType: 'html',
       data: window.filters,
       success: function (r) {
-        if (r.success) {
-          try {
-            window.basketEventSuccess[event](thisObj, r);
-          } catch (e) {
-            console.log(e.message);
-          }
-        } else {
-          alert(r.message);
+        const filtersContainer = thisObj.parents('[data-container=filters]'),
+          linkContainer = filtersContainer.data('link-container'),
+          content = $(linkContainer),
+          jqResponse = $(r);
+
+        content.empty();
+        content.append(jqResponse.find(linkContainer).children());
+
+        try {
+          window.filterSuccess[filtersContainer.data('entity')](thisObj, jqResponse);
+        } catch (e) {
+          console.log(e.message);
         }
       },
     });
