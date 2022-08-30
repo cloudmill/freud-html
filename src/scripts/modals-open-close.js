@@ -32,6 +32,13 @@ function openWindow(activeBtn, triggerBtns, windows, btnSelector, windowSelector
 
 function closeWindow(triggerBtns, windows, blockScroll, modalsContainer) {
 
+  const activeModal = document.querySelector('[data-popup].active');
+  if (activeModal) {
+    activeModal.querySelectorAll('input').forEach(input => {
+      input.value = '';
+    })
+  }
+
   if (blockScroll) {
     document.querySelector('.body').classList.remove('modal-open');
   }
