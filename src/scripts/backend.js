@@ -203,7 +203,7 @@ function filterEvent() {
       data: window.filters,
       success: function (r) {
         const filtersContainer = thisObj.parents('[data-container=filters]'),
-          linkContainer = filtersContainer.data('link-container'),
+          linkContainer = thisObj.parents('[data-link-container]').data('link-container'),
           content = $(linkContainer),
           jqResponse = $(r);
 
