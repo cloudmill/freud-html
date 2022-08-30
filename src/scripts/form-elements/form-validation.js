@@ -66,12 +66,12 @@ function formValidation() {
             showError();
             event.preventDefault();
 
-            console.log('form-error');
+            // console.log('form-error');
 
           } else {
             event.preventDefault();
 
-            console.log('form-success');
+            // console.log('form-success');
             
             if (item.closest('.subscription-form')) {
               
@@ -85,7 +85,7 @@ function formValidation() {
               document.querySelector('.modals-container').classList.add('active');
               document.querySelector('[data-popup="13"]').classList.add('active');
 
-            } else if (item.closest('#certificates-form')) {
+            } else if (item.closest('#certificates-form') || item.closest('#consult-form')) {
 
               document.querySelector('[data-popup="13"]').classList.add('active');
 
