@@ -27,23 +27,31 @@ $(function () {
 function showAllData() {
   $(document).on('click', '[data-show-all]', function() {
     const thisObj = $(this),
-      filterKey = thisObj.parents('[data-filter-key]').data('filter-key'),
+      filterKey = thisObj.parents('[data-filter-key]').attr('data-filter-key'),
       allValues = $(`[data-filter-key=${filterKey}]`).filter('[data-filter-all]'),
       data = thisObj.data('show-obj'),
       container = $(`[data-show=${thisObj.data('show-all')}]`),
+      entityElem = container.find('[data-filter-key]'),
+      entity = entityElem.attr('data-filter-key'),
       content = container.find('[data-container=content]'),
       template = content.find('template');
 
-    for (let property in data.replace) {
-      container.find(`[data-replace=${property}]`).text(data.replace[property]);
+    console.log(filterKey, entity);
+
+    if (entity !== filterKey) {
+      entityElem.attr('data-filter-key', filterKey);
+
+      for (let property in data.replace) {
+        container.find(`[data-replace=${property}]`).text(data.replace[property]);
+      }
+
+      data.data.value.forEach(item => {
+        const result = template.clone().contents();
+
+        result.find('[data-type=filter-val]').text(item);
+        content.append(result);
+      });
     }
-
-    data.data.value.forEach(item => {
-      const result = template.clone().contents();
-
-      result.find('[data-type=filter-val]').text(item);
-      content.append(result);
-    });
 
     content.find('[data-container=filter-item]').each((i, item) => {
       const elem = $(item),
@@ -109,12 +117,12 @@ window.filterSuccess = {
         if ($(this).data('filter-key') !== responseFilter.data('filter-key')) {
           $(this).css(styles.disable);
         } else {
-          const arr = responseFilter.find('[data-type=filter-val]').map((arrI, item) => item.textContent);
+          const arr = responseFilter.find('[data-type=filter-val]').map((arrI, item) => item.textContent ? item.textContent : item.value);
 
           $(this).find('[data-type=filter-val]').each(function() {
             const filterContainer = $(this).parents('[data-container=filter-item]').length ? $(this).parents('[data-container=filter-item]') : $(this).parents('[data-type=filter]');
 
-            if (Object.values(arr).includes($(this).text())) {
+            if (Object.values(arr).includes($(this).text() ? $(this).text() : $(this).val())) {
               filterContainer.css(styles.enable);
             } else {
               filterContainer.css(styles.disable);
@@ -159,11 +167,10 @@ window.filtersEvent = {
 function filterEvent() {
   $(document).on('click', '[data-type=filter]', function() {
     const thisObj = $(this),
-      filterContainer = thisObj.parents('[data-container=filter]').length ? thisObj.parents('[data-container=filter]') : thisObj,
-      filterKey = filterContainer.attr('data-filter-key'),
+      filterKey = thisObj.parents('[data-filter-key]').length ? thisObj.parents('[data-filter-key]').attr('data-filter-key') : thisObj.attr('data-filter-key'),
       filterElem = thisObj.parents('[data-container=filter-item]').length ? thisObj.parents('[data-container=filter-item]') : thisObj,
       valElem = filterElem.find('[data-type=filter-val]'),
-      val = valElem.text(),
+      val = valElem.text() ? valElem.text() : valElem.val(),
       allFilters = $(`[data-filter-key=${filterKey}]`).find(`[data-type=filter-val]:contains(${val})`).filter((i, item) => item.getAttribute('data-style') !== valElem.attr('data-style'));
 
     let isSelect = 'enable';
