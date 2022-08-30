@@ -27,6 +27,8 @@ $(function () {
 function showAllData() {
   $(document).on('click', '[data-show-all]', function() {
     const thisObj = $(this),
+      filterKey = thisObj.parents('[data-filter-key]').data('filter-key'),
+      allValues = $(`[data-filter-key=${filterKey}]`).filter('[data-filter-all]'),
       data = thisObj.data('show-obj'),
       container = $(`[data-show=${thisObj.data('show-all')}]`),
       content = container.find('[data-container=content]'),
@@ -41,6 +43,23 @@ function showAllData() {
 
       result.find('[data-type=filter-val]').text(item);
       content.append(result);
+    });
+
+    content.find('[data-container=filter-item]').each((i, item) => {
+      const elem = $(item),
+        input = elem.find('input'),
+        compareElem = allValues.find('[data-container=filter-item]').eq(i);
+
+      input.prop('checked', compareElem.find('input').prop('checked'));
+
+      if (compareElem.css('opacity') === 1) {
+         return;
+      }
+
+      elem.css({
+        'opacity': compareElem.css('opacity'),
+        'pointer-events': compareElem.css('pointer-events'),
+      });
     });
   });
 }
