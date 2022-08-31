@@ -171,6 +171,8 @@ function filterEvent() {
       filterElem = thisObj.parents('[data-container=filter-item]').length ? thisObj.parents('[data-container=filter-item]') : thisObj,
       valElem = filterElem.find('[data-type=filter-val]'),
       val = valElem.text() ? valElem.text() : valElem.val(),
+      linkContainer = thisObj.parents('[data-link-container]').attr('data-link-container'),
+      entity = thisObj.parents('[data-entity]').data('entity'),
       allFilters = $(`[data-filter-key=${filterKey}]`).find(`[data-type=filter-val]:contains(${val})`).filter((i, item) => item.getAttribute('data-style') !== valElem.attr('data-style'));
 
     let isSelect = 'enable';
@@ -202,16 +204,14 @@ function filterEvent() {
       dataType: 'html',
       data: window.filters,
       success: function (r) {
-        const filtersContainer = thisObj.parents('[data-container=filters]'),
-          linkContainer = thisObj.parents('[data-link-container]').data('link-container'),
-          content = $(linkContainer),
+        const content = $(linkContainer),
           jqResponse = $(r);
 
         content.empty();
         content.append(jqResponse.find(linkContainer).children());
 
         try {
-          window.filterSuccess[filtersContainer.data('entity')](thisObj, jqResponse);
+          window.filterSuccess[entity](thisObj, jqResponse);
         } catch (e) {
           console.log(e.message);
         }
