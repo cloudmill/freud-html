@@ -1,6 +1,7 @@
 import { closeWindow } from './modals-open-close';
 import { finalStage } from './cart-stages';
 import { eventPromoDelete } from './catalog-scripts';
+import noUiSlider from 'nouislider';
 
 $(function () {
   initData();
@@ -165,12 +166,31 @@ window.filtersEvent = {
 }
 
 function filterEvent() {
+  document.querySelectorAll('#range-slider').forEach(slider => {
+    slider.noUiSlider.on('set', function (values) {
+      const container = $(this.target).parents('[data-filter-key]'),
+        filterKey = container.data('filter-key');
+
+      document.querySelectorAll(`[data-filter-key=${filterKey}]`).forEach(item => {
+        if (item.getAttribute('data-template-type') === container.attr('data-template-type')) {
+          return;
+        }
+
+        item.querySelector('#range-slider').noUiSlider.set(values, false);
+      });
+
+      window.filters.filter[filterKey] = values;
+    });
+  });
+
   $(document).on('click', '[data-type=filter]', function() {
     const thisObj = $(this),
       filterKey = thisObj.parents('[data-filter-key]').length ? thisObj.parents('[data-filter-key]').attr('data-filter-key') : thisObj.attr('data-filter-key'),
       filterElem = thisObj.parents('[data-container=filter-item]').length ? thisObj.parents('[data-container=filter-item]') : thisObj,
       valElem = filterElem.find('[data-type=filter-val]'),
       val = valElem.text() ? valElem.text() : valElem.val(),
+      linkContainer = thisObj.parents('[data-link-container]').attr('data-link-container'),
+      entity = thisObj.parents('[data-entity]').data('entity'),
       allFilters = $(`[data-filter-key=${filterKey}]`).find(`[data-type=filter-val]:contains(${val})`).filter((i, item) => item.getAttribute('data-style') !== valElem.attr('data-style'));
 
     let isSelect = 'enable';
@@ -202,16 +222,14 @@ function filterEvent() {
       dataType: 'html',
       data: window.filters,
       success: function (r) {
-        const filtersContainer = thisObj.parents('[data-container=filters]'),
-          linkContainer = thisObj.parents('[data-link-container]').data('link-container'),
-          content = $(linkContainer),
+        const content = $(linkContainer),
           jqResponse = $(r);
 
         content.empty();
         content.append(jqResponse.find(linkContainer).children());
 
         try {
-          window.filterSuccess[filtersContainer.data('entity')](thisObj, jqResponse);
+          window.filterSuccess[entity](thisObj, jqResponse);
         } catch (e) {
           console.log(e.message);
         }
