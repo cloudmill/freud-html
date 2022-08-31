@@ -42,7 +42,7 @@ function formValidation() {
 
           item.addEventListener('focusout', (event) => {
       
-            if (item.validity.valid || item.hasAttribute('data-readonly') && !item.value.length) {
+            if (item.validity.valid || item.hasAttribute('data-readonly') && !item.value.length || !(item.getAttribute('type') == 'tel' && chekTel(item))) {
               // console.log('ok');
       
               error.textContent = '';
@@ -51,7 +51,7 @@ function formValidation() {
             } else {
               // console.log('ne ok');
     
-              showError();
+              showError(item, error);
             }
           });
         }
@@ -59,104 +59,133 @@ function formValidation() {
         // при отправке формы повторная валидация
         form.addEventListener('submit', function (event) {
 
-          // console.log(item.validity.valid, item.getAttribute('type') == 'checkbox' && !item.checked);
+          event.preventDefault();
         
-          if(!item.validity.valid || (item.getAttribute('type') == 'checkbox' && !item.checked) || item.hasAttribute('data-readonly') && !item.value.length || item.closest('form').querySelector('.form-error.active')) {
+          if (!item.validity.valid || 
+            (item.getAttribute('type') == 'checkbox' && !item.checked) || 
+            item.hasAttribute('data-readonly') && !item.value.length || 
+            item.closest('form').querySelector('.form-error.active') || 
+            (item.getAttribute('type') == 'tel' && chekTel(item))) {
 
-            showError();
-            event.preventDefault();
+            showError(item, error);
+            
 
-            // console.log('form-error');
+            console.log('form-error');
 
           } else {
-            event.preventDefault();
+            form.querySelectorAll('.form-error.active').forEach(errors => {
+              errors.classList.remove('active')
+            })
+          }
+        });
+        
+        
+      })
 
-            // console.log('form-success');
-            
-            if (item.closest('.subscription-form')) {
+      form.addEventListener('submit', (event) => {
+
+        setTimeout(() => {
+
+          if (!form.querySelector('.form-error.active')) {
+            if (form.closest('.subscription-form')) {
               
               document.querySelector('.body').classList.add('modal-open');
               document.querySelector('.modals-container').classList.add('active');
               document.querySelector('[data-popup="11"]').classList.add('active');
 
-            } else if (item.closest('.product-body-consult')) {
+            } else if (form.closest('.product-body-consult')) {
 
               document.querySelector('.body').classList.add('modal-open');
               document.querySelector('.modals-container').classList.add('active');
               document.querySelector('[data-popup="13"]').classList.add('active');
 
-            } else if (item.closest('#certificates-form') || item.closest('#consult-form')) {
+            } else if (form.closest('#certificates-form') || form.closest('#consult-form')) {
 
               document.querySelector('[data-popup="13"]').classList.add('active');
 
-            } else if (item.closest('#booking-form')) {
+            } else if (form.closest('#booking-form')) {
 
               document.querySelector('[data-popup="16"]').classList.add('active');
 
             }
-
-            // сделать ответ формы
-          }
-        });
-        
-        // обработка ошибок
-        function showError() {
-  
-          // обязательное поле не заполнено
-          if (item.validity.valueMissing) {
-            
-            if (item.getAttribute('data-input-title') == 'name') {
-
-              error.textContent = '— заполните поле «Имя»';
-
-            } else if (item.getAttribute('data-input-title') == 'sec-name') {
-
-              error.textContent = '— заполните поле «Фамилия»';
-
-            } else if (item.getAttribute('data-input-title') == 'address') {
-
-              error.textContent = '— заполните поле «Адрес»';
-
-            } else if (item.getAttribute('type') == 'tel' && !item.closest('.booking-popup-form')) {
-
-              error.textContent = '— заполните поле «Телефон»';
-
-            } else if (item.getAttribute('type') == 'email') {
-
-              error.textContent = '— заполните поле «E-mail»';
-
-            } else if (item.getAttribute('type') == 'checkbox' && !item.checked) {
-
-              error.textContent = '— вы не можете продолжить без согласия с политикой конфиденциальности'
-
-            } else {
-              error.textContent = 'Обязательное поле';
-            }
+          } 
           
-          // введенный текст не соответствует типу инпута
-          } else if (item.validity.typeMismatch) {
-
-            if (item.getAttribute('type') == 'email') {
-
-              error.textContent = '— e-mail должен содержать символы «@», «.» проверьте правильность ввода';
-
-            } else {
-              error.textContent = 'Введено некорректно';
-            }
-    
-          } else if (item.hasAttribute('data-readonly') && !item.value.length) {
-            error.textContent = 'Обязательное поле';
-
-          } else {
-            // console.log('ne rabotaet');
-          }
-          
-          // добавляет на ошибку активный класс
-          error.className = 'form-error active';
-        }
+        }, );
       })
     })
   }
+}
+
+// проверка телефона
+function chekTel(input) {
+
+  const value = input.value.replace(/\D/g, "");
+
+  console.log(value, !(value[0] === 7), !(value[0] === 8), value.length < 11);
+
+  if ((!(value[0] === 7) || !(value[0] === 8)) || value.length < 11) {
+    return true
+  }
+  
+}
+
+// обработка ошибок
+function showError(item, error) {
+  
+  // обязательное поле не заполнено
+  if (item.validity.valueMissing) {
+    
+    if (item.getAttribute('data-input-title') == 'name') {
+
+      error.textContent = '— заполните поле «Имя»';
+
+    } else if (item.getAttribute('data-input-title') == 'sec-name') {
+
+      error.textContent = '— заполните поле «Фамилия»';
+
+    } else if (item.getAttribute('data-input-title') == 'address') {
+
+      error.textContent = '— заполните поле «Адрес»';
+
+    } else if (item.getAttribute('type') == 'tel' && !item.closest('.booking-popup-form')) {
+
+      error.textContent = '— заполните поле «Телефон»';
+
+    } else if (item.getAttribute('type') == 'email') {
+
+      error.textContent = '— заполните поле «E-mail»';
+
+    } else if (item.getAttribute('type') == 'checkbox' && !item.checked) {
+
+      error.textContent = '— вы не можете продолжить без согласия с политикой конфиденциальности'
+
+    } else {
+      error.textContent = 'Обязательное поле';
+    }
+  
+  // введенный текст не соответствует типу инпута
+  } else if (item.validity.typeMismatch) {
+
+    if (item.getAttribute('type') == 'email') {
+
+      error.textContent = '— e-mail должен содержать символы «@», «.» проверьте правильность ввода';
+
+    } else {
+      error.textContent = 'Введено некорректно';
+    }
+
+  } else if (item.hasAttribute('data-readonly') && !item.value.length) {
+    error.textContent = 'Обязательное поле';
+  } else if (item.getAttribute('type') == 'tel') {
+
+    error.textContent = 'Неверный формат';
+
+  } else {
+    // console.log('ne rabotaet');
+  }
+  
+  // добавляет на ошибку активный класс
+  error.className = 'form-error active';
 }
 
 export default formValidation;
