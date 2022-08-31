@@ -1,6 +1,7 @@
 import { closeWindow } from './modals-open-close';
 import { finalStage } from './cart-stages';
 import { eventPromoDelete } from './catalog-scripts';
+import noUiSlider from 'nouislider';
 
 $(function () {
   initData();
@@ -165,6 +166,23 @@ window.filtersEvent = {
 }
 
 function filterEvent() {
+  document.querySelectorAll('#range-slider').forEach(slider => {
+    slider.noUiSlider.on('set', function (values) {
+      const container = $(this.target).parents('[data-filter-key]'),
+        filterKey = container.data('filter-key');
+
+      document.querySelectorAll(`[data-filter-key=${filterKey}]`).forEach(item => {
+        if (item.getAttribute('data-template-type') === container.attr('data-template-type')) {
+          return;
+        }
+
+        item.querySelector('#range-slider').noUiSlider.set(values, false);
+      });
+
+      window.filters.filter[filterKey] = values;
+    });
+  });
+
   $(document).on('click', '[data-type=filter]', function() {
     const thisObj = $(this),
       filterKey = thisObj.parents('[data-filter-key]').length ? thisObj.parents('[data-filter-key]').attr('data-filter-key') : thisObj.attr('data-filter-key'),
