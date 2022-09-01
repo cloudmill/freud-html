@@ -89,6 +89,32 @@ function searchEvent() {
   });
 }
 
+window.filterCompare = {
+  items: (elem, responseFilter, styles) => {
+    const arr = responseFilter.find('[data-type=filter-val]').map((arrI, item) => item.textContent ? item.textContent : item.value);
+
+    elem.find('[data-type=filter-val]').each(function() {
+      const filterContainer = $(this).parents('[data-container=filter-item]').length ? $(this).parents('[data-container=filter-item]') : $(this).parents('[data-type=filter]');
+
+      if (Object.values(arr).includes($(this).text() ? $(this).text() : $(this).val())) {
+        filterContainer.css(styles.enable);
+      } else {
+        filterContainer.css(styles.disable);
+      }
+    });
+  },
+  range: (elem, responseFilter) => {
+    const valElem = responseFilter.find('#range-slider');
+
+    elem[0].querySelector('#range-slider').noUiSlider.updateOptions({
+      range: {
+        'min': +valElem.attr('data-range-min'),
+        'max': +valElem.attr('data-range-max'),
+      },
+    });
+  },
+}
+
 window.filterSuccess = {
   shop: (elem, response) => {
     const containers = $('[data-container=filters]'),
@@ -104,9 +130,9 @@ window.filterSuccess = {
         }
       };
 
-    let i = 0;
-
     containers.each((index, item) => {
+      let i = 0;
+
       $(item).find('[data-container=filter]').each(function() {
         if (elem.parents('[data-container=filter]').data('filter-key') === $(this).data('filter-key')) {
           i++;
@@ -118,18 +144,7 @@ window.filterSuccess = {
         if ($(this).data('filter-key') !== responseFilter.data('filter-key')) {
           $(this).css(styles.disable);
         } else {
-          const arr = responseFilter.find('[data-type=filter-val]').map((arrI, item) => item.textContent ? item.textContent : item.value);
-
-          $(this).find('[data-type=filter-val]').each(function() {
-            const filterContainer = $(this).parents('[data-container=filter-item]').length ? $(this).parents('[data-container=filter-item]') : $(this).parents('[data-type=filter]');
-
-            if (Object.values(arr).includes($(this).text() ? $(this).text() : $(this).val())) {
-              filterContainer.css(styles.enable);
-            } else {
-              filterContainer.css(styles.disable);
-            }
-          });
-
+          window.filterCompare[$(this).attr('data-compare')]($(this), responseFilter, styles);
           $(this).css(styles.enable);
 
           i++;
@@ -168,8 +183,12 @@ window.filtersEvent = {
 function filterEvent() {
   document.querySelectorAll('#range-slider').forEach(slider => {
     slider.noUiSlider.on('set', function (values) {
-      const container = $(this.target).parents('[data-filter-key]'),
-        filterKey = container.data('filter-key');
+      const thisObj =  $(this.target),
+        container = thisObj.parents('[data-filter-key]'),
+        filterKey = container.data('filter-key'),
+        entityElem = container.parents('[data-link-container]'),
+        entity = entityElem.data('entity'),
+        linkContainer = entity.data('link-container');
 
       document.querySelectorAll(`[data-filter-key=${filterKey}]`).forEach(item => {
         if (item.getAttribute('data-template-type') === container.attr('data-template-type')) {
@@ -180,6 +199,26 @@ function filterEvent() {
       });
 
       window.filters.filter[filterKey] = values;
+
+      $.ajax({
+        type: 'GET',
+        url: window.location.href,
+        dataType: 'html',
+        data: window.filters,
+        success: function (r) {
+          const content = $(linkContainer),
+            jqResponse = $(r);
+
+          content.empty();
+          content.append(jqResponse.find(linkContainer).children());
+
+          try {
+            window.filterSuccess[entity](thisObj, jqResponse);
+          } catch (e) {
+            console.log(e.message);
+          }
+        },
+      });
     });
   });
 
