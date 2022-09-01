@@ -1,6 +1,6 @@
-import { closeWindow } from './modals-open-close';
-import { finalStage } from './cart-stages';
-import { eventPromoDelete } from './catalog-scripts';
+import {closeWindow} from './modals-open-close';
+import {finalStage} from './cart-stages';
+import {eventPromoDelete} from './catalog-scripts';
 import noUiSlider from 'nouislider';
 
 $(function () {
@@ -26,7 +26,7 @@ $(function () {
 });
 
 function showAllData() {
-  $(document).on('click', '[data-show-all]', function() {
+  $(document).on('click', '[data-show-all]', function () {
     const thisObj = $(this),
       filterKey = thisObj.parents('[data-filter-key]').attr('data-filter-key'),
       allValues = $(`[data-filter-key=${filterKey}]`).filter('[data-filter-all]'),
@@ -62,7 +62,7 @@ function showAllData() {
       input.prop('checked', compareElem.find('input').prop('checked'));
 
       if (compareElem.css('opacity') === 1) {
-         return;
+        return;
       }
 
       elem.css({
@@ -74,7 +74,7 @@ function showAllData() {
 }
 
 function searchEvent() {
-  $(document).on('input', '[data-search]', function() {
+  $(document).on('input', '[data-search]', function () {
     const thisObj = $(this),
       container = thisObj.parents('[data-search-container]'),
       q = thisObj.val();
@@ -93,7 +93,7 @@ window.filterCompare = {
   items: (elem, responseFilter, styles) => {
     const arr = responseFilter.find('[data-type=filter-val]').map((arrI, item) => item.textContent ? item.textContent : item.value);
 
-    elem.find('[data-type=filter-val]').each(function() {
+    elem.find('[data-type=filter-val]').each(function () {
       const filterContainer = $(this).parents('[data-container=filter-item]').length ? $(this).parents('[data-container=filter-item]') : $(this).parents('[data-type=filter]');
 
       if (Object.values(arr).includes($(this).text() ? $(this).text() : $(this).val())) {
@@ -104,14 +104,23 @@ window.filterCompare = {
     });
   },
   range: (elem, responseFilter) => {
-    const valElem = responseFilter.find('#range-slider');
+    const valElem = responseFilter.find('#range-slider'),
+      min = +valElem.attr('data-range-min'),
+      max = +valElem.attr('data-range-max');
 
-    elem[0].querySelector('#range-slider').noUiSlider.updateOptions({
-      range: {
-        'min': +valElem.attr('data-range-min'),
-        'max': +valElem.attr('data-range-max'),
+    elem[0].querySelector('#range-slider').noUiSlider.updateOptions(
+      {
+        range: {
+          min: min,
+          max: max,
+        },
+        start: [
+          min,
+          max
+        ],
       },
-    });
+      false
+    );
   },
 }
 
@@ -133,7 +142,7 @@ window.filterSuccess = {
     containers.each((index, item) => {
       let i = 0;
 
-      $(item).find('[data-container=filter]').each(function() {
+      $(item).find('[data-container=filter]').each(function () {
         if (elem.parents('[data-container=filter]').data('filter-key') === $(this).data('filter-key')) {
           i++;
           return;
@@ -183,12 +192,12 @@ window.filtersEvent = {
 function filterEvent() {
   document.querySelectorAll('#range-slider').forEach(slider => {
     slider.noUiSlider.on('set', function (values) {
-      const thisObj =  $(this.target),
+      const thisObj = $(this.target),
         container = thisObj.parents('[data-filter-key]'),
         filterKey = container.data('filter-key'),
         entityElem = container.parents('[data-link-container]'),
         entity = entityElem.data('entity'),
-        linkContainer = entity.data('link-container');
+        linkContainer = entityElem.data('link-container');
 
       document.querySelectorAll(`[data-filter-key=${filterKey}]`).forEach(item => {
         if (item.getAttribute('data-template-type') === container.attr('data-template-type')) {
@@ -222,7 +231,7 @@ function filterEvent() {
     });
   });
 
-  $(document).on('click', '[data-type=filter]', function() {
+  $(document).on('click', '[data-type=filter]', function () {
     const thisObj = $(this),
       filterKey = thisObj.parents('[data-filter-key]').length ? thisObj.parents('[data-filter-key]').attr('data-filter-key') : thisObj.attr('data-filter-key'),
       filterElem = thisObj.parents('[data-container=filter-item]').length ? thisObj.parents('[data-container=filter-item]') : thisObj,
@@ -450,7 +459,8 @@ function bookingFormPlace() {
     let bookingForm = $(this).parents("#booking-form"),
       timeInput = bookingForm.find('[data-uf=UF_TIME]'),
       dateInput = bookingForm.find('[data-uf=UF_DATE]'),
-      timeTooltipBlock = bookingForm.find('[data-type=tooltip-date-block]');;
+      timeTooltipBlock = bookingForm.find('[data-type=tooltip-date-block]');
+    ;
 
     timeInput.val("");
     dateInput.val("");
