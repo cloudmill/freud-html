@@ -139,9 +139,9 @@ window.filterSuccess = {
         }
       };
 
-    containers.each((index, item) => {
-      let i = 0;
+    let i = 0;
 
+    containers.each((index, item) => {
       $(item).find('[data-container=filter]').each(function () {
         if (elem.parents('[data-container=filter]').data('filter-key') === $(this).data('filter-key')) {
           i++;
