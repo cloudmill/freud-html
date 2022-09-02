@@ -23,6 +23,7 @@ $(function () {
   filterEvent();
   searchEvent();
   showAllData();
+  searchFetchEvent();
 });
 
 function showAllData() {
@@ -68,6 +69,38 @@ function showAllData() {
         'pointer-events': compareElem.css('pointer-events'),
       });
     });
+  });
+}
+
+function searchFetchEvent() {
+  $(document).on('click', '[data-type=search]', function() {
+    const thisObj = $(this),
+      container = thisObj.parents('[data-container=search]'),
+      linkContainer = container.data('link-container'),
+      entity = container.data('entity');
+
+      $.ajax({
+        type: 'GET',
+        url: window.location.href,
+        dataType: 'html',
+        data: {
+          q: container.find('input').val(),
+          ajax: 'filter',
+        },
+        success: function (r) {
+          const content = $(linkContainer),
+            jqResponse = $(r);
+
+          content.empty();
+          content.append(jqResponse.find(linkContainer).children());
+
+          try {
+            window.filterSuccess[entity](thisObj, jqResponse);
+          } catch (e) {
+            console.log(e.message);
+          }
+        },
+      });
   });
 }
 
@@ -278,7 +311,6 @@ function filterEvent() {
     window.filters.filter = {};
 
     filtersClear();
-
     filterFetch(thisObj, linkContainer, entity);
   })
 }
@@ -294,7 +326,11 @@ function filtersClear() {
   filters.each((i, item) => {
     const jq = $(item);
 
-    window.filtersEvent.styles.enable[jq.data('style')](jq);
+    try {
+      window.filtersEvent.styles.disable[jq.data('style')](jq);
+    } catch (e) {
+      console.log(e.message);
+    }
   });
 }
 
