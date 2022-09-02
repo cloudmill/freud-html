@@ -37,8 +37,6 @@ function showAllData() {
       content = container.find('[data-container=content]'),
       template = content.find('template');
 
-    console.log(filterKey, entity);
-
     if (entity !== filterKey) {
       entityElem.attr('data-filter-key', filterKey);
 
@@ -189,6 +187,28 @@ window.filtersEvent = {
   }
 }
 
+function filterFetch(thisObj, linkContainer, entity) {
+  $.ajax({
+    type: 'GET',
+    url: window.location.href,
+    dataType: 'html',
+    data: window.filters,
+    success: function (r) {
+      const content = $(linkContainer),
+        jqResponse = $(r);
+
+      content.empty();
+      content.append(jqResponse.find(linkContainer).children());
+
+      try {
+        window.filterSuccess[entity](thisObj, jqResponse);
+      } catch (e) {
+        console.log(e.message);
+      }
+    },
+  });
+}
+
 function filterEvent() {
   document.querySelectorAll('#range-slider').forEach(slider => {
     slider.noUiSlider.on('set', function (values) {
@@ -209,25 +229,7 @@ function filterEvent() {
 
       window.filters.filter[filterKey] = values;
 
-      $.ajax({
-        type: 'GET',
-        url: window.location.href,
-        dataType: 'html',
-        data: window.filters,
-        success: function (r) {
-          const content = $(linkContainer),
-            jqResponse = $(r);
-
-          content.empty();
-          content.append(jqResponse.find(linkContainer).children());
-
-          try {
-            window.filterSuccess[entity](thisObj, jqResponse);
-          } catch (e) {
-            console.log(e.message);
-          }
-        },
-      });
+      filterFetch(thisObj, linkContainer, entity);
     });
   });
 
@@ -264,25 +266,35 @@ function filterEvent() {
       }
     });
 
-    $.ajax({
-      type: 'GET',
-      url: window.location.href,
-      dataType: 'html',
-      data: window.filters,
-      success: function (r) {
-        const content = $(linkContainer),
-          jqResponse = $(r);
+    filterFetch(thisObj, linkContainer, entity);
+  });
 
-        content.empty();
-        content.append(jqResponse.find(linkContainer).children());
+  $(document).on('click', '[data-type=filter-reset]', function () {
+    const thisObj = $(this),
+      entityElem = thisObj.parents('[data-entity]'),
+      entity = entityElem.data('entity'),
+      linkContainer = entityElem.data('link-container');
 
-        try {
-          window.filterSuccess[entity](thisObj, jqResponse);
-        } catch (e) {
-          console.log(e.message);
-        }
-      },
-    });
+    window.filters.filter = {};
+
+    filtersClear();
+
+    filterFetch(thisObj, linkContainer, entity);
+  })
+}
+
+function filtersClear() {
+  const filterLine = $('[data-container=filter-line]'),
+    filters = $('[data-type=filter-val]');
+
+  filterLine.find('[data-type=filter]').remove();
+  filterLine.find('[data-type=filter-reset]').css({
+    'display': 'none',
+  });
+  filters.each((i, item) => {
+    const jq = $(item);
+
+    window.filtersEvent.styles.enable[jq.data('style')](jq);
   });
 }
 
