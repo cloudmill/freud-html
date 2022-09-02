@@ -269,7 +269,21 @@
       }
     }
     .articles-card__info-col:nth-child(1)::after {
-      top: 30%;
+      top: unset;
+      bottom: getRem(7px);
+
+      @media (min-width: $breakpoint) {
+        height: getRem(15px);
+      }
+      @media (min-width: $breakpoint-l) {
+        bottom: getRem(8px);
+        height: getRem(14px);
+      }
+      @media (min-width: $breakpoint-ll) {
+        height: getRem(13px);
+        bottom: getRem(7px);
+      }
+
     }
   }
   &__ttl {
