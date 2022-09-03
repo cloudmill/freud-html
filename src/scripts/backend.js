@@ -751,8 +751,9 @@ window.basketEventSuccess = {
     }
 
     if (buttonItemList.length) {
+      buttonItemList.parents('[data-type=item]').removeClass('in-cart');
       buttonItemList.attr('data-type', 'basket');
-      buttonItemList.text('В корзину');
+      buttonItemList.text('Добавить в корзину');
     }
   },
   add: (elem, response) => {
