@@ -595,13 +595,13 @@ function pagen() {
       },
       success: function (r) {
         const container = thisObj.parents('[data-container=base]'),
-          pagenResponse = $(r).filter('[data-type=pagen]');
+          pagenResponse = $(r).filter('[data-type=pagen]').length ? $(r).filter('[data-type=pagen]') : $(r).find('[data-type=pagen]');
 
         container.find('[data-container=items]').append($(r).filter('[data-container=items]').children());
         container.find('[data-type=pagen]').remove();
 
         if (pagenResponse.length) {
-          container.find('[data-type=pagen-append]').after(pagenResponse);
+          container.find('[data-type=pagen-append]').append(pagenResponse);
         }
       },
     });
