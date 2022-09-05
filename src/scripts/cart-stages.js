@@ -12,17 +12,10 @@ function cartStages() {
         const contentHeight = String(item.offsetHeight);
         item.style.height = contentHeight + 'px';
 
-        // if (item.closest('.cart-stage.collapsed')) {
-
-        //   // как-будто без сворачивания лучше выглядит
-
-        //   item.classList.add('hide-content');
-
-        // }
       });
     }
 
-    
+
     if (document.querySelector('[data-cart-big-form]')) {
       // в третьем этапе две анкеты разного размера
     // при переключении на большую строгий размер сбрасывается
