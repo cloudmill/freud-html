@@ -439,6 +439,10 @@ function checkInput() {
           errorSpan.addClass("active");
           errorSpan.html(r.txter);
         }
+        if (!r.txter) {
+          errorSpan.removeClass("active");
+          errorSpan.html();
+        }
       },
     });
   });
@@ -534,6 +538,10 @@ function bookingFormTime() {
 
           errorSpan.addClass("active");
           errorSpan.html(r.txter);
+        }
+        if (!r.txter) {
+          errorSpan.removeClass("active");
+          errorSpan.html();
         }
       },
     });
