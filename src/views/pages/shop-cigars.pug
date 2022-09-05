@@ -20,9 +20,12 @@ block content
             h1.category-title.h2 Сигары
             .category-items-count 96 товаров
 
-          .category-search.only-desktop
-            input.category-search__input(type='search' placeholder='Поиск по каталогу')
-            +search-icon
+          form.category-search.only-desktop
+            label.category-search__label
+              input.category-search__input(type='search' placeholder='Поиск по каталогу')
+
+            button.category-search__button(type='submit')
+              +search-icon
 
         .category-top__line.cigars-filters
 

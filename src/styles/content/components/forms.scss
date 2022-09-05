@@ -140,6 +140,7 @@
 .category-search {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   width: calc(#{$col-part-d} * 3 - #{$col-gap});
   padding-bottom: getRem(5px);
   border-bottom: 1px solid var(--color-black-rgba-1);
@@ -149,6 +150,17 @@
     width: calc(100% - 17px);
     color: var(--color-grey);
     @include fsl(14px, 120%);
+  }
+
+  &__label {
+    width: 100%;
+  }
+
+  &__button {
+    border: none;
+    background: none;
+    flex: none;
+    cursor: pointer;
   }
 
   &.mob {
