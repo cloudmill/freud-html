@@ -22,8 +22,9 @@ function cartStages() {
       });
     }
 
-
-    // в третьем этапе две анкеты разного размера
+    
+    if (document.querySelector('[data-cart-big-form]')) {
+      // в третьем этапе две анкеты разного размера
     // при переключении на большую строгий размер сбрасывается
     document.querySelector('[data-cart-big-form]').addEventListener('click', e => {
       e.target.closest('.cart-receiving').classList.add('height-auto')
@@ -31,6 +32,8 @@ function cartStages() {
     document.querySelector('[data-cart-small-form]').addEventListener('click', e => {
       e.target.closest('.cart-receiving').classList.remove('height-auto')
     });
+    }
+    
 
     // обработка кнопок перехода к следующему этапу
     // если кнопка в форме - проверяет наличие ошибок

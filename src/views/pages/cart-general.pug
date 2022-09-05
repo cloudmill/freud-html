@@ -217,12 +217,12 @@ block content
                       .cart-receiving-options__ttl Самовывоз из магазина
                       .cart-receiving-options__txt Бесплатно, сегодня
 
-                  .cart-receiving-options__item(data-tabs-item data-cart-big-form='')
-                    +delivery-ico.cart-receiving-options__svg
+                  //- .cart-receiving-options__item(data-tabs-item data-cart-big-form='')
+                  //-   +delivery-ico.cart-receiving-options__svg
 
-                    .cart-receiving-options__col
-                      .cart-receiving-options__ttl Доставка курьером
-                      .cart-receiving-options__txt Дату и стоимость доставки уточнит менеджер
+                  //-   .cart-receiving-options__col
+                  //-     .cart-receiving-options__ttl Доставка курьером
+                  //-     .cart-receiving-options__txt Дату и стоимость доставки уточнит менеджер
 
                 .cart-receiving-types(data-tabs-content)
 
@@ -257,44 +257,44 @@ block content
                     +brown-button.cart-pickup__btn(data-cart-final='')
                       |Оформить заказ
                   
-                  .cart-receiving-types__item(data-content-item)
-                    .cart-receiving-form__ttl Укажите адрес доставки
-                    .cart-receiving-form__note 
-                      sup *
-                      |— поля обязательные для заполнения
+                  //- .cart-receiving-types__item(data-content-item)
+                  //-   .cart-receiving-form__ttl Укажите адрес доставки
+                  //-   .cart-receiving-form__note 
+                  //-     sup *
+                  //-     |— поля обязательные для заполнения
 
-                    form.cart-receiving-form__form(novalidate)
-                      label.form__label
-                        .form__field-name Адрес
-                          sup *
-                        input.form__input(type='text' data-input-title='address' placeholder='Введите город, улицу, дом, корпус' data-dostavka-address='' required)
+                  //-   form.cart-receiving-form__form(novalidate)
+                  //-     label.form__label
+                  //-       .form__field-name Адрес
+                  //-         sup *
+                  //-       input.form__input(type='text' data-input-title='address' placeholder='Введите город, улицу, дом, корпус' data-dostavka-address='' required)
 
-                      .cart-receiving-form__row
-                        label.form__label
-                          .form__field-name Номер квартиры/офиса
-                          input.form__input(type='number' placeholder='Введите номер' data-dostavka-address2='')
+                  //-     .cart-receiving-form__row
+                  //-       label.form__label
+                  //-         .form__field-name Номер квартиры/офиса
+                  //-         input.form__input(type='number' placeholder='Введите номер' data-dostavka-address2='')
 
-                        .checkbox
-                          label.checkbox__label
-                            input.checkbox__input(type="checkbox" data-input-novalidate)
-                            .checkbox__box
-                              +checkbox-white-svg.checkbox__svg
+                  //-       .checkbox
+                  //-         label.checkbox__label
+                  //-           input.checkbox__input(type="checkbox" data-input-novalidate)
+                  //-           .checkbox__box
+                  //-             +checkbox-white-svg.checkbox__svg
 
-                          .checkbox__caption
-                            |Частный дом
+                  //-         .checkbox__caption
+                  //-           |Частный дом
 
-                      label.form__label
-                        .form__field-name Комментарии к заказу
-                        textarea.form__textarea(placeholder='Введите текст')
+                  //-     label.form__label
+                  //-       .form__field-name Комментарии к заказу
+                  //-       textarea.form__textarea(placeholder='Введите текст')
                       
-                      .cart-receiving-form__txt.only-desktop Доставка разрешена не для всех товаров из нашего каталога. #[br] Менеджер перезвонит вам в ближайшее время и проконсультирует вас
+                  //-     .cart-receiving-form__txt.only-desktop Доставка разрешена не для всех товаров из нашего каталога. #[br] Менеджер перезвонит вам в ближайшее время и проконсультирует вас
 
-                      .cart-receiving-form__txt.only-mobile Доставка разрешена не для всех товаров из нашего каталога. Менеджер перезвонит вам в ближайшее время и проконсультирует вас
+                  //-     .cart-receiving-form__txt.only-mobile Доставка разрешена не для всех товаров из нашего каталога. Менеджер перезвонит вам в ближайшее время и проконсультирует вас
 
-                      +brown-button.cart-receiving-form__btn(type='submit' data-cart-final='')
-                        |Оформить заказ
+                  //-     +brown-button.cart-receiving-form__btn(type='submit' data-cart-final='')
+                  //-       |Оформить заказ
 
-                      a.cart-receiving-form__link(href="https://minzdrav.gov.ru/documents/5736-federalnyy-zakon-15-fz-ot-23-fevralya-2013-g" target="_blank") Федеральный закон №15-ФЗ от 23 февраля 2013 года 
+                  //-     a.cart-receiving-form__link(href="https://minzdrav.gov.ru/documents/5736-federalnyy-zakon-15-fz-ot-23-fevralya-2013-g" target="_blank") Федеральный закон №15-ФЗ от 23 февраля 2013 года 
 
           .cart-section__col.only-desktop
 
