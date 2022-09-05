@@ -197,7 +197,7 @@
 
     transition: $transition;
 
-    &:hover, &:focus {
+    &:not(.disabled):hover, &:not(.disabled):focus {
       border: 1px solid var(--color-black);
     }
   }
@@ -282,7 +282,7 @@
       }
     }
 
-    &:hover, &:focus {
+    &:not(.disabled):hover, &:not(.disabled):focus {
       border: 1px solid var(--color-black);
 
       .calendar-svg path {

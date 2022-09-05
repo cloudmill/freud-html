@@ -18,7 +18,7 @@
       label.form__label
         .form__field-name Имя
           sup *
-        input.form__input(type='text' placeholder='Введите ваше имя' data-focus-input required)
+        input.form__input(type='text' placeholder='Введите ваше имя' required)
 
       label.form__label
         .form__field-name Телефон
@@ -46,8 +46,8 @@
         label.form__label
           .form__field-name Дата
             sup *
-          .booking-popup-form__datepicker
-            input(type='text' placeholder='__/__/____' readonly data-readonly data-datepicker required)
+          .booking-popup-form__datepicker.disabled
+            input(type='text' placeholder='__/__/____' readonly data-readonly data-datepicker required disabled)
             +calendar
 
         label.form__label
@@ -58,7 +58,7 @@
               +tooltipIco
               .tooltip__txt Пн-Чт, 12:00 – 00:00 #[br] Пн-Сб, 12:00 – 01:00 #[br] Вс, 13:00 – 23:00
 
-          input.form__input(type='text' data-time-input='' data-place='' data-weekday='' data-mask='##:##' required)
+          input.form__input.disabled(type='text' data-time-input='' data-place='' data-weekday='' data-mask='##:##' required disabled)
 
       label.form__label
         .form__field-name Количество гостей

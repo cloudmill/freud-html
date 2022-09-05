@@ -41,7 +41,7 @@ function formValidation() {
           // если нет - обнуляет поле ошибки
 
           item.addEventListener('focusout', (event) => {
-      
+
             if (item.validity.valid || item.hasAttribute('data-readonly') && !item.value.length) {
               // console.log('ok');
       
@@ -53,6 +53,7 @@ function formValidation() {
     
               showError();
             }
+          
           });
         }
 
