@@ -20,9 +20,7 @@ block content
             h1.category-title.h2 Результаты поиска
             .category-items-count 4 товара
 
-          .category-search
-            input.category-search__input(type='search' placeholder='Поиск по каталогу')
-            +search-icon
+          include ../components/category-search
 
       .cart-empty-block(data-aos='fade-up')
         .cart-empty-block__ttl(data-aos='fade-up') По запросу «
