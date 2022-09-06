@@ -1,6 +1,6 @@
-import { closeWindow } from './modals-open-close';
-import { finalStage } from './cart-stages';
-import { eventPromoDelete, addToCartSuccess } from './catalog-scripts';
+import {closeWindow} from './modals-open-close';
+import {finalStage} from './cart-stages';
+import {eventPromoDelete, addToCartSuccess} from './catalog-scripts';
 import noUiSlider from 'nouislider';
 
 $(function () {
@@ -25,7 +25,33 @@ $(function () {
   showAllData();
   searchFetchEvent();
   formsEvent();
+  orderEvent();
 });
+
+function orderEvent() {
+  $(document).on('change', '[data-type=sort]', function () {
+    const thisObj = $(this),
+      linkContainer = thisObj.parents('[data-link-container]').data('link-container'),
+      container = $(linkContainer);
+
+    $.ajax({
+      type: 'GET',
+      url: window.location.href,
+      dataType: 'html',
+      data: {
+        ajax: 'sort',
+        sort: {
+          field: thisObj.data('field'),
+          by: thisObj.data('by'),
+        },
+      },
+      success: function (r) {
+        container.empty();
+        container.append($(r));
+      },
+    });
+  });
+}
 
 window.formSuccess = {
   consultation: form => {
