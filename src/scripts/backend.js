@@ -1,6 +1,6 @@
-import {closeWindow} from './modals-open-close';
-import {finalStage} from './cart-stages';
-import {eventPromoDelete, addToCartSuccess} from './catalog-scripts';
+import { closeWindow } from './modals-open-close';
+import { finalStage } from './cart-stages';
+import { eventPromoDelete, addToCartSuccess } from './catalog-scripts';
 import noUiSlider from 'nouislider';
 
 $(function () {
@@ -34,7 +34,7 @@ window.formSuccess = {
 }
 
 function formsEvent() {
-  $(document).on('submit', '[data-type=form]', function() {
+  $(document).on('submit', '[data-type=form]', function () {
     const thisObj = $(this),
       data = {};
 
@@ -111,34 +111,34 @@ function showAllData() {
 }
 
 function searchFetchEvent() {
-  $(document).on('click', '[data-type=search]', function() {
+  $(document).on('click', '[data-type=search]', function () {
     const thisObj = $(this),
       container = thisObj.parents('[data-container=search]'),
       linkContainer = container.data('link-container'),
       entity = container.data('entity');
 
-      $.ajax({
-        type: 'GET',
-        url: window.location.href,
-        dataType: 'html',
-        data: {
-          q: container.find('input').val(),
-          ajax: 'filter',
-        },
-        success: function (r) {
-          const content = $(linkContainer),
-            jqResponse = $(r);
+    $.ajax({
+      type: 'GET',
+      url: window.location.href,
+      dataType: 'html',
+      data: {
+        q: container.find('input').val(),
+        ajax: 'filter',
+      },
+      success: function (r) {
+        const content = $(linkContainer),
+          jqResponse = $(r);
 
-          content.empty();
-          content.append(jqResponse.find(linkContainer).children());
+        content.empty();
+        content.append(jqResponse.find(linkContainer).children());
 
-          try {
-            window.filterSuccess[entity](thisObj, jqResponse);
-          } catch (e) {
-            console.log(e.message);
-          }
-        },
-      });
+        try {
+          window.filterSuccess[entity](thisObj, jqResponse);
+        } catch (e) {
+          console.log(e.message);
+        }
+      },
+    });
   });
 }
 
@@ -890,12 +890,15 @@ function favorAdd() {
 
     $.ajax({
       type: "POST",
+      dataType: "json",
       url: url,
       data: data,
       success: function (r) {
+        console.log(r);
         console.log(r.count);
         $(document).find("[data-type=count-favor-header]").empty();
-        $(document).find("[data-type=count-favor-header]").html(r.count);
+        $(document).find("[data-type=count-favor-header]").text(r.count);
+
         $.ajax({
           type: 'POST',
           url: window.location.pathname,
