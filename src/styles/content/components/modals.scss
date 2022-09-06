@@ -161,6 +161,20 @@
   flex-direction: column;
   justify-content: space-between;
 
+  &.active {
+    @media (max-width: ($breakpoint - 1px)) {
+      padding-bottom: getRem(150px);
+      .review-popup__bottom {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: white;
+        z-index: 50;
+      }
+    }
+  }
+
   &__top {
     padding: getRem(14px) $col-pad-m;
     border-bottom: 1px solid var(--color-black-rgba-1);
@@ -173,8 +187,6 @@
     @media (min-width: $breakpoint) {
       padding: getRem(20px) getRem(30px) getRem(20px) getRem(50px);
     }
-  }
-  &__ttl {
   }
   &__body {
     height: 100%;

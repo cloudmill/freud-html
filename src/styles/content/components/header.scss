@@ -229,8 +229,11 @@
     display: flex;
     align-items: center;
 
-    &-item:not(:first-child) {
-      margin-left: getRem(20px);
+    &-item {
+      display: flex;
+      &:not(:first-child) {
+        margin-left: getRem(20px);
+      }
     }
   }
 }
