@@ -470,6 +470,7 @@ function bookingFormStart() {
       inputPlace.val(placeholderNew);
 
       bookingForm.find('[data-booking=date]').removeAttr("disabled");
+      bookingForm.find("[data-type=par-date-div]").removeClass("disabled");
     }
   }
 };
@@ -499,6 +500,7 @@ function bookingFormDate() {
               timeTooltipBlock = bookingForm.find('[data-type=tooltip-date-block]');
 
             timeInput.removeAttr("disabled");
+            timeInput.removeClass("disabled");
             timeTooltipBlock.removeAttr("style");
 
             timeTooltip.empty();
@@ -553,6 +555,7 @@ function bookingFormPlace() {
     let bookingForm = $(this).parents("#booking-form"),
       timeInput = bookingForm.find('[data-uf=UF_TIME]'),
       dateInput = bookingForm.find('[data-uf=UF_DATE]'),
+      dateInputBlock = bookingForm.find("[data-type=par-date-div]"),
       timeTooltipBlock = bookingForm.find('[data-type=tooltip-date-block]');
     ;
 
@@ -563,6 +566,7 @@ function bookingFormPlace() {
     timeTooltipBlock.attr("style", "display:none;");
 
     dateInput.removeAttr("disabled");
+    dateInputBlock.removeClass("disabled");
   });
 }
 
