@@ -785,10 +785,10 @@ window.basketEventSuccess = {
       item.removeAttr('data-type');
       item.find('button').text('В корзине');
 
-      $('[data-replace]').each((i, field) => {
+      $('[data-field-replace]').each((i, field) => {
         const jq = $(field);
 
-        jq.text(item.find(`[data-field=${jq.data('replace')}]`).text());
+        jq.text(item.find(`[data-field=${jq.data('field-replace')}]`).text());
       });
 
       $('[data-replace-img]').each((i, field) => {
