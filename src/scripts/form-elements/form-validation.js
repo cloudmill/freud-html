@@ -12,9 +12,9 @@ function formValidation() {
 
         let error;
 
-        if (!item.hasAttribute('data-input-novalidate')) {
+        if (!item.hasAttribute('data-input-novalidate') || !(item.getAttribute('type') == 'hidden')) {
 
-          // добавляет элемент блок для текста ошибки в зависимости от верстки
+          // добавляет элемент для текста ошибки в зависимости от верстки
 
           if (item.getAttribute('type') == 'checkbox') {
 
@@ -43,7 +43,7 @@ function formValidation() {
           item.addEventListener('focusout', (event) => {
 
             if (item.validity.valid || item.hasAttribute('data-readonly') && !item.value.length) {
-              // console.log('ok');
+              console.log('ok');
       
               error.textContent = '';
               error.className = 'form-error';
