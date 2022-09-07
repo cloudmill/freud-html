@@ -825,9 +825,11 @@ window.basketEventSuccess = {
       elem.removeAttr('data-type');
 
       $('[data-field-replace]').each((i, field) => {
-        const jq = $(field);
+        const jq = $(field),
+          textElem = item.find(`[data-field=${jq.data('field-replace')}]`),
+          text = textElem.val() ? textElem.val() : textElem.text();
 
-        jq.text(item.find(`[data-field=${jq.data('field-replace')}]`).text());
+        jq.html(text);
       });
 
       $('[data-replace-img]').each((i, field) => {
