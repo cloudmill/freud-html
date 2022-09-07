@@ -121,10 +121,10 @@ mixin catalog-card
           +addedToCart.added-to-cart.only-desktop
     
     .catalog-card__btn-container
-      +brown-button.catalog-card__btn.only-desktop(tabindex="-1")
+      +brown-button.catalog-card__btn.only-desktop(tabindex="-1" data-card-btn)
         |Добавить в корзину
 
-      +brown-button.catalog-card__btn.only-mobile(tabindex="-1")
+      +brown-button.catalog-card__btn.only-mobile(tabindex="-1" data-card-btn)
         |В корзину
 
 mixin catalog-card-small

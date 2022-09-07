@@ -9,17 +9,17 @@ function addToFav(eventClick) {
 }
 
 function addToCart(eventClick) {
-  if (eventClick.target.closest('.catalog-card__btn') && !eventClick.target.closest('.catalog-card--small')) {
+  if (eventClick.target.closest('[data-card-btn]') && !eventClick.target.closest('.catalog-card--small')) {
     if (eventClick.target.closest('.catalog-card.in-cart')) {
       eventClick.target.closest('.catalog-card').classList.remove('in-cart');
       if (mediaQuery.matches) {
-        eventClick.target.closest('.catalog-card__btn').innerHTML = 'Добавить в корзину'
+        eventClick.target.closest('[data-card-btn]').innerHTML = 'Добавить в корзину'
       } else {
-        eventClick.target.closest('.catalog-card__btn').innerHTML = 'В корзину'
+        eventClick.target.closest('[data-card-btn]').innerHTML = 'В корзину'
       }
     } else {
       eventClick.target.closest('.catalog-card').classList.add('in-cart');
-      eventClick.target.closest('.catalog-card__btn').innerHTML = 'В корзине';
+      eventClick.target.closest('[data-card-btn]').innerHTML = 'В корзине';
 
       addToCartSuccess();
     }
