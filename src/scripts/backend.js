@@ -25,10 +25,10 @@ $(function () {
   showAllData();
   searchFetchEvent();
   formsEvent();
-  orderEvent();
+  sortEvent();
 });
 
-function orderEvent() {
+function sortEvent() {
   $(document).on('change', '[data-type=sort]', function () {
     const thisObj = $(this),
       linkContainer = thisObj.parents('[data-link-container]').data('link-container'),
@@ -812,8 +812,8 @@ window.basketEventSuccess = {
         basketCount = $('[data-type=basket-count]');
 
       item.addClass('in-cart');
-      item.removeAttr('data-type');
       item.find('button').text('В корзине');
+      elem.removeAttr('data-type');
 
       $('[data-field-replace]').each((i, field) => {
         const jq = $(field);
