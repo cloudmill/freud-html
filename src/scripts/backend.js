@@ -1,6 +1,6 @@
-import {closeWindow} from './modals-open-close';
-import {finalStage} from './cart-stages';
-import {eventPromoDelete, addToCartSuccess} from './catalog-scripts';
+import { closeWindow } from './modals-open-close';
+import { finalStage } from './cart-stages';
+import { eventPromoDelete, addToCartSuccess } from './catalog-scripts';
 import noUiSlider from 'nouislider';
 
 $(function () {
@@ -455,8 +455,9 @@ function filterLineInit() {
 function checkInput() {
   let checkInput = $(document).find("[data-input=check]");
   checkInput.on('change', function () {
-    let inputVal = $(this).val(),
-      form = $(this).parents("[data-type=js-form]"),
+    let input = $(this),
+      inputVal = input.val(),
+      form = input.parents("[data-type=js-form]"),
       url = form.attr("data-url"),
       errorSpan = checkInput.siblings(".form-error"),
       data = {};
@@ -471,6 +472,7 @@ function checkInput() {
       data: data,
       success: function (r) {
         if (r.txter) {
+          input.val('');
           errorSpan.addClass("active");
           errorSpan.html(r.txter);
         }
