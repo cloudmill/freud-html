@@ -25,10 +25,10 @@ $(function () {
   showAllData();
   searchFetchEvent();
   formsEvent();
-  orderEvent();
+  sortEvent();
 });
 
-function orderEvent() {
+function sortEvent() {
   $(document).on('change', '[data-type=sort]', function () {
     const thisObj = $(this),
       linkContainer = thisObj.parents('[data-link-container]').data('link-container'),
