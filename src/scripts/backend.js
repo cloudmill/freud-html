@@ -812,7 +812,7 @@ window.basketEventSuccess = {
         basketCount = $('[data-type=basket-count]');
 
       item.addClass('in-cart');
-      item.find('button').text('В корзине');
+      item.find('[data-type=basket]').text('В корзине');
       elem.removeAttr('data-type');
 
       $('[data-field-replace]').each((i, field) => {
