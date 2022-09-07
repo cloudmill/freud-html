@@ -47,13 +47,13 @@ function formValidation() {
               item.addEventListener('focusout', (event) => {
 
                 if (item.validity.valid || item.hasAttribute('data-readonly') && !item.value.length) {
-                  console.log('focusout ok');
+                  // console.log('focusout ok');
           
                   error.textContent = '';
                   error.className = 'form-error';
           
                 } else {
-                  console.log('focusout error');
+                  // console.log('focusout error');
         
                   showError();
                 }
@@ -76,17 +76,16 @@ function formValidation() {
     
                   showError(item, !item.validity.valid);
     
-                  console.log();
-                  console.log('submit error');
+                  // console.log('submit error');
     
                 } else {
 
-                  console.log(item);
+                  // console.log(item);
     
                   error.className = 'form-error';
                   error.textContent = '';
                   
-                  console.log('submit success');
+                  // console.log('submit success');
                   
                 }
                 
@@ -96,9 +95,11 @@ function formValidation() {
 
                 if (!item.closest('form').querySelector('.form-error.active')) {
 
-                  item.value = '';
+                  if (!item.closest('[data-cart-form]')) {
+                    item.value = '';
+                  }
 
-                  console.log('finally success');
+                  // console.log('finally success');
 
                   if (item.closest('.subscription-form')) {
                     
