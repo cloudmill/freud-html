@@ -72,7 +72,11 @@
     transition: $transition;
   }
 
-  &:hover {
+  &.swiper-button-disabled {
+    opacity: .5;
+  }
+
+  &:not(.swiper-button-disabled):hover {
     border-color: var(--color-black);
 
     svg path {

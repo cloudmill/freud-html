@@ -157,6 +157,10 @@
       position: relative;
       background: var(--color-white);
 
+      @media (min-width: $breakpoint) {
+        flex-wrap: wrap;
+      }
+
       @media (max-width: ($breakpoint - 1px)) {
         padding: getRem(20px) $col-pad-m;
         margin: 0 -$col-pad-m;

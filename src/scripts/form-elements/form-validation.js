@@ -96,6 +96,8 @@ function formValidation() {
 
                 if (!item.closest('form').querySelector('.form-error.active')) {
 
+                  item.value = '';
+
                   console.log('finally success');
 
                   if (item.closest('.subscription-form')) {

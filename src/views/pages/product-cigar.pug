@@ -76,7 +76,7 @@ block content
             .product-top-table__row
               dt.product-top-table__name Производитель
               .product-top-table__line
-              dd.product-top-table__value.brand(data-popup-button='9') Gurkha
+              dd.product-top-table__value.brand Gurkha
 
             .product-top-table__row
               dt.product-top-table__name Страна
@@ -119,7 +119,7 @@ block content
               .product-top-table__line
               dd.product-top-table__value 20 мм
 
-          button.button--clean.product-more-btn Все характеристики
+          button.button--clean.product-more-btn(data-anchor-btn='1') Все характеристики
 
           .product-top-price.catalog-card__price
             div
@@ -151,13 +151,13 @@ block content
 
       .product-body
 
-        article.product-body__block(data-aos='fade-up')
+        article.product-body__block(data-aos='fade-up' data-anchor-target='1')
 
           h2.h4.title-font.product-body__ttl Описание
 
-          .product-body__txt Davidoff Oro Blanco выпущены в формате Toro (6” с диаметром RG 54) и представляют собой доминиканские пурос из винтажного табака 2002 года, каждый лист которого был отобран лично Эладио Диасом, мастером-блендером компании «Davidoff». После отбора табак вновь выдерживался, скручивался в сигары и выдерживался вновь уже в готовом виде до тех пор, пока конечный продукт не достиг того уровня, которого от него ожидал Диас... После отбора табак вновь выдерживался, скручивался в сигарыи выдерживался вновь уже в готовом виде до тех пор, пока конечный продукт не достиг того уровня ...
+          .product-body__txt Davidoff Oro Blanco выпущены в формате Toro (6” с диаметром RG 54) и представляют собой доминиканские пурос из винтажного табака 2002 года, каждый лист которого был отобран лично Эладио Диасом, мастером-блендером компании «Davidoff». После отбора табак вновь выдерживался, скручивался в сигары и выдерживался вновь уже в готовом виде до тех пор, пока конечный продукт не достиг того уровня, которого от него ожидал Диас... После отбора табак вновь выдерживался, скручивался в сигарыи выдерживался вновь уже в готовом виде до тех пор, пока конечный продукт не достиг того уровня.
 
-          button.button--clean.product-more-btn Показать полностью
+          //- button.button--clean.product-more-btn Показать полностью
 
         
         .product-body__block(data-aos='fade-up')
@@ -305,7 +305,7 @@ block content
 
 block modals
   include ../components/popups/in-cart-popup
-  include ../components/popups/brand-popup
+  //- include ../components/popups/brand-popup
   include ../components/popups/pickup-popup
   include ../components/popups/delivery-popup
   include ../components/popups/consult-success-popup

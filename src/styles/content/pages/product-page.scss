@@ -333,12 +333,12 @@
 
     &.brand {
       color: var(--color-brown);
-      cursor: pointer;
-      transition: $transition;
+      // cursor: pointer;
+      // transition: $transition;
 
-      &:hover {
-        color: var(--color-black);
-      }
+      // &:hover {
+      //   color: var(--color-black);
+      // }
     }
   }
 }
@@ -350,7 +350,7 @@
 }
 
 .product-more-btn {
-  display: block;
+  display: inline-block;
   @include fsl(16px, 130%);
   font-weight: 600;
   color: var(--color-brown);

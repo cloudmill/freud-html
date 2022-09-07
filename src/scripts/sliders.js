@@ -52,7 +52,6 @@ function swipers() {
 
     slidesPerView: 'auto',
     spaceBetween: 15,
-    // loop: true,
 
     breakpoints: {
       [1280]: {
