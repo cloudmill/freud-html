@@ -9,10 +9,11 @@ section.section.section--black.subscription-section
 
     form.subscription-form(novalidate data-aos='fade-up')
 
+      input(type="hidden", data-type="get-field", data-uf="UF_MAIL_EVENT_TYPE", value="SUB")
+
       .subscription-form__row
         input.subscription-form__input(type="email" id="email" placeholder="Ваш e-mail" data-input-mail required)
-        +brown-button.subscription-form__button.button--on-black
-          |Подписаться
+        +brown-button-submit.subscription-form__button.button--on-black
       
       .checkbox.subscription-form__checkbox
         label.checkbox__label
