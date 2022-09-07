@@ -223,6 +223,7 @@ window.filterSuccess = {
   shop: (elem, response) => {
     const containers = $('[data-container=filters]'),
       responseContainers = response.find('[data-container=filters]'),
+      replaceElems = $('[data-type=replace-elem]'),
       styles = {
         enable: {
           'opacity': 1,
@@ -233,6 +234,14 @@ window.filterSuccess = {
           'pointer-events': 'none',
         }
       };
+
+    replaceElems.each((i, item) => {
+      const jq = $(item),
+        field = jq.data('field'),
+        replace = response.find(`[data-type=replace-elem][data-field=${field}]`).text();
+
+      jq.text(replace);
+    });
 
     let i = 0;
 
