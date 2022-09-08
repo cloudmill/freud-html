@@ -333,6 +333,7 @@
 
   transition: $transition;
   svg {
+    flex: none;
     transition: $transition;
     path {
       transition: $transition;

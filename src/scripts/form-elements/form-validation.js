@@ -95,10 +95,6 @@ function formValidation() {
 
                 if (!item.closest('form').querySelector('.form-error.active')) {
 
-                  if (!item.closest('[data-cart-form]')) {
-                    item.value = '';
-                  }
-
                   // console.log('finally success');
 
                   if (item.closest('.subscription-form')) {
@@ -121,6 +117,12 @@ function formValidation() {
     
                     document.querySelector('[data-popup="16"]').classList.add('active');
     
+                  }
+
+                  if (!item.closest('[data-cart-form]')) {
+                    setTimeout(() => {
+                      item.value = '';
+                    }, 500);
                   }
                   
                 }

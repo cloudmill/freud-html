@@ -376,7 +376,12 @@
         margin-right: getRem(15px);
       }
     }
-
+    #{$comp}__top {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: getRem(140px);
+    }
     #{$comp}__bottom {
       padding: 0;
     }

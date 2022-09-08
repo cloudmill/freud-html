@@ -67,10 +67,15 @@ document.addEventListener('DOMContentLoaded', (e) => {
 
   promocodeStates();
 
+  document.addEventListener('mousedown', event => {
+
+    popups(event, 'data-popup-button', 'data-popup');
+
+  })
+
 
   document.addEventListener('click', eventClick => {
 
-    popups(eventClick, 'data-popup-button', 'data-popup');
     dropdownsBlock(eventClick, 'data-filter-btn', 'data-filter-drop');
     addToFav(eventClick);
     addToCart(eventClick);
