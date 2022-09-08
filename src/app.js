@@ -188,7 +188,13 @@ function categoryFilters() {
         const drop = document.querySelector(`[data-filter-drop='${btnNum}']`);
   
         const left = item.getBoundingClientRect().left - pad - 10;
-        drop.style.left = `${left}px`;
+
+        if (left > 0) {
+          drop.style.left = `${left}px`;
+        } else {
+          drop.style.left = `0px`;
+        }
+        
 
         const right = document.documentElement.clientWidth - drop.getBoundingClientRect().right;
 
