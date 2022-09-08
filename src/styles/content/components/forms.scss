@@ -368,6 +368,7 @@
         border: none;
         @include fsl(16px, 160%);
         color: var(--color-grey);
+        cursor: pointer;
       }
 
       svg {

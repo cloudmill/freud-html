@@ -66,6 +66,10 @@
     height: auto;
     background: var(--background-grey-extra-2);
 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     @media (max-width: ($breakpoint - 1px)) {
       width: getRem(80px);
       margin-right: getRem(2px);
@@ -74,6 +78,12 @@
     }
     @media (min-width: $breakpoint) {
       margin-bottom: getRem(10px);
+      height: calc(#{$col-part-d} - #{getRem(20px)});
+    }
+
+    picture {
+      max-width: 100%;
+      max-height: 100%;
     }
   }
 
@@ -119,6 +129,17 @@
     height: getRem(670px);
 
     // cursor: url(assets/images/zoom-cursor.png), default;
+  }
+
+  &__wine {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    & > picture, & > img {
+      max-width: 100%;
+      max-height: 100%;
+    }
   }
 
   &__cigar {
@@ -193,13 +214,13 @@
         bottom: getRem(8px);
 
         @media (max-width: ($breakpoint - 1px)) {
-          left: -110%;
+          right: getRem(37px);
         }
 
         @media (min-width: $breakpoint) {
           @include fsl(14px);
           bottom: 0;
-          right: -50%;
+          left: getRem(63px);
         }
       }
     }
@@ -328,18 +349,7 @@
     }
 
     flex-shrink: 0;
-
     display: flex;
-
-    &.brand {
-      color: var(--color-brown);
-      // cursor: pointer;
-      // transition: $transition;
-
-      // &:hover {
-      //   color: var(--color-black);
-      // }
-    }
   }
 }
 

@@ -37,7 +37,7 @@ block content
             .swiper-container#product-slider
               .swiper-wrapper
                 - for (c=0;c<5;c++)
-                  .swiper-slide
+                  .swiper-slide.product-top-img__wine
                     +picture(file='product-2')
 
             .product-top-labels.only-mobile
@@ -62,7 +62,7 @@ block content
             .product-top-table__row
               dt.product-top-table__name Производитель
               .product-top-table__line
-              dd.product-top-table__value.brand Ornellaia
+              dd.product-top-table__value Ornellaia
 
             .product-top-table__row
               dt.product-top-table__name Цвет
@@ -168,7 +168,7 @@ block content
               .product-top-table__row
                 dt.product-top-table__name Производитель
                 .product-top-table__line
-                dd.product-top-table__value.brand Ornellaia
+                dd.product-top-table__value Ornellaia
 
               .product-top-table__row
                 dt.product-top-table__name Цвет
