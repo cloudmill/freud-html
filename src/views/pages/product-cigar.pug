@@ -58,7 +58,7 @@ block content
               .catalog-card__labels-item.label-black NEW
               .catalog-card__labels-item.label-brown limited
 
-        .product-top-info(data-aos='fade-up')
+        .product-top-info(data-aos='fade-up' data-card-btn-parent)
 
           .product-top-labels.only-desktop
             .catalog-card__labels-item.label-black NEW
@@ -127,7 +127,7 @@ block content
               span.old 13 820 ₽
 
           .product-top-buttons
-            +brown-button.product-button-cart(data-popup-button='5')
+            +brown-button.product-button-cart(data-card-btn)
               |Добавить в корзину
 
             button.button--clean.product-button-fav

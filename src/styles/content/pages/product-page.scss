@@ -411,10 +411,15 @@
 
 .product-button-cart {
   width: calc(100% - #{getRem(55px)});
+  transition: $transition;
 
   @media (min-width: $breakpoint) {
     width: calc(#{$col-part-d} * 3);
   }
+}
+
+.in-cart .product-button-cart {
+  background: var(--color-black);
 }
 
 .product-button-fav {

@@ -213,7 +213,7 @@
   }
   &__brand {
     @include fsl(14px, 130%);
-    color: var(--color-brown);
+    // color: var(--color-brown);
 
     @media (min-width: $breakpoint) {
       @include fsl(16px, 130%);
@@ -381,6 +381,11 @@
       align-items: center;
       justify-content: center;
       height: getRem(140px);
+
+      & > picture, & > img {
+        max-width: 100%;
+        max-height: 100%;
+      }
     }
     #{$comp}__bottom {
       padding: 0;
