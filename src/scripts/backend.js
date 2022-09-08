@@ -862,11 +862,13 @@ window.basketEventSuccess = {
   update: elem => {
     const thisElems = $(`[data-item-id=${elem.attr('data-id')}]`),
       price = +thisElems[0].querySelector('[data-type=price]').textContent,
+      calcPrice = thisElems.find('[data-type=calc-price]'),
       totalElem = $('[data-type=basket-price-total]'),
       fullPriceElem = $('[data-type=basket-full-price]');
 
     thisElems.find('[data-type=count]').text(elem.parent().find('[data-type=count-stepper]').text());
     totalElem.text(elem.data('additional').operator === '+' ? +totalElem[0].textContent + price : +totalElem[0].textContent - price);
+    calcPrice.text(elem.data('additional').operator === '+' ? +calcPrice[0].textContent + price : +calcPrice[0].textContent - price);
 
     if (fullPriceElem.length) {
       const fullPrice = thisElems[0].querySelector('[data-type=full-price]') ? +thisElems[0].querySelector('[data-type=full-price]').textContent : null;
