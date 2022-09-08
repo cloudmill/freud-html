@@ -1,0 +1,156 @@
+.category-top__line.filter-drops
+  .filter-drops-btns
+    button.category-filter-drop.button--clean(data-popup-button="3")
+      svg(width="20", height="17", viewBox="0 0 20 17", fill="none", xmlns="http://www.w3.org/2000/svg")
+        path(d="M0 2.40002H2.5M20 2.40002H6.5", stroke="#1B1B1B", stroke-width="1.3")
+        path(d="M0 8.40002H13.5M20 8.40002H17.5", stroke="#1B1B1B", stroke-width="1.3")
+        path(d="M0 14.4H6.5M20 14.4H10.5", stroke="#1B1B1B", stroke-width="1.3")
+        circle(cx="4.5", cy="2.5", r="1.9", stroke="#1B1B1B", stroke-width="1.2")
+        circle(cx="15.5", cy="8.5", r="1.9", stroke="#1B1B1B", stroke-width="1.2")
+        circle(cx="8.5", cy="14.5", r="1.9", stroke="#1B1B1B", stroke-width="1.2")
+      span все фильтры
+    button.category-filter-drop.button--clean.only-desktop(data-filter-btn="0")
+      span Объем
+      svg(width="10", height="7", viewBox="0 0 10 7", fill="none", xmlns="http://www.w3.org/2000/svg")
+        path(d="M1 1.5L5 5.5L9 1.5", stroke="#1B1B1B", stroke-width="1.2", stroke-linecap="round", stroke-linejoin="round")
+    button.category-filter-drop.button--clean.only-desktop(data-filter-btn="1")
+      span Крепкость алкоголя
+      svg(width="10", height="7", viewBox="0 0 10 7", fill="none", xmlns="http://www.w3.org/2000/svg")
+        path(d="M1 1.5L5 5.5L9 1.5", stroke="#1B1B1B", stroke-width="1.2", stroke-linecap="round", stroke-linejoin="round")
+    button.category-filter-drop.button--clean.only-desktop(data-filter-btn="2")
+      span Выдержан в емкости
+      svg(width="10", height="7", viewBox="0 0 10 7", fill="none", xmlns="http://www.w3.org/2000/svg")
+        path(d="M1 1.5L5 5.5L9 1.5", stroke="#1B1B1B", stroke-width="1.2", stroke-linecap="round", stroke-linejoin="round")
+    button.category-filter-drop.button--clean.only-desktop(data-filter-btn="3")
+      span Дегустационные характеристики
+      svg(width="10", height="7", viewBox="0 0 10 7", fill="none", xmlns="http://www.w3.org/2000/svg")
+        path(d="M1 1.5L5 5.5L9 1.5", stroke="#1B1B1B", stroke-width="1.2", stroke-linecap="round", stroke-linejoin="round")
+    button.category-filter-drop.button--clean.only-desktop(data-filter-btn="4")
+      span Гастрономия
+      svg(width="10", height="7", viewBox="0 0 10 7", fill="none", xmlns="http://www.w3.org/2000/svg")
+        path(d="M1 1.5L5 5.5L9 1.5", stroke="#1B1B1B", stroke-width="1.2", stroke-linecap="round", stroke-linejoin="round")
+    button.category-filter-drop.button--clean.only-desktop(data-filter-btn="5")
+      span Способ производства
+      svg(width="10", height="7", viewBox="0 0 10 7", fill="none", xmlns="http://www.w3.org/2000/svg")
+        path(d="M1 1.5L5 5.5L9 1.5", stroke="#1B1B1B", stroke-width="1.2", stroke-linecap="round", stroke-linejoin="round")
+    button.category-filter-drop.button--clean(data-filter-btn="6")
+      span(data-sort-filter) Сортировка
+      svg(width="10", height="7", viewBox="0 0 10 7", fill="none", xmlns="http://www.w3.org/2000/svg")
+        path(d="M1 1.5L5 5.5L9 1.5", stroke="#1B1B1B", stroke-width="1.2", stroke-linecap="round", stroke-linejoin="round")
+  .filter-drops-container.loaded(data-container="filters", data-link-container="[data-container=list]", data-entity="shop")
+    .filter-drops-modal.only-desktop(data-price-filter, data-filter-drop="0", data-container="filter", data-compare="items", data-filter-key="VL", data-template-type="drop-down", data-filter-all="1", data-search-container, style="left: 91.5781px;")
+      .filters-popup-item__ttl
+        span Объем
+      label.filter-producers__input
+        input(type="text", placeholder="Введите производителя", data-search, tabindex="0")
+        button.button--clean(type="submit", tabindex="0")
+          svg.search-icon(width="17", height="18", viewBox="0 0 17 18", fill="none", xmlns="http://www.w3.org/2000/svg")
+            path(d="M12.3807 13L16.1111 17M2.95262 2.95262C5.55612 0.349126 9.77722 0.349126 12.3807 2.95262C14.9842 5.55612 14.9842 9.77722 12.3807 12.3807C9.77722 14.9842 5.55612 14.9842 2.95262 12.3807C0.349126 9.77722 0.349126 5.55612 2.95262 2.95262Z", stroke="#1B1B1B", stroke-width="1.5", stroke-linecap="round", stroke-linejoin="round")
+      .filter-checkboxes
+        label.checkbox.filter-checkbox(data-container="filter-item")
+          .checkbox__label
+            input.checkbox__input(type="checkbox", data-type="filter", tabindex="0")
+            .checkbox__box
+              svg.checkbox__svg(width="13", height="10", viewBox="0 0 13 10", fill="none", xmlns="http://www.w3.org/2000/svg")
+                path(d="M11.8715 1.12386C11.7064 0.958713 11.4386 0.958713 11.2735 1.12386L4.41828 7.97906L1.72193 5.28269C1.5568 5.11752 1.28903 5.11752 1.12386 5.28269C0.958713 5.44783 0.958713 5.71559 1.12386 5.88076L4.11928 8.87617C4.28436 9.04125 4.55222 9.0413 4.71735 8.87617L11.8715 1.72193C12.0367 1.55676 12.0367 1.28901 11.8715 1.12386Z", fill="#1B1B1B", stroke="#1B1B1B", stroke-width="0.5")
+          .checkbox__caption
+            span(data-type="filter-val", data-style="checkbox") test12
+            span.count 1
+    .filter-drops-modal.only-desktop(data-producer-filter, data-filter-drop="1", data-container="filter", data-compare="items", data-filter-key="ALCO_STRENGTH", data-template-type="drop-down", data-filter-all="1", data-search-container, style="left: 163.891px;")
+      .filters-popup-item__ttl
+        span Крепкость алкоголя
+      label.filter-producers__input
+        input(type="text", placeholder="Введите производителя", data-search, tabindex="0")
+        button.button--clean(type="submit", tabindex="0")
+          svg.search-icon(width="17", height="18", viewBox="0 0 17 18", fill="none", xmlns="http://www.w3.org/2000/svg")
+            path(d="M12.3807 13L16.1111 17M2.95262 2.95262C5.55612 0.349126 9.77722 0.349126 12.3807 2.95262C14.9842 5.55612 14.9842 9.77722 12.3807 12.3807C9.77722 14.9842 5.55612 14.9842 2.95262 12.3807C0.349126 9.77722 0.349126 5.55612 2.95262 2.95262Z", stroke="#1B1B1B", stroke-width="1.5", stroke-linecap="round", stroke-linejoin="round")
+      .filter-checkboxes
+        label.checkbox.filter-checkbox(data-container="filter-item")
+          .checkbox__label
+            input.checkbox__input(type="checkbox", data-type="filter", tabindex="0")
+            .checkbox__box
+              svg.checkbox__svg(width="13", height="10", viewBox="0 0 13 10", fill="none", xmlns="http://www.w3.org/2000/svg")
+                path(d="M11.8715 1.12386C11.7064 0.958713 11.4386 0.958713 11.2735 1.12386L4.41828 7.97906L1.72193 5.28269C1.5568 5.11752 1.28903 5.11752 1.12386 5.28269C0.958713 5.44783 0.958713 5.71559 1.12386 5.88076L4.11928 8.87617C4.28436 9.04125 4.55222 9.0413 4.71735 8.87617L11.8715 1.72193C12.0367 1.55676 12.0367 1.28901 11.8715 1.12386Z", fill="#1B1B1B", stroke="#1B1B1B", stroke-width="0.5")
+          .checkbox__caption
+            span(data-type="filter-val", data-style="checkbox") test10
+            span.count 1
+    .filter-drops-modal.only-desktop(data-country-filter, data-filter-drop="2", data-container="filter", data-compare="items", data-filter-key="TANK", data-template-type="drop-down", data-filter-all="1", data-search-container, style="left: 292.656px;")
+      .filters-popup-item__ttl
+        span Выдержан в емкости
+      label.filter-producers__input
+        input(type="text", placeholder="Введите производителя", data-search, tabindex="0")
+        button.button--clean(type="submit", tabindex="0")
+          svg.search-icon(width="17", height="18", viewBox="0 0 17 18", fill="none", xmlns="http://www.w3.org/2000/svg")
+            path(d="M12.3807 13L16.1111 17M2.95262 2.95262C5.55612 0.349126 9.77722 0.349126 12.3807 2.95262C14.9842 5.55612 14.9842 9.77722 12.3807 12.3807C9.77722 14.9842 5.55612 14.9842 2.95262 12.3807C0.349126 9.77722 0.349126 5.55612 2.95262 2.95262Z", stroke="#1B1B1B", stroke-width="1.5", stroke-linecap="round", stroke-linejoin="round")
+      .filter-checkboxes
+        label.checkbox.filter-checkbox(data-container="filter-item")
+          .checkbox__label
+            input.checkbox__input(type="checkbox", data-type="filter", tabindex="0")
+            .checkbox__box
+              svg.checkbox__svg(width="13", height="10", viewBox="0 0 13 10", fill="none", xmlns="http://www.w3.org/2000/svg")
+                path(d="M11.8715 1.12386C11.7064 0.958713 11.4386 0.958713 11.2735 1.12386L4.41828 7.97906L1.72193 5.28269C1.5568 5.11752 1.28903 5.11752 1.12386 5.28269C0.958713 5.44783 0.958713 5.71559 1.12386 5.88076L4.11928 8.87617C4.28436 9.04125 4.55222 9.0413 4.71735 8.87617L11.8715 1.72193C12.0367 1.55676 12.0367 1.28901 11.8715 1.12386Z", fill="#1B1B1B", stroke="#1B1B1B", stroke-width="0.5")
+          .checkbox__caption
+            span(data-type="filter-val", data-style="checkbox") test3
+            span.count 1
+    .filter-drops-modal.only-desktop(data-strong-filter, data-filter-drop="3", data-container="filter", data-compare="items", data-filter-key="TASTING", data-template-type="drop-down", data-filter-all="1", data-search-container, style="left: 423.047px;")
+      .filters-popup-item__ttl
+        span Дегустационные характеристики
+      label.filter-producers__input
+        input(type="text", placeholder="Введите производителя", data-search, tabindex="0")
+        button.button--clean(type="submit", tabindex="0")
+          svg.search-icon(width="17", height="18", viewBox="0 0 17 18", fill="none", xmlns="http://www.w3.org/2000/svg")
+            path(d="M12.3807 13L16.1111 17M2.95262 2.95262C5.55612 0.349126 9.77722 0.349126 12.3807 2.95262C14.9842 5.55612 14.9842 9.77722 12.3807 12.3807C9.77722 14.9842 5.55612 14.9842 2.95262 12.3807C0.349126 9.77722 0.349126 5.55612 2.95262 2.95262Z", stroke="#1B1B1B", stroke-width="1.5", stroke-linecap="round", stroke-linejoin="round")
+      .filter-checkboxes
+        label.checkbox.filter-checkbox(data-container="filter-item")
+          .checkbox__label
+            input.checkbox__input(type="checkbox", data-type="filter", tabindex="0")
+            .checkbox__box
+              svg.checkbox__svg(width="13", height="10", viewBox="0 0 13 10", fill="none", xmlns="http://www.w3.org/2000/svg")
+                path(d="M11.8715 1.12386C11.7064 0.958713 11.4386 0.958713 11.2735 1.12386L4.41828 7.97906L1.72193 5.28269C1.5568 5.11752 1.28903 5.11752 1.12386 5.28269C0.958713 5.44783 0.958713 5.71559 1.12386 5.88076L4.11928 8.87617C4.28436 9.04125 4.55222 9.0413 4.71735 8.87617L11.8715 1.72193C12.0367 1.55676 12.0367 1.28901 11.8715 1.12386Z", fill="#1B1B1B", stroke="#1B1B1B", stroke-width="0.5")
+          .checkbox__caption
+            span(data-type="filter-val", data-style="checkbox") test6
+            span.count 1
+    .filter-drops-modal.only-desktop(data-duration-filter, data-filter-drop="4", data-container="filter", data-compare="items", data-filter-key="GASTRO", data-template-type="drop-down", data-filter-all="1", data-search-container, style="left: 613.297px;")
+      .filters-popup-item__ttl
+        span Гастрономия
+      label.filter-producers__input
+        input(type="text", placeholder="Введите производителя", data-search, tabindex="0")
+        button.button--clean(type="submit", tabindex="0")
+          svg.search-icon(width="17", height="18", viewBox="0 0 17 18", fill="none", xmlns="http://www.w3.org/2000/svg")
+            path(d="M12.3807 13L16.1111 17M2.95262 2.95262C5.55612 0.349126 9.77722 0.349126 12.3807 2.95262C14.9842 5.55612 14.9842 9.77722 12.3807 12.3807C9.77722 14.9842 5.55612 14.9842 2.95262 12.3807C0.349126 9.77722 0.349126 5.55612 2.95262 2.95262Z", stroke="#1B1B1B", stroke-width="1.5", stroke-linecap="round", stroke-linejoin="round")
+      .filter-checkboxes
+        label.checkbox.filter-checkbox(data-container="filter-item")
+          .checkbox__label
+            input.checkbox__input(type="checkbox", data-type="filter", tabindex="0")
+            .checkbox__box
+              svg.checkbox__svg(width="13", height="10", viewBox="0 0 13 10", fill="none", xmlns="http://www.w3.org/2000/svg")
+                path(d="M11.8715 1.12386C11.7064 0.958713 11.4386 0.958713 11.2735 1.12386L4.41828 7.97906L1.72193 5.28269C1.5568 5.11752 1.28903 5.11752 1.12386 5.28269C0.958713 5.44783 0.958713 5.71559 1.12386 5.88076L4.11928 8.87617C4.28436 9.04125 4.55222 9.0413 4.71735 8.87617L11.8715 1.72193C12.0367 1.55676 12.0367 1.28901 11.8715 1.12386Z", fill="#1B1B1B", stroke="#1B1B1B", stroke-width="0.5")
+          .checkbox__caption
+            span(data-type="filter-val", data-style="checkbox") test5
+            span.count 1
+    .filter-drops-modal.only-desktop(data-format-filter, data-filter-drop="5", data-container="filter", data-compare="items", data-filter-key="METHOD", data-template-type="drop-down", data-filter-all="1", data-search-container, style="left: 726.531px;")
+      .filters-popup-item__ttl
+        span Способ производства
+      label.filter-producers__input
+        input(type="text", placeholder="Введите производителя", data-search, tabindex="0")
+        button.button--clean(type="submit", tabindex="0")
+          svg.search-icon(width="17", height="18", viewBox="0 0 17 18", fill="none", xmlns="http://www.w3.org/2000/svg")
+            path(d="M12.3807 13L16.1111 17M2.95262 2.95262C5.55612 0.349126 9.77722 0.349126 12.3807 2.95262C14.9842 5.55612 14.9842 9.77722 12.3807 12.3807C9.77722 14.9842 5.55612 14.9842 2.95262 12.3807C0.349126 9.77722 0.349126 5.55612 2.95262 2.95262Z", stroke="#1B1B1B", stroke-width="1.5", stroke-linecap="round", stroke-linejoin="round")
+      .filter-checkboxes
+        label.checkbox.filter-checkbox(data-container="filter-item")
+          .checkbox__label
+            input.checkbox__input(type="checkbox", data-type="filter", tabindex="0")
+            .checkbox__box
+              svg.checkbox__svg(width="13", height="10", viewBox="0 0 13 10", fill="none", xmlns="http://www.w3.org/2000/svg")
+                path(d="M11.8715 1.12386C11.7064 0.958713 11.4386 0.958713 11.2735 1.12386L4.41828 7.97906L1.72193 5.28269C1.5568 5.11752 1.28903 5.11752 1.12386 5.28269C0.958713 5.44783 0.958713 5.71559 1.12386 5.88076L4.11928 8.87617C4.28436 9.04125 4.55222 9.0413 4.71735 8.87617L11.8715 1.72193C12.0367 1.55676 12.0367 1.28901 11.8715 1.12386Z", fill="#1B1B1B", stroke="#1B1B1B", stroke-width="0.5")
+          .checkbox__caption
+            span(data-type="filter-val", data-style="checkbox") test18
+            span.count 1
+    .filter-drops-modal(data-sorting-filter, data-filter-drop="6")
+      fieldset.sorting-filter(data-link-container="[data-container=list]")
+        label.sorting-filter__label
+          input.sorting-filter__input(type="radio", name="sorting", data-type="sort", data-field="CATALOG_PRICE_1", data-by="ASC", tabindex="0")
+          .sorting-filter__txt По возрастанию цены
+        label.sorting-filter__label
+          input.sorting-filter__input(type="radio", name="sorting", data-type="sort", data-field="CATALOG_PRICE_1", data-by="DESC", tabindex="0")
+          .sorting-filter__txt По убыванию цены

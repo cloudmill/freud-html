@@ -182,11 +182,22 @@ function categoryFilters() {
 
       if (!(item.getAttribute('data-filter-btn') == '6')) {
   
-        const pad = document.querySelector('.filter-drops-btns').getBoundingClientRect().left;
+        const btnsRow = document.querySelector('.filter-drops-btns');
+        const pad = btnsRow.getBoundingClientRect().left;
         const btnNum = item.getAttribute('data-filter-btn');
         const drop = document.querySelector(`[data-filter-drop='${btnNum}']`);
   
-        drop.style.left = `${item.getBoundingClientRect().left - pad - 10}px`
+        const left = item.getBoundingClientRect().left - pad - 10;
+        drop.style.left = `${left}px`;
+
+        const right = document.documentElement.clientWidth - drop.getBoundingClientRect().right;
+
+          if (right < pad) {
+            
+            const newWidth = btnsRow.getBoundingClientRect().width - left;
+            drop.style.width = `${newWidth}px`;
+
+          } 
       }
     }) 
   }

@@ -6,8 +6,6 @@
 
   .booking-popup__wrapper.booking-popup-form
 
-    
-
     h2.h4.title-font.booking-popup-form__ttl.only-desktop Бронирование
 
     .cart-stage-form__note
@@ -46,8 +44,8 @@
         label.form__label
           .form__field-name Дата
             sup *
-          .booking-popup-form__datepicker.disabled
-            input(type='text' placeholder='__/__/____' readonly data-readonly data-datepicker required disabled)
+          .booking-popup-form__datepicker
+            input(type='text' placeholder='__/__/____' readonly data-readonly data-datepicker required)
             +calendar
 
         label.form__label
@@ -58,7 +56,7 @@
               +tooltipIco
               .tooltip__txt Пн-Чт, 12:00 – 00:00 #[br] Пн-Сб, 12:00 – 01:00 #[br] Вс, 13:00 – 23:00
 
-          input.form__input.disabled(type='text' data-time-input='' data-place='' data-weekday='' data-mask='##:##' required disabled)
+          input.form__input(type='text' data-time-input='' data-place='' data-weekday='' data-mask='##:##' required)
 
       label.form__label
         .form__field-name Количество гостей

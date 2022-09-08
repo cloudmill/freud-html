@@ -56,16 +56,17 @@ block content
               +picture(file='grinks-filter-img')
               .drinks-filters-item__title #{item}
 
-        -
-          const filters = [
-            'цена',
-            'производитель',
-            'страна',
-            'регион',
-            'цвет',
-            'содержание сахара',
-          ]
-        include ../components/filters-row
+        //- -
+        //-   const filters = [
+        //-     'цена',
+        //-     'производитель',
+        //-     'страна',
+        //-     'регион',
+        //-     'цвет',
+        //-     'содержание сахара',
+        //-   ]
+        //- include ../components/filters-row
+        include ../components/filters-row-test
 
         .category-top__line.category-active-filters(data-active-filters)
 
