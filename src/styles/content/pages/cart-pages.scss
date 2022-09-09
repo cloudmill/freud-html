@@ -468,6 +468,12 @@
     @include fsl(16px, 140%);
 
     width: getRem(120px);
+    flex: none;
+
+    span {
+      width: 100%;
+      text-align: center;
+    }
 
     button {
       position: relative;
