@@ -262,9 +262,9 @@ window.filterSuccess = {
       jq.text(replace);
     });
 
-    let i = 0;
-
     containers.each((index, item) => {
+      let i = 0;
+
       $(item).find('[data-container=filter]').each(function () {
         if (elem.parents('[data-container=filter]').data('filter-key') === $(this).data('filter-key')) {
           i++;
