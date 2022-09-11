@@ -28,24 +28,34 @@ $(function () {
   sortEvent();
 });
 
+window.ajaxRequest = {};
+
 function sortEvent() {
   $(document).on('change', '[data-type=sort]', function () {
     const thisObj = $(this),
       linkContainer = thisObj.parents('[data-link-container]').data('link-container'),
       container = $(linkContainer);
 
+    let data = {
+      ajax: 'sort',
+      sort: {
+        field: thisObj.data('field'),
+        by: thisObj.data('by'),
+      },
+    };
+
+    if (window.ajaxRequest.params) {
+      data = Object.assign(window.ajaxRequest.params, data);
+    }
+
     $.ajax({
       type: 'GET',
       url: window.location.href,
       dataType: 'html',
-      data: {
-        ajax: 'sort',
-        sort: {
-          field: thisObj.data('field'),
-          by: thisObj.data('by'),
-        },
-      },
+      data: data,
       success: function (r) {
+        window.ajaxRequest.params = data;
+
         container.empty();
         container.append($(r));
       },
@@ -307,8 +317,10 @@ function filterFetch(thisObj, linkContainer, entity) {
     type: 'GET',
     url: window.location.href,
     dataType: 'html',
-    data: window.filters,
+    data: window.ajaxRequest.params ? Object.assign(window.ajaxRequest.params, window.filters) : window.filters,
     success: function (r) {
+      window.ajaxRequest.params = window.filters;
+
       const content = $(linkContainer),
         jqResponse = $(r);
 
