@@ -186,13 +186,22 @@ function searchEvent() {
 
 window.filterCompare = {
   items: (elem, responseFilter, styles) => {
-    const arr = responseFilter.find('[data-type=filter-val]').map((arrI, item) => item.textContent ? item.textContent : item.value);
+    const responseValues = responseFilter.find('[data-type=filter-val]');
+
+    let i = 0;
 
     elem.find('[data-type=filter-val]').each(function () {
-      const filterContainer = $(this).parents('[data-container=filter-item]').length ? $(this).parents('[data-container=filter-item]') : $(this).parents('[data-type=filter]');
+      const filterContainer = $(this).parents('[data-container=filter-item]').length ? $(this).parents('[data-container=filter-item]') : $(this).parents('[data-type=filter]'),
+        responseValElem = responseValues.eq(i),
+        responseFiltCont = responseValElem.parents('[data-container=filter-item]').length ? responseValElem.parents('[data-container=filter-item]') : responseValElem.parents('[data-type=filter]'),
+        val = $(this).text() ? $(this).text() : $(this).val(),
+        responseVal = responseValElem.text() ? responseValElem.text() : responseValElem.val();
 
-      if (Object.values(arr).includes($(this).text() ? $(this).text() : $(this).val())) {
+      if (val === responseVal) {
         filterContainer.css(styles.enable);
+        filterContainer.find('[data-type=filter-count]').text(responseFiltCont.find('[data-type=filter-count]').text());
+
+        i++
       } else {
         filterContainer.css(styles.disable);
       }
