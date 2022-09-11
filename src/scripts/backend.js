@@ -929,7 +929,23 @@ function favorAdd() {
     let link = $(this),
       url = "/local/templates/main/include/ajax/favor.php",
       id = link.attr("data-id"),
+      headerClick = link.attr("data-header-click"),
       data = {};
+
+    console.log(headerClick);
+
+    if (headerClick == 'remove') {
+      $(document).find('[data-type=favor-add]').each(function () {
+        let idCheck = $(this).attr("data-id"),
+          headerClickCheck = $(this).attr("data-header-click");
+
+        if (!headerClickCheck) {
+          if (idCheck == id) {
+            $(this).removeClass('active');
+          }
+        }
+      });
+    }
 
     data['id'] = id;
 
