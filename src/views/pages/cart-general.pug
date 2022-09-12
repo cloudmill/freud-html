@@ -48,10 +48,10 @@ block content
                 +brown-border-button.cart-stage__edit.only-mobile(data-stage-edit='')
                   |Изменить
 
-              div(data-cart-content='')
+              div(data-cart-content='1')
                 .cart-products-active
 
-                  .cart-stage__product-list
+                  .cart-stage__product-list(data-product-list)
                     - for (i=0;i<3;i++)
                       .card-product(data-aos='fade-up')
                         .card-product__img
@@ -155,7 +155,7 @@ block content
                 +brown-border-button.cart-stage__edit.only-mobile(data-stage-edit='')
                   |Изменить
 
-              .cart-stage-form(data-cart-content='')
+              .cart-stage-form(data-cart-content='2')
                 .cart-stage-form__note
                   sup *
                   |— поля обязательные для заполнения
@@ -208,7 +208,7 @@ block content
                   .cart-stage__count 3/3
                   .cart-stage__ttl.h4.title-font Получение заказа
 
-              .cart-receiving(data-cart-content='')
+              .cart-receiving(data-cart-content='3')
                 .cart-receiving-options(data-tabs)
                   .cart-receiving-options__item.active(data-tabs-item data-cart-small-form='')
                     +pickup-ico.cart-receiving-options__svg

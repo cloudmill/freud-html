@@ -4,20 +4,9 @@ function cartStages() {
 
   if (document.querySelector('[data-cart-stage-general]')) {
 
-    // измеряет и задает строгую высоту блоков с контентом
-    // после измерения блоков с контентом - сворачивает
-
-    if (mediaQuery.matches) {
-      document.querySelectorAll('[data-cart-content]').forEach(item => {
-        const contentHeight = String(item.offsetHeight);
-        item.style.height = contentHeight + 'px';
-
-      });
-    }
-
 
     if (document.querySelector('[data-cart-big-form]')) {
-      // в третьем этапе две анкеты разного размера
+    // в третьем этапе две анкеты разного размера
     // при переключении на большую строгий размер сбрасывается
     document.querySelector('[data-cart-big-form]').addEventListener('click', e => {
       e.target.closest('.cart-receiving').classList.add('height-auto')
@@ -39,11 +28,18 @@ function cartStages() {
 
           if (!Boolean(item.closest('form')) || item.closest('form') && !item.closest('form').querySelector('.form-error.active')) {
 
+            const btnId = item.getAttribute('data-cart-next');
+
+            // задает высоту контента для плавного сворачивания
+            if (mediaQuery.matches) {
+              const stageContent = document.querySelector(`[data-cart-content='${btnId}']`);
+              const contentHeight = String(item.stageContent);
+              stageContent.style.height = contentHeight + 'px';
+            }
+
             e.target.closest('[data-cart-stage]').classList.remove('open');
             e.target.closest('[data-cart-stage]').classList.remove('add-transition');
             e.target.closest('[data-cart-stage]').classList.add('previous');
-
-            const btnId = item.getAttribute('data-cart-next');
 
             document.querySelector(`[data-cart-stage='${btnId}']`).classList.remove('previous');
             document.querySelector(`[data-cart-stage='${btnId}']`).classList.remove('collapsed');
@@ -79,7 +75,7 @@ function cartStages() {
               })
             }
           }
-        }, );
+        }, 110);
       })
     });
 

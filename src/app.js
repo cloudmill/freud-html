@@ -67,12 +67,34 @@ document.addEventListener('DOMContentLoaded', (e) => {
 
   promocodeStates();
 
+  // function handler(event) {
+  //   console.log(event);
+  // }
+
+  // document.addEventListener('mousedown', event => {
+
+  //   console.log('mousedown all');
+  //   handler(event)
+
+  // })
+
+  // document.querySelector('[data-test-click]').addEventListener('mousedown', (event) => {
+  //   console.log('mousedown');
+  // })
+
+  // document.querySelector('[data-test-click]').addEventListener('click', (event) => {
+  //   console.log('click');
+  // })
+
   document.addEventListener('mousedown', event => {
 
     popups(event, 'data-popup-button', 'data-popup');
 
   })
 
+  // document.querySelector('[data-test-click]').addEventListener('mouseup', (event) => {
+  //   console.log('mouseup');
+  // })
 
   document.addEventListener('click', eventClick => {
 
