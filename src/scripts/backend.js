@@ -263,23 +263,14 @@ window.filterSuccess = {
     });
 
     containers.each((index, item) => {
-      let i = 0;
-
       $(item).find('[data-container=filter]').each(function () {
-        if (elem.parents('[data-container=filter]').data('filter-key') === $(this).data('filter-key')) {
-          i++;
-          return;
-        }
+        const responseFilter = responseContainers.eq(index).find(`[data-container=filter][data-filter-key=${$(this).data('filter-key')}]`);
 
-        const responseFilter = responseContainers.find('[data-container=filter]').eq(i);
-
-        if ($(this).data('filter-key') !== responseFilter.data('filter-key')) {
+        if (!responseFilter.length) {
           $(this).css(styles.disable);
         } else {
           window.filterCompare[$(this).attr('data-compare')]($(this), responseFilter, styles);
           $(this).css(styles.enable);
-
-          i++;
         }
       });
     });
@@ -841,7 +832,8 @@ window.basketEventSuccess = {
       productId = elem.data('id'),
       basket = $('[data-container=header-basket]'),
       basketItem = basket.find(`[data-product-id=${productId}]`),
-      totalPriceElem = basketContainer.find('[data-type=basket-price-total]');
+      totalPriceElem = basketContainer.find('[data-type=basket-price-total]'),
+      basketItemsCount = $('[data-type=basket-items-count]');
 
     if (basketItem.length) {
       const count = basketItem.find('[data-type=count]');
@@ -885,6 +877,12 @@ window.basketEventSuccess = {
           templContent.find(`[data-field=${$(this).data('field')}]`).html(value);
         });
 
+        const dataTransfer = templContent.find('[data-type=transfer-data]');
+
+        if (dataTransfer.length) {
+          dataTransfer.attr('data-transfer', `{"data-id": ${response.data.ID}}`);
+        }
+
         $(template).parent().append(templContent);
       });
 
@@ -892,6 +890,10 @@ window.basketEventSuccess = {
     }
 
     totalPriceElem.text(+totalPriceElem.text() + +item.find('[data-type=price]').text());
+
+    if (basketItemsCount.length) {
+      basketItemsCount.text(+basketItemsCount[0].textContent + 1);
+    }
 
     if (elem.data('reload')) {
       reloadFetch(elem.parents('[data-container=items]'));
