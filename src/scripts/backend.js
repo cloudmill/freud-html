@@ -752,6 +752,8 @@ function order() {
         if (r.success) {
           $('[data-type=order-result-id]').text(r.data.ID);
           finalStage(thisObj[0]);
+          $('[data-type=basket-count]').text('0');
+          $('[data-cart-btn]').attr('data-header-btn', '4');
         } else {
           alert(r.message);
         }
@@ -794,16 +796,21 @@ window.basketEventSuccess = {
       price = +item[0].querySelector('[data-type=price]').textContent,
       count = +item[0].querySelector('[data-type=count]').textContent,
       basketItemsCount = $('[data-type=basket-items-count]'),
-      buttonItemList = $(`[data-event=add][data-id=${item.attr('data-product-id')}]`);
+      buttonItemList = $(`[data-event=add][data-id=${item.attr('data-product-id')}]`),
+      empty = item.filter('[data-type=item-modal]').parent().find('[data-type=item-modal]').length === 1;
 
     if ($('[data-reload]').length) {
-      if (item.filter('[data-type=item-modal]').parent().find('[data-type=item-modal]').length === 1) {
+      if (empty) {
         document.location.href = window.location.href;
       } else {
         item.remove();
       }
     } else {
-      item.remove();
+      if (empty) {
+        $('[data-cart-btn]').attr('data-header-btn', '4');
+      } else {
+        item.remove();
+      }
     }
 
     basketCount.text(+basketCount.text() - 1);
@@ -827,9 +834,10 @@ window.basketEventSuccess = {
     }
   },
   add: (elem, response) => {
-    const basketContainer = $('.not-empty');
+    $('[data-cart-btn]').attr('data-header-btn', '6');
 
-    const item = elem.parents('[data-type=item]'),
+    const basketContainer = $('.not-empty'),
+      item = elem.parents('[data-type=item]'),
       productId = elem.data('id'),
       basket = $('[data-container=header-basket]'),
       basketItem = basket.find(`[data-product-id=${productId}]`),
