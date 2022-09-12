@@ -68,14 +68,11 @@ document.addEventListener('DOMContentLoaded', (e) => {
   promocodeStates();
 
   // function handler(event) {
-  //   console.log(event);
+  //   console.log(event + ' all');
   // }
 
   // document.addEventListener('mousedown', event => {
-
-  //   console.log('mousedown all');
-  //   handler(event)
-
+  //   handler(event.type)
   // })
 
   // document.querySelector('[data-test-click]').addEventListener('mousedown', (event) => {
@@ -86,18 +83,16 @@ document.addEventListener('DOMContentLoaded', (e) => {
   //   console.log('click');
   // })
 
-  document.addEventListener('mousedown', event => {
+  // document.addEventListener('mousedown', event => {
 
-    popups(event, 'data-popup-button', 'data-popup');
+  //   popups(event, 'data-popup-button', 'data-popup');
+  //   console.log('yo');
 
-  })
-
-  // document.querySelector('[data-test-click]').addEventListener('mouseup', (event) => {
-  //   console.log('mouseup');
-  // })
+  // }, {passive: true})
 
   document.addEventListener('click', eventClick => {
 
+    popups(eventClick, 'data-popup-button', 'data-popup');
     dropdownsBlock(eventClick, 'data-filter-btn', 'data-filter-drop');
     addToFav(eventClick);
     addToCart(eventClick);
