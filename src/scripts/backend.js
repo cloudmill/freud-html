@@ -840,7 +840,7 @@ window.basketEventSuccess = {
 
       count.text(+count[0].textContent + 1);
     } else {
-      const itemTemplate = basket.find('template').clone().contents(),
+      const itemTemplates = $('template'),
         basketCount = $('[data-type=basket-count]');
 
       item.addClass('in-cart');
@@ -863,22 +863,31 @@ window.basketEventSuccess = {
 
       addToCartSuccess();
 
-      itemTemplate.filter('[data-item-id]').attr('data-item-id', response.data.ID);
-      itemTemplate.filter('[data-product-id]').attr('data-product-id', productId);
-      itemTemplate.find('[data-id]').attr('data-id', response.data.ID);
-      itemTemplate.find('img').attr('src', item.find('img').attr('src'));
-      item.find('[data-field]').each(function () {
-        const inpVal = $(this).val(),
-          value = inpVal ? inpVal : $(this).text();
+      itemTemplates.each((i, template) => {
+        const templContent = $(template).clone().contents();
 
-        itemTemplate.find(`[data-field=${$(this).data('field')}]`).html(value);
+        templContent.filter('[data-item-id]').attr('data-item-id', response.data.ID);
+        templContent.filter('[data-product-id]').attr('data-product-id', productId);
+        templContent.find('[data-id]').attr('data-id', response.data.ID);
+        templContent.find('img').attr('src', item.find('img').attr('src'));
+        item.find('[data-field]').each(function () {
+          const inpVal = $(this).val(),
+            value = inpVal ? inpVal : $(this).text();
+
+          templContent.find(`[data-field=${$(this).data('field')}]`).html(value);
+        });
+
+        $(template).parent().append(templContent);
       });
 
-      basket.append(itemTemplate);
       basketCount.text(+basketCount.text() + 1);
     }
 
     totalPriceElem.text(+totalPriceElem.text() + +item.find('[data-type=price]').text());
+
+    if (elem.data('reload')) {
+      reloadFetch(elem.parents('[data-container=items]'));
+    }
   },
   update: elem => {
     const thisElems = $(`[data-item-id=${elem.attr('data-id')}]`),
@@ -906,6 +915,21 @@ window.basketEventSuccess = {
 
     $('[data-type=basket-items-count]').text(count);
   }
+}
+
+function reloadFetch(container) {
+  $.ajax({
+    type: 'GET',
+    url: window.location.href,
+    dataType: 'html',
+    data: {
+      ajax: 'reload',
+    },
+    success: function (r) {
+      container.empty();
+      container.append($(r));
+    },
+  });
 }
 
 function basketEvent() {
