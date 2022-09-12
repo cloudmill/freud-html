@@ -46,7 +46,7 @@ function headerFavAndCartModals() {
   if (icoBtns.length) {
     icoBtns.forEach(item => {
   
-      if (item.classList.contains('count')) {
+      if (!item.hasAttribute('data-drop-empty')) {
     
         if (item.hasAttribute('data-fav-btn')) {
           item.setAttribute('data-header-btn', '5');
