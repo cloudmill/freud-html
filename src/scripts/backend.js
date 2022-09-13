@@ -42,22 +42,23 @@ function sortEvent() {
         field: thisObj.data('field'),
         by: thisObj.data('by'),
       },
-    };
+    },
+    resultData = data;
 
     if (window.ajaxRequest.params) {
-      data = Object.assign(window.ajaxRequest.params, data);
+      resultData = Object.assign(window.ajaxRequest.params, data);
     }
 
     $.ajax({
       type: 'GET',
       url: window.location.href,
       dataType: 'html',
-      data: data,
+      data: resultData,
       success: function (r) {
         window.ajaxRequest.params = data;
 
         container.empty();
-        container.append($(r));
+        container.append($(r).filter(linkContainer).children());
       },
     });
   });
@@ -198,22 +199,15 @@ function searchEvent() {
 
 window.filterCompare = {
   items: (elem, responseFilter, styles) => {
-    const responseValues = responseFilter.find('[data-type=filter-val]');
-
-    let i = 0;
-
     elem.find('[data-type=filter-val]').each(function () {
       const filterContainer = $(this).parents('[data-container=filter-item]').length ? $(this).parents('[data-container=filter-item]') : $(this).parents('[data-type=filter]'),
-        responseValElem = responseValues.eq(i),
-        responseFiltCont = responseValElem.parents('[data-container=filter-item]').length ? responseValElem.parents('[data-container=filter-item]') : responseValElem.parents('[data-type=filter]'),
-        val = $(this).text() ? $(this).text() : $(this).val(),
-        responseVal = responseValElem.text() ? responseValElem.text() : responseValElem.val();
+        responseVal = responseFilter.find(`[data-type=filter-val]:contains(${$(this).text()})`);
 
-      if (val === responseVal) {
+      if (responseVal.length) {
+        const responseFiltCont = responseVal.parents('[data-container=filter-item]').length ? responseVal.parents('[data-container=filter-item]') : responseVal.parents('[data-type=filter]');
+
         filterContainer.css(styles.enable);
         filterContainer.find('[data-type=filter-count]').text(responseFiltCont.find('[data-type=filter-count]').text());
-
-        i++
       } else {
         filterContainer.css(styles.disable);
       }
@@ -265,14 +259,45 @@ window.filterSuccess = {
     });
 
     containers.each((index, item) => {
-      $(item).find('[data-container=filter]').each(function () {
-        const responseFilter = responseContainers.eq(index).find(`[data-container=filter][data-filter-key=${$(this).data('filter-key')}]`);
+      const filterContainer = $(item);
+
+      let reload = false,
+        count = 0;
+
+      for (let key in window.filters.filter) {
+        if (Object.keys(window.filters.filter[key]).length) {
+          count++;
+        }
+      }
+
+      if (count === 1) {
+        reload = true;
+      }
+
+      filterContainer.find('[data-container=filter]').each(function () {
+        const filterKey = $(this).attr('data-filter-key');
+
+        if ($(this).attr('data-filter-key') === elem.parents('[data-filter-key]').attr('data-filter-key')) {
+          return;
+        }
+
+        const responseFilter = responseContainers.eq(index).find(`[data-container=filter][data-filter-key=${filterKey}]`);
 
         if (!responseFilter.length) {
           $(this).css(styles.disable);
         } else {
           window.filterCompare[$(this).attr('data-compare')]($(this), responseFilter, styles);
           $(this).css(styles.enable);
+        }
+
+        if (reload) {
+          if (Object.keys(window.filters.filter)[0] === filterKey) {
+            $(this).find('[data-type=filter-val]').each(function () {
+              const filterElem = $(this).parents('[data-container=filter-item]').length ? $(this).parents('[data-container=filter-item]') : $(this).parents('[data-type=filter]');
+
+              filterElem.css(styles.enable);
+            });
+          }
         }
       });
     });
@@ -318,7 +343,7 @@ function filterFetch(thisObj, linkContainer, entity) {
         jqResponse = $(r);
 
       content.empty();
-      content.append(jqResponse.find(linkContainer).children());
+      content.append(jqResponse.filter(linkContainer).children());
 
       try {
         window.filterSuccess[entity](thisObj, jqResponse);
