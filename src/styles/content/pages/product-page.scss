@@ -64,7 +64,7 @@
 
   .swiper-slide {
     height: auto;
-    background: var(--background-grey-extra-2);
+    padding: getRem(5px);
 
     display: flex;
     justify-content: center;
@@ -73,7 +73,6 @@
     @media (max-width: ($breakpoint - 1px)) {
       width: getRem(80px);
       margin-right: getRem(2px);
-      padding: getRem(5px);
       background-clip: content-box;
     }
     @media (min-width: $breakpoint) {
@@ -89,6 +88,13 @@
 
   .swiper-slide-thumb-active {
     border: 1px solid var(--color-brown);
+  }
+
+  &__slide-inner {
+    background: var(--background-grey-extra-2);
+    padding: getRem(6px);
+    width: 100%;
+    height: 100%;
   }
 
   &__control {

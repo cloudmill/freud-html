@@ -28,7 +28,8 @@ block content
               .swiper-wrapper
                 - for (c=0;c<5;c++)
                   .swiper-slide
-                    +picture(file='product-2')
+                    .product-top-gallery__slide-inner
+                      +picture(file='product-2')
 
             button.button--clean.product-top-gallery__control.only-mobile#gallery-slider-next
               +arrow-right
