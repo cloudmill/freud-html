@@ -398,11 +398,11 @@ function filterEvent() {
 
     if (window.filters.filter[filterKey][val]) {
       delete window.filters.filter[filterKey][val];
-      removeFilterValue(val);
+      removeFilterValue(valElem);
       isSelect = 'disable';
     } else {
       window.filters.filter[filterKey][val] = val;
-      addFilterValue(filterKey, val);
+      addFilterValue(filterKey, valElem);
     }
 
     allFilters.each((i, item) => {
@@ -448,8 +448,10 @@ function filtersClear() {
   });
 }
 
-function removeFilterValue(val) {
-  const container = $('[data-container=filter-line]');
+function removeFilterValue(valElem) {
+  const container = $('[data-container=filter-line]'),
+    customValue = valElem.data('custom-val'),
+    val = customValue ? customValue : valElem.text();
 
   container.find(`[data-type=filter-val]:contains(${val})`).parent().remove();
 
@@ -462,12 +464,14 @@ function removeFilterValue(val) {
   });
 }
 
-function addFilterValue(key, val) {
+function addFilterValue(key, valElem) {
   filterLineInit();
 
   const container = $('[data-container=filter-line]'),
     template = container.find('template').clone().contents(),
-    clearElem = container.find('[data-type=filter-reset]');
+    clearElem = container.find('[data-type=filter-reset]'),
+    customValue = valElem.data('custom-val'),
+    val = customValue ? customValue : valElem.text();
 
   template.attr('data-filter-key', key);
   template.find('[data-type=filter-val]').text(val);
@@ -869,7 +873,7 @@ window.basketEventSuccess = {
 
       count.text(+count[0].textContent + 1);
     } else {
-      const itemTemplates = $('template'),
+      const itemTemplates = $('[data-entity-template=basket]'),
         basketCount = $('[data-type=basket-count]');
 
       item.addClass('in-cart');
