@@ -262,10 +262,12 @@ window.filterSuccess = {
       const filterContainer = $(item);
 
       let reload = false,
+        filterKeyReload = null,
         count = 0;
 
       for (let key in window.filters.filter) {
         if (Object.keys(window.filters.filter[key]).length) {
+          filterKeyReload = key;
           count++;
         }
       }
@@ -291,7 +293,7 @@ window.filterSuccess = {
         }
 
         if (reload) {
-          if (Object.keys(window.filters.filter)[0] === filterKey) {
+          if (filterKeyReload === filterKey) {
             $(this).find('[data-type=filter-val]').each(function () {
               const filterElem = $(this).parents('[data-container=filter-item]').length ? $(this).parents('[data-container=filter-item]') : $(this).parents('[data-type=filter]');
 
