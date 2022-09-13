@@ -104,25 +104,27 @@ function showAllData() {
   $(document).on('click', '[data-show-all]', function () {
     const thisObj = $(this),
       filterKey = thisObj.parents('[data-filter-key]').attr('data-filter-key'),
-      allValues = $(`[data-filter-key=${filterKey}]`).filter('[data-filter-all]'),
+      allValues = $(`[data-filter-key=${filterKey}][data-filter-all]`),
       data = thisObj.data('show-obj'),
       container = $(`[data-show=${thisObj.data('show-all')}]`),
       entityElem = container.find('[data-filter-key]'),
       entity = entityElem.attr('data-filter-key'),
-      content = container.find('[data-container=content]'),
-      template = content.find('template');
+      content = container.find('[data-container=content]');
 
     if (entity !== filterKey) {
+      const template = container.find('template');
+
+      content.empty();
       entityElem.attr('data-filter-key', filterKey);
 
       for (let property in data.replace) {
         container.find(`[data-replace=${property}]`).text(data.replace[property]);
       }
 
-      data.data.value.forEach(item => {
+      allValues.find('[data-type=filter-val]').each((i, item) => {
         const result = template.clone().contents();
 
-        result.find('[data-type=filter-val]').text(item);
+        result.find('[data-type=filter-val]').text(item.textContent);
         content.append(result);
       });
     }
