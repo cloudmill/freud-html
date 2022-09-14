@@ -64,7 +64,7 @@
     transition: $transition;
   }
 
-  &:hover {
+  &:hover, &.active {
     z-index: 1000;
 
     #{$comp}__txt {

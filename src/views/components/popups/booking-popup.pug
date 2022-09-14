@@ -30,7 +30,7 @@
             sup *
 
           .select-input__row(data-select-input)
-            input(type='text' value='Ресторан' placeholder='Ресторан' data-readonly readonly required)
+            input(type='text' placeholder='Выберите зону клуба' data-readonly readonly required)
             +arrow-down
 
         .select(data-select)
@@ -52,7 +52,7 @@
           .form__field-name Время
             sup *
 
-            .tooltip
+            .tooltip.active
               +tooltipIco
               .tooltip__txt Пн-Чт, 12:00 – 00:00 #[br] Пн-Сб, 12:00 – 01:00 #[br] Вс, 13:00 – 23:00
 
