@@ -319,7 +319,7 @@ window.filtersEvent = {
       },
       button: elem => {
         elem.parent().addClass('active');
-      }
+      },
     },
     disable: {
       checkbox: elem => {
@@ -385,10 +385,13 @@ function filterEvent() {
       filterKey = thisObj.parents('[data-filter-key]').length ? thisObj.parents('[data-filter-key]').attr('data-filter-key') : thisObj.attr('data-filter-key'),
       filterElem = thisObj.parents('[data-container=filter-item]').length ? thisObj.parents('[data-container=filter-item]') : thisObj,
       valElem = filterElem.find('[data-type=filter-val]'),
-      val = valElem.text() ? valElem.text() : valElem.val(),
+      settingVal = valElem.attr('data-setting-val'),
+      defaultVal = valElem.text(),
+      val = settingVal ? settingVal : defaultVal,
       linkContainer = thisObj.parents('[data-link-container]').attr('data-link-container'),
-      entity = thisObj.parents('[data-entity]').data('entity'),
-      allFilters = $(`[data-filter-key=${filterKey}]`).find(`[data-type=filter-val]:contains(${val})`).filter((i, item) => item.getAttribute('data-style') !== valElem.attr('data-style'));
+      entityElem = thisObj.parents('[data-entity]'),
+      entity = entityElem.data('entity'),
+      allFilters = $(`[data-filter-key=${filterKey}]`).find(`[data-type=filter-val]:contains(${val})`).filter((i, item) => $(item).parents('[data-entity]').attr('data-place') !== entityElem.attr('data-place'));
 
     let isSelect = 'enable';
 
@@ -469,12 +472,21 @@ function addFilterValue(key, valElem) {
 
   const container = $('[data-container=filter-line]'),
     template = container.find('template').clone().contents(),
+    templateVal = template.find('[data-type=filter-val]'),
     clearElem = container.find('[data-type=filter-reset]'),
-    customValue = valElem.data('custom-val'),
-    val = customValue ? customValue : valElem.text();
+    customVal = valElem.data('custom-val'),
+    defaultVal = valElem.text();
+
+  let val = defaultVal;
+
+  if (customVal) {
+    val = customVal;
+
+    templateVal.attr('data-setting-val', defaultVal);
+  }
 
   template.attr('data-filter-key', key);
-  template.find('[data-type=filter-val]').text(val);
+  templateVal.text(val);
   container.prepend(template);
 
   if (clearElem.css('display') === 'block') {
