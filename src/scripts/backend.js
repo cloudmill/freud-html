@@ -828,36 +828,30 @@ window.basketEventSuccess = {
     const item = $(`[data-item-id=${elem.attr('data-id')}]`),
       basketCount = $('[data-type=basket-count]'),
       totalPriceElem = $('[data-type=basket-price-total]'),
-      fullPriceElem = $('[data-type=basket-full-price]'),
       price = +item[0].querySelector('[data-type=price]').textContent,
       count = +item[0].querySelector('[data-type=count]').textContent,
       basketItemsCount = $('[data-type=basket-items-count]'),
       buttonItemList = $(`[data-event=add][data-id=${item.attr('data-product-id')}]`),
       empty = item.filter('[data-type=item-modal]').parent().find('[data-type=item-modal]').length === 1;
 
-    if ($('[data-reload]').length) {
-      if (empty) {
+    if ($('[data-reload]').length && empty) {
         document.location.href = window.location.href;
-      } else {
-        item.remove();
-      }
-    } else {
-      if (empty) {
-        $('[data-cart-btn]').attr('data-header-btn', '4');
-      } else {
-        item.remove();
-      }
+
+        return;
     }
+
+    if (empty) {
+      const basketElem = $('[data-cart-btn]');
+
+      basketElem.attr('data-header-btn', '4');
+      basketElem.removeClass('active');
+      $('[data-cart-modal]').removeClass('active');
+    }
+
+    item.remove();
 
     basketCount.text(+basketCount.text() - 1);
     totalPriceElem.text(+totalPriceElem[0].textContent - (price * count));
-
-    if (fullPriceElem.length) {
-      const fullPrice = item[0].querySelector('[data-type=full-price]') ? +item[0].querySelector('[data-type=full-price]').textContent : null;
-
-      fullPriceElem.text(+fullPriceElem[0].textContent - ((fullPrice ? fullPrice : price) * count));
-      $('[data-type=discount]').text(+fullPriceElem[0].textContent - +totalPriceElem[0].textContent);
-    }
 
     if (basketItemsCount.length) {
       basketItemsCount.text(+basketItemsCount[0].textContent - count);
@@ -868,16 +862,17 @@ window.basketEventSuccess = {
       buttonItemList.attr('data-type', 'basket');
       buttonItemList.text('Добавить в корзину');
     }
+
+    bFPriceCalc($(item[0]), 'delete');
   },
   add: (elem, response) => {
     $('[data-cart-btn]').attr('data-header-btn', '6');
 
-    const basketContainer = $('.not-empty'),
-      item = elem.parents('[data-type=item]'),
+    const item = elem.parents('[data-type=item]'),
       productId = elem.data('id'),
       basket = $('[data-container=header-basket]'),
       basketItem = basket.find(`[data-product-id=${productId}]`),
-      totalPriceElem = basketContainer.find('[data-type=basket-price-total]'),
+      totalPriceElem = $('[data-type=basket-price-total]'),
       basketItemsCount = $('[data-type=basket-items-count]');
 
     if (basketItem.length) {
@@ -934,11 +929,13 @@ window.basketEventSuccess = {
       basketCount.text(+basketCount.text() + 1);
     }
 
-    totalPriceElem.text(+totalPriceElem.text() + +item.find('[data-type=price]').text());
+    totalPriceElem.text(+totalPriceElem[0].textContent + +item.find('[data-type=price]').text());
 
     if (basketItemsCount.length) {
       basketItemsCount.text(+basketItemsCount[0].textContent + 1);
     }
+
+    bFPriceCalc(item, 'add');
 
     if (elem.data('reload')) {
       reloadFetch(elem.parents('[data-container=items]'));
@@ -948,19 +945,11 @@ window.basketEventSuccess = {
     const thisElems = $(`[data-item-id=${elem.attr('data-id')}]`),
       price = +thisElems[0].querySelector('[data-type=price]').textContent,
       calcPrice = thisElems.find('[data-type=calc-price]'),
-      totalElem = $('[data-type=basket-price-total]'),
-      fullPriceElem = $('[data-type=basket-full-price]');
+      totalElem = $('[data-type=basket-price-total]');
 
     thisElems.find('[data-type=count]').text(elem.parent().find('[data-type=count-stepper]').text());
     totalElem.text(elem.data('additional').operator === '+' ? +totalElem[0].textContent + price : +totalElem[0].textContent - price);
     calcPrice.text(elem.data('additional').operator === '+' ? +calcPrice[0].textContent + price : +calcPrice[0].textContent - price);
-
-    if (fullPriceElem.length) {
-      const fullPrice = thisElems[0].querySelector('[data-type=full-price]') ? +thisElems[0].querySelector('[data-type=full-price]').textContent : null;
-
-      fullPriceElem.text(elem.data('additional').operator === '+' ? +fullPriceElem[0].textContent + (fullPrice ? fullPrice : price) : +fullPriceElem[0].textContent - (fullPrice ? fullPrice : price));
-      $('[data-type=discount]').text(+fullPriceElem[0].textContent - +totalElem[0].textContent);
-    }
 
     let count = 0;
 
@@ -969,7 +958,49 @@ window.basketEventSuccess = {
     });
 
     $('[data-type=basket-items-count]').text(count);
+
+    bFPriceCalc($(thisElems[0]), 'update', elem.data('additional').operator);
   }
+}
+
+function bFPriceCalc(elem, type, operator) {
+  const fullPriceElem = $('[data-type=basket-full-price]');
+
+  if (!fullPriceElem.length) {
+    return;
+  }
+
+  const fullPriceItem = elem.find('[data-type=full-price]'),
+    totalPriceElem = $('[data-type=basket-price-total]'),
+    discountElem = $('[data-type=discount]');
+
+  let price;
+
+  if (fullPriceItem.length) {
+    price = +fullPriceItem.text();
+  } else {
+    price = +elem.find('[data-type=price]').text();
+  }
+
+  switch (type) {
+    case 'add':
+      fullPriceElem.text(+fullPriceElem[0].textContent + price);
+      break;
+    case 'delete':
+      const count = +elem[0].querySelector('[data-type=count]').textContent;
+
+      fullPriceElem.text(+fullPriceElem[0].textContent - (price * count));
+      break;
+    case 'update':
+      fullPriceElem.text(operator === '+' ? +fullPriceElem[0].textContent + price :  +fullPriceElem[0].textContent - price);
+      break;
+  }
+
+  if (!discountElem.length) {
+    return;
+  }
+
+  discountElem.text(+fullPriceElem[0].textContent - +totalPriceElem[0].textContent);
 }
 
 function reloadFetch(container) {
