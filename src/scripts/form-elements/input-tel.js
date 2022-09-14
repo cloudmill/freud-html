@@ -1,7 +1,7 @@
 function inputTel() {
   const phoneInputs = document.querySelectorAll('input[type="tel"]');
 
-  // Удаление любых символов крме цифр
+  // Удаление любых символов кроме цифр
   const getInputNumbersValue = (input) => {
     return input.value.replace(/\D/g, "");
   };
