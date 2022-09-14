@@ -105,6 +105,13 @@
     position: relative;
     z-index: 1;
     background: var(--background-grey-extra-2);
+    padding-bottom: getRem(15px);
+
+    @media (min-width: $breakpoint) {
+      padding: 0 getRem(30px) getRem(30px);
+      height: getRem(320px);
+      flex: none;
+    }
 
     a {
       width: 100%;
@@ -120,12 +127,6 @@
         max-width: 100%;
         max-height: 100%;
       }
-    }
-
-    @media (min-width: $breakpoint) {
-      padding: 0 getRem(30px);
-      height: getRem(320px);
-      flex: none;
     }
   }
 
