@@ -201,7 +201,15 @@ window.filterCompare = {
   items: (elem, responseFilter, styles) => {
     elem.find('[data-type=filter-val]').each(function () {
       const filterContainer = $(this).parents('[data-container=filter-item]').length ? $(this).parents('[data-container=filter-item]') : $(this).parents('[data-type=filter]'),
+        customCompare = $(this).attr('data-custom-compare');
+
+      let responseVal;
+
+      if (customCompare) {
+        responseVal = responseFilter.find(`[data-type=filter-val][data-custom-compare=${customCompare}]`);
+      } else {
         responseVal = responseFilter.find(`[data-type=filter-val]:contains(${$(this).text()})`);
+      }
 
       if (responseVal.length) {
         const responseFiltCont = responseVal.parents('[data-container=filter-item]').length ? responseVal.parents('[data-container=filter-item]') : responseVal.parents('[data-type=filter]');
