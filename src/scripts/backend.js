@@ -421,15 +421,43 @@ function filterEvent() {
       valuesElem = thisObj.find('[data-type=filter-val]'),
       values = JSON.parse(valuesElem.text());
 
-    let select;
+    let isSelect;
 
-
+    if (thisObj.hasClass('active')) {
+      thisObj.removeClass('active');
+      isSelect = 'disable';
+    } else {
+      thisObj.addClass('active');
+      isSelect = 'enable';
+    }
 
     for (let filterKey in values) {
-      for (let value in values[filterKey]) {
-        dataFilterValue(valuesElem, filterKey, value);
+      for (let val in values[filterKey]) {
+        let allFilters = $(`[data-filter-key=${filterKey}]`).find(`[data-type=filter-val]:contains(${val})`).filter((i, item) => $(item).parents('[data-entity]').attr('data-place') !== entityElem.attr('data-place'));
+
+        allFilters.each((i, item) => {
+          try {
+            window.filtersEvent.styles[isSelect][item.getAttribute('data-style')]($(item));
+          } catch (e) {
+            console.log(e.message);
+          }
+        });
+
+        if (isSelect === 'disable') {
+          delete window.filters.filter[filterKey][val];
+          removeFilterValue($(`<div>${val}</div>`));
+        } else {
+          if (!window.filters.filter[filterKey]) {
+            window.filters.filter[filterKey] = {};
+          }
+
+          window.filters.filter[filterKey][val] = val;
+          addFilterValue(filterKey, $(`<div>${val}</div>`));
+        }
       }
     }
+
+    filterFetch(thisObj, linkContainer, entity);
   });
 
   $(document).on('click', '[data-type=filter-reset]', function () {
