@@ -399,22 +399,8 @@ function filterEvent() {
       linkContainer = thisObj.parents('[data-link-container]').attr('data-link-container'),
       entityElem = thisObj.parents('[data-entity]'),
       entity = entityElem.data('entity'),
-      allFilters = $(`[data-filter-key=${filterKey}]`).find(`[data-type=filter-val]:contains(${val})`).filter((i, item) => $(item).parents('[data-entity]').attr('data-place') !== entityElem.attr('data-place'));
-
-    let isSelect = 'enable';
-
-    if (!window.filters.filter[filterKey]) {
-      window.filters.filter[filterKey] = {};
-    }
-
-    if (window.filters.filter[filterKey][val]) {
-      delete window.filters.filter[filterKey][val];
-      removeFilterValue(valElem);
-      isSelect = 'disable';
-    } else {
-      window.filters.filter[filterKey][val] = val;
-      addFilterValue(filterKey, valElem);
-    }
+      allFilters = $(`[data-filter-key=${filterKey}]`).find(`[data-type=filter-val]:contains(${val})`).filter((i, item) => $(item).parents('[data-entity]').attr('data-place') !== entityElem.attr('data-place')),
+      isSelect = dataFilterValue(valElem, filterKey, val);
 
     allFilters.each((i, item) => {
       try {
@@ -427,6 +413,25 @@ function filterEvent() {
     filterFetch(thisObj, linkContainer, entity);
   });
 
+  $(document).on('click', '[data-type=filters]', function () {
+    const thisObj = $(this),
+      entityElem = thisObj.parents('[data-entity]'),
+      entity = entityElem.data('entity'),
+      linkContainer = entityElem.data('link-container'),
+      valuesElem = thisObj.find('[data-type=filter-val]'),
+      values = JSON.parse(valuesElem.text());
+
+    let select;
+
+
+
+    for (let filterKey in values) {
+      for (let value in values[filterKey]) {
+        dataFilterValue(valuesElem, filterKey, value);
+      }
+    }
+  });
+
   $(document).on('click', '[data-type=filter-reset]', function () {
     const thisObj = $(this),
       entityElem = thisObj.parents('[data-entity]'),
@@ -437,7 +442,27 @@ function filterEvent() {
 
     filtersClear();
     filterFetch(thisObj, linkContainer, entity);
-  })
+  });
+}
+
+function dataFilterValue(valElem, filterKey, val) {
+  let isSelect;
+
+  if (!window.filters.filter[filterKey]) {
+    window.filters.filter[filterKey] = {};
+  }
+
+  if (window.filters.filter[filterKey][val]) {
+    delete window.filters.filter[filterKey][val];
+    removeFilterValue(valElem);
+    isSelect = 'disable';
+  } else {
+    window.filters.filter[filterKey][val] = val;
+    addFilterValue(filterKey, valElem);
+    isSelect = 'enable';
+  }
+
+  return isSelect;
 }
 
 function filtersClear() {
