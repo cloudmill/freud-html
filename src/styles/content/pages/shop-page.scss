@@ -248,7 +248,7 @@
     margin-right: getRem(12px);
   }
 
-  &:not(.active-filter):not(.active):not(.filter-reset):hover {
+  &:not(.active-filter):not(.active):not(.filter-reset):hover, &.active {
     border-color: var(--color-black);
   }
 
