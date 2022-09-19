@@ -48,7 +48,7 @@ function formValidation() {
 
                 if (item.validity.valid && !item.hasAttribute('data-readonly') && !(item.getAttribute('type') === 'tel') || 
                   item.hasAttribute('data-readonly') && !item.value.length ||
-                  item.getAttribute('type') === 'tel' && item.value.replace(/\D/g, "").length === 11 && item.value.replace(/\D/g, "")[0] === (7 || 8)) {
+                  item.getAttribute('type') === 'tel' && item.value.replace(/\D/g, "").length === 11 && item.value.replace(/\D/g, "")[0] == (7 || 8)) {
 
                   // console.log('focusout ok');
           
@@ -60,9 +60,9 @@ function formValidation() {
         
                   showError();
 
-                  if (item.getAttribute('type') === 'tel') {
-                    console.log(item.value.replace(/\D/g, ""), item.value.replace(/\D/g, "")[0]);
-                  }
+                  // if (item.getAttribute('type') === 'tel') {
+                  //   console.log(item.getAttribute('type') === 'tel', item.value.replace(/\D/g, "").length === 11, item.value.replace(/\D/g, "")[0], item.value.replace(/\D/g, "")[0] === ('7' || '8'));
+                  // }
                 }
               
               });
@@ -186,7 +186,7 @@ function formValidation() {
               } else if (item.hasAttribute('data-readonly') && !item.value.length) {
                 error.textContent = 'Обязательное поле';
 
-              } else if (item.getAttribute('type') === 'tel' && (item.value.replace(/\D/g, "").length < 11 || !(item.value.replace(/\D/g, "")[0] === (7 || 8)))) {
+              } else if (item.getAttribute('type') === 'tel' && (item.value.replace(/\D/g, "").length < 11 || !(item.value.replace(/\D/g, "")[0] == (7 || 8)))) {
 
                 error.textContent = 'Неверный номер';
 
