@@ -689,9 +689,7 @@ function bookingFormTime() {
       data: data,
       success: function (r) {
         if (r.txter) {
-          tooltipBlock.trigger('mouseenter');
-          tooltipBlock.trigger('hover');
-          tooltipBlock.trigger('mouseover');
+          tooltipBlock.addClass("active");
 
           errorSpan.addClass("active");
           errorSpan.html(r.txter);
