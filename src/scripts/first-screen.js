@@ -3,6 +3,7 @@ import { mediaQuery } from "./mediaQueries";
 function firstScreen(e) {
 
   const firstScreen = document.querySelector('.first-screen');
+  const sectionBgVideo = document.querySelector('.section-bg-vid__video');
   
   if (firstScreen && e.type == 'DOMContentLoaded' && !mediaQuery.matches) {
 
@@ -40,12 +41,24 @@ function firstScreen(e) {
     
   }
   
-  if (firstScreen && e.type == 'load') {
+  if (sectionBgVideo && e.type == 'load') {
 
     setTimeout(() => {
-      document.querySelectorAll('.section-bg-vid__video').forEach(item => {
-        item.play()
-      });
+
+      if (mediaQuery.matches) {
+
+        sectionBgVideo.setAttribute('src', 'assets/videos/interior-bg-vid.mp4');
+        sectionBgVideo.play();
+        sectionBgVideo.setAttribute('autoplay', '');
+        
+      } else if (!mediaQuery.matches) {
+
+        sectionBgVideo.setAttribute('src', 'assets/videos/interior-bg-vid-mob.mp4');
+        sectionBgVideo.play();
+        sectionBgVideo.setAttribute('autoplay', '');
+        
+      }
+
     }, 1000);
   }
 

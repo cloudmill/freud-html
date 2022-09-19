@@ -33,6 +33,8 @@ import mobileSearch from './scripts/mobileSearch';
 
 let blockScroll;
 
+mainVideo();
+
 document.addEventListener('DOMContentLoaded', (e) => {
 
   // проверка что js работает
@@ -66,29 +68,6 @@ document.addEventListener('DOMContentLoaded', (e) => {
   cigarSize();
 
   promocodeStates();
-
-  // function handler(event) {
-  //   console.log(event + ' all');
-  // }
-
-  // document.addEventListener('mousedown', event => {
-  //   handler(event.type)
-  // })
-
-  // document.querySelector('[data-test-click]').addEventListener('mousedown', (event) => {
-  //   console.log('mousedown');
-  // })
-
-  // document.querySelector('[data-test-click]').addEventListener('click', (event) => {
-  //   console.log('click');
-  // })
-
-  // document.addEventListener('mousedown', event => {
-
-  //   popups(event, 'data-popup-button', 'data-popup');
-  //   console.log('yo');
-
-  // }, {passive: true})
 
   document.addEventListener('click', eventClick => {
 
@@ -228,5 +207,27 @@ function categoryFilters() {
           } 
       }
     }) 
+  }
+}
+
+function mainVideo() {
+  // загрузка десктопного или мобильного видео на главной странице
+  const videoMain = document.querySelectorAll('[data-main-video]');
+
+  if (videoMain.length && mediaQuery.matches) {
+
+    videoMain.forEach(video => {
+      video.setAttribute('src', 'assets/videos/main-video-comp.mp4');
+      video.play();
+      video.setAttribute('autoplay', '');
+    })
+    
+  } else if (videoMain.length && !mediaQuery.matches) {
+
+    videoMain.forEach(video => {
+      video.setAttribute('src', 'assets/videos/main-video-comp-mob.mp4');
+      video.play();
+      video.setAttribute('autoplay', '');
+    })
   }
 }
