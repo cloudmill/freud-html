@@ -529,45 +529,36 @@ function removeFilterValue(valElem) {
 }
 
 function addFilterValue(key, valElem) {
-  filterLineInit();
+  const containers = $('[data-container=filter-line]');
 
-  const container = $('[data-container=filter-line]'),
+  containers.each((i, item) => {
+    const container = $(item),
     template = container.find('template').clone().contents(),
     templateVal = template.find('[data-type=filter-val]'),
     clearElem = container.find('[data-type=filter-reset]'),
     customVal = valElem.data('custom-val'),
     defaultVal = valElem.text();
 
-  let val = defaultVal;
+    let val = defaultVal;
 
-  if (customVal) {
-    val = customVal;
+    if (customVal) {
+      val = customVal;
 
-    templateVal.attr('data-setting-val', defaultVal);
-  }
+      templateVal.attr('data-setting-val', defaultVal);
+    }
 
-  template.attr('data-filter-key', key);
-  templateVal.text(val);
-  container.prepend(template);
+    template.attr('data-filter-key', key);
+    templateVal.text(val);
+    container.prepend(template);
 
-  if (clearElem.css('display') === 'block') {
-    return;
-  }
+    if (clearElem.css('display') === 'block') {
+      return;
+    }
 
-  clearElem.css({
-    'display': 'block',
+    clearElem.css({
+      'display': 'block',
+    });
   });
-}
-
-function filterLineInit() {
-  const templElem = $('[data-template=filter-line]'),
-    templContent = templElem.contents();
-
-  if (!templContent) {
-    return;
-  }
-
-  templElem.after(templContent);
 }
 
 function checkInput() {

@@ -115,7 +115,7 @@ function activeFiltersHeader() {
 
   const filtersOnPage = document.querySelector('[data-active-filters]');
 
-  if (filtersOnPage && filtersOnPage.querySelectorAll('.active-filter').length) {
+  if (filtersOnPage) {
 
     window.addEventListener('scroll', () => {
 
