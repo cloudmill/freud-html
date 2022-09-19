@@ -22,6 +22,13 @@ block content
 
           include ../components/category-search
 
+        .category-top__line.cigars-filters
+
+          each item in ['Кубинские сигары Bolivar', 'Сигариллы Trinidad Short', 'Кубинские сигары Bolivar']
+            button.category-filter-btn.button--clean.new-border
+              | #{item}
+              span.category-filter-btn__count 24
+
         .category-top__line.drinks-filters
 
           .drinks-filters-item.active

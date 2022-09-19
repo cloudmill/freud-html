@@ -137,22 +137,27 @@
       z-index: 15;
       position: relative;
       background: var(--color-white);
+
+      padding-bottom: getRem(30px);
+      @media (max-width: ($breakpoint - 1px)) {
+        padding-bottom: getRem(20px);
+      }
     }
     &.cigars-filters {
-      padding: getRem(30px) 0;
+      padding-bottom: getRem(30px);
       z-index: 15;
       position: relative;
       background: var(--color-white);
 
       @media (max-width: ($breakpoint - 1px)) {
-        padding: getRem(20px) $col-pad-m;
+        padding: 0 $col-pad-m getRem(20px);
         margin: 0 -$col-pad-m;
         overflow-x: auto;
         @include scrollbar-hidden;
       }
     }
     &.drinks-filters {
-      padding: getRem(30px) 0 getRem(20px);
+      padding-bottom: getRem(30px);
       z-index: 15;
       position: relative;
       background: var(--color-white);
@@ -162,17 +167,21 @@
       }
 
       @media (max-width: ($breakpoint - 1px)) {
-        padding: getRem(20px) $col-pad-m;
+        padding: 0 $col-pad-m getRem(20px);
         margin: 0 -$col-pad-m;
 
         overflow: auto;
         @include scrollbar-hidden;
       }
     }
-    &:nth-child(3) {
+    &.filter-drops {
+      position: relative;
+      background: var(--color-white);
+      // padding-top: getRem(20px);
+    
       margin: 0 -$col-pad-m getRem(12px);
-
       @media (min-width: $breakpoint) {
+        // padding-top: getRem(30px);
         margin: 0 0 getRem(20px);
       }
     }
@@ -467,11 +476,6 @@
 .search-icon {
   width: getRem(17px);
   height: getRem(18px);
-}
-
-.filter-drops {
-  position: relative;
-  background: var(--color-white);
 }
 
 .filter-drops-btns {

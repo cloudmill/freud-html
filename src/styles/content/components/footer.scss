@@ -273,6 +273,10 @@
     }
   }
 
+  span {
+    color: var(--color-black);
+  }
+
   &:not(:first-child) {
     margin-top: getRem(8px);
   }
