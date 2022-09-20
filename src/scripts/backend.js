@@ -1005,8 +1005,17 @@ window.basketEventSuccess = {
     const thisElems = $(`[data-item-id=${elem.attr('data-id')}]`),
       price = +thisElems[0].querySelector('[data-type=price]').textContent,
       calcPrice = thisElems.find('[data-type=calc-price]'),
+      fullPrice = thisElems.find('[data-type=full-price]'),
       totalElem = $('[data-type=basket-price-total]'),
       countItem = elem.parent().find('[data-type=count-stepper]').text();
+
+    if (fullPrice.length) {
+      const discountAll = +fullPrice[0].textContent - +calcPrice[0].textContent,
+        discountCount = elem.data('additional').operator === '+' ? +countItem - 1 : +countItem + 1,
+        discount = discountAll / discountCount;
+
+      fullPrice.text(elem.data('additional').operator === '+' ? +fullPrice[0].textContent + (price + discount) : +fullPrice[0].textContent - (price + discount));
+    }
 
     thisElems.find('[data-type=count]').text(countItem);
     thisElems.find('[data-type=count-stepper]').text(countItem);
