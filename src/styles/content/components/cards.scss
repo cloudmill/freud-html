@@ -108,7 +108,8 @@
     padding-bottom: getRem(15px);
 
     @media (min-width: $breakpoint) {
-      padding: 0 getRem(30px) getRem(30px);
+      // padding: 0 getRem(30px) getRem(30px);
+      padding: getRem(13px) getRem(52px) getRem(60px);
       height: getRem(320px);
       flex: none;
     }
