@@ -725,7 +725,7 @@ function promoAdd() {
       },
       success: function (r) {
         if (r.success) {
-          htmlReload();
+          htmlReload('promo', '[data-replace=items-list], [data-replace=preview-items-list], [data-replace=price], [data-replace=header-basket-items]');
           $('.cart-promocode-error').removeClass('active');
         } else {
           $('.cart-promocode-error').addClass('active');
@@ -749,7 +749,7 @@ function promoDelete() {
       },
       success: function (r) {
         if (r.success) {
-          htmlReload();
+          htmlReload('promo', '[data-replace=items-list], [data-replace=preview-items-list], [data-replace=price], [data-replace=header-basket-items]');
           eventPromoDelete(container[0]);
           $('.cart-promocode-error').removeClass('active');
         } else {
@@ -760,16 +760,16 @@ function promoDelete() {
   });
 }
 
-function htmlReload() {
+function htmlReload(action, containers) {
   $.ajax({
     type: 'GET',
     url: window.location.href,
     dataType: 'html',
     data: {
-      ajax: 'promo',
+      ajax: action,
     },
     success: function (r) {
-      $('[data-type=replace]').each(function () {
+      $(`${containers}`).each(function () {
         $(this).empty();
         $(this).append($(r).find(`[data-replace=${$(this).data('replace')}]`).children());
       });
@@ -803,7 +803,9 @@ function pagen() {
 }
 
 function order() {
-  $(document).on('click', '[data-type=order]', function () {
+  $(document).on('click', '[data-type=order]', function (e) {
+    e.preventDefault();
+
     const thisObj = $(this),
       container = thisObj.parents('[data-container=order]'),
       data = {};
@@ -914,6 +916,10 @@ window.basketEventSuccess = {
     }
 
     bFPriceCalc($(item[0]), 'delete');
+
+    if (elem.data('reload')) {
+      htmlReload('deliveries', '[data-replace=deliveries]');
+    }
   },
   add: (elem, response) => {
     $('[data-cart-btn]').attr('data-header-btn', '6');
@@ -988,7 +994,7 @@ window.basketEventSuccess = {
     bFPriceCalc(item, 'add');
 
     if (elem.data('reload')) {
-      reloadFetch(elem.parents('[data-container=items]'));
+      htmlReload('4_items', '[data-replace=4-items]');
     }
   },
   update: elem => {
@@ -1053,21 +1059,6 @@ function bFPriceCalc(elem, type, operator) {
   }
 
   discountElem.text(+fullPriceElem[0].textContent - +totalPriceElem[0].textContent);
-}
-
-function reloadFetch(container) {
-  $.ajax({
-    type: 'GET',
-    url: window.location.href,
-    dataType: 'html',
-    data: {
-      ajax: 'reload',
-    },
-    success: function (r) {
-      container.empty();
-      container.append($(r));
-    },
-  });
 }
 
 function basketEvent() {
