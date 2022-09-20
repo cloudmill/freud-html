@@ -48,7 +48,8 @@ function formValidation() {
 
                 if (item.validity.valid && !item.hasAttribute('data-readonly') && !(item.getAttribute('type') === 'tel') || 
                   item.hasAttribute('data-readonly') && !item.value.length ||
-                  item.getAttribute('type') === 'tel' && item.value.replace(/\D/g, "").length === 11 && item.value.replace(/\D/g, "")[0] == (7 || 8)) {
+                  item.getAttribute('type') === 'tel' && item.value.replace(/\D/g, "").length === 11 && item.value.replace(/\D/g, "")[0] == (7 || 8) ||
+                  item.hasAttribute('data-time-input') && !item.hasAttribute('data-valid')) {
 
                   // console.log('focusout ok');
           
@@ -79,7 +80,8 @@ function formValidation() {
 
                 if (!item.validity.valid || 
                   (item.getAttribute('type') == 'checkbox' && !item.checked) || 
-                  item.hasAttribute('data-readonly') && !item.value.length) {
+                  item.hasAttribute('data-readonly') && !item.value.length ||
+                  item.hasAttribute('data-time-input') && item.hasAttribute('data-valid')) {
     
                   showError(item, !item.validity.valid);
     
