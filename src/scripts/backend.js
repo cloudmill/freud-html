@@ -684,8 +684,12 @@ function bookingFormTime() {
 
           errorSpan.addClass("active");
           errorSpan.html(r.txter);
+
+          inputTime.attr('data-valid', 'no');
         }
         if (!r.txter) {
+          inputTime.removeAttr('data-valid');
+
           errorSpan.removeClass("active");
           errorSpan.html();
         }
