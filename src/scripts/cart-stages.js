@@ -1,5 +1,6 @@
 import { mediaQuery } from './mediaQueries';
 import formValidation from './form-elements/form-validation';
+import tabs from './tabs';
 
 function cartStages() {
 
@@ -56,6 +57,7 @@ function cartStages() {
 
               document.querySelector('[data-note-result]').innerText = document.querySelector('[data-cart-comment]').value;
 
+              tabs();
               formValidation();
 
               // переход на экран успешного оформления

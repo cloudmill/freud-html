@@ -754,6 +754,7 @@
   &__img {
     height: getRem(80px);
     width: getRem(80px);
+    padding: getRem(5px);
     flex: none;
 
     display: flex;
