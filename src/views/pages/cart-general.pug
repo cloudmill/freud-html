@@ -448,3 +448,253 @@ block modals
 
 block scripts
   script(src="https://api-maps.yandex.ru/2.1/?apikey=9eaf2d45-34a5-4620-bac6-0482e9335845&lang=ru_RU" type="text/javascript")
+
+
+//- new
+
+
+            .cart-stage.collapsed(data-cart-stage='2')
+              .cart-stage__row
+                .cart-stage__row-col
+                  .cart-stage__count 3/3
+                  .cart-stage__ttl.h4.title-font Получение заказа
+
+              .cart-receiving(data-cart-content='3')
+                .cart-receiving-options(data-tabs)
+                  .cart-receiving-options__item.active(data-tabs-item data-cart-small-form='')
+                    +pickup-ico.cart-receiving-options__svg
+
+                    .cart-receiving-options__col
+                      .cart-receiving-options__ttl Самовывоз из магазина
+                      .cart-receiving-options__txt Бесплатно, сегодня
+
+                  .cart-receiving-options__item(data-tabs-item data-cart-big-form='')
+                    +delivery-ico.cart-receiving-options__svg
+
+                    .cart-receiving-options__col
+                      .cart-receiving-options__ttl Доставка курьером
+                      .cart-receiving-options__txt Дату и стоимость доставки уточнит менеджер
+
+                .cart-receiving-types(data-tabs-content)
+
+                  .cart-receiving-types__item.active(data-content-item)
+
+                    .cart-pickup
+                      .cart-pickup__info
+                        .cart-pickup__ttl Самовывоз из клуба «Профессор Фрейд»
+
+                        .cart-pickup__info-item
+                          +place-ico.cart-pickup__svg
+                          div
+                            .cart-pickup__info-ttl Адрес
+                            .cart-pickup__info-txt г. Санкт-Петербург, ул. Малая Морская, дом 18
+
+                        .cart-pickup__info-item
+                          +clock-ico.cart-pickup__svg
+                          div
+                            .cart-pickup__info-ttl Часы работы
+                            .cart-pickup__info-txt ПН – ЧТ, 12:00 – 00:00 #[br] ПТ – СБ, 12:00 – 01:00 #[br] ВС, 13:00 – 23:00
+
+                        .cart-pickup__info-item
+                          +attention-ico.cart-pickup__svg
+                          div
+                            .cart-pickup__info-ttl Алкоголь можно забрать до 22:00
+
+                      .cart-pickup__map
+                        #map
+
+                    .cart-receiving__txt Менеджер свяжется с вами для уточнения деталей в ближайшее время
+
+                    +brown-button.cart-pickup__btn(data-cart-final='')
+                      |Оформить заказ
+                  
+                  .cart-receiving-types__item(data-content-item)
+                    .cart-receiving-form__ttl Укажите адрес доставки
+                    .cart-receiving-form__note 
+                      sup *
+                      |— поля обязательные для заполнения
+
+                    form.cart-receiving-form__form(novalidate)
+                      label.form__label
+                        .form__field-name Адрес
+                          sup *
+                        input.form__input(type='text' data-input-title='address' placeholder='Введите город, улицу, дом, корпус' data-dostavka-address='' required)
+
+                      .cart-receiving-form__row
+                        label.form__label
+                          .form__field-name Номер квартиры/офиса
+                          input.form__input(type='number' placeholder='Введите номер' data-dostavka-address2='')
+
+                        .checkbox
+                          label.checkbox__label
+                            input.checkbox__input(type="checkbox" data-input-novalidate)
+                            .checkbox__box
+                              +checkbox-white-svg.checkbox__svg
+
+                          .checkbox__caption
+                            |Частный дом
+
+                      label.form__label
+                        .form__field-name Комментарии к заказу
+                        textarea.form__textarea(placeholder='Введите текст')
+                      
+                      .cart-receiving-form__txt.only-desktop Доставка разрешена не для всех товаров из нашего каталога. #[br] Менеджер перезвонит вам в ближайшее время и проконсультирует вас
+
+                      .cart-receiving-form__txt.only-mobile Доставка разрешена не для всех товаров из нашего каталога. Менеджер перезвонит вам в ближайшее время и проконсультирует вас
+
+                      +brown-button.cart-receiving-form__btn(type='submit' data-cart-final='')
+                        |Оформить заказ
+
+                      a.cart-receiving-form__link(href="https://minzdrav.gov.ru/documents/5736-federalnyy-zakon-15-fz-ot-23-fevralya-2013-g" target="_blank") Федеральный закон №15-ФЗ от 23 февраля 2013 года 
+
+          .cart-section__col.only-desktop
+
+            .cart-result-container(data-aos='fade-up')
+              .cart-result-container__top
+                a.cart-section__back-link(href="")
+                  |Вернуться к покупкам
+
+              .cart-result
+                .cart-result__ttl Итого
+                .cart-result__row
+                  .cart-result__name 3 товара на сумму
+                  .cart-result__value 135 820 ₽
+                .cart-result__row
+                  .cart-result__name Скидка
+                  .cart-result__value −11 000 ₽
+                .cart-result__row
+                  .cart-result__name Промокод «Фрейд»
+                  .cart-result__value −1 000 ₽
+
+                .cart-result__total
+                  .cart-result__name К оплате
+                  .cart-result__value 120 000 ₽
+
+              .cart-promocode
+                input.cart-promocode__input(type='text' placeholder='Ввести промокод')
+
+                button.button--clean.cart-promocode-send
+                  +arrow-right.cart-promocode__arrow
+
+                button.button--clean.cart-promocode-delete
+
+              .cart-promocode-error.active — промокод не найден
+
+        .cart-section__body.hide(data-cart-body-result='')
+
+          .cart-section__col.cart-final
+
+            .cart-section__top.only-desktop(data-aos='fade-up')
+              h1.title-font.h2--big Оформление заказа
+
+            .cart-final__top
+
+              .cart-final__ttl.h4.title-font Заказ № 1156 создан
+
+              .cart-final__txt Менеджер свяжется с вами для уточнения деталей в ближайшее время
+
+            .cart-products-notactive
+              - for (a=0;a<3;a++)
+                .cart-products-item
+                  .cart-products-item__img
+                    +picture(file='shop-img-1')
+                  .cart-products-item__row
+                    .cart-products-item__ttl Сигара Nicaragua Primeros Mad
+                    div &nbsp;—&nbsp;
+                    .cart-products-item__price 13 820 ₽
+
+            .cart-result.cart-result-final.only-mobile
+              .cart-result__ttl Итого
+              .cart-result__row
+                .cart-result__name 3 товара на сумму
+                .cart-result__value 135 820 ₽
+              .cart-result__row
+                .cart-result__name Скидка
+                .cart-result__value −11 000 ₽
+              .cart-result__row
+                .cart-result__name Промокод «Фрейд»
+                .cart-result__value −1 000 ₽
+
+              .cart-result__total
+                .cart-result__name К оплате
+                .cart-result__value 120 000 ₽
+                
+            .cart-final__info(data-result-samovyvos)
+              .cart-pickup
+                .cart-pickup__info
+                  .cart-pickup__ttl Самовывоз из клуба «Профессор Фрейд»
+
+                  .cart-pickup__info-item
+                    +place-ico.cart-pickup__svg
+                    div
+                      .cart-pickup__info-ttl Адрес
+                      .cart-pickup__info-txt г. Санкт-Петербург, ул. Малая Морская, дом 18
+
+                  .cart-pickup__info-item
+                    +clock-ico.cart-pickup__svg
+                    div
+                      .cart-pickup__info-ttl Часы работы
+                      .cart-pickup__info-txt ПН – ЧТ, 12:00 – 00:00 #[br] ПТ – СБ, 12:00 – 01:00 #[br] ВС, 13:00 – 23:00
+
+                  .cart-pickup__info-item
+                    +attention-ico.cart-pickup__svg
+                    div
+                      .cart-pickup__info-ttl Алкоголь можно забрать до 22:00
+
+                .cart-pickup__map
+                  #map2
+
+            .cart-final__info(data-result-dostavka)
+              .cart-final-delivery
+                .cart-pickup__ttl Доставка
+
+                .cart-pickup__info-item
+                  +place-ico.cart-pickup__svg
+                  div
+                    .cart-pickup__info-ttl Адрес
+                    .cart-pickup__info-txt(data-result-adsress)
+
+                .cart-pickup__info-item
+                  +attention-ico.cart-pickup__svg
+                  div
+                    .cart-pickup__info-ttl Стоимость доставки уточнит менеджер
+
+            +brown-button-link.cart-pickup__btn
+              |Вернуться на главную
+                  
+
+          .cart-section__col.only-desktop
+
+            .cart-result-container__top
+              a.cart-section__back-link(href="")
+                |Вернуться к покупкам
+
+            .cart-result(data-aos='fade-up')
+              .cart-result__ttl Итого
+              .cart-result__row
+                .cart-result__name 3 товара на сумму
+                .cart-result__value 135 820 ₽
+              .cart-result__row
+                .cart-result__name Скидка
+                .cart-result__value −11 000 ₽
+              .cart-result__row
+                .cart-result__name Промокод «Фрейд»
+                .cart-result__value −1 000 ₽
+
+              .cart-result__total
+                .cart-result__name К оплате
+                .cart-result__value 120 000 ₽
+
+          .articles-section.section--top
+            - var noaos = true
+            include ../components/sections/articles-section
+
+block footer
+  - var noaos = true
+  +footer(noaos)
+
+block modals
+  include ../components/popups/delete-product-popup
+
+block scripts
+  script(src="https://api-maps.yandex.ru/2.1/?apikey=9eaf2d45-34a5-4620-bac6-0482e9335845&lang=ru_RU" type="text/javascript")
