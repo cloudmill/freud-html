@@ -4,7 +4,7 @@ function firstScreen(e) {
 
   const firstScreen = document.querySelector('.first-screen');
   const sectionBgVideo = document.querySelector('.section-bg-vid__video');
-  
+
   if (firstScreen && e.type == 'DOMContentLoaded' && !mediaQuery.matches) {
 
     // анимация первого экрана
@@ -17,14 +17,14 @@ function firstScreen(e) {
         item.classList.add('loaded')
       });
       document.querySelector('.first-screen__ttl').classList.add('loaded');
-      
+
     }, 1000);
 
     // фикс бленд мода в сафари
     setTimeout(() => {
       document.querySelector('.first-screen__ttl').classList.add('blend-mode');
     }, 1200);
-    
+
   } else if (firstScreen && e.type == 'load' && mediaQuery.matches) {
 
     // анимация первого экрана
@@ -38,25 +38,25 @@ function firstScreen(e) {
 
     // фикс бленд мода в сафари
     document.querySelector('.first-screen__ttl').classList.add('blend-mode');
-    
+
   }
-  
+
   if (sectionBgVideo && e.type == 'load') {
 
     setTimeout(() => {
 
       if (mediaQuery.matches) {
 
-        sectionBgVideo.setAttribute('src', 'assets/videos/interior-bg-vid.mp4');
+        sectionBgVideo.setAttribute('src', `${window.config.path}assets/videos/interior-bg-vid.mp4`);
         sectionBgVideo.play();
         sectionBgVideo.setAttribute('autoplay', '');
-        
+
       } else if (!mediaQuery.matches) {
 
-        sectionBgVideo.setAttribute('src', 'assets/videos/interior-bg-vid-mob.mp4');
+        sectionBgVideo.setAttribute('src', `${window.config.path}assets/videos/interior-bg-vid-mob.mp4`);
         sectionBgVideo.play();
         sectionBgVideo.setAttribute('autoplay', '');
-        
+
       }
 
     }, 1000);

@@ -33,10 +33,15 @@ import mobileSearch from './scripts/mobileSearch';
 
 let blockScroll;
 
+const siteTemplPath = document.querySelector('[data-type=site-templ-path]');
+
+window.config = {
+  path: window.location.hostname && window.location.hostname !== 'cloudmill.github.io' ? (siteTemplPath ? siteTemplPath.value : '/local/templates/main/') : '',
+}
+
 mainVideo();
 
 document.addEventListener('DOMContentLoaded', (e) => {
-
   // проверка что js работает
   document.querySelector('.body').setAttribute('data-js', 'true');
 
@@ -85,7 +90,7 @@ document.addEventListener('DOMContentLoaded', (e) => {
     }
 
     if (eventClick.target.closest('[data-plug-close]')) {
-      
+
       document.querySelector('.plug-popup.active').classList.remove('active');
       document.querySelector('.modals-container.plug').classList.remove('plug');
 
@@ -97,9 +102,9 @@ document.addEventListener('DOMContentLoaded', (e) => {
 
     document.querySelectorAll('[data-header-btn]').forEach(item => {
       item.addEventListener('mouseenter', eventHover => {
-  
+
         dropdownsBlock(eventHover, 'data-header-btn', 'data-header-modal', blockScroll = true);
-  
+
       });
     })
   }
@@ -114,13 +119,13 @@ window.addEventListener('load', (e) => {
   firstScreen(e);
   cartStages();
   humidorSlider();
-  
+
   aosInit();
 
   headerOnScroll();
-  
+
   accordions();
-  
+
 });
 
 window.addEventListener('scroll', aosRefresh);
@@ -169,7 +174,7 @@ function fadeOnLeave(eventClick) {
     setTimeout(() => {
       window.location.assign(href)
     }, 600);
-    
+
   }
 }
 
@@ -182,12 +187,12 @@ function categoryFilters() {
     filterBtns.forEach(item => {
 
       if (!(item.getAttribute('data-filter-btn') == '6')) {
-  
+
         const btnsRow = document.querySelector('.filter-drops-btns');
         const pad = btnsRow.getBoundingClientRect().left;
         const btnNum = item.getAttribute('data-filter-btn');
         const drop = document.querySelector(`[data-filter-drop='${btnNum}']`);
-  
+
         const left = item.getBoundingClientRect().left - pad - 10;
 
         if (left > 0) {
@@ -195,18 +200,18 @@ function categoryFilters() {
         } else {
           drop.style.left = `0px`;
         }
-        
+
 
         const right = document.documentElement.clientWidth - drop.getBoundingClientRect().right;
 
           if (right < pad) {
-            
+
             const newWidth = btnsRow.getBoundingClientRect().width - left;
             drop.style.width = `${newWidth}px`;
 
-          } 
+          }
       }
-    }) 
+    })
   }
 }
 
@@ -217,15 +222,15 @@ function mainVideo() {
   if (videoMain.length && mediaQuery.matches) {
 
     videoMain.forEach(video => {
-      video.setAttribute('src', 'assets/videos/main-video-comp.mp4');
+      video.setAttribute('src', `${window.config.path}assets/videos/main-video-comp.mp4`);
       video.play();
       video.setAttribute('autoplay', '');
     })
-    
+
   } else if (videoMain.length && !mediaQuery.matches) {
 
     videoMain.forEach(video => {
-      video.setAttribute('src', 'assets/videos/main-video-comp-mob.mp4');
+      video.setAttribute('src', `${window.config.path}assets/videos/main-video-comp-mob.mp4`);
       video.play();
       video.setAttribute('autoplay', '');
     })
