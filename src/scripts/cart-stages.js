@@ -1,4 +1,5 @@
 import { mediaQuery } from './mediaQueries';
+import formValidation from './form-elements/form-validation';
 
 function cartStages() {
 
@@ -55,6 +56,15 @@ function cartStages() {
 
               document.querySelector('[data-note-result]').innerText = document.querySelector('[data-cart-comment]').value;
 
+              formValidation();
+
+              // переход на экран успешного оформления
+              // так же проверяет наличие ошибок в случае зполнения формы на доставку
+              document.querySelectorAll('[data-cart-final]').forEach(item => {
+                item.addEventListener('click', () => {
+                  finalStage(item)
+                })
+              })
 
             }
 
@@ -98,14 +108,6 @@ function cartStages() {
         e.target.closest('[data-cart-stage]').classList.add('open');
         e.target.closest('[data-cart-stage]').classList.add('add-transition');
 
-      })
-    })
-
-    // переход на экран успешного оформления
-    // так же проверяет наличие ошибок в случае зполнения формы на доставку
-    document.querySelectorAll('[data-cart-final]').forEach(item => {
-      item.addEventListener('click', () => {
-        finalStage(item)
       })
     })
 

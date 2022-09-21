@@ -39,7 +39,8 @@ block content
                 .cart-products-notactive
                   - for (a=0;a<3;a++)
                     .cart-products-item
-                      +picture.cart-products-item__img(file='shop-img-1')
+                      .cart-products-item__img
+                        +picture(file='shop-img-1')
                       .cart-products-item__row
                         .cart-products-item__ttl Сигара Nicaragua Primeros Mad
                         div &nbsp;—&nbsp;
