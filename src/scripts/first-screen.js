@@ -47,13 +47,15 @@ function firstScreen(e) {
 
       if (mediaQuery.matches) {
 
-        sectionBgVideo.setAttribute('src', `${window.config.path}assets/videos/interior-bg-vid.mp4`);
+        // sectionBgVideo.setAttribute('src', `${window.config.path}assets/videos/interior-bg-vid.mp4`);
+        sectionBgVideo.setAttribute('src', `assets/videos/interior-bg-vid.mp4`);
         sectionBgVideo.play();
         sectionBgVideo.setAttribute('autoplay', '');
 
       } else if (!mediaQuery.matches) {
 
-        sectionBgVideo.setAttribute('src', `${window.config.path}assets/videos/interior-bg-vid-mob.mp4`);
+        // sectionBgVideo.setAttribute('src', `${window.config.path}assets/videos/interior-bg-vid-mob.mp4`);
+        sectionBgVideo.setAttribute('src', `assets/videos/interior-bg-vid-mob.mp4`);
         sectionBgVideo.play();
         sectionBgVideo.setAttribute('autoplay', '');
 
