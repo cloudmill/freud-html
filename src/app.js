@@ -39,8 +39,6 @@ window.config = {
   path: window.location.hostname && window.location.hostname !== 'cloudmill.github.io' ? (siteTemplPath ? siteTemplPath.value : '/local/templates/main/') : '',
 }
 
-mainVideo();
-
 document.addEventListener('DOMContentLoaded', (e) => {
   // проверка что js работает
   document.querySelector('.body').setAttribute('data-js', 'true');
@@ -111,6 +109,8 @@ document.addEventListener('DOMContentLoaded', (e) => {
 });
 
 window.addEventListener('load', (e) => {
+
+  mainVideo();
 
   categoryFilters();
 
