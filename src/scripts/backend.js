@@ -43,7 +43,7 @@ function sortEvent() {
         by: thisObj.data('by'),
       },
     },
-    resultData = data;
+      resultData = data;
 
     if (window.ajaxRequest.params) {
       resultData = Object.assign(window.ajaxRequest.params, data);
@@ -533,11 +533,11 @@ function addFilterValue(key, valElem) {
 
   containers.each((i, item) => {
     const container = $(item),
-    template = container.find('template').clone().contents(),
-    templateVal = template.find('[data-type=filter-val]'),
-    clearElem = container.find('[data-type=filter-reset]'),
-    customVal = valElem.data('custom-val'),
-    defaultVal = valElem.text();
+      template = container.find('template').clone().contents(),
+      templateVal = template.find('[data-type=filter-val]'),
+      clearElem = container.find('[data-type=filter-reset]'),
+      customVal = valElem.data('custom-val'),
+      defaultVal = valElem.text();
 
     let val = defaultVal;
 
@@ -891,9 +891,9 @@ window.basketEventSuccess = {
       empty = item.filter('[data-type=item-modal]').parent().find('[data-type=item-modal]').length === 1;
 
     if ($('[data-reload]').length && empty) {
-        document.location.href = window.location.href;
+      document.location.href = window.location.href;
 
-        return;
+      return;
     }
 
     if (empty) {
@@ -1063,7 +1063,7 @@ function bFPriceCalc(elem, type, operator) {
       fullPriceElem.text(+fullPriceElem[0].textContent - (price * count));
       break;
     case 'update':
-      fullPriceElem.text(operator === '+' ? +fullPriceElem[0].textContent + price :  +fullPriceElem[0].textContent - price);
+      fullPriceElem.text(operator === '+' ? +fullPriceElem[0].textContent + price : +fullPriceElem[0].textContent - price);
       break;
   }
 
@@ -1144,8 +1144,21 @@ function favorAdd() {
       success: function (r) {
         console.log(r);
         console.log(r.count);
+
+        let hederFavBlock = $(document).find("[data-type=favor-header]");
         $(document).find("[data-type=count-favor-header]").empty();
         $(document).find("[data-type=count-favor-header]").text(r.count);
+
+
+        if (r.count == 0) {
+          hederFavBlock.removeClass('not-empty');
+          hederFavBlock.addClass('empty');
+        }
+
+        if (r.count > 0) {
+          hederFavBlock.removeClass('empty');
+          hederFavBlock.addClass('not-empty');
+        }
 
         $.ajax({
           type: 'POST',
@@ -1155,8 +1168,8 @@ function favorAdd() {
             favorajax: true,
           },
           success: function (r) {
-            $(document).find("[data-type=favor-header]").empty();
-            $(document).find("[data-type=favor-header]").html(r);
+            hederFavBlock.empty();
+            hederFavBlock.html(r);
           }
         });
         $.ajax({
