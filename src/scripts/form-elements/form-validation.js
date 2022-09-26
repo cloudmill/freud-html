@@ -20,25 +20,29 @@ function formValidation() {
 
               // добавляет элемент для текста ошибки в зависимости от верстки
 
-              if (item.getAttribute('type') == 'checkbox') {
+              if (!item.hasAttribute('data-error-span-added')) {
+                if (item.getAttribute('type') == 'checkbox') {
 
-                item.closest('.checkbox').insertAdjacentHTML('beforeend', `<span class='form-error'></>`);
-                error = item.closest('.checkbox').querySelector('.form-error');
-                
-              } else if (item.closest('[data-select-input]')) {
-
-                item.closest('.select-label').insertAdjacentHTML('beforeend', `<span class='form-error'></>`);
-                error = item.closest('.select-label').querySelector('.form-error');
-
-              } else if (item.hasAttribute('data-datepicker')) {
-
-                item.closest('.form__label').insertAdjacentHTML('beforeend', `<span class='form-error'></>`);
-                error = item.closest('.form__label').querySelector('.form-error');
-
-              } else {
-                item.insertAdjacentHTML('afterend', `<span class='form-error'></>`)
-                error = item.nextElementSibling;
+                  item.closest('.checkbox').insertAdjacentHTML('beforeend', `<span class='form-error'></>`);
+                  error = item.closest('.checkbox').querySelector('.form-error');
+                  
+                } else if (item.closest('[data-select-input]')) {
+  
+                  item.closest('.select-label').insertAdjacentHTML('beforeend', `<span class='form-error'></>`);
+                  error = item.closest('.select-label').querySelector('.form-error');
+  
+                } else if (item.hasAttribute('data-datepicker')) {
+  
+                  item.closest('.form__label').insertAdjacentHTML('beforeend', `<span class='form-error'></>`);
+                  error = item.closest('.form__label').querySelector('.form-error');
+  
+                } else {
+                  item.insertAdjacentHTML('afterend', `<span class='form-error'></>`)
+                  error = item.nextElementSibling;
+                }
               }
+
+              item.setAttribute('data-error-span-added', '');
 
               // после потери курсора из инпута проводит валидацию
               // если есть ошибки - обрабатывает
@@ -48,22 +52,22 @@ function formValidation() {
 
                 if (item.validity.valid && !item.hasAttribute('data-readonly') && !(item.getAttribute('type') === 'tel') || 
                   item.hasAttribute('data-readonly') && !item.value.length ||
-                  item.getAttribute('type') === 'tel' && item.value.replace(/\D/g, "").length === 11 && item.value.replace(/\D/g, "")[0] == (7 || 8) ||
+                  item.getAttribute('type') === 'tel' && item.value.replace(/\D/g, "").length === 11 && (item.value.replace(/\D/g, "")[0] == '7' || item.value.replace(/\D/g, "")[0] == '8') ||
                   item.hasAttribute('data-time-input') && !item.hasAttribute('data-valid')) {
 
-                  console.log('focusout ok');
+                  // console.log('focusout ok');
           
                   error.textContent = '';
                   error.className = 'form-error';
           
                 } else {
-                  console.log('focusout error');
+                  // console.log('focusout error');
         
                   showError();
 
-                  if (item.getAttribute('type') === 'tel') {
-                    console.log(item.getAttribute('type') === 'tel', item.value.replace(/\D/g, "").length === 11, item.value.replace(/\D/g, "")[0], item.value.replace(/\D/g, "")[0] == ('7' || '8'));
-                  }
+                  // if (item.getAttribute('type') === 'tel') {
+                  //   console.log(item.getAttribute('type') === 'tel', item.value.replace(/\D/g, "").length === 11, item.value.replace(/\D/g, "")[0], item.value.replace(/\D/g, "")[0] == ('7' || '8'));
+                  // }
                 }
               
               });
@@ -188,7 +192,7 @@ function formValidation() {
               } else if (item.hasAttribute('data-readonly') && !item.value.length) {
                 error.textContent = 'Обязательное поле';
 
-              } else if (item.getAttribute('type') === 'tel' && (item.value.replace(/\D/g, "").length < 11 || !(item.value.replace(/\D/g, "")[0] == (7 || 8)))) {
+              } else if (item.getAttribute('type') === 'tel' && (item.value.replace(/\D/g, "").length < 11 || !(item.value.replace(/\D/g, "")[0] == '7') || !(item.value.replace(/\D/g, "")[0] == '8'))) {
 
                 error.textContent = 'Неверный номер';
 
