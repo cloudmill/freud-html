@@ -1152,6 +1152,7 @@ function favorAdd() {
 
         if (r.count == 0) {
           hederFavBlock.removeClass('not-empty');
+          hederFavBlock.removeClass('active');
           hederFavBlock.addClass('empty');
         }
 
