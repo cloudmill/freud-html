@@ -1,12 +1,21 @@
 import './styles/app.scss';
 import './scripts/backend';
 
-import { mediaQuery } from './scripts/mediaQueries';
+import {mediaQuery} from './scripts/mediaQueries';
 import AOS from 'aos';
 
-import { headerOnScroll, headerFavAndCartModals } from './scripts/header';
-import { addToFav, addToCart, activeFilter, sortMethod, activeFiltersHeader, numberOfGoods, promocodeStates, cigarSize } from './scripts/catalog-scripts';
-import { closeOnEsc } from './scripts/modals-open-close';
+import {headerOnScroll, headerFavAndCartModals} from './scripts/header';
+import {
+  addToFav,
+  addToCart,
+  activeFilter,
+  sortMethod,
+  activeFiltersHeader,
+  numberOfGoods,
+  promocodeStates,
+  cigarSize
+} from './scripts/catalog-scripts';
+import {closeOnEsc} from './scripts/modals-open-close';
 
 import inputTime from './scripts/form-elements/input-time';
 import inputDate from './scripts/form-elements/input-date';
@@ -20,13 +29,13 @@ import accordions from './scripts/spoiler';
 import tabs from './scripts/tabs';
 import popups from './scripts/popups';
 import dropdownsBlock from './scripts/dropdowns-block';
-import { initMap } from './scripts/map';
+import {initMap} from './scripts/map';
 import firstScreen from './scripts/first-screen';
 import cartStages from './scripts/cart-stages';
 
 import rangeSlider from './scripts/range-slider';
 
-import { tabOffGlobal } from './scripts/tabindex-in-modals';
+import {tabOffGlobal} from './scripts/tabindex-in-modals';
 import aosInit from './scripts/aos';
 import mobileMenu from './scripts/mobileMenu';
 import mobileSearch from './scripts/mobileSearch';
@@ -131,11 +140,11 @@ window.addEventListener('load', (e) => {
 window.addEventListener('scroll', aosRefresh);
 
 function aosRefresh() {
-  const timeout = setTimeout( () => {
+  const timeout = setTimeout(() => {
     clearTimeout(timeout)
     AOS.refresh();
     window.addEventListener('scroll', aosRefresh);
-  },1000);
+  }, 1000);
 
   window.removeEventListener('scroll', aosRefresh);
 }
@@ -204,12 +213,12 @@ function categoryFilters() {
 
         const right = document.documentElement.clientWidth - drop.getBoundingClientRect().right;
 
-          if (right < pad) {
+        if (right < pad) {
 
-            const newWidth = btnsRow.getBoundingClientRect().width - left;
-            drop.style.width = `${newWidth}px`;
+          const newWidth = btnsRow.getBoundingClientRect().width - left;
+          drop.style.width = `${newWidth}px`;
 
-          }
+        }
       }
     })
   }
