@@ -51,19 +51,19 @@ function formValidation() {
                   item.getAttribute('type') === 'tel' && item.value.replace(/\D/g, "").length === 11 && item.value.replace(/\D/g, "")[0] == (7 || 8) ||
                   item.hasAttribute('data-time-input') && !item.hasAttribute('data-valid')) {
 
-                  // console.log('focusout ok');
+                  console.log('focusout ok');
           
                   error.textContent = '';
                   error.className = 'form-error';
           
                 } else {
-                  // console.log('focusout error');
+                  console.log('focusout error');
         
                   showError();
 
-                  // if (item.getAttribute('type') === 'tel') {
-                  //   console.log(item.getAttribute('type') === 'tel', item.value.replace(/\D/g, "").length === 11, item.value.replace(/\D/g, "")[0], item.value.replace(/\D/g, "")[0] === ('7' || '8'));
-                  // }
+                  if (item.getAttribute('type') === 'tel') {
+                    console.log(item.getAttribute('type') === 'tel', item.value.replace(/\D/g, "").length === 11, item.value.replace(/\D/g, "")[0], item.value.replace(/\D/g, "")[0] == ('7' || '8'));
+                  }
                 }
               
               });
