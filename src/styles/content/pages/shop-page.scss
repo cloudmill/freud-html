@@ -47,6 +47,10 @@
       &:nth-child(1n + 4) {
         width: calc(#{$col-part-d} * 3 - #{$col-gap});
         margin-top: getRem(60px);
+
+        .shop-page-head__card-img {
+          height: getRem(445px);
+        }
       }
 
       &:hover {
@@ -62,6 +66,7 @@
 
     &-img {
       overflow: hidden;
+      height: getRem(560px);
 
       @media (max-width: ($breakpoint - 1px)) {
         // height: getRem(210px);
