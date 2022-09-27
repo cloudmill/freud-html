@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', (e) => {
   tabs();
 
   inputDate();
-  inputTime();
+  // inputTime();
   inputTel();
   select();
   formValidation();
@@ -222,8 +222,8 @@ function mainVideo() {
   if (videoMain.length && mediaQuery.matches) {
 
     videoMain.forEach(video => {
-      // video.setAttribute('src', `${window.config.path}assets/videos/main-video-comp.mp4`);
-      video.setAttribute('src', `assets/videos/main-video-comp.mp4`);
+      video.setAttribute('src', `${window.config.path}assets/videos/main-video-comp.mp4`);
+      // video.setAttribute('src', `assets/videos/main-video-comp.mp4`);
       video.play();
       video.setAttribute('autoplay', '');
     })
@@ -231,8 +231,8 @@ function mainVideo() {
   } else if (videoMain.length && !mediaQuery.matches) {
 
     videoMain.forEach(video => {
-      // video.setAttribute('src', `${window.config.path}assets/videos/main-video-comp-mob.mp4`);
-      video.setAttribute('src', `assets/videos/main-video-comp-mob.mp4`);
+      video.setAttribute('src', `${window.config.path}assets/videos/main-video-comp-mob.mp4`);
+      // video.setAttribute('src', `assets/videos/main-video-comp-mob.mp4`);
       video.play();
       video.setAttribute('autoplay', '');
     })
