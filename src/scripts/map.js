@@ -25,8 +25,8 @@ export function initMap() {
             myPlacemark = new ymaps.Placemark([59.934277, 30.309636], {
             }, {
                 iconLayout: 'default#image',
-                // iconImageHref: '/local/templates/main/assets/images/placemark.png',
-                iconImageHref: window.config.path + 'assets/images/placemark.png',
+                // iconImageHref: '/local/templates/main/assets/images/placemark.svg',
+                iconImageHref: window.config.path + 'assets/images/placemark.svg',
                 iconImageSize: [45.71, 64],
                 iconImageOffset: [-22, -64]
             });
@@ -60,8 +60,8 @@ export function initMap() {
             myPlacemark = new ymaps.Placemark([59.934277, 30.309636], {
             }, {
                 iconLayout: 'default#image',
-                // iconImageHref: '/local/templates/main/assets/images/placemark.png',
-                iconImageHref: window.config.path + 'assets/images/placemark.png',
+                // iconImageHref: '/local/templates/main/assets/images/placemark.svg',
+                iconImageHref: window.config.path + 'assets/images/placemark.svg',
                 iconImageSize: [45.71, 64],
                 iconImageOffset: [-22, -64]
             });
