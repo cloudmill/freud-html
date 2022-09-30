@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', (e) => {
   tabs();
 
   inputDate();
-  // inputTime();
+  inputTime();
   inputTel();
   select();
   formValidation();
