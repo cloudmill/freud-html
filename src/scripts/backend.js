@@ -26,6 +26,7 @@ $(function () {
   searchFetchEvent();
   formsEvent();
   sortEvent();
+  applyFilter();
 });
 
 window.ajaxRequest = {};
@@ -244,19 +245,9 @@ window.filterCompare = {
 
 window.filterSuccess = {
   shop: (elem, response) => {
-    const containers = $('[data-container=filters]'),
-      responseContainers = response.find('[data-container=filters]'),
-      replaceElems = $('[data-type=replace-elem]'),
-      styles = {
-        enable: {
-          'opacity': 1,
-          'pointer-events': 'auto',
-        },
-        disable: {
-          'opacity': 0.3,
-          'pointer-events': 'none',
-        }
-      };
+    const filtersContainers = $('[data-container=filters]'),
+      responseFiltersContainers = response.find('[data-container=filters]'),
+      replaceElems = $('[data-type=replace-elem]');
 
     replaceElems.each((i, item) => {
       const jq = $(item),
@@ -266,51 +257,7 @@ window.filterSuccess = {
       jq.text(replace);
     });
 
-    containers.each((index, item) => {
-      const filterContainer = $(item);
-
-      let reload = false,
-        filterKeyReload = null,
-        count = 0;
-
-      for (let key in window.filters.filter) {
-        if (Object.keys(window.filters.filter[key]).length) {
-          filterKeyReload = key;
-          count++;
-        }
-      }
-
-      if (count === 1) {
-        reload = true;
-      }
-
-      filterContainer.find('[data-container=filter]').each(function () {
-        const filterKey = $(this).attr('data-filter-key');
-
-        if ($(this).attr('data-filter-key') === elem.parents('[data-filter-key]').attr('data-filter-key')) {
-          return;
-        }
-
-        const responseFilter = responseContainers.eq(index).find(`[data-container=filter][data-filter-key=${filterKey}]`);
-
-        if (!responseFilter.length) {
-          $(this).css(styles.disable);
-        } else {
-          window.filterCompare[$(this).attr('data-compare')]($(this), responseFilter, styles);
-          $(this).css(styles.enable);
-        }
-
-        if (reload) {
-          if (filterKeyReload === filterKey) {
-            $(this).find('[data-type=filter-val]').each(function () {
-              const filterElem = $(this).parents('[data-container=filter-item]').length ? $(this).parents('[data-container=filter-item]') : $(this).parents('[data-type=filter]');
-
-              filterElem.css(styles.enable);
-            });
-          }
-        }
-      });
-    });
+    filtersDependency(filtersContainers, responseFiltersContainers);
   }
 }
 
@@ -340,7 +287,68 @@ window.filtersEvent = {
   }
 }
 
+function filtersDependency(filtersContainers, responseFiltersContainers) {
+  const styles = {
+    enable: {
+      'opacity': 1,
+      'pointer-events': 'auto',
+    },
+    disable: {
+      'opacity': 0.3,
+      'pointer-events': 'none',
+    }
+  };
+
+  filtersContainers.each((index, item) => {
+    const filterContainer = $(item);
+
+    let reload = false,
+      filterKeyReload = null,
+      count = 0;
+
+    for (let key in window.filters.filter) {
+      if (Object.keys(window.filters.filter[key]).length) {
+        filterKeyReload = key;
+        count++;
+      }
+    }
+
+    if (count === 1) {
+      reload = true;
+    }
+
+    filterContainer.find('[data-container=filter]').each(function () {
+      const filterKey = $(this).attr('data-filter-key');
+
+      if (filterKey === window.filters.filter[Object.keys(window.filters.filter)[0]]) {
+        return;
+      }
+
+      const responseFilter = responseFiltersContainers.eq(index).find(`[data-container=filter][data-filter-key=${filterKey}]`);
+
+      if (!responseFilter.length) {
+        $(this).css(styles.disable);
+      } else {
+        window.filterCompare[$(this).attr('data-compare')]($(this), responseFilter, styles);
+        $(this).css(styles.enable);
+      }
+
+      if (reload) {
+        if (filterKeyReload === filterKey) {
+          $(this).find('[data-type=filter-val]').each(function () {
+            const filterElem = $(this).parents('[data-container=filter-item]').length ? $(this).parents('[data-container=filter-item]') : $(this).parents('[data-type=filter]');
+
+            filterElem.css(styles.enable);
+          });
+        }
+      }
+    });
+  });
+}
+
 function filterFetch(thisObj, linkContainer, entity) {
+  history.pushState(null, null, `?filter=${JSON.stringify(window.filters.filter)}`);
+
   $.ajax({
     type: 'GET',
     url: window.location.href,
@@ -363,6 +371,10 @@ function filterFetch(thisObj, linkContainer, entity) {
     },
   });
 }
+
+window.addEventListener('popstate', () => {
+  console.log(JSON.parse(decodeURI(window.location.search.replace('?', ''))));
+});
 
 function filterEvent() {
   document.querySelectorAll('#range-slider').forEach(slider => {
@@ -471,6 +483,50 @@ function filterEvent() {
     filtersClear();
     filterFetch(thisObj, linkContainer, entity);
   });
+}
+
+function applyFilter() {
+  if (!window.location.search) {
+    return;
+  }
+
+  const params = decodeURI(window.location.search.replace( '?', '')).split('&');
+
+  let filter = null;
+
+  params.forEach((item) => {
+    const itemParams = item.split('=');
+
+    if (itemParams[0] === 'filter') {
+      filter = itemParams[1];
+
+      return false;
+    }
+  });
+
+  if (!filter) {
+    return;
+  }
+
+  window.filters.filter = JSON.parse(filter);
+
+  for (let filterKey in window.filters.filter) {
+    for (let val in window.filters.filter[filterKey]) {
+      const allFilters = $(`[data-filter-key=${filterKey}]`).find(`[data-type=filter-val]:contains(${val})`);
+
+      allFilters.each((i, item) => {
+        try {
+          window.filtersEvent.styles['enable'][item.getAttribute('data-style')]($(item));
+        } catch (e) {
+          console.log(e.message);
+        }
+      });
+
+      addFilterValue(filterKey, $(allFilters[0]));
+    }
+  }
+
+  // filtersDependency();
 }
 
 function dataFilterValue(valElem, filterKey, val) {
