@@ -393,6 +393,8 @@
 
   &__mob-btn {
     margin: 0 auto getRem(50px);
+    position: relative;
+    z-index: 1;
 
     @media (min-width: $breakpoint-m) {
       display: none;
