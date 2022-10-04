@@ -1068,7 +1068,7 @@ window.basketEventSuccess = {
         $(template).parent().append(templContent);
       });
 
-      basketCount.text(+basketCount.text() + 1);
+      basketCount.text(+basketCount[0].textContent + 1);
     }
 
     totalPriceElem.text(+totalPriceElem[0].textContent + +item.find('[data-type=price]').text());
