@@ -209,7 +209,7 @@ window.filterCompare = {
       if (customCompare) {
         responseVal = responseFilter.find(`[data-type=filter-val][data-custom-compare=${customCompare}]`);
       } else {
-        responseVal = responseFilter.find(`[data-type=filter-val]:contains(${$(this).text()})`);
+        responseVal = responseFilter.find('[data-type=filter-val]').filter((i, item) => item.textContent === $(this).text());
       }
 
       if (responseVal.length) {
