@@ -202,14 +202,16 @@ window.filterCompare = {
   items: (elem, responseFilter, styles) => {
     elem.find('[data-type=filter-val]').each(function () {
       const filterContainer = $(this).parents('[data-container=filter-item]').length ? $(this).parents('[data-container=filter-item]') : $(this).parents('[data-type=filter]'),
-        customCompare = $(this).attr('data-custom-compare');
+        customCompare = $(this).attr('data-custom-compare'),
+        val = $(this).text(),
+        filterKey = elem.attr('data-filter-key');
 
       let responseVal;
 
       if (customCompare) {
         responseVal = responseFilter.find(`[data-type=filter-val][data-custom-compare=${customCompare}]`);
       } else {
-        responseVal = responseFilter.find('[data-type=filter-val]').filter((i, item) => item.textContent === $(this).text());
+        responseVal = responseFilter.find('[data-type=filter-val]').filter((i, item) => item.textContent === val);
       }
 
       if (responseVal.length) {
@@ -219,6 +221,21 @@ window.filterCompare = {
         filterContainer.find('[data-type=filter-count]').text(responseFiltCont.find('[data-type=filter-count]').text());
       } else {
         filterContainer.css(styles.disable);
+
+        if (!window.filters.filter.hasOwnProperty(filterKey)) {
+          return;
+        }
+
+        if (!window.filters.filter[filterKey].hasOwnProperty(val)) {
+          return;
+        }
+
+        $(`[data-filter-key=${filterKey}]`).find('[data-type=filter-val]').filter((i, item) => item.textContent === val).each((i, item) => {
+          console.log($(item));
+          window.filtersEvent.styles.disable[$(item).attr('data-style')]($(item));
+        });
+
+        delete window.filters.filter[elem.data('filter-key')][val];
       }
     });
   },
@@ -282,7 +299,16 @@ window.filtersEvent = {
       },
       button: elem => {
         elem.parent().removeClass('active');
-      }
+      },
+      none: elem => {
+        const container = elem.parents('[data-container]');
+
+        elem.parent().remove();
+
+        if (!container.find('[data-type=filter]').length) {
+          container.find('[data-type=filter-reset]').css('display', 'none');
+        }
+      },
     }
   }
 }
