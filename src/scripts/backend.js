@@ -328,21 +328,6 @@ function filtersDependency(filtersContainers, responseFiltersContainers) {
   filtersContainers.each((index, item) => {
     const filterContainer = $(item);
 
-    let reload = false,
-      filterKeyReload = null,
-      count = 0;
-
-    for (let key in window.filters.filter) {
-      if (Object.keys(window.filters.filter[key]).length) {
-        filterKeyReload = key;
-        count++;
-      }
-    }
-
-    if (count === 1) {
-      reload = true;
-    }
-
     filterContainer.find('[data-container=filter]').each(function () {
       const filterKey = $(this).attr('data-filter-key');
 
@@ -357,16 +342,6 @@ function filtersDependency(filtersContainers, responseFiltersContainers) {
       } else {
         window.filterCompare[$(this).attr('data-compare')]($(this), responseFilter, styles);
         $(this).css(styles.enable);
-      }
-
-      if (reload) {
-        if (filterKeyReload === filterKey) {
-          $(this).find('[data-type=filter-val]').each(function () {
-            const filterElem = $(this).parents('[data-container=filter-item]').length ? $(this).parents('[data-container=filter-item]') : $(this).parents('[data-type=filter]');
-
-            filterElem.css(styles.enable);
-          });
-        }
       }
     });
   });
@@ -566,6 +541,10 @@ function dataFilterValue(valElem, filterKey, val) {
     delete window.filters.filter[filterKey][val];
     removeFilterValue(valElem);
     isSelect = 'disable';
+
+    if (!Object.keys(window.filters.filter[filterKey]).length) {
+      delete window.filters.filter[filterKey];
+    }
   } else {
     window.filters.filter[filterKey][val] = val;
     addFilterValue(filterKey, valElem);
