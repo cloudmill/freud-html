@@ -71,79 +71,77 @@ function formValidation() {
                 }
               
               });
+
+              // при отправке формы повторная валидация
+              form.addEventListener('submit', function (event) {
+
+                event.preventDefault();
+
+                setTimeout(() => {
+
+                  if (!item.validity.valid || 
+                    (item.getAttribute('type') == 'checkbox' && !item.checked) || 
+                    item.hasAttribute('data-readonly') && !item.value.length ||
+                    item.hasAttribute('data-time-input') && item.hasAttribute('data-valid')) {
+      
+                    showError(item, !item.validity.valid);
+      
+                    console.log('submit error');
+      
+                  } else {
+
+                    // console.log(item);
+      
+                    error.className = 'form-error';
+                    error.textContent = '';
+                    
+                    console.log('submit success');
+                    
+                  }
+                  
+                }, );
+              
+                setTimeout(() => {
+
+                  if (!item.closest('form').querySelector('.form-error.active')) {
+
+                    // console.log('finally success');
+
+                    if (item.closest('.subscription-form')) {
+                      
+                      document.querySelector('.body').classList.add('modal-open');
+                      document.querySelector('.modals-container').classList.add('active');
+                      document.querySelector('[data-popup="11"]').classList.add('active');
+      
+                    } else if (item.closest('.product-body-consult')) {
+      
+                      document.querySelector('.body').classList.add('modal-open');
+                      document.querySelector('.modals-container').classList.add('active');
+                      document.querySelector('[data-popup="13"]').classList.add('active');
+      
+                    } else if (item.closest('#certificates-form') || item.closest('#consult-form')) {
+      
+                      document.querySelector('[data-popup="13"]').classList.add('active');
+      
+                    } else if (item.closest('#booking-form')) {
+      
+                      document.querySelector('[data-popup="16"]').classList.add('active');
+      
+                    }
+
+                    if (!item.closest('[data-cart-form]')) {
+                      setTimeout(() => {
+                        item.value = '';
+                      }, 500);
+                    }
+                    
+                  }
+                  
+                }, 100);
+                
+              });
             }
 
-            // при отправке формы повторная валидация
-            form.addEventListener('submit', function (event) {
-
-              // console.log(item.validity.valid, item.getAttribute('type') == 'checkbox' && !item.checked);
-
-              event.preventDefault();
-
-              setTimeout(() => {
-
-                if (!item.validity.valid || 
-                  (item.getAttribute('type') == 'checkbox' && !item.checked) || 
-                  item.hasAttribute('data-readonly') && !item.value.length ||
-                  item.hasAttribute('data-time-input') && item.hasAttribute('data-valid')) {
-    
-                  showError(item, !item.validity.valid);
-    
-                  // console.log('submit error');
-    
-                } else {
-
-                  // console.log(item);
-    
-                  error.className = 'form-error';
-                  error.textContent = '';
-                  
-                  // console.log('submit success');
-                  
-                }
-                
-              }, );
-            
-              setTimeout(() => {
-
-                if (!item.closest('form').querySelector('.form-error.active')) {
-
-                  // console.log('finally success');
-
-                  if (item.closest('.subscription-form')) {
-                    
-                    document.querySelector('.body').classList.add('modal-open');
-                    document.querySelector('.modals-container').classList.add('active');
-                    document.querySelector('[data-popup="11"]').classList.add('active');
-    
-                  } else if (item.closest('.product-body-consult')) {
-    
-                    document.querySelector('.body').classList.add('modal-open');
-                    document.querySelector('.modals-container').classList.add('active');
-                    document.querySelector('[data-popup="13"]').classList.add('active');
-    
-                  } else if (item.closest('#certificates-form') || item.closest('#consult-form')) {
-    
-                    document.querySelector('[data-popup="13"]').classList.add('active');
-    
-                  } else if (item.closest('#booking-form')) {
-    
-                    document.querySelector('[data-popup="16"]').classList.add('active');
-    
-                  }
-
-                  if (!item.closest('[data-cart-form]')) {
-                    setTimeout(() => {
-                      item.value = '';
-                    }, 500);
-                  }
-                  
-                }
-                
-              }, 100);
-              
-            });
-            
             // обработка ошибок
             function showError() {
       
