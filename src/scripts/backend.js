@@ -123,10 +123,11 @@ function showAllData() {
         container.find(`[data-replace=${property}]`).text(data.replace[property]);
       }
 
-      allValues.find('[data-type=filter-val]').each((i, item) => {
+      allValues.find('[data-container=filter-item]').each((i, item) => {
         const result = template.clone().contents();
 
-        result.find('[data-type=filter-val]').text(item.textContent);
+        result.find('[data-type=filter-val]').text(item.querySelector('[data-type=filter-val]').textContent);
+        result.find('[data-type=filter-count]').text(item.querySelector('[data-type=filter-count]').textContent);
         content.append(result);
       });
     }
@@ -331,7 +332,7 @@ function filtersDependency(filtersContainers, responseFiltersContainers) {
     filterContainer.find('[data-container=filter]').each(function () {
       const filterKey = $(this).attr('data-filter-key');
 
-      if (filterKey === window.filters.filter[Object.keys(window.filters.filter)[0]]) {
+      if (filterKey === Object.keys(window.filters.filter)[0]) {
         return;
       }
 
