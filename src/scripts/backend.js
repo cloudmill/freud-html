@@ -351,7 +351,10 @@ function filtersDependency(filtersContainers, responseFiltersContainers) {
 }
 
 function filterFetch(thisObj, linkContainer, entity) {
+  const filters = $('[data-container=filters]');
+
   history.pushState(null, null, `?filter=${JSON.stringify(window.filters.filter)}`);
+  filters.css('pointer-events', 'none');
 
   $.ajax({
     type: 'GET',
@@ -359,6 +362,7 @@ function filterFetch(thisObj, linkContainer, entity) {
     dataType: 'html',
     data: window.ajaxRequest.params ? Object.assign(window.ajaxRequest.params, window.filters) : window.filters,
     success: function (r) {
+      filters.css('pointer-events', 'auto');
       window.ajaxRequest.params = window.filters;
 
       const content = $(linkContainer),
