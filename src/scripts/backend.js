@@ -315,16 +315,18 @@ window.filtersEvent = {
 }
 
 function filtersDependency(filtersContainers, responseFiltersContainers) {
-  const styles = {
-    enable: {
-      'opacity': 1,
-      'pointer-events': 'auto',
-    },
-    disable: {
-      'opacity': 0.3,
-      'pointer-events': 'none',
-    }
-  };
+  const selectFilterKeys = Object.keys(window.filters.filter),
+    selectFilter = selectFilterKeys[selectFilterKeys.length - 1],
+    styles = {
+      enable: {
+        'opacity': 1,
+        'pointer-events': 'auto',
+      },
+      disable: {
+        'opacity': 0.3,
+        'pointer-events': 'none',
+      }
+    };
 
   filtersContainers.each((index, item) => {
     const filterContainer = $(item);
@@ -332,7 +334,7 @@ function filtersDependency(filtersContainers, responseFiltersContainers) {
     filterContainer.find('[data-container=filter]').each(function () {
       const filterKey = $(this).attr('data-filter-key');
 
-      if (filterKey === Object.keys(window.filters.filter)[0]) {
+      if (filterKey === selectFilter) {
         return;
       }
 
