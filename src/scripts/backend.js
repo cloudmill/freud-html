@@ -275,7 +275,7 @@ window.filterSuccess = {
       jq.text(replace);
     });
 
-    filtersDependency(filtersContainers, responseFiltersContainers);
+    filtersDependency(elem, filtersContainers, responseFiltersContainers);
   }
 }
 
@@ -314,7 +314,7 @@ window.filtersEvent = {
   }
 }
 
-function filtersDependency(filtersContainers, responseFiltersContainers) {
+function filtersDependency(elem, filtersContainers, responseFiltersContainers) {
   const selectFilterKeys = Object.keys(window.filters.filter),
     selectFilter = selectFilterKeys[selectFilterKeys.length - 1],
     styles = {
@@ -334,7 +334,7 @@ function filtersDependency(filtersContainers, responseFiltersContainers) {
     filterContainer.find('[data-container=filter]').each(function () {
       const filterKey = $(this).attr('data-filter-key');
 
-      if (filterKey === selectFilter) {
+      if (filterKey === selectFilter && elem.data('type') !== 'filters') {
         return;
       }
 
@@ -451,6 +451,8 @@ function filterEvent() {
       isSelect = 'enable';
     }
 
+    clearSelectFilters();
+
     for (let filterKey in values) {
       for (let val in values[filterKey]) {
         let allFilters = $(`[data-filter-key=${filterKey}]`).find(`[data-type=filter-val]:contains(${val})`).filter((i, item) => $(item).parents('[data-entity]').attr('data-place') !== entityElem.attr('data-place'));
@@ -491,6 +493,24 @@ function filterEvent() {
     filtersClear();
     filterFetch(thisObj, linkContainer, entity);
   });
+}
+
+function clearSelectFilters() {
+  for (let field in window.filters.filter) {
+    for (let val in window.filters.filter[field]) {
+      let allFilters = $(`[data-filter-key=${field}]`).find(`[data-type=filter-val]:contains(${val})`);
+
+      allFilters.each((i, item) => {
+        try {
+          window.filtersEvent.styles['disable'][item.getAttribute('data-style')]($(item));
+        } catch (e) {
+          console.log(e.message);
+        }
+      });
+    }
+  }
+
+  window.filters.filter = {};
 }
 
 function applyFilter() {
