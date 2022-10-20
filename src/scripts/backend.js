@@ -302,9 +302,11 @@ window.filtersEvent = {
         elem.parent().removeClass('active');
       },
       none: elem => {
-        const container = elem.parents('[data-container]');
+        const container = elem.closest('[data-container]');
 
         elem.parent().remove();
+
+        console.log(container.find('[data-type=filter]'));
 
         if (!container.find('[data-type=filter]').length) {
           container.find('[data-type=filter-reset]').css('display', 'none');
@@ -441,40 +443,32 @@ function filterEvent() {
       valuesElem = thisObj.find('[data-type=filter-val]'),
       values = JSON.parse(valuesElem.text());
 
-    let isSelect;
+    clearSelectFilters();
 
     if (thisObj.hasClass('active')) {
       thisObj.removeClass('active');
-      isSelect = 'disable';
     } else {
       thisObj.addClass('active');
-      isSelect = 'enable';
-    }
 
-    clearSelectFilters();
-
-    for (let filterKey in values) {
-      for (let val in values[filterKey]) {
-        let allFilters = $(`[data-filter-key=${filterKey}]`).find(`[data-type=filter-val]:contains(${val})`).filter((i, item) => $(item).parents('[data-entity]').attr('data-place') !== entityElem.attr('data-place'));
-
-        allFilters.each((i, item) => {
-          try {
-            window.filtersEvent.styles[isSelect][item.getAttribute('data-style')]($(item));
-          } catch (e) {
-            console.log(e.message);
-          }
-        });
-
-        if (isSelect === 'disable') {
-          delete window.filters.filter[filterKey][val];
-          removeFilterValue($(`<div>${val}</div>`));
+      for (let filterKey in values) {
+        if (Array.isArray(values[filterKey])) {
+          window.filters.filter[filterKey] = values[filterKey];
         } else {
-          if (!window.filters.filter[filterKey]) {
-            window.filters.filter[filterKey] = {};
-          }
+          window.filters.filter[filterKey] = {};
+          for (let val in values[filterKey]) {
+            let allFilters = $(`[data-filter-key=${filterKey}]`).find(`[data-type=filter-val]:contains(${val})`).filter((i, item) => $(item).parents('[data-entity]').attr('data-place') !== entityElem.attr('data-place'));
 
-          window.filters.filter[filterKey][val] = val;
-          addFilterValue(filterKey, $(`<div>${val}</div>`));
+            allFilters.each((i, item) => {
+              try {
+                window.filtersEvent.styles['enable'][item.getAttribute('data-style')]($(item));
+              } catch (e) {
+                console.log(e.message);
+              }
+            });
+
+            window.filters.filter[filterKey][val] = val;
+            addFilterValue(filterKey, $(`<div>${val}</div>`));
+          }
         }
       }
     }
