@@ -306,8 +306,6 @@ window.filtersEvent = {
 
         elem.parent().remove();
 
-        console.log(container.find('[data-type=filter]'));
-
         if (!container.find('[data-type=filter]').length) {
           container.find('[data-type=filter-reset]').css('display', 'none');
         }
@@ -397,12 +395,19 @@ function filterEvent() {
         linkContainer = entityElem.data('link-container');
 
       document.querySelectorAll(`[data-filter-key=${filterKey}]`).forEach(item => {
+        const slider = item.querySelector('#range-slider');
+
+        if (!slider) {
+          return;
+        }
+
         if (item.getAttribute('data-template-type') === container.attr('data-template-type')) {
           return;
         }
 
-        item.querySelector('#range-slider').noUiSlider.set(values, false);
+        slider.noUiSlider.set(values, false);
       });
+      addFilterValue(filterKey, $(`<div data-custom-val="${container.find('[data-type=filter-name]').text()}: от ${values[0]} до ${values[1]}">${JSON.stringify(values)}</div>`));
 
       window.filters.filter[filterKey] = values;
 
@@ -415,7 +420,7 @@ function filterEvent() {
       filterKey = thisObj.parents('[data-filter-key]').length ? thisObj.parents('[data-filter-key]').attr('data-filter-key') : thisObj.attr('data-filter-key'),
       filterElem = thisObj.parents('[data-container=filter-item]').length ? thisObj.parents('[data-container=filter-item]') : thisObj,
       valElem = filterElem.find('[data-type=filter-val]'),
-      settingVal = valElem.attr('data-setting-val'),
+      settingVal = valElem.data('setting-val'),
       defaultVal = valElem.text(),
       val = settingVal ? settingVal : defaultVal,
       linkContainer = thisObj.parents('[data-link-container]').attr('data-link-container'),
@@ -467,7 +472,6 @@ function filterEvent() {
             });
 
             window.filters.filter[filterKey][val] = val;
-            addFilterValue(filterKey, $(`<div>${val}</div>`));
           }
         }
       }
@@ -536,6 +540,10 @@ function applyFilter() {
     for (let val in window.filters.filter[filterKey]) {
       const allFilters = $(`[data-filter-key=${filterKey}]`).find(`[data-type=filter-val]:contains(${val})`);
 
+      if (!allFilters.length) {
+        return;
+      }
+
       allFilters.each((i, item) => {
         try {
           window.filtersEvent.styles['enable'][item.getAttribute('data-style')]($(item));
@@ -543,7 +551,6 @@ function applyFilter() {
           console.log(e.message);
         }
       });
-
       addFilterValue(filterKey, $(allFilters[0]));
     }
   }
@@ -552,6 +559,16 @@ function applyFilter() {
 }
 
 function dataFilterValue(valElem, filterKey, val) {
+  if (Array.isArray(val)) {
+    delete window.filters.filter[filterKey];
+    removeFilterValue(valElem);
+    $(`[data-filter-key=${filterKey}]`).find('#range-slider').each((i, item) => {
+      item.noUiSlider.set([+item.getAttribute('data-range-min'), +item.getAttribute('data-range-max')], false);
+    });
+
+    return 'disable';
+  }
+
   let isSelect;
 
   if (!window.filters.filter[filterKey]) {
@@ -621,6 +638,10 @@ function addFilterValue(key, valElem) {
       customVal = valElem.data('custom-val'),
       defaultVal = valElem.text();
 
+    if (Array.isArray(JSON.parse(defaultVal))) {
+      removeFilterValue($(`[data-filter-key=${key}][data-filter-line]`).find('[data-type=filter-val]'));
+    }
+
     let val = defaultVal;
 
     if (customVal) {
@@ -630,6 +651,7 @@ function addFilterValue(key, valElem) {
     }
 
     template.attr('data-filter-key', key);
+    template.attr('data-filter-line', '1');
     templateVal.text(val);
     container.prepend(template);
 
