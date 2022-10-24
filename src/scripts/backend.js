@@ -407,7 +407,7 @@ function filterEvent() {
 
         slider.noUiSlider.set(values, false);
       });
-      addFilterValue(filterKey, $(`<div data-custom-val="${container.find('[data-type=filter-name]').text()}: от ${values[0]} до ${values[1]}">${JSON.stringify(values)}</div>`));
+      addFilterValue(filterKey, $(`<div data-custom-val="${container.find('[data-type=filter-name]').text()}: от ${Math.round(values[0])} до ${Math.round(values[1])}">${JSON.stringify(values)}</div>`));
 
       window.filters.filter[filterKey] = values;
 
@@ -639,7 +639,11 @@ function addFilterValue(key, valElem) {
       defaultVal = valElem.text();
 
     if (Array.isArray(JSON.parse(defaultVal))) {
-      removeFilterValue($(`[data-filter-key=${key}][data-filter-line]`).find('[data-type=filter-val]'));
+      const filterElem = $(`[data-filter-key=${key}][data-filter-line]`);
+
+      if (filterElem.length) {
+        removeFilterValue(filterElem.find('[data-type=filter-val]'));
+      }
     }
 
     let val = defaultVal;
