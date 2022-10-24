@@ -542,8 +542,8 @@ function applyFilter() {
         allFilters = allFiltersContainer.find(`[data-type=filter-val]:contains(${val})`);
 
       if (!allFilters.length) {
-        addFilterValue(filterKey, $(`<div data-custom-val="${allFiltersContainer.find('[data-type=filter-name]').text()}: от ${Math.round(window.filters.filter[filterKey][0])} до ${Math.round(window.filters.filter[filterKey][1])}">${JSON.stringify(window.filters.filter[filterKey])}</div>`));
-        return false;
+        addFilterValue(filterKey, $(`<div data-custom-val="${allFiltersContainer[0].querySelector('[data-type=filter-name]').textContent}: от ${Math.round(window.filters.filter[filterKey][0])} до ${Math.round(window.filters.filter[filterKey][1])}">${JSON.stringify(window.filters.filter[filterKey])}</div>`));
+        break;
       } else {
         allFilters.each((i, item) => {
           try {
