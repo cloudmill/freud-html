@@ -538,24 +538,24 @@ function applyFilter() {
 
   for (let filterKey in window.filters.filter) {
     for (let val in window.filters.filter[filterKey]) {
-      const allFilters = $(`[data-filter-key=${filterKey}]`).find(`[data-type=filter-val]:contains(${val})`);
+      const allFiltersContainer = $(`[data-filter-key=${filterKey}]`),
+        allFilters = allFiltersContainer.find(`[data-type=filter-val]:contains(${val})`);
 
       if (!allFilters.length) {
-        return;
+        addFilterValue(filterKey, $(`<div data-custom-val="${allFiltersContainer.find('[data-type=filter-name]').text()}: от ${Math.round(window.filters.filter[filterKey][0])} до ${Math.round(window.filters.filter[filterKey][1])}">${JSON.stringify(window.filters.filter[filterKey])}</div>`));
+        return false;
+      } else {
+        allFilters.each((i, item) => {
+          try {
+            window.filtersEvent.styles['enable'][item.getAttribute('data-style')]($(item));
+          } catch (e) {
+            console.log(e.message);
+          }
+        });
+        addFilterValue(filterKey, $(allFilters[0]));
       }
-
-      allFilters.each((i, item) => {
-        try {
-          window.filtersEvent.styles['enable'][item.getAttribute('data-style')]($(item));
-        } catch (e) {
-          console.log(e.message);
-        }
-      });
-      addFilterValue(filterKey, $(allFilters[0]));
     }
   }
-
-  // filtersDependency();
 }
 
 function dataFilterValue(valElem, filterKey, val) {
@@ -638,7 +638,15 @@ function addFilterValue(key, valElem) {
       customVal = valElem.data('custom-val'),
       defaultVal = valElem.text();
 
-    if (Array.isArray(JSON.parse(defaultVal))) {
+    let jsonVal;
+
+    try {
+      jsonVal = JSON.parse(defaultVal);
+    } catch (e) {
+      jsonVal = false;
+    }
+
+    if (Array.isArray(jsonVal)) {
       const filterElem = $(`[data-filter-key=${key}][data-filter-line]`);
 
       if (filterElem.length) {
