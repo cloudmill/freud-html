@@ -89,16 +89,16 @@
     }
   }
   .swiper-slide {
-    width: calc(#{$col-part-m} * 3);
+    // width: calc(#{$col-part-m} * 3);
+    width: auto;
     height: auto;
 
-    @media (min-width: $breakpoint) {
-      width: calc(#{$col-part-m} * 3);
-    }
-    @media (min-width: $breakpoint-m) {
-      width: calc(#{$col-part-t} * 3);
-    }
-
+    // @media (min-width: $breakpoint) {
+    //   width: calc(#{$col-part-m} * 3);
+    // }
+    // @media (min-width: $breakpoint-m) {
+    //   width: calc(#{$col-part-t} * 3);
+    // }
 
     @media (min-width: $breakpoint) {
       width: auto;

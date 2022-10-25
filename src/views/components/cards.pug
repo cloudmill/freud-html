@@ -40,32 +40,6 @@ mixin article-card
           .articles-card__info-col 20.04.2021
           .articles-card__info-col 5 мин
 
-//- mixin article-card-big
-//-   a.articles-card--big(href='' class=attributes.class)
-//-     .articles-card__top
-//-       .catalog-card__labels
-//-         .catalog-card__labels-item.label-brown сигары
-//-       .articles-card__top-img
-//-         +picture.articles-card__img(file=`shop-article-1`)
-
-//-     .articles-card__bottom
-
-//-       .articles-card__info.only-desktop
-//-         .articles-card__info-col 20.04.2021
-//-         .articles-card__info-col 5 мин
-
-//-       div
-//-         .articles-card__ttl #{attributes.ttl}
-//-         .articles-card__txt #{attributes.txt}
-
-//-       .articles-card__bottom-row
-//-         +read-more-btn(data-atr='' btn)
-//-           |Читать полностью
-
-//-         .articles-card__info.only-mobile
-//-           .articles-card__info-col 20.04.2021
-//-           .articles-card__info-col 5 мин
-
 
 mixin catalog-card
   .catalog-card(data-card-btn-parent)
@@ -83,7 +57,7 @@ mixin catalog-card
         button.button--clean.catalog-card__fav
           +favorites-icon
       
-      a(href='')
+      a.catalog-card__img(href='')
         +picture(file=`${attributes.img}`)
 
     a.catalog-card__bottom(href='')
