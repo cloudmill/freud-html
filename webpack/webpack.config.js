@@ -20,7 +20,7 @@ module.exports = (env) => {
       app: "./app.js",
     },
     output: {
-      path: path.resolve(__dirname, "../dist"),
+      path: path.resolve(__dirname, "../public/dist"),
       publicPath: "",
       filename: "assets/[name].js",
     },

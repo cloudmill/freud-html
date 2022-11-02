@@ -3,7 +3,7 @@
   "scripts": {
     "build": "rimraf dist && webpack --config webpack/webpack.config.js --env NODE_ENV=production --mode=production --progress",
     "dev": "webpack server --config webpack/webpack.config.js --env NODE_ENV=development --mode development --progress --open",
-    "script": "rimraf dist && webpack --config webpack/webpack.config.script.js --env NODE_ENV=production --mode=production"
+    "deploy": "cd ./public/dist && git add . && git commit -m 'update' && git push origin master --force"
   },
   "devDependencies": {
     "@babel/core": "7.14.2",

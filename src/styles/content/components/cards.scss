@@ -104,7 +104,7 @@
     z-index: 1;
     background: var(--background-grey-extra-2);
     padding-bottom: getRem(15px);
-    height: rem(160px);
+    height: getRem(160px);
 
     @media (min-width: $breakpoint) {
       padding: getRem(13px) getRem(52px) getRem(60px);
