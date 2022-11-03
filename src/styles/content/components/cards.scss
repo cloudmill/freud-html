@@ -241,9 +241,9 @@
     flex-direction: column;
     justify-content: space-between;
 
-    @media (max-width: ($breakpoint - 1px)) {
-      height: getRem(105px);
-    }
+    // @media (max-width: ($breakpoint - 1px)) {
+    //   height: getRem(105px);
+    // }
 
     @media (min-width: $breakpoint) {
       margin-top: getRem(14px);
