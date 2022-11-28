@@ -129,11 +129,11 @@ function formValidation() {
       
                     }
 
-                    if (!item.closest('[data-cart-form]')) {
-                      setTimeout(() => {
-                        item.value = '';
-                      }, 500);
-                    }
+                    // if (!item.closest('[data-cart-form]')) {
+                    //   setTimeout(() => {
+                    //     item.value = '';
+                    //   }, 500);
+                    // }
                     
                   }
                   
