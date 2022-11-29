@@ -516,7 +516,7 @@ function applyFilter() {
     return;
   }
 
-  const params = decodeURI(window.location.search.replace( '?', '')).split('&');
+  const params = decodeURI(window.location.search.replace('?', '')).split('&');
 
   let filter = null;
 
@@ -808,6 +808,8 @@ function bookingFormTime() {
 
           errorSpan.removeClass("active");
           errorSpan.html();
+
+          bookingForm.reset();
         }
       },
     });
@@ -1393,6 +1395,8 @@ function forms() {
         data[field] = val;
       }
     });
+
+    form.reset();
 
     $.ajax({
       type: "POST",
