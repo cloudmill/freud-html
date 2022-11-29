@@ -1375,6 +1375,7 @@ function forms() {
       let field = $(this).attr("data-uf");
 
       data[field] = [];
+
     });
 
     form.find("[data-type=get-field-multi]").each(function () {
@@ -1384,6 +1385,8 @@ function forms() {
 
         data[field][count] = val;
         count++
+
+        $(this).removeAttr("checked");
       }
     });
 
@@ -1393,10 +1396,10 @@ function forms() {
           val = $(this).attr("data-value");
 
         data[field] = val;
+
+        $(this).removeAttr("checked");
       }
     });
-
-    form.reset();
 
     $.ajax({
       type: "POST",
@@ -1413,6 +1416,8 @@ function forms() {
           responseBlock.empty();
           responseBlock.html(r.response);
         }
+
+        form.trigger("reset");
       },
     });
   });
