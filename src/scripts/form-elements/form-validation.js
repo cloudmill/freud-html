@@ -81,7 +81,8 @@ function formValidation() {
 
                   if (!item.validity.valid || 
                     (item.getAttribute('type') == 'checkbox' && !item.checked) || 
-                    item.hasAttribute('data-readonly') && !item.value.length ||
+                    item.hasAttribute('data-readonly') && !item.value.length || 
+                    item.getAttribute('type') === 'tel' && item.value.replace(/\D/g, "").length !== 11 && (item.value.replace(/\D/g, "")[0] !== '7' || item.value.replace(/\D/g, "")[0] !== '8') ||
                     item.hasAttribute('data-time-input') && item.hasAttribute('data-valid')) {
       
                     showError(item, !item.validity.valid);
@@ -129,11 +130,11 @@ function formValidation() {
       
                     }
 
-                    // if (!item.closest('[data-cart-form]')) {
-                    //   setTimeout(() => {
-                    //     item.value = '';
-                    //   }, 500);
-                    // }
+                    if (!item.closest('[data-cart-form]')) {
+                      setTimeout(() => {
+                        item.value = '';
+                      }, 500);
+                    }
                     
                   }
                   

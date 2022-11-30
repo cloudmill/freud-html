@@ -1386,7 +1386,7 @@ function forms() {
         data[field][count] = val;
         count++
 
-        $(this).removeAttr("checked");
+        // $(this).removeAttr("checked");
       }
     });
 
@@ -1397,7 +1397,7 @@ function forms() {
 
         data[field] = val;
 
-        $(this).removeAttr("checked");
+        // $(this).removeAttr("checked");
       }
     });
 
@@ -1417,7 +1417,7 @@ function forms() {
           responseBlock.html(r.response);
         }
 
-        form.trigger("reset");
+        // form.trigger("reset");
       },
     });
   });
