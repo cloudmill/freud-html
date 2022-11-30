@@ -516,7 +516,7 @@ function applyFilter() {
     return;
   }
 
-  const params = decodeURI(window.location.search.replace( '?', '')).split('&');
+  const params = decodeURI(window.location.search.replace('?', '')).split('&');
 
   let filter = null;
 
@@ -808,6 +808,8 @@ function bookingFormTime() {
 
           errorSpan.removeClass("active");
           errorSpan.html();
+
+          bookingForm.reset();
         }
       },
     });
@@ -1373,6 +1375,7 @@ function forms() {
       let field = $(this).attr("data-uf");
 
       data[field] = [];
+
     });
 
     form.find("[data-type=get-field-multi]").each(function () {
@@ -1382,6 +1385,8 @@ function forms() {
 
         data[field][count] = val;
         count++
+
+        $(this).removeAttr("checked");
       }
     });
 
@@ -1391,6 +1396,8 @@ function forms() {
           val = $(this).attr("data-value");
 
         data[field] = val;
+
+        $(this).removeAttr("checked");
       }
     });
 
@@ -1409,6 +1416,8 @@ function forms() {
           responseBlock.empty();
           responseBlock.html(r.response);
         }
+
+        form.trigger("reset");
       },
     });
   });
