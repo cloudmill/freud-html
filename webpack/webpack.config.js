@@ -20,7 +20,7 @@ module.exports = (env) => {
       app: "./app.js",
     },
     output: {
-      path: path.resolve(__dirname, "../public/dist"),
+      path: path.resolve(__dirname, "../freud-public/dist"),
       publicPath: "",
       filename: "assets/[name].js",
     },
