@@ -77,6 +77,25 @@ block content
       +brown-border-button.more-btn(data-aos='fade-up')
         |Посмотреть еще
 
+      .shop-pagin.more-btn(data-aos='fade-up')
+        .shop-pagin__arrow.disabled
+          +arrow-left
+
+        .shop-pagin__pages
+          .shop-pagin__current 1
+          a.shop-pagin__link(href='') 2
+          a.shop-pagin__link(href='') 2
+          
+
+          .shop-pagin__dots ...
+
+          a.shop-pagin__link(href='') 10
+          a.shop-pagin__link(href='') 11
+          a.shop-pagin__link(href='') 12
+
+        a.shop-pagin__arrow(href='')
+          +arrow-right
+
   section
     .container
       +small-titles(ttl='Другие категории товаров')

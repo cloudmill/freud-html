@@ -572,3 +572,47 @@
     }
   }
 }
+
+.shop-pagin {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: getRem(20px);
+
+  &__pages {
+    display: flex;
+    align-items: center;
+    gap: getRem(5px);;
+  }
+
+  &__dots {
+    margin: 0 getRem(15px);
+  }
+
+  &__current, &__link {
+    width: getRem(30px);
+    height: getRem(30px);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__current {
+    border: 1px solid var(--color-brown);
+  }
+
+  &__arrow {
+    display: flex;
+    align-items: center;
+
+    &.disabled {
+      opacity: .5;
+    }
+
+    svg {
+      width: getRem(9px);
+      height: getRem(14px);
+    }
+  }
+}
