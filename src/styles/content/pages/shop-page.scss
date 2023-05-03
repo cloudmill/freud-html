@@ -1,5 +1,4 @@
 .shop-page-head {
-  
   // margin-bottom: getRem(150px);
 
   &__titles {
@@ -62,7 +61,6 @@
         }
       }
     }
-    
 
     &-img {
       overflow: hidden;
@@ -76,7 +74,8 @@
         height: 56vw;
       }
 
-      picture, img {
+      picture,
+      img {
         width: 100%;
         height: 100%;
       }
@@ -87,7 +86,7 @@
       }
     }
     &-ttl {
-      font-family: 'Berlingske Serif';
+      font-family: "Berlingske Serif";
       // @include fsl (30px, 130%);
       padding: getRem(8px) 0 getRem(20px);
 
@@ -183,7 +182,7 @@
       position: relative;
       background: var(--color-white);
       // padding-top: getRem(20px);
-    
+
       margin: 0 -$col-pad-m getRem(12px);
       @media (min-width: $breakpoint) {
         // padding-top: getRem(30px);
@@ -225,7 +224,7 @@
     position: relative;
 
     &::after {
-      content: '';
+      content: "";
       position: absolute;
       width: 1px;
       height: 45px;
@@ -233,7 +232,7 @@
       top: calc(50% - 22px);
       right: 0;
     }
-  } 
+  }
 }
 
 .category-items-count {
@@ -267,8 +266,18 @@
   }
 
   &.disabled {
-    opacity: .5;
+    opacity: 0.5;
     pointer-events: none;
+  }
+
+  &.active {
+    background: var(--color-brown);
+    border-color: var(--color-brown) !important;
+    color: #fff;
+
+    .category-filter-btn__count {
+      color: #fff;
+    }
   }
 
   &__count {
@@ -286,9 +295,10 @@
     width: 10px;
     // height: 100%;
     margin-left: getRem(8px);
-    
-    &::before, &::after {
-      content: '';
+
+    &::before,
+    &::after {
+      content: "";
       position: absolute;
       top: 50%;
       left: 50%;
@@ -306,7 +316,7 @@
 
   &.active-filter {
     border: none;
-    background: #F7EFE0;
+    background: #f7efe0;
     position: relative;
     padding-right: getRem(30px);
 
@@ -373,7 +383,8 @@
   &:hover {
     color: var(--color-brown);
 
-    svg path, svg circle {
+    svg path,
+    svg circle {
       stroke: var(--color-brown);
     }
   }
@@ -381,7 +392,8 @@
   &.active {
     color: var(--color-brown);
 
-    svg path, svg circle {
+    svg path,
+    svg circle {
       stroke: var(--color-brown);
     }
 
@@ -410,14 +422,12 @@
     @media (max-width: ($breakpoint - 1px)) {
       border-left: 1px solid var(--color-black-rgba-1);
     }
-  
+
     @media (min-width: $breakpoint) {
       margin: 0 0 0 auto;
     }
   }
 }
-
-
 
 .category-body {
   display: grid;
@@ -443,7 +453,6 @@
 }
 
 .drinks-filters {
-
   &-item {
     width: getRem(123px);
     height: fit-content;
@@ -582,14 +591,15 @@
   &__pages {
     display: flex;
     align-items: center;
-    gap: getRem(5px);;
+    gap: getRem(5px);
   }
 
   &__dots {
     margin: 0 getRem(15px);
   }
 
-  &__current, &__link {
+  &__current,
+  &__link {
     width: getRem(30px);
     height: getRem(30px);
 
@@ -607,7 +617,7 @@
     align-items: center;
 
     &.disabled {
-      opacity: .5;
+      opacity: 0.5;
     }
 
     svg {

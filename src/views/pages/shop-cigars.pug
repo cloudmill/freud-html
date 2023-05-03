@@ -27,10 +27,15 @@ block content
 
         .category-top__line.cigars-filters
 
-          each item in ['Кубинские сигары Bolivar', 'Сигариллы Trinidad Short', 'Кубинские сигары Bolivar']
-            button.category-filter-btn.button--clean.new-border
-              | #{item}
-              span.category-filter-btn__count 24
+          each item, index in ['Кубинские сигары Bolivar', 'Сигариллы Trinidad Short', 'Кубинские сигары Bolivar']
+            if index === 0
+              button.category-filter-btn.button--clean.new-border.active
+                | #{item}
+                span.category-filter-btn__count 24
+            else
+              button.category-filter-btn.button--clean.new-border
+                | #{item}
+                span.category-filter-btn__count 24
 
         -
           const filters = [
