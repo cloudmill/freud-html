@@ -441,10 +441,6 @@ function filterEvent() {
   });
 
   $(document).on('click', '[data-type=filters]', function () {
-    let allElem = $(this).parent().children();
-    $(allElem).each(function (i, elem) {
-      $(elem).removeClass('active');
-    })
     const thisObj = $(this),
       entityElem = thisObj.parents('[data-entity]'),
       entity = entityElem.data('entity'),
@@ -457,6 +453,10 @@ function filterEvent() {
     if (thisObj.hasClass('active')) {
       thisObj.removeClass('active');
     } else {
+      let array = thisObj.parent().children();
+      $(array).each(function (i, elem) {
+        $(elem).removeClass('active')
+      })
       thisObj.addClass('active');
 
       for (let filterKey in values) {
