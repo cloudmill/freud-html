@@ -441,6 +441,10 @@ function filterEvent() {
   });
 
   $(document).on('click', '[data-type=filters]', function () {
+    let allElem = $(this).parent().children();
+    $(allElem).each(function (i, elem) {
+      $(elem).removeClass('active');
+    })
     const thisObj = $(this),
       entityElem = thisObj.parents('[data-entity]'),
       entity = entityElem.data('entity'),
