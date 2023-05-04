@@ -911,13 +911,13 @@ function pagen() {
       },
       success: function (r) {
         const container = thisObj.parents('[data-container=base]'),
-          pagenResponse = $(r).filter('[data-type=pagen]').length ? $(r).filter('[data-type=pagen]') : $(r).find('[data-type=pagen]');
+          pagenResponse = $(r).filter('[data-type=pagen-append]').length ? $(r).filter('[data-type=pagen-append]') : $(r).find('[data-type=pagen-append]');
 
         container.find('[data-container=items]').append($(r).filter('[data-container=items]').children());
-        container.find('[data-type=pagen]').remove();
+        container.find('[data-type=pagen-append]').remove();
 
         if (pagenResponse.length) {
-          container.find('[data-type=pagen-append]').append(pagenResponse);
+          container.find('[data-container=list]').append(pagenResponse);
         }
       },
     });
