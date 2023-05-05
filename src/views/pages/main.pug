@@ -72,12 +72,17 @@ block content
 
       .main-page-block__bottom(data-aos='fade-up')
 
-        each item in ['Хьюмидорная комната', 'Сигарный лаунж', 'Кабинет Фрейда', 'Ресторан с баром', 'Винотека в формате bar&shop', 'Ресторан']
+        each item in ['Хьюмидорная комната', 'Сигарный лаунж', 'Кабинет Фрейда', 'Ресторан с баром', 'Винотека в формате bar&shop']
 
           a.main-page-block__bottom-links(href="")
             |#{item}
             .arrow.only-mobile
               +arrow-right
+
+        a.main-page-block__bottom-links.only-mobile(href="")
+          | Ресторан
+          .arrow.only-mobile
+            +arrow-right
 
   section.section.lounge-section
     .container
