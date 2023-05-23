@@ -14,7 +14,6 @@
     cursor: pointer;
 
     user-select: none;
-
   }
 
   &__input {
@@ -24,7 +23,7 @@
     visibility: hidden;
 
     &:checked {
-      ~#{$comp}__box {
+      ~ #{$comp}__box {
         // border-color: var(--color-blue);
 
         #{$comp}__svg {
@@ -39,7 +38,7 @@
 
     width: getRem(20px);
     height: getRem(20px);
-    
+
     display: flex;
     align-items: center;
     justify-content: center;
@@ -58,15 +57,12 @@
   }
 }
 
-
 .subscription-form {
-
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
 
   margin-top: getRem(30px);
-  
 
   @media (min-width: $breakpoint) {
     padding-left: calc(#{$col-part-d} * 6);
@@ -136,7 +132,6 @@
   }
 }
 
-
 .category-search {
   display: flex;
   align-items: center;
@@ -170,7 +165,6 @@
 }
 
 .form {
-
   &__label {
     // position: relative;
     display: flex;
@@ -193,13 +187,19 @@
     border-radius: 2px;
 
     @include fsl(16px, 160%);
-    color: var(--color-grey);
+    // color: var(--color-grey);
+    color: #000;
 
     transition: $transition;
 
-    &:not(.disabled):hover, &:not(.disabled):focus {
+    &:not(.disabled):hover,
+    &:not(.disabled):focus {
       border: 1px solid var(--color-black);
     }
+
+    // &::placeholder {
+    //   color: #000;
+    // }
   }
 
   &__textarea {
@@ -232,8 +232,11 @@
   }
 }
 
-.booking-popup-form {
+input.with-value {
+  color: #000 !important;
+}
 
+.booking-popup-form {
   &__ttl {
     margin-bottom: getRem(16px);
   }
@@ -270,7 +273,8 @@
       padding: getRem(10px) getRem(20px);
       border: none;
       @include fsl(16px, 160%);
-      color: var(--color-grey);
+      // color: var(--color-grey);
+      color: #000;
     }
 
     .calendar-svg {
@@ -282,7 +286,8 @@
       }
     }
 
-    &:not(.disabled):hover, &:not(.disabled):focus {
+    &:not(.disabled):hover,
+    &:not(.disabled):focus {
       border: 1px solid var(--color-black);
 
       .calendar-svg path {
@@ -367,7 +372,8 @@
         padding: getRem(10px) getRem(20px);
         border: none;
         @include fsl(16px, 160%);
-        color: var(--color-grey);
+        // color: var(--color-grey);
+        color: #000;
         cursor: pointer;
       }
 
@@ -385,7 +391,7 @@
 
       &:hover {
         border: 1px solid var(--color-black);
-  
+
         svg path {
           stroke: var(--color-black);
         }
@@ -457,7 +463,9 @@
   grid-template-columns: repeat(7, 1fr);
   justify-items: center;
 
-  &.months, &.years, &.decades {
+  &.months,
+  &.years,
+  &.decades {
     grid-template-columns: repeat(4, 1fr);
     row-gap: getRem(36px);
     padding: getRem(27px) 0 getRem(20px);
@@ -467,7 +475,7 @@
 .days-of-week {
   border-bottom: 1px solid var(--color-border-grey);
   color: var(--color-grey);
-  margin:0 getRem(10px) getRem(10px);
+  margin: 0 getRem(10px) getRem(10px);
   padding-bottom: getRem(7px);
   justify-content: space-between;
 
@@ -487,7 +495,7 @@
     width: getRem(37px);
     height: getRem(37px);
     line-height: unset;
-  
+
     &:not(.disabled):not(.selected):not(.focused):hover {
       border: 1px solid var(--color-grey);
       background: var(--color-white);
@@ -495,7 +503,9 @@
       transition: $transition;
     }
   }
-  &.month, &.year, &.decade {
+  &.month,
+  &.year,
+  &.decade {
     width: getRem(72px);
     border-radius: getRem(60px);
     height: getRem(37px) !important;
@@ -514,7 +524,10 @@
   }
 }
 
-.datepicker-cell.selected, .datepicker-cell.selected:hover, .datepicker-cell.today:not(.selected), .datepicker-cell.focused:not(.selected) {
+.datepicker-cell.selected,
+.datepicker-cell.selected:hover,
+.datepicker-cell.today:not(.selected),
+.datepicker-cell.focused:not(.selected) {
   background: var(--color-brown);
   color: var(--color-white);
   font-weight: 600;
@@ -579,7 +592,8 @@
     padding-top: getRem(5px);
   }
   .form__input {
-    &:focus, &:hover {
+    &:focus,
+    &:hover {
       border-color: var(--color-grey);
     }
   }
