@@ -28,7 +28,7 @@
   }
 
   &.plug {
-    background: var(--color-light-grey);
+    background: rgba(246, 245, 243, 0.6);
   }
 }
 
@@ -61,7 +61,7 @@
 
     &::before {
       position: absolute;
-      content: '';
+      content: "";
       width: 1px;
       height: getRem(15px);
       background: var(--color-black);
@@ -70,7 +70,7 @@
     }
     &::after {
       position: absolute;
-      content: '';
+      content: "";
       width: 1px;
       height: getRem(15px);
       background: var(--color-black);
@@ -82,7 +82,7 @@
   &--right {
     width: 100vw;
     transform: translateX(200%);
-    
+
     height: 100vh;
     top: 0;
     bottom: 0;
@@ -111,7 +111,6 @@
 }
 
 .booking-popup {
-
   @media (max-width: ($breakpoint - 1px)) {
     display: flex;
     flex-direction: column;
@@ -156,7 +155,6 @@
 }
 
 .review-popup {
-
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -255,7 +253,6 @@
 }
 
 .filters-popup {
-
   &__top {
     @media (max-width: ($breakpoint - 1px)) {
       position: relative;
@@ -325,9 +322,8 @@
       padding: getRem(30px) getRem(50px);
     }
   }
-  
-  &-item {
 
+  &-item {
     padding: getRem(30px) 0;
     border-bottom: 1px solid var(--color-black-rgba-1);
 
@@ -398,7 +394,8 @@
             pointer-events: all;
           }
 
-          .category-filter-btn__cross::after, .category-filter-btn__cross::before {
+          .category-filter-btn__cross::after,
+          .category-filter-btn__cross::before {
             background: var(--color-white);
           }
 
@@ -465,7 +462,8 @@
       top: getRem(-9px);
       right: getRem(-10px);
 
-      &::after, &::before {
+      &::after,
+      &::before {
         display: none;
       }
     }
@@ -486,7 +484,7 @@
   .checkbox__box {
     border-color: var(--color-border-grey);
   }
-  
+
   .count {
     color: var(--color-grey);
     margin-left: getRem(6px);
@@ -497,7 +495,7 @@
   }
 
   &.disabled {
-    opacity: .3;
+    opacity: 0.3;
     pointer-events: none;
   }
 }
@@ -516,7 +514,7 @@
   &__back {
     display: flex;
 
-      svg {
+    svg {
       // width: getRem(9px);
       // height: getRem(18px);
 
@@ -628,7 +626,7 @@
         border: 1px solid var(--color-black);
       }
       #{$comp}__txt {
-        color: var(--color-black-rgba-7)
+        color: var(--color-black-rgba-7);
       }
     }
 
@@ -650,7 +648,7 @@
       transition: $transition;
 
       &::before {
-        content: '';
+        content: "";
         position: absolute;
         width: getRem(12px);
         height: getRem(12px);
@@ -662,7 +660,7 @@
         border: 1px solid var(--color-black);
 
         &::before {
-          content: '';
+          content: "";
           position: absolute;
           width: getRem(12px);
           height: getRem(12px);
@@ -727,12 +725,14 @@
       align-items: center;
       justify-content: center;
 
-      & > picture, & > img {
+      & > picture,
+      & > img {
         max-width: 100%;
         max-height: 100%;
       }
 
-      picture, img {
+      picture,
+      img {
         object-fit: contain;
       }
     }
@@ -774,7 +774,7 @@
     }
   }
 
-  .button {  
+  .button {
     padding-top: getRem(12px);
     padding-bottom: getRem(12px);
 
@@ -795,7 +795,7 @@
   .delete-product-txt {
     @include fsl(16px, 170%);
     margin: getRem(30px) 0 getRem(20px);
-    
+
     @media (max-width: ($breakpoint - 1px)) {
       padding-bottom: getRem(30px);
       border-bottom: 1px solid var(--color-border-grey);
@@ -820,7 +820,6 @@
 }
 
 .success-popup {
-
   .review-popup__body {
     display: flex;
     flex-direction: column;
@@ -839,7 +838,6 @@
   }
 
   &__txt {
-
     @include fsl(18px, 170%);
 
     @media (min-width: $breakpoint) {
@@ -880,7 +878,6 @@
 }
 
 .mobile-menu {
-
   &__wrapper {
     padding: getRem(105px) $col-pad-m getRem(67px);
   }
@@ -892,7 +889,8 @@
 
     @include fsl(18px, 160%);
 
-    &-arrow, a {
+    &-arrow,
+    a {
       width: 50%;
     }
     &-arrow {
@@ -929,7 +927,8 @@
       width: getRem(40px);
       height: getRem(40px);
 
-      .tg-circle-ico, .wa-circle-ico {
+      .tg-circle-ico,
+      .wa-circle-ico {
         width: getRem(20.5px);
         height: getRem(20.5px);
       }
@@ -945,7 +944,7 @@
 
     a {
       color: var(--color-grey);
-    } 
+    }
   }
 
   &-item {
@@ -1048,7 +1047,7 @@
 .cookie {
   position: fixed;
   z-index: 11;
-  
+
   left: $col-pad-m;
   right: $col-pad-m;
   bottom: getRem(80px);
@@ -1077,7 +1076,7 @@
   &.active {
     display: flex;
   }
-  
+
   &__txt {
     @include fsl(16px, 140%);
     color: var(--color-grey);
@@ -1104,14 +1103,13 @@
 }
 
 .delivery-popup-block {
-
   .delivery-row-icons {
     margin-top: getRem(30px);
   }
 
   &:not(:last-child) {
     margin-bottom: getRem(30px);
-  
+
     @media (min-width: $breakpoint) {
       margin-bottom: getRem(50px);
     }

@@ -27,9 +27,6 @@ module.exports = (env) => {
     devServer: {
       contentBase: path.resolve(__dirname, "../src"),
       openPage: "index",
-      port: '3000',
-      hot: true,
-      open: true,
     },
     devtool: env.NODE_ENV === "development" ? "source-map" : false,
     resolve: {
@@ -208,11 +205,11 @@ module.exports = (env) => {
       }),
 
       new webpack.ProvidePlugin({
-				$: 'jquery',
-				jQuery: 'jquery',
-				'window.$': 'jquery',
-				'window.jQuery': 'jquery'
-			}),
+        $: "jquery",
+        jQuery: "jquery",
+        "window.$": "jquery",
+        "window.jQuery": "jquery",
+      }),
 
       new WebpackNotifierPlugin({
         title: "Bundler",
