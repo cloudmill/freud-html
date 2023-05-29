@@ -1,9 +1,10 @@
 .humidor-top-bg {
-  background: url(assets/images/humidor-block-bg-mob.jpeg) no-repeat center;
-  background-size: cover;
+  background: url(assets/images/humidor-block-bg-mob2.jpeg) no-repeat center;
+  background-size: 100%;
 
   @media (min-width: $breakpoint-m) {
-    background: url(assets/images/humidor-block-bg.jpeg) no-repeat center;
+    background: url(assets/images/humidor-block-bg2.jpeg) no-repeat center;
+    background-size: 100%;
   }
 }
 
@@ -67,7 +68,7 @@
   align-items: center;
 
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     width: getRem(50px);
@@ -105,7 +106,6 @@
 }
 
 .humidor-slider2 {
-
   &-section {
     height: 300vh;
     position: relative;
@@ -130,11 +130,12 @@
     width: calc((100vw - 90px) / 4);
     flex-shrink: 0;
 
-    picture, img {
+    picture,
+    img {
       width: 100%;
       height: 100%;
     }
-    
+
     &:not(:first-child) {
       margin-left: 30px;
     }
@@ -142,7 +143,6 @@
 }
 
 .humidor-slider {
-
   overflow: hidden;
 
   @media (min-width: $breakpoint) {
@@ -172,7 +172,6 @@
   }
 
   .swiper-slide {
-
     @media (max-width: ($breakpoint - 1px)) {
       width: getRem(300px);
       height: auto;
@@ -181,7 +180,8 @@
       width: fit-content;
     }
 
-    picture, img {
+    picture,
+    img {
       @media (max-width: ($breakpoint - 1px)) {
         height: 100%;
         object-fit: cover;
@@ -263,7 +263,6 @@
   }
 
   &__img {
-    
     flex-shrink: 0;
 
     @media (max-width: ($breakpoint - 1px)) {
@@ -285,7 +284,8 @@
       margin-top: getRem(45px);
     }
     @media (min-width: $breakpoint) {
-      padding: 0 calc(#{$col-part-d} + #{$col-width-d}) 0 calc(#{$col-part-d} + #{$col-gap});
+      padding: 0 calc(#{$col-part-d} + #{$col-width-d}) 0
+        calc(#{$col-part-d} + #{$col-gap});
     }
 
     .big-titles__txt {

@@ -59,12 +59,12 @@
   }
 }
 
-
 .vine-section-bg {
-  background: url(assets/images/vine-main-bg-mob.jpeg) no-repeat center;
-  background-size: cover;
+  background: url(assets/images/vine-main-bg-mob2.jpg) no-repeat center;
+  background-size: 100%;
 
   @media (min-width: $breakpoint-m) {
-    background-image: url(assets/images/vine-main-bg.jpg);
+    background-image: url(assets/images/vine-main-bg2.jpg);
+    background-size: 100%;
   }
 }

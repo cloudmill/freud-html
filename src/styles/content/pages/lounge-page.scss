@@ -1,7 +1,7 @@
 .lounge-main-section {
   text-align: center;
 
-  @media  (max-width: ($breakpoint-m - 1px)) {
+  @media (max-width: ($breakpoint-m - 1px)) {
     padding: getRem(105px) 0 !important;
     height: getRem(400px);
   }
@@ -23,13 +23,13 @@
 }
 
 .lounge-main-bg {
-  background: url(assets/images/lounge-bg-mob.jpeg) no-repeat center;
+  background: url(assets/images/lounge-bg-mob2.jpeg) no-repeat center;
+  background-size: 100%;
 
   @media (min-width: $breakpoint) {
-    background: url(assets/images/lounge-bg.jpeg) no-repeat center;
+    background: url(assets/images/lounge-bg2.jpeg) no-repeat center;
+    background-size: 100%;
   }
-
-  background-size: cover;
 }
 
 .fumelier-block {
@@ -74,12 +74,13 @@
 }
 
 .cabinet-main-bg {
-  background: url(assets/images/cabinet-main-bg-mob.jpeg) no-repeat center;
+  background: url(assets/images/cabinet-main-bg-mob2.jpeg) no-repeat center;
+  background-size: 100%;
 
   @media (min-width: $breakpoint-m) {
-    background: url(assets/images/cabinet-main-bg.jpeg) no-repeat center;
+    background: url(assets/images/cabinet-main-bg2.jpeg) no-repeat center;
+    background-size: 100%;
   }
-  background-size: cover;
 }
 
 .cabinet-section-bg {
