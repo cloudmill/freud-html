@@ -1,0 +1,426 @@
+extends ../layouts/master
+
+include ../components/breadcrumbs
+include ../components/buttons
+include ../components/cards
+include ../components/block-titles
+include ../components/picture
+
+block variables
+  - const noCookie = true
+
+block variables
+  - var shopNav = true
+
+block content
+  section.section--first
+    .container
+      .cart-section(data-cart-stage-general='')
+
+        .cart-section__top.only-mobile(data-aos='fade-up')
+          .title-font.h2--big Оформление заказа
+          a.cart-section__back-link.only-mobile(href="")
+            +arrow-left.only-mobile
+            |Вернуться к покупкам
+
+        .cart-section__body(data-cart-body-stages='')
+
+          .cart-section__col
+            .cart-section__top.only-desktop(data-aos='fade-up')
+              h1.title-font.h2--big Оформление заказа
+
+            .cart-stage.open(data-cart-stage='' data-aos='fade-up')
+              .cart-stage__row
+                .cart-stage__row-col
+                  .cart-stage__count 1/3
+                  .cart-stage__ttl.h4.title-font Ваши товары
+                  .cart-stage__products 3 товара
+
+                button.button--clean.cart-stage__edit.only-desktop(data-stage-edit='') Изменить
+
+              .previous-show(data-next-target='1')
+                .cart-products-notactive
+                  - for (a=0;a<3;a++)
+                    .cart-products-item
+                      .cart-products-item__img
+                        +picture(file='shop-img-1')
+                      .cart-products-item__row
+                        .cart-products-item__ttl Сигара Nicaragua Primeros Mad
+                        div &nbsp;—&nbsp;
+                        .cart-products-item__price 13 820 ₽
+
+                +brown-border-button.cart-stage__edit.only-mobile(data-stage-edit='')
+                  |Изменить
+
+              div(data-cart-content='1')
+                .cart-products-active
+
+                  .cart-stage__product-list(data-product-list)
+                    - for (i=0;i<3;i++)
+                      .card-product(data-aos='fade-up')
+                        .card-product__img
+                          .catalog-card__labels.only-desktop
+                            .catalog-card__labels-item.label-black NEW
+
+                          +picture(file='shop-img-1')
+                        .card-product__info
+                          div
+                            .card-product__brand Davidoff
+                            .card-product__ttl Сигара Nicaragua Primeros Mad
+                            .card-product__txt Доминикана, 130 мм x 21 RG, длительность курения 75 мин, крепость 4 из 5
+
+                          button.card-product__btn.button--clean.only-desktop В избранное
+                        .card-product__nums
+
+                          .card-product__add(data-number-goods)
+                            button.button--clean(data-number-goods-minus)
+                            span(data-number-goods-count) 2
+                            button.button--clean.plus(data-number-goods-plus)
+
+                          .catalog-card__price
+                            div
+                              span.current 13 820 ₽
+                              span.old 13 820 ₽
+                          .card-product__amount 2 шт. х 6 000 ₽
+                        .card-product__last-col
+                          button.card-product__btn.button--clean(data-popup-button='6') Удалить
+
+                          button.card-product__btn.button--clean.only-mobile В избранное
+
+                  +brown-button.cart-stage__product-list-btn.only-desktop(data-aos='fade-up' data-cart-next='1')
+                    |Перейти к оформлению
+
+                  .cart-stage__recommend
+                    .cart-stage__recommend-ttl.h4.title-font(data-aos='fade-up') С этими товарами покупают
+                    .cart-stage__recommend-row(data-aos='fade-up')
+                      - for (a=0;a<2;a++)
+                        -
+                          var content = [
+                            {img: 'shop-img-1',
+                            brand: 'Ornellaia',
+                            ttl: 'Вино St-Emilion AOC Premier Grand Cru Classe',
+                            price: '165 750 ₽'},
+
+                            {img: 'shop-img-2',
+                            brand: 'Gurkha',
+                            ttl: 'Сигара Triad Platinum',
+                            price: '13 820 ₽'}
+                          ]
+                        each item in content
+                          +catalog-card-small(img=`${item.img}` brand=`${item.brand}` ttl=`${item.ttl}` price=`${item.price}`)
+
+                .cart-price-mob.only-mobile
+
+                  .cart-promocode(data-aos='fade-up')
+                    input.cart-promocode__input(type='text' placeholder='Ввести промокод')
+
+                    button.button--clean.cart-promocode-send
+                      +arrow-right.cart-promocode__arrow
+
+                    button.button--clean.cart-promocode-delete
+
+                  .cart-promocode-error.active — промокод не найден
+
+                  .cart-result(data-aos='fade-up')
+                    .cart-result__ttl Итого
+                    .cart-result__row
+                      .cart-result__name 3 товара на сумму
+                      .cart-result__value 135 820 ₽
+                    .cart-result__row
+                      .cart-result__name Скидка
+                      .cart-result__value −11 000 ₽
+                    .cart-result__row
+                      .cart-result__name Промокод «Фрейд»
+                      .cart-result__value −1 000 ₽
+
+                    .cart-result__total
+                      .cart-result__name К оплате
+                      .cart-result__value 120 000 ₽
+
+                    +brown-button.cart-stage__product-list-btn(data-cart-next='1')
+                      |Перейти к оформлению
+
+
+            .cart-stage.collapsed(data-cart-stage='1')
+              .cart-stage__row
+                .cart-stage__row-col
+                  .cart-stage__count 2/3
+                  .cart-stage__ttl.h4.title-font Контактные данные
+
+                button.button--clean.cart-stage__edit.only-desktop(data-stage-edit='') Изменить
+
+              .previous-show(data-next-target='2')
+                .cart-stage-form--result
+                  p(data-name-result='')
+                  p(data-tel-result='')
+                  p(data-mail-result='')
+                  .note(data-note-result='')
+
+                +brown-border-button.cart-stage__edit.only-mobile(data-stage-edit='')
+                  |Изменить
+
+              .cart-stage-form(data-cart-content='2')
+                .cart-stage-form__note
+                  sup *
+                  |— поля обязательные для заполнения
+
+                form.form(novalidate data-cart-form)
+                  label.form__label.cart-form-label
+                    .form__field-name Имя
+                      sup *
+                    input.form__input(type='text' data-input-title='name' data-cart-name='' placeholder='Введите ваше имя' required)
+
+                  label.form__label.cart-form-label
+                    .form__field-name Фамилия
+                      sup *
+                    input.form__input(type='text' data-input-title='sec-name' data-cart-name2='' placeholder='Введите вашу фамилию' required)
+
+                  label.form__label.cart-form-label
+                    .form__field-name Телефон
+                      sup *
+                    input.form__input(type='tel' placeholder='Введите номер телефона' data-cart-tel='' required)
+
+                  label.form__label.cart-form-label
+                    .form__field-name E-mail
+                    input.form__input(type='email' placeholder='Введите ваш электронный адрес' data-cart-mail='')
+
+                  label.form__label.cart-form-label
+                    .form__field-name Комментарии к заказу
+                    textarea.form__textarea(data-cart-comment='' placeholder='Введите текст')
+
+                  +brown-button.form__btn(type='submit' data-cart-next='2')
+                    |Продолжить
+
+                  .checkbox.cart-stage-form__checkbox
+                    label.checkbox__label
+                      input.checkbox__input(type="checkbox" checked required)
+                      .checkbox__box
+                        +checkbox-white-svg.checkbox__svg
+
+                    .checkbox__caption.only-desktop
+                      |Нажимая на кнопку «Продолжить», вы соглашаетесь #[br]
+                      a(href="") с политикой конфиденциальности
+
+                    .checkbox__caption.only-mobile
+                      |Нажимая на кнопку «Продолжить», вы соглашаетесь 
+                      a(href="") с политикой конфиденциальности
+
+
+            .cart-stage.collapsed(data-cart-stage='2')
+              .cart-stage__row
+                .cart-stage__row-col
+                  .cart-stage__count 3/3
+                  .cart-stage__ttl.h4.title-font Получение заказа
+
+              .cart-receiving(data-cart-content='3')
+                .cart-receiving-options(data-tabs)
+                  .cart-receiving-options__item.active(data-tabs-item data-cart-small-form='')
+                    +pickup-ico.cart-receiving-options__svg
+
+                    .cart-receiving-options__col
+                      .cart-receiving-options__ttl Самовывоз из магазина
+                      .cart-receiving-options__txt Бесплатно, сегодня
+
+                  .cart-receiving-options__item(data-tabs-item data-cart-big-form='')
+                    +order3.cart-receiving-options__svg
+
+                    .cart-receiving-options__col
+                      .cart-receiving-options__ttl Уточнить детали заказа
+                      .cart-receiving-options__txt Наш менеджер позвонит вам и уточнит детали заказа
+
+                .cart-receiving-types(data-tabs-content)
+
+                  .cart-receiving-types__item.active(data-content-item)
+
+                    .cart-pickup
+                      .cart-pickup__info
+                        .cart-pickup__ttl Самовывоз из клуба «Профессор Фрейд»
+
+                        .cart-pickup__info-item
+                          +place-ico.cart-pickup__svg
+                          div
+                            .cart-pickup__info-ttl Адрес
+                            .cart-pickup__info-txt г. Санкт-Петербург, ул. Малая Морская, дом 18
+
+                        .cart-pickup__info-item
+                          +clock-ico.cart-pickup__svg
+                          div
+                            .cart-pickup__info-ttl Часы работы
+                            .cart-pickup__info-txt ПН – ЧТ, 12:00 – 00:00 #[br] ПТ – СБ, 12:00 – 01:00 #[br] ВС, 13:00 – 23:00
+
+                        .cart-pickup__info-item
+                          +attention-ico.cart-pickup__svg
+                          div
+                            .cart-pickup__info-ttl Алкоголь можно забрать до 22:00
+
+                      .cart-pickup__map
+                        #map
+
+                    .cart-receiving__txt Менеджер свяжется с вами для уточнения деталей в ближайшее время
+
+                    +brown-button.cart-pickup__btn(data-cart-final='')
+                      |Оформить заказ
+                  
+                  .cart-receiving-types__item(data-content-item)
+                      
+                      
+                    .cart-receiving-form__txt.only-desktop Доставка разрешена не для всех товаров из нашего каталога. #[br] Менеджер перезвонит вам в ближайшее время и проконсультирует вас
+
+                    .cart-receiving-form__txt.only-mobile Доставка разрешена не для всех товаров из нашего каталога. Менеджер перезвонит вам в ближайшее время и проконсультирует вас
+
+                    +brown-button.cart-receiving-form__btn.cart-receiving-form__btn.width(type='submit' data-cart-final='')
+                      |Оформить заказ
+
+                    a.cart-receiving-form__link(href="https://minzdrav.gov.ru/documents/5736-federalnyy-zakon-15-fz-ot-23-fevralya-2013-g" target="_blank") Федеральный закон №15-ФЗ от 23 февраля 2013 года 
+
+          .cart-section__col.only-desktop
+
+            .cart-result-container(data-aos='fade-up')
+              .cart-result-container__top
+                a.cart-section__back-link(href="")
+                  |Вернуться к покупкам
+
+              .cart-result
+                .cart-result__ttl Итого
+                .cart-result__row
+                  .cart-result__name 3 товара на сумму
+                  .cart-result__value 135 820 ₽
+                .cart-result__row
+                  .cart-result__name Скидка
+                  .cart-result__value −11 000 ₽
+                .cart-result__row
+                  .cart-result__name Промокод «Фрейд»
+                  .cart-result__value −1 000 ₽
+
+                .cart-result__total
+                  .cart-result__name К оплате
+                  .cart-result__value 120 000 ₽
+
+              .cart-promocode
+                input.cart-promocode__input(type='text' placeholder='Ввести промокод')
+
+                button.button--clean.cart-promocode-send
+                  +arrow-right.cart-promocode__arrow
+
+                button.button--clean.cart-promocode-delete
+
+              .cart-promocode-error.active — промокод не найден
+
+        .cart-section__body.hide(data-cart-body-result='')
+
+          .cart-section__col.cart-final
+
+            .cart-section__top.only-desktop(data-aos='fade-up')
+              .title-font.h2--big Оформление заказа
+
+            .cart-final__top
+
+              .cart-final__ttl.h4.title-font Заказ № 1156 создан
+
+              .cart-final__txt Менеджер свяжется с вами для уточнения деталей в ближайшее время
+
+            .cart-products-notactive
+              - for (a=0;a<3;a++)
+                .cart-products-item
+                  .cart-products-item__img
+                    +picture(file='shop-img-1')
+                  .cart-products-item__row
+                    .cart-products-item__ttl Сигара Nicaragua Primeros Mad
+                    div &nbsp;—&nbsp;
+                    .cart-products-item__price 13 820 ₽
+
+            .cart-result.cart-result-final.only-mobile
+              .cart-result__ttl Итого
+              .cart-result__row
+                .cart-result__name 3 товара на сумму
+                .cart-result__value 135 820 ₽
+              .cart-result__row
+                .cart-result__name Скидка
+                .cart-result__value −11 000 ₽
+              .cart-result__row
+                .cart-result__name Промокод «Фрейд»
+                .cart-result__value −1 000 ₽
+
+              .cart-result__total
+                .cart-result__name К оплате
+                .cart-result__value 120 000 ₽
+                
+            .cart-final__info(data-result-samovyvos)
+              .cart-pickup
+                .cart-pickup__info
+                  .cart-pickup__ttl Самовывоз из клуба «Профессор Фрейд»
+
+                  .cart-pickup__info-item
+                    +place-ico.cart-pickup__svg
+                    div
+                      .cart-pickup__info-ttl Адрес
+                      .cart-pickup__info-txt г. Санкт-Петербург, ул. Малая Морская, дом 18
+
+                  .cart-pickup__info-item
+                    +clock-ico.cart-pickup__svg
+                    div
+                      .cart-pickup__info-ttl Часы работы
+                      .cart-pickup__info-txt ПН – ЧТ, 12:00 – 00:00 #[br] ПТ – СБ, 12:00 – 01:00 #[br] ВС, 13:00 – 23:00
+
+                  .cart-pickup__info-item
+                    +attention-ico.cart-pickup__svg
+                    div
+                      .cart-pickup__info-ttl Алкоголь можно забрать до 22:00
+
+                .cart-pickup__map
+                  #map2
+
+            .cart-final__info(data-result-dostavka)
+              .cart-final-delivery
+                .cart-pickup__ttl Доставка
+
+                .cart-pickup__info-item
+                  +place-ico.cart-pickup__svg
+                  div
+                    .cart-pickup__info-ttl Адрес
+                    .cart-pickup__info-txt(data-result-adsress)
+
+                .cart-pickup__info-item
+                  +attention-ico.cart-pickup__svg
+                  div
+                    .cart-pickup__info-ttl Стоимость доставки уточнит менеджер
+
+            +brown-button-link.cart-pickup__btn
+              |Вернуться на главную
+                  
+
+          .cart-section__col.only-desktop
+
+            .cart-result-container__top
+              a.cart-section__back-link(href="")
+                |Вернуться к покупкам
+
+            .cart-result(data-aos='fade-up')
+              .cart-result__ttl Итого
+              .cart-result__row
+                .cart-result__name 3 товара на сумму
+                .cart-result__value 135 820 ₽
+              .cart-result__row
+                .cart-result__name Скидка
+                .cart-result__value −11 000 ₽
+              .cart-result__row
+                .cart-result__name Промокод «Фрейд»
+                .cart-result__value −1 000 ₽
+
+              .cart-result__total
+                .cart-result__name К оплате
+                .cart-result__value 120 000 ₽
+
+          .articles-section.section--top
+            - var noaos = true
+            include ../components/sections/articles-section
+
+block footer
+  - var noaos = true
+  +footer(noaos)
+
+block modals
+  include ../components/popups/delete-product-popup
+
+block scripts
+  script(src="https://api-maps.yandex.ru/2.1/?apikey=9eaf2d45-34a5-4620-bac6-0482e9335845&lang=ru_RU" type="text/javascript")

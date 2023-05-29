@@ -47,7 +47,7 @@
     justify-content: space-between;
     flex-wrap: wrap;
 
-    transition: .8s;
+    transition: 0.8s;
 
     @media (max-width: ($breakpoint - 1px)) {
       flex-direction: column;
@@ -69,11 +69,9 @@
       pointer-events: all;
       position: relative;
     }
-
   }
 
   &__col {
-
     &:nth-child(1) {
       // overflow: visible;
       width: 100%;
@@ -90,7 +88,6 @@
 }
 
 .cart-stage {
-
   background: var(--color-white);
   // position: relative;
 
@@ -110,7 +107,7 @@
     .cart-stage__edit {
       opacity: 0;
       pointer-events: none;
-      transition: .8s;
+      transition: 0.8s;
     }
   }
   &__count {
@@ -148,7 +145,7 @@
     .card-product:nth-child(1n + 3) {
       @media (min-width: $breakpoint-m) and (max-width: ($breakpoint - 1px)) {
         margin-top: getRem(6px);
-       }
+      }
     }
     .card-product:not(:first-child) {
       @media (max-width: ($breakpoint-m - 1px)) {
@@ -197,7 +194,6 @@
     }
 
     &-row {
-
       @media (max-width: ($breakpoint - 1px)) {
         display: flex;
         justify-content: space-between;
@@ -210,7 +206,6 @@
       }
 
       @media (min-width: $breakpoint) {
-
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         column-gap: getRem(20px);
@@ -293,7 +288,6 @@
     }
   }
   &.previous {
-
     .cart-stage__row .cart-stage__edit {
       opacity: 1;
       pointer-events: all;
@@ -350,7 +344,7 @@
 }
 
 .add-transition [data-cart-content] {
-  transition: .8s;
+  transition: 0.8s;
 }
 
 .card-product {
@@ -396,7 +390,8 @@
       left: 15px;
     }
 
-    picture, img {
+    picture,
+    img {
       width: 100%;
       height: 100%;
       object-fit: contain;
@@ -514,7 +509,7 @@
       // }
 
       &::before {
-        content: '';
+        content: "";
         position: absolute;
         width: getRem(9px);
         // width: 9px;
@@ -522,7 +517,7 @@
         background: var(--color-grey);
       }
       &.plus::after {
-        content: '';
+        content: "";
         position: absolute;
         width: 1px;
         height: getRem(9px);
@@ -531,7 +526,7 @@
       }
 
       &.hide {
-        opacity: .4;
+        opacity: 0.4;
         pointer-events: none;
       }
     }
@@ -700,8 +695,9 @@
     pointer-events: none;
     transition: $transition;
 
-    &::after, &::before {
-      content: '';
+    &::after,
+    &::before {
+      content: "";
       position: absolute;
       width: getRem(10px);
       height: getRem(1px);
@@ -747,7 +743,6 @@
 }
 
 .cart-products-item {
-
   display: flex;
   align-items: center;
 
@@ -763,7 +758,8 @@
 
     background: var(--background-grey-extra-2);
 
-    picture, img {
+    picture,
+    img {
       width: 100%;
       height: 100%;
       object-fit: contain;
@@ -782,7 +778,6 @@
 }
 
 .cart-empty {
-
   @media (max-width: ($breakpoint - 1px)) {
     padding: getRem(40px) 0 getRem(100px);
   }
@@ -827,7 +822,6 @@
       }
     }
     &__btn {
-      
       margin-top: getRem(30px);
 
       @media (max-width: ($breakpoint-m - 1px)) {
@@ -842,7 +836,6 @@
 }
 
 .cart-stage-form {
-
   @media (min-width: $breakpoint) {
     margin: getRem(12px) 0 0 calc(#{$col-width-d});
     width: calc(#{$col-part-d} * 4);
@@ -905,7 +898,6 @@
 }
 
 .cart-receiving {
-
   margin-top: getRem(20px);
 
   @media (min-width: $breakpoint) {
@@ -914,7 +906,6 @@
 }
 
 .cart-receiving-options {
-
   @media (min-width: $breakpoint-m) and (max-width: ($breakpoint - 1px)) {
     justify-content: space-between;
   }
@@ -953,7 +944,8 @@
         margin-bottom: 0;
       }
     }
-    &.active, &:hover {
+    &.active,
+    &:hover {
       border: 1px solid var(--color-brown);
     }
   }
@@ -982,9 +974,8 @@
 }
 
 .cart-receiving-types {
-
   display: grid;
-  grid-template-areas: 'a';
+  grid-template-areas: "a";
 
   position: relative;
 
@@ -1002,7 +993,7 @@
 
     position: absolute;
 
-    transition: .5s;
+    transition: 0.5s;
 
     &.active {
       opacity: 1;
@@ -1072,7 +1063,6 @@
     flex: none;
   }
   &__map {
-    
     height: getRem(375px);
 
     @media (min-width: $breakpoint) {
@@ -1093,7 +1083,6 @@
 }
 
 .cart-receiving-form {
-
   &__ttl {
     @include fsl(18px, 140%);
     font-weight: 600;
@@ -1108,7 +1097,7 @@
       height: 50%;
     }
   }
-  
+
   &__form {
     margin-top: getRem(15px);
 
@@ -1160,6 +1149,10 @@
 
     @media (min-width: $breakpoint) {
       margin: getRem(30px) 0 getRem(44px);
+
+      &.width {
+        width: getRem(490px);
+      }
     }
   }
   &__link {
@@ -1170,7 +1163,6 @@
 }
 
 .cart-final {
-
   @media (min-width: $breakpoint) {
     width: calc(#{$col-part-d} * 7 - (#{$col-gap / 2})) !important;
   }
@@ -1204,7 +1196,8 @@
     padding: getRem(35px) getRem(40px);
     background: var(--background-grey-extra-2);
 
-    .cart-pickup__svg circle, .cart-pickup__svg path {
+    .cart-pickup__svg circle,
+    .cart-pickup__svg path {
       stroke: var(--color-black);
     }
   }

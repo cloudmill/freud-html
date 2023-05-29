@@ -35,6 +35,10 @@
       "title": "Корзина"
     },
     {
+      "href": "cart-general",
+      "title": "Корзина 2"
+    },
+    {
       "href": "favorites",
       "title": "Избранное"
     },
