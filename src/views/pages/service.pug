@@ -1,0 +1,89 @@
+extends ../layouts/master
+
+include ../components/breadcrumbs
+include ../components/buttons
+include ../components/cards
+include ../components/block-titles
+include ../components/picture
+
+block content
+
+  section.section--first
+    .container
+      +breadcrumbs(page = 'Сервис prof FREUD club')
+
+      .contacts-block
+        .contacts-block__top
+          +big-titles(subttl='премиум-уровень' ttl='Сервис prof FREUD club' txt='Предлагаем как организацию частных мероприятий и бизнес-встреч, так и аренду любой #[br] зоны клуба под закрытие. В свою очередь услуга выездного фумелье и сомелье станет #[br] незаурядным дополнением любого события' h1)
+          //- +big-titles.only-mobile(subttl='премиум-уровень' ttl='Сервис prof FREUD club' txt='Элегантный дизайн сертификата создаст' txt2='наилучшие впечатления о подарке')
+
+          .scroll-down.only-desktop(data-aos='fade-up')
+            .scroll-down__line
+
+  section.section--bottom.lounge-section
+    .container
+
+      .certificates-block
+
+        .certificates-block__row
+
+          .certificates-block__info
+
+            +small-titles(ttl='Камерные праздники' ttl2='и ужины в ресторане')
+            //- +small-titles.only-mobile(ttl='Сертификат на' ttl2='ужин в ресторане')
+
+            .certificates-block__txt(data-aos='fade-up')
+              |prof FREUD restaurant станет идеальным местом для проведения бизнес-завтраков, фуршетов или банкетов до 15 человек #[br] #[br] Опция полного закрытия ресторана под Ваше мероприятие без дополнительных оплат позволяет комфортно провести время в кругу близких #[br] #[br] Средняя стоимость банкета составляет от 5 500 ₽ на человека, фуршета - от 3 500 ₽
+
+            +brown-button.certificates-block__btn(data-popup-button='15' data-aos='fade-up')
+              |Оставить заявку
+
+            //- .certificates-block__note(data-aos='fade-up') Закажите сертификат заранее и мы подготовим #[br] его к вашему приезду. Cертификат может быть любого номинала
+
+          div(data-aos='fade-up')
+            +picture.certificates-block__img(file='service-1')
+            
+
+        .certificates-block__row
+
+          div(data-aos='fade-up')
+            +picture.certificates-block__img(file='service-2')
+
+          .certificates-block__info
+
+            +small-titles(ttl='Фуршеты, лекции и #[br] презентации в сигарном #[br] лаунже')
+            //- +small-titles.only-mobile(ttl='Сертификат на' ttl2='сигары и алкоголь')
+
+            .certificates-block__txt(data-aos='fade-up')
+              |Непередаваемая атмосфера сигарного лаунжа и особая эстетика его интерьера переносят гостей в эпоху Фрейда, в 20-30-е годы прошлого века #[br] #[br] Комфортное размещение в лаунже предусматривает до 22 человек #[br] #[br] Проектор и качественное мультимедийное оборудование в сочетании с виниловым проигрывателем обеспечат высокий уровень Вашего мероприятия #[br] #[br] Стоимость аренды рассчитывается индивидуально
+
+            +brown-button.certificates-block__btn(data-popup-button='7' data-aos='fade-up')
+              |Оставить заявку
+
+            //- .certificates-block__note(data-aos='fade-up') Закажите сертификат заранее и мы подготовим #[br] его к вашему приезду. Cертификат может быть любого номинала
+
+        .certificates-block__row
+
+          .certificates-block__info
+
+            +small-titles(ttl='Аренда кабинета Фрейда')
+            //- +small-titles.only-mobile(ttl='Сертификат на' ttl2='ужин в ресторане')
+
+            .certificates-block__txt(data-aos='fade-up')
+              |Кабинет предназначен для гостей, ценящих время, комфорт и индивидуальный подход к обслуживанию. Здесь вы можете уединиться для проведения переговоров, деловых встреч или отдыха #[br] #[br] Кабинет оборудован виниловым проигрывателем, телевизором и Apple TV #[br] #[br] Вместимость до 8 человек #[br] #[br] Стоимость  - 7 000 ₽ / час
+
+            +brown-button.certificates-block__btn(data-popup-button='15' data-aos='fade-up')
+              |Оставить заявку
+
+            //- .certificates-block__note(data-aos='fade-up') Закажите сертификат заранее и мы подготовим #[br] его к вашему приезду. Cертификат может быть любого номинала
+
+          div(data-aos='fade-up')
+            +picture.certificates-block__img(file='service-3')  
+
+  include ../components/sections/events-section
+  include ../components/sections/humidor-slider-section
+
+block modals
+  include ../components/popups/certificate-popup
+  include ../components/popups/certificate2-popup
+  include ../components/popups/consult-success-popup
