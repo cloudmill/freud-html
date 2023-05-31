@@ -211,7 +211,8 @@
     resize: none;
 
     @include fsl(16px, 160%);
-    color: var(--color-grey);
+    // color: var(--color-grey);
+    color: #000;
   }
 
   &__btn {
