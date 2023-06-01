@@ -230,7 +230,8 @@
 }
 
 .menu-main-bg {
-  background: url(assets/images/menu-main-bg-mob.jpg) no-repeat center;
+  background: url(assets/images/menu-main-bg-mob2.jpg) no-repeat center;
+  background-size: 100%;
 
   @media (max-width: ($breakpoint-m - 1px)) {
     display: flex;
@@ -238,9 +239,9 @@
     justify-content: center;
   }
   @media (min-width: $breakpoint-m) {
-    background-image: url(assets/images/menu-main-bg.jpeg);
+    background-image: url(assets/images/menu-main-bg2.jpg);
+    background-size: 100%;
   }
-  background-size: cover;
 }
 
 .menu-list {
