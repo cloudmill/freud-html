@@ -28,6 +28,18 @@ $(function () {
   sortEvent();
   applyFilter();
 });
+/* service */
+if (window.location.pathname == '/service/') {
+  newTitleHidden();
+}
+function newTitleHidden () {
+  $(document).on('click', '[data-popup-button="8"]', function (e) {
+    let value = $(this).siblings().find('h3').html() ? $(this).siblings().find('h3').html() : $(this).siblings().find('h2').html();
+    let form = $('#consult-form').find('[data-uf="UF_TITLE"]');
+    $(form).val(value.trim());
+  })
+}
+
 
 window.ajaxRequest = {};
 
@@ -92,7 +104,6 @@ function formsEvent() {
           try {
             window.formSuccess[thisObj.data('event')](thisObj);
           } catch (e) {
-            console.log(e.message);
           }
         } else {
           alert(r.message);
@@ -176,7 +187,6 @@ function searchFetchEvent() {
         try {
           window.filterSuccess[entity](thisObj, jqResponse);
         } catch (e) {
-          console.log(e.message);
         }
       },
     });
@@ -232,7 +242,7 @@ window.filterCompare = {
         }
 
         $(`[data-filter-key=${filterKey}]`).find('[data-type=filter-val]').filter((i, item) => item.textContent === val).each((i, item) => {
-          console.log($(item));
+
           window.filtersEvent.styles.disable[$(item).attr('data-style')]($(item));
         });
 
@@ -374,14 +384,13 @@ function filterFetch(thisObj, linkContainer, entity) {
       try {
         window.filterSuccess[entity](thisObj, jqResponse);
       } catch (e) {
-        console.log(e.message);
       }
     },
   });
 }
 
 window.addEventListener('popstate', () => {
-  console.log(JSON.parse(decodeURI(window.location.search.replace('?', ''))));
+
 });
 
 function filterEvent() {
@@ -433,7 +442,6 @@ function filterEvent() {
       try {
         window.filtersEvent.styles[isSelect][item.getAttribute('data-style')]($(item));
       } catch (e) {
-        console.log(e.message);
       }
     });
 
@@ -471,7 +479,6 @@ function filterEvent() {
               try {
                 window.filtersEvent.styles['enable'][item.getAttribute('data-style')]($(item));
               } catch (e) {
-                console.log(e.message);
               }
             });
 
@@ -506,7 +513,6 @@ function clearSelectFilters() {
         try {
           window.filtersEvent.styles['disable'][item.getAttribute('data-style')]($(item));
         } catch (e) {
-          console.log(e.message);
         }
       });
     }
@@ -553,7 +559,6 @@ function applyFilter() {
           try {
             window.filtersEvent.styles['enable'][item.getAttribute('data-style')]($(item));
           } catch (e) {
-            console.log(e.message);
           }
         });
         addFilterValue(filterKey, $(allFilters[0]));
@@ -610,7 +615,6 @@ function filtersClear() {
     try {
       window.filtersEvent.styles.disable[jq.data('style')](jq);
     } catch (e) {
-      console.log(e.message);
     }
   });
 }
@@ -759,7 +763,6 @@ function bookingFormDate() {
         dataType: 'json',
         data: data,
         success: function (r) {
-          console.log(r);
           if (r.success) {
             let timeInput = bookingForm.find('[data-uf=UF_TIME]'),
               timeTooltip = bookingForm.find('[data-type=tooltip-date]'),
@@ -1028,7 +1031,16 @@ window.basketEventSuccess = {
 
     item.remove();
 
-    basketCount.text(+basketCount.text() - 1);
+    $(basketCount).each((i, elem)=> {
+      let count = elem.innerText;
+      elem.innerText = count - 1;
+    })
+
+    let topCounts = $('.cart-stage__products')
+    let valueAfter = topCounts.text().trim().replace(/[^0-9]/g,"") -1 ;
+    topCounts.text(valueAfter + ' позиции');
+
+
     totalPriceElem.text(+totalPriceElem[0].textContent - (price * count));
 
     if (basketItemsCount.length) {
@@ -1220,7 +1232,6 @@ function basketEvent() {
           try {
             window.basketEventSuccess[event](thisObj, r);
           } catch (e) {
-            console.log(e.message);
           }
         } else {
           alert(r.message);
@@ -1232,7 +1243,6 @@ function basketEvent() {
 
 function favorAdd() {
   $(document).on("click", "[data-type=favor-add]", function (e) {
-    console.log("favorite add");
     e.preventDefault();
 
     let link = $(this),
@@ -1241,7 +1251,6 @@ function favorAdd() {
       headerClick = link.attr("data-header-click"),
       data = {};
 
-    console.log(headerClick);
 
     if (headerClick == 'remove') {
       $(document).find('[data-type=favor-add]').each(function () {
@@ -1264,8 +1273,6 @@ function favorAdd() {
       url: url,
       data: data,
       success: function (r) {
-        console.log(r);
-        console.log(r.count);
 
         let hederFavBlock = $(document).find("[data-type=favor-header]");
         $(document).find("[data-type=count-favor-header]").empty();
@@ -1314,7 +1321,6 @@ function favorAdd() {
 
 function modalManuf() {
   $(document).on("click", "[data-type=manuf-modal]", function (e) {
-    console.log("manuf modal");
     e.preventDefault();
 
     let txtMore = $(this).attr("data-text-more"),
@@ -1327,7 +1333,6 @@ function modalManuf() {
 
 function cookie() {
   $(document).on("click", "[data-type=cookie]", function (e) {
-    console.log("cookie");
     e.preventDefault();
 
     let link = $(this),
@@ -1342,7 +1347,6 @@ function cookie() {
       url: url,
       data: data,
       success: function (r) {
-        console.log(r);
       },
     });
   });
@@ -1350,7 +1354,6 @@ function cookie() {
 
 function forms() {
   $(document).on("submit", "[data-type=js-form]", function (e) {
-    console.log("form submit");
     e.preventDefault();
 
     let form = $(this),
@@ -1413,7 +1416,6 @@ function forms() {
       processData: processData,
       data: data,
       success: function (r) {
-        console.log(r);
         if (r.response) {
           let responseBlock = $(document).find("[data-type=response-text]");
 
