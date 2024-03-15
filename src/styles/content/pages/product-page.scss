@@ -16,7 +16,8 @@
       width: 100%;
     }
 
-    .product-top-availability, .product-top-code {
+    .product-top-availability,
+    .product-top-code {
       width: 50%;
     }
   }
@@ -38,7 +39,7 @@
   width: 100%;
   overflow: hidden;
   position: relative;
-  
+
   @media (max-width: ($breakpoint - 1px)) {
     width: calc(100% + #{$col-pad-m});
     height: getRem(80px);
@@ -122,12 +123,13 @@
 
   position: relative;
 
-  .swiper-container, picture, img {
+  .swiper-container,
+  picture,
+  img {
     height: 100%;
   }
 
   @media (max-width: ($breakpoint - 1px)) {
-    
     .swiper-slide {
       display: flex;
       justify-content: center;
@@ -146,7 +148,8 @@
     align-items: center;
     justify-content: center;
 
-    & > picture, & > img {
+    & > picture,
+    & > img {
       max-width: 100%;
       max-height: 100%;
     }
@@ -305,14 +308,14 @@
   }
 
   &::before {
-    content: '';
+    content: "";
     width: getRem(10px);
     height: getRem(10px);
     border-radius: 50%;
     position: absolute;
     left: 0;
 
-    background: #1FAA35;
+    background: #1faa35;
   }
 
   &.out-of-stock::before {
@@ -321,7 +324,6 @@
 }
 
 .product-top-table {
-
   &__row {
     display: flex;
 
@@ -330,7 +332,8 @@
     }
   }
 
-  &__name, &__value {
+  &__name,
+  &__value {
     @include fsl(16px, 130%);
 
     display: flex;
@@ -353,7 +356,6 @@
     border-bottom: 1px dashed var(--color-border-grey);
   }
   &__value {
-
     @media (min-width: $breakpoint) {
       width: calc(#{$col-part-d} * 2);
     }
@@ -384,7 +386,6 @@
 }
 
 .product-top-price {
-
   .current {
     @include fsl(22px, 130%);
     font-weight: 600;
@@ -405,14 +406,14 @@
     }
   }
   span {
-    font-family: 'Montserrat';
+    font-family: "Montserrat";
   }
 }
 
 .product-top-buttons {
   display: flex;
 
-  margin: getRem(20px) 0 getRem(30px);
+  margin: getRem(20px) 0;
 
   @media (min-width: $breakpoint) {
     margin: getRem(30px) 0;
@@ -464,6 +465,21 @@
   }
 }
 
+.product-top-note {
+  @include fsl(14px, 160%);
+  margin: getRem(30px) 0;
+  color: var(--color-grey);
+
+  @media (max-width: ($breakpoint - 1px)) {
+    @include fsl(12px);
+    margin-top: getRem(20px);
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
 .product-info-bottom {
   display: flex;
   margin-top: getRem(30px);
@@ -474,7 +490,9 @@
 
   &__col {
     @media (max-width: ($breakpoint - 1px)) {
-      margin-top: getRem(10px);
+      &:not(:first-child) {
+        margin-top: getRem(10px);
+      }
     }
     @media (min-width: $breakpoint) {
       width: calc(#{$col-part-d} * 2);
@@ -499,7 +517,6 @@
   }
 
   &__block {
-
     &:not(:first-child) {
       margin-top: getRem(45px);
 
@@ -581,13 +598,13 @@
       flex-direction: column;
       margin-top: getRem(20px);
     }
-    
+
     &-col {
       @media (max-width: ($breakpoint - 1px)) {
         &:not(:first-child) {
           margin-top: getRem(20px);
         }
-        
+
         .two-cols-block__link {
           @include fsl(16px, 130%);
           color: var(--color-brown);
@@ -668,7 +685,6 @@
   }
 
   &__item {
-
     display: flex;
     align-items: center;
 
