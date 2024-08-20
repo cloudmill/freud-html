@@ -997,6 +997,10 @@ function initData() {
   };
 }
 
+function priceToNum(price){
+  return +(price.replace(/\s+/g, ''))
+}
+
 window.basketEventSuccess = {
   delete: elem => {
     closeWindow(
@@ -1009,7 +1013,7 @@ window.basketEventSuccess = {
     const item = $(`[data-item-id=${elem.attr('data-id')}]`),
       basketCount = $('[data-type=basket-count]'),
       totalPriceElem = $('[data-type=basket-price-total]'),
-      price = +item[0].querySelector('[data-type=price]').textContent,
+      price = priceToNum(item[0].querySelector('[data-type=price]').textContent),
       count = +item[0].querySelector('[data-type=count]').textContent,
       basketItemsCount = $('[data-type=basket-items-count]'),
       buttonItemList = $(`[data-event=add][data-id=${item.attr('data-product-id')}]`),
@@ -1041,7 +1045,8 @@ window.basketEventSuccess = {
     topCounts.text(valueAfter + ' позиции');
 
 
-    totalPriceElem.text(+totalPriceElem[0].textContent - (price * count));
+    let totalPrice = priceToNum(totalPriceElem[0].textContent) - (price * count)
+    totalPriceElem.text(totalPrice.toLocaleString('ru-RU'));
 
     if (basketItemsCount.length) {
       basketItemsCount.text(+basketItemsCount[0].textContent - count);
@@ -1123,7 +1128,8 @@ window.basketEventSuccess = {
       basketCount.text(+basketCount[0].textContent + 1);
     }
 
-    totalPriceElem.text(+totalPriceElem[0].textContent + +item.find('[data-type=price]').text());
+    let totalPrice = priceToNum(totalPriceElem[0].textContent) + priceToNum(item.find('[data-type=price]').text())
+    totalPriceElem.text(totalPrice.toLocaleString('ru-RU'));
 
     if (basketItemsCount.length) {
       basketItemsCount.text(+basketItemsCount[0].textContent + 1);
@@ -1136,25 +1142,30 @@ window.basketEventSuccess = {
     }
   },
   update: elem => {
-    const thisElems = $(`[data-item-id=${elem.attr('data-id')}]`),
-      price = +thisElems[0].querySelector('[data-type=price]').textContent,
-      calcPrice = thisElems.find('[data-type=calc-price]'),
-      fullPrice = thisElems.find('[data-type=full-price]'),
-      totalElem = $('[data-type=basket-price-total]'),
-      countItem = elem.parent().find('[data-type=count-stepper]').text();
+    const thisElems = $(`[data-item-id=${elem.attr('data-id')}]`), // выбор товара по id которое было в кнопке + или -
+      price = priceToNum(thisElems[0].querySelector('[data-type=price]').textContent), // цена
+      calcPrice = thisElems.find('[data-type=calc-price]'), // цена * кол-во товара
+      fullPrice = thisElems.find('[data-type=full-price]'), // нету в корзине
+      totalElem = $('[data-type=basket-price-total]'), // к оплате
+      countItem = elem.parent().find('[data-type=count-stepper]').text(); // выбранное кол - во
 
     if (fullPrice.length) {
-      const discountAll = +fullPrice[0].textContent - +calcPrice[0].textContent,
+      const discountAll = priceToNum(fullPrice[0].textContent) - priceToNum(calcPrice[0].textContent),
         discountCount = elem.data('additional').operator === '+' ? +countItem - 1 : +countItem + 1,
         discount = discountAll / discountCount;
 
-      fullPrice.text(elem.data('additional').operator === '+' ? +fullPrice[0].textContent + (price + discount) : +fullPrice[0].textContent - (price + discount));
+      fullPrice.text(elem.data('additional').operator === '+' ? priceToNum(fullPrice[0].textContent) + (price + discount) : priceToNum(fullPrice[0].textContent) - (price + discount));
     }
 
     thisElems.find('[data-type=count]').text(countItem);
     thisElems.find('[data-type=count-stepper]').text(countItem);
-    totalElem.text(elem.data('additional').operator === '+' ? +totalElem[0].textContent + price : +totalElem[0].textContent - price);
-    calcPrice.text(elem.data('additional').operator === '+' ? +calcPrice[0].textContent + price : +calcPrice[0].textContent - price);
+
+    // к оплате
+    const basketTotalPrice = elem.data('additional').operator === '+' ? priceToNum(totalElem[0].textContent) + price : priceToNum(totalElem[0].textContent) - price
+    totalElem.text(basketTotalPrice.toLocaleString('RU-ru'));
+    // стоимость товара с учетом кол-ва
+    const rowTotalPrice = elem.data('additional').operator === '+' ? priceToNum(calcPrice[0].textContent) + price : priceToNum(calcPrice[0].textContent) - price
+    calcPrice.text(rowTotalPrice.toLocaleString('RU-ru'));
 
     let count = 0;
 
@@ -1169,43 +1180,50 @@ window.basketEventSuccess = {
 }
 
 function bFPriceCalc(elem, type, operator) {
-  const fullPriceElem = $('[data-type=basket-full-price]');
+  const fullPriceElem = $('[data-type=basket-full-price]'); // n товаров на сумму
 
   if (!fullPriceElem.length) {
     return;
   }
 
-  const fullPriceItem = elem.find('[data-type=full-price]'),
-    totalPriceElem = $('[data-type=basket-price-total]'),
-    discountElem = $('[data-type=discount]');
+  const fullPriceItem = elem.find('[data-type=full-price]'), // нету в корзине
+    totalPriceElem = $('[data-type=basket-price-total]'), // к оплате
+    discountElem = $('[data-type=discount]'); // нету в корзине
 
   let price;
 
   if (fullPriceItem.length) {
-    price = +fullPriceItem.text();
+    price = priceToNum(fullPriceItem.text());
   } else {
-    price = +elem.find('[data-type=price]').text();
+    price = priceToNum(elem.find('[data-type=price]').text()); // n шт. х price ₽ в строке товара
   }
 
+  const oldPrice = priceToNum(fullPriceElem[0].textContent)
+  let newPrice = 0
   switch (type) {
     case 'add':
-      fullPriceElem.text(+fullPriceElem[0].textContent + price);
+      newPrice = oldPrice + price
       break;
     case 'delete':
       const count = +elem[0].querySelector('[data-type=count]').textContent;
 
-      fullPriceElem.text(+fullPriceElem[0].textContent - (price * count));
+      newPrice = oldPrice - (price * count)
       break;
     case 'update':
-      fullPriceElem.text(operator === '+' ? +fullPriceElem[0].textContent + price : +fullPriceElem[0].textContent - price);
+      newPrice = operator === '+' ? oldPrice + price : oldPrice - price
       break;
   }
+  if(newPrice !== 0 ){
+    fullPriceElem.text(newPrice.toLocaleString('ru-RU'));
+  }
+
 
   if (!discountElem.length) {
     return;
   }
 
-  discountElem.text(+fullPriceElem[0].textContent - +totalPriceElem[0].textContent);
+  const discount = priceToNum(fullPriceElem[0].textContent) - priceToNum(totalPriceElem[0].textContent)
+  discountElem.text(discount.toLocaleString('ru-RU'));
 }
 
 function basketEvent() {
