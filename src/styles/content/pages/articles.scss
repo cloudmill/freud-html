@@ -288,6 +288,7 @@
   }
   &__ttl {
     text-align: center;
+    word-break: break-word;
 
     @media (max-width: ($breakpoint - 1px)) {
       line-height: 100%;
